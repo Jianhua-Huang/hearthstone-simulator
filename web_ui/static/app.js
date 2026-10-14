@@ -113,7 +113,7 @@ function paintSelection(){
         b.hidden=!positions||!actions.some(a=>a.position===Number(b.dataset.position)&&(a.side==='enemy'?3-message.seat:message.seat)===Number(b.dataset.owner));
     }
     if(!selected){$('interaction-hint').textContent=message.observation.pending_choice?'请在选择面板完成当前选择。':'点击亮起的手牌出牌，或点击己方随从 / 英雄发起攻击。';return;}
-    const first=actions[0];const label=ref(source(first));
+    const first=actions[0];const label=name(entities()[source(first)]);
     if(choosingMode){
         $('interaction-hint').textContent=`已选 ${label}，请选择操作 / 分支。`;
         for(const group of selected.groups){const a=group[0];$('interaction-options').append(button((types[a.type]||a.type)+(a.branch?' · '+a.branch:'')+(a.action_id?' · '+a.action_id:'')+(a.ability_id?' · '+a.ability_id:'')+(a.side?' · '+(a.side==='enemy'?'对方战场':'己方战场'):''),()=>chooseMode(group)));}

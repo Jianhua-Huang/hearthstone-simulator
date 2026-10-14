@@ -120,5 +120,17 @@ class WebUI(unittest.TestCase):
         self.assertEqual(self.request('view')[0],403)
         self.create('practice')
 
+    def test_local_art_static_boundary(self):
+        for name in ('TheBox_Table', 'HERO_08', 'CS2_182'):
+            with urlopen(self.base+'/assets/'+name+'.webp') as r:
+                self.assertEqual(r.headers['Content-Type'],'image/webp')
+                raw=r.read()
+                self.assertEqual(raw[:4],b'RIFF')
+                self.assertEqual(raw[8:12],b'WEBP')
+        for path in ('/assets/manifest.json','/assets/../server.py','/assets/nonexistent.webp'):
+            with self.assertRaises(HTTPError) as caught:
+                urlopen(self.base+path)
+            self.assertEqual(caught.exception.code,404)
+
 if __name__=='__main__':unittest.main()
 
