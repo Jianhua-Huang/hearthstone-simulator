@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v84'
+VIEW_VERSION = 'player-view-v85'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -324,6 +324,10 @@ class Information:
                 from .body_views import public_bodies
                 result['bodies'] = public_bodies(entity, game.registry)
                 if entity.kind == CardType.MINION:
+                    from .dark_gifts import public_gifts
+                    gifts = public_gifts(entity)
+                    if gifts:
+                        result['dark_gifts'] = gifts
                     from .tribes import tribe_state
                     current_tribes = tribe_state(game.registry, entity)
                     result['tribes'] = None if current_tribes is None else list(current_tribes.members)

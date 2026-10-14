@@ -64,8 +64,13 @@ class CopyEntryMaterial:
     entry_herald_count:int|None=None
     jade_size:int|None=None
     discard:object|None=None
+    dormant_entry:bool=False
 
     def __post_init__(self):
+        if type(self.dormant_entry) is not bool:
+            raise ValueError('Copied dormancy entry requires bool')
+        if self.dormant_entry and (self.profile != 'board_copy' or self.mode != 'current'):
+            raise ValueError('Dormant entry belongs to a current board copy')
         if type(self.card_id)is not str or not self.card_id:raise ValueError('Copy material requires a card')
         if type(self.origin)is not SourceAllocationFact:raise ValueError('Copy material requires original physical allocation')
         self.origin.__post_init__()
@@ -116,7 +121,8 @@ class CopyEntryMaterial:
         local=CopyLocalState.capture(source)if mode=='current'else None
         if profile=='discard_copy'and local is not None:local=replace(local,hand_lifetime=None)
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
-            state.next_attachment_id,local,stats,entry_count,source.jade_size,discard)
+            state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
+            source.dormancy is not None and profile == 'board_copy' and mode == 'current')
         if profile=='discard_copy':validate_scope(state,registry,result,hand_copy=True)
         return result
 
@@ -124,6 +130,8 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__();validate_plain_material(registry,SummonEntryMaterial(material.card_id))
+    if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
+        raise ValueError('Dormant copy requires its printed entry dormancy')
     if material.profile=='discard_copy'and not hand_copy:
         raise ValueError('Discard copy material only supports its own hand delivery')
     from .jade import family_for
@@ -198,7 +206,7 @@ def apply(r,material,entity):
         imprint(entity, material.jade_size)
     if material.mode=='current':
         local=material.local
-        if material.profile=='board_copy':entity.dormancy=None
+        if material.profile=='board_copy' and not material.dormant_entry:entity.dormancy=None
         entity.base_attack,entity.base_health,entity.base_cost=local.base_attack,local.base_health,local.base_cost
         entity.damage,entity.corpse_value=local.damage,local.corpse_value
         source=Entity(material.origin.entity_id,material.card_id,material.origin.owner,material.origin.controller,material.origin.zone,

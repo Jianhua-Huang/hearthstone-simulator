@@ -335,7 +335,7 @@ class BattlecryModifierTests(unittest.TestCase):
 class RepresentativeBattlecryModifierTests(unittest.TestCase):
     def test_real_finite_and_turn_combination_restores_and_replays(self):
         from examples.battlecry_player_modifiers import run
-        g,s=run();self.assertEqual(len(g.state.battlecry_history),5);self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(len(g.state.battlecry_history),5);self.assertEqual(s['schema_version'],266)
 
     def test_brann_and_murmuring_create_two_next_policies(self):
         from hs_sim.engine.representative import build_registry

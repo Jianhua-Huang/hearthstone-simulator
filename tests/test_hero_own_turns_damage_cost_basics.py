@@ -351,7 +351,7 @@ class HeroOwnTurnsDamageCostTests(unittest.TestCase):
 
     def test_new_schema_and_old_host_signatures_are_strict(self):
         g=self.five();saved=g.snapshot()
-        self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(265,'prototype-v302',CORE_EFFECTS_VERSION))
+        self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(266,'prototype-v302',CORE_EFFECTS_VERSION))
         for version in (1,214,217,True,216.0):
             bad=deepcopy(saved);bad['schema_version']=version
             with self.assertRaises(SnapshotError):Game.from_snapshot(rehash(bad),registry())

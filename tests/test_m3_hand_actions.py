@@ -384,7 +384,7 @@ class HandActionTests(unittest.TestCase):
         self.assertEqual(len(g.state.players[1].deck),1); self.replay(g)
 
     def test_latest_snapshot_rejects_previous_schema(self):
-        g=self.game(); row=g.snapshot(); self.assertEqual(row['schema_version'],265)
+        g=self.game(); row=g.snapshot(); self.assertEqual(row['schema_version'],266)
         row['schema_version']=19
         with self.assertRaises(SnapshotError): Game.from_snapshot(row,self.registry,self.mechanics)
 

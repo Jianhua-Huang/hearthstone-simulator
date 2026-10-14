@@ -352,7 +352,7 @@ class SelfDamagedAttackBasicsTests(unittest.TestCase):
 
     def test_schema_and_strict_previous_versions(self):
         g = self.game(); snap = g.snapshot()
-        self.assertEqual(snap['schema_version'], 265)
+        self.assertEqual(snap['schema_version'], 266)
         self.assertEqual(snap['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         for version in (1, 178, 179, True, 180.0, 217):
             bad = deepcopy(snap); bad['schema_version'] = version

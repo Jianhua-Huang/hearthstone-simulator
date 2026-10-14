@@ -856,7 +856,7 @@ def build_registry() -> Registry:
 
     starship_ids = ('GDB_100t2', 'GDB_100t4', 'GDB_100t5', 'GDB_100t6',
                     'GDB_100t7', 'GDB_100t8', 'GDB_100t9', 'SC_999t')
-    registry = Registry("representative-m5-v64")
+    registry = Registry("representative-m5-v65")
     registry.register_end_turn_candidate_profile(EndTurnCandidateProfile('CATA_472.end_turn_candidates'))
     registry.register_behavior('m5.inspiring_maul', lambda c: [TriggerRandomEndTurnEffects(
         c.player_id, EndTurnProducerRequest(EndTurnSelector('owner', (c.player_id,), ('minion',)),
@@ -1736,6 +1736,8 @@ def build_registry() -> Registry:
         'experimental',('excavate.tier1','excavate.tier2','excavate.tier3'),tuple(
             ExcavationClass(cls,f'excavate.{cls.value}' if cls in EXCAVATE_CLASS_REWARDS else None)
             for cls in sorted(PLAYABLE_CLASSES))))
+    from .dark_gift_cards import register_representatives as register_dark_gift_cards
+    register_dark_gift_cards(registry, baseline.target['target_id'])
     registry.validate()
     return registry
 

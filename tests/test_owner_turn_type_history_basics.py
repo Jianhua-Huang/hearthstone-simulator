@@ -426,7 +426,7 @@ class OwnerTurnTypeHistoryTests(unittest.TestCase):
             self.assertNotIn('owner_turn_history', json.dumps(game.observe(player)))
             self.assertNotIn('play_history', json.dumps(game.observe(player)))
         self.assertEqual((game.snapshot()['schema_version'], game.ruleset.id, game.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
 
 
 if __name__ == '__main__':

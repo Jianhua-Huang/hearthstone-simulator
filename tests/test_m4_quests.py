@@ -325,7 +325,7 @@ class QuestTests(unittest.TestCase):
     def test_real_questline_example_uses_player_commands_restores_and_replays(self):
         from examples.complete_questline import run
         game,snapshot=run()
-        self.assertEqual(snapshot['schema_version'],265)
+        self.assertEqual(snapshot['schema_version'],266)
         self.assertEqual(len(game.history),47)
         self.assertFalse(game.state.players[1].quests)
 

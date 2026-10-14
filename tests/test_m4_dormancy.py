@@ -343,7 +343,7 @@ class DormancyTests(unittest.TestCase):
     def test_real_example_uses_player_commands_restore_and_replay(self):
         from examples.awaken_minions import run
         g, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         self.assertEqual(sum(e.kind == 'minion_awakened' for e in g.events), 3)
 
 

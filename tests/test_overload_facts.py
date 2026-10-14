@@ -264,7 +264,7 @@ class OverloadFactTests(unittest.TestCase):
             self.assertEqual((event['player_id'], event['amount'], event['source'], event['target']), (1, 2, None, None))
             for key in ('pending_before', 'pending_after', 'progress_units', 'progress_keys'):
                 self.assertNotIn(key, event)
-            self.assertEqual(g.observe(player)['version'], 'player-view-v84')
+            self.assertEqual(g.observe(player)['version'], 'player-view-v85')
         self.assertFalse(any(e['kind'] in ('hand_progressed', 'hand_card_upgraded') for e in g.player_events(2)))
         self.portable(g)
 
@@ -290,7 +290,7 @@ class OverloadFactTests(unittest.TestCase):
         self.assertEqual(g.snapshot(), before)
 
     def test_schema_rejects_old_future_and_boolean(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 265)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
         for version in (1, 159, 160, 161, 162, 217, True):
             bad = g.snapshot(); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

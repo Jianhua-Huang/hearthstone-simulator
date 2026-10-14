@@ -332,7 +332,7 @@ class TribalStatAuraBasicsTests(unittest.TestCase):
         with self.assertRaises(ValueError):codec.decode(codec.encode(replace(ctx,state=state)))
 
     def test_schema_versions_strictly_reject_all_old_and_nonstrict(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         self.assertEqual(s['ruleset']['id'],'prototype-v302');self.assertEqual(s['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (*range(1,218),True,186.0,217):
             bad=deepcopy(s);bad['schema_version']=value

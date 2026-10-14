@@ -342,7 +342,7 @@ class SecretTests(unittest.TestCase):
             with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_old_schema_rejected(self):
-        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],265);data['schema_version']=25
+        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],266);data['schema_version']=25
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_spellbender_redirects_minion_spell_to_fresh_token(self):
@@ -418,7 +418,7 @@ class SecretTests(unittest.TestCase):
         game,snapshot,hidden=run()
         self.assertEqual((len(game.history),len(game.events)),(9,56))
         self.assertEqual(sum(e.kind == 'health_resolved' for e in game.events), 3)
-        self.assertEqual(snapshot['schema_version'],265)
+        self.assertEqual(snapshot['schema_version'],266)
         self.assertTrue(all(s['card_id'] is None for s in hidden['players'][0]['secrets']))
 
     def test_spent_secret_can_be_set_again_with_fresh_instance(self):

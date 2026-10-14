@@ -401,9 +401,17 @@ class DiscoverFromPool(Effect):
             if type(self.gift_pool) is not DiscoveryGiftPool:raise ValueError('Expected DiscoveryGiftPool')
             self.gift_pool.__post_init__()
             if (self.count != 3 or self.discoveries != 1 or self.destination != 'hand' or
-                    self.delivery != 'after_each' or not self.replacement or self.cost is not None or
+                    self.delivery != 'after_each' or not self.replacement or
                     self.expires_turn is not None or self.spell_repeat is not None or self.cause is not None):
                 raise ValueError('Gift discovery currently requires one ordinary three-option hand discovery')
+            if self.cost is not None:
+                if type(self.cost) is not CostSpec:
+                    raise ValueError('Gift discovery source cost requires CostSpec')
+                self.cost.__post_init__()
+                if (self.cost.set_to is not None or self.cost.delta > 0 or self.cost.minimum or
+                        self.cost.payment is not None or self.cost.card_ids or
+                        self.cost.ability is not None or CardType.MINION not in self.cost.card_types):
+                    raise ValueError('Gift discovery source cost supports an ordinary reduction only')
         if self.cause is not None:
             if type(self.cause)is not SummonCause or self.destination!='board':raise ValueError('Typed summon cause requires board discovery')
             self.cause.__post_init__()

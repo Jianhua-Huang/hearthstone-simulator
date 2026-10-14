@@ -470,7 +470,7 @@ class PlayerDrawCountCostTests(unittest.TestCase):
 
     def test_new_strict_schema_and_rule_versions_reject_original_or_future_layouts(self):
         g = self.one(); saved = self.portable(g)
-        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for version in (1, 201, 217, True):
             bad = deepcopy(saved); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(rehash(bad), registry())

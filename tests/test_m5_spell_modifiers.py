@@ -322,7 +322,7 @@ class SpellModifierTests(unittest.TestCase):
             e['spell_modifier'].update(change);self.reject(s)
 
     def test_old_schema_and_observation_version_rejected(self):
-        g=self.ready();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=84;self.reject(s)
+        g=self.ready();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=84;self.reject(s)
         s=g.snapshot();s['information']['version']='player-view-v48';self.reject(s)
 
     def test_draw_cast_does_not_consume_or_repeat_player_budget(self):
@@ -386,7 +386,7 @@ class SpellModifierTests(unittest.TestCase):
 
     def test_native_representative_terminal_example_restores_and_replays(self):
         from examples.spell_modifiers import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual((len(g.history),len(g.state.cast_history),len(g.state.spell_policy_receipts)),(12,7,3))
         self.assertEqual(g.state.winner,1)
 

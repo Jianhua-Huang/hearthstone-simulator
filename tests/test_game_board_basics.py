@@ -358,7 +358,7 @@ class GameBoardTests(unittest.TestCase):
                 Game.from_snapshot(snap, registry())
         snap = deepcopy(g.snapshot())
         snap['schema_version'] = 167
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
             Game.from_snapshot(snap, registry())
 
     def test_constructed_opening_keeps_original_deck_identity_and_selected_physical_cards(self):

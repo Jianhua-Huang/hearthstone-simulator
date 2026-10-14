@@ -284,7 +284,7 @@ class PlayerDeathrattleTests(unittest.TestCase):
 
     def test_native_snowfall_duration_composition_restores_and_replays(self):
         from examples.deathrattle_player_effects import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(len(self.records(g)),14);self.assertFalse(self.effects(g));self.assertEqual(len(g.state.death_history),1)
 
     def test_real_snowfall_and_baron_use_same_set_count(self):

@@ -380,7 +380,7 @@ class LimitedTriggerTests(unittest.TestCase):
 
     def test_real_player_port_example_restores_and_replays(self):
         from examples.limited_triggers import run
-        game,snapshot=run();self.assertEqual(len(game.history),5);self.assertEqual(snapshot['schema_version'],265)
+        game,snapshot=run();self.assertEqual(len(game.history),5);self.assertEqual(snapshot['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

@@ -322,4 +322,4 @@ class DiscardCopyMaterialTests(unittest.TestCase):
         g=self.game();cause=self.play(g,'discard')
         self.assertEqual([x.source_id for x in g.state.play_history],[cause]);self.assertEqual([x.source_id for x in g.state.cast_history],[cause])
         self.assertEqual(g.state.draw_history,[]);self.assertEqual(g.state.death_history,[]);self.assertEqual(len(discarded_cards(g.state,1)),1)
-        self.assertEqual(len([x for x in g.events if x.kind=='card_created']),2);self.assertEqual(g.snapshot()['schema_version'],265);self.portable(g)
+        self.assertEqual(len([x for x in g.events if x.kind=='card_created']),2);self.assertEqual(g.snapshot()['schema_version'],266);self.portable(g)

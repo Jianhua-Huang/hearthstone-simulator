@@ -340,7 +340,7 @@ class SpellstoneProgressTests(unittest.TestCase):
             with self.subTest(kind=kind), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry(self.scripts))
 
     def test_new_schema_rejects_old_future_or_bool(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 265)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
         for version in (1, 158, 159, 160, 161, 162, 217, True):
             bad = g.snapshot(); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

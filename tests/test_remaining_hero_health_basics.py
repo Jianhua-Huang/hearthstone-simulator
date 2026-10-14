@@ -262,7 +262,7 @@ class RemainingHeroHealthTests(unittest.TestCase):
         g=self.game(); self.play(g,'set'); before=g.snapshot()
         for p in (1,2):
             view=g.for_player(p).observe()['observation']; events=g.player_events(p)
-            self.assertEqual(view['version'],'player-view-v84')
+            self.assertEqual(view['version'],'player-view-v85')
             self.assertEqual((view['players'][0]['hero']['health'],view['players'][0]['hero']['max_health']),(15,30))
             self.assertEqual([e['amount'] for e in events if e['kind']=='hero_health_set'],[-15])
             text=json.dumps({'view':view,'events':events})

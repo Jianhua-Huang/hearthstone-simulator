@@ -281,7 +281,7 @@ class PerPlayerHandCapacityTests(unittest.TestCase):
         saved=g.snapshot();del saved['state']['players']['1']['hand_cap']
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry())
         saved=g.snapshot();saved['schema_version']=218
-        with self.assertRaisesRegex(SnapshotError,'1 through 264'):Game.from_snapshot(saved,registry())
+        with self.assertRaisesRegex(SnapshotError,'1 through 265'):Game.from_snapshot(saved,registry())
 
     def test_public_capacities_are_separate_and_hidden_hand_state_stays_private(self):
         g=self.match(('hc.raise',),enemy_hand=('hc.hidden',)*10);self.play(g,'hc.raise');saved=g.snapshot()
@@ -297,7 +297,7 @@ class PerPlayerHandCapacityTests(unittest.TestCase):
     def test_wire_and_engine_versions_include_new_capacity_field_and_view(self):
         g=self.match();saved=g.snapshot()
         self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version'],g.observe(1)['version']),
-            ('prototype-v302',CORE_EFFECTS_VERSION,265,'player-view-v84'))
+            ('prototype-v302',CORE_EFFECTS_VERSION,266,'player-view-v85'))
         self.assertIn('hand_cap',saved['state']['players']['1']);self.assertIsNone(saved['state']['players']['1']['hand_cap'])
 
     def test_unexpanded_default_hand_cannot_be_imported_over_default_limit(self):

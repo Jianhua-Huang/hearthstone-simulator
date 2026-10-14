@@ -423,7 +423,7 @@ class ExtremeCostDiscardTests(unittest.TestCase):
 
     def test_current_schema_accepts_and_old_or_future_schemas_reject(self):
         g = self.game()
-        self.assertEqual(g.snapshot()['schema_version'], 265)
+        self.assertEqual(g.snapshot()['schema_version'], 266)
         for version in (1, 197, 217, True):
             s = g.snapshot()
             s['schema_version'] = version

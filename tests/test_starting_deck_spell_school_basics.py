@@ -528,7 +528,7 @@ class StartingDeckSpellSchoolTests(unittest.TestCase):
     def test_layout_schema_and_previous_payloads_remain_while_handler_advances(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v230'
         self.reject(saved)

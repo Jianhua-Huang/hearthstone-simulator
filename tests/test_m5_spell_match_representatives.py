@@ -188,7 +188,7 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         old = [r for r in support['cards'] if r['id'] != SOURCE]
         self.assertEqual((len(old), canonical_digest(old)), (304, OLD_ROWS_PIN))
         self.assertEqual((self.registry.version, len(self.registry.cards), len(EXPECTED_CARD_HASHES)),
-            ('representative-m5-v64', 306, 305))
+            ('representative-m5-v65', 311, 305))
         self.assertEqual(sum(c.choice_only for c in self.registry.cards.values()), 14)
         row = next(r for r in support['cards'] if r['id'] == SOURCE)
         self.assertEqual((row['implementation'], row['stage'], row['mode_legality']),
@@ -196,8 +196,8 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         self.assertEqual(row['reachable_cards'], [])
         game = self.game()
         self.assertEqual((game.ruleset.id, game.mechanics.version, game.snapshot()['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
-        self.assertEqual(game.observe(1)['version'], 'player-view-v84')
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+        self.assertEqual(game.observe(1)['version'], 'player-view-v85')
         self.assertEqual(game.for_player(1).observe()['version'], 'player-actions-v12')
         self.assertEqual(build_replay(game)['schema_version'], 1)
 

@@ -309,7 +309,7 @@ class RepresentativeBattlecryRepeatTests(unittest.TestCase):
 
     def test_real_scarab_and_weapon_combination_restores_and_replays(self):
         from examples.battlecry_repetition import run
-        g,s=run();self.assertEqual(len(g.state.battlecry_history),4);self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(len(g.state.battlecry_history),4);self.assertEqual(s['schema_version'],266)
 
     def test_composed_ship_uses_ability_then_repeat_order(self):
         from hs_sim.engine import Scenario,PlayerSetup,LaunchStarship

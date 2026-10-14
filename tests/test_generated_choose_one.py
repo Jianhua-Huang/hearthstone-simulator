@@ -361,7 +361,7 @@ class GeneratedChooseOneTests(unittest.TestCase):
             with self.assertRaises(ValueError): r.register_generated_whole_target_binding(GeneratedWholeTargetBinding('chooser','generated',mode))
 
     def test_current_schema_rejects_prior_missing_generated_branch_semantics(self):
-        g = self.settled(); s = g.snapshot(); self.assertEqual(s['schema_version'],265)
+        g = self.settled(); s = g.snapshot(); self.assertEqual(s['schema_version'],266)
         s['schema_version']=137
         with self.assertRaises(SnapshotError): Game.from_snapshot(s,registry())
 

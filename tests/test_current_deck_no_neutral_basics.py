@@ -274,7 +274,7 @@ class CurrentDeckNoNeutralTests(unittest.TestCase):
         self.check(g)
 
     def test_wire_layout_schema_stays_while_rule_and_handler_signatures_advance(self):
-        g=self.game();self.assertEqual((g.snapshot()['schema_version'],g.ruleset.id,g.mechanics.version),(265,'prototype-v302',CORE_EFFECTS_VERSION))
+        g=self.game();self.assertEqual((g.snapshot()['schema_version'],g.ruleset.id,g.mechanics.version),(266,'prototype-v302',CORE_EFFECTS_VERSION))
         saved=g.snapshot();saved['mechanics_version']['version']='core-effects-v226';self.reject(saved)
         self.check(g)
 

@@ -300,7 +300,7 @@ class BonusEffectsTests(unittest.TestCase):
     def test_real_card_example_restores_and_replays(self):
         from examples.raven_and_lift_off import run
         game, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         self.assertEqual(len(game.history), 5)
 
 

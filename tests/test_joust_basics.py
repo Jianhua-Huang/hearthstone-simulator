@@ -398,9 +398,9 @@ class JoustBasicsTests(unittest.TestCase):
         e['data']['result'][3][0] = 99999
         self.reject(s)
         s = g.snapshot()
-        self.assertEqual(s['schema_version'], 265)
+        self.assertEqual(s['schema_version'], 266)
         s['schema_version'] = 152
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
             Game.from_snapshot(s, registry(self.extras))
 
 

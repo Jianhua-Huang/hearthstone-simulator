@@ -24,7 +24,7 @@ class EngineCliTests(unittest.TestCase):
             self.assertEqual(state['opening_stage'], 'mulligan')
             self.assertEqual(state['actions'], 0)
             self.assertEqual(state['pending_choice']['purpose'], 'mulligan')
-            self.assertEqual(json.loads(snapshot.read_text(encoding='utf-8'))['schema_version'], 265)
+            self.assertEqual(json.loads(snapshot.read_text(encoding='utf-8'))['schema_version'], 266)
             restored = self.run_cli('replay', replay, '--card-set', 'representative')
             self.assertEqual(self.summary(restored), state)
 

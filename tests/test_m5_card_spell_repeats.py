@@ -339,7 +339,7 @@ class CardSpellRepeatTests(unittest.TestCase):
             event=next(e for e in events if e['kind']=='card_spell_repeat_added');event.update(amount=amount,player_id=player);self.reject(s)
 
     def test_old_snapshot_schema_is_rejected(self):
-        g=self.ready();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=86;self.reject(s)
+        g=self.ready();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=86;self.reject(s)
 
     def test_twinspell_derivatives_do_not_inherit_source_attachment(self):
         self.spell('terminal',lambda c:[GainArmor(1,1)])
@@ -358,7 +358,7 @@ class CardSpellRepeatTests(unittest.TestCase):
 
     def test_synthetic_terminal_example_restores_with_fresh_registry(self):
         from examples.card_spell_repeats import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual((len(g.history),len(g.state.cast_history),len(g.state.spell_repeats)),(11,6,2))
         self.assertEqual(g.state.winner,1)
 

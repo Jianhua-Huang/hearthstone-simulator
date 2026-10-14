@@ -405,7 +405,7 @@ class PlayerOverloadCostTests(unittest.TestCase):
     def test_default_none_and_current_protocol_require_explicit_saved_history_and_leaf(self):
         g = self.game(('card.1',)); self.assertIsNone(self.fact(g, 'card.1').intrinsic.player_overload)
         self.play(g, 'card.1'); saved = self.portable(g)
-        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for mode in ('schema', 'history', 'allocator', 'leaf'):
             bad = deepcopy(saved)
             if mode == 'schema': bad['schema_version'] = 177

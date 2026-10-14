@@ -158,7 +158,7 @@ class DarkGiftKeywordRecipeTests(unittest.TestCase):
         self.assertEqual(len(spec.gift_pool.members),7);self.assertFalse(spec.gift_pool.complete)
         eid,option=self.choose(g);e=g.state.entities[eid]
         self.assertEqual((e.cost,e.attack,e.max_health),(option.preview.cost,option.preview.attack,option.preview.max_health))
-        self.assertEqual(g.snapshot()['schema_version'],265)
+        self.assertEqual(g.snapshot()['schema_version'],266)
         self.portable(g,ids=None)
 
     def test_waiting_resume_keeps_new_binding_random_state_and_one_payment(self):

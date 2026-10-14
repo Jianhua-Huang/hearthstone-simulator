@@ -272,7 +272,7 @@ class ComboSourceTests(unittest.TestCase):
 
     def test_native_source_example_restores_and_fills_board_without_overflow(self):
         from examples.combo_sources import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual((len(g.history),len(g.state.combo_history),len(g.state.battlecry_history)),(12,6,2))
 
 

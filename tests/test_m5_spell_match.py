@@ -654,7 +654,7 @@ class SpellMatchTests(unittest.TestCase):
     def test_receipt_fields_are_mandatory_and_completed_ledger_is_compact(self):
         g = self.game(hand=('ask.arcane',), board=('board.any.2',))
         self.play(g, 'ask.arcane')
-        self.assertEqual(g.snapshot()['schema_version'], 265)
+        self.assertEqual(g.snapshot()['schema_version'], 266)
         old = g.snapshot(); old['schema_version'] = 100; self.reject(old)
         for field in ('spell_submission', 'spell_payload', 'spell_acceptance_closed'):
             snap = g.snapshot(); del snap['state']['play_history'][-1][field]; self.reject(snap)

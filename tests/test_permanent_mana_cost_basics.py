@@ -143,8 +143,8 @@ class PermanentManaCostTests(unittest.TestCase):
         missing=deepcopy(wire);missing['rules'][0].pop('mana_crystals')
         with self.assertRaises(ValueError):_intrinsic_stage_from_dict(missing)
     def test_new_wire_rejects_prior_schema_without_migrating_resource_facts(self):
-        g=self.game(7);saved=g.snapshot();self.assertEqual(saved['schema_version'],265)
-        for old in (1,254,255,256,257,258,259,260,261,262,263,264,266,True):
+        g=self.game(7);saved=g.snapshot();self.assertEqual(saved['schema_version'],266)
+        for old in (*range(1, saved['schema_version']), saved['schema_version'] + 1, True):
             changed=deepcopy(saved);changed['schema_version']=old
             with self.assertRaises(SnapshotError):Game.from_snapshot(changed,registry())
 

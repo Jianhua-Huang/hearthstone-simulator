@@ -272,7 +272,7 @@ class CardIdentityAuraBasicsTests(unittest.TestCase):
         self.assertEqual(g.snapshot(),before)
 
     def test_current_schema_rejects_previous_and_future_versions(self):
-        g=self.game();self.assertEqual(g.snapshot()['schema_version'],265)
+        g=self.game();self.assertEqual(g.snapshot()['schema_version'],266)
         for version in (190,217,True):
             snap=g.snapshot();snap['schema_version']=version
             with self.assertRaises(SnapshotError):Game.from_snapshot(snap,registry())

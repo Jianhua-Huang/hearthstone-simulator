@@ -387,7 +387,7 @@ class CurrentDeckCountCostTests(unittest.TestCase):
 
     def test_new_protocol_identity_rejects_previous_schema_and_handler(self):
         g=self.game();self.assertEqual((g.snapshot()['schema_version'],g.ruleset.id,g.mechanics.version),
-            (265,'prototype-v302',CORE_EFFECTS_VERSION))
+            (266,'prototype-v302',CORE_EFFECTS_VERSION))
         saved=g.snapshot();saved['schema_version']=216;self.reject(saved)
         saved=g.snapshot();saved['mechanics_version']['version']='core-effects-v239';self.reject(saved)
 

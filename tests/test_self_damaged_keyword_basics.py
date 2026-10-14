@@ -362,7 +362,7 @@ class SelfDamagedKeywordBasicsTests(unittest.TestCase):
         self.portable(g);self.portable(healthy)
 
     def test_strict_versions_and_all_previous_schemas(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],265)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
         self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (1,179,180,True,181.0,217):
             bad=deepcopy(snap);bad['schema_version']=value

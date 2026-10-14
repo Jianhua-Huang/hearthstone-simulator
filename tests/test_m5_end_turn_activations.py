@@ -1081,7 +1081,7 @@ class EndTurnActivationTests(unittest.TestCase):
     def test_schema_97_snapshot_is_explicitly_rejected_by_new_schema(self):
         game = self.waiting()
         snapshot = game.snapshot()
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         snapshot['schema_version'] = 97
         with self.assertRaises(SnapshotError):
             Game.from_snapshot(snapshot, self.r)

@@ -201,7 +201,7 @@ class SpellCostContractTests(unittest.TestCase):
     def test_public_fee_parameters_exclude_private_cost_sources_and_receipts(self):
         modifier = SpellRepeatModifier(9, self.spec(maximum=2), 17, 'hidden.source', 1, uses_remaining=2)
         public = public_modifier(modifier)
-        self.assertEqual(VIEW_VERSION, 'player-view-v84')
+        self.assertEqual(VIEW_VERSION, 'player-view-v85')
         validate_spell_modifier_view(public, 'spell_modifier_added')
         self.assertEqual(public['match'], {'recipient_metadata': None, 'recipient_cost': {
             'basis': 'window_quote', 'minimum': None, 'maximum': 2,

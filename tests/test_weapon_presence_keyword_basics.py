@@ -410,7 +410,7 @@ class WeaponPresenceKeywordBasicsTests(unittest.TestCase):
         self.portable(g)
 
     def test_schema_protocol_and_all_old_versions(self):
-        g = self.game(); snap = g.snapshot(); self.assertEqual(snap['schema_version'], 265)
+        g = self.game(); snap = g.snapshot(); self.assertEqual(snap['schema_version'], 266)
         self.assertEqual(snap['ruleset']['id'], 'prototype-v302')
         self.assertEqual(snap['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         for value in (*range(1, 218), True, 183.0, 217):

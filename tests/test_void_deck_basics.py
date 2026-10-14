@@ -365,7 +365,7 @@ class VoidDeckBasicsTests(unittest.TestCase):
     def test_current_strict_layout_and_previous_versions_are_explicit(self):
         g=self.game();saved=g.snapshot()
         self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),
-            (265,'prototype-v302',CORE_EFFECTS_VERSION))
+            (266,'prototype-v302',CORE_EFFECTS_VERSION))
         self.assertEqual(saved['state']['players']['1']['void_cards'],[])
         for version in (1,169,217,True):
             with self.subTest(version=version):self.reject(g,lambda s:s.update(schema_version=version))

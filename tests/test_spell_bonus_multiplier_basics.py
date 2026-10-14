@@ -356,7 +356,7 @@ class SpellBonusMultiplierBasicsTests(unittest.TestCase):
         g = self.game()
         old = g.snapshot()
         old['schema_version'] = 221
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
             Game.from_snapshot(old, registry())
 
 

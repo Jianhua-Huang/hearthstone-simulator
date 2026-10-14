@@ -245,7 +245,7 @@ class PairedDiscoveryTests(unittest.TestCase):
 
     def test_context_binding_and_unsupported_delivery_forms_fail_explicitly(self):
         with self.assertRaises(ValueError):gift_pool(mode='standard')
-        for args in (dict(destination='deck'),dict(discoveries=2),dict(count=2),dict(cost=CostSpec(delta=-1)),
+        for args in (dict(destination='deck'),dict(discoveries=2),dict(count=2),dict(cost=CostSpec(set_to=1)),
                 dict(delivery='after_all'),dict(replacement=False)):
             with self.assertRaises(ValueError):DiscoverFromPool(1,'dg.minions',gift_pool=gift_pool(),**args)
         g=self.game(context=GenerationContext('other-target','experimental'));before=g.snapshot()
@@ -310,7 +310,7 @@ class PairedDiscoveryTests(unittest.TestCase):
 
     def test_new_payloads_roundtrip_and_old_schema_is_rejected(self):
         g=self.game();self.play(g);saved=self.portable(g)
-        self.assertEqual(saved['schema_version'],265)
+        self.assertEqual(saved['schema_version'],266)
         saved['schema_version']=227
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry())
 

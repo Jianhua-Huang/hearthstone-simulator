@@ -348,7 +348,7 @@ class OwnDiscardBodyTests(unittest.TestCase):
         view=json.dumps(g.observe(2));self.assertNotIn('"card_id": "own.fixture"',view);self.assertNotIn('discard_history',view);self.portable(g)
 
     def test_schema_195_rejects_all_older_suspended_protocols(self):
-        g=self.waiting_native();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.waiting_native();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         for version in range(1,218):
             with self.subTest(version=version):bad=deepcopy(s);bad['schema_version']=version;self.reject(bad)
         self.portable(g)

@@ -124,11 +124,13 @@ class RepresentativeTests(unittest.TestCase):
 
     def test_pinned_real_cards_plus_explicit_test_hero(self):
         registry = build_registry()
-        self.assertEqual(registry.version, "representative-m5-v64")
+        self.assertEqual(registry.version, "representative-m5-v65")
         self.assertEqual(len(EXPECTED_CARD_HASHES), 305)
-        self.assertEqual(set(registry.cards), set(EXPECTED_CARD_HASHES) | {"test.hero"})
+        self.assertEqual(set(registry.cards), set(EXPECTED_CARD_HASHES) |
+            {"test.hero", "CS2_118", "CS2_125", "CS2_127", "EDR_105", "FIR_900"})
         extensions = load_baseline().support['extensions']
-        self.assertEqual(extensions['runtime_package'], registry.version)
+        # M0 extensions are the historical audit baseline, not the current adapter.
+        self.assertEqual(extensions['runtime_package'], 'representative-m5-v64')
         self.assertEqual(set(extensions['executable_card_ids']), set(EXPECTED_CARD_HASHES))
         self.assertEqual(registry.card("test.hero").health, 30)
         self.assertTrue(PACKAGE_LIMITATIONS)

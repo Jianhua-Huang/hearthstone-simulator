@@ -371,7 +371,7 @@ class CurrentDeckCountAttackTests(unittest.TestCase):
         self.assertEqual(len(g.state.players[1].deck),26);self.value(g,7,5,eid);self.portable(g)
 
     def test_current_protocol_and_strict_old_schema_rejection(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],265)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
         self.assertEqual(snap['ruleset']['id'],'prototype-v302')
         self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (*range(1,218),True,218.0,None,'218'):

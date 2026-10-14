@@ -252,7 +252,7 @@ class TemporaryManaOverCapTests(unittest.TestCase):
     def test_old_account_semantics_are_rejected_without_new_wire_fields(self):
         g = self.game(temporary_mana=1, mana=11); current = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, current['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for key in ('ruleset', 'mechanics_version'):
             old = deepcopy(current)
             if key == 'ruleset': old[key]['id'] = 'prototype-v247'

@@ -235,7 +235,7 @@ class PlayerKeywordAuraTests(unittest.TestCase):
         self.assertEqual(PlayerEffectSpec('plain','mech').keyword_auras,())
 
     def test_current_protocol_and_previous_schema_explicitly_rejected(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         self.assertEqual(g.ruleset.id,'prototype-v302');self.assertEqual(g.mechanics.signature['version'],CORE_EFFECTS_VERSION)
         s['schema_version']=191
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())

@@ -313,7 +313,7 @@ class LocationTests(unittest.TestCase):
 
     def test_real_starport_example_restores_and_replays(self):
         from examples.use_starport import run
-        game,snapshot=run();self.assertEqual(len(game.history),11);self.assertEqual(snapshot['schema_version'],265)
+        game,snapshot=run();self.assertEqual(len(game.history),11);self.assertEqual(snapshot['schema_version'],266)
 
     def test_unsupported_location_health_rule_is_rejected_instead_of_inactive(self):
         from hs_sim.engine import HealthFlow,HealthOp,HealthRule

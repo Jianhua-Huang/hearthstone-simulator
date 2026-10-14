@@ -321,7 +321,7 @@ class HeroHealthChangeTests(unittest.TestCase):
 
     def test_old_schema_and_missing_persistent_fields_are_rejected(self):
         g = self.game()
-        self.assertEqual(g.snapshot()['schema_version'], 265)
+        self.assertEqual(g.snapshot()['schema_version'], 266)
         saved = g.snapshot(); saved['schema_version'] = 199
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, registry())
         for field in ('hero_health_change_history', 'next_hero_health_change_id'):

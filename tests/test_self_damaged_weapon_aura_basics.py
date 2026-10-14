@@ -469,7 +469,7 @@ class SelfDamagedWeaponAuraBasicsTests(unittest.TestCase):
 
     def test_protocol_versions_reject_all_old_and_noninteger_schemas(self):
         g = self.game(); snap = g.snapshot()
-        self.assertEqual(snap['schema_version'], 265)
+        self.assertEqual(snap['schema_version'], 266)
         self.assertEqual(snap['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         self.assertEqual(snap['ruleset']['id'], 'prototype-v302')
         for value in (*range(1, 218), True, 182.0, 217):

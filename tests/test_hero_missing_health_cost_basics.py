@@ -430,13 +430,13 @@ class HeroMissingHealthCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = self.portable(g)
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v84', 'player-actions-v12'))
+            ('player-view-v85', 'player-actions-v12'))
         for version in (1, 171, 172, 217, True, '173'):
             bad = deepcopy(saved)
             bad['schema_version'] = version
-            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
                 Game.from_snapshot(bad, registry())
 
 

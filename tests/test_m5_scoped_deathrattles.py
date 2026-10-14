@@ -267,7 +267,7 @@ class ScopedDeathrattleTests(unittest.TestCase):
 
     def test_native_scourge_forest_capacity_and_neighbor_composition(self):
         from examples.scoped_deathrattles import run
-        g,s=run();self.assertEqual(s['schema_version'],265);self.assertEqual(len(self.records(g)),8);self.assertEqual(len(g.state.death_history),2)
+        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(len(self.records(g)),8);self.assertEqual(len(g.state.death_history),2)
 
 
 if __name__=='__main__':unittest.main()

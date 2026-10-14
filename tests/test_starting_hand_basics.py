@@ -481,7 +481,7 @@ class StartingHandTests(unittest.TestCase):
         g = self.ready(self.game())
         self.play(g)
         saved = g.snapshot()
-        self.assertEqual(saved['schema_version'], 265)
+        self.assertEqual(saved['schema_version'], 266)
         for version in (1, 164, 165, 217, True, '166'):
             bad = json.loads(json.dumps(saved))
             bad['schema_version'] = version

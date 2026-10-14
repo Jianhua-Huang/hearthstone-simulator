@@ -214,7 +214,7 @@ class DeathrattleActivationTests(unittest.TestCase):
         s=g.snapshot();self.state_row(s)['deathrattle_history']=[];self.reject(s)
 
     def test_old_snapshot_schema_rejected(self):
-        g=self.waiting();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=88;self.reject(s)
+        g=self.waiting();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=88;self.reject(s)
 
     def test_query_filters_and_validation(self):
         g=self.waiting();self.assertEqual(len(activated_deathrattles(g.state,1,completed=False,origin='death',turn=1)),1)
@@ -363,7 +363,7 @@ class DeathrattleActivationTests(unittest.TestCase):
 
     def test_native_player_example_restores_with_fresh_registry(self):
         from examples.deathrattle_activations import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(len(g.state.death_history),1);self.assertEqual(len(g.state.deathrattle_history),4)
 
 

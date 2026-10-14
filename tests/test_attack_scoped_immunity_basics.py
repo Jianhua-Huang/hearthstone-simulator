@@ -389,7 +389,7 @@ class AttackScopedImmunityBasicsTests(unittest.TestCase):
     def test_previous_schema_requires_its_original_engine(self):
         saved = self.game().snapshot()
         saved['schema_version'] = 222
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
             Game.from_snapshot(saved, registry())
 
 

@@ -8,8 +8,8 @@ class GeneratedComboSchemaBoundaryTests(unittest.TestCase):
         from tests.test_generated_combo_repetition import GeneratedComboRepetitionTests, registry
         game = GeneratedComboRepetitionTests().game()
         snapshot = game.snapshot()
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         snapshot['schema_version'] = 117
         with self.assertRaises(SnapshotError) as error:
             Game.from_snapshot(snapshot, registry())
-        self.assertIn('schemas 1 through 264 need their original engines', str(error.exception))
+        self.assertIn('schemas 1 through 265 need their original engines', str(error.exception))

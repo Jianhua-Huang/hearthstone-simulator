@@ -454,7 +454,7 @@ class ImbueRepresentativeTests(unittest.TestCase):
 
     def test_real_example_through_player_ports(self):
         from examples.imbue_growth import run
-        g,snapshot=run();self.assertEqual(snapshot['schema_version'],265)
+        g,snapshot=run();self.assertEqual(snapshot['schema_version'],266)
         self.assertEqual([r.hero_class for r in g.state.imbue_history],
                          [CardClass.DRUID,CardClass.MAGE,CardClass.DRUID])
 

@@ -365,7 +365,7 @@ class BronzeRepresentativeTests(unittest.TestCase):
 
     def test_real_example_restores_and_replays_player_actions(self):
         from examples.hero_power_rewind import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(len(g.state.hero_power_history),2)
         self.assertEqual(g.state.rewind_outcomes[0].completed,2)
 

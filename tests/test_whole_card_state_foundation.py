@@ -130,7 +130,7 @@ class WholeCardStateFoundationTests(unittest.TestCase):
         game = self.game()
         self.assertIs(type(game.state.whole_card_replay_ledger), WholeCardReplayLedger)
         self.assertEqual(game.state.whole_card_replay_ledger, WholeCardReplayLedger())
-        self.assertEqual(game.snapshot()['schema_version'], 265)
+        self.assertEqual(game.snapshot()['schema_version'], 266)
         self.assertEqual(game.ruleset.id, 'prototype-v302')
         self.portable(game, 'empty')
 

@@ -411,8 +411,8 @@ class SideboardRuntimeTests(unittest.TestCase):
     def test_new_layout_versions_and_old_schema_explicitly_rejected(self):
         g = self.game(); saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         for version in (168, 167, 1):
             bad = deepcopy(saved); bad['schema_version'] = version
-            with self.assertRaisesRegex(SnapshotError, '1 through 264'):
+            with self.assertRaisesRegex(SnapshotError, '1 through 265'):
                 Game.from_snapshot(bad, registry())

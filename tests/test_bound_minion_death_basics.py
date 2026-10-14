@@ -367,6 +367,6 @@ class BoundMinionDeathTests(unittest.TestCase):
     def test_existing_schema_and_full_runtime_versions_remain_unchanged(self):
         g = self.game(); self.play(g)
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = deepcopy(g.snapshot()); saved['schema_version'] = 215; self.reject(saved)
         self.portable(g)

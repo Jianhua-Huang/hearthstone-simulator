@@ -356,7 +356,7 @@ class HeroHistoryTests(unittest.TestCase):
         from examples.relaunch_with_raynor import run
         g,snapshot=run();self.assertEqual((len(g.history),len(g.events)),(7,56))
         self.assertEqual(sum(e.kind == 'health_resolved' for e in g.events), 2)
-        self.assertEqual(snapshot['schema_version'],265)
+        self.assertEqual(snapshot['schema_version'],266)
 
 
 if __name__=='__main__':

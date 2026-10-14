@@ -374,7 +374,7 @@ class TemporaryControlBasicsTests(unittest.TestCase):
         with self.assertRaises(ValueError):codec.decode(encoded)
 
     def test_all_previous_schemas_nonintegers_and_future_schema_rejected(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],265)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
         self.assertEqual(snap['ruleset']['id'],'prototype-v302')
         self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for schema in (*range(1,218),None,True,188.0,'188',217):

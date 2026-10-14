@@ -262,7 +262,7 @@ class NativeCostPaymentTests(unittest.TestCase):
             for private in ('cost_payment','CostQuoteFact','submitted_cost','resolution_frame'):self.assertNotIn(private,wire)
 
     def test_native_payment_is_pinned_and_old_schemas_are_rejected(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry(PaymentType.MANA))
         s['schema_version']=229
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())

@@ -261,7 +261,7 @@ class DiscardHistoryTests(unittest.TestCase):
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())
 
     def test_current_protocol_and_old_schema_are_explicit(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         self.assertEqual(g.ruleset.id,'prototype-v302');self.assertEqual(g.mechanics.signature['version'],CORE_EFFECTS_VERSION)
         s['schema_version']=192
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())

@@ -391,7 +391,7 @@ class StartingDeckNoSpellsTests(unittest.TestCase):
     def test_persistent_layout_stays_and_previous_handler_and_schema_are_rejected(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v237'
         self.reject(saved)

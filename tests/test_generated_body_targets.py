@@ -308,7 +308,7 @@ class GeneratedBodyTargetTests(unittest.TestCase):
         self.reject(g,corrupt)
 
     def test_current_version_and_old_schema_rejected(self):
-        g=self.settled();s=g.snapshot();self.assertEqual(s['schema_version'],265)
+        g=self.settled();s=g.snapshot();self.assertEqual(s['schema_version'],266)
         s['schema_version']=135
         with self.assertRaises(SnapshotError): Game.from_snapshot(s,registry())
 

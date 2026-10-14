@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v305'
+CORE_EFFECTS_VERSION = 'core-effects-v306'
 
 
 class Mechanics:
@@ -1881,7 +1881,14 @@ def copy_minion(r, effect):
     else:
         from .copy_materials import validate_effect_scope
         validate_effect_scope(r.state,r.registry,effect)
-    source = board_minion(r, effect)
+    if effect.allow_dormant:
+        source = r.state.entities.get(effect.target_id)
+        if (source is None or source.zone != Zone.BOARD or source.kind != CardType.MINION or
+                not (source.active or source.dormancy is not None)):
+            r.stale(effect, effect.target_id)
+            return
+    else:
+        source = board_minion(r, effect)
     if source is None:
         return
     if effect.cause is not None:
@@ -1896,7 +1903,8 @@ def copy_minion(r, effect):
     from .jade import inherit_printed
     inherit_printed(source, entity)
     if effect.mode == 'current':
-        entity.dormancy = None
+        if not (effect.allow_dormant and source.dormancy is not None):
+            entity.dormancy = None
         entity.base_attack, entity.base_health, entity.base_cost = source.base_attack, source.base_health, source.base_cost
         entity.damage = source.damage
         entity.corpse_value = source.corpse_value
@@ -2239,6 +2247,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant
     mechanics.register_payload_type(CardSpellRepeatGrant)
     mechanics.register_payload_type(CreatedMinionGrant)
+    from .dark_gifts import register as register_dark_gifts
+    register_dark_gifts(mechanics)
     from .health_loss import register as register_health_loss
     register_health_loss(mechanics)
     from .health_loss_floors import register as register_loss_floors

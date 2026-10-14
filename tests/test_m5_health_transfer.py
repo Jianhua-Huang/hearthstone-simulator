@@ -381,7 +381,7 @@ class SnakeRepresentativeTests(unittest.TestCase):
         from examples.excavate_health_transfer import run
         g,snapshot=run();self.assertEqual((g.state.status,g.state.winner),('finished',1))
         self.assertEqual(self.hero(g,2).armor,99)
-        self.assertEqual(snapshot['schema_version'],265)
+        self.assertEqual(snapshot['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

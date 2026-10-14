@@ -310,9 +310,9 @@ class ChooseOneTests(unittest.TestCase):
 
     def test_prior_composite_snapshot_schema_requires_original_engine(self):
         snapshot = self.game().snapshot()
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         snapshot['schema_version'] = 148
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264 need their original engines'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265 need their original engines'):
             Game.from_snapshot(snapshot, self.r)
 
     def test_unregistered_branch_behavior_is_explicitly_rejected(self):

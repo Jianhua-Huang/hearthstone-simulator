@@ -219,7 +219,7 @@ class GeneratedSingleFamilyTests(unittest.TestCase):
 
     def test_current_format_rejects_previous_single_unrecorded_semantics(self):
         g = self.settled(); saved = g.snapshot()
-        self.assertEqual(saved['schema_version'], 265)
+        self.assertEqual(saved['schema_version'], 266)
         saved['schema_version'] = 136
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, fixture.registry(variant='legacy'))
 

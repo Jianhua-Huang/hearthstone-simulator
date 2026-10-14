@@ -399,7 +399,7 @@ class NondeathRemovalTests(unittest.TestCase):
         self.assertEqual(g.snapshot(), restored.snapshot()); self.portable(g)
 
     def test_new_schema_and_old_or_future_version_rejection(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 265)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
         for version in (1, 157, 158, 159, 160, 161, 162, 217, True):
             bad = g.snapshot(); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

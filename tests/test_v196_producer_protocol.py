@@ -55,11 +55,11 @@ class ProducerProtocolTests(unittest.TestCase):
     def test_current_wire_and_host_versions_are_bound_without_public_api_changes(self):
         g = self.game(); value = g.snapshot()
         self.assertEqual((value['schema_version'], g.ruleset.id, g.mechanics.version),
-                         (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+                         (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         self.assertEqual((value['state']['next_ordered_group_id'], value['state']['ordered_group_history']), (1, []))
         self.assertEqual(value['state']['pool_summon_history'], [])
         self.assertEqual(Game.from_snapshot(deepcopy(value), fixture.registry()).snapshot(), value)
-        self.assertEqual(g.observe(1)['version'], 'player-view-v84')
+        self.assertEqual(g.observe(1)['version'], 'player-view-v85')
         self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v12')
         self.assertEqual(build_replay(g)['schema_version'], 1)
 
@@ -93,7 +93,7 @@ class ProducerProtocolTests(unittest.TestCase):
     def test_new_group_waiting_wire_restores_and_continues_on_independent_registries(self):
         g = self.game(waiting=True); value = g.snapshot()
         root = value['state']['ordered_group_history'][0]
-        self.assertEqual((value['schema_version'], root['producer_amount']['family']), (265, 'ordered_group'))
+        self.assertEqual((value['schema_version'], root['producer_amount']['family']), (266, 'ordered_group'))
         self.assertEqual((root['producer_amount']['base_count'], root['producer_amount']['total']), (3, 4))
         restored = (Game.from_snapshot(deepcopy(value), fixture.registry()), g.clone(),
                     replay(build_replay(g), fixture.registry()))
@@ -113,7 +113,7 @@ class ProducerProtocolTests(unittest.TestCase):
 
     def test_replay_v1_requires_a_current_origin_and_rejects_a_relabelled_legacy_origin(self):
         g = self.game(waiting=True); value = build_replay(g)
-        self.assertEqual((value['schema_version'], value['origin']['schema_version']), (1, 265))
+        self.assertEqual((value['schema_version'], value['origin']['schema_version']), (1, 266))
         self.assertEqual(replay(deepcopy(value), fixture.registry()).snapshot(), g.snapshot())
         bad = deepcopy(value); bad['origin']['schema_version'] = 110
         self.blob(bad, 'legacy-replay-origin')

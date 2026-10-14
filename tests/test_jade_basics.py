@@ -444,7 +444,7 @@ class JadeBasicsTests(unittest.TestCase):
         self.rejected(g, lambda s: s['state']['entities'][str(entity)].update(jade_size=2))
 
     def test_old_schema_is_rejected(self):
-        g = self.game(); s = g.snapshot(); self.assertEqual(s['schema_version'], 265)
+        g = self.game(); s = g.snapshot(); self.assertEqual(s['schema_version'], 266)
         for version in (1, 154):
             with self.subTest(version=version):
                 with self.assertRaises(SnapshotError):

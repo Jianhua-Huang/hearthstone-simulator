@@ -469,9 +469,9 @@ class TurnSchedulerBasicsTests(unittest.TestCase):
                 s['state']['turn_schedule']['unknown'] = 1
             self.reject(s)
         s = g.snapshot()
-        self.assertEqual(s['schema_version'], 265)
+        self.assertEqual(s['schema_version'], 266)
         s['schema_version'] = 151
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
             Game.from_snapshot(s, registry(self.extras))
 
     def test_snapshot_clock_origin_uses_actual_record_and_not_turn_parity(self):

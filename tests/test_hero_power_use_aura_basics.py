@@ -175,7 +175,7 @@ class HeroPowerUseAuraTests(unittest.TestCase):
             with self.subTest(cap=cap):
                 g=self.game(board=board); before=g.snapshot(); view=g.for_player(1).observe()['observation']
                 players=view['players']; player=players[0] if type(players)is list else players.get('1',players.get(1))
-                self.assertEqual(player['hero_power']['use_limit'],cap); self.assertEqual(view['version'],'player-view-v84')
+                self.assertEqual(player['hero_power']['use_limit'],cap); self.assertEqual(view['version'],'player-view-v85')
                 text=json.dumps(view); self.assertNotIn('hero_power_use_aura',text); self.assertNotIn('ability_id',text); self.assertEqual(g.snapshot(),before)
 
     def test_unknown_cap_missing_state_field_and_old_schema_are_rejected(self):

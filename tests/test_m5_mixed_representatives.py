@@ -192,7 +192,7 @@ class MixedRepresentativeTests(unittest.TestCase):
     def test_package_counts_and_partial_support_do_not_claim_formal_cn_legality(self):
         support = load_baseline().support
         self.assertEqual((self.registry.version, len(self.registry.cards), len(EXPECTED_CARD_HASHES)),
-            ('representative-m5-v64', 306, 305))
+            ('representative-m5-v65', 311, 305))
         self.assertEqual(sum(c.choice_only for c in self.registry.cards.values()), 14)
         row = next(x for x in support['cards'] if x['id'] == CARD)
         self.assertEqual((row['implementation'], row['stage'], row['mode_legality']),

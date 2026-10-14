@@ -19,6 +19,7 @@ class CreatedMinionGrant:
     keywords: tuple[Keyword, ...] = ()
     reborn_policy: str | None = None
     identity: str | None = None
+    special: str | None = None
 
     def __post_init__(self):
         if type(self.attack) is not int or type(self.health) is not int:
@@ -29,7 +30,10 @@ class CreatedMinionGrant:
             raise ValueError('Unsupported or duplicate created minion keyword')
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
-        if not (self.attack or self.health or self.keywords):
+        if self.special is not None and (type(self.special) is not str or
+                self.special not in ('living_nightmare', 'rude_awakening')):
+            raise ValueError('Unknown created minion special ability')
+        if not (self.attack or self.health or self.keywords or self.special):
             raise ValueError('Created minion grant must change stats or keywords')
 
 
@@ -64,7 +68,13 @@ class DiscoveryMinionGift:
             raise ValueError('Gift destination must be hand or deck_top')
 
     def eligible(self, definition):
-        return definition.kind == CardType.MINION and definition.attack >= self.min_attack
+        if definition.kind != CardType.MINION or definition.attack < self.min_attack:
+            return False
+        if set(self.grant.keywords).intersection(definition.keywords):
+            return False
+        if Keyword.CHARGE in self.grant.keywords and definition.attack == 0:
+            return False
+        return self.grant.special != 'rude_awakening' or definition.battlecry is not None
 
 
 @dataclass(frozen=True)
@@ -162,6 +172,15 @@ def install(state, entity, effect):
         for keyword in grant.keywords:
             entity.abilities.append(AbilityInstance(attachment_id(state), 'keyword', source_id=effect.source_id,
                 keyword=keyword, reborn_policy=grant.reborn_policy if keyword == Keyword.REBORN else None))
+        if grant.special == 'living_nightmare':
+            from .dark_gifts import LIVING_NIGHTMARE_BEHAVIOR
+            entity.abilities.append(AbilityInstance(attachment_id(state), 'on_play',
+                source_id=effect.source_id, behavior_id=LIVING_NIGHTMARE_BEHAVIOR))
+        elif grant.special == 'rude_awakening':
+            from .model import BattlecryRepeatSpec
+            entity.abilities.append(AbilityInstance(attachment_id(state), 'battlecry_repeat',
+                source_id=effect.source_id,
+                battlecry_repeat=BattlecryRepeatSpec(2, (CardType.MINION,), scope='self')))
         refresh_entity(entity)
 
 

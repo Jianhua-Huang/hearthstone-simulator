@@ -345,7 +345,7 @@ class HeroClassifiedTriggerTests(unittest.TestCase):
 
     def test_unchanged_wire_layout_still_refuses_previous_rule_and_handler_versions(self):
         g=self.game('finite',hand=('invoke',));self.play(g,'invoke')
-        self.assertEqual(g.snapshot()['schema_version'],265)
+        self.assertEqual(g.snapshot()['schema_version'],266)
         self.reject(g,lambda s:s['ruleset'].__setitem__('id','prototype-v142'))
         self.reject(g,lambda s:s['mechanics_version'].__setitem__('version','core-effects-v142'))
 

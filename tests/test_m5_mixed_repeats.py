@@ -935,15 +935,15 @@ class MixedRepeatTests(unittest.TestCase):
         with self.assertRaises(SnapshotError): Game.from_snapshot(snapshot,fixture_registry())
 
     def test_complete_mixed_acceptance_proofs_require_schema_100_and_reject_99_explicitly(self):
-        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],265)
+        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],266)
         snapshot['schema_version']=99
-        with self.assertRaisesRegex(SnapshotError,'1 through 264'):
+        with self.assertRaisesRegex(SnapshotError,'1 through 265'):
             Game.from_snapshot(snapshot,fixture_registry())
 
         # Keep all original legacy-schema cases above; append the former current109.
         old_current = g.snapshot()
         old_current['schema_version'] = 109
-        with self.assertRaisesRegex(SnapshotError, '1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
             Game.from_snapshot(old_current, fixture_registry())
         # Exact int schema110 rejects bool/string/float encodings.
         for bad_schema in (True, False, '110', 110.0):

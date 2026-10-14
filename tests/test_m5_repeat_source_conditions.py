@@ -788,7 +788,7 @@ class RepeatSourceConditionTests(unittest.TestCase):
     def test_snapshot_condition_declaration_and_attachment_identity_cannot_be_forged(self):
         g = self.game(hand=('ask.arcane',), board=('cond.plain', 'dragon', 'carrier'))
         self.play(g, 'ask.arcane')
-        self.assertEqual(g.snapshot()['schema_version'], 265)
+        self.assertEqual(g.snapshot()['schema_version'], 266)
         old = g.snapshot(); old['schema_version'] = 101; self.reject(old)
         for field, value in (('profile_id', 'repeat.witness.active_live'),
                              ('tribes_any', ['beast']), ('exclude_carrier', False)):
@@ -910,7 +910,7 @@ class RepeatSourceConditionTests(unittest.TestCase):
                      'carrier_id', 'witnesses', 'behavior_ids', 'rng_state')
         for seat in (1, 2):
             view = g.observe(seat)
-            self.assertEqual(view['version'], 'player-view-v84')
+            self.assertEqual(view['version'], 'player-view-v85')
             rows = [e for e in g.player_events(seat) if e['kind'].startswith('spell_modifier_')]
             self.assertEqual({e['kind'] for e in rows}, {'spell_modifier_added', 'spell_modifier_used',
                 'spell_modifier_removed', 'spell_modifier_expired'})

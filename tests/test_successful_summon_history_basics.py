@@ -419,7 +419,7 @@ class SuccessfulSummonHistoryTests(unittest.TestCase):
     def test_schema_rejects_old_future_bool_and_old_mechanics(self):
         g = self.game(('totem',)); self.play(g, 'totem')
         self.assertEqual((g.ruleset.id, g.mechanics.version, g.snapshot()['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for value in (1, 204, 217, True, 205.0):
             self.reject(g, lambda s, value=value: s.update(schema_version=value))
         self.reject(g, lambda s: s['ruleset'].update(id='prototype-v219'))

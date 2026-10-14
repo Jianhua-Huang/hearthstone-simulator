@@ -300,7 +300,7 @@ class DeckCountConditionalTargetTests(unittest.TestCase):
     def test_existing_protocol_remains_and_old_schema_rejected(self):
         g=self.game();snap=g.snapshot()
         self.assertEqual((snap['schema_version'],snap['ruleset']['id'],snap['mechanics_version']['version']),
-                         (265,'prototype-v302',CORE_EFFECTS_VERSION))
+                         (266,'prototype-v302',CORE_EFFECTS_VERSION))
         for value in(1,217,True,218.0,'218'):
             bad=deepcopy(snap);bad['schema_version']=value
             with self.subTest(value=value),self.assertRaises(SnapshotError):Game.from_snapshot(bad,registry())

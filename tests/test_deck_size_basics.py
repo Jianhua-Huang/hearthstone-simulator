@@ -332,5 +332,5 @@ class DeckSizeRuntimeTests(unittest.TestCase):
     def test_rule_only_version_update_preserves_state_effect_and_player_layouts(self):
         g=self.game()
         self.assertEqual((g.ruleset.id,g.mechanics.version,g.snapshot()['schema_version']),
-            ('prototype-v302',CORE_EFFECTS_VERSION,265))
+            ('prototype-v302',CORE_EFFECTS_VERSION,266))
         self.assertNotIn('deck_size_rule',g.snapshot()['state']['players']['1'])

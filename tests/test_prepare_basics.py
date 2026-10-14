@@ -281,7 +281,7 @@ class PrepareBasicsTests(unittest.TestCase):
         self.assert_restoration(g)
 
     def test_previous_schema_is_rejected(self):
-        g=self.game();self.use(g);snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],265)
+        g=self.game();self.use(g);snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],266)
         snapshot['schema_version']=149
         with self.assertRaises(SnapshotError):Game.from_snapshot(snapshot,self.r)
 

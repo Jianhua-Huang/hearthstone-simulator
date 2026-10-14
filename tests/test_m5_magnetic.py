@@ -372,7 +372,7 @@ class MagneticTests(unittest.TestCase):
 
     def test_real_player_port_fusion_example(self):
         from examples.magnetic_fusion import run
-        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],265)
+        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

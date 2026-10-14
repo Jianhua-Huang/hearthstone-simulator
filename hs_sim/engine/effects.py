@@ -982,7 +982,10 @@ class CopyMinion(Effect):
     mode: str = 'current'
     cause: object = None
     stats: SummonStats | None = None
+    allow_dormant: bool = False
     def __post_init__(self):
+        if type(self.allow_dormant) is not bool:
+            raise ValueError('Dormant copy permission requires bool')
         validate_summon_stats(self.stats)
         if self.cause is not None:
             from .summon_quantities import SummonCause

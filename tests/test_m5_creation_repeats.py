@@ -303,7 +303,7 @@ class CreationRepeatTests(unittest.TestCase):
         self.reject(s)
 
     def test_schema_87_rejected_even_when_no_grant_is_live(self):
-        self.discover();g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=87;self.reject(s)
+        self.discover();g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=87;self.reject(s)
 
     def test_burn_reaction_observes_property_on_burned_card(self):
         def inspect(c):
@@ -356,7 +356,7 @@ class CreationRepeatTests(unittest.TestCase):
 
     def test_synthetic_terminal_example(self):
         from examples.creation_repeats import run
-        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

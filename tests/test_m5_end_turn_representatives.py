@@ -172,7 +172,7 @@ class EndTurnRepresentativeTests(unittest.TestCase):
         self.assertEqual(len(old_rows), 300)
         self.assertEqual(canonical_digest(old_rows), audit['baseline']['support_cards_canonical_sha256'])
         self.assertEqual((self.r.version, len(self.r.cards), len(EXPECTED_CARD_HASHES)),
-            ('representative-m5-v64', 306, 305))
+            ('representative-m5-v65', 311, 305))
 
     def test_core_enchantment_and_battlegrounds_components_not_added(self):
         for card in ('CORE_ICC_901', 'ICC_901e', 'BG26_ICC_901', 'BG26_ICC_901_G',

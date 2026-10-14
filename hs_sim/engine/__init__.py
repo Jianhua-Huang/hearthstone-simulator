@@ -334,6 +334,8 @@ __all__ += ['HeldSpellProgress','held_spell_condition']
 from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant, DiscoveryMinionGift
 from .pools import DiscoveryGiftPool
 __all__ += ["CardSpellRepeatGrant", "CreatedMinionGrant", "DiscoveryMinionGift", "DiscoveryGiftPool"]
+from .dark_gifts import DARK_GIFTS, GrantDarkGift, dark_gift_pool
+__all__ += ["DARK_GIFTS", "GrantDarkGift", "dark_gift_pool"]
 
 from .model import DeathrattleCapture, DeathrattleRecord
 from .model import DeathrattleRecipient, DeathrattleRecipientMetadataFilter, DeathrattleRepeatMatchSpec

@@ -366,7 +366,7 @@ class TribalKeywordAuraBasicsTests(unittest.TestCase):
         with self.assertRaises(ValueError): codec.decode(codec.encode(replace(ctx,state=state)))
 
     def test_schema_protocol_rejects_old_missing_or_nonstrict_versions(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],265)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
         self.assertEqual(snap['ruleset']['id'],'prototype-v302');self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (*range(1,218),True,185.0,217):
             bad=deepcopy(snap);bad['schema_version']=value

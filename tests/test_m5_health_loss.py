@@ -334,7 +334,7 @@ class HealthLossTests(unittest.TestCase):
             with self.subTest(field=field,value=value),self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_old_snapshot_rejected(self):
-        g=self.game();snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],265);snapshot['schema_version']=41
+        g=self.game();snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],266);snapshot['schema_version']=41
         with self.assertRaises(SnapshotError):Game.from_snapshot(snapshot,self.r)
 
     def test_real_body_generates_independent_limbs_and_health_cards(self):
@@ -410,7 +410,7 @@ class HealthLossTests(unittest.TestCase):
 
     def test_real_example_save_and_player_replay(self):
         from examples.onyxia_health_loss import run
-        game,snapshot=run();self.assertEqual(snapshot['schema_version'],265)
+        game,snapshot=run();self.assertEqual(snapshot['schema_version'],266)
         self.assertEqual(game.state.entities[game.state.players[1].hero_id].max_health,40)
 
 

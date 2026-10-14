@@ -366,7 +366,7 @@ class WrongEnemyAttackBasicsTests(unittest.TestCase):
     def test_existing_core_and_wire_versions_remain_and_recipe_is_replayable(self):
         g=self.game();self.attack(g);snap=g.snapshot()
         self.assertEqual((snap['ruleset']['id'],snap['mechanics_version']['version'],snap['schema_version']),
-            ('prototype-v302',CORE_EFFECTS_VERSION,265));self.check(g)
+            ('prototype-v302',CORE_EFFECTS_VERSION,266));self.check(g)
 
 
 if __name__=='__main__':unittest.main()

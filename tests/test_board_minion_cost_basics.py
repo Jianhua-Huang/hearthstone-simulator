@@ -289,11 +289,11 @@ class BoardMinionCostTests(unittest.TestCase):
     def test_default_empty_stage_and_new_strict_wire_keep_public_protocols(self):
         g=self.game(hand=('card.1',));f=self.fact(g,'card.1');self.assertIsNone(f.intrinsic.board_minions)
         self.play(g,'card.1');saved=self.portable(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,265))
-        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v84','player-actions-v12'))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v85','player-actions-v12'))
         for old in (1,169,170):
             bad=deepcopy(saved);bad['schema_version']=old
-            with self.assertRaisesRegex(SnapshotError,'schemas 1 through 264'):Game.from_snapshot(bad,registry())
+            with self.assertRaisesRegex(SnapshotError,'schemas 1 through 265'):Game.from_snapshot(bad,registry())
 
     def test_necessary_native_ticking_template_preserves_printed_sum_and_friendly_formula(self):
         r=native_registry();selected=ModularSelection('TOY_330',('TOY_330t98',modular_fixture.PERFECT),'TOY_330t5');cid=selected.card_id

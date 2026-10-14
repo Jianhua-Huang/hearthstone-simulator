@@ -396,7 +396,7 @@ class ComboRepeatTests(unittest.TestCase):
 
     def test_example_mixes_real_cards_with_explicit_mechanism_fixtures(self):
         from examples.combo_repetition import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(len(g.state.combo_history),5);self.assertEqual(len(g.state.battlecry_history),2)
         self.assertEqual(sum(bool(r.modifiers) for r in g.state.combo_policy_receipts),1)
 

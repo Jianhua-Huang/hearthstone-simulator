@@ -374,8 +374,8 @@ class HeroHealthThresholdCostTests(unittest.TestCase):
 
     def test_same_schema_new_rules_and_effects_reject_old_semantics_and_wrong_layout(self):
         g=self.game();saved=self.portable(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,265))
-        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v84','player-actions-v12'))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v85','player-actions-v12'))
         for field,value in (('rules','prototype-v218'),('effects','core-effects-v212'),('schema',203),('schema',217),('schema',True)):
             bad=deepcopy(saved)
             if field=='rules':bad['ruleset']['id']=value

@@ -295,10 +295,10 @@ class SequenceLifecycleTests(unittest.TestCase):
     def test_combined_player_transfer_choice_bounce_example(self):
         from examples.battlecry_source_lifecycle import run
         g,s=run();self.assertEqual(len(g.history),6);self.assertEqual(len(g.state.battlecry_history),8)
-        self.assertEqual(s['schema_version'],265)
+        self.assertEqual(s['schema_version'],266)
 
     def test_previous_snapshot_schema_is_rejected(self):
-        g=self.pending();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=80;self.reject(s)
+        g=self.pending();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=80;self.reject(s)
 
 
 if __name__=='__main__':unittest.main()

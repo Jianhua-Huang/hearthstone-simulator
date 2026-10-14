@@ -430,7 +430,7 @@ class StartingDeckCostDiversityTests(unittest.TestCase):
     def test_current_versions_and_old_same_layout_handler_and_schema_rejections(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v236'
         self.reject(saved)

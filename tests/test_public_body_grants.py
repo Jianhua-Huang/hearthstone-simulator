@@ -231,7 +231,7 @@ class PublicBodyGrantTests(unittest.TestCase):
 
     def test_new_snapshot_schema_rejects_prior_wire(self):
         g=self.game(('grant','unit'));self.play(g,'grant');snapshot=g.snapshot()
-        self.assertEqual(snapshot['schema_version'],265)
+        self.assertEqual(snapshot['schema_version'],266)
         self.assertEqual(Game.from_snapshot(snapshot,registry()).snapshot(),snapshot)
         snapshot['schema_version']=119
         with self.assertRaises(SnapshotError):Game.from_snapshot(snapshot,registry())

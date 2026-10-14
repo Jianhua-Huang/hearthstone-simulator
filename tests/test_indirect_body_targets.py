@@ -427,7 +427,7 @@ class IndirectBodyTargetTests(unittest.TestCase):
                 with self.assertRaises(SnapshotError): Game.from_snapshot(snapshot,registry())
 
     def test_new_schema_rejects_old_134_and_missing_indirect_history(self):
-        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],265)
+        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],266)
         old=deepcopy(snapshot); old['schema_version']=134
         with self.assertRaises(SnapshotError): Game.from_snapshot(old,registry())
         del snapshot['state']['indirect_body_sequences']; self.rehash(snapshot)

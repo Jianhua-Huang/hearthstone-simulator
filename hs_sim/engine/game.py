@@ -335,7 +335,7 @@ class Game:
     def snapshot(self):
         self._require_boundary()
         events = [event_to_dict(event) for event in self._events]
-        return deepcopy({'schema_version': 265, **self._hash_payload(), 'events': events,
+        return deepcopy({'schema_version': 266, **self._hash_payload(), 'events': events,
                          'events_hash': canonical_hash(events), 'state_hash': self.state_hash()})
 
     @classmethod
@@ -345,8 +345,8 @@ class Game:
                         'state', 'rng_state', 'resolution_frame', 'rewind_session', 'match_setup', 'generation_context', 'information', 'events', 'events_hash', 'state_hash'}
             if not isinstance(snapshot, dict) or set(snapshot) != expected:
                 raise ValueError('Snapshot fields do not match schema')
-            if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != 265:
-                raise ValueError('Unsupported snapshot schema version; schemas 1 through 264 need their original engines')
+            if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != 266:
+                raise ValueError('Unsupported snapshot schema version; schemas 1 through 265 need their original engines')
             game = cls()
             game.registry = registry
             registry.freeze()

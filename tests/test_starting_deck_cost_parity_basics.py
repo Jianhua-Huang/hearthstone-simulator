@@ -498,7 +498,7 @@ class StartingDeckCostParityTests(unittest.TestCase):
     def test_original_wire_layout_stays_and_previous_handler_is_rejected(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v231'
         self.reject(saved)

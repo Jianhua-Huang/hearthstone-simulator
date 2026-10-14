@@ -257,7 +257,7 @@ class PublicBodyViewTests(unittest.TestCase):
         self.assertEqual(g.snapshot(),before); self.assertEqual(g.for_player(1).observe(),listing)
 
     def test_observation_and_old_snapshot_versions_are_explicit(self):
-        g=self.game(('unit',)); self.assertEqual(g.observe(1)['version'],'player-view-v84')
-        self.assertEqual(g.snapshot()['schema_version'],265)
+        g=self.game(('unit',)); self.assertEqual(g.observe(1)['version'],'player-view-v85')
+        self.assertEqual(g.snapshot()['schema_version'],266)
         old=g.snapshot(); old['schema_version']=120
         with self.assertRaises(SnapshotError): Game.from_snapshot(old,registry())

@@ -93,7 +93,7 @@ class CardSpellSourceTests(unittest.TestCase):
         inv=self.inventory();self.assertEqual(len(inv['experimental_pool']['members']),6);self.assertFalse(inv['experimental_pool']['complete'])
         for cid in ('JAIL_123','CS2_028','CS2_032','EX1_279'):self.assertIn('R-135',CARD_LIMITATIONS[cid])
         self.assertEqual((self.r.card('JAIL_123').cost,self.r.card('JAIL_123').attack,self.r.card('JAIL_123').health),(5,4,5))
-        self.assertEqual(self.r.version,'representative-m5-v64')
+        self.assertEqual(self.r.version,'representative-m5-v65')
 
     def test_pool_current_class_type_and_cost_controls(self):
         def candidates(cls):return [m.card_id for m in resolve_candidates(self.r,CONTEXT,POOL_ID,QUERY,current_class=cls)]
@@ -276,7 +276,7 @@ class CardSpellSourceTests(unittest.TestCase):
 
     def test_native_representative_example_restores_and_finishes(self):
         from examples.card_spell_sources import run
-        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

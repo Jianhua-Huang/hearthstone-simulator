@@ -195,6 +195,8 @@ class Registry:
         self._cthun_profile = None
         from .choose_one import DISPATCH, dispatch
         self._behaviors: dict[str, Behavior] = {DISPATCH: lambda c: dispatch(self, c)}
+        from .dark_gifts import LIVING_NIGHTMARE_BEHAVIOR, living_nightmare
+        self._behaviors[LIVING_NIGHTMARE_BEHAVIOR] = living_nightmare
         self._secret_conditions: dict[str, TargetRule] = {}
         self._trigger_conditions: dict[str, TargetRule] = {'always': lambda c: True}
         self._target_rules: dict[str, TargetRule] = {"any_character": _any_character, "any_entity": lambda ctx: ctx.target_id in ctx.state.entities,

@@ -356,7 +356,7 @@ class DirectedRepresentativeTests(unittest.TestCase):
 
     def test_player_port_example_restores_and_replays(self):
         from examples.imbue_directed_modification import run
-        g,s=run();self.assertEqual(s['schema_version'],265);self.assertEqual(len(g.state.hero_power_history),2)
+        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(len(g.state.hero_power_history),2)
 
 
 if __name__=='__main__':unittest.main()

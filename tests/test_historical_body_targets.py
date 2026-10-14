@@ -371,6 +371,6 @@ class HistoricalBodyTargetTests(unittest.TestCase):
         with self.assertRaises(ValueError):r.register_historical_battlecry_binding(HistoricalBattlecryBinding('carrier','live',('low',)))
 
     def test_current_format_refuses_previous_schema_without_historical_receipts(self):
-        g=self.settled();snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],265)
+        g=self.settled();snapshot=g.snapshot();self.assertEqual(snapshot['schema_version'],266)
         snapshot['schema_version']=138
         with self.assertRaises(SnapshotError):Game.from_snapshot(snapshot,registry())

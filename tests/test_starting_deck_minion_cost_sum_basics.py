@@ -421,7 +421,7 @@ class StartingDeckMinionCostSumTests(unittest.TestCase):
     def test_current_versions_reject_old_engine_and_old_schema(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         for key, value in (('schema_version', 215), ('mechanics_version', {'version': 'core-effects-v235'})):
             saved = g.snapshot()
             if key == 'mechanics_version':

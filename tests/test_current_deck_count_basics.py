@@ -418,7 +418,7 @@ class CurrentDeckCountTests(unittest.TestCase):
     def test_current_protocol_identity_and_previous_handler_and_schema_reject(self):
         g = self.game(25)
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v238'
         self.reject(saved)

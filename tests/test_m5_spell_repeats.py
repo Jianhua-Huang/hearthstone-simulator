@@ -433,7 +433,7 @@ class SpellRepeatTests(unittest.TestCase):
         from examples.sinestra_spell_repeat import run
         g, snapshot = run()
         self.assertEqual(len(g.history), 5)
-        self.assertEqual(snapshot['schema_version'], 265)
+        self.assertEqual(snapshot['schema_version'], 266)
         self.assertIsNone(snapshot['state']['pending_choice'])
 
 

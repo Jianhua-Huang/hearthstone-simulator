@@ -236,9 +236,9 @@ class TargetStatFactTests(unittest.TestCase):
         self.assertEqual(g.snapshot(), snapshot); self.assertEqual(g.history, history)
 
     def test_old131_schema_is_rejected_before_any_missing_fact_interpretation(self):
-        g = game(); snapshot = g.snapshot(); self.assertEqual(snapshot['schema_version'], 265)
+        g = game(); snapshot = g.snapshot(); self.assertEqual(snapshot['schema_version'], 266)
         snapshot['schema_version'] = 131
-        with self.assertRaisesRegex(SnapshotError, '1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
             Game.from_snapshot(snapshot, registry())
 
     def test_all_tribes_matches_any_requested_printed_tribe(self):

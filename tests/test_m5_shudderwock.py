@@ -195,7 +195,7 @@ class ShudderwockTests(unittest.TestCase):
     def test_real_adapter_pins_data_and_exposes_experimental_limitations(self):
         r=build_registry();d=r.card('GIL_820')
         self.assertEqual((d.cost,d.attack,d.health,d.battlecry),(9,6,6,'m5.shudderwock'))
-        self.assertEqual(r.version,'representative-m5-v64');self.assertIn('R-126',CARD_LIMITATIONS['GIL_820'])
+        self.assertEqual(r.version,'representative-m5-v65');self.assertIn('R-126',CARD_LIMITATIONS['GIL_820'])
     def test_other_same_card_entity_is_a_legal_target(self):
         self.card('aim',lambda c:[GainArmor(c.player_id,1)],targeting=TargetSpec(kinds=(CardType.MINION,),relation='friendly',exclude_source=False))
         self.script('clear',lambda c:[Destroy(i) for i in c.state.players[1].board]+[Summon(1,'shudder')])

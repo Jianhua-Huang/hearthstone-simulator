@@ -294,5 +294,5 @@ class ExplicitFatigueTests(unittest.TestCase):
         source = g.state.players[1].graveyard[0]
         with self.assertRaises(ValueError): codec.encode(TakeFatigue(1, source, 'ft.missing.callback'))
         old = deepcopy(g.snapshot()); old['schema_version'] = 220
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'): Game.from_snapshot(old, registry())
+        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'): Game.from_snapshot(old, registry())
         self.assertIn(TakeFatigue, g.mechanics.effect_types)

@@ -99,10 +99,11 @@ def validate_pick_gift(registry, spec, pick):
         raise ValueError('Discovery gift differs from its declared recipe or printed eligibility')
 
 
-def gift_preview(registry, card_id, gift):
+def gift_preview(registry, card_id, gift, spec=None):
     card=registry.card(card_id);grant=gift.grant
     health=max(1,card.health+grant.health)
-    return CardPreview(max(0,card.cost+gift.cost_delta),max(0,card.attack+grant.attack),health,health,0,
+    source_delta = spec.cost.delta if spec is not None and spec.cost is not None else 0
+    return CardPreview(max(0,card.cost+gift.cost_delta+source_delta),max(0,card.attack+grant.attack),health,health,0,
         tuple(sorted(set((*card.keywords,*grant.keywords)),key=lambda k:k.value)))
 
 
@@ -114,7 +115,7 @@ def options_for(registry, batch, offered, hero_class, source_card, gifts=()):
         options.append(ChoiceOption(f'generated-{n}',registry.card(cid).name if gift is None else
             registry.card(cid).name+' · '+gift.label+('（置于牌库顶）' if gift.destination=='deck_top' else ''),
             (ResolvePoolDiscovery(batch,offered,pick,offered_gifts=gifts),),card_id=cid,
-            preview=None if gift is None else gift_preview(registry,cid,gift)))
+            preview=None if gift is None else gift_preview(registry,cid,gift,batch.spec)))
     return tuple(options)
 
 
@@ -132,7 +133,8 @@ def sample_gifts(r, spec, offered):
 def deliver_pick(spec, pick):
     if pick.gift is None:return deliver_generated(spec,(pick.card_id,))
     gift=pick.gift
-    cost=CostSpec(delta=gift.cost_delta) if gift.cost_delta else None
+    delta=gift.cost_delta+(spec.cost.delta if spec.cost is not None else 0)
+    cost=CostSpec(delta=delta) if delta else None
     grant=replace(gift.grant,identity=gift.id)
     if gift.destination=='deck_top':
         from .zones import AddToDeck

@@ -394,7 +394,7 @@ class RepresentativeComboTests(unittest.TestCase):
 
     def test_real_combo_example_restores_and_replays(self):
         from examples.combo_activations import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual([b.card_id for b in g.state.combo_history],['EX1_134','EX1_613'])
         self.assertEqual(len(g.state.battlecry_history),1)
 

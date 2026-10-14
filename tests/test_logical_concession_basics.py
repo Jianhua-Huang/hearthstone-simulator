@@ -281,7 +281,7 @@ class ConcessionTests(unittest.TestCase):
         g = self.game()
         snap = g.snapshot()
         snap['schema_version'] = 219
-        with self.assertRaisesRegex(SnapshotError, '1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
             Game.from_snapshot(snap, registry())
         snap = g.snapshot()
         snap['ruleset']['id'] = 'prototype-v249'

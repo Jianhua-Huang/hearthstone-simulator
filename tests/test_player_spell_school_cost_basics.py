@@ -419,13 +419,13 @@ class PlayerSpellSchoolCostTests(unittest.TestCase):
     def test_new_strict_row_layout_rejects_all_old_future_boolean_and_host_versions(self):
         g = self.game()
         saved = g.snapshot()
-        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (265, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v84', 'player-actions-v12'))
+        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v85', 'player-actions-v12'))
         self.assertEqual(build_replay(g)['schema_version'], 1)
         for version in (*range(1, 218), 217, True, 208.0):
             bad = deepcopy(saved)
             bad['schema_version'] = version
-            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 264'):
+            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
                 Game.from_snapshot(bad, registry())
         for field, value in (('ruleset', 'prototype-v223'), ('mechanics_version', 'core-effects-v217')):
             bad = deepcopy(saved)

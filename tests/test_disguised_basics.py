@@ -347,7 +347,7 @@ class DisguisedBasicsTests(unittest.TestCase):
 
     def test_snapshot_rejects_changed_original_destination_and_old_schema(self):
         self.wait('wait', 'card_committed'); g = self.game(board=('wait',)); self.play(g, side=2)
-        saved = g.snapshot(); self.assertEqual(saved['schema_version'], 265)
+        saved = g.snapshot(); self.assertEqual(saved['schema_version'], 266)
         saved['state']['play_history'][0]['board_player_id'] = 1
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, registry(self.extras))
         saved = g.snapshot(); saved['schema_version'] = 150

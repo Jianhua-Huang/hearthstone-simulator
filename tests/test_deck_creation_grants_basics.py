@@ -272,6 +272,6 @@ class DeckCreationGrantTests(unittest.TestCase):
     def test_eight_recipe_inventory_shares_one_contract_and_old_schema_is_rejected(self):
         g=self.game(ids=None);self.play(g);self.portable(g,ids=None)
         self.assertEqual(len(g._frame.options[0].effects[0].batch.spec.gift_pool.members),8)
-        saved=g.snapshot();self.assertEqual(saved['schema_version'],265);saved['schema_version']=228
+        saved=g.snapshot();self.assertEqual(saved['schema_version'],266);saved['schema_version']=228
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry(ids=None))
 

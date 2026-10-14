@@ -295,7 +295,7 @@ class DeathrattleRepeatTests(unittest.TestCase):
 
     def test_native_representative_composition_restores_and_replays(self):
         from examples.deathrattle_repeats import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(len(g.state.deathrattle_history),8);self.assertEqual(len(g.state.death_history),1)
 
     def test_waiting_second_iteration_preserves_source_removed_by_first(self):

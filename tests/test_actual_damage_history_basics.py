@@ -401,7 +401,7 @@ class ActualDamageTests(unittest.TestCase):
 
     def test_schema_and_required_history_fields_are_strict(self):
         g=self.game();saved=g.snapshot()
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,265))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
         for value in (*range(1,218),217,True,216.0):
             changed=deepcopy(saved);changed['schema_version']=value
             with self.assertRaises(SnapshotError):Game.from_snapshot(changed,registry())

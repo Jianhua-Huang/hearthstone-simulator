@@ -375,7 +375,7 @@ class CorpseSpendHistoryTests(unittest.TestCase):
         g = self.game(('debit.fixed',)); self.play(g, 'debit.fixed')
         saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version),
-                         (265, 'prototype-v302', CORE_EFFECTS_VERSION))
+                         (266, 'prototype-v302', CORE_EFFECTS_VERSION))
         for version in (1, 208, 217, True, 216.0):
             bad = deepcopy(saved); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(rehash(bad), registry())

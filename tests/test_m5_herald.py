@@ -358,7 +358,7 @@ class HeraldTests(unittest.TestCase):
 
     def test_real_example_through_fixed_seat_player_commands(self):
         from examples.herald_colossal import run
-        g,snapshot=run();self.assertEqual(len(g.history),6);self.assertEqual(snapshot['schema_version'],265)
+        g,snapshot=run();self.assertEqual(len(g.history),6);self.assertEqual(snapshot['schema_version'],266)
 
 
 if __name__=='__main__':unittest.main()

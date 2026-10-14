@@ -445,7 +445,7 @@ class PlayerPlayedTurnCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-                         ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+                         ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for mode in ('old-schema', 'future-schema', 'bool-schema', 'old-rules', 'old-effects'):
             bad = deepcopy(saved)
             if mode == 'old-schema': bad['schema_version'] = 207

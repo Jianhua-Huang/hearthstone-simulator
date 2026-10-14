@@ -347,7 +347,7 @@ class AutomaticTargetRuntimeTests(unittest.TestCase):
 
     def test_old_schema112_is_rejected_instead_of_defaulting_the_new_cast_field(self):
         game = self.launched(); snapshot = game.snapshot(); snapshot['schema_version'] = 112
-        with self.assertRaisesRegex(SnapshotError, '1 through 264'):
+        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
             Game.from_snapshot(snapshot, make_registry(**self.config), make_mechanics())
 
     def test_automatic_condition_clocks_cannot_be_changed_while_waiting(self):

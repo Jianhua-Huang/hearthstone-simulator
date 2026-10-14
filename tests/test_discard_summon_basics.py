@@ -248,4 +248,4 @@ class DiscardSummonTests(unittest.TestCase):
         g=self.game();cause=self.play(g,'discard')
         self.assertEqual([r.source_id for r in g.state.play_history],[cause])
         self.assertEqual([r.source_id for r in g.state.cast_history],[cause]);self.assertEqual(g.state.death_history,[])
-        self.assertEqual(g.snapshot()['schema_version'],265);self.portable(g)
+        self.assertEqual(g.snapshot()['schema_version'],266);self.portable(g)

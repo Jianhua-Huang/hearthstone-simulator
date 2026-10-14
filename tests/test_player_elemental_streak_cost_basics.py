@@ -343,7 +343,7 @@ class PlayerElementalStreakCostTests(unittest.TestCase):
     def test_current_schema_rejects_all_old_future_boolean_and_old_rule_effect_ids(self):
         g = self.game((NATIVE,)); snap = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, snap['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for version in (*range(1,218), True, 207.0, 217):
             bad = deepcopy(snap); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, self.fresh_registry())

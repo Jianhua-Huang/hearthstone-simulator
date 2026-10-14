@@ -268,7 +268,7 @@ class HeldSpellTests(unittest.TestCase):
         a.update(progress_value=1,progress_completions=1,consumed=True,progress_keys=['cast:1']);self.reject(s)
 
     def test_old_snapshot_schema_rejected(self):
-        g=self.marked();s=g.snapshot();self.assertEqual(s['schema_version'],265);s['schema_version']=85;self.reject(s)
+        g=self.marked();s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=85;self.reject(s)
 
     def test_current_copy_to_enemy_inherits_fact_without_forging_enemy_cast(self):
         self.cry('copy',lambda c:[CopyCard(self.ref(c,'held'),2,mode='current')])
@@ -342,7 +342,7 @@ class HeldSpellTests(unittest.TestCase):
 
     def test_native_representative_terminal_example_restores_and_replays(self):
         from examples.held_spells import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual((len(g.history),len(g.state.cast_history),len(g.state.spell_policy_receipts)),(11,6,1))
         self.assertEqual(g.state.winner,1)
 

@@ -307,7 +307,7 @@ class ImbuePortalTests(PortalFixtures,unittest.TestCase):
 
     def test_player_port_example_restores_and_replays(self):
         from examples.imbue_portals import run
-        g,s=run();self.assertEqual(s['schema_version'],265)
+        g,s=run();self.assertEqual(s['schema_version'],266)
         self.assertEqual(sum(d.card_id==PORTAL for d in g.state.cast_history),2)
 
 

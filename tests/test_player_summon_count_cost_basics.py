@@ -418,7 +418,7 @@ class PlayerSummonCountCostTests(unittest.TestCase):
     def test_current_schema_explicitly_rejects_all_old_future_and_boolean_versions(self):
         g = self.game(); saved = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 265))
+            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
         for value in (*range(1, 218), True, 206.0, 217):
             bad = deepcopy(saved); bad['schema_version'] = value
             with self.subTest(value=value), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

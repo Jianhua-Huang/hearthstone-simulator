@@ -319,7 +319,7 @@ class MinionCounterTests(unittest.TestCase):
     def test_old_snapshot_and_view_versions_rejected(self):
         g=self.game();s=g.snapshot();s['schema_version']=74
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,self.r)
-        self.assertEqual(g.observe(1)['version'],'player-view-v84')
+        self.assertEqual(g.observe(1)['version'],'player-view-v85')
 
 
 class RepresentativeMinionCounterTests(unittest.TestCase):
