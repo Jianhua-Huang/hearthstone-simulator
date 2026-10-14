@@ -1,0 +1,60 @@
+{
+  "profile": "last-personal-accepted-card-cost-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CATA_616",
+      "data": {
+        "id": "CATA_616",
+        "dbf_id": 123440,
+        "name": "戈隆巨人",
+        "name_en": "Gronn Giant",
+        "text": "本随从的法力值消耗会随你使用的上一张牌的法力值消耗而\n降低。",
+        "text_en": "[x]This minion's Cost is\nreduced by the Cost of the\nlast card you played.",
+        "cost": 9,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 4,
+          "CLASS": 12,
+          "COST": 9,
+          "HEALTH": 8,
+          "ATK": 8,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "00314834be3e24e9f2519671ea76016cea2e8b1c59b85b2df94f183e33521c0a"
+    }
+  ],
+  "new_real_card_adapters": [
+    "CATA_616"
+  ],
+  "native_profile": "cost.player-last-played-cost-v1",
+  "policy": "Original last personally paid hand root, across turns and all hand card types. Use the accepted numeric Cost from PlayRecord, regardless of payment account; no current-zone or printed-cost requery. Includes committed/countered/waiting roots using the existing physical-play policy. Precise CN basis remains uncalibrated.",
+  "official_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/24266874/35-4-patch-notes",
+      "scope": "Official 35.4 identifies a repeated-recalculation bug on Freezing Trap returns. It does not establish printed-versus-accepted basis or exact CN timing. No trap/card combination implementation added."
+    }
+  ],
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

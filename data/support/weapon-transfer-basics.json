@@ -1,0 +1,125 @@
+{
+  "profile": "physical-weapon-transfer-v1",
+  "records": [
+    {
+      "id": "DRG_082",
+      "dbf_id": 55432,
+      "name": "黏指狗头人",
+      "name_en": "Kobold Stickyfinger",
+      "text": "<b>战吼：</b>\n偷取对手的武器。",
+      "text_en": "<b>Battlecry:</b> Steal your opponent's weapon.",
+      "cost": 5,
+      "attack": 4,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 4,
+        "COST": 5,
+        "CARDTYPE": 4,
+        "ATK": 4,
+        "HEALTH": 4,
+        "COLLECTIBLE": 1,
+        "BATTLECRY": 1,
+        "CARDRACE": 23
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000280,
+        "craftingEvent": 10000281,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DEEP_012",
+      "dbf_id": 102250,
+      "name": "影石潜伏者",
+      "name_en": "Shadestone Skulker",
+      "text": "<b>突袭</b>。<b>战吼：</b>夺取你的武器并获得其属性值。<b>亡语：</b>还回武器。",
+      "text_en": "[x]<b>Rush</b>. <b>Battlecry:</b> Take your\n_weapon and gain its stats._\n<b>Deathrattle:</b> Give it back.",
+      "cost": 1,
+      "attack": 1,
+      "health": 1,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 14,
+        "COLLECTIBLE": 1,
+        "MINI_SET": 1,
+        "COST": 1,
+        "ATK": 1,
+        "HEALTH": 1,
+        "CARDRACE": 18,
+        "CARDTYPE": 4,
+        "RARITY": 3,
+        "RUSH": 1,
+        "MULTIPLE_CLASSES": 8256,
+        "BATTLECRY": 1,
+        "DEATHRATTLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000318,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_records": 36022,
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "source_scope": "Only DRG_082 necessary isolated adapter. DEEP_012 storage/take-return full body remains raw and deferred.",
+  "official_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/55432/",
+      "supports": "None: search found no result and direct open inaccessible; no official rules/legality proof obtained"
+    }
+  ],
+  "requirements": [
+    "Transfer the actual equipped physical weapon between player slots, rather than copying/recreating it",
+    "Keep original owner, entity/card/attachments/current attack/durability and applicable expiry; update controller/slot and installation identity correctly",
+    "Source departure is not weapon destruction/deathrattle; destination old weapon replacement still uses ordinary death lifecycle",
+    "Refresh Hero equipment/keywords without resetting Hero attack uses, preserve stale references/payment/rollback/waiting/replay/information"
+  ],
+  "implemented": true,
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 1,
+  "inventory_exhaustive": false,
+  "new_production_adapters": 0,
+  "new_state_fields": 0,
+  "new_runtime_modules": 0,
+  "policy": "TransferWeapon uses an immutable equipped-weapon reference with controller/face/epoch/installation order. Transfer the original physical weapon through shared equip replacement and WEAPON-to-WEAPON movement, keeping owner/current material and invalidating old installation. Source departure is not destruction; previous destination weapon uses ordinary replacement death. Emit equipped then transferred from completed slot state; Hero attack use counts remain unchanged.",
+  "equip_and_event_policy_CN_calibrated": false
+}

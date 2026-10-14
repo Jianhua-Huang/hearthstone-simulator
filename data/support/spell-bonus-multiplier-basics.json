@@ -1,0 +1,203 @@
+{
+  "profile": "spell-bonus-multiplier-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "AT_004",
+      "dbf_id": 2572,
+      "name": "奥术冲击",
+      "name_en": "Arcane Blast",
+      "text": "对一个随从造成$2点伤害。该法术受到的<b>法术伤害</b>增益效果翻倍。",
+      "text_en": "Deal $2 damage to a minion. This spell gets double bonus from <b>Spell Damage</b>.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 4,
+        "COLLECTIBLE": 1,
+        "COST": 1,
+        "CARDTYPE": 5,
+        "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS": 1,
+        "SPELL_SCHOOL": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "SPELLPOWER",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "AT_004_Puzzle",
+      "dbf_id": 123009,
+      "name": "奥术冲击",
+      "name_en": "Arcane Blast",
+      "text": "对一个随从造成$2点伤害。该法术受到的<b>法术伤害</b>增益效果翻倍。",
+      "text_en": "Deal $2 damage to a minion. This spell gets double bonus from <b>Spell Damage</b>.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 4,
+        "COST": 1,
+        "CARDTYPE": 5,
+        "SPELL_SCHOOL": 1,
+        "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "SPELLPOWER",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_1073_01",
+      "dbf_id": 79273,
+      "name": "奥术冲击{0}",
+      "name_en": "Arcane Blast {0}",
+      "text": "造成@点伤害。该技能受到的<b>奥术伤害</b>增益效果翻倍。",
+      "text_en": "Deal @ damage.\nThis ability gains\ndouble the bonus\nfrom <b>Arcane Damage</b>.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "SPELL_SCHOOL": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "1672": 2,
+        "LETTUCE_COOLDOWN_CONFIG": 2,
+        "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "SPELLPOWER_ARCANE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_822P2",
+      "dbf_id": 90335,
+      "name": "守护者之力 ",
+      "name_en": "Power of the Guardian ",
+      "text": "随机对一个敌人造成$@点伤害，触发两次。此技能受到的<b>奥术伤害</b>增益效果翻倍。 ",
+      "text_en": "Deal $@ damage to a random enemy twice. This ability gains double the bonus from <b>Arcane Damage</b>. ",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "SPELL_SCHOOL": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS": 1,
+        "1724": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "SPELLPOWER_ARCANE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_representatives": [
+    "AT_004"
+  ],
+  "evidence_only": [
+    "AT_004_Puzzle",
+    "LETL_1073_01",
+    "LT24_822P2"
+  ],
+  "official_source": "https://hearthstone.blizzard.com/en-us/cards/2572",
+  "CN_calibrated": false
+}

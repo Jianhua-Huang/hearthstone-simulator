@@ -1,0 +1,107 @@
+{
+  "profile": "board-copy-transform-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "EX1_564",
+      "data": {
+        "id": "EX1_564",
+        "dbf_id": 531,
+        "name": "无面操纵者",
+        "name_en": "Faceless Manipulator",
+        "text": "<b>战吼：</b>选择一个随从，成为它的复制。",
+        "text_en": "<b>Battlecry:</b> Choose a minion and become a copy of it.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 4,
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "COST": 5,
+          "HEALTH": 3,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "FACTION": 3,
+          "251": 9,
+          "BATTLECRY": 1,
+          "TECH_LEVEL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8e31f423958e67bf5d563bd9e707a1b1431ff59613cf03495f0462b1442575c4"
+    },
+    {
+      "id": "ETC_110",
+      "data": {
+        "id": "ETC_110",
+        "dbf_id": 92256,
+        "name": "封面艺人",
+        "name_en": "Cover Artist",
+        "text": "<b>战吼：</b>变形成为一个随从的3/3的复制。",
+        "text_en": "<b>Battlecry:</b> Transform into\na 3/3 copy of a minion.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 3,
+          "COLLECTIBLE": 1,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "d3a7edd9afb3062501adcc6504ce72e0d2821c298ea705b1782e25b8f15ffbfe"
+    }
+  ],
+  "new_real_card_adapters": [
+    "EX1_564"
+  ],
+  "policy": "TransformMinionIntoCopy retains the original BOARD recipient identity, ownership, position and attack opportunity; live original MinionReference endpoints, current local material and optional existing SummonStats are installed inside the existing transform lifecycle before its event/entry. Exact CN status, stat layers and windows remain pending.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false
+}

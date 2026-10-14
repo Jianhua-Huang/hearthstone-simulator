@@ -1,0 +1,507 @@
+{
+  "profile": "direct-mana-consumption-audit-v1",
+  "records": [
+    {
+      "id": "CATA_135",
+      "dbf_id": 123023,
+      "name": "苔缚术",
+      "name_en": "Mossbinding",
+      "text": "召唤两个1/2的魔像。消耗你的所有法力值，每消耗一点法力值，使其获得+1/+1。 ",
+      "text_en": "[x]Summon two 1/2 Golems.\nSpend all your Mana to\ngive them +1/+1 for\neach Mana spent. ",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 2,
+        "RARITY": 3,
+        "COST": 2,
+        "CARDTYPE": 5,
+        "SPELL_SCHOOL": 4,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [
+        122974
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CATA_EVENT_400",
+      "dbf_id": 130005,
+      "name": "店铺奸商",
+      "name_en": "Commissary Crook",
+      "text": "<b>预备</b>。<b>战吼：</b>消耗你所有的法力值，随机召唤一个法力值消耗相同的随从。",
+      "text_en": "[x]<b>Prepare</b>\n<b>Battlecry:</b> Spend all your\nMana. Summon a random\n_minion of that Cost.",
+      "cost": 3,
+      "attack": 4,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 2,
+        "RARITY": 4,
+        "CARDTYPE": 4,
+        "COST": 3,
+        "ATK": 4,
+        "HEALTH": 3,
+        "DECK_ACTION_COST": 1,
+        "PREPARE": 1,
+        "BATTLECRY": 1,
+        "COLLECTIBLE": 1,
+        "CARDRACE": 11
+      },
+      "reference_tags": [
+        {
+          "tag": "PREPARE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "PREPARE",
+          "value": 1
+        },
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000344,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DAL_723",
+      "dbf_id": 52632,
+      "name": "禁忌咒文",
+      "name_en": "Forbidden Words",
+      "text": "消耗你所有的法力值。消灭一个攻击力小于或等于所消耗法力值的随从。",
+      "text_en": "[x]Spend all your Mana.\nDestroy a minion with that\nmuch Attack or less.",
+      "cost": 0,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 6,
+        "RARITY": 3,
+        "ELITE": 0,
+        "COST": 0,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "SPELL_SCHOOL": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000294,
+        "craftingEvent": 10000388,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EDR_520",
+      "dbf_id": 114293,
+      "name": "禁忌神龛",
+      "name_en": "Forbidden Shrine",
+      "text": "消耗你所有的法力值，随机施放一个法力值消耗相同的法术。",
+      "text_en": "[x]Spend all your Mana.\nCast a random spell\nthat costs that much.",
+      "cost": 1,
+      "attack": null,
+      "health": 3,
+      "type": "LOCATION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 4,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 39,
+        "RARITY": 1,
+        "HEALTH": 3,
+        "COST": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "NX2_032",
+      "dbf_id": 90325,
+      "name": "沉沦的大主教",
+      "name_en": "Lost Exarch",
+      "text": "<b>亡语：</b>消耗你所有的法力值，召唤相同数量的2/2的并具有<b>突袭</b>的僵尸。",
+      "text_en": "[x]<b>Deathrattle</b>: Spend all your\nMana. Summon that many\n_2/2 Zombies with <b>Rush</b>.",
+      "cost": 4,
+      "attack": 5,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 3,
+        "CARDTYPE": 4,
+        "MINI_SET": 1,
+        "ATK": 5,
+        "HEALTH": 4,
+        "COLLECTIBLE": 1,
+        "DEATHRATTLE": 1,
+        "CARDRACE": 11,
+        "COST": 4,
+        "COLLECTION_RELATED_CARD_DATABASE_ID": 94902,
+        "2525": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000309,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "OG_051",
+      "dbf_id": 38340,
+      "name": "禁忌古树",
+      "name_en": "Forbidden Ancient",
+      "text": "<b>战吼：</b>消耗你所有的法力值，每消耗一点法力值，便获得+1/+1。",
+      "text_en": "<b>Battlecry:</b> Spend all your Mana. Gain +1/+1 for each Mana spent.",
+      "cost": 1,
+      "attack": 1,
+      "health": 1,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 2,
+        "COLLECTIBLE": 1,
+        "COST": 1,
+        "HEALTH": 1,
+        "ATK": 1,
+        "CARDTYPE": 4,
+        "BATTLECRY": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "OG_086",
+      "dbf_id": 38413,
+      "name": "禁忌烈焰",
+      "name_en": "Forbidden Flame",
+      "text": "消耗你所有的法力值，对一个随从造成等同于所消耗法力值数量的伤害。",
+      "text_en": "Spend all your Mana. Deal that much damage to a minion.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 4,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 5,
+        "AFFECTED_BY_SPELL_POWER": 1,
+        "SPELL_SCHOOL": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AFFECTED_BY_SPELL_POWER",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "OG_101",
+      "dbf_id": 38434,
+      "name": "禁忌畸变",
+      "name_en": "Forbidden Shaping",
+      "text": "消耗你所有的法力值，随机\n召唤一个法力值消耗相同的随从。",
+      "text_en": "Spend all your Mana. Summon a random minion that costs that much.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 6,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 5,
+        "SPELL_SCHOOL": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "OG_114",
+      "dbf_id": 38454,
+      "name": "禁忌仪式",
+      "name_en": "Forbidden Ritual",
+      "text": "消耗你所有的法力值，召唤相同数量的1/1的触须。",
+      "text_en": "Spend all your Mana. Summon that many 1/1 Tentacles.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 3,
+        "CLASS": 9,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 5,
+        "SPELL_SCHOOL": 6,
+        "COLLECTION_RELATED_CARD_DATABASE_ID": 38453
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "OG_198",
+      "dbf_id": 38666,
+      "name": "禁忌治疗",
+      "name_en": "Forbidden Healing",
+      "text": "消耗你所有的法力值，恢复等同于所消耗法力值数量两倍的生命值。",
+      "text_en": "Spend all your Mana. Restore twice that much Health.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 5,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 5,
+        "AFFECTED_BY_HEALING_DOES_DAMAGE": 1,
+        "SPELL_SCHOOL": 5
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "YOG_529",
+      "dbf_id": 101566,
+      "name": "禁忌之果",
+      "name_en": "Forbidden Fruit",
+      "text": "消耗你所有的法力值。<b>抉择：</b>获得在本回合中的等量攻击力；或者获得双倍的护甲值。",
+      "text_en": "[x]Spend all your Mana.\n<b>Choose One -</b> Gain that\nmuch Attack this turn; or\ntwice as much Armor.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 2,
+        "COLLECTIBLE": 1,
+        "RARITY": 3,
+        "CARDTYPE": 5,
+        "CHOOSE_ONE": 1,
+        "MINI_SET": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [
+        101569,
+        101578
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000299,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TSC_829",
+      "dbf_id": 71949,
+      "name": "纳迦巨人",
+      "name_en": "Naga Giant",
+      "text": "在本局对战中，你每消耗1点法力值用于法术牌上，本牌的法力值消耗便减少（1）点。",
+      "text_en": "Costs (1) less for each Mana you've spent on spells this game.",
+      "cost": 20,
+      "attack": 8,
+      "health": 8,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "COST": 20,
+        "ATK": 8,
+        "HEALTH": 8,
+        "CARDRACE": 92,
+        "RARITY": 4,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 4
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_records": 36022,
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "selection": "Whitespace-normalized English Spend all your Mana among collectible rows plus existing TSC_829 amount consumer; not a complete mana-mechanism inventory",
+  "official_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/20056288",
+      "supports": "Official 2016 article: Forbidden effects consume all available mana for the turn; image alt text gives Forbidden Flame zero base cost.",
+      "does_not_prove": "Exact current CN event window, temporary/permanent order, indirect origin/history accounting or formal legality"
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/114293-forbidden-shrine/",
+      "supports": "Search index supports direct spend on Location; direct open only navigation; no timing proof"
+    }
+  ],
+  "requirements": [
+    "Direct non-cost mana debit at execution, finite capped/all quantity and immutable actual result",
+    "Reuse current permanent/temporary/locked accounts and shared project_mana_spend; no crystal removal or fake cost",
+    "Preserve actual original actor/source/card type/physical body attribution, including non-hand origins where applicable",
+    "Reconcile existing spell-mana quantity input with additional actual spell spending; never silently omit or double-count it",
+    "Payment separation, account validation, normal reactions, waiting/rollback/replay and player information"
+  ],
+  "implemented": false,
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 0,
+  "inventory_exhaustive": false,
+  "special_bodies_deferred": true
+}

@@ -1,0 +1,219 @@
+{
+  "BRM_004": {
+    "id": "BRM_004",
+    "dbf_id": 2286,
+    "name": "暮光雏龙",
+    "name_en": "Twilight Whelp",
+    "text": "<b>战吼：</b>如果你的手牌中有龙牌，便获得+2生命值。",
+    "text_en": "<b>Battlecry:</b> If you're holding a Dragon, gain +2 Health.",
+    "cost": 1,
+    "attack": 2,
+    "health": 1,
+    "type": "MINION",
+    "collectible": true,
+    "tags": {
+      "RARITY": 1,
+      "CLASS": 6,
+      "COLLECTIBLE": 1,
+      "COST": 1,
+      "HEALTH": 1,
+      "ATK": 2,
+      "CARDTYPE": 4,
+      "CARDRACE": 24,
+      "BATTLECRY": 1,
+      "WHELP": 1
+    },
+    "reference_tags": [],
+    "power_keyword_tags": [
+      {
+        "tag": "BATTLECRY",
+        "value": 1
+      }
+    ],
+    "related_dbf_ids": [],
+    "source_events": {
+      "gameplayEvent": 10000391,
+      "craftingEvent": 203,
+      "goldenCraftingEvent": -1,
+      "signatureCraftingEvent": -1,
+      "diamondCraftingEvent": -1,
+      "featuredCardsEvent": -1,
+      "battlegroundsActiveEvent": 203,
+      "battlegroundsEarlyAccessEvent": 164,
+      "battlegroundsEveryGameEvent": 164
+    }
+  },
+  "EDR_445p": {
+    "id": "EDR_445p",
+    "dbf_id": 114023,
+    "name": "巨龙的祝福",
+    "name_en": "Blessing of the Dragon",
+    "text": "将两张翡翠传送门洗入你的牌库。<i>（你的传送门会召唤法力值消耗为<b>@</b>的龙。）</i>",
+    "text_en": "[x]Shuffle two Emerald\nPortals into your deck.\n<i>(Your Portals summon\n<b>@</b>-Cost Dragons.)</i>",
+    "cost": 1,
+    "attack": null,
+    "health": null,
+    "type": "HERO_POWER",
+    "collectible": false,
+    "tags": {
+      "CLASS": 5,
+      "CARDTYPE": 10,
+      "COST": 1,
+      "TAG_SCRIPT_DATA_NUM_1": 1,
+      "2165": 1,
+      "4173": 1
+    },
+    "reference_tags": [
+      {
+        "tag": "IMBUE",
+        "value": 1
+      }
+    ],
+    "power_keyword_tags": [
+      {
+        "tag": "2165",
+        "value": 1
+      }
+    ],
+    "related_dbf_ids": [
+      114070
+    ],
+    "source_events": {
+      "gameplayEvent": -1,
+      "craftingEvent": -1,
+      "goldenCraftingEvent": -1,
+      "signatureCraftingEvent": -1,
+      "diamondCraftingEvent": -1,
+      "featuredCardsEvent": -1,
+      "battlegroundsActiveEvent": 203,
+      "battlegroundsEarlyAccessEvent": 164,
+      "battlegroundsEveryGameEvent": 164
+    }
+  },
+  "EDR_445pt3": {
+    "id": "EDR_445pt3",
+    "dbf_id": 114070,
+    "name": "翡翠传送门",
+    "name_en": "Emerald Portal",
+    "text": "<b>抽到时施放</b>\n随机召唤一条法力值消耗为（@）的龙。",
+    "text_en": "<b>Casts When Drawn</b>\nSummon a random\n@-Cost Dragon.",
+    "cost": 1,
+    "attack": null,
+    "health": null,
+    "type": "SPELL",
+    "collectible": false,
+    "tags": {
+      "CLASS": 5,
+      "CARDTYPE": 5,
+      "COST": 1,
+      "CASTS_WHEN_DRAWN": 1,
+      "TAG_SCRIPT_DATA_NUM_1": 1,
+      "2165": 1
+    },
+    "reference_tags": [],
+    "power_keyword_tags": [
+      {
+        "tag": "CASTS_WHEN_DRAWN",
+        "value": 1
+      },
+      {
+        "tag": "2165",
+        "value": 1
+      }
+    ],
+    "related_dbf_ids": [],
+    "source_events": {
+      "gameplayEvent": -1,
+      "craftingEvent": -1,
+      "goldenCraftingEvent": -1,
+      "signatureCraftingEvent": -1,
+      "diamondCraftingEvent": -1,
+      "featuredCardsEvent": -1,
+      "battlegroundsActiveEvent": 203,
+      "battlegroundsEarlyAccessEvent": 164,
+      "battlegroundsEveryGameEvent": 164
+    }
+  },
+  "HERO_04": {
+    "id": "HERO_04",
+    "dbf_id": 671,
+    "name": "乌瑟尔·光明使者",
+    "name_en": "Uther Lightbringer",
+    "text": "",
+    "text_en": "",
+    "cost": null,
+    "attack": null,
+    "health": 30,
+    "type": "HERO",
+    "collectible": true,
+    "tags": {
+      "RARITY": 2,
+      "CLASS": 5,
+      "COLLECTIBLE": 1,
+      "HEALTH": 30,
+      "CARDTYPE": 3,
+      "HERO_POWER": 472,
+      "FACTION": 3,
+      "251": 1,
+      "EMOTECHARACTER": 13,
+      "EMOTECLASS": 4
+    },
+    "reference_tags": [],
+    "power_keyword_tags": [],
+    "related_dbf_ids": [],
+    "source_events": {
+      "gameplayEvent": 203,
+      "craftingEvent": 203,
+      "goldenCraftingEvent": -1,
+      "signatureCraftingEvent": -1,
+      "diamondCraftingEvent": -1,
+      "featuredCardsEvent": -1,
+      "battlegroundsActiveEvent": 203,
+      "battlegroundsEarlyAccessEvent": 203,
+      "battlegroundsEveryGameEvent": 164
+    }
+  },
+  "NEW1_023": {
+    "id": "NEW1_023",
+    "dbf_id": 609,
+    "name": "精灵龙",
+    "name_en": "Faerie Dragon",
+    "text": "<b>扰魔</b>",
+    "text_en": "<b>Elusive</b>",
+    "cost": 2,
+    "attack": 3,
+    "health": 2,
+    "type": "MINION",
+    "collectible": true,
+    "tags": {
+      "RARITY": 1,
+      "CLASS": 12,
+      "COST": 2,
+      "HEALTH": 2,
+      "ATK": 3,
+      "CARDTYPE": 4,
+      "CARDRACE": 24,
+      "COLLECTIBLE": 1,
+      "ELUSIVE": 1
+    },
+    "reference_tags": [],
+    "power_keyword_tags": [
+      {
+        "tag": "ELUSIVE",
+        "value": 1
+      }
+    ],
+    "related_dbf_ids": [],
+    "source_events": {
+      "gameplayEvent": 203,
+      "craftingEvent": 203,
+      "goldenCraftingEvent": -1,
+      "signatureCraftingEvent": -1,
+      "diamondCraftingEvent": -1,
+      "featuredCardsEvent": -1,
+      "battlegroundsActiveEvent": 203,
+      "battlegroundsEarlyAccessEvent": 164,
+      "battlegroundsEveryGameEvent": 164
+    }
+  }
+}

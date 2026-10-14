@@ -1,0 +1,142 @@
+{
+  "scope": "Independent turn scheduling; not an official pool. LOOT_538 alone has a complete isolated adapter. UNG_028t and END_037 are text evidence only.",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_538",
+      "data": {
+        "id": "LOOT_538",
+        "dbf_id": 46544,
+        "name": "坦普卢斯",
+        "name_en": "Temporus",
+        "text": "<b>战吼：</b>在本回合结束后，你的对手连续行动两个回合。然后你行动两个回合。",
+        "text_en": "<b>Battlecry:</b> Your opponent takes two turns. Then you take two turns.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "COLLECTIBLE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COST": 7,
+          "ATK": 6,
+          "HEALTH": 6,
+          "ELITE": 1,
+          "CARDRACE": 24,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e4ab33cfc17a724979f33ecc520aa4b68f3a45c75f286f5e9c80826d9ed3de78"
+    },
+    {
+      "id": "UNG_028t",
+      "data": {
+        "id": "UNG_028t",
+        "dbf_id": 41167,
+        "name": "时空扭曲",
+        "name_en": "Time Warp",
+        "text": "获得一个额外回合。<i>（每局对战限一次）</i>",
+        "text_en": "Take an extra turn.\n<i>(Once per game)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 4,
+          "ELITE": 1,
+          "COST": 5,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4f7ba2a8492158b74ab4997cfc0b0d773406662d43615c74999160f701edd105"
+    },
+    {
+      "id": "END_037",
+      "data": {
+        "id": "END_037",
+        "dbf_id": 121203,
+        "name": "末世的姆诺兹多",
+        "name_en": "Endtime Murozond",
+        "text": "<b>战吼：</b>用随机的龙填满你的面板。为你的英雄恢复所有生命值。跳过你的下个回合。",
+        "text_en": "<b>Battlecry:</b> Fill your board with random Dragons.\nFully heal your hero. Skip your next turn.",
+        "cost": 9,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 9,
+          "ATK": 4,
+          "HEALTH": 6,
+          "MINI_SET": 1,
+          "ELITE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000376,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e5dd1f27586f506395b68451d7f87e391bb2d60da6bd9c373018c04c36c6eab8"
+    }
+  ]
+}

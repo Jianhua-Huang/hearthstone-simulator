@@ -1,0 +1,64 @@
+{
+  "profile": "player-current-turn-spell-target-rule-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "RLK_218",
+      "dbf_id": 86557,
+      "name": "银月城奥术师",
+      "name_en": "Silvermoon Arcanist",
+      "text": "<b>法术伤害+2</b>。<b>战吼：</b>在本回合中，你的法术不能以英雄为目标。",
+      "text_en": "[x]<b>Spell Damage +2</b>\n<b>Battlecry:</b> Your spells can’t\ntarget heroes this turn.",
+      "cost": 3,
+      "attack": 2,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 3,
+        "ATK": 2,
+        "HEALTH": 2,
+        "BATTLECRY": 1,
+        "SPELLPOWER": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "SPELLPOWER",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "policy": "Source-independent player turn_rule forbids selecting HERO for SPELL in common eligibility, including automatic selection as an explicit local policy. Retire in ordinary actual-turn cleanup after end work, before next actual/skip slot. Accepted old Spell targets reuse existing complete original payment/acceptance states and eligibility facts. Non-spell origin contracts remain unchanged.",
+  "source_scope": "Only RLK_218 necessary experimental adapter; exact automatic/redirect CN semantics remain unverified.",
+  "new_runtime_modules": 0,
+  "new_state_fields": 0,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 1,
+  "new_production_adapters": 0,
+  "formal_pool_verified": false,
+  "CN_calibrated": false,
+  "printed_spell_damage": 2,
+  "SPELLPOWER_tag_is_presence_not_amount": true
+}

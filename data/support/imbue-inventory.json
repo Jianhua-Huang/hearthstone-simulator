@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "class_powers": {
+    "druid": "EDR_847p",
+    "hunter": "EDR_850p",
+    "mage": "EDR_851p",
+    "paladin": "EDR_445p",
+    "priest": "EDR_449p",
+    "shaman": "EDR_448p",
+    "rogue": "END_000p",
+    "death_knight": "END_003p"
+  },
+  "records": {
+    "EDR_445p": {
+      "id": "EDR_445p",
+      "dbf_id": 114023,
+      "name": "巨龙的祝福",
+      "name_en": "Blessing of the Dragon",
+      "text": "将两张翡翠传送门洗入你的牌库。<i>（你的传送门会召唤法力值消耗为<b>@</b>的龙。）</i>",
+      "text_en": "[x]Shuffle two Emerald\nPortals into your deck.\n<i>(Your Portals summon\n<b>@</b>-Cost Dragons.)</i>",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 5,
+        "CARDTYPE": 10,
+        "COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "2165": 1,
+        "4173": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        114070
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_448p": {
+      "id": "EDR_448p",
+      "dbf_id": 114059,
+      "name": "轻风的祝福",
+      "name_en": "Blessing of the Wind",
+      "text": "将一个友方随从随机变形成为一个法力值消耗增加（<b>@</b>）点的随从。",
+      "text_en": "[x]Transform a friendly\nminion into a random\none that costs (<b>@</b>) more.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 8,
+        "CARDTYPE": 10,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "TAG_SCRIPT_DATA_NUM_2": 1,
+        "COST": 2,
+        "2165": 1,
+        "4173": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_449p": {
+      "id": "EDR_449p",
+      "dbf_id": 114069,
+      "name": "月亮的祝福",
+      "name_en": "Blessing of the Moon",
+      "text": "选择一张可用的牧师随从牌或法术牌置入你的手牌，其法力值消耗减少（<b>@</b>）点，但为<b>临时</b>牌。",
+      "text_en": "[x]Choose a playable Priest\nminion or spell to add to\nyour hand. It costs (<b>@</b>) less,\nbut is <b>Temporary</b>.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 6,
+        "CARDTYPE": 10,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "COST": 2,
+        "USE_DISCOVER_VISUALS": 1,
+        "2165": 1,
+        "4173": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "3630",
+          "value": 1
+        },
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_451": {
+      "id": "EDR_451",
+      "dbf_id": 114081,
+      "name": "金萼幼龙",
+      "name_en": "Goldpetal Drake",
+      "text": "<b>战吼，亡语：</b><b>灌注</b>你的英雄技能。",
+      "text_en": "[x]<b>Battlecry and Deathrattle:</b>\n<b>Imbue</b> your Hero Power.",
+      "cost": 3,
+      "attack": 3,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 5,
+        "COST": 3,
+        "ATK": 3,
+        "HEALTH": 4,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "BATTLECRY": 1,
+        "COLLECTIBLE": 1,
+        "CARDRACE": 24,
+        "CARES_ABOUT_IMBUE_CARDS": 1,
+        "1724": 1,
+        "DEATHRATTLE": 1,
+        "HAS_SIGNATURE_QUALITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        114023,
+        114070
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_847p": {
+      "id": "EDR_847p",
+      "dbf_id": 114905,
+      "name": "魔像的祝福",
+      "name_en": "Blessing of the Golem",
+      "text": "召唤一个<b>@</b>/<b>@</b>的植物魔像。",
+      "text_en": "Summon a <b>@</b>/<b>@</b> Plant_Golem.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 2,
+        "CARDTYPE": 10,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "2165": 1,
+        "COST": 2,
+        "4173": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        117399
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_847pt2": {
+      "id": "EDR_847pt2",
+      "dbf_id": 117399,
+      "name": "植物魔像",
+      "name_en": "Plant Golem",
+      "text": "",
+      "text_en": "",
+      "cost": 1,
+      "attack": 1,
+      "health": 1,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 2,
+        "COST": 1,
+        "CARDTYPE": 4,
+        "ATK": 1,
+        "HEALTH": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_850p": {
+      "id": "EDR_850p",
+      "dbf_id": 114052,
+      "name": "巨狼的祝福",
+      "name_en": "Blessing of the Wolf",
+      "text": "随机使你手牌中的一张野兽牌获得+<b>@</b>攻击力，其法力值消耗减少（<b>@</b>）点。",
+      "text_en": "Give a random Beast\nin your hand +<b>@</b> Attack.\nIt costs (<b>@</b>) less.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 10,
+        "COST": 2,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "TAG_SCRIPT_DATA_NUM_2": 1,
+        "2165": 1,
+        "4173": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_851p": {
+      "id": "EDR_851p",
+      "dbf_id": 114056,
+      "name": "小精灵的祝福",
+      "name_en": "Blessing of the Wisp",
+      "text": "召唤<b>@个小精灵</b>。造成<b>$@</b>点伤害，随机分配到所有敌人身上。",
+      "text_en": "[x]Summon |4(<b>@</b> Wisp,<b>@</b> Wisps).\nDeal <b>$@</b> damage\nrandomly split among\nall enemies.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 10,
+        "COST": 2,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "2165": 1,
+        "4173": 1,
+        "349": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "2165",
+          "value": 1
+        },
+        {
+          "tag": "349",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        116450
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_851t": {
+      "id": "EDR_851t",
+      "dbf_id": 116450,
+      "name": "小精灵",
+      "name_en": "Wisp",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": 1,
+      "health": 1,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 4,
+        "ATK": 1,
+        "HEALTH": 1,
+        "CARDRACE": 11,
+        "3881": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "EDR_852": {
+      "id": "EDR_852",
+      "dbf_id": 114935,
+      "name": "苦花骑士",
+      "name_en": "Bitterbloom Knight",
+      "text": "<b>战吼：</b><b>灌注</b>你的英雄技能。",
+      "text_en": "<b>Battlecry:</b> <b>Imbue</b> your\nHero Power.",
+      "cost": 2,
+      "attack": 2,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "COST": 2,
+        "ATK": 2,
+        "HEALTH": 3,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COLLECTIBLE": 1,
+        "BATTLECRY": 1,
+        "CARES_ABOUT_IMBUE_CARDS": 1,
+        "1724": 1,
+        "HAS_SIGNATURE_QUALITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMBUE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        114905,
+        114069,
+        114059,
+        114052,
+        114056,
+        114023,
+        121243,
+        121272
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "END_000p": {
+      "id": "END_000p",
+      "dbf_id": 121243,
+      "name": "青铜龙的祝福",
+      "name_en": "Blessing of the Bronze",
+      "text": "<b>回溯</b>\n随机获取一张另一职业的随从牌，其法力值消耗减少（<b>@</b>）点。",
+      "text_en": "[x]<b>Rewind</b>\nGet a random minion\nfrom another class.\nIt costs (<b>@</b>) less.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "TAG_SCRIPT_DATA_NUM_2": 1,
+        "CARDTYPE": 10,
+        "COST": 1,
+        "REWIND": 1,
+        "2165": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "REWIND",
+          "value": 1
+        },
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "END_003p": {
+      "id": "END_003p",
+      "dbf_id": 121272,
+      "name": "永恒龙的祝福",
+      "name_en": "Blessing of the Infinite",
+      "text": "<b>被动</b>\n每回合中，你使用的第一张亡灵牌获得+<b>@</b>攻击力。",
+      "text_en": "<b>Passive</b>\nThe first Undead you\nplay each turn gains\n+<b>@</b> Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 1,
+        "CARDTYPE": 10,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "TRIGGER_VISUAL": 1,
+        "2165": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    "HERO_06": {
+      "id": "HERO_06",
+      "dbf_id": 274,
+      "name": "玛法里奥·怒风",
+      "name_en": "Malfurion Stormrage",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": 30,
+      "type": "HERO",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 2,
+        "COLLECTIBLE": 1,
+        "HEALTH": 30,
+        "CARDTYPE": 3,
+        "HERO_POWER": 1123,
+        "FACTION": 3,
+        "251": 1,
+        "EMOTECHARACTER": 18,
+        "EMOTECLASS": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  },
+  "scope": "Frozen Imbue class mappings, necessary sources and tokens; availability is tracked separately. This is not a formal legal or generation pool."
+}

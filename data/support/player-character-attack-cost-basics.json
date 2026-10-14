@@ -1,0 +1,53 @@
+{
+  "profile": "whole-game-original-character-declaration-price-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CATA_568",
+      "data": {
+        "id": "CATA_568",
+        "dbf_id": 122999,
+        "name": "穆拉丁的奋战",
+        "name_en": "Muradin's Last Stand",
+        "text": "抽两张牌。在本局对战中，友方角色每攻击过一次，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Draw 2 cards. Costs (1) less for each time a friendly character attacked this game.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "COST": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "2a5d56f516db9be55e123d2d38daad17d675f5dc82ca81bd99f4d2e5eba92e9d"
+    }
+  ],
+  "new_real_card_adapters": [
+    "CATA_568"
+  ],
+  "native_profile": "cost.player-character-attack-declared-v1",
+  "policy": "Original declaration player, one per actual native attack window, voluntary heroes/minions and existing forced minions across the game. Count declarations, including later cancellation/interruption, not damage packets or current opportunity counters. This is an explicit internal phase/origin policy, not exact CN calibration.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

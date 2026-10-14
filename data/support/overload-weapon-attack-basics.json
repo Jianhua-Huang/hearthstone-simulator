@@ -1,0 +1,66 @@
+{
+  "profile": "current-overload-presence-weapon-attack-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "TRL_352",
+      "data": {
+        "id": "TRL_352",
+        "dbf_id": 50550,
+        "name": "舔舔魔杖",
+        "name_en": "Likkim",
+        "text": "当你有<b>过载</b>的法力水晶时，拥有+2攻击力。",
+        "text_en": "Has +2 Attack while you have <b>Overloaded</b> Mana Crystals.",
+        "cost": 2,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 8,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "COST": 2,
+          "ATK": 1,
+          "CARDTYPE": 7,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "AURA": 1,
+          "HEALTH": 3
+        },
+        "reference_tags": [
+          {
+            "tag": "OVERLOAD",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000341,
+          "craftingEvent": 10000342,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4354aada0d37f81a52fa981541578c4a5f8703762f5d00bfb452a417e969241f"
+    }
+  ],
+  "new_real_card_adapters": [
+    "TRL_352"
+  ],
+  "policy": "Current controller has positive overload_owed or overload_locked: native weapon receives its fixed conditional additive Attack contribution. Ordinary numeric layer and original equipment/attack/wear remain. Pending/locked interpretation and exact CN display/combat timing remain uncalibrated.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

@@ -1,0 +1,58 @@
+{
+  "profile": "original-target-scope-audit-v1",
+  "records": [
+    {
+      "id": "GIL_614",
+      "dbf_id": 47287,
+      "name": "巫毒娃娃",
+      "name_en": "Voodoo Doll",
+      "text": "<b>战吼：</b>选择一个随从。<b>亡语：</b>消灭选择的随从。",
+      "text_en": "<b>Battlecry:</b> Choose a minion. <b>Deathrattle:</b> Destroy the chosen minion.",
+      "cost": 3,
+      "attack": 1,
+      "health": 1,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "RARITY": 4,
+        "CARDTYPE": 4,
+        "COST": 3,
+        "ATK": 1,
+        "HEALTH": 1,
+        "ELITE": 0,
+        "BATTLECRY": 1,
+        "DEATHRATTLE": 1,
+        "VOODOO_LINK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000357,
+        "craftingEvent": 10000358,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "source_records": 36022,
+  "scope": "Real Voodoo Doll target-memory/deathrattle demand retained for M7. Existing physical reference is available; full card expression, lifecycle policy and CN timing are not proven.",
+  "new_runtime_modules": 0,
+  "new_combinations": 0,
+  "new_production_adapters": 0,
+  "CN_calibrated": false,
+  "full_mechanism_inventory_closed": false
+}

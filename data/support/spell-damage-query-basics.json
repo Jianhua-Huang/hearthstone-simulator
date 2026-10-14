@@ -1,0 +1,102 @@
+{
+  "profile": "original-spell-damage-query-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CATA_452",
+      "data": {
+        "id": "CATA_452",
+        "dbf_id": 122454,
+        "name": "织法者的光辉",
+        "name_en": "Spellweaver's Brilliance",
+        "text": "召唤一条6/6的龙。在本回合中，你每用法术造成一点伤害，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]Summon a 6/6 Dragon.\nCosts (1) less for\neach damage you dealt\nwith spells this turn.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "COST": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 0,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          122455
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e97f9ce92f2c6b08cd55050f452428713270e6de68b05435ca0d620a06cbabb2"
+    },
+    {
+      "id": "CATA_487",
+      "data": {
+        "id": "CATA_487",
+        "dbf_id": 123419,
+        "name": "祈雨元素",
+        "name_en": "Raincaller",
+        "text": "每回合中，你第一次用法术造成伤害时，获得+2攻击力。",
+        "text_en": "The first time you deal damage with a spell each turn, gain +2 Attack.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 1,
+          "HEALTH": 4,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 18,
+          "TAG_SCRIPT_DATA_NUM_1": 0,
+          "TRIGGER_VISUAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ac63bbc56cc1e5e4387cca54856d84b27994b2ae2dea210bc1be5994c25b0fb3"
+    }
+  ],
+  "demand": "Actual spell damage units by original player and turn, distinct from Hero Power credit, net health loss, requested damage or number of casts.",
+  "scope": "Query prerequisite only. Both cards are evidence-only; no white-card adapters or claimed native behavior.",
+  "new_real_card_adapters": [],
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

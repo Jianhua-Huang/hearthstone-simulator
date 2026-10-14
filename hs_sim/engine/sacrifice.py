@@ -1,0 +1,267 @@
+"""Guarded destruction rewards and live physical-neighbor selection.
+
+The normal scheduler owns deaths/reactions; a reward never resurrects its
+beneficiary or attaches to a later incarnation that happens to reuse its ID.
+"""
+from dataclasses import dataclass
+
+from .effects import Buff, Destroy, Effect, GrantKeyword, _integer, _player, _source
+from .errors import ResolutionError
+from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, Zone
+
+
+@dataclass(frozen=True)
+class MinionReference:
+    entity_id: int
+    player_id: int
+    card_id: str
+    zone_epoch: int
+    entered_order: int
+
+    def __post_init__(self):
+        _integer(self.entity_id, 'minion ID', 1)
+        _player(self.player_id)
+        if type(self.card_id) is not str or not self.card_id.strip():
+            raise ValueError('Minion reference requires a card ID')
+        _integer(self.zone_epoch, 'minion zone epoch', 0)
+        _integer(self.entered_order, 'minion entry order', 1)
+
+    @classmethod
+    def capture(cls, entity):
+        if entity.zone != Zone.BOARD or entity.kind != CardType.MINION:
+            raise ValueError('Minion references require a board minion')
+        return cls(entity.id, entity.controller, entity.card_id, entity.zone_epoch, entity.entered_order)
+
+
+def reference_value(value):
+    if type(value) is not MinionReference:
+        raise ValueError('Expected a captured MinionReference')
+    value.__post_init__()
+
+
+def same_instance(state, reference):
+    entity = state.entities.get(reference.entity_id)
+    if entity is None or (entity.zone, entity.kind, entity.controller, entity.card_id,
+            entity.zone_epoch, entity.entered_order) != (Zone.BOARD, CardType.MINION,
+            reference.player_id, reference.card_id, reference.zone_epoch, reference.entered_order):
+        return None
+    return entity
+
+
+def live_minion(state, reference):
+    entity = same_instance(state, reference)
+    return entity if entity is not None and entity.active and entity.health > 0 and not entity.doomed else None
+
+
+def reward_values(effect):
+    reference_value(effect.beneficiary)
+    _integer(effect.attack, 'reward attack')
+    _integer(effect.health, 'reward health', 0)
+    _source(effect.source_id)
+
+
+@dataclass(frozen=True)
+class BuffCapturedMinion(Effect):
+    beneficiary: MinionReference
+    attack: int = 0
+    health: int = 0
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reward_values(self)
+
+
+@dataclass(frozen=True)
+class GrantCapturedKeyword(Effect):
+    beneficiary: MinionReference
+    keyword: Keyword
+    source_id: int | None = None
+    expires_turn: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        GrantKeyword(self.beneficiary.entity_id, self.keyword, self.source_id, self.expires_turn)
+
+
+def grant_captured_keyword(r, effect):
+    from .resolver import grant_ability, validate_attachment_source
+    effect.__post_init__(); validate_request(r, effect)
+    validate_attachment_source(r, effect.source_id, effect.expires_turn)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    grant_ability(r, GrantKeyword(effect.beneficiary.entity_id, effect.keyword, effect.source_id, effect.expires_turn))
+
+
+@dataclass(frozen=True)
+class GrantDeckSacrificeAura(Effect):
+    target_id: int
+    spec: DeckSacrificeSpec
+    source_id: int | None = None
+    expires_turn: int | None = None
+
+    def __post_init__(self):
+        _integer(self.target_id, 'deck sacrifice holder', 1); _source(self.source_id)
+        if type(self.spec) is not DeckSacrificeSpec:
+            raise ValueError('Deck sacrifice aura requires DeckSacrificeSpec')
+        self.spec.__post_init__()
+        if self.expires_turn is not None:
+            _integer(self.expires_turn, 'deck sacrifice expiry', 1)
+
+
+@dataclass(frozen=True)
+class DestroyForBuff(Effect):
+    victim: MinionReference
+    beneficiary: MinionReference
+    attack: int = 0
+    health: int = 0
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.victim)
+        reward_values(self)
+
+
+@dataclass(frozen=True)
+class SacrificeAdjacent(Effect):
+    beneficiary: MinionReference
+    attack: int = 0
+    health: int = 0
+    side: str = 'right'
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reward_values(self)
+        if type(self.side) is not str or self.side not in ('left', 'right'):
+            raise ValueError('Sacrifice side must be left or right')
+
+
+@dataclass(frozen=True)
+class CompleteDestructionBuff(Effect):
+    victim: MinionReference
+    beneficiary: MinionReference
+    first_death_id: int
+    attack: int = 0
+    health: int = 0
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.victim)
+        reward_values(self)
+        _integer(self.first_death_id, 'destruction death boundary', 1)
+
+
+def validate_request(r, effect):
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Destruction reward source does not exist')
+    for ref in (effect.beneficiary, *((effect.victim,) if hasattr(effect, 'victim') else ())):
+        if r.registry.card(ref.card_id).kind != CardType.MINION:
+            raise ResolutionError('Destruction reward references require minion definitions')
+
+
+def destroy_for_buff(r, effect):
+    from .resolver import destroy
+    validate_request(r, effect)
+    victim = live_minion(r.state, effect.victim)
+    beneficiary = live_minion(r.state, effect.beneficiary)
+    if victim is None or beneficiary is None:
+        r.stale(effect, effect.victim.entity_id if victim is None else effect.beneficiary.entity_id)
+        return ()
+    first_death_id = r.state.next_death_id
+    destroy(r, Destroy(victim.id, effect.source_id))
+    return (CompleteDestructionBuff(effect.victim, effect.beneficiary, first_death_id,
+                                   effect.attack, effect.health, effect.source_id),)
+
+
+def sacrifice_adjacent(r, effect):
+    validate_request(r, effect)
+    beneficiary = live_minion(r.state, effect.beneficiary)
+    if beneficiary is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    if deck_sacrifice_aura(r, beneficiary) is not None:
+        from .pools import PoolQuery
+        from .zones import DestroyDeckCard, zone_candidates
+        candidates = zone_candidates(r, 3-beneficiary.controller, Zone.DECK,
+            PoolQuery(kinds=(CardType.MINION,)), beneficiary.controller, effect.source_id)
+        if not candidates:
+            return ()  # An active replacement never falls back to a friendly victim.
+        card = r.game._rng.choice(candidates)
+        return (DestroyDeckCard(card, effect.source_id, on_destroy=(BuffCapturedMinion(
+            effect.beneficiary, effect.attack, effect.health, effect.source_id),)),)
+    board = r.player(beneficiary.controller).board
+    index = board.index(beneficiary.id) + (1 if effect.side == 'right' else -1)
+    if not 0 <= index < len(board):
+        return ()
+    victim = r.state.entities[board[index]]
+    # Locations and dormant minions occupy physical space; never search past them.
+    if victim.kind != CardType.MINION or not victim.active or victim.doomed or victim.health <= 0:
+        return ()
+    return destroy_for_buff(r, DestroyForBuff(MinionReference.capture(victim), effect.beneficiary,
+                                             effect.attack, effect.health, effect.source_id))
+
+
+def deck_sacrifice_aura(r, beneficiary):
+    """Live controller-local presence; copies do not multiply one replacement."""
+    matches = []
+    for entity_id in r.player(beneficiary.controller).board:
+        source = r.state.entities[entity_id]
+        if source.kind != CardType.MINION or not source.active or source.health <= 0 or source.doomed:
+            continue
+        matches.extend(a for a in source.abilities if a.kind == 'deck_sacrifice' and
+                       not a.consumed and beneficiary.card_id in a.deck_sacrifice.card_ids)
+    return min(matches, key=lambda a: a.id) if matches else None
+
+
+def buff_captured_minion(r, effect):
+    from .resolver import buff
+    validate_request(r, effect)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    buff(r, Buff(effect.beneficiary.entity_id, effect.attack, effect.health, effect.source_id))
+    return ()
+
+
+def grant_deck_sacrifice_aura(r, effect):
+    from .lifecycle import attachment_id
+    from .resolver import validate_attachment_source
+    validate_attachment_source(r, effect.source_id, effect.expires_turn)
+    entity = r.state.entities.get(effect.target_id)
+    if entity is None or entity.kind != CardType.MINION or entity.zone != Zone.BOARD or not entity.active:
+        r.stale(effect, effect.target_id)
+        return ()
+    ability = AbilityInstance(attachment_id(r.state), 'deck_sacrifice', source_id=effect.source_id,
+                             deck_sacrifice=effect.spec, expires_turn=effect.expires_turn)
+    entity.abilities.append(ability)
+    r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
+           ability_id=ability.id, ability_kind=ability.kind)
+
+
+def complete_destruction_buff(r, effect):
+    from .resolver import buff
+    validate_request(r, effect)
+    if effect.first_death_id > r.state.next_death_id:
+        raise ResolutionError('Destruction reward has a future death boundary')
+    dead = any(d.id >= effect.first_death_id and d.entity_id == effect.victim.entity_id and
+               d.card_id == effect.victim.card_id and d.controller == effect.victim.player_id
+               for d in r.state.death_history)
+    victim = same_instance(r.state, effect.victim)
+    # Starship launch deliberately defers minion deaths. An accepted destruction
+    # still earns its reward there; it must not create an extra death checkpoint.
+    deferred = r.death_deferrals > 0 and victim is not None and victim.doomed
+    if not (dead or deferred) or live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    buff(r, Buff(effect.beneficiary.entity_id, effect.attack, effect.health, effect.source_id))
+    return ()
+
+
+def register(mechanics):
+    mechanics.register_payload_type(MinionReference)
+    mechanics.register(DestroyForBuff, destroy_for_buff)
+    mechanics.register(SacrificeAdjacent, sacrifice_adjacent)
+    mechanics.register(CompleteDestructionBuff, complete_destruction_buff)
+    mechanics.register(BuffCapturedMinion, buff_captured_minion)
+    mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
+    mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

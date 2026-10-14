@@ -1,0 +1,945 @@
+{
+  "profile": "freeze-prevention-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "DRG_068",
+      "dbf_id": 55418,
+      "name": "活化龙息",
+      "name_en": "Living Dragonbreath",
+      "text": "你的随从无法被\n<b>冻结</b>。",
+      "text_en": "Your minions can't be_<b>Frozen</b>.",
+      "cost": 3,
+      "attack": 3,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 1,
+        "COST": 3,
+        "CARDTYPE": 4,
+        "ATK": 3,
+        "HEALTH": 4,
+        "COLLECTIBLE": 1,
+        "CARDRACE": 18,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000280,
+        "craftingEvent": 10000281,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CS2_024",
+      "dbf_id": 662,
+      "name": "寒冰箭",
+      "name_en": "Frostbolt",
+      "text": "对一个角色造成$3点伤害，并使其<b>冻结</b>。",
+      "text_en": "Deal $3 damage to a_character and <b>Freeze</b> it.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 4,
+        "COST": 2,
+        "CARDTYPE": 5,
+        "FACTION": 3,
+        "251": 1,
+        "268": 2,
+        "FREEZE": 1,
+        "SPELL_SCHOOL": 3,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CRED_19",
+      "dbf_id": 3019,
+      "name": "Beomki Hong",
+      "name_en": "Beomki Hong",
+      "text": "<b>嘲讽</b>，友方随从无法被<b>冻结</b>。",
+      "text_en": "<b>Taunt.</b> Friendly minions can’t be <b>Frozen.</b>",
+      "cost": 4,
+      "attack": 6,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "RARITY": 5,
+        "CLASS": 12,
+        "ELITE": 1,
+        "COST": 4,
+        "HEALTH": 3,
+        "ATK": 6,
+        "CARDTYPE": 4
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_068e",
+      "dbf_id": 59238,
+      "name": "暖意融融",
+      "name_en": "Toasty",
+      "text": "无法被<b>冻结</b>。",
+      "text_en": "Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 8,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447_01",
+      "dbf_id": 74956,
+      "name": "萨弗拉斯1",
+      "name_en": "Sulfuras 1",
+      "text": "<b>被动：</b>+@生命值。你的角色无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Health.\nYour characters cannot\nbe_<b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447_02",
+      "dbf_id": 74955,
+      "name": "萨弗拉斯2",
+      "name_en": "Sulfuras 2",
+      "text": "<b>被动：</b>+@生命值。你的角色无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Health.\nYour characters cannot\nbe_<b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 10
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447_03",
+      "dbf_id": 73639,
+      "name": "萨弗拉斯3",
+      "name_en": "Sulfuras 3",
+      "text": "<b>被动：</b>+@生命值。你的角色无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Health.\nYour characters cannot\nbe_<b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 15
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447_04",
+      "dbf_id": 73640,
+      "name": "萨弗拉斯{0}",
+      "name_en": "Sulfuras {0}",
+      "text": "<b>被动：</b>+@生命值。你的角色无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Health.\nYour characters cannot\nbe_<b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "LETTUCE_EQUIPMENT_TIER": 4,
+        "TAG_SCRIPT_DATA_NUM_1": 20
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447e",
+      "dbf_id": 73642,
+      "name": "",
+      "name_en": "Sulfuras",
+      "text": "",
+      "text_en": "This Merc has +@ Health. Your characters cannot be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "AURA": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447e2",
+      "dbf_id": 67275,
+      "name": "",
+      "name_en": "Toasty",
+      "text": "",
+      "text_en": "Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1,
+        "ENCHANTMENT_INVISIBLE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_832H2",
+      "dbf_id": 77168,
+      "name": "冰雹使者",
+      "name_en": "Hailbringer",
+      "text": "元素无法被<b>冻结</b>。",
+      "text_en": "Elementals cannot be <b>Frozen</b>.",
+      "cost": 8,
+      "attack": 5,
+      "health": 80,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 18,
+        "CARDTYPE": 4,
+        "COST": 8,
+        "ATK": 5,
+        "HEALTH": 80,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 1,
+        "AURA": 1,
+        "RARITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_843H2",
+      "dbf_id": 80417,
+      "name": "火山幼龙",
+      "name_en": "Volcanic Drake",
+      "text": "你的角色无法被<b>冻结</b>且拥有<b>+@火焰抗性。</b>",
+      "text_en": "Your characters can't be <b>Frozen</b> and have <b>+@_Fire_Resistance.</b>",
+      "cost": 10,
+      "attack": 25,
+      "health": 150,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_MERCENARY": 1,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 25,
+        "HEALTH": 150,
+        "LETTUCE_ROLE": 2,
+        "TAG_SCRIPT_DATA_NUM_1": 10,
+        "CARDRACE": 24,
+        "RARITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "CANT_BE_FROZEN",
+          "value": 1
+        },
+        {
+          "tag": "SPELL_RESISTANCE_FIRE",
+          "value": 1
+        },
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_848H4",
+      "dbf_id": 81560,
+      "name": "奈法利安",
+      "name_en": "Nefarian",
+      "text": "你的角色无法被<b>冻结</b>。",
+      "text_en": "Your characters cannot be <b>Frozen</b>.",
+      "cost": 10,
+      "attack": 15,
+      "health": 450,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 24,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 15,
+        "HEALTH": 450,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 2,
+        "LETTUCE_BOUNTY_BOSS": 1,
+        "ELITE": 1,
+        "RARITY": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "CANT_BE_FROZEN",
+          "value": 1
+        },
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_848H4_Heroic",
+      "dbf_id": 82122,
+      "name": "奈法利安",
+      "name_en": "Nefarian",
+      "text": "你的角色无法被<b>冻结</b>。",
+      "text_en": "Your characters cannot be <b>Frozen</b>.",
+      "cost": 10,
+      "attack": 25,
+      "health": 550,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 24,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 25,
+        "HEALTH": 550,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 2,
+        "LETTUCE_BOUNTY_BOSS": 1,
+        "ELITE": 1,
+        "RARITY": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_853H3",
+      "dbf_id": 82732,
+      "name": "部落祭司",
+      "name_en": "Horde Primalist",
+      "text": "你的角色无法被<b>冻结</b>。",
+      "text_en": "Your characters can't be <b>Frozen</b>",
+      "cost": 10,
+      "attack": 15,
+      "health": 60,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 10,
+        "RARITY": 4,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 15,
+        "HEALTH": 60,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 1,
+        "AURA": 1,
+        "FACTION": 1,
+        "LETTUCE_FACTION": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_001E1_01",
+      "dbf_id": 86019,
+      "name": "无坚不摧之力1",
+      "name_en": "The Unstoppable Force 1",
+      "text": "<b>被动：</b>+@攻击力。无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Attack. Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 2,
+        "LETTUCE_PASSIVE_ABILITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_001E1_02",
+      "dbf_id": 86021,
+      "name": "无坚不摧之力2",
+      "name_en": "The Unstoppable Force 2",
+      "text": "<b>被动：</b>+@攻击力。无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Attack. Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 4,
+        "LETTUCE_PASSIVE_ABILITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_001E1_03",
+      "dbf_id": 86022,
+      "name": "无坚不摧之力3",
+      "name_en": "The Unstoppable Force 3",
+      "text": "<b>被动：</b>+@攻击力。无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Attack. Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 5,
+        "LETTUCE_PASSIVE_ABILITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_001E1_04",
+      "dbf_id": 86023,
+      "name": "无坚不摧之力{0}",
+      "name_en": "The Unstoppable Force {0}",
+      "text": "<b>被动：</b>+@攻击力。无法被<b>冻结</b>。",
+      "text_en": "<b>Passive:</b> +@ Attack. Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 6,
+        "LETTUCE_PASSIVE_ABILITY": 1,
+        "LETTUCE_EQUIPMENT_TIER": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_806H2",
+      "dbf_id": 87354,
+      "name": "始祖龟执事者",
+      "name_en": "Tortollan Steward",
+      "text": "你的角色无法被<b>冻结</b>。",
+      "text_en": "Your characters can't be <b>Frozen</b>",
+      "cost": 7,
+      "attack": 40,
+      "health": 60,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 40,
+        "HEALTH": 60,
+        "LETTUCE_ROLE": 2,
+        "LETTUCE_MERCENARY": 1,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "CANT_BE_FROZEN",
+          "value": 1
+        },
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_822H2",
+      "dbf_id": 90334,
+      "name": "麦迪文男仆的残影",
+      "name_en": "Echo of Medivh's Valet",
+      "text": "<b>火焰抗性+@</b>。你的角色无法被<b>冻结</b>。 ",
+      "text_en": "<b>Fire Resistance +@</b>. Your characters cannot be <b>Frozen</b>. ",
+      "cost": 2,
+      "attack": 2,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "RARITY": 4,
+        "CARDTYPE": 4,
+        "COST": 2,
+        "ATK": 2,
+        "HEALTH": 3,
+        "CARDRACE": 11,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 10,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "SPELL_RESISTANCE_FIRE",
+          "value": 1
+        },
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_representatives": [
+    "DRG_068",
+    "CS2_024"
+  ],
+  "evidence_only": [
+    "CRED_19",
+    "DRG_068e",
+    "LETL_447_01",
+    "LETL_447_02",
+    "LETL_447_03",
+    "LETL_447_04",
+    "LETL_447e",
+    "LETL_447e2",
+    "LETL_832H2",
+    "LETL_843H2",
+    "LETL_848H4",
+    "LETL_848H4_Heroic",
+    "LETL_853H3",
+    "LT22_001E1_01",
+    "LT22_001E1_02",
+    "LT22_001E1_03",
+    "LT22_001E1_04",
+    "LT23_806H2",
+    "LT24_822H2"
+  ],
+  "official_sources": [
+    "https://hearthstone.blizzard.com/en-us/cards/55418",
+    "https://hearthstone.blizzard.com/en-gb/news/23765270/opisanie-obnovleniya-22-2",
+    "https://www.reddit.com/r/hearthstone/comments/e64k7m/comment/f9oavti/"
+  ],
+  "candidate_filter": "All-mode explicit freeze-prohibition tag/zh/en wording; Frostbolt is the necessary complete native application source, not an immunity candidate.",
+  "formal_mode_pool_verified": false,
+  "CN_calibrated": false
+}

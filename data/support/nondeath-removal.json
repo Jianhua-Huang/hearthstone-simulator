@@ -1,0 +1,161 @@
+{
+  "version": "nondeath-removal-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "MAW_013",
+      "data": {
+        "id": "MAW_013",
+        "dbf_id": 79596,
+        "name": "终身刑罚",
+        "name_en": "Life Sentence",
+        "text": "将一个随从移出对战。",
+        "text_en": "Remove a minion\nfrom the game.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "COST": 4,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "MINI_SET": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000290,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "57a0cefb37e790df62e51e770aba52128809cfdd9b329ffd881d109f1ceef159"
+    },
+    {
+      "id": "YOD_009",
+      "data": {
+        "id": "YOD_009",
+        "dbf_id": 56076,
+        "name": "神奇的雷诺",
+        "name_en": "The Amazing Reno",
+        "text": "<b>战吼：</b>使所有随从消失。<i>*咻！*</i>",
+        "text_en": "<b>Battlecry:</b> Make all minions disappear. <i>*Poof!*</i>",
+        "cost": 10,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 10,
+          "HEALTH": 30,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "HERO_POWER": 56075,
+          "ARMOR": 5,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000296,
+          "craftingEvent": 10000297,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "2dbef0f7a78638927c9e161a77deae3e412e1b830a8b70eb16db762b4295961e"
+    },
+    {
+      "id": "DMF_254",
+      "data": {
+        "id": "DMF_254",
+        "dbf_id": 61503,
+        "name": "克苏恩，破碎之劫",
+        "name_en": "C'Thun, the Shattered",
+        "text": "<b>对战开始时：</b>破碎成片。<b>战吼：</b>造成30点伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Start of Game:</b> Break into\npieces. <b>Battlecry:</b> Deal 30\ndamage randomly split\namong all enemies.",
+        "cost": 10,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COST": 10,
+          "ATK": 6,
+          "HEALTH": 6,
+          "START_OF_GAME_KEYWORD": 1,
+          "BATTLECRY": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1673": 1,
+          "2936": 1,
+          "4759": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "START_OF_GAME_KEYWORD",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "START_OF_GAME_KEYWORD",
+            "value": 1
+          },
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          61873,
+          61875,
+          61874,
+          61877,
+          61879
+        ],
+        "source_events": {
+          "gameplayEvent": 10000360,
+          "craftingEvent": 10000361,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f511c1767baf7f8b782aa07468f6f4bef59f7f13cc8a08db5545ba2b87d04ad0"
+    }
+  ]
+}

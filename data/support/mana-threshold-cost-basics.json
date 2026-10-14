@@ -1,0 +1,51 @@
+{
+  "profile": "permanent-mana-threshold-price-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "BT_134",
+      "data": {
+        "id": "BT_134",
+        "dbf_id": 56686,
+        "name": "沼泽射线",
+        "name_en": "Bogbeam",
+        "text": "对一个随从造成$3点伤害。如果你拥有至少七个法力水晶，则法力值消耗为（0）点。",
+        "text_en": "Deal $3 damage to_a minion.\nCosts (0) if you have at least 7 Mana Crystals.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "RARITY": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000302,
+          "craftingEvent": 10000303,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "62e15d4a658b3e67ebcf42297d319335eefbcceece010781278498b793a1b4c4"
+    }
+  ],
+  "new_real_card_adapters": [
+    "BT_134"
+  ],
+  "interpretation": "At least seven permanent maximum Mana Crystals, including spent/locked crystals; temporary available mana is not extra permanent crystals. Reuse existing Manathirst/rank resource convention; exact CN behavior remains uncalibrated.",
+  "condition": "permanent_mana_at_least",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

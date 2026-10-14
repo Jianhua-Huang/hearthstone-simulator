@@ -1,0 +1,822 @@
+"""Hidden-zone operations and private choices over physical cards.
+
+Movement keeps entity identity; copies allocate new entities and attachments.
+Captured physical targets include zone/controller/definition guards so later
+reactions cannot pull a departed card back or operate on a different face.
+"""
+from .hand_capacity import hand_capacity
+from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, validate_declaration,
+    validate_branch_declaration, validate_minion_grant)
+from dataclasses import dataclass, replace
+
+from .construction import integer, name
+from .effects import AddToHand, ChoiceOption, Draw, Effect, RequestChoice, _player, _source, validate_generated_cost
+from .errors import ResolutionError, ResolutionLimitExceeded
+from .lifecycle import copy_attachments, reset_to_definition
+from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, SummonStats, Zone, validate_summon_stats
+from .sacrifice import MinionReference, live_minion
+from .pools import PoolQuery, matches_metadata
+from .card_conditions import has_battlecry
+from .copy_materials import CopyEntryMaterial
+from .allocation_facts import SourceAllocationFact, allocation_from_payload, validate_allocation
+
+
+CARD_ZONES = (Zone.HAND, Zone.DECK)
+HAND_TYPES = (CardType.MINION, CardType.SPELL, CardType.WEAPON, CardType.LOCATION, CardType.HERO)
+
+
+def card_zone(zone):
+    if type(zone) is not Zone or zone not in CARD_ZONES:
+        raise ValueError('Expected hand or deck zone')
+
+
+def position_value(position):
+    if type(position) is int:
+        integer(position, 'insertion position', 0)
+    elif type(position) is not str or position not in ('top', 'bottom', 'random'):
+        raise ValueError('Position must be top, bottom, random or a nonnegative index')
+
+
+def insertion_index(r, position, size):
+    position_value(position)
+    if type(position) is int:
+        if position > size:
+            raise ResolutionError('Insertion position exceeds destination length')
+        return position
+    return 0 if position == 'top' else size if position == 'bottom' else r.game._rng.randrange(size + 1)
+
+
+def source_exists(r, source_id):
+    if source_id is not None and source_id not in r.state.entities:
+        raise ResolutionError('Zone operation source does not exist')
+
+
+@dataclass(frozen=True)
+class AddToDeck(Effect):
+    player_id: int
+    card_id: str
+    position: str | int = 'random'
+    source_id: int | None = None
+    cost: CostSpec | None = None
+    expires_turn: int | None = None
+
+    spell_repeat: CardSpellRepeatGrant | None = None
+    choose_branch: ChooseBranchSelection | None = None
+    minion_grant: CreatedMinionGrant | None = None
+
+    def __post_init__(self):
+        validate_minion_grant(self.minion_grant)
+        validate_declaration(self.spell_repeat)
+        validate_branch_declaration(self.choose_branch, self.card_id)
+        _player(self.player_id); name(self.card_id, 'card ID'); _source(self.source_id)
+        position_value(self.position)
+        validate_generated_cost(self.cost, self.expires_turn)
+
+
+@dataclass(frozen=True)
+class CardReference:
+    entity_id: int
+    player_id: int
+    zone: Zone
+    card_id: str
+    zone_epoch: int
+
+    def __post_init__(self):
+        integer(self.entity_id, 'entity ID'); _player(self.player_id)
+        card_zone(self.zone); name(self.card_id, 'card ID')
+        integer(self.zone_epoch, 'zone epoch', 0)
+
+    @classmethod
+    def capture(cls, entity):
+        return cls(entity.id, entity.controller, entity.zone, entity.card_id, entity.zone_epoch)
+
+
+def reference_entity(r, reference):
+    r.registry.card(reference.card_id)
+    entity = r.state.entities.get(reference.entity_id)
+    if entity is None or (entity.controller, entity.zone, entity.card_id, entity.zone_epoch) != (
+            reference.player_id, reference.zone, reference.card_id, reference.zone_epoch):
+        r.emit('zone_target_skipped', target_id=reference.entity_id, reason='captured_card_departed')
+        return None
+    return entity
+
+
+def reference_value(reference):
+    if type(reference) is not CardReference:
+        raise ValueError('Expected a captured CardReference')
+    reference.__post_init__()
+
+
+@dataclass(frozen=True)
+class MoveCard(Effect):
+    card: CardReference
+    player_id: int
+    destination: Zone
+    position: str | int = 'bottom'
+    draw: bool = False
+    reset: bool = False
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.card); _player(self.player_id); card_zone(self.destination)
+        position_value(self.position); _source(self.source_id)
+        if type(self.draw) is not bool or type(self.reset) is not bool:
+            raise ValueError('Move flags must be boolean')
+        if self.destination == Zone.HAND and self.position != 'bottom':
+            raise ValueError('Move to hand appends; use ReorderZone for hand order')
+        if self.draw and (self.card.zone != Zone.DECK or self.destination != Zone.HAND or self.card.player_id != self.player_id):
+            raise ValueError('A draw moves a card from its own deck to hand')
+
+
+@dataclass(frozen=True)
+class CopyCard(Effect):
+    card: CardReference | CopyEntryMaterial | MinionReference
+    player_id: int
+    destination: Zone = Zone.HAND
+    mode: str = 'current'
+    position: str | int = 'random'
+    source_id: int | None = None
+    stats: SummonStats | None = None
+    cost: CostSpec | None = None
+    expires_turn: int | None = None
+
+    def __post_init__(self):
+        if type(self.card)is CopyEntryMaterial:
+            self.card.__post_init__()
+            if (self.card.profile!='discard_copy' or self.player_id!=self.card.discard.player_id or
+                    self.destination!=Zone.HAND or self.mode!='current' or self.position!='random' or
+                    self.source_id is not None and self.source_id!=self.card.origin.entity_id or
+                    self.stats is not None or self.cost is not None or self.expires_turn is not None):
+                raise ValueError('Discard copies require original current material and own hand append')
+        elif type(self.card) is MinionReference:
+            self.card.__post_init__()
+        else:
+            reference_value(self.card)
+        _player(self.player_id); card_zone(self.destination)
+        position_value(self.position); _source(self.source_id)
+        validate_summon_stats(self.stats)
+        validate_generated_cost(self.cost, self.expires_turn)
+        if self.mode not in ('base', 'current'):
+            raise ValueError('Copy mode must be base or current')
+        if self.destination == Zone.HAND and self.position != 'random':
+            raise ValueError('Hand copies append; insertion position applies only to deck copies')
+
+
+@dataclass(frozen=True)
+class DestroyStoredCard(Effect):
+    """Destroy the captured physical hand/deck card, independently of discard."""
+    card: CardReference
+    source_id: int | None = None
+    reveal: bool = True
+    on_destroy: tuple[Effect, ...] = ()
+
+    def __post_init__(self):
+        reference_value(self.card); _source(self.source_id)
+        if type(self.reveal) is not bool:
+            raise ValueError('Stored destruction requires a boolean reveal policy')
+        if type(self.on_destroy) is not tuple or any(not isinstance(e, Effect) for e in self.on_destroy):
+            raise ValueError('Destruction continuation must be an immutable tuple of effects')
+
+
+@dataclass(frozen=True)
+class DestroyDeckCard(Effect):
+    card: CardReference
+    source_id: int | None = None
+    reveal: bool = True
+    on_destroy: tuple[Effect, ...] = ()
+
+    def __post_init__(self):
+        reference_value(self.card); _source(self.source_id)
+        if self.card.zone != Zone.DECK or type(self.reveal) is not bool:
+            raise ValueError('Deck destruction requires a deck reference and boolean reveal policy')
+        if type(self.on_destroy) is not tuple or any(not isinstance(e, Effect) for e in self.on_destroy):
+            raise ValueError('Destruction continuation must be an immutable tuple of effects')
+
+
+@dataclass(frozen=True)
+class CardDestructionRecord:
+    """One successful original occurrence, derived from its immutable event."""
+    card: CardReference | SourceAllocationFact
+    owner_id: int
+    kind: CardType
+    source_id: int | None
+    sequence: int
+    turn: int
+    action: int
+    reveal: bool
+    profile: str = 'explicit'
+    recipient_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.owner_id); _source(self.source_id)
+        name(self.profile, 'destruction profile')
+        if self.profile == 'explicit':
+            reference_value(self.card)
+            if self.recipient_id is not None:
+                raise ValueError('Explicit destruction uses its captured controller')
+        else:
+            if type(self.card) is not SourceAllocationFact:
+                raise ValueError('Overflow requires its original physical allocation')
+            self.card.__post_init__(); _player(self.recipient_id)
+            zones={'stored_overflow':(Zone.HAND,Zone.DECK),'created_overflow':(Zone.GRAVEYARD,),
+                'setaside_overflow':(Zone.SETASIDE,),'graveyard_delivery_overflow':(Zone.GRAVEYARD,)}
+            if (self.profile not in zones or self.card.zone not in zones[self.profile] or
+                    self.owner_id != self.card.owner or self.kind != self.card.kind):
+                raise ValueError('Overflow profile disagrees with its original card')
+            if self.profile == 'created_overflow' and (self.card.zone_epoch != 0 or
+                    self.card.entity_id != self.card.next_entity_id-1):
+                raise ValueError('Created overflow requires its original newborn allocation')
+        if type(self.kind) is not CardType or self.kind not in HAND_TYPES:
+            raise ValueError('Stored destruction requires a physical hand-card type')
+        integer(self.sequence, 'destruction event sequence'); integer(self.turn, 'destruction turn')
+        integer(self.action, 'destruction action', 0)
+        if type(self.reveal) is not bool:
+            raise ValueError('Destruction reveal policy must be boolean')
+
+    @property
+    def player_id(self):
+        return self.card.player_id if self.profile == 'explicit' else self.recipient_id
+
+    @property
+    def after_epoch(self):
+        return self.card.zone_epoch + (0 if self.profile == 'created_overflow' else 1)
+
+
+def destruction_result(event):
+    if event is not None and event.kind == 'card_burned' and 'burn_destruction' in dict(event.data):
+        payload=dict(event.data)['burn_destruction']
+        if type(payload) is not tuple or any(type(row) is not tuple or len(row)!=2 for row in payload):
+            raise ValueError('Overflow requires immutable original receipt fields')
+        values=dict(payload)
+        if len(values)!=len(payload) or set(values)!={'profile','original','recipient_id','turn'}:
+            raise ValueError('Overflow requires its complete original receipt')
+        original=allocation_from_payload(values['original'])
+        if original is None or type(event.amount) is not int or event.amount != 0:
+            raise ValueError('Overflow lost its original card or notification amount')
+        row=CardDestructionRecord(original,original.owner,original.kind,event.source_id,event.sequence,
+            values['turn'],event.action,True,values['profile'],values['recipient_id'])
+        if type(event.target_id) is not int or type(event.player_id) is not int or (
+                event.target_id,event.player_id)!=(original.entity_id,row.player_id):
+            raise ValueError('Overflow notification changed its physical card/recipient')
+        return row
+    if event is None or event.kind not in ('card_destroyed_in_hand', 'card_destroyed_in_deck'):
+        return None
+    data = dict(event.data)
+    if (len(event.data) != 6 or set(data) != {'card_id','original_card','owner_id','card_kind','turn','reveal'} or
+            type(event.amount) is not int or event.amount != 0):
+        raise ValueError('Stored destruction requires its complete original receipt')
+    values = data['original_card']
+    if type(values) not in (tuple, list) or len(values) != 5 or type(values[2]) is not str:
+        raise ValueError('Stored destruction lost its original captured card')
+    card = CardReference(values[0], values[1], Zone(values[2]), values[3], values[4])
+    expected = 'card_destroyed_in_' + card.zone.value
+    if (event.kind != expected or type(data['card_kind']) is not str or
+            type(event.target_id) is not int or type(event.player_id) is not int or
+            (event.target_id,event.player_id,data['card_id']) != (card.entity_id,card.player_id,card.card_id)):
+        raise ValueError('Stored destruction event disagrees with its original card')
+    return CardDestructionRecord(card,data['owner_id'],CardType(data['card_kind']),event.source_id,
+        event.sequence,data['turn'],event.action,data['reveal'])
+
+
+def validate_destroyed_definition(card):
+    if card.on_destroyed is None:
+        return
+    name(card.on_destroyed, 'native destroyed behavior')
+    if not card.hand_playable or card.starship_for:
+        raise ValueError('Native destroyed body requires a physical non-composite hand card')
+
+
+def validate_destroyed_carrier(registry, card_id, kind, abilities, components=()):
+    bodies = tuple(a for a in abilities if a.kind == 'on_destroyed')
+    if not bodies:
+        return
+    card = registry.card(card_id); validate_destroyed_definition(card)
+    if (card.on_destroyed is None or card.kind != kind or components or len(bodies) != 1):
+        raise ValueError('Destroyed carrier lost its unique native body')
+    bodies[0].__post_init__()
+    if bodies[0].behavior_id != card.on_destroyed:
+        raise ValueError('Destroyed body differs from its current native declaration')
+
+
+def validate_destroyed_context(context, registry):
+    from .model import AbilityInstance
+    if type(context.trigger) is not AbilityInstance or context.trigger.kind != 'on_destroyed':
+        return
+    row = destruction_result(context.event)
+    if row is None:
+        raise ValueError('Native destroyed acceptance lost its original successful event')
+    integer(context.source_id, 'native destroyed source'); _player(context.player_id)
+    if (context.source_id != row.card.entity_id or context.player_id != row.player_id or
+            context.target_id is not None or type(context.rewind_attempt) is not int or context.rewind_attempt != 0 or
+            (context.state.turn,context.state.action_number) != (row.turn,row.action) or
+            any(getattr(context,key) is not None for key in ('death','choice','player_effect','window','play','cast',
+                'draw','power','battlecry','combo','deathrattle','power_payload','end_turn','physical','discard'))):
+        raise ValueError('Native destroyed body requires its independent original acceptance')
+    entity = context.state.entities.get(row.card.entity_id)
+    if (entity is None or (entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch) !=
+            (row.owner_id,row.player_id,row.card.card_id,row.kind,Zone.GRAVEYARD,row.after_epoch)):
+        raise ValueError('Native destroyed body lost its original after-destruction carrier')
+    if row.profile != 'explicit':
+        validate_allocation(context.state,registry,row.card)
+    validate_destroyed_carrier(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
+    if (context.trigger not in entity.abilities or
+            context.trigger.behavior_id != registry.card(entity.card_id).on_destroyed):
+        raise ValueError('Native destroyed body borrowed another declaration')
+    if row.source_id is not None and row.source_id not in context.state.entities:
+        raise ValueError('Native destroyed event borrowed an unknown source')
+
+
+def validate_destroyed_call(call, registry):
+    validate_destroyed_context(call.context, registry)
+    if (call.context.trigger is not None and call.context.trigger.kind == 'on_destroyed' and
+            call.behavior_id != call.context.trigger.behavior_id):
+        raise ValueError('Native destroyed call substituted another body')
+
+
+def capture_destroyed_body(r, event):
+    from copy import deepcopy
+    from .lifecycle import active_abilities
+    from .registry import RuleContext
+    from .resolver import BehaviorCall
+    row = destruction_result(event)
+    entity = r.state.entities[row.card.entity_id]
+    validate_destroyed_carrier(r.registry,entity.card_id,entity.kind,entity.abilities,entity.components)
+    bodies = active_abilities(entity,'on_destroyed')
+    if not bodies:
+        return None
+    call = BehaviorCall(bodies[0].behavior_id,RuleContext(deepcopy(r.state),entity.id,entity.controller,
+        event=deepcopy(event),trigger=deepcopy(bodies[0])))
+    validate_destroyed_call(call,r.registry)
+    return call
+
+
+def validate_stored_destruction_events(state, registry, events):
+    from .hero_health_history import effective_events
+    seen=set()
+    for event in effective_events(events):
+        row = destruction_result(event)
+        if row is None:
+            continue
+        entity = state.entities.get(row.card.entity_id)
+        if (registry.card(row.card.card_id).kind != row.kind or entity is None or
+                entity.owner != row.owner_id or entity.zone_epoch < row.after_epoch or
+                row.turn > state.turn or row.action > state.action_number or
+                row.source_id is not None and row.source_id not in state.entities):
+            raise ValueError('Stored destruction borrowed unknown or future original material')
+        if row.profile != 'explicit':
+            validate_allocation(state,registry,row.card)
+        key=(row.card.entity_id,row.after_epoch)
+        if key in seen:
+            raise ValueError('A physical retirement cannot publish destruction twice')
+        seen.add(key)
+
+
+def emit_burn(r, entity, *, profile, original=None, source_id=None, player_id=None, **data):
+    """The existing overflow producers supply their actual before-allocation."""
+    if original is None:
+        if profile != 'created_overflow':
+            raise ResolutionError('Non-created overflow requires its actual previous allocation')
+        original=SourceAllocationFact.capture(r.state,entity)
+    recipient=entity.controller if player_id is None else player_id
+    row=CardDestructionRecord(original,original.owner,original.kind,source_id,len(r.game._events)+1,
+        r.state.turn,r.state.action_number,True,profile,recipient)
+    validate_allocation(r.state,r.registry,original)
+    if ((entity.id,entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch)!=
+            (original.entity_id,row.owner_id,recipient,original.card_id,row.kind,Zone.GRAVEYARD,row.after_epoch) or
+            len(r.player(recipient).hand)<hand_capacity(r.player(recipient),r.rules) or 'burn_destruction' in data):
+        raise ResolutionError('Overflow requires its completed failed full-hand delivery')
+    return r.emit('card_burned',source_id=source_id,target_id=entity.id,player_id=recipient,
+        burn_destruction=(('profile',profile),('original',original.payload()),('recipient_id',recipient),('turn',r.state.turn)),**data)
+
+
+@dataclass(frozen=True)
+class DiscardCard(Effect):
+    card: CardReference
+    source_id: int | None = None
+    reveal: bool = True
+
+    def __post_init__(self):
+        reference_value(self.card); _source(self.source_id)
+        if self.card.zone != Zone.HAND or type(self.reveal) is not bool:
+            raise ValueError('Discard requires a hand card and boolean reveal policy')
+
+
+@dataclass(frozen=True)
+class ShuffleDeck(Effect):
+    player_id: int
+
+    def __post_init__(self):
+        _player(self.player_id)
+
+
+@dataclass(frozen=True)
+class ReorderZone(Effect):
+    player_id: int
+    zone: Zone
+    entity_ids: tuple[int, ...]
+
+    def __post_init__(self):
+        _player(self.player_id); card_zone(self.zone)
+        if type(self.entity_ids) is not tuple or len(set(self.entity_ids)) != len(self.entity_ids):
+            raise ValueError('Reordering requires a unique immutable ID sequence')
+        for entity_id in self.entity_ids:
+            integer(entity_id, 'ordered entity ID')
+
+
+def filter_value(query):
+    if type(query) is not PoolQuery:
+        raise ValueError('Expected PoolQuery')
+    query.__post_init__()
+
+
+@dataclass(frozen=True)
+class DrawMatching(Effect):
+    player_id: int
+    query: PoolQuery
+    empty_deck: str
+    count: int = 1
+    selection: str = 'random'
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); filter_value(self.query); _source(self.source_id)
+        integer(self.count, 'draw count', 0)
+        if self.selection not in ('random', 'first') or self.empty_deck not in ('skip', 'fatigue'):
+            raise ValueError('Draw requires explicit empty-deck and selection policies')
+
+
+@dataclass(frozen=True)
+class DestroyDeckMatching(Effect):
+    player_id: int
+    query: PoolQuery = PoolQuery()
+    count: int = 1
+    selection: str = 'random'
+    source_id: int | None = None
+    reveal: bool = True
+
+    def __post_init__(self):
+        _player(self.player_id); filter_value(self.query); _source(self.source_id)
+        integer(self.count, 'deck destruction count', 0)
+        if self.selection not in ('random', 'first') or type(self.reveal) is not bool:
+            raise ValueError('Invalid deck destruction selection or reveal policy')
+
+
+@dataclass(frozen=True)
+class DiscardMatching(Effect):
+    player_id: int
+    query: PoolQuery = PoolQuery()
+    count: int = 1
+    selection: str = 'random'
+    source_id: int | None = None
+    reveal: bool = True
+
+    def __post_init__(self):
+        _player(self.player_id); filter_value(self.query); _source(self.source_id)
+        integer(self.count, 'discard count', 0)
+        if self.selection not in ('random', 'first', 'highest_cost', 'lowest_cost') or type(self.reveal) is not bool:
+            raise ValueError('Invalid discard selection or reveal policy')
+
+
+@dataclass(frozen=True)
+class ChooseFromZone(Effect):
+    player_id: int
+    owner_id: int
+    zone: Zone
+    query: PoolQuery = PoolQuery()
+    operation: str = 'copy_base'
+    sample_size: int | None = 3
+    distinct: str = 'card'
+    source_id: int | None = None
+    prompt: str = '选择一张牌'
+
+    def __post_init__(self):
+        _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
+        filter_value(self.query); _source(self.source_id); name(self.prompt, 'choice prompt')
+        if self.operation not in ('copy_base', 'copy_current', 'take', 'draw', 'discard', 'top', 'bottom'):
+            raise ValueError('Unsupported zone choice operation')
+        if self.sample_size is not None:
+            integer(self.sample_size, 'zone choice sample size')
+        if self.distinct not in ('card', 'entity') or (self.distinct == 'card' and self.operation not in ('copy_base', 'copy_current')):
+            raise ValueError('Only copy choices may collapse physical copies')
+        if self.operation == 'draw' and (self.zone != Zone.DECK or self.player_id != self.owner_id):
+            raise ValueError('Draw choice requires the choosing player\'s deck')
+        if self.operation == 'discard' and self.zone != Zone.HAND:
+            raise ValueError('Discard choice requires hand cards')
+        if self.operation in ('top', 'bottom') and self.zone != Zone.DECK:
+            raise ValueError('Reposition choice requires deck cards')
+
+
+def add_to_deck(r, effect):
+    player = r.player(effect.player_id); source_exists(r, effect.source_id)
+    if not r.registry.card(effect.card_id).hand_playable:
+        raise ResolutionError('Unsupported generated deck card type')
+    from .costs import attach_cost, validate_creation_cost
+    validate_creation_cost(r.state, effect, (r.registry.card(effect.card_id),))
+    from .card_creation import validate_creation, install
+    validate_creation(r.state, effect, (r.registry.card(effect.card_id),))
+    position = insertion_index(r, effect.position, len(player.deck))
+    entity = r.create_entity(player.id, effect.card_id, Zone.DECK, position)
+    if effect.cost is not None:
+        attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
+    install(r.state, entity, effect)
+    r.emit('card_created', target_id=entity.id, source_id=effect.source_id, player_id=player.id)
+    r.emit('card_added_to_deck', target_id=entity.id, source_id=effect.source_id, player_id=player.id, position=position)
+
+
+def move_card(r, effect):
+    if effect.draw:
+        from .draw_casts import draw_one
+        return draw_one(r,effect.player_id,card=effect.card,source_id=effect.source_id,reset=effect.reset)
+    return move_physical_card(r,effect)
+
+
+def move_physical_card(r, effect, *, draw_id=None):
+    source_exists(r, effect.source_id)
+    entity = reference_entity(r, effect.card)
+    if entity is None:
+        return
+    player = r.player(effect.player_id)
+    if (entity.zone == Zone.HAND and effect.destination == Zone.HAND and player.id != entity.controller and
+            any(a.kind == 'defining_hand_source' for a in entity.abilities)):
+        raise ResolutionError('Transferring a defining hand source requires a supported lifecycle policy')
+    if effect.destination == Zone.HAND and entity.zone == Zone.HAND and entity.controller == player.id:
+        return  # Already occupies its hand slot; cannot burn by moving to itself.
+    destination = effect.destination
+    if destination == Zone.HAND and len(player.hand) >= hand_capacity(player, r.rules):
+        destination = Zone.GRAVEYARD
+    previous_zone = entity.zone
+    previous_controller = entity.controller
+    original=SourceAllocationFact.capture(r.state,entity) if destination==Zone.GRAVEYARD else None
+    if destination == Zone.DECK:
+        from .prepare import enter_deck
+        enter_deck(entity)
+    old = getattr(r.player(entity.controller), entity.zone.value)
+    old.remove(entity.id)
+    entity.controller, entity.zone = player.id, destination
+    entity.zone_epoch += 1
+    from .lifecycle import renew_hand_progress
+    renew_hand_progress(r.state, entity, previous_zone=previous_zone)
+    if effect.reset:
+        reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
+                            preserve_jade=True, preserve_cthun=previous_controller == player.id)
+        if previous_controller != player.id:
+            from .cthun import initialize_instance as initialize_cthun
+            initialize_cthun(r.state, r.registry, entity)
+    if destination == Zone.DECK:
+        r.game._information.conceal(entity.id)
+        position = insertion_index(r, effect.position, len(player.deck))
+        player.deck.insert(position, entity.id)
+        event = 'card_moved_to_deck'
+    else:
+        getattr(player, destination.value).append(entity.id)
+        event = 'card_burned' if destination == Zone.GRAVEYARD else 'card_drawn' if effect.draw else 'card_moved_to_hand'
+    if destination == Zone.HAND:
+        from .hand_history import enter_hand
+        enter_hand(r.state, entity, previous_zone, 'draw' if effect.draw else 'move')
+    data = {'draw_id': draw_id} if draw_id is not None else {}
+    if destination==Zone.GRAVEYARD:
+        emit_burn(r,entity,profile='stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
+    else:
+        r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id, **data)
+
+
+def copy_card(r, effect):
+    copy_physical_card(r, effect)
+
+
+def copy_physical_card(r, effect):
+    """Shared copy materialization; internal callers may bind the new body."""
+    effect.__post_init__()
+    source_exists(r, effect.source_id)
+    material=effect.card if type(effect.card)is CopyEntryMaterial else None
+    if material is not None:
+        effect.__post_init__()
+        from .copy_materials import validate_scope,apply
+        from .discard_history import validate_material as validate_discard
+        validate_scope(r.state,r.registry,material,hand_copy=True)
+        validate_discard(r.state,r.registry,material.discard)
+        source=None
+    elif type(effect.card) is MinionReference:
+        r.registry.card(effect.card.card_id)
+        source = live_minion(r.state, effect.card)
+        if source is None:
+            r.emit('zone_target_skipped', target_id=effect.card.entity_id, reason='captured_minion_departed')
+            return
+    else:
+        source=reference_entity(r,effect.card)
+        if source is None:return
+    definition = r.registry.card(material.card_id if material is not None else source.card_id)
+    if effect.stats is not None and definition.kind != CardType.MINION:
+        raise ResolutionError('Copied initial stats require a minion')
+    from .costs import attach_cost, validate_cost_targets
+    validate_cost_targets(r.state, effect, ((definition, source if effect.mode == 'current' else None),))
+    player = r.player(effect.player_id)
+    destination = effect.destination
+    if destination == Zone.HAND and len(player.hand) >= hand_capacity(player, r.rules):
+        destination = Zone.GRAVEYARD
+    position = insertion_index(r, effect.position, len(player.deck)) if destination == Zone.DECK else None
+    entity = r.create_entity(player.id, material.card_id if material is not None else source.card_id, destination, position,
+                             components=()if material is not None else source.components)
+    origin_id=material.origin.entity_id if material is not None else source.id
+    entity.origin_entity_id = origin_id
+    from .jade import inherit_printed
+    if material is not None:
+        apply(r,material,entity)
+    else:
+        inherit_printed(source, entity)
+    if material is None and effect.mode == 'current':
+        copy_current_stored_state(r.state,source,entity)
+        if type(effect.card) is MinionReference:
+            # Stored acquisition preserves local card material, not battlefield injury.
+            entity.damage = 0
+            from .lifecycle import refresh_entity
+            refresh_entity(entity)
+    from .lifecycle import apply_summon_stats
+    apply_summon_stats(r.state, entity, effect.stats)
+    if effect.cost is not None:
+        attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
+    r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id, copied_from=origin_id, copy_mode=effect.mode)
+    event = 'card_added_to_deck' if destination == Zone.DECK else 'card_burned' if destination == Zone.GRAVEYARD else 'card_added_to_hand'
+    if destination==Zone.GRAVEYARD:
+        emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,player_id=player.id)
+    else:
+        r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id)
+    return entity
+
+
+def copy_current_stored_state(state, source, entity):
+    """Existing stored current-copy recipe, independent of recipient allocation."""
+    entity.base_attack, entity.base_health, entity.base_cost = source.base_attack, source.base_health, source.base_cost
+    entity.damage, entity.durability, entity.corpse_value = source.damage, source.durability, source.corpse_value
+    copy_attachments(state,source,entity)
+    entity.galakrond_invocations = source.galakrond_invocations
+
+
+def destroy_deck_card(r, effect):
+    return destroy_stored_card(r, effect)
+
+
+def destroy_stored_card(r, effect):
+    from .continuations import FrameCodec
+    effect.__post_init__()
+    source_exists(r, effect.source_id)
+    codec = FrameCodec(r.game.mechanics, r.registry)
+    codec.decode(codec.encode(effect))
+    entity = reference_entity(r, effect.card)
+    if entity is None:
+        return ()
+    r.move(entity, Zone.GRAVEYARD)
+    for viewer in ((1, 2) if effect.reveal else (entity.controller,)):
+        r.game._information.players[viewer].remember(entity)
+    # This is not a draw, discard, or board death: no death record, corpse,
+    # deathrattle, reborn or Starship contribution is created.
+    card = effect.card
+    event = r.emit('card_destroyed_in_' + card.zone.value, source_id=effect.source_id, target_id=entity.id,
+           player_id=entity.controller, card_id=entity.card_id,
+           original_card=(card.entity_id,card.player_id,card.zone.value,card.card_id,card.zone_epoch),
+           owner_id=entity.owner,card_kind=entity.kind.value,turn=r.state.turn,reveal=effect.reveal)
+    own_body = capture_destroyed_body(r,event)
+    if own_body is not None:
+        r._captured.append(own_body)
+    return effect.on_destroy
+
+
+def discard_card(r, effect):
+    source_exists(r, effect.source_id)
+    entity = reference_entity(r, effect.card)
+    if entity is None:
+        return
+    from .allocation_facts import SourceAllocationFact
+    capture=(SourceAllocationFact.capture(r.state,entity),entity.hand_entry_id,
+        SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal)
+    r.move(entity, Zone.GRAVEYARD)
+    viewers = (1, 2) if effect.reveal else (entity.controller,)
+    for viewer in viewers:
+        r.game._information.players[viewer].remember(entity)
+    # No death checkpoint record, corpse increment, battlecry or deathrattle.
+    r.emit('card_discarded', source_id=effect.source_id, target_id=entity.id, player_id=entity.controller,
+           _discard_commit=capture)
+
+
+def shuffle_deck(r, effect):
+    player = r.player(effect.player_id)
+    r.game._rng.shuffle(player.deck)
+    for entity_id in player.deck:
+        r.game._information.conceal(entity_id)
+    r.emit('deck_shuffled', player_id=player.id)
+
+
+def reorder_zone(r, effect):
+    zone = getattr(r.player(effect.player_id), effect.zone.value)
+    if set(zone) != set(effect.entity_ids) or len(zone) != len(effect.entity_ids):
+        raise ResolutionError('Reordering must be a permutation of the current zone')
+    zone[:] = effect.entity_ids
+    r.emit('deck_reordered' if effect.zone == Zone.DECK else 'hand_reordered', player_id=effect.player_id)
+
+
+def zone_candidates(r, owner_id, zone, query, player_id, source_id=None):
+    filter_value(query); card_zone(zone)
+    source_exists(r, source_id)
+    current_class = None
+    if query.class_mode in ('current', 'other'):
+        current_class = r.player(player_id).hero_class
+        if current_class is None or current_class == CardClass.NEUTRAL:
+            raise ResolutionError('Zone query requires a known current playable hero class')
+    excluded = set(query.exclude_card_ids)
+    if query.exclude_source:
+        if source_id is None:
+            raise ResolutionError('Zone query source exclusion requires a source')
+        excluded.add(r.state.entities[source_id].card_id)
+    result = []
+    for entity_id in getattr(r.player(owner_id), zone.value):
+        entity = r.state.entities[entity_id]
+        from .jade import printed_definition
+        definition = printed_definition(r.registry, entity)
+        if entity.card_id in excluded:
+            continue
+        if matches_metadata(query, card_id=entity.card_id, kind=definition.kind, cost=definition.cost,
+                meta=definition.metadata, spell_school=definition.spell_school,
+                keywords=definition.keywords, current_class=current_class,
+                printed_battlecry=definition.battlecry is not None,
+                current_battlecry=has_battlecry(entity.abilities)):
+            result.append(CardReference.capture(entity))
+    return tuple(result)
+
+
+def matching_card(r, effect):
+    if effect.count > r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Zone selection count exceeds resolution budget')
+    if effect.count == 0:
+        return ()
+    drawing = type(effect) is DrawMatching
+    destroying = type(effect) is DestroyDeckMatching
+    zone = Zone.DECK if drawing or destroying else Zone.HAND
+    candidates = zone_candidates(r, effect.player_id, zone, effect.query, effect.player_id, effect.source_id)
+    if not candidates:
+        if drawing and effect.empty_deck == 'fatigue' and not r.player(effect.player_id).deck:
+            return (Draw(effect.player_id), replace(effect, count=effect.count - 1))
+        return ()
+    if type(effect) is DiscardMatching and effect.selection in ('highest_cost', 'lowest_cost'):
+        from .costs import quote_unselected_cost
+        # Comparison is a pure quote, independent of affordability or payment.
+        prices = tuple(quote_unselected_cost(
+            r.state, r.registry, r.state.entities[c.entity_id]).amount for c in candidates)
+        extreme = (max if effect.selection == 'highest_cost' else min)(prices)
+        tied = tuple(c for c, price in zip(candidates, prices) if price == extreme)
+        card = tied[0] if len(tied) == 1 else r.game._rng.choice(tied)
+    else:
+        card = r.game._rng.choice(candidates) if effect.selection == 'random' else candidates[0]
+    selected = (MoveCard(card, effect.player_id, Zone.HAND, draw=True, source_id=effect.source_id) if drawing
+                else DestroyDeckCard(card, effect.source_id, effect.reveal) if destroying
+                else DiscardCard(card, effect.source_id, effect.reveal))
+    # Re-query after each actual move and its reactions, like repeated Draw(1).
+    return (selected, replace(effect, count=effect.count - 1))
+
+
+def choose_from_zone(r, effect):
+    candidates = zone_candidates(r, effect.owner_id, effect.zone, effect.query, effect.player_id, effect.source_id)
+    groups = {}
+    if effect.distinct == 'card':
+        unique = {}
+        for card in candidates:
+            unique.setdefault(card.card_id, card)
+            groups.setdefault(card.card_id, []).append(card)
+        # A definition choice does not expose deck order or duplicate counts.
+        candidates = tuple(unique[i] for i in sorted(unique))
+    count = len(candidates) if effect.sample_size is None else min(len(candidates), effect.sample_size)
+    if count > r.rules.max_choice_options:
+        raise ResolutionLimitExceeded('Zone choice exceeds offered option limit')
+    if count == 0:
+        return ()
+    offered = candidates if effect.sample_size is None else tuple(r.game._rng.sample(candidates, count))
+    if effect.distinct == 'card' and effect.operation == 'copy_current':
+        # Choose the physical representative once, after selecting distinct
+        # definitions. Duplicate copies cannot inflate an ID's offer weight.
+        offered = tuple(r.game._rng.choice(groups[card.card_id]) for card in offered)
+    options = []
+    for index, card in enumerate(offered, 1):
+        if effect.operation == 'copy_base':
+            operation = AddToHand(effect.player_id, card.card_id, effect.source_id)
+        elif effect.operation == 'copy_current':
+            operation = CopyCard(card, effect.player_id, source_id=effect.source_id)
+        elif effect.operation == 'discard':
+            operation = DiscardCard(card, effect.source_id)
+        elif effect.operation in ('top', 'bottom'):
+            operation = MoveCard(card, card.player_id, Zone.DECK, position=effect.operation, source_id=effect.source_id)
+        else:
+            operation = MoveCard(card, effect.player_id, Zone.HAND, draw=effect.operation == 'draw', source_id=effect.source_id)
+        if card.zone == Zone.HAND:
+            r.game._information.players[effect.player_id].remember(r.state.entities[card.entity_id])
+        options.append(ChoiceOption(f'zone-{index}', r.registry.card(card.card_id).name, (operation,),
+                                   card_id=card.card_id, entity_id=card.entity_id if card.zone == Zone.HAND else None))
+    return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id, prompt=effect.prompt),)
+
+
+def register_zones(mechanics):
+    mechanics.register_payload_type(CardReference)
+    mechanics.register_payload_type(CardDestructionRecord)
+    for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckMatching, matching_card),
+                          (AddToDeck, add_to_deck), (MoveCard, move_card), (CopyCard, copy_card),
+            (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
+            (DrawMatching, matching_card), (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone)):
+        mechanics.register(kind, handler)

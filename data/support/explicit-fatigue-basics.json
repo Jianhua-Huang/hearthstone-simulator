@@ -1,0 +1,282 @@
+{
+  "profile": "explicit-fatigue-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "ETC_068",
+      "dbf_id": 90439,
+      "name": "次中音号小鬼",
+      "name_en": "Baritone Imp",
+      "text": "<b>战吼：</b>受到疲劳伤害。获得等量的攻击力和生命值。@<b>战吼：</b>受到{0}点疲劳伤害。获得等量的攻击力和生命值。",
+      "text_en": "[x]<b>Battlecry:</b> Take Fatigue\ndamage. Gain that much\nAttack and Health.@[x]<b>Battlecry:</b> Take {0} Fatigue\ndamage. Gain that much\nAttack and Health.",
+      "cost": 2,
+      "attack": 2,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "COLLECTIBLE": 1,
+        "RARITY": 1,
+        "COST": 2,
+        "ATK": 2,
+        "HEALTH": 2,
+        "CARDTYPE": 4,
+        "BATTLECRY": 1,
+        "CARDRACE": 15,
+        "IMP": 1,
+        "1724": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ETC_069",
+      "dbf_id": 90440,
+      "name": "渐强声浪",
+      "name_en": "Crescendo",
+      "text": "受到疲劳伤害。对所有敌人造成等量的伤害。@受到{0}点疲劳伤害。对所有敌人造成等量的伤害。",
+      "text_en": "[x]Take Fatigue damage.\nDeal that much damage\nto all enemies.@[x]Take {0} Fatigue damage.\nDeal that much damage\nto all enemies.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "COLLECTIBLE": 1,
+        "RARITY": 3,
+        "CARDTYPE": 5,
+        "COST": 2,
+        "SPELL_SCHOOL": 7,
+        "1724": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ETC_070",
+      "dbf_id": 90461,
+      "name": "疯狂的指挥",
+      "name_en": "Crazed Conductor",
+      "text": "<b>战吼：</b>受到疲劳伤害。召唤相同数量的3/3的小鬼。@<b>战吼：</b>受到{0}点疲劳伤害。召唤相同数量的3/3的小鬼。",
+      "text_en": "[x]<b>Battlecry:</b> Take Fatigue\ndamage. Summon that\nmany 3/3 Imps.@[x]<b>Battlecry:</b> Take {0} Fatigue\ndamage. Summon that\nmany 3/3 Imps.",
+      "cost": 4,
+      "attack": 3,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "COST": 4,
+        "RARITY": 4,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 4,
+        "BATTLECRY": 1,
+        "HEALTH": 4,
+        "ATK": 3,
+        "COLLECTION_RELATED_CARD_DATABASE_ID": 90988,
+        "1724": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ONY_034",
+      "dbf_id": 71292,
+      "name": "痛苦诅咒",
+      "name_en": "Curse of Agony",
+      "text": "将三张痛苦洗入你对手的牌库。抽到痛苦时会造成疲劳伤害。",
+      "text_en": "[x]Shuffle three Agonies\ninto the opponent's deck.\nThey deal Fatigue damage\nwhen drawn.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "COST": 1,
+        "CARDTYPE": 5,
+        "RARITY": 3,
+        "COLLECTIBLE": 1,
+        "SPELL_SCHOOL": 6,
+        "MINI_SET": 1,
+        "COLLECTION_RELATED_CARD_DATABASE_ID": 71291
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000315,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ONY_034t",
+      "dbf_id": 71291,
+      "name": "痛苦",
+      "name_en": "Agony",
+      "text": "<b>抽到时施放</b>\n受到@点疲劳伤害。",
+      "text_en": "<b>Casts When Drawn</b>\nTake @ Fatigue damage. ",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "COST": 1,
+        "CARDTYPE": 5,
+        "SPELL_SCHOOL": 6,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "349": 1,
+        "TAG_SCRIPT_DATA_NUM_2": 3,
+        "CASTS_WHEN_DRAWN": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "349",
+          "value": 1
+        },
+        {
+          "tag": "CASTS_WHEN_DRAWN",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000315,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "YOG_301",
+      "dbf_id": 101513,
+      "name": "狂乱侵蚀",
+      "name_en": "Encroaching Insanity",
+      "text": "双方英雄受到疲劳伤害，受到两次。",
+      "text_en": "Both players take\nFatigue damage, twice.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "CARDTYPE": 5,
+        "COST": 3,
+        "COLLECTIBLE": 1,
+        "FACTION": 3,
+        "RARITY": 3,
+        "SPELL_SCHOOL": 6,
+        "MINI_SET": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000299,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_representatives": [
+    "ETC_068"
+  ],
+  "evidence_only": [
+    "ETC_069",
+    "ETC_070",
+    "ONY_034",
+    "ONY_034t",
+    "YOG_301"
+  ],
+  "official_sources": [
+    "https://hearthstone.blizzard.com/en-us/cards/90439/",
+    "https://hearthstone.blizzard.com/en-us/news/22819074/endgame-moves-finessing-fatigue",
+    "https://hearthstone.blizzard.com/en-us/news/23763644/non-printable"
+  ],
+  "CN_calibrated": false
+}

@@ -1,0 +1,351 @@
+{
+  "kind": "independent-interactable-hand-investment-evidence",
+  "records": [
+    {
+      "id": "TLC_446",
+      "data": {
+        "id": "TLC_446",
+        "dbf_id": 117827,
+        "name": "逃离邪能地窟",
+        "name_en": "Escape the Underfel",
+        "text": "<b>任务：</b>使用6张<b>临时</b>牌。<b>奖励：</b>邪能地窟裂隙。",
+        "text_en": "<b>Quest:</b> Play 6 <b>Temporary</b> cards. <b>Reward:</b> Underfel Rift.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 5,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "CLASS": 9,
+          "ELITE": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 118227,
+          "QUEST": 1,
+          "COLLECTIBLE": 1,
+          "3674": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4297": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "3630",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "QUEST",
+            "value": 1
+          },
+          {
+            "tag": "4297",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          118227,
+          120968,
+          118228,
+          120037,
+          120038
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b2d9bb07a77ef091daae5a59d6c53fa81e4f78d77bbc3186503cce2737a7da7a"
+    },
+    {
+      "id": "TLC_446e",
+      "data": {
+        "id": "TLC_446e",
+        "dbf_id": 118230,
+        "name": "邪能地窟裂隙附加效果",
+        "name_en": "Underfel Rift Enchantment",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "30bc8f655f6cf9a1ccb93d4aa8bdddbd499673d1cc76e15df4f1edc831427b55"
+    },
+    {
+      "id": "TLC_446t",
+      "data": {
+        "id": "TLC_446t",
+        "dbf_id": 118227,
+        "name": "邪能地窟裂隙",
+        "name_en": "Underfel Rift",
+        "text": "打开一道邪能地窟裂隙。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "text_en": "Open a Rift to the Underfel. Throw a card in to summon 2 random Fel Beasts. <i>(Once per turn.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "ELITE": 1,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 120968,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8dcb617dfad6597708f371bcbde045b935c88050ec8e81cab6fa3cf6e8e76f9f"
+    },
+    {
+      "id": "TLC_446t1",
+      "data": {
+        "id": "TLC_446t1",
+        "dbf_id": 120968,
+        "name": "邪能地窟裂隙",
+        "name_en": "Underfel Rift",
+        "text": "选择裂隙即可激活。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "text_en": "[x]Select the Rift to activate.\nThrow a card in to summon\n2 random Fel Beasts.\n<i>(Once per turn.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "ELITE": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "INTERACTABLE_OBJECT_COST": 0,
+          "HEALTH": 1,
+          "HIDE_STATS": 1,
+          "HIDE_COST": 1,
+          "UNTOUCHABLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "USES_CHARGES": 1,
+          "INTERACTABLE_OBJECT_PASSIVE_ANIMATION_TYPE": 1,
+          "INTERACTABLE_OBJECT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "INTERACTABLE_OBJECT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ec8ee034f55141337b46fe81048c1dfb18083260b1e247b0c9dd510d65567f2d"
+    },
+    {
+      "id": "TLC_446t2",
+      "data": {
+        "id": "TLC_446t2",
+        "dbf_id": 118228,
+        "name": "邪能啸天龙",
+        "name_en": "Felscreamer",
+        "text": "<b>突袭</b>。<b>吸血</b>",
+        "text_en": "<b>Rush</b>\n<b>Lifesteal</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "COST": 5,
+          "HEALTH": 3,
+          "ATK": 5,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "2537": 1,
+          "LIFESTEAL": 1,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          },
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "95fd6fae226f203c24d516b56b7ba7b135042a09ce00cfb3eee508e881b46ab2"
+    },
+    {
+      "id": "TLC_446t3",
+      "data": {
+        "id": "TLC_446t3",
+        "dbf_id": 120037,
+        "name": "邪能迅猛龙",
+        "name_en": "Felraptor",
+        "text": "<b>冲锋</b>。<b>扰魔</b>",
+        "text_en": "<b>Charge</b>\n<b>Elusive</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "COST": 5,
+          "HEALTH": 4,
+          "ATK": 4,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "2537": 1,
+          "CHARGE": 1,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "CHARGE",
+            "value": 1
+          },
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "31f77a21f86edf5994acde94f3f3fe8235d28d178d72f1ee923342bed239ea2b"
+    },
+    {
+      "id": "TLC_446t4",
+      "data": {
+        "id": "TLC_446t4",
+        "dbf_id": 120038,
+        "name": "邪能恐角龙",
+        "name_en": "Felhorn",
+        "text": "<b>嘲讽</b>。<b>复生</b>",
+        "text_en": "<b>Taunt</b>\n<b>Reborn</b>",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "COST": 5,
+          "HEALTH": 5,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "2537": 1,
+          "TAUNT": 1,
+          "REBORN": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "REBORN",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b578b1c1a65e2719d77cc0269e5a3358e22e40d41a6bdab1f1fa248d3f7c1713"
+    }
+  ]
+}

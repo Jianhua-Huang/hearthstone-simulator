@@ -1,0 +1,500 @@
+"""Spell execution provenance and effect-driven casts, without invented hand plays.
+
+R-088 records provisional targeting, condition and automatic-choice windows.
+"""
+from .hand_capacity import hand_capacity
+from copy import deepcopy
+from dataclasses import dataclass, replace
+
+from .effects import Effect, _integer, _player, _source
+from .errors import ResolutionError
+from .lifecycle import active_abilities
+from .model import CardType, Keyword, SpellCastRecord, TargetMode, Zone, _name
+from .zones import CardReference, reference_entity, reference_value, source_exists
+from .automatic_targets import AutomaticTargetPreference, AutomaticTargetProof
+
+
+CONDITIONS = ('combo', 'outcast', 'finale', 'quickdraw', 'manathirst')
+CAST_ORIGINS = ('hand', 'repeat', 'effect', 'draw', 'history')
+AUTOMATIC_ORIGINS = ('effect', 'draw', 'history')
+
+
+def cast_record(state, cast_id):
+    _integer(cast_id, 'cast ID', 1)
+    if cast_id > len(state.cast_history):
+        raise ValueError('Unknown spell cast')
+    return state.cast_history[cast_id - 1]
+
+
+def cast_spells(state, player_id, *, origin=None, successful=None, turn=None, before_id=None):
+    """Trusted query; default includes attempts. Successful means fully executed."""
+    _player(player_id)
+    if origin is not None and origin not in CAST_ORIGINS:
+        raise ValueError('Unknown cast origin filter')
+    if successful is not None and type(successful) is not bool:
+        raise ValueError('Cast success filter must be boolean')
+    for value in (turn, before_id):
+        if value is not None: _integer(value, 'cast history bound', 1)
+    return tuple(c for c in state.cast_history if c.player_id == player_id and
+        (origin is None or c.origin == origin) and (turn is None or c.turn == turn) and
+        (before_id is None or c.id < before_id) and
+        (successful is None or successful == (c.completed and c.failure is None)))
+
+
+def active_cast(state, source_id, player_id):
+    return next((c for c in reversed(state.cast_history) if
+        c.source_id == source_id and c.player_id == player_id and not c.completed and not c.interrupted), None)
+
+
+def cast_owner_turn_id(state):
+    from .owner_turns import current_owner_turn
+    if state.owner_turn_history:
+        return current_owner_turn(state).id
+    if state.opening is None or state.opening.stage == 'complete':
+        raise ResolutionError('A spell cast needs a real current interval or pre-first opening')
+    return None
+
+
+def accepted_fact_id(event):
+    """Shape also applies to old attempt logs preserved by ordinary Rewind."""
+    if event.kind != 'spell_cast_accepted':
+        return None
+    data = dict(event.data)
+    if set(data) != {'cast_id'}:
+        raise ValueError('Accepted cast fact requires only its physical cast ID')
+    _integer(data['cast_id'], 'accepted physical cast ID', 1)
+    _integer(event.source_id, 'accepted physical spell source', 1)
+    _source(event.target_id); _player(event.player_id)
+    if type(event.amount) is not int or event.amount != 1:
+        raise ValueError('A physical cast contributes exactly one integer unit')
+    return data['cast_id']
+
+
+def accepted_cast(state, event):
+    """Internal current physical-payload fact, not an old rewound attempt."""
+    cast_id = accepted_fact_id(event)
+    if cast_id is None:
+        return None
+    record = cast_record(state, cast_id)
+    if (not record.payload_started or record.failure is not None or
+            (event.source_id, event.target_id, event.player_id) !=
+            (record.source_id, record.target_id, record.player_id) or
+            not record.action <= event.action <= state.action_number or
+            event.sequence <= record.recorded_event):
+        raise ValueError('Accepted cast fact differs from its physical payload')
+    return record
+
+
+def note_payload(r, record):
+    """One acceptance path for hand, repeat, effect, draw and history casts."""
+    if not record.payload_started or record.failure is not None:
+        return record
+    from .player_effects import claim_next_spell_damage
+    record = claim_next_spell_damage(r,record)
+    from .held_spells import note_cast
+    note_cast(r, record)
+    r.emit('spell_cast_accepted', source_id=record.source_id, target_id=record.target_id,
+           player_id=record.player_id, amount=1, cast_id=record.id, _cast_acceptance=True)
+    return record
+
+
+def begin_played(r, play, target_id, *, iteration=1, countered=False):
+    record = SpellCastRecord(len(r.state.cast_history)+1, play.source_id, play.player_id,
+        play.card_id, r.state.turn, r.state.action_number, 'hand' if iteration == 1 else 'repeat',
+        target_id, play_id=play.id, iteration=iteration, from_zone=Zone.HAND,
+        **{key: getattr(play, key) for key in CONDITIONS}, completed=countered, payload_started=not countered,
+        failure='countered' if countered else None,branch_id=play.branch_id,
+        owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events))
+    r.state.cast_history.append(record)
+    record = note_payload(r, record)
+    return record
+
+
+@dataclass(frozen=True)
+class FinishSpellCast(Effect):
+    cast_id: int
+    target_proof: AutomaticTargetProof | None = None
+
+    def __post_init__(self):
+        _integer(self.cast_id, 'cast completion ID', 1)
+        if self.target_proof is not None and type(self.target_proof) is not AutomaticTargetProof:
+            raise ValueError('Cast Finish requires its typed original target proof')
+
+
+def finish(r, effect):
+    record = cast_record(r.state, effect.cast_id)
+    validate_target_finish(effect, record, r.registry)
+    if record.completed or record.interrupted or not record.payload_started:
+        raise ResolutionError('Spell cast is already settled')
+    r.state.cast_history[record.id - 1] = replace(record, completed=True)
+    # Existing hand-play reactions retain their explicit card_played window.
+    # Effect casts have a separate public event, without a hand-play ID.
+    if record.origin in AUTOMATIC_ORIGINS:
+        r.emit('spell_cast_finished', source_id=record.source_id, target_id=record.target_id,
+               player_id=record.player_id, cast_id=record.id)
+
+
+def policies(targeting, target_id, choices, target_preference=None):
+    from .targeting import effect_policies
+    effect_policies(targeting,target_id,choices)
+    if target_preference is not None:
+        if type(target_preference) is not AutomaticTargetPreference or targeting != 'random':
+            raise ValueError('Automatic target preference requires a typed random activation policy')
+
+
+@dataclass(frozen=True)
+class CastSpell(Effect):
+    player_id: int
+    card_id: str
+    source_id: int | None = None
+    target_id: int | None = None
+    targeting: str = 'random'
+    choices: str = 'random'
+
+    branch_id: str | None = None
+    target_preference: AutomaticTargetPreference | None = None
+
+    def __post_init__(self):
+        if self.branch_id is not None: _name(self.branch_id, 'branch')
+        _player(self.player_id); _name(self.card_id, 'cast spell'); _source(self.source_id)
+        policies(self.targeting, self.target_id, self.choices, self.target_preference)
+
+
+@dataclass(frozen=True)
+class CastStoredSpell(Effect):
+    card: CardReference
+    player_id: int
+    source_id: int | None = None
+    target_id: int | None = None
+    targeting: str = 'random'
+    choices: str = 'random'
+
+    branch_id: str | None = None
+    target_preference: AutomaticTargetPreference | None = None
+
+    def __post_init__(self):
+        if self.branch_id is not None: _name(self.branch_id, 'branch')
+        reference_value(self.card); _player(self.player_id); _source(self.source_id)
+        policies(self.targeting, self.target_id, self.choices, self.target_preference)
+
+
+@dataclass(frozen=True)
+class ResolveAutomaticSpell(Effect):
+    cast_id: int
+    behavior_ids: tuple[str, ...]
+
+    def __post_init__(self):
+        _integer(self.cast_id, 'automatic cast ID', 1)
+        if type(self.behavior_ids) is not tuple:
+            raise ValueError('Spell behaviors require a tuple')
+        for behavior in self.behavior_ids: _name(behavior, 'spell behavior')
+
+
+@dataclass(frozen=True)
+class CreateCastDerivative(Effect):
+    cast_id: int
+    card_id: str
+
+    def __post_init__(self):
+        _integer(self.cast_id, 'derivative cast ID', 1)
+        _name(self.card_id, 'derivative card')
+
+
+def effective_definition(definition, conditions):
+    if definition.target_condition and not conditions[definition.target_condition]:
+        return replace(definition, requires_target=False, targeting=None, target_rule='any_entity')
+    return definition
+
+
+def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None):
+    from .play_history import played_cards
+    from .targeting import accepts_target, target_spec
+    definition = r.registry.card(entity.card_id)
+    if definition.kind != CardType.SPELL:
+        raise ResolutionError('Casting requires a spell')
+    # Hand-only positional/payment conditions do not acquire a fabricated play.
+    conditions = dict(combo=bool(played_cards(r.state, effect.player_id, turn=r.state.turn)),
+        outcast=False, finale=False, quickdraw=False,
+        manathirst=definition.manathirst is not None and
+            r.player(effect.player_id).max_mana >= definition.manathirst)
+    r.move(entity, Zone.GRAVEYARD)
+    if entity.controller != effect.player_id:
+        r.player(entity.controller).graveyard.remove(entity.id)
+        entity.controller = effect.player_id
+        r.player(entity.controller).graveyard.append(entity.id)
+    from .choose_one import automatic_branch, effective as branch_definition
+    from .choose_policies import matching as choose_matching, capture as capture_choose, accept as accept_choose
+    choose_origin = 'cast_' + origin
+    choose_before = deepcopy(r.state) if choose_matching(r.state, definition, effect.player_id, choose_origin) else None
+    branch_id = automatic_branch(r,definition,effect.player_id,getattr(effect,'branch_id',None), origin=choose_origin, entity=entity)
+    choose_proof = None if choose_before is None else capture_choose(choose_before, r.registry, definition.id, effect.player_id,
+        'cast', len(r.state.cast_history) + 1, choose_origin, branch_id, source_id=entity.id)
+    effective = branch_definition(effective_definition(definition, conditions),branch_id)
+    from .targeting import select_effect_target
+    preference = getattr(effect, 'target_preference', None)
+    target_proof = None
+    if preference is None:
+        target_id, failure = select_effect_target(r,entity,effective,effect.targeting,effect.target_id)
+    else:
+        policies(effect.targeting, effect.target_id, effect.choices, preference)
+        from .automatic_targets import select_target_with_proof
+        target_id, failure, target_proof = select_target_with_proof(r, entity, effective, preference)
+        if target_proofs is not None: target_proofs.append(target_proof)
+    record = SpellCastRecord(len(r.state.cast_history)+1, entity.id, effect.player_id,
+        entity.card_id, r.state.turn, r.state.action_number, origin, target_id,
+        caster_id=effect.source_id, from_zone=from_zone, choices=effect.choices,
+        **conditions, completed=failure is not None, failure=failure, draw_id=draw_id, recast_id=recast_id,branch_id=branch_id,
+        owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
+        target_selection=target_proof.selection if target_proof is not None else None)
+    r.state.cast_history.append(record)
+    choose_tail = accept_choose(r, choose_proof)
+    if draw_id is not None:
+        from .draw_casts import note_cast
+        note_cast(r, draw_id, record.id)
+    r.emit('spell_cast_started', source_id=entity.id, target_id=target_id, player_id=record.player_id,
+           cast_id=record.id)
+    if failure:
+        r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
+               cast_id=record.id, reason=failure)
+        return choose_tail
+    behaviors = tuple(a.behavior_id for a in active_abilities(entity, 'on_play'))
+    return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof), *choose_tail)
+
+
+def cast_generated(r, effect):
+    effect.__post_init__(); source_exists(r, effect.source_id)
+    if r.registry.card(effect.card_id).kind != CardType.SPELL:
+        raise ResolutionError('CastSpell requires a spell definition')
+    entity = r.create_entity(effect.player_id, effect.card_id, Zone.GRAVEYARD)
+    entity.origin_entity_id = effect.source_id
+    return automatic(r, effect, entity, None)
+
+
+def cast_stored(r, effect):
+    effect.__post_init__(); source_exists(r, effect.source_id)
+    entity = reference_entity(r, effect.card)
+    if entity is None: return ()
+    # Detach while still owned by its current zone controller.
+    from_zone = entity.zone
+    if entity.kind != CardType.SPELL:
+        raise ResolutionError('CastStoredSpell requires a stored spell')
+    return automatic(r, effect, entity, from_zone)
+
+
+def resolve_automatic(r, effect):
+    record = cast_record(r.state, effect.cast_id)
+    if record.origin not in AUTOMATIC_ORIGINS or record.completed or record.interrupted or record.payload_started:
+        raise ResolutionError('Invalid automatic spell execution')
+    record = replace(record, payload_started=True)
+    r.state.cast_history[record.id - 1] = record
+    record = note_payload(r, record)
+    from .rewind_outcomes import payload
+    return payload(r, record.source_id, record.player_id, record.target_id, effect.behavior_ids, cast=record)
+
+
+def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
+    """Shared spell text and derivatives; an activation owns its single history."""
+    entity = r.state.entities[record.source_id]
+    definition = r.registry.card(record.card_id)
+    repeated = record.iteration > 1 or extra_outcome
+    work = []
+    if definition.secret is not None:
+        from .secrets import activate, set_secret, SetSecret
+        if repeated: set_secret(r, SetSecret(record.player_id, record.card_id))
+        else: activate(r, entity)
+    elif definition.quest is not None:
+        from .quests import activate, activation_error
+        if activation_error(r.state, r.registry, r.rules, record.player_id, record.card_id) is None:
+            if repeated: entity = r.create_entity(record.player_id, record.card_id, Zone.GRAVEYARD)
+            activate(r, entity)
+        else:
+            r.emit('quest_activation_failed', player_id=record.player_id)
+    elif definition.ongoing_effect_id is not None:
+        from .player_effects import AddPlayerEffect
+        work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id))
+    work.extend(r.call(b, record.source_id, record.player_id, record.target_id, play=play, cast=record) for b in behavior_ids)
+    # Twinspell is a payload derivative. Echo remains a paid-hand-play facility.
+    if play is not None:
+        from .hand_derivatives import after_spell_effects
+        work.extend(after_spell_effects(play))
+    else:
+        work.extend(CreateCastDerivative(record.id, s.card_id) for s in definition.hand_derivatives
+                    if s.keyword == Keyword.TWINSPELL and s.keyword in entity.keywords)
+    return work
+
+
+def create_derivative(r, effect):
+    record = cast_record(r.state, effect.cast_id)
+    definition = r.registry.card(record.card_id)
+    if (record.origin not in AUTOMATIC_ORIGINS or record.completed or record.interrupted or
+            not any(s.keyword == Keyword.TWINSPELL and s.card_id == effect.card_id for s in definition.hand_derivatives)):
+        raise ResolutionError('Invalid automatic spell derivative')
+    player = r.player(record.player_id)
+    zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
+    entity = r.create_entity(player.id, effect.card_id, zone)
+    entity.origin_entity_id = record.source_id
+    r.emit('card_created', source_id=record.source_id, target_id=entity.id, player_id=player.id)
+    if zone==Zone.GRAVEYARD:
+        from .zones import emit_burn
+        emit_burn(r,entity,profile='created_overflow',source_id=record.source_id,reason='twinspell')
+    else:
+        r.emit('card_added_to_hand',source_id=record.source_id,target_id=entity.id,player_id=player.id,reason='twinspell')
+
+
+def automatic_choice(r, choice, options, on_select):
+    """Only the spell's own choices inherit policy; independent reactions do not."""
+    record = active_cast(r.state, choice.source_id, choice.player_id)
+    if record is None:
+        from .draw_casts import active_after_draw
+        draw = active_after_draw(r.state, choice.source_id, choice.player_id)
+        if draw is not None: record = cast_record(r.state, draw.cast_id)
+    if record is None or record.choices != 'random': return None
+    from .choices import random_choice_effects
+    return random_choice_effects(r,choice,options,on_select,'spell_choice_automatic',cast_id=record.id)
+
+
+def validate_history(state, registry):
+    if type(state.cast_history) is not list: raise ValueError('Cast history must be a list')
+    from .repeat_provenance import checked_live_attachments
+    live = checked_live_attachments(state)
+    claimed_ids = set()
+    last_turn = last_action = 0
+    iterations = {}
+    for index, record in enumerate(state.cast_history, 1):
+        if type(record) is not SpellCastRecord: raise ValueError('Invalid spell cast record')
+        record.__post_init__()
+        for effect in record.spell_damage_effects:
+            spec = registry.player_effect(effect.spec_id)
+            spec.__post_init__()
+            if (spec.kind != 'next_spell_damage' or effect.remaining_turns is not None or
+                    effect.id >= state.next_attachment_id or effect.entered_order >= state.next_order or
+                    effect.source_id not in state.entities or effect.id in live or effect.id in claimed_ids):
+                raise ValueError('Cast reused or invented a pending Spell Damage effect')
+            registry.card(effect.source_card_id)
+            claimed_ids.add(effect.id)
+        from .choose_one import branch
+        branch(registry.card(record.card_id),record.branch_id)
+        if (record.id != index or registry.card(record.card_id).kind != CardType.SPELL or
+                record.source_id not in state.entities or
+                any(i is not None and i not in state.entities for i in (record.caster_id, record.target_id)) or
+                not last_turn <= record.turn <= state.turn or not last_action <= record.action <= state.action_number or
+                record.interrupted and state.status == 'playing'):
+            raise ValueError('Invalid spell cast provenance')
+        if record.owner_turn_id is None:
+            first = state.owner_turn_history[0] if state.owner_turn_history else None
+            if (state.opening is None or record.turn != 1 or
+                    first is None and state.opening.stage == 'complete' or
+                    first is not None and (record.action > first.start_action or record.recorded_event >= first.start_event)):
+                raise ValueError('Unowned cast is not a genuine pre-first opening fact')
+        else:
+            if record.owner_turn_id > len(state.owner_turn_history):
+                raise ValueError('Spell cast references an unknown actual interval')
+            interval = state.owner_turn_history[record.owner_turn_id - 1]
+            if (record.turn != interval.turn or record.action < interval.start_action or
+                    record.recorded_event < interval.start_event or
+                    interval.closed and (record.action > interval.closed_action or record.recorded_event > interval.closed_event)):
+                raise ValueError('Spell cast differs from its original actual interval')
+        if record.play_id is not None:
+            from .play_history import play_record
+            play = play_record(state, record.play_id)
+            ordinal = iterations.get(play.id, 0) + 1
+            if ((record.source_id, record.player_id, record.card_id, record.turn) !=
+                    (play.source_id, play.player_id, play.card_id, play.turn) or
+                    record.owner_turn_id != play.played_face.owner_turn_id or
+                    record.action < play.action or record.iteration != ordinal or record.branch_id != play.branch_id or
+                    any(getattr(record, k) != getattr(play, k) for k in CONDITIONS) or
+                    (record.failure == 'countered') != play.countered or
+                    play.completed and not record.completed or play.interrupted and not(record.completed or record.interrupted)):
+                raise ValueError('Spell cast and hand play disagree')
+            iterations[play.id] = ordinal
+        if record.recast_id is not None:
+            original = cast_record(state,record.recast_id)
+            entity = state.entities[record.source_id]
+            if (original.card_id != record.card_id or entity.origin_entity_id != original.source_id or
+                    record.source_id <= original.source_id):
+                raise ValueError('Historical spell has inconsistent original provenance')
+        last_turn, last_action = record.turn, record.action
+    for play in state.play_history:
+        if play.kind == CardType.SPELL and play.completed and play.id not in iterations:
+            raise ValueError('Completed spell play has no cast history')
+
+
+def validate_boundary(game):
+    if any(c.recorded_event > len(game._events) for c in game._state.cast_history):
+        raise ValueError('Cast allocation cursor is newer than the actual event boundary')
+    accepted = set(); restored_after = None
+    # Rewind preserves attempted event logs while restoring cast history and
+    # reusing its IDs. A later Retry invalidates only the earlier events after
+    # its original checkpoint cursor, never the retried/new final facts.
+    for event in reversed(game._events):
+        if event.kind == 'timeline_rewound':
+            start = dict(event.data).get('event_start')
+            _integer(start, 'actual Retry event checkpoint', 0)
+            if start >= event.sequence:
+                raise ValueError('Retry event checkpoint exceeds its original window')
+            restored_after = start if restored_after is None else min(restored_after, start)
+        fact_id = accepted_fact_id(event)
+        if fact_id is not None and (restored_after is None or event.sequence <= restored_after):
+            record = accepted_cast(game._state, event)
+            if record.id in accepted:
+                raise ValueError('Duplicate physical cast acceptance fact')
+            accepted.add(record.id)
+    if accepted != {c.id for c in game._state.cast_history if c.payload_started and c.failure is None}:
+        raise ValueError('Physical casts and acceptance facts differ')
+    pending = [c for c in game._state.cast_history if not c.completed and not c.interrupted]
+    queue = (*game._frame.prefix, *game._frame.continuation) if game._frame else ()
+    validate_target_queue(game._state, game.registry, queue)
+    closers = [w.cast_id for w in queue if type(w) is FinishSpellCast]
+    if closers != [c.id for c in reversed(pending)]:
+        raise ValueError('Spell cast progress and completion markers differ')
+    starters = [w.cast_id for w in queue if type(w) is ResolveAutomaticSpell]
+    if starters != [c.id for c in reversed(pending) if c.origin in AUTOMATIC_ORIGINS and not c.payload_started]:
+        raise ValueError('Automatic spell phase and payload markers differ')
+    from .hand_progress import AdvanceHandProgress
+    for work in queue:
+        if type(work) is AdvanceHandProgress and work.event.kind == 'spell_cast_accepted':
+            accepted_cast(game._state, work.event)
+            if (work.event.sequence > len(game._events) or
+                    game._events[work.event.sequence - 1] != work.event):
+                raise ValueError('Queued hand progress lost its actual cast acceptance event')
+        if type(work) is ResolveAutomaticSpell:
+            record = cast_record(game._state, work.cast_id)
+            if record not in pending or record.origin not in AUTOMATIC_ORIGINS:
+                raise ValueError('Invalid pending automatic spell')
+            closer = next(w for w in queue if type(w) is FinishSpellCast and w.cast_id == record.id)
+            if queue.index(work) > queue.index(closer):
+                raise ValueError('Spell payload follows its completion')
+            for behavior in work.behavior_ids: game.registry.behavior(behavior)
+
+
+def validate_target_finish(effect, record, registry):
+    if record.target_selection is None:
+        if effect.target_proof is not None:
+            raise ValueError('Cast without preference cannot borrow another target acceptance')
+    else:
+        if type(effect.target_proof) is not AutomaticTargetProof:
+            raise ValueError('Automatic preferred cast lost its original target Finish proof')
+        from .automatic_targets import validate_cast_proof
+        validate_cast_proof(effect.target_proof, record, registry)
+
+
+def validate_target_queue(state, registry, queue):
+    for work in queue:
+        if type(work) is FinishSpellCast:
+            record = cast_record(state, work.cast_id)
+            if record.completed or record.interrupted:
+                raise ValueError('Stale automatic target Finish marker')
+            validate_target_finish(work, record, registry)
+    for cast in state.cast_history:
+        if cast.target_selection is not None and not cast.completed and not cast.interrupted:
+            if sum(type(w) is FinishSpellCast and w.cast_id == cast.id for w in queue) != 1:
+                raise ValueError('Preferred automatic cast lost its unique original target Finish')
+
+
+def register(mechanics):
+    from .automatic_targets import register_payloads
+    register_payloads(mechanics)
+    for effect, handler in ((CastSpell, cast_generated), (CastStoredSpell, cast_stored),
+            (ResolveAutomaticSpell, resolve_automatic), (FinishSpellCast, finish),
+            (CreateCastDerivative, create_derivative)):
+        mechanics.register(effect, handler)

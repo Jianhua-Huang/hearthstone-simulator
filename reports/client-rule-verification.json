@@ -1,0 +1,81 @@
+{
+  "scope": "Extracted decompiled method bodies compiled with minimal stubs; not the complete game DLL or battle engine.",
+  "originalAssemblySha256": "EB88E1C6E6833BDDC3198BADC043959302942D64AA8EC716656AB3A65D8C746B",
+  "sourceFragments": [
+    {
+      "file": "Player.cs",
+      "method": "Player.TotalSpellpower",
+      "lines": "275-321",
+      "sha256Utf8Lf": "5758C0AF3BBD2121694DDC873FC77CA5E42F76580DC71051EB194D46F08D4B1C"
+    },
+    {
+      "file": "TextUtils.cs",
+      "method": "TextUtils.TransformCardTextImpl",
+      "lines": "288-391",
+      "sha256Utf8Lf": "5D4A3CF1C8C5B871887EB6B5FE3EA653CF98DBE832306C2D7BB8ADD7055CC0C1"
+    },
+    {
+      "file": "TextUtils.cs",
+      "method": "TextUtils.SafeAddInt",
+      "lines": "393-404",
+      "sha256Utf8Lf": "3CA6387395FB05933DBAB3BBB7178085C879967DC6295BEF96255C4C91E4908C"
+    }
+  ],
+  "testsPassed": 9,
+  "results": [
+    {
+      "case": "ordinary fire spell includes temporary spellpower",
+      "actual": 19,
+      "expected": 19,
+      "passed": true
+    },
+    {
+      "case": "secret excludes temporary base and school spellpower",
+      "actual": 10,
+      "expected": 10,
+      "passed": true
+    },
+    {
+      "case": "sigil excludes temporary base and school spellpower",
+      "actual": 10,
+      "expected": 10,
+      "passed": true
+    },
+    {
+      "case": "school none omits fire spellpower",
+      "actual": 11,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "case": "damage bonus applies before two doublings",
+      "actual": "*32*",
+      "expected": "*32*",
+      "passed": true
+    },
+    {
+      "case": "negative damage result clamps to zero",
+      "actual": "*0*",
+      "expected": "*0*",
+      "passed": true
+    },
+    {
+      "case": "damage overflow saturates",
+      "actual": "*2147483647*",
+      "expected": "*2147483647*",
+      "passed": true
+    },
+    {
+      "case": "healing bonus applies before doubling",
+      "actual": "*12*",
+      "expected": "*12*",
+      "passed": true
+    },
+    {
+      "case": "negative healing is not clamped by this formatter",
+      "actual": "*-1*",
+      "expected": "*-1*",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "module": "card_test.t_rev_paladin",
+  "case": "pp_REV_948",
+  "seed": 0,
+  "status": "failed",
+  "error_type": "NameError",
+  "error": "name 'rpint' is not defined",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\audit.py\", line 84, in worker\n    PresetGame(cls)\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\simulate_game.py\", line 656, in PresetGame\n    pp(game.current_player).execute(test)\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\simulate_game.py\", line 221, in execute\n    self.result_inspection()\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\t_rev_paladin.py\", line 263, in result_inspection\n    rpint(\"See if the chosen card was moved to controller's hand.\")\nNameError: name 'rpint' is not defined\n",
+  "assertion_calls": 0,
+  "seconds": 5.625
+}

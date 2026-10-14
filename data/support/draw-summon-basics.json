@@ -1,0 +1,253 @@
+{
+  "version": "draw-summon-basics-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "TTN_083",
+      "data": {
+        "id": "TTN_083",
+        "dbf_id": 97099,
+        "name": "霍迪尔之子",
+        "name_en": "Son of Hodir",
+        "text": "<b>战吼：</b>将四张抽到时会被召唤的8/8的巨人洗入你的牌库。",
+        "text_en": "<b>Battlecry:</b> Shuffle four\n8/8 Giants into your deck that are summoned when drawn.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 8,
+          "HEALTH": 8,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 97529
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1f352dd7f5da3aec031cf016327a1a2474faf31e0250aca01b15c571e9546696"
+    },
+    {
+      "id": "TTN_083t",
+      "data": {
+        "id": "TTN_083t",
+        "dbf_id": 97529,
+        "name": "冰霜霸主",
+        "name_en": "Frost Tyrant",
+        "text": "<b>抽到时召唤</b>",
+        "text_en": "<b>Summoned When Drawn</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 8,
+          "HEALTH": 8,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "SUMMONED_WHEN_DRAWN",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "CASTS_WHEN_DRAWN",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1d87279a34ea80d00d3f7eceb126f9644096d2ae24dd00e320267ae61c15df7a"
+    },
+    {
+      "id": "CAP_400",
+      "data": {
+        "id": "CAP_400",
+        "dbf_id": 127033,
+        "name": "暗金教密谋者",
+        "name_en": "Kabal Conspirator",
+        "text": "<b>亡语：</b>将两张3/3的卧底小鬼置入敌方牌库。当抽到卧底小鬼时，为你召唤。",
+        "text_en": "[x]<b>Deathrattle:</b> Put two\n3/3 Imp-formants into the\nenemy deck. They summon\nfor YOU when drawn.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127024,
+          "DISPLAY_CARD_ON_MOUSEOVER": 127024
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          127024
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000301,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f1a718c82f9c9db448d7537304e70278e4f4fb31f628855f35c7a0b865ab4bcc"
+    },
+    {
+      "id": "CAP_400t2t",
+      "data": {
+        "id": "CAP_400t2t",
+        "dbf_id": 127024,
+        "name": "卧底小鬼",
+        "name_en": "Imp-formant",
+        "text": "<b>吸血</b>\n<b>抽到时召唤</b><i>（为你的对手召唤）</i>",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Summoned When Drawn</b>\n<i>(for your opponent)</i>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "ATK": 3,
+          "HEALTH": 3,
+          "COST": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 15,
+          "SUMMONED_WHEN_DRAWN": 1,
+          "LIFESTEAL": 1,
+          "IMP": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "SUMMONED_WHEN_DRAWN",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "SUMMONED_WHEN_DRAWN",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "5c7b53b03a7f8299bb8a17afc64b01c17400d8bb23f81ed7fbe6abe67e824c78"
+    },
+    {
+      "id": "CS2_168",
+      "data": {
+        "id": "CS2_168",
+        "dbf_id": 191,
+        "name": "鱼人袭击者",
+        "name_en": "Murloc Raider",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 12,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 14,
+          "FACTION": 2,
+          "251": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "05be0bc2841b09085480e503bfd4f8fb0d9a73bee53851a2813029b157fad255"
+    }
+  ]
+}

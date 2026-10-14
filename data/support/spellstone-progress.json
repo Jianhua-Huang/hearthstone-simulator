@@ -1,0 +1,137 @@
+{
+  "version": "spellstone-progress-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_051",
+      "data": {
+        "id": "LOOT_051",
+        "dbf_id": 43288,
+        "name": "小型法术玉石",
+        "name_en": "Lesser Jasper Spellstone",
+        "text": "对一个随从造成$2点伤害。@<i>（获得3点护甲值后升级。）</i>",
+        "text_en": "Deal $2 damage to a minion. @<i>(Gain 3 Armor to upgrade.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [
+          {
+            "tag": "ARMOR",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          43289,
+          43290
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1117a11251aa83244e8577df1a8e32a5679d74619c0be429a0cc14c8db417422"
+    },
+    {
+      "id": "LOOT_051t1",
+      "data": {
+        "id": "LOOT_051t1",
+        "dbf_id": 43289,
+        "name": "法术玉石",
+        "name_en": "Jasper Spellstone",
+        "text": "对一个随从造成$4点伤害。@",
+        "text_en": "Deal $4 damage to a minion. @",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "RARITY": 3,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [
+          {
+            "tag": "ARMOR",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "89d7946c83670f173ba06983ca89752382894204f328cc09a74048c2ba030baf"
+    },
+    {
+      "id": "LOOT_051t2",
+      "data": {
+        "id": "LOOT_051t2",
+        "dbf_id": 43290,
+        "name": "大型法术玉石",
+        "name_en": "Greater Jasper Spellstone",
+        "text": "对一个随从造成$6点伤害。",
+        "text_en": "Deal $6 damage to a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "a7fc40e558369930e55f2459b0986c3d83ec0a027e2298be80514161e571c15c"
+    }
+  ]
+}

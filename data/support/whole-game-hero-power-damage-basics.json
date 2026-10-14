@@ -1,0 +1,164 @@
+{
+  "profile": "whole-game-hero-power-damage-independent-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "candidate_ids": [
+    "BAR_546",
+    "BAR_546e",
+    "BAR_546e2"
+  ],
+  "records": [
+    {
+      "id": "BAR_546",
+      "dbf_id": 63062,
+      "name": "野火",
+      "name_en": "Wildfire",
+      "text": "在本局对战中，你的英雄技能造成的伤害增加1点。",
+      "text_en": "[x]Your Hero Power\ndeals 1 more damage\nthis game.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 4,
+        "COLLECTIBLE": 1,
+        "RARITY": 4,
+        "CARDTYPE": 5,
+        "COST": 1,
+        "SPELL_SCHOOL": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000369,
+        "craftingEvent": 10000372,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_546e",
+      "dbf_id": 63063,
+      "name": "火力全开！",
+      "name_en": "Flame On!",
+      "text": "英雄技能造成的伤害提高1点。",
+      "text_en": "Hero Power deals 1 more damage.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_546e2",
+      "dbf_id": 85108,
+      "name": "火力全开！",
+      "name_en": "Flame On!",
+      "text": "英雄技能造成的伤害提高1点。",
+      "text_en": "Hero Power deals 1 more damage.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "HERO_08bp",
+      "dbf_id": 807,
+      "name": "火焰冲击",
+      "name_en": "Fireblast",
+      "text": "<b>英雄技能</b>\n造成$1点伤害。",
+      "text_en": "<b>Hero Power</b>\nDeal $1 damage.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 4,
+        "COST": 2,
+        "CARDTYPE": 10,
+        "251": 1,
+        "268": 2,
+        "FACTION": 3,
+        "1086": 2739
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_representatives": [
+    "BAR_546",
+    "HERO_08bp"
+  ],
+  "evidence_only": [
+    "BAR_546e",
+    "BAR_546e2"
+  ],
+  "expression": "Native named phase obtains current player hero, then GrantHealthRule(hero,DAMAGE/SOURCE ADD 1 friendly HERO_POWER,spell source); no expiry.",
+  "replacement_policy": "Existing ReplaceHeroPower leaves hero holder unchanged; ReplaceHero preserves each granted attachment under fresh IDs.",
+  "official_sources": [
+    "https://hearthstone.blizzard.com/en-us/cards/63062-wildfire/",
+    "https://hearthstone.blizzard.com/en-us/news/23758614/22-0-2-patch-notes"
+  ],
+  "historical_before_22_0_2_policy_excluded": true,
+  "formal_mode_pool_verified": false,
+  "CN_calibrated": false
+}

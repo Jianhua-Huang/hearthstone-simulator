@@ -1,0 +1,72 @@
+[
+  {
+    "name": "fireball_six_damage",
+    "observed": 24,
+    "expected": 24,
+    "match": true
+  },
+  {
+    "name": "vampiric_blood_full_health_no_corpses",
+    "observed": {
+      "health": 30,
+      "max_health": 30,
+      "corpses": 0,
+      "hand_delta": 0
+    },
+    "expected": {
+      "health": 35,
+      "max_health": 35,
+      "corpses": 0,
+      "hand_delta": 0
+    },
+    "match": false
+  },
+  {
+    "name": "vampiric_blood_full_health_three_corpses",
+    "observed": {
+      "health": 30,
+      "max_health": 30,
+      "corpses": 0,
+      "hand_delta": 1
+    },
+    "expected": {
+      "health": 40,
+      "max_health": 40,
+      "corpses": 0,
+      "hand_delta": 1
+    },
+    "match": false
+  },
+  {
+    "name": "corpse_explosion_continues_after_first_death",
+    "observed": {
+      "weak_dead": true,
+      "strong_health": 4,
+      "corpses": 2
+    },
+    "expected": {
+      "weak_dead": true,
+      "strong_health": 2,
+      "corpses": 0
+    },
+    "match": false
+  },
+  {
+    "name": "constructed_deck_validation",
+    "observed": "accepted",
+    "expected": "rejected by deck validation",
+    "match": false
+  },
+  {
+    "name": "clone_preserves_deathknight_corpses",
+    "observed": {
+      "original": 7,
+      "clone": 0
+    },
+    "expected": {
+      "original": 7,
+      "clone": 7
+    },
+    "match": false
+  }
+]

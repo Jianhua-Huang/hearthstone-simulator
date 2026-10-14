@@ -1,0 +1,107 @@
+{
+  "profile": "successful-beast-price-independent-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "AT_041",
+      "data": {
+        "id": "AT_041",
+        "dbf_id": 2788,
+        "name": "荒野骑士",
+        "name_en": "Knight of the Wild",
+        "text": "在本局对战中，你每召唤过一只野兽，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Costs (1) less for each Beast you've summoned this game.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 2,
+          "COLLECTIBLE": 1,
+          "COST": 7,
+          "HEALTH": 6,
+          "ATK": 6,
+          "CARDTYPE": 4
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8f3122c38defa4d1d2fcea02b76f709cd04f39262c61f1f66ac07d11146a81fa"
+    },
+    {
+      "id": "AV_291",
+      "data": {
+        "id": "AV_291",
+        "dbf_id": 70247,
+        "name": "霜刃豹头领",
+        "name_en": "Frostsaber Matriarch",
+        "text": "<b>嘲讽</b>\n在本局对战中，你每召唤一只野兽，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Taunt</b>. Costs (1) less\n for each Beast you've\n_summoned this game.",
+        "cost": 7,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "COST": 7,
+          "ATK": 4,
+          "HEALTH": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "908b8f747507fdf04044b72a876b9a7c0e54e4d33a6ca590633f53b2cc1ad984"
+    }
+  ],
+  "native_profile": "cost.player-summoned-beast-count-v1",
+  "new_real_card_adapters": [
+    "AT_041"
+  ],
+  "official_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23987537/27-2-patch-notes",
+      "scope": "Historical official 27.2 update lists Knight of the Wild as reducing cost per Beast summoned this game. Local fixed text agrees. This is not current CN timing/pool certification."
+    }
+  ],
+  "existing_gap": "Successful summon query accepts Beast tribes, but the immutable price consumer accepts only the Totem profile and hard-codes Totem selection. IntrinsicCostSpec has only fixed conditional amounts.",
+  "full_tribe_policy_supported": false,
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

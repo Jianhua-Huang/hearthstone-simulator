@@ -1,0 +1,633 @@
+{
+  "version": "spellstone-qualifications-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_091",
+      "data": {
+        "id": "LOOT_091",
+        "dbf_id": 43382,
+        "name": "小型法术珍珠",
+        "name_en": "Lesser Pearl Spellstone",
+        "text": "召唤一个2/2并具有<b>嘲讽</b>的灵魂。@<i>（恢复3点生命值后升级。）</i>",
+        "text_en": "Summon a 2/2 Spirit with <b>Taunt</b>. @<i>(Restore 3 Health to upgrade.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 5
+        },
+        "reference_tags": [
+          {
+            "tag": "HEALTH",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          43381,
+          43380,
+          46890,
+          46889,
+          46891
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "db2c7012845c1b5260dc3040ff86b9868034a8a0be9ea9ef7a64fa0926c6ce58"
+    },
+    {
+      "id": "LOOT_091t1",
+      "data": {
+        "id": "LOOT_091t1",
+        "dbf_id": 43381,
+        "name": "法术珍珠",
+        "name_en": "Pearl Spellstone",
+        "text": "召唤一个4/4并具有<b>嘲讽</b>的灵魂。@",
+        "text_en": "Summon a 4/4 Spirit with <b>Taunt</b>. @",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 5
+        },
+        "reference_tags": [
+          {
+            "tag": "HEALTH",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "c8db9d44989c65fe068221ac06e5efdde754deae8423c7464f4ac9910ff3b27c"
+    },
+    {
+      "id": "LOOT_091t2",
+      "data": {
+        "id": "LOOT_091t2",
+        "dbf_id": 43380,
+        "name": "大型法术珍珠",
+        "name_en": "Greater Pearl Spellstone",
+        "text": "召唤一个6/6并具有<b>嘲讽</b>的\n灵魂。",
+        "text_en": "Summon a 6/6 Spirit with <b>Taunt</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "SPELL_SCHOOL": 5
+        },
+        "reference_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ddfbb29cc8cb2dfb2ff6dbdcc0c0b1a009d1ec10f786ac83b94149dbb8b31d5c"
+    },
+    {
+      "id": "LOOT_091t",
+      "data": {
+        "id": "LOOT_091t",
+        "dbf_id": 46890,
+        "name": "守护之魂",
+        "name_en": "Guardian Spirit",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "COLLECTIBLE": 0,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 2,
+          "TAUNT": 1,
+          "CARDRACE": 11
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e456f6e3e901d9434ac14dcc761765f62726d7abb6164673c726a9062b95cdd8"
+    },
+    {
+      "id": "LOOT_091t1t",
+      "data": {
+        "id": "LOOT_091t1t",
+        "dbf_id": 46889,
+        "name": "守护之魂",
+        "name_en": "Guardian Spirit",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "COLLECTIBLE": 0,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 4,
+          "HEALTH": 4,
+          "TAUNT": 1,
+          "CARDRACE": 11
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9e678b2a5dc9b39d6b27245b48e322af73d9ac4bd648f3e5f131ba342db41f33"
+    },
+    {
+      "id": "LOOT_091t2t",
+      "data": {
+        "id": "LOOT_091t2t",
+        "dbf_id": 46891,
+        "name": "守护之魂",
+        "name_en": "Guardian Spirit",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "COLLECTIBLE": 0,
+          "CARDTYPE": 4,
+          "COST": 6,
+          "ATK": 6,
+          "HEALTH": 6,
+          "TAUNT": 1,
+          "CARDRACE": 11
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "fc345af76cfc0f9253b9aa8729cc0b0cdd0ba0b360a515117a2c62ed42bbc2f1"
+    },
+    {
+      "id": "TOY_645",
+      "data": {
+        "id": "TOY_645",
+        "dbf_id": 104518,
+        "name": "小型法术欧珀石",
+        "name_en": "Lesser Opal Spellstone",
+        "text": "抽一张牌。<i>（用你的英雄攻击@次后升级。）</i>",
+        "text_en": "Draw 1 card.\n<i>(Attack with your hero\n@ |4(time, times) to upgrade.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COLLECTIBLE": 1,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_1": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          104966,
+          104967
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "dd0ca97d171aa6359bda1b085d865aa2b1f47f8a7411d0f69bdd7f753b2d5028"
+    },
+    {
+      "id": "TOY_645t",
+      "data": {
+        "id": "TOY_645t",
+        "dbf_id": 104966,
+        "name": "法术欧珀石",
+        "name_en": "Opal Spellstone",
+        "text": "抽两张牌。<i>（用你的英雄攻击@次后升级。）</i>",
+        "text_en": "Draw 2 cards.\n<i>(Attack with your hero\n@ |4(time, times) to upgrade.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_1": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "94777c425f2e3f7dd0f98d8af78dd8a8c84bdfb5d8f6f9e168b08f6054922c42"
+    },
+    {
+      "id": "TOY_645t1",
+      "data": {
+        "id": "TOY_645t1",
+        "dbf_id": 104967,
+        "name": "大型法术欧珀石",
+        "name_en": "Greater Opal Spellstone",
+        "text": "抽三张牌。",
+        "text_en": "Draw 3 cards.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "af061c53b2ee36b698f439cb75349a17fd99cad42f91ae53fd2a78f35c8dc29c"
+    },
+    {
+      "id": "TOY_825",
+      "data": {
+        "id": "TOY_825",
+        "dbf_id": 105355,
+        "name": "小型法术尖晶石",
+        "name_en": "Lesser Spinel Spellstone",
+        "text": "使你手牌中的亡灵牌获得+1/+1。<i>（获得@份<b>残骸</b>后升级。）</i>",
+        "text_en": "Give Undead in your hand +1/+1. <i>(Gain @ |4(<b>Corpse</b>, <b>Corpses</b>) to upgrade.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 105356,
+          "COST_BLOOD": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "CORPSE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          105356,
+          105357
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "318ca38fb756f4307e87be4a66c0528336bf5b567378b9f2ad14754ba1393ad1"
+    },
+    {
+      "id": "TOY_825t",
+      "data": {
+        "id": "TOY_825t",
+        "dbf_id": 105356,
+        "name": "法术尖晶石",
+        "name_en": "Spinel Spellstone",
+        "text": "使你手牌中的亡灵牌获得+2/+2。<i>（获得@份<b>残骸</b>后升级。）</i>",
+        "text_en": "Give Undead in your hand +2/+2. <i>(Gain @ |4(<b>Corpse</b>, <b>Corpses</b>) to upgrade.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 105355,
+          "TAG_SCRIPT_DATA_NUM_1": 5,
+          "COST_BLOOD": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "CORPSE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "90070a2acbfe0ce7d5668f62458b272c0d50e8ca7044dace02433f5268de535d"
+    },
+    {
+      "id": "TOY_825t2",
+      "data": {
+        "id": "TOY_825t2",
+        "dbf_id": 105357,
+        "name": "大型法术尖晶石",
+        "name_en": "Greater Spinel Spellstone",
+        "text": "使你手牌中的亡灵获得+3/+3。",
+        "text_en": "Give Undead in your hand +3/+3.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COST_BLOOD": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "ARMOR",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "691b213ec15c3c3c1492f8391d149be8386147927a810a80f70dd2be66d19ba5"
+    },
+    {
+      "id": "CS2_117",
+      "data": {
+        "id": "CS2_117",
+        "dbf_id": 1651,
+        "name": "大地之环先知",
+        "name_en": "Earthen Ring Farseer",
+        "text": "<b>战吼：</b>\n恢复#3点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore #3_Health.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "HEALTH": 3,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "fae2fcf9c28c012a4b0b865ae996f36218d5383b9f7037d94a219fddec0ea67e"
+    },
+    {
+      "id": "CS2_091",
+      "data": {
+        "id": "CS2_091",
+        "dbf_id": 383,
+        "name": "圣光的正义",
+        "name_en": "Light's Justice",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 4,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 5,
+          "COST": 1,
+          "ATK": 1,
+          "CARDTYPE": 7,
+          "FACTION": 3,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "HEALTH": 4
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ef25d33156df5fb8ecd438befc4719d75a3f827d31685ea8166bdafa9b16c9a6"
+    }
+  ]
+}

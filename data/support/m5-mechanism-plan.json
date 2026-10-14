@@ -1,0 +1,993 @@
+{
+  "schema_version": 1,
+  "target_id": "local-2026-09-23",
+  "inventory_complete": false,
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "contracts": {
+    "lifecycle": [
+      "hs_sim/engine/lifecycle.py"
+    ],
+    "resolution": [
+      "hs_sim/engine/resolver.py"
+    ],
+    "choices": [
+      "hs_sim/engine/choices.py",
+      "hs_sim/engine/ordered_choices.py"
+    ],
+    "zones": [
+      "hs_sim/engine/zones.py",
+      "hs_sim/engine/cross_zone.py",
+      "docs/m5-cross-zone.md"
+    ],
+    "costs": [
+      "hs_sim/engine/costs.py"
+    ],
+    "damage": [
+      "hs_sim/engine/combat.py",
+      "hs_sim/engine/health_rules.py"
+    ],
+    "construction": [
+      "hs_sim/engine/construction.py",
+      "hs_sim/engine/opening.py"
+    ],
+    "generation": [
+      "hs_sim/engine/pools.py"
+    ],
+    "information": [
+      "hs_sim/engine/information.py"
+    ],
+    "hand_upgrade_foundation": [
+      "hs_sim/engine/hand_upgrades.py"
+    ],
+    "hand_progress": [
+      "hs_sim/engine/hand_progress.py"
+    ],
+    "hand_acquisition": [
+      "hs_sim/engine/hand_history.py"
+    ],
+    "magnetic_fusion": [
+      "hs_sim/engine/magnetic.py"
+    ],
+    "colossal_entry": [
+      "hs_sim/engine/colossal.py"
+    ],
+    "herald_foundation": [
+      "hs_sim/engine/herald.py"
+    ],
+    "herald_extensions": [
+      "hs_sim/engine/costs.py",
+      "hs_sim/engine/pools.py",
+      "hs_sim/engine/resolver.py"
+    ],
+    "destruction_rewards": [
+      "hs_sim/engine/sacrifice.py"
+    ],
+    "deck_destruction": [
+      "hs_sim/engine/zones.py",
+      "hs_sim/engine/sacrifice.py"
+    ],
+    "keyword_auras": [
+      "hs_sim/engine/keyword_auras.py",
+      "hs_sim/engine/lifecycle.py"
+    ],
+    "attack_cost_generation": [
+      "hs_sim/engine/pools.py",
+      "hs_sim/engine/colossal.py",
+      "hs_sim/engine/representative.py"
+    ],
+    "spell_repetition": [
+      "hs_sim/engine/spell_repeats.py",
+      "hs_sim/engine/interrupts.py",
+      "hs_sim/engine/choices.py"
+    ],
+    "health_loss_replacement": [
+      "hs_sim/engine/health_loss.py",
+      "hs_sim/engine/costs.py",
+      "hs_sim/engine/resolver.py"
+    ],
+    "shatter_hand": [
+      "hs_sim/engine/shatter.py"
+    ],
+    "temporary_hand_cards": [
+      "hs_sim/engine/temporary_cards.py"
+    ],
+    "hand_derivatives": [
+      "hs_sim/engine/hand_derivatives.py"
+    ],
+    "hand_keywords": [
+      "hs_sim/engine/hand_keywords.py",
+      "hs_sim/engine/keyword_auras.py"
+    ],
+    "summon_sources": [
+      "hs_sim/engine/summon_sources.py"
+    ],
+    "spell_casts": [
+      "hs_sim/engine/spell_casts.py"
+    ],
+    "draw_casts": [
+      "hs_sim/engine/draw_casts.py"
+    ],
+    "spell_history": [
+      "hs_sim/engine/spell_history.py"
+    ],
+    "rewind_checkpoint": [
+      "hs_sim/engine/rewind.py",
+      "docs/m5-power-rewind.md"
+    ],
+    "hero_health_transfer": [
+      "hs_sim/engine/health_loss.py",
+      "docs/m5-health-transfer.md"
+    ],
+    "imbue_foundation": [
+      "hs_sim/engine/imbue.py",
+      "docs/m5-imbue.md"
+    ],
+    "hero_powers": [
+      "hs_sim/engine/hero_powers.py"
+    ],
+    "hero_power_activations": [
+      "hs_sim/engine/hero_powers.py",
+      "docs/m5-power-activations.md",
+      "docs/m5-power-rewind.md"
+    ],
+    "passive_hero_powers": [
+      "hs_sim/engine/hero_powers.py",
+      "hs_sim/engine/play_history.py",
+      "docs/m5-passive-powers.md"
+    ],
+    "directed_modifications": [
+      "hs_sim/engine/cross_zone.py",
+      "hs_sim/engine/hand_upgrades.py",
+      "docs/m5-directed-modification.md"
+    ],
+    "portal_sources": [
+      "hs_sim/engine/pools.py",
+      "hs_sim/engine/zones.py",
+      "hs_sim/engine/draw_casts.py",
+      "hs_sim/engine/imbue.py",
+      "docs/m5-imbue-portals.md"
+    ],
+    "pool_offers": [
+      "hs_sim/engine/pool_offers.py",
+      "hs_sim/engine/costs.py",
+      "hs_sim/engine/temporary_cards.py",
+      "docs/m5-pool-offers.md"
+    ],
+    "multiple_hero_powers": [
+      "hs_sim/engine/model.py",
+      "hs_sim/engine/hero_powers.py",
+      "hs_sim/engine/game.py",
+      "hs_sim/engine/player_api.py",
+      "docs/m5-multiple-powers.md"
+    ],
+    "hero_power_lifecycle": [
+      "hs_sim/engine/hero_powers.py",
+      "hs_sim/engine/model.py",
+      "hs_sim/engine/effects.py",
+      "docs/m5-power-lifecycle.md"
+    ],
+    "hero_power_combinations": [
+      "tests/test_m5_power_combinations.py",
+      "examples/power_combinations.py",
+      "docs/m5-power-combinations.md"
+    ],
+    "health_outcomes": [
+      "hs_sim/engine/health_outcomes.py",
+      "hs_sim/engine/resolver.py",
+      "docs/m5-health-outcomes.md"
+    ],
+    "death_attribution": [
+      "hs_sim/engine/death_causes.py",
+      "hs_sim/engine/model.py",
+      "docs/m5-death-attribution.md"
+    ],
+    "inspire_completion": [
+      "hs_sim/engine/inspire.py",
+      "docs/m5-inspire.md",
+      "tests/test_m5_inspire.py"
+    ],
+    "choose_one_activation": [
+      "hs_sim/engine/choose_one.py",
+      "docs/m5-choose-one.md",
+      "tests/test_m5_choose_one.py"
+    ],
+    "battlecry_activation": [
+      "hs_sim/engine/battlecries.py",
+      "docs/m5-battlecries.md",
+      "tests/test_m5_battlecries.py"
+    ],
+    "battlecry_repeat_batches": [
+      "hs_sim/engine/battlecry_repeats.py",
+      "docs/m5-battlecry-repeats.md",
+      "tests/test_m5_battlecry_repeats.py",
+      "docs/m5-battlecry-matching.md"
+    ],
+    "battlecry_player_modifiers": [
+      "hs_sim/engine/battlecry_modifiers.py",
+      "docs/m5-battlecry-modifiers.md",
+      "tests/test_m5_battlecry_modifiers.py"
+    ],
+    "minion_counter_windows": [
+      "hs_sim/engine/minion_plays.py",
+      "docs/m5-minion-counters.md",
+      "tests/test_m5_minion_counters.py"
+    ],
+    "private_counter_policies": [
+      "hs_sim/engine/counter_policies.py",
+      "docs/m5-counter-policies.md",
+      "tests/test_m5_counter_policies.py"
+    ],
+    "card_ability_cost_conditions": [
+      "hs_sim/engine/card_conditions.py",
+      "hs_sim/engine/costs.py",
+      "docs/m5-battlecry-costs.md",
+      "tests/test_m5_battlecry_costs.py"
+    ],
+    "ability_candidate_filters": [
+      "hs_sim/engine/card_conditions.py",
+      "hs_sim/engine/pools.py",
+      "docs/m5-ability-filters.md",
+      "tests/test_m5_ability_filters.py"
+    ],
+    "indirect_battlecries": [
+      "hs_sim/engine/battlecry_sources.py",
+      "docs/m5-battlecry-sources.md",
+      "tests/test_m5_battlecry_sources.py"
+    ],
+    "played_battlecries": [
+      "hs_sim/engine/played_battlecries.py",
+      "docs/m5-played-battlecries.md",
+      "tests/test_m5_played_battlecries.py"
+    ],
+    "bounded_battlecries": [
+      "hs_sim/engine/battlecry_sequences.py",
+      "docs/m5-battlecry-sequences.md",
+      "tests/test_m5_battlecry_sequences.py"
+    ],
+    "battlecry_source_lifecycle": [
+      "docs/m5-sequence-lifecycle.md",
+      "tests/test_m5_sequence_lifecycle.py"
+    ],
+    "shudderwock_composition": [
+      "docs/m5-shudderwock.md",
+      "tests/test_m5_shudderwock.py"
+    ],
+    "combo_activations": [
+      "hs_sim/engine/combos.py",
+      "docs/m5-combo-activations.md",
+      "tests/test_m5_combo_activations.py"
+    ],
+    "combo_repeats": [
+      "hs_sim/engine/combo_repeats.py",
+      "hs_sim/engine/combo_modifiers.py",
+      "docs/m5-combo-repeats.md",
+      "tests/test_m5_combo_repeats.py",
+      "docs/m5-combo-matching.md"
+    ],
+    "timed_keywords": [
+      "hs_sim/engine/timed_keywords.py",
+      "docs/m5-timed-keywords.md",
+      "tests/test_m5_timed_keywords.py"
+    ],
+    "combo_sources": [
+      "hs_sim/engine/representative.py",
+      "data/support/combo-source-inventory.json",
+      "docs/m5-combo-sources.md",
+      "tests/test_m5_combo_sources.py"
+    ],
+    "spell_player_modifiers": [
+      "hs_sim/engine/spell_modifiers.py",
+      "docs/m5-spell-modifiers.md",
+      "tests/test_m5_spell_modifiers.py"
+    ],
+    "held_spell_conditions": [
+      "hs_sim/engine/held_spells.py",
+      "docs/m5-held-spells.md",
+      "tests/test_m5_held_spells.py"
+    ],
+    "card_spell_repeat_attachments": [
+      "hs_sim/engine/card_spell_repeats.py",
+      "docs/m5-card-spell-repeats.md",
+      "tests/test_m5_card_spell_repeats.py"
+    ],
+    "creation_spell_repeats": [
+      "hs_sim/engine/card_creation.py",
+      "docs/m5-creation-repeats.md",
+      "tests/test_m5_creation_repeats.py"
+    ],
+    "card_spell_sources": [
+      "hs_sim/engine/card_spell_sources.py",
+      "hs_sim/engine/class_tags.py",
+      "docs/m5-card-spell-sources.md",
+      "tests/test_m5_card_spell_sources.py"
+    ],
+    "deathrattle_activations": [
+      "hs_sim/engine/deathrattles.py",
+      "docs/m5-deathrattle-activations.md",
+      "tests/test_m5_deathrattle_activations.py"
+    ],
+    "deathrattle_repeats": [
+      "hs_sim/engine/deathrattle_repeats.py",
+      "docs/m5-deathrattle-repeats.md",
+      "tests/test_m5_deathrattle_repeats.py",
+      "docs/m5-deathrattle-matching.md"
+    ],
+    "deathrattle_player_effects": [
+      "hs_sim/engine/player_effects.py",
+      "hs_sim/engine/deathrattle_repeats.py",
+      "docs/m5-deathrattle-player-effects.md",
+      "tests/test_m5_deathrattle_player_effects.py"
+    ],
+    "fixed_deathrattles": [
+      "hs_sim/engine/deathrattles.py",
+      "docs/m5-fixed-deathrattles.md",
+      "tests/test_m5_fixed_deathrattles.py"
+    ],
+    "scoped_deathrattles": [
+      "hs_sim/engine/deathrattle_repeats.py",
+      "hs_sim/engine/deathrattles.py",
+      "docs/m5-scoped-deathrattles.md",
+      "tests/test_m5_scoped_deathrattles.py"
+    ],
+    "power_repeat_audit": [
+      "hs_sim/engine/hero_powers.py",
+      "hs_sim/engine/rewind_outcomes.py",
+      "docs/m5-power-repeat-audit.md",
+      "outputs/v100-hero-power-source-audit.json"
+    ],
+    "hero_power_payloads": [
+      "hs_sim/engine/power_payloads.py",
+      "hs_sim/engine/hero_powers.py",
+      "hs_sim/engine/rewind_outcomes.py",
+      "docs/m5-power-payloads.md",
+      "tests/test_m5_power_payloads.py"
+    ],
+    "hero_power_repetition": [
+      "hs_sim/engine/hero_power_repeats.py",
+      "hs_sim/engine/power_payloads.py",
+      "docs/m5-power-repeats.md",
+      "tests/test_m5_power_repeats.py",
+      "docs/m5-hero-power-matching.md"
+    ],
+    "end_turn_subjects": [
+      "hs_sim/engine/end_turns.py",
+      "docs/m5-end-turns.md",
+      "tests/test_m5_end_turns.py"
+    ],
+    "end_turn_repeats": [
+      "hs_sim/engine/end_turn_repeats.py",
+      "hs_sim/engine/end_turns.py",
+      "docs/m5-end-turn-repeats.md",
+      "tests/test_m5_end_turn_repeats.py",
+      "hs_sim/engine/end_turn_matching.py",
+      "hs_sim/engine/end_turn_acceptance.py",
+      "docs/m5-end-turn-matching.md",
+      "tests/test_m5_end_turn_matching.py"
+    ],
+    "end_turn_representatives": [
+      "hs_sim/engine/representative.py",
+      "docs/m5-end-turn-representatives.md",
+      "tests/test_m5_end_turn_representatives.py",
+      "outputs/v104-end-turn-representatives-pre-audit.json"
+    ],
+    "end_turn_activations": [
+      "hs_sim/engine/end_turns.py",
+      "hs_sim/engine/model.py",
+      "hs_sim/engine/registry.py",
+      "hs_sim/engine/serialization.py",
+      "hs_sim/engine/continuations.py",
+      "docs/m5-end-turn-activations.md",
+      "tests/test_m5_end_turn_activations.py",
+      "outputs/v105-end-turn-activation-pre-audit.json",
+      "hs_sim/engine/end_turn_acceptance.py",
+      "docs/m5-end-turn-matching.md",
+      "tests/test_m5_end_turn_matching.py"
+    ],
+    "end_turn_producers": [
+      "hs_sim/engine/end_turn_producers.py",
+      "hs_sim/engine/end_turns.py",
+      "hs_sim/engine/model.py",
+      "hs_sim/engine/registry.py",
+      "hs_sim/engine/serialization.py",
+      "hs_sim/engine/continuations.py",
+      "docs/m5-end-turn-producers.md",
+      "tests/test_m5_end_turn_producers.py",
+      "outputs/v106-end-turn-producer-pre-audit.json"
+    ],
+    "mixed_repeat_composition": [
+      "docs/m5-mixed-repeats.md",
+      "tests/test_m5_mixed_repeats.py",
+      "tests/test_m5_mixed_representatives.py",
+      "examples/mixed_repeats.py",
+      "outputs/v107-mixed-repeat-pre-audit.json",
+      "hs_sim/engine/lifecycle.py",
+      "hs_sim/engine/battlecry_repeats.py",
+      "hs_sim/engine/deathrattle_repeats.py",
+      "hs_sim/engine/hero_power_repeats.py",
+      "hs_sim/engine/end_turn_repeats.py",
+      "hs_sim/engine/deathrattles.py",
+      "hs_sim/engine/rewind_outcomes.py",
+      "docs/m5-hero-power-matching.md"
+    ],
+    "spell_recipient_match": [
+      "docs/m5-spell-match.md",
+      "hs_sim/engine/repeat_matching.py",
+      "hs_sim/engine/spell_acceptance.py",
+      "tests/test_m5_spell_match.py"
+    ],
+    "spell_recipient_representative": [
+      "docs/m5-spell-match-representatives.md",
+      "hs_sim/engine/representative.py",
+      "tests/test_m5_spell_match_representatives.py",
+      "examples/spell_match_representatives.py"
+    ],
+    "spell_source_conditions": [
+      "docs/m5-repeat-source-conditions.md",
+      "hs_sim/engine/repeat_source_conditions.py",
+      "tests/test_m5_repeat_source_conditions.py",
+      "examples/repeat_source_conditions.py"
+    ]
+  },
+  "families": [
+    {
+      "id": "play_history",
+      "name": "出牌历史与连击/流放",
+      "tags": [
+        "COMBO",
+        "OUTCAST"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "手动出牌、独立施法、抽取尝试及历史筛选/复制发现/重施已建模；其他行为统计、来源特有计数仍保留 M5。REWIND 回溯是不同的检查点与重试机制，M5-11 公共子集已内部验收，下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "one_shot_triggers",
+      "name": "一次性触发",
+      "tags": [
+        "SPELLBURST",
+        "FRENZY"
+      ],
+      "depends_on": [
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "damage"
+      ],
+      "status": "partial",
+      "next_work": "M5-02 已接入有限次能力、法术开始捕获/完成触发、暴怒存活、消费、复制/沉默/回手/恢复；其他施放来源与国服精确时序待续。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "hand_upgrades",
+      "name": "手牌内进度与升级",
+      "tags": [
+        "CORRUPT",
+        "INFUSE"
+      ],
+      "depends_on": [
+        "play_history",
+        "zones",
+        "lifecycle",
+        "hand_upgrade_foundation"
+      ],
+      "status": "partial",
+      "next_work": "M5-03 腐蚀/注能手持进度、连续/无限阶段、费用与死亡见证、复制/跨区/恢复已内部验收；特殊区域/种族限定、完整形态及国服时序仍待续。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "extra_conditions",
+      "name": "额外出牌条件",
+      "tags": [
+        "FINALE",
+        "MANATHIRST",
+        "QUICKDRAW"
+      ],
+      "depends_on": [
+        "play_history",
+        "costs",
+        "zones",
+        "hand_acquisition"
+      ],
+      "status": "partial",
+      "next_work": "M5-04 冻结压轴/法力渴求/快枪手、成功获取历史、条件目标与生命周期已内部验收；特殊动态费用/强制开启、其他施放来源与国服窗口待续。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "magnetic",
+      "name": "磁力合体",
+      "tags": [
+        "MODULAR",
+        "MAGNETIC_TO_RACE"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "zones",
+        "choices",
+        "magnetic_fusion"
+      ],
+      "status": "partial",
+      "next_work": "M5-05 手牌磁力位置/满场、属性与能力分组、生命周期、玩家入口和存档已内部验收；特殊来源/动态磁力与国服精确窗口待续。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "colossal",
+      "name": "巨型与附肢",
+      "tags": [
+        "COLOSSAL",
+        "COLOSSAL_LIMB_ON_LEFT",
+        "COLOSSAL_LIMB"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "resolution",
+        "colossal_entry"
+      ],
+      "status": "partial",
+      "next_work": "M5-06 分步入场、全部现有召唤来源、物理手牌/牌库召唤、独立附肢、容量、选择恢复与三个真实主体已内部验收；兆示/特殊巨型及精确国服窗口另行跟踪。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "herald",
+      "name": "兆示与巨型强化",
+      "tags": [
+        "HERALD"
+      ],
+      "depends_on": [
+        "colossal",
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "herald_foundation",
+        "herald_extensions",
+        "destruction_rewards",
+        "choices",
+        "costs",
+        "generation",
+        "deck_destruction",
+        "keyword_auras",
+        "attack_cost_generation",
+        "spell_repetition",
+        "health_loss_replacement"
+      ],
+      "status": "partial",
+      "mode_scope": "unverified",
+      "next_work": "M5-07c 已补 12 项六职业/巨型/重复/生命支付/英雄攻击/回滚组合测试并归档。普通手动来源代表链路内部验收；自动施法/特殊重复与生命设值仍在 M5，正式池在 M0，官方窗口在 M6，未适配卡族在 M7。不得宣称兆示整族正式支持。"
+    },
+    {
+      "id": "shatter",
+      "name": "裂变与手牌片段重组",
+      "tags": [
+        "SHATTER"
+      ],
+      "depends_on": [
+        "hand_acquisition",
+        "zones",
+        "hand_upgrade_foundation",
+        "resolution",
+        "shatter_hand"
+      ],
+      "status": "partial",
+      "mode_scope": "unverified",
+      "next_work": "M5-08 普通法术公共子集已由 36 项合成定义测试内部验收；未新增真实卡牌。R-083 记录容量、继承、跨副本/逆序配对、开局及检查窗口。后续自动施法来源仍在 M5、集中校准在 M6、具体卡族在 M7；当前进入临时复制与衍生形态组。"
+    },
+    {
+      "id": "temporary_copies",
+      "name": "临时复制与衍生形态",
+      "tags": [
+        "ECHO",
+        "NON_KEYWORD_ECHO",
+        "TWINSPELL",
+        "MINIATURIZE",
+        "GIGANTIFY"
+      ],
+      "depends_on": [
+        "zones",
+        "play_history",
+        "lifecycle",
+        "temporary_hand_cards",
+        "hand_derivatives",
+        "hand_keywords"
+      ],
+      "status": "partial",
+      "next_work": "M5-09a 印刷回响/临时手牌 40 项、b/c 双生/微缩/巨化 44 项、d 动态回响/手牌光环及存储关键词 55 项内部测试通过。M5-10a 招募/复活公共子集已内部验收；M5-10c 抽到时施放已内部验收，M5-10d 历史重施/历史发现已内部验收，M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制；条件/种族限定、玩家长期来源及其他特殊关键词授予仍保留 M5。R-084～086 官方窗口及继承待 M6，真实适配待 M7。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "recruit_resurrect",
+      "name": "招募和复活",
+      "tags": [],
+      "depends_on": [
+        "zones",
+        "lifecycle",
+        "generation",
+        "summon_sources"
+      ],
+      "status": "partial",
+      "next_work": "M5-10a 区域招募、死亡史筛选、基础复活/批量去重与入场身材 62 项内部测试通过。M5-10b 自动施法历史已内部验收，M5-10c 抽到时施放已内部验收，M5-10d 历史重施/历史发现已内部验收，M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制；特殊附件恢复、改变候选身份与额外筛选仍保留 M5；R-087 窗口和概率/位置政策待 M6，真实适配待 M7。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "draw_cast",
+      "name": "抽取施放和自动/重复施放",
+      "tags": [
+        "CASTS_WHEN_DRAWN"
+      ],
+      "depends_on": [
+        "play_history",
+        "zones",
+        "choices",
+        "spell_casts",
+        "draw_casts",
+        "spell_history"
+      ],
+      "status": "partial",
+      "next_work": "M5-10b 自动施法/独立历史、10c 抽到时/抽取链及 10d 历史发现/重施/池内批量均有内部验收；来源特有计数、同费用施法替换、特殊抽取修饰仍归 M5。R-088～090 待国服校准；M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "rewind",
+      "name": "回溯",
+      "tags": [
+        "REWIND"
+      ],
+      "depends_on": [
+        "resolution",
+        "choices",
+        "information",
+        "lifecycle",
+        "rewind_checkpoint"
+      ],
+      "status": "partial",
+      "next_work": "M5-11a 检查点、11b 次数卡面和 11c 保留多种结果公共子集已有内部验收。55 项新增专项覆盖累计局面、单次激活、来源离场及米罗克代表。英雄技能回溯及独立结果关联已在 M5-12c-02b 通过 51 项专项，动态授予/特殊目标来源仍在 M5；R-091～093/R-102 待校准，整族 partial。钟表先生版本映射 C-005 在 M0/M7 保留。下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "excavate",
+      "name": "发掘",
+      "tags": [
+        "EXCAVATE"
+      ],
+      "depends_on": [
+        "generation",
+        "choices",
+        "hero_health_transfer"
+      ],
+      "status": "partial",
+      "next_work": "M5-12b-01 进度及 02a～d 的复活续接、特殊生成/连续发现、跨区增益/变形、英雄生命转移公共子集均已内部验收。七职业顶级奖励都有实验适配；低阶及特殊池仍为明确的不完整样本。完整正式池归 M0，R-095～R-099 待 M6；下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "imbue",
+      "name": "灌注",
+      "tags": [
+        "CARES_ABOUT_IMBUE_CARDS"
+      ],
+      "depends_on": [
+        "resolution",
+        "lifecycle",
+        "imbue_foundation",
+        "hero_powers",
+        "rewind_checkpoint",
+        "hero_power_activations",
+        "passive_hero_powers",
+        "directed_modifications",
+        "portal_sources",
+        "pool_offers"
+      ],
+      "status": "partial",
+      "next_work": "12c 已列公共依赖内部验收：累计、技能激活/历史/回溯、被动监听、定向修改、传送门和支付能力分组候选/临时交付；八个声明技能实验适配。下一项 M5-13d-02 战吼重复、目标策略与抑制；多技能已列组合已内部通过；特殊来源继续登记 M5，正式池 M0、R-100～106 国服窗口 M6，整族 partial。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "damage_outcomes",
+      "name": "伤害结果条件",
+      "tags": [
+        "OVERKILL",
+        "HONORABLE_KILL",
+        "OVERHEAL",
+        "ENRAGED"
+      ],
+      "depends_on": [
+        "damage",
+        "resolution",
+        "health_outcomes",
+        "death_attribution"
+      ],
+      "status": "partial",
+      "next_work": "13a-01 结果条件49项、13a-02 死亡原因归因52项内部通过；科尔拉克作为必要代表。受伤持续状态和特殊来源仍归M5，R-109/R-110精确窗口待国服校准；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "inspire",
+      "name": "激励",
+      "tags": [
+        "INSPIRE"
+      ],
+      "depends_on": [
+        "resolution",
+        "inspire_completion"
+      ],
+      "status": "partial",
+      "next_work": "M5-13b共享完成条件及55项生命周期/多技能/回溯组合内部通过；仅接低阶侍从和奥格瑞玛狼骑士。R-111、特殊来源和单卡特例保留；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "choose_one",
+      "name": "抉择调度",
+      "tags": [
+        "CHOOSE_ONE"
+      ],
+      "depends_on": [
+        "choices",
+        "play_history",
+        "choose_one_activation"
+      ],
+      "status": "partial",
+      "next_work": "M5-13c公共子集通过62项专项：出牌前分支/目标、显式合并、冻结历史、自动/重复/回溯与玩家接口；迁移滋养并新增三张必要代表。长期/一次性合并、分支费用差异、特殊来源预选/继承及混合根声明仍归M5，R-112归M6；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "discover_dredge",
+      "name": "发现/探底与正式池",
+      "tags": [
+        "DISCOVER",
+        "DREDGE"
+      ],
+      "depends_on": [
+        "generation",
+        "zones",
+        "choices"
+      ],
+      "status": "partial",
+      "next_work": "M5-12a 探底公共子集已实现：底部物理候选、己方/对手牌库、当前属性预览、置顶、选择续接、复制/召唤及恢复。R-094 选项顺序/费用/窗口待 M6；正式候选及单卡排除仍待 M0/M7。下一主线 M5-12b 发掘。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "deck_exceptions",
+      "name": "特殊构筑/起手/侧板",
+      "tags": [
+        "START_OF_GAME_KEYWORD",
+        "TOURIST",
+        "DECK_RULE_MOD_DECK_SIZE",
+        "MAX_SIDEBOARD_CARDS",
+        "SIDEBOARD_TYPE",
+        "GENN_EVEN_REQUIREMENT",
+        "BAKU_ODD_REQUIREMENT"
+      ],
+      "depends_on": [
+        "construction",
+        "generation"
+      ],
+      "status": "planned",
+      "next_work": "游客、奇偶、雷纳索尔/王子、侧板与起手例外；逐卡来源与合法性。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "long_term",
+      "name": "任务与持续效果",
+      "tags": [
+        "QUEST",
+        "QUESTLINE",
+        "SIDE_QUEST",
+        "OBJECTIVE",
+        "SIGIL",
+        "PALADIN_AURA"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "M4 公共契约已内部验收；特殊任务/光环与官方共享容量待校准。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "secrets",
+      "name": "奥秘及打断",
+      "tags": [
+        "SECRET"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "M4 公共契约已内部验收；反制随从、自动施放及特殊攻击替换需扩展。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "composite",
+      "name": "星舰和泰坦",
+      "tags": [
+        "STARSHIP_PIECE",
+        "STARSHIP_LAUNCH_TRIGGER",
+        "TITAN"
+      ],
+      "depends_on": [
+        "resolution",
+        "lifecycle",
+        "choices"
+      ],
+      "status": "partial",
+      "next_work": "已列公共契约通过；特殊组件、自动能力与完整卡池仍待逐项收口。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "hand_actions",
+      "name": "交易与锻造",
+      "tags": [
+        "TRADEABLE",
+        "FORGE",
+        "FORGES_INTO"
+      ],
+      "depends_on": [
+        "zones",
+        "costs"
+      ],
+      "status": "partial",
+      "next_work": "公共入口已实现；动态授予和特殊动作费用仍待契约。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "turn_control",
+      "name": "回合与额外行动",
+      "tags": [
+        "EXTRA_TURNS_SPELL_OVERRIDE"
+      ],
+      "depends_on": [
+        "resolution"
+      ],
+      "status": "planned",
+      "next_work": "额外回合、跳过、特殊结束/开始、游戏终局与官方回合上限。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "version_candidates",
+      "name": "版本专属标签候选",
+      "tags": [
+        "KINDRED",
+        "PREPARE",
+        "EMPOWER",
+        "FABLED",
+        "FABLED_PLUS",
+        "GEARS",
+        "DISGUISED",
+        "REPEATABLE",
+        "RITUALIST_MINION"
+      ],
+      "depends_on": [
+        "construction",
+        "play_history",
+        "lifecycle"
+      ],
+      "status": "needs_version_check",
+      "next_work": "HERALD/SHATTER 已据国服上线公告拆出独立任务；其余标签继续核查玩法/上线/目标补丁，不能以预加载标签宣称支持。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "battlecry_repetition",
+      "name": "战吼与触发复制",
+      "tags": [
+        "BATTLECRY",
+        "FAST_BATTLECRY",
+        "EXTRA_DEATHRATTLES_BASE"
+      ],
+      "depends_on": [
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "choose_one_activation",
+        "battlecry_activation",
+        "battlecry_repeat_batches",
+        "battlecry_player_modifiers",
+        "minion_counter_windows",
+        "private_counter_policies",
+        "card_ability_cost_conditions",
+        "ability_candidate_filters",
+        "indirect_battlecries",
+        "played_battlecries",
+        "bounded_battlecries",
+        "battlecry_source_lifecycle",
+        "shudderwock_composition",
+        "combo_activations",
+        "combo_repeats",
+        "timed_keywords",
+        "combo_sources",
+        "spell_player_modifiers",
+        "held_spell_conditions",
+        "card_spell_repeat_attachments",
+        "creation_spell_repeats",
+        "card_spell_sources",
+        "deathrattle_activations",
+        "deathrattle_repeats",
+        "deathrattle_player_effects",
+        "fixed_deathrattles",
+        "scoped_deathrattles",
+        "power_repeat_audit",
+        "hero_power_payloads",
+        "hero_power_repetition",
+        "end_turn_subjects",
+        "end_turn_repeats",
+        "end_turn_activations",
+        "end_turn_producers",
+        "mixed_repeat_composition",
+        "spell_recipient_match",
+        "spell_source_conditions"
+      ],
+      "status": "partial",
+      "next_work": "M5-13d-02m-01-B1持续来源条件与另一物理实体公共契约已内部验收；仅覆盖真实付费手牌法术actual board_spell_repeat来源，不新增真实卡。内核105/schema102，观察52/命令7/replay1及代表64、305记录/306定义/14choice-only保持。R-151未国服校准；下一项M5-13d-02m-01-B2-01逐族匹配。费用/主体/周期/+1/CAST轴及M0/M6/M7继续保留，不能宣称条件重复整族或最新正式池完整。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "core_keywords",
+      "name": "基础关键词与伤害",
+      "tags": [
+        "DEATHRATTLE",
+        "TAUNT",
+        "RUSH",
+        "LIFESTEAL",
+        "DIVINE_SHIELD",
+        "CHARGE",
+        "STEALTH",
+        "WINDFURY",
+        "MEGA_WINDFURY",
+        "REBORN",
+        "FREEZE",
+        "POISONOUS",
+        "ELUSIVE",
+        "SPELLPOWER",
+        "SILENCE",
+        "IMMUNE_WHILE_ATTACKING"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "damage"
+      ],
+      "status": "partial",
+      "next_work": "已有基础子集，巨型风怒/攻击中免疫等例外须单独验收；所有正式时序待 M6。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "resources",
+      "name": "费用与职业资源",
+      "tags": [
+        "OVERLOAD",
+        "CORPSE_SPENDER",
+        "COST_BLOOD",
+        "COST_FROST",
+        "COST_UNHOLY",
+        "CARD_ALTERNATE_COST"
+      ],
+      "depends_on": [
+        "costs",
+        "construction"
+      ],
+      "status": "partial",
+      "next_work": "公共法力/过载/尸体/符文已有；动态条件费用、支付致死例外、全部资源策略待续。",
+      "mode_scope": "unverified"
+    },
+    {
+      "id": "additional_hero_powers",
+      "name": "额外英雄技能位置与动作",
+      "tags": [],
+      "depends_on": [
+        "hero_powers",
+        "resolution",
+        "lifecycle",
+        "information",
+        "hero_power_activations",
+        "passive_hero_powers",
+        "multiple_hero_powers",
+        "hero_power_lifecycle",
+        "hero_power_combinations"
+      ],
+      "status": "partial",
+      "next_work": "12d-01 位置/动作42项、12d-02 定向生命周期48项、12d-03 回溯/保留结果/终局及恢复组合37项内部通过。公共主线接续 M5-13d-02 战吼重复、目标策略与抑制；正式来源、数量/重复获得/去重政策尚未完成，R-102/R-107/R-108待国服校准，保持partial。",
+      "mode_scope": "unverified"
+    }
+  ]
+}

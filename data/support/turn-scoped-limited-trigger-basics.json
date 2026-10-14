@@ -1,0 +1,55 @@
+{
+  "profile": "finite-trigger-native-actual-turn-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "TOY_651",
+      "dbf_id": 103448,
+      "name": "实验室奴隶主",
+      "name_en": "Lab Patron",
+      "text": "每当你获得护甲值，召唤另一个实验室奴隶主<i>（每回合一次）</i>。",
+      "text_en": "[x]Whenever you gain Armor,\n summon another Lab Patron\n<i>(once per turn)</i>.",
+      "cost": 4,
+      "attack": 3,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 3,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 3,
+        "HEALTH": 3,
+        "COLLECTIBLE": 1,
+        "CLASS": 10,
+        "HAS_SIGNATURE_QUALITY": 1,
+        "TRIGGER_VISUAL": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": 164,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "policy": "One budget per physical finite attachment, reset on each actual global turn including opponent and consecutive owner turns. Consume before body. Existing instance budgets and Spellburst/Frenzy stay instance scoped. Classified end-turn recurrence remains explicitly unsupported in this profile.",
+  "new_source_experimental_adapters": 1,
+  "new_production_adapters": 0,
+  "new_combinations": 0,
+  "full_card_pool": false,
+  "CN_calibrated": false
+}

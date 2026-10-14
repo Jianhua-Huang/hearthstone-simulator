@@ -1,0 +1,66 @@
+{
+  "profile": "single-fel-spell-price-independent-raw-v1",
+  "source_file": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CATA_529",
+      "data": {
+        "id": "CATA_529",
+        "dbf_id": 122775,
+        "name": "贪婪的邪能钓鱼者",
+        "name_en": "Ravenous Felfisher",
+        "text": "在本局对战中，你每施放一个邪能法术，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]Costs (1) less for\neach Fel spell you've\ncast this game.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "COLLECTIBLE": 1,
+          "COST": 6,
+          "ATK": 5,
+          "HEALTH": 5,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 92
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4fd827b8289f812f5620b1942ddb08fdc04bdb3ccb1065ff8f964a1b03a4c2e4"
+    }
+  ],
+  "native_profile": "cost.player-fel-spell-count-v1",
+  "new_real_card_adapters": [
+    "CATA_529"
+  ],
+  "existing_gap": "The spell-count cost consumer counts all personal roots or distinct schools; neither expresses the number of Fel roots. Existing rows already retain original SpellSchool.",
+  "policy": "Reuse the existing personally accepted hand-root source policy and count only original Fel school rows; no dynamic grant, new ledger or arbitrary school expression. Exact CN automatic/repeat credit remains uncalibrated.",
+  "official_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/122775-ravenous-felfisher/",
+      "scope": "Official page exists but the browser returned only its dynamic shell; no card-text or timing verification claimed."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards?set=wild&viewMode=table",
+      "scope": "Indexed official table lists the 6-cost 5/5 rare Naga; formal CN pool and precise source credit are not certified."
+    }
+  ],
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

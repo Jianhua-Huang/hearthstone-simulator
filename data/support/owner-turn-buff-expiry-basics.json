@@ -1,0 +1,107 @@
+{
+  "profile": "numeric-buff-next-real-owner-start-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "TSC_827",
+      "data": {
+        "id": "TSC_827",
+        "dbf_id": 71944,
+        "name": "凶恶的滑矛纳迦",
+        "name_en": "Vicious Slitherspear",
+        "text": "在你施放一个法术后，直到你的下个回合，获得+1攻击力。",
+        "text_en": "[x]After you cast a spell,\ngain +1 Attack until\nyour next turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "CARDRACE": 92,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 3,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "TRIGGER_VISUAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "597d555fa9ba345a6581b585c4c4c6bca4eb23a4d9600c46748c576bf7144be4"
+    },
+    {
+      "id": "CORE_TSC_827",
+      "data": {
+        "id": "CORE_TSC_827",
+        "dbf_id": 113111,
+        "name": "凶恶的滑矛纳迦",
+        "name_en": "Vicious Slitherspear",
+        "text": "在你施放一个法术后，直到你的下个回合，获得+1攻击力。",
+        "text_en": "[x]After you cast a spell,\ngain +1 Attack until\nyour next turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "CARDRACE": 92,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 3,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "858": 71944,
+          "TRIGGER_VISUAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b3a3feabaea8d5d87898d6591192ee645a8735c4aa8df80b45a7bea77571df41"
+    }
+  ],
+  "new_real_card_adapters": [
+    "TSC_827"
+  ],
+  "policy": "An additive numeric buff binds the explicitly specified player at application and expires atomically at that player next genuine start. Reuse actual own-turn intervals, keep original owner across control/current copies. Precise CN capture/expiry/display remains uncalibrated.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

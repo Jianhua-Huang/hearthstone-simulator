@@ -1,0 +1,144 @@
+{
+  "profile": "board-to-stored-copy-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "OG_291",
+      "data": {
+        "id": "OG_291",
+        "dbf_id": 38876,
+        "name": "暗影施法者",
+        "name_en": "Shadowcaster",
+        "text": "<b>战吼：</b>选择一个友方随从，将它的一张1/1的复制置入你的手牌，其法力值消耗为（1）点。",
+        "text_en": "<b>Battlecry:</b> Choose a friendly minion. Add a 1/1 copy to_your hand that costs_(1).",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 4,
+          "CLASS": 7,
+          "COLLECTIBLE": 1,
+          "COST": 5,
+          "HEALTH": 4,
+          "ATK": 4,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e815a0cef03942d4a8136b1287c5054d9959db68954bb6935bebc1f287bb45da"
+    },
+    {
+      "id": "MIS_919",
+      "data": {
+        "id": "MIS_919",
+        "dbf_id": 105282,
+        "name": "木偶剧场",
+        "name_en": "Puppet Theatre",
+        "text": "选择一个敌方随从，获取一张它的1/1且法力值消耗为（1）点的复制。",
+        "text_en": "[x]Choose an enemy\nminion. Get a 1/1 copy\nof it that costs (1).",
+        "cost": 4,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 1,
+          "CARDTYPE": 39,
+          "COST": 4,
+          "HEALTH": 2,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000321,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "426de4cdc291800c130316cadb8be6f605550d909d35051a88586f0903756fe2"
+    },
+    {
+      "id": "SW_064",
+      "data": {
+        "id": "SW_064",
+        "dbf_id": 64712,
+        "name": "北郡农民",
+        "name_en": "Northshire Farmer",
+        "text": "<b>战吼：</b>选择一只友方野兽，将它的三张3/3的复制洗入你的牌库。",
+        "text_en": "<b>Battlecry:</b> Choose a friendly Beast. Shuffle three 3/3 copies_into_your_deck.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "COST": 3,
+          "CARDTYPE": 4,
+          "ATK": 3,
+          "HEALTH": 3,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9e87a1aa278ecffb2aa0a638b8ed210d917c066ac61186a049905ce28dc701f7"
+    }
+  ],
+  "new_real_card_adapters": [
+    "OG_291"
+  ],
+  "policy": "Existing CopyCard accepts original MinionReference, creates an independent HAND/DECK copy without moving or killing the source, and installs existing SummonStats and CostSpec before first creation event. Current board-to-stored copy retains local permanent materials but resets damage/attack opportunity/frozen status; exact CN lifecycle remains pending.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false
+}

@@ -1,0 +1,177 @@
+{
+  "version": "drink-refill-basics-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "VAC_323",
+      "data": {
+        "id": "VAC_323",
+        "dbf_id": 106532,
+        "name": "麦芽岩浆",
+        "name_en": "Malted Magma",
+        "text": "对所有敌人造成$1点伤害。<i>（还剩3杯！）</i>",
+        "text_en": "Deal $1 damage to\nall enemies.\n<i>(3 Drinks left!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "SPELL_SCHOOL": 2,
+          "COLLECTIBLE": 1,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          108858,
+          108859
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ba11bcafd7cb568a6c8557406a373f6e61e75a46d70554ea6b5ba3e9edf10d1e"
+    },
+    {
+      "id": "VAC_323t",
+      "data": {
+        "id": "VAC_323t",
+        "dbf_id": 108858,
+        "name": "麦芽岩浆",
+        "name_en": "Malted Magma",
+        "text": "对所有敌人造成$1点伤害。<i>（还剩2杯！）</i>",
+        "text_en": "Deal $1 damage to\nall enemies.\n<i>(2 Drinks left!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f9e9b04b49c8d26f41e0c569dbc4b9c68c17eb8ae3b5bc758d1848653d391ddb"
+    },
+    {
+      "id": "VAC_323t2",
+      "data": {
+        "id": "VAC_323t2",
+        "dbf_id": 108859,
+        "name": "麦芽岩浆",
+        "name_en": "Malted Magma",
+        "text": "对所有敌人造成$1点伤害。<i>（最后一杯！）</i>",
+        "text_en": "Deal $1 damage to\nall enemies.\n<i>(Last Drink!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "d65e86108472c4b3fc1adbd2e0c7eb39d88ac96647d9927b3f40d3ca3ecdb75c"
+    },
+    {
+      "id": "EX1_287",
+      "data": {
+        "id": "EX1_287",
+        "dbf_id": 113,
+        "name": "法术反制",
+        "name_en": "Counterspell",
+        "text": "<b>奥秘：</b>当你的对手施放一个法术时，<b>反制</b>该法术。",
+        "text_en": "<b>Secret:</b> When your opponent casts a spell, <b>Counter</b> it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "SECRET": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "COUNTER",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9a8e2534e99589ab400acca8a3f7742e2fd9a74d7a97de33e59cd2841d5d4ffe"
+    }
+  ]
+}

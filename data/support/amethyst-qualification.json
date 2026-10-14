@@ -1,0 +1,328 @@
+{
+  "version": "amethyst-qualification-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_043",
+      "data": {
+        "id": "LOOT_043",
+        "dbf_id": 43272,
+        "name": "小型法术紫水晶",
+        "name_en": "Lesser Amethyst Spellstone",
+        "text": "<b>吸血</b>\n对一个随从造成$3点伤害。<i>（受到来自你的卡牌的伤害后升级。）</i>",
+        "text_en": "<b>Lifesteal.</b> Deal $3 damage to a minion. <i>(Take damage from your cards to upgrade.)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 4,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          43275,
+          43276
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "6b3f6030a6473e75406d7652929c4eccfaa459a6da094169f3265815b38dca1f"
+    },
+    {
+      "id": "LOOT_043t2",
+      "data": {
+        "id": "LOOT_043t2",
+        "dbf_id": 43275,
+        "name": "法术紫水晶",
+        "name_en": "Amethyst Spellstone",
+        "text": "<b>吸血</b>\n对一个随从造成$5点伤害。<i>（受到来自你的卡牌的伤害后升级。）</i>",
+        "text_en": "<b>Lifesteal.</b> Deal $5 damage to a minion. <i>(Take damage from your cards to upgrade.)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "COST": 4,
+          "RARITY": 3,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "02330fb6132414f30cd1edc849647355af42dcf5de8b02460061cfea9d502120"
+    },
+    {
+      "id": "LOOT_043t3",
+      "data": {
+        "id": "LOOT_043t3",
+        "dbf_id": 43276,
+        "name": "大型法术紫水晶",
+        "name_en": "Greater Amethyst Spellstone",
+        "text": "<b>吸血</b>\n对一个随从造成$7点伤害。",
+        "text_en": "<b>Lifesteal.</b> Deal $7 damage to a minion.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "COST": 4,
+          "RARITY": 3,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9be6377ca11f1f452fed595af018570f96286116a4bf1fe1eadff19983bb03aa"
+    },
+    {
+      "id": "EX1_319",
+      "data": {
+        "id": "EX1_319",
+        "dbf_id": 1090,
+        "name": "烈焰小鬼",
+        "name_en": "Flame Imp",
+        "text": "<b>战吼：</b>对你的英雄造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage to your hero.",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 9,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "BATTLECRY": 1,
+          "IMP": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4ff0ea9bf1b98252badb2f332a28e3b782588c5247472be96e64d39d34a530b2"
+    },
+    {
+      "id": "CS2_062",
+      "data": {
+        "id": "CS2_062",
+        "dbf_id": 950,
+        "name": "地狱烈焰",
+        "name_en": "Hellfire",
+        "text": "对所有角色造成$3点伤害。",
+        "text_en": "Deal $3 damage to ALL_characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 9,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b3ef4e5defcdbc385eba7028d8c3a5a6f66316a2833ce92031a4b5d09387cbec"
+    },
+    {
+      "id": "CS2_056_H3",
+      "data": {
+        "id": "CS2_056_H3",
+        "dbf_id": 57764,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 2,
+          "CARDTYPE": 10,
+          "COST": 2,
+          "COLLECTIBLE": 0,
+          "ELITE": 0,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "1086": 2744
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "3a328775e50291700062c2ad7b5d694c048e925854d07c420cc98a27ce711f62"
+    },
+    {
+      "id": "LOOT_014",
+      "data": {
+        "id": "LOOT_014",
+        "dbf_id": 43122,
+        "name": "狗头人图书管理员",
+        "name_en": "Kobold Librarian",
+        "text": "<b>战吼：</b>\n抽一张牌。对你的英雄造成2点伤害。",
+        "text_en": "<b>Battlecry:</b> Draw a card. Deal 2 damage to your_hero.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 9,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "FACTION": 3,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "fd95b5dfa19bdbf318f803968758bcb808301e5e5d0c1a309dbfb786a08be4a1"
+    }
+  ]
+}

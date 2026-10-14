@@ -1,0 +1,204 @@
+{
+  "profile": "burn-classification-audit-v1",
+  "records": [
+    {
+      "id": "WW_441",
+      "dbf_id": 102903,
+      "name": "锅炉燃料",
+      "name_en": "Furnace Fuel",
+      "text": "当本牌被使用，弃掉或摧毁时，抽两张牌。",
+      "text_en": "When this is played,\ndiscarded, or destroyed,\ndraw 2 cards.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 9,
+        "RARITY": 1,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "COST": 3,
+        "SPELL_SCHOOL": 2,
+        "335": 1,
+        "1724": 1,
+        "IGNORE_SUPPRESS_MILL_ANIMATION": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "335",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "WW_044t",
+      "dbf_id": 100963,
+      "name": "淤泥桶",
+      "name_en": "Barrel of Sludge",
+      "text": "当本牌被使用，弃掉或摧毁时，对生命值最低的敌人造成$4点伤害。",
+      "text_en": "When this is played, discarded, or destroyed, deal $4 damage to the lowest Health enemy.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 5,
+        "COST": 3,
+        "335": 1,
+        "SPELL_SCHOOL": 7,
+        "1724": 1,
+        "IGNORE_SUPPRESS_MILL_ANIMATION": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "335",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EX1_581",
+      "dbf_id": 461,
+      "name": "闷棍",
+      "name_en": "Sap",
+      "text": "将一个敌方随从移回你对手的\n手牌。",
+      "text_en": "Return an enemy minion to your opponent's hand.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 7,
+        "COST": 2,
+        "CARDTYPE": 5,
+        "FACTION": 3,
+        "268": 2,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "NEW1_004",
+      "dbf_id": 196,
+      "name": "消失",
+      "name_en": "Vanish",
+      "text": "将所有随从移回其拥有者的\n手牌。",
+      "text_en": "Return all minions to their owner's hand.",
+      "cost": 6,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 1,
+        "CLASS": 7,
+        "COLLECTIBLE": 1,
+        "COST": 6,
+        "CARDTYPE": 5
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "source_records": 36022,
+  "implemented": false,
+  "requirements": [
+    "Do not infer a common lifecycle solely from card_burned",
+    "Distinguish draw/stored transfer, newly allocated overflow, SETASIDE acquisition, retained GRAVEYARD delivery and failed BOARD minion return",
+    "Failed full-hand BOARD return must be investigated against ordinary destroy/death, rather than merely moving to GRAVEYARD",
+    "Native stored destroyed-body overflow remains explicitly unsupported until its original occurrence and receiving-controller semantics are defined"
+  ],
+  "external_evidence": [
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/returning-ciletos-to-hand-triggers-deathrattles/153167",
+      "source_type": "First-person community bug report on official forum; not a Blizzard rule statement",
+      "supports": "Reporter observes failed full-hand return causing deathrattle and respawn; replies describe it as intended. October 2025, not current CN calibration."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/dalaran-heist-bug-thread/6447?page=2",
+      "source_type": "First-person community report on official forum; not a Blizzard rule statement",
+      "supports": "Reporter describes returned Boom Bots triggering deathrattles; reply attributes it to full-hand destruction. Historical report, no game recording inspected."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/impfernal-augur-and-duke/163553",
+      "source_type": "Community discussion, conflicting firsthand claims, not official semantics",
+      "supports": "Mentions Furnace Fuel and overdraw but disputes special Impfernal/Backlogged behavior; cannot unify all burned cases from this discussion."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/24033779",
+      "source_type": "Official historical patch text",
+      "supports": "Barrel of Sludge includes destroyed. Does not specify every overflow origin or CN timing."
+    }
+  ],
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "inventory_exhaustive": false,
+  "new_combinations": 0,
+  "production_adapters": 0,
+  "diagnostic_adapter_scope": "Only existing Sap effect expressed as necessary isolated source for a kernel counterexample; not production support."
+}

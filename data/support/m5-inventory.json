@@ -1,0 +1,1334 @@
+{
+  "schema_version": 1,
+  "target_id": "local-2026-09-23",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "plan_sha256": "5afad1cc84d4a8a816fcaf9162ea460e0bc0d9d29486b33c9afaed2aede875f5",
+  "inventory_complete": false,
+  "mode_legality_verified": false,
+  "full_pool_count": null,
+  "source_records": 36022,
+  "collectible_flag_records": 8170,
+  "scope_note": "All source modes, aliases, cosmetics and preloads may be present. Tags identify review candidates, not executable behavior or current CN legality. Untagged text and reachable noncollectibles need separate review.",
+  "families": [
+    {
+      "id": "play_history",
+      "name": "出牌历史与连击/流放",
+      "tags": [
+        "COMBO",
+        "OUTCAST"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "手动出牌、独立施法、抽取尝试及历史筛选/复制发现/重施已建模；其他行为统计、来源特有计数仍保留 M5。REWIND 回溯是不同的检查点与重试机制，M5-11 公共子集已内部验收，下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 197,
+      "collectible_record_matches": 122,
+      "example_records": [
+        {
+          "id": "AT_028",
+          "data_sha256": "3f4bf587b0a81e34ee127a912af945139e8d1641aecd82318dcfbb90d4241572"
+        },
+        {
+          "id": "AT_030",
+          "data_sha256": "d3dd69cacdbe836d83293df759c096cd367efa7475092ca0286188f6cf433f59"
+        },
+        {
+          "id": "AV_201",
+          "data_sha256": "689fb502abaa6f655c527c0acbaf1cc22270f139ea3637b347a14bab327a94b1"
+        },
+        {
+          "id": "BAR_328",
+          "data_sha256": "65b8c9a08a26e54ec43318412ed5bf74279462b13572f2c01002a58757c9608a"
+        },
+        {
+          "id": "BAR_333",
+          "data_sha256": "761c741108f138ccf82d61f6e9bd383845f23dee7f2bf0a7a55ec9af0a9e5f14"
+        }
+      ]
+    },
+    {
+      "id": "one_shot_triggers",
+      "name": "一次性触发",
+      "tags": [
+        "SPELLBURST",
+        "FRENZY"
+      ],
+      "depends_on": [
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "damage"
+      ],
+      "status": "partial",
+      "next_work": "M5-02 已接入有限次能力、法术开始捕获/完成触发、暴怒存活、消费、复制/沉默/回手/恢复；其他施放来源与国服精确时序待续。",
+      "mode_scope": "unverified",
+      "all_record_matches": 98,
+      "collectible_record_matches": 62,
+      "example_records": [
+        {
+          "id": "BAR_020",
+          "data_sha256": "aba85d36798fad71f090a68bf4e8e820f581b6881c1e0b5bafabbde5396e2db7"
+        },
+        {
+          "id": "BAR_021",
+          "data_sha256": "2a50027902f776a998872991c89bf9555b23cd8adb446b566795e1c5cef4d834"
+        },
+        {
+          "id": "BAR_022",
+          "data_sha256": "0b7e120f746b7c87d448e8a79e4918259c9465b8fbe9cc1cfdc06a9e2c4a01f1"
+        },
+        {
+          "id": "BAR_024",
+          "data_sha256": "2358ae1e821e14f4a5fef2c7caf59677407649bbd1f15892dfe0696bced4b63a"
+        },
+        {
+          "id": "BAR_025",
+          "data_sha256": "5ed21faa9fec544cfe6aff5c120403c7f30e8e20348ef2f0391e3dac5fbd5f71"
+        }
+      ]
+    },
+    {
+      "id": "hand_upgrades",
+      "name": "手牌内进度与升级",
+      "tags": [
+        "CORRUPT",
+        "INFUSE"
+      ],
+      "depends_on": [
+        "play_history",
+        "zones",
+        "lifecycle",
+        "hand_upgrade_foundation"
+      ],
+      "status": "partial",
+      "next_work": "M5-03 腐蚀/注能手持进度、连续/无限阶段、费用与死亡见证、复制/跨区/恢复已内部验收；特殊区域/种族限定、完整形态及国服时序仍待续。",
+      "mode_scope": "unverified",
+      "all_record_matches": 90,
+      "collectible_record_matches": 83,
+      "example_records": [
+        {
+          "id": "CORE_MAW_003",
+          "data_sha256": "431b4fcc5ad84eb8ac18a5f5f608480aff58fe40edf1e8c1f0ec788744c1b163"
+        },
+        {
+          "id": "CORE_MAW_009",
+          "data_sha256": "964ed53c26e06646b7ef43647084da41ac68e2c7b484c96985e464b6bcc2da1e"
+        },
+        {
+          "id": "CORE_MAW_031",
+          "data_sha256": "3fb81edf494225c4a3dc971eb55e5a5e97f48c2291d2f7dbc3ca6c08d84fafdb"
+        },
+        {
+          "id": "CORE_MAW_033",
+          "data_sha256": "1c052bfac345c2f3223e3d2ce34158fd0643ccba61163996836dc0f994d4f5b9"
+        },
+        {
+          "id": "CORE_REV_013",
+          "data_sha256": "2264c93ff6cade76b4990c5c7a9d66395b4e4d245d03ce9bf13d1f40b2aa06df"
+        }
+      ]
+    },
+    {
+      "id": "extra_conditions",
+      "name": "额外出牌条件",
+      "tags": [
+        "FINALE",
+        "MANATHIRST",
+        "QUICKDRAW"
+      ],
+      "depends_on": [
+        "play_history",
+        "costs",
+        "zones",
+        "hand_acquisition"
+      ],
+      "status": "partial",
+      "next_work": "M5-04 冻结压轴/法力渴求/快枪手、成功获取历史、条件目标与生命周期已内部验收；特殊动态费用/强制开启、其他施放来源与国服窗口待续。",
+      "mode_scope": "unverified",
+      "all_record_matches": 63,
+      "collectible_record_matches": 58,
+      "example_records": [
+        {
+          "id": "DEEP_024",
+          "data_sha256": "6c0d7776cd92ef8a1ba35ea78b1bcf750fb96cc36c96c9371efbec0b179f0789"
+        },
+        {
+          "id": "DEEP_029",
+          "data_sha256": "79ec9533a2094128083eff836ee2625233d5f9ddc5d97377660b93838025252b"
+        },
+        {
+          "id": "ETC_075",
+          "data_sha256": "f41fb7fbc6da9d55e2a931a13b06dc53bf312e4da99ac276bed10218bc150eed"
+        },
+        {
+          "id": "ETC_083",
+          "data_sha256": "bd5e3e48944464848c8b2f6af30399f81d74f3744d38f2b1374333ea1dd5d917"
+        },
+        {
+          "id": "ETC_088",
+          "data_sha256": "cf73cf03c6fab5b685bd869ad33aec4f7b779d7bec1363e9184834bb6e265ab3"
+        }
+      ]
+    },
+    {
+      "id": "magnetic",
+      "name": "磁力合体",
+      "tags": [
+        "MODULAR",
+        "MAGNETIC_TO_RACE"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "zones",
+        "choices",
+        "magnetic_fusion"
+      ],
+      "status": "partial",
+      "next_work": "M5-05 手牌磁力位置/满场、属性与能力分组、生命周期、玩家入口和存档已内部验收；特殊来源/动态磁力与国服精确窗口待续。",
+      "mode_scope": "unverified",
+      "all_record_matches": 178,
+      "collectible_record_matches": 26,
+      "example_records": [
+        {
+          "id": "BOT_020",
+          "data_sha256": "ef196205ba9ae7e30cc67e4b2de397b5e7b568a938c523f737a499ba09de42f3"
+        },
+        {
+          "id": "BOT_021",
+          "data_sha256": "4aaadbbe038212e9a867a98b8919853cc8606c8266a4c1070f1b841752472b32"
+        },
+        {
+          "id": "BOT_035",
+          "data_sha256": "d7c5283fcd69f752e8cf1d69cd9f7fde9fde3e5506035cf503989afad1c4bd05"
+        },
+        {
+          "id": "BOT_107",
+          "data_sha256": "65cc268029126405988b6157e3901446967bb20b1b10b81d4f99472aa7d1a19b"
+        },
+        {
+          "id": "BOT_237",
+          "data_sha256": "8f49367d561b0c4b2260e78a42e9d87b4a87d274bcb18582e4ceb84f8386a70c"
+        }
+      ]
+    },
+    {
+      "id": "colossal",
+      "name": "巨型与附肢",
+      "tags": [
+        "COLOSSAL",
+        "COLOSSAL_LIMB_ON_LEFT",
+        "COLOSSAL_LIMB"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "resolution",
+        "colossal_entry"
+      ],
+      "status": "partial",
+      "next_work": "M5-06 分步入场、全部现有召唤来源、物理手牌/牌库召唤、独立附肢、容量、选择恢复与三个真实主体已内部验收；兆示/特殊巨型及精确国服窗口另行跟踪。",
+      "mode_scope": "unverified",
+      "all_record_matches": 87,
+      "collectible_record_matches": 24,
+      "example_records": [
+        {
+          "id": "CATA_139",
+          "data_sha256": "1c975d683e7eb4886ca4cfb75c0db6e83728fb1e43801ed6687abf612b5cb48d"
+        },
+        {
+          "id": "CATA_150",
+          "data_sha256": "2cc6aebea46f45e719ab4aa6035d475c702721fe66e6606ccf3575dc4af02b52"
+        },
+        {
+          "id": "CATA_151",
+          "data_sha256": "211616c2ae83e3dff5899cb88f9aace06be0ad2e56e3b9d35427e30d495c1bd1"
+        },
+        {
+          "id": "CATA_153",
+          "data_sha256": "db9415cf0420b9ee0052b592fed51941af7e756e6754f40cd81b4f8eef427b2c"
+        },
+        {
+          "id": "CATA_154",
+          "data_sha256": "d8c4696973fd2b7b8a9e8284bd0078c46810d9989f07bf23c2cff26ac58c47f0"
+        }
+      ]
+    },
+    {
+      "id": "herald",
+      "name": "兆示与巨型强化",
+      "tags": [
+        "HERALD"
+      ],
+      "depends_on": [
+        "colossal",
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "herald_foundation",
+        "herald_extensions",
+        "destruction_rewards",
+        "choices",
+        "costs",
+        "generation",
+        "deck_destruction",
+        "keyword_auras",
+        "attack_cost_generation",
+        "spell_repetition",
+        "health_loss_replacement"
+      ],
+      "status": "partial",
+      "mode_scope": "unverified",
+      "next_work": "M5-07c 已补 12 项六职业/巨型/重复/生命支付/英雄攻击/回滚组合测试并归档。普通手动来源代表链路内部验收；自动施法/特殊重复与生命设值仍在 M5，正式池在 M0，官方窗口在 M6，未适配卡族在 M7。不得宣称兆示整族正式支持。",
+      "all_record_matches": 14,
+      "collectible_record_matches": 14,
+      "example_records": [
+        {
+          "id": "CATA_156",
+          "data_sha256": "d937675f1ab8328413aae56186afa55cf86432df927dd34003e5ea8fba1b277d"
+        },
+        {
+          "id": "CATA_158",
+          "data_sha256": "f446c809d0377245a5c15688ade21786e7d947ec89fb8659926835cf1279d58d"
+        },
+        {
+          "id": "CATA_160",
+          "data_sha256": "4a6a3d8aad5c9f8e9f1ccc27f063931b6d9027e8198f651dbd5d70ab41a53bec"
+        },
+        {
+          "id": "CATA_492",
+          "data_sha256": "274da1d28e27a0ce798e65c38b8ea327f0e036cda766741649b1e8d40a0c531e"
+        },
+        {
+          "id": "CATA_497",
+          "data_sha256": "23749591526c15e05dba1c0b205689b70dc17fef24af97a52c5dbc70f19d19d5"
+        }
+      ]
+    },
+    {
+      "id": "shatter",
+      "name": "裂变与手牌片段重组",
+      "tags": [
+        "SHATTER"
+      ],
+      "depends_on": [
+        "hand_acquisition",
+        "zones",
+        "hand_upgrade_foundation",
+        "resolution",
+        "shatter_hand"
+      ],
+      "status": "partial",
+      "mode_scope": "unverified",
+      "next_work": "M5-08 普通法术公共子集已由 36 项合成定义测试内部验收；未新增真实卡牌。R-083 记录容量、继承、跨副本/逆序配对、开局及检查窗口。后续自动施法来源仍在 M5、集中校准在 M6、具体卡族在 M7；当前进入临时复制与衍生形态组。",
+      "all_record_matches": 5,
+      "collectible_record_matches": 5,
+      "example_records": [
+        {
+          "id": "CATA_134",
+          "data_sha256": "6990f45fc13a4a2568010f65148f5a2501fc422b0e54b09ad758262da2e93071"
+        },
+        {
+          "id": "CATA_306",
+          "data_sha256": "79c7aa26340cdeec8385014a003eb9de41ba0ad494f472caa799070eafd66dc9"
+        },
+        {
+          "id": "CATA_479",
+          "data_sha256": "d7c971c9311ad043a4608f54a42042b223763ada91d59f430b909861345d7690"
+        },
+        {
+          "id": "CATA_489",
+          "data_sha256": "ce37acdaae6da7f8c196653707df1ae6fedfd44f7df0539d704d9ee7aabf4be3"
+        },
+        {
+          "id": "CATA_820",
+          "data_sha256": "212b3a0bf9ff3500ebcd50157eb9ad9f8f888a3fe83acd504483c4add4c807b9"
+        }
+      ]
+    },
+    {
+      "id": "temporary_copies",
+      "name": "临时复制与衍生形态",
+      "tags": [
+        "ECHO",
+        "NON_KEYWORD_ECHO",
+        "TWINSPELL",
+        "MINIATURIZE",
+        "GIGANTIFY"
+      ],
+      "depends_on": [
+        "zones",
+        "play_history",
+        "lifecycle",
+        "temporary_hand_cards",
+        "hand_derivatives",
+        "hand_keywords"
+      ],
+      "status": "partial",
+      "next_work": "M5-09a 印刷回响/临时手牌 40 项、b/c 双生/微缩/巨化 44 项、d 动态回响/手牌光环及存储关键词 55 项内部测试通过。M5-10a 招募/复活公共子集已内部验收；M5-10c 抽到时施放已内部验收，M5-10d 历史重施/历史发现已内部验收，M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制；条件/种族限定、玩家长期来源及其他特殊关键词授予仍保留 M5。R-084～086 官方窗口及继承待 M6，真实适配待 M7。",
+      "mode_scope": "unverified",
+      "all_record_matches": 98,
+      "collectible_record_matches": 53,
+      "example_records": [
+        {
+          "id": "AV_285",
+          "data_sha256": "940729670109bbd9d19ae883d3e59e29b9d48871a5a365963342af7a08ead1f2"
+        },
+        {
+          "id": "BOT_700",
+          "data_sha256": "dc563d7e25d643bc82c86636b8489105f22807ab8675b3317f504b1c2c666c06"
+        },
+        {
+          "id": "DAL_141",
+          "data_sha256": "a67ae56f627e3303a6c68540d80d74b3cd34cc3166bb9ee1387ad26a0d80a965"
+        },
+        {
+          "id": "DAL_177",
+          "data_sha256": "cfa541a116d8f83c87448d215c8eff67639ce46df83c74fd29f2a8121b9ac5e8"
+        },
+        {
+          "id": "DAL_256",
+          "data_sha256": "f1ece7b6cbd4baa48aadc248f6f12afb56055798dd02b6519fb2bc051fc67a71"
+        }
+      ]
+    },
+    {
+      "id": "recruit_resurrect",
+      "name": "招募和复活",
+      "tags": [],
+      "depends_on": [
+        "zones",
+        "lifecycle",
+        "generation",
+        "summon_sources"
+      ],
+      "status": "partial",
+      "next_work": "M5-10a 区域招募、死亡史筛选、基础复活/批量去重与入场身材 62 项内部测试通过。M5-10b 自动施法历史已内部验收，M5-10c 抽到时施放已内部验收，M5-10d 历史重施/历史发现已内部验收，M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制；特殊附件恢复、改变候选身份与额外筛选仍保留 M5；R-087 窗口和概率/位置政策待 M6，真实适配待 M7。",
+      "mode_scope": "unverified",
+      "all_record_matches": 0,
+      "collectible_record_matches": 0,
+      "example_records": []
+    },
+    {
+      "id": "draw_cast",
+      "name": "抽取施放和自动/重复施放",
+      "tags": [
+        "CASTS_WHEN_DRAWN"
+      ],
+      "depends_on": [
+        "play_history",
+        "zones",
+        "choices",
+        "spell_casts",
+        "draw_casts",
+        "spell_history"
+      ],
+      "status": "partial",
+      "next_work": "M5-10b 自动施法/独立历史、10c 抽到时/抽取链及 10d 历史发现/重施/池内批量均有内部验收；来源特有计数、同费用施法替换、特殊抽取修饰仍归 M5。R-088～090 待国服校准；M5-11a 回溯检查点已有内部实现，M5-11b 回溯次数卡面已有内部实现，M5-11c 保留多结果已有内部验收；下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 66,
+      "collectible_record_matches": 5,
+      "example_records": [
+        {
+          "id": "AT_130",
+          "data_sha256": "f799169156ee65f21065a318bad02c788f727791cfd2230e8c5c6c9350e6d086"
+        },
+        {
+          "id": "GVG_007",
+          "data_sha256": "fbd45a2c00c8c94d826df292473d3f5bc58b9a874dc2b88a1a9043027b749e7f"
+        },
+        {
+          "id": "SW_306",
+          "data_sha256": "53add579f1553e2e0c365225e8e61019e60400796d061d72194ee22de38dbc6e"
+        },
+        {
+          "id": "TTN_715",
+          "data_sha256": "37b6e2e0c8754e25f3d8d1bba36e49ddb05aeb31bbce82880c1f3d17bb4f87a6"
+        },
+        {
+          "id": "WON_038",
+          "data_sha256": "047f28c40342696f10ceb487e64d4c4f280249c96d0d0a9ee31fe25d317cbe69"
+        }
+      ]
+    },
+    {
+      "id": "rewind",
+      "name": "回溯",
+      "tags": [
+        "REWIND"
+      ],
+      "depends_on": [
+        "resolution",
+        "choices",
+        "information",
+        "lifecycle",
+        "rewind_checkpoint"
+      ],
+      "status": "partial",
+      "next_work": "M5-11a 检查点、11b 次数卡面和 11c 保留多种结果公共子集已有内部验收。55 项新增专项覆盖累计局面、单次激活、来源离场及米罗克代表。英雄技能回溯及独立结果关联已在 M5-12c-02b 通过 51 项专项，动态授予/特殊目标来源仍在 M5；R-091～093/R-102 待校准，整族 partial。钟表先生版本映射 C-005 在 M0/M7 保留。下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 24,
+      "collectible_record_matches": 18,
+      "example_records": [
+        {
+          "id": "CORE_EDR_004",
+          "data_sha256": "c5e26e7e010d620d2446929c11c0af381e348678281832b5d6ffcaa52ccb81c7"
+        },
+        {
+          "id": "CORE_EDR_004_2026",
+          "data_sha256": "e9e89ac2d905d650be9cbee617100354f714bc590cf69ab1e46b7b89524163e9"
+        },
+        {
+          "id": "TIME_000",
+          "data_sha256": "5419d4bb6798d83235b0ba0d570026dffcec19a7f043f4c0c6289fce27f01a01"
+        },
+        {
+          "id": "TIME_001",
+          "data_sha256": "f5296c1b723f5ac854d487d64e7553ca4fad7c7e5c0005f56a3bd71d29654ac3"
+        },
+        {
+          "id": "TIME_002",
+          "data_sha256": "f5f1c7782c47efb6c2559e70f80eba77af7677b077aa3e04d6d47560c489cab0"
+        }
+      ]
+    },
+    {
+      "id": "excavate",
+      "name": "发掘",
+      "tags": [
+        "EXCAVATE"
+      ],
+      "depends_on": [
+        "generation",
+        "choices",
+        "hero_health_transfer"
+      ],
+      "status": "partial",
+      "next_work": "M5-12b-01 进度及 02a～d 的复活续接、特殊生成/连续发现、跨区增益/变形、英雄生命转移公共子集均已内部验收。七职业顶级奖励都有实验适配；低阶及特殊池仍为明确的不完整样本。完整正式池归 M0，R-095～R-099 待 M6；下一主线 M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 17,
+      "collectible_record_matches": 17,
+      "example_records": [
+        {
+          "id": "DEEP_007",
+          "data_sha256": "1790f00b9471f6487cb307fae5edf7dc3f67c9c672b48d715351faa773befc39"
+        },
+        {
+          "id": "DEEP_009",
+          "data_sha256": "6ae67ef9844abdce238801b87b49e06c83b52675d288e143da65ec058e46391a"
+        },
+        {
+          "id": "DEEP_018",
+          "data_sha256": "0ce23f3edb9d5bcb4c2b3e732d6bdfce8ce67f7ea4d0dadc0c25c9b46ad8100f"
+        },
+        {
+          "id": "DEEP_033",
+          "data_sha256": "7d50a522be70117826e16c7e2bf53687923013b3b4e6085f3386ce25b2d8dccc"
+        },
+        {
+          "id": "WW_001",
+          "data_sha256": "89133253851a3e1ef75d613b1e7e3e644ff9cc0cc540fa80411227006d3be386"
+        }
+      ]
+    },
+    {
+      "id": "imbue",
+      "name": "灌注",
+      "tags": [
+        "CARES_ABOUT_IMBUE_CARDS"
+      ],
+      "depends_on": [
+        "resolution",
+        "lifecycle",
+        "imbue_foundation",
+        "hero_powers",
+        "rewind_checkpoint",
+        "hero_power_activations",
+        "passive_hero_powers",
+        "directed_modifications",
+        "portal_sources",
+        "pool_offers"
+      ],
+      "status": "partial",
+      "next_work": "12c 已列公共依赖内部验收：累计、技能激活/历史/回溯、被动监听、定向修改、传送门和支付能力分组候选/临时交付；八个声明技能实验适配。下一项 M5-13d-02 战吼重复、目标策略与抑制；多技能已列组合已内部通过；特殊来源继续登记 M5，正式池 M0、R-100～106 国服窗口 M6，整族 partial。",
+      "mode_scope": "unverified",
+      "all_record_matches": 21,
+      "collectible_record_matches": 20,
+      "example_records": [
+        {
+          "id": "EDR_226",
+          "data_sha256": "09bddea25ac726ff53ebc6388975826e14965bde427ff9766961423f32f2600c"
+        },
+        {
+          "id": "EDR_227",
+          "data_sha256": "fcbd039057216779b21fe1a02ba4cebc6e6f9a60704dc0682722b74c5dbd2298"
+        },
+        {
+          "id": "EDR_231",
+          "data_sha256": "9faeb1e7f36275e232a676fdea6825c927e09a8f1bce61f32be55b2986be2d00"
+        },
+        {
+          "id": "EDR_264",
+          "data_sha256": "c209e2ab936f171b120c6d65840334124ee45894d7995c05ca30c47c7f3a4282"
+        },
+        {
+          "id": "EDR_449",
+          "data_sha256": "b119621b22b663253c5208c4aa66f068263471165fc59cc9840155090217d9f3"
+        }
+      ]
+    },
+    {
+      "id": "damage_outcomes",
+      "name": "伤害结果条件",
+      "tags": [
+        "OVERKILL",
+        "HONORABLE_KILL",
+        "OVERHEAL",
+        "ENRAGED"
+      ],
+      "depends_on": [
+        "damage",
+        "resolution",
+        "health_outcomes",
+        "death_attribution"
+      ],
+      "status": "partial",
+      "next_work": "13a-01 结果条件49项、13a-02 死亡原因归因52项内部通过；科尔拉克作为必要代表。受伤持续状态和特殊来源仍归M5，R-109/R-110精确窗口待国服校准；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 123,
+      "collectible_record_matches": 69,
+      "example_records": [
+        {
+          "id": "AT_011",
+          "data_sha256": "79cd2543e5eb716c5ead69dc38453e3e7e405183e0947435da6b160e443ac5e5"
+        },
+        {
+          "id": "AV_121",
+          "data_sha256": "22719b713bec8fb52d30854328eb3fa594c0636920071266c0f62903b6fed237"
+        },
+        {
+          "id": "AV_122",
+          "data_sha256": "6a585baa819d310bbf40d9fddbca0c1ef9d5e04b395dc0b92b00dc0a36c05bf0"
+        },
+        {
+          "id": "AV_123",
+          "data_sha256": "584917975033160ff7c68fec87c6ce32ae7eebf0c2b81f3b549c88825b5dce51"
+        },
+        {
+          "id": "AV_124",
+          "data_sha256": "23c7836f25c582ac39e97964b8dd06f45c72cdffeaa561c840ba381f721d278c"
+        }
+      ]
+    },
+    {
+      "id": "inspire",
+      "name": "激励",
+      "tags": [
+        "INSPIRE"
+      ],
+      "depends_on": [
+        "resolution",
+        "inspire_completion"
+      ],
+      "status": "partial",
+      "next_work": "M5-13b共享完成条件及55项生命周期/多技能/回溯组合内部通过；仅接低阶侍从和奥格瑞玛狼骑士。R-111、特殊来源和单卡特例保留；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 31,
+      "collectible_record_matches": 27,
+      "example_records": [
+        {
+          "id": "AT_006",
+          "data_sha256": "d5d4641ddc76cb5f9ba890392ecf127babb5cf2c5a309667ed5a481e0194aab1"
+        },
+        {
+          "id": "AT_012",
+          "data_sha256": "a6518b96c264c6532aced4dc5935515cd72003c973e06603b44b91cbc2942274"
+        },
+        {
+          "id": "AT_018",
+          "data_sha256": "cb698b718be030fd88256c6dd417d05a350fec49f4798f1624444902be59926c"
+        },
+        {
+          "id": "AT_023",
+          "data_sha256": "20c5e8ce4488d7c72fc8130564f21b6f9b58b107f01884be3ab71ff457afd8d5"
+        },
+        {
+          "id": "AT_039",
+          "data_sha256": "6ce08bcb24da896137aa284d8d29c20933e251a2e057dfee7da1c601ba335d51"
+        }
+      ]
+    },
+    {
+      "id": "choose_one",
+      "name": "抉择调度",
+      "tags": [
+        "CHOOSE_ONE"
+      ],
+      "depends_on": [
+        "choices",
+        "play_history",
+        "choose_one_activation"
+      ],
+      "status": "partial",
+      "next_work": "M5-13c公共子集通过62项专项：出牌前分支/目标、显式合并、冻结历史、自动/重复/回溯与玩家接口；迁移滋养并新增三张必要代表。长期/一次性合并、分支费用差异、特殊来源预选/继承及混合根声明仍归M5，R-112归M6；下一主线M5-13d-02 战吼重复、目标策略与抑制。",
+      "mode_scope": "unverified",
+      "all_record_matches": 206,
+      "collectible_record_matches": 102,
+      "example_records": [
+        {
+          "id": "AT_037",
+          "data_sha256": "d1bc67f876477073e3962b4940708a9b4c0c23c3743dff3ffe493bccc43d5ef8"
+        },
+        {
+          "id": "AT_042",
+          "data_sha256": "c68102e0f37a68482079d7d4d2d562b7640881a5943966d5095d91b87340df5a"
+        },
+        {
+          "id": "AV_295",
+          "data_sha256": "f953c81574ae379b6bdc9a9f015ba9469cee2ca3e2ffd752f687325fa140fa0d"
+        },
+        {
+          "id": "BOT_422",
+          "data_sha256": "d9a50654ec8403303fddd99d7753d231d4b284d7981095aa713ee6bcfe9bf8d8"
+        },
+        {
+          "id": "BRM_010",
+          "data_sha256": "ae5ef59a796e7172ab794148ff444e1f587f6d382affa82e7983a236347fc1f1"
+        }
+      ]
+    },
+    {
+      "id": "discover_dredge",
+      "name": "发现/探底与正式池",
+      "tags": [
+        "DISCOVER",
+        "DREDGE"
+      ],
+      "depends_on": [
+        "generation",
+        "zones",
+        "choices"
+      ],
+      "status": "partial",
+      "next_work": "M5-12a 探底公共子集已实现：底部物理候选、己方/对手牌库、当前属性预览、置顶、选择续接、复制/召唤及恢复。R-094 选项顺序/费用/窗口待 M6；正式候选及单卡排除仍待 M0/M7。下一主线 M5-12b 发掘。",
+      "mode_scope": "unverified",
+      "all_record_matches": 630,
+      "collectible_record_matches": 405,
+      "example_records": [
+        {
+          "id": "AV_107",
+          "data_sha256": "6e9f128ee7db69d8eae4411fa43c8db2bcf9ddebf90afea2e793267cbd7ad2e8"
+        },
+        {
+          "id": "AV_113",
+          "data_sha256": "646ba4104d884106b738062cebc7d11ab3903464ab5c2dae3cf78ca103ca09bd"
+        },
+        {
+          "id": "AV_317",
+          "data_sha256": "03ed551688e37e4bc0e3f9f074eda1ac2e548e63f21a2650767fec59cd0c66a0"
+        },
+        {
+          "id": "AV_333",
+          "data_sha256": "11d3765e42aea718bc291a70befa72ad875fe1962a0d5148c65d7672667a20fd"
+        },
+        {
+          "id": "AV_710",
+          "data_sha256": "600d86c10c4c1eb771f893a026622a5cff9813860b6447e744879c12c042604c"
+        }
+      ]
+    },
+    {
+      "id": "deck_exceptions",
+      "name": "特殊构筑/起手/侧板",
+      "tags": [
+        "START_OF_GAME_KEYWORD",
+        "TOURIST",
+        "DECK_RULE_MOD_DECK_SIZE",
+        "MAX_SIDEBOARD_CARDS",
+        "SIDEBOARD_TYPE",
+        "GENN_EVEN_REQUIREMENT",
+        "BAKU_ODD_REQUIREMENT"
+      ],
+      "depends_on": [
+        "construction",
+        "generation"
+      ],
+      "status": "planned",
+      "next_work": "游客、奇偶、雷纳索尔/王子、侧板与起手例外；逐卡来源与合法性。",
+      "mode_scope": "unverified",
+      "all_record_matches": 100,
+      "collectible_record_matches": 44,
+      "example_records": [
+        {
+          "id": "BOT_914",
+          "data_sha256": "3939c4ebead32450b336308bb743cd2bc8f20c47fd34ffbfcf4855a361b684f9"
+        },
+        {
+          "id": "CATA_EVENT_110",
+          "data_sha256": "98de2fbf1632fd67f15a805886673590eac0a9e0e5073033220788f7de714b02"
+        },
+        {
+          "id": "CORE_GIL_692",
+          "data_sha256": "a3d195e242686d9cfb2f01ad1be9999c68bc582ffbeb2576ccae2aefabf47a9d"
+        },
+        {
+          "id": "CORE_GIL_826",
+          "data_sha256": "ef84b4df20201e113635ce983a2c9c910f3ebd42efb483f2612e125e36f298c9"
+        },
+        {
+          "id": "CORE_REV_018",
+          "data_sha256": "3bfcfa1969b6181925f8653580e17b463e0fd9a8e8c0d2b172db63a4d76ab904"
+        }
+      ]
+    },
+    {
+      "id": "long_term",
+      "name": "任务与持续效果",
+      "tags": [
+        "QUEST",
+        "QUESTLINE",
+        "SIDE_QUEST",
+        "OBJECTIVE",
+        "SIGIL",
+        "PALADIN_AURA"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "M4 公共契约已内部验收；特殊任务/光环与官方共享容量待校准。",
+      "mode_scope": "unverified",
+      "all_record_matches": 206,
+      "collectible_record_matches": 85,
+      "example_records": [
+        {
+          "id": "AV_147",
+          "data_sha256": "cd22795c799437bd52d0a73d1292adc6281467b154d529113f5bfd417fcfeda0"
+        },
+        {
+          "id": "AV_264",
+          "data_sha256": "d8451fff9acf44f529adb7de5dfc5f8b922d3cfbdb442982173c02ee1ca750e4"
+        },
+        {
+          "id": "AV_268",
+          "data_sha256": "ef8d6481b9cb79dc34f5cbcccd856a61a42a7771851e3d3b82c97a282af01bcd"
+        },
+        {
+          "id": "AV_290",
+          "data_sha256": "73ecc8b78a631c404e1ce60d4e794fedea6a350f8b2cd2a538a71b393df0fae7"
+        },
+        {
+          "id": "AV_344",
+          "data_sha256": "fd9c43728cd95f2cef7fadcab33d07ca0e3ad0c028e7fd8e71c47c7785b65b88"
+        }
+      ]
+    },
+    {
+      "id": "secrets",
+      "name": "奥秘及打断",
+      "tags": [
+        "SECRET"
+      ],
+      "depends_on": [
+        "resolution",
+        "information"
+      ],
+      "status": "partial",
+      "next_work": "M4 公共契约已内部验收；反制随从、自动施放及特殊攻击替换需扩展。",
+      "mode_scope": "unverified",
+      "all_record_matches": 167,
+      "collectible_record_matches": 118,
+      "example_records": [
+        {
+          "id": "AT_002",
+          "data_sha256": "2d9f18ea6cf9a6251535134cb7b02cc3bfd13a787b6e39eb9dfb45fe3658816a"
+        },
+        {
+          "id": "AT_060",
+          "data_sha256": "f9829e119fe262ab4c94690a87c3f09b7b6a67cd5f50fc21a33f494ac45d88ae"
+        },
+        {
+          "id": "AT_073",
+          "data_sha256": "24fc217e6f2421474e83bce9ade6ab16bb295dca5f7aea183ce9b5d5a727c852"
+        },
+        {
+          "id": "AV_226",
+          "data_sha256": "9a828c837da93baf443c7ed21687a08d3b17a9a5067c86a28ea5a595be56b026"
+        },
+        {
+          "id": "BAR_550",
+          "data_sha256": "8437581387c5d460c5cc0a5759518f5ef007568ef2cb9ef0598cd030812fcbd6"
+        }
+      ]
+    },
+    {
+      "id": "composite",
+      "name": "星舰和泰坦",
+      "tags": [
+        "STARSHIP_PIECE",
+        "STARSHIP_LAUNCH_TRIGGER",
+        "TITAN"
+      ],
+      "depends_on": [
+        "resolution",
+        "lifecycle",
+        "choices"
+      ],
+      "status": "partial",
+      "next_work": "已列公共契约通过；特殊组件、自动能力与完整卡池仍待逐项收口。",
+      "mode_scope": "unverified",
+      "all_record_matches": 34,
+      "collectible_record_matches": 28,
+      "example_records": [
+        {
+          "id": "GDB_100",
+          "data_sha256": "ea41604e270b88a8367f38b806af88fb73e776ba16b6d243282f3a44a6342197"
+        },
+        {
+          "id": "GDB_101",
+          "data_sha256": "49d675001c87c57c62825e9a8a39c7847290fdda6c6df90a4330b1aa15044457"
+        },
+        {
+          "id": "GDB_103",
+          "data_sha256": "5b036354b3873999117b553f7ae1293b8a6bc5a16a1120bfbd72d1e8b3e802ba"
+        },
+        {
+          "id": "GDB_104",
+          "data_sha256": "f5ce8d5bf7a8af1da5a8a9859a5233f77308d087db0e22efa7cc5f77ddfce253"
+        },
+        {
+          "id": "GDB_105",
+          "data_sha256": "78c24a6b054f457d0ca7636c2a1d6d4db87ef60e99dd927f9edd75dcefccd01e"
+        }
+      ]
+    },
+    {
+      "id": "hand_actions",
+      "name": "交易与锻造",
+      "tags": [
+        "TRADEABLE",
+        "FORGE",
+        "FORGES_INTO"
+      ],
+      "depends_on": [
+        "zones",
+        "costs"
+      ],
+      "status": "partial",
+      "next_work": "公共入口已实现；动态授予和特殊动作费用仍待契约。",
+      "mode_scope": "unverified",
+      "all_record_matches": 85,
+      "collectible_record_matches": 75,
+      "example_records": [
+        {
+          "id": "CATA_203",
+          "data_sha256": "b6c26ffa13ac040bcfa356bb4977d05465019f0563b149674d579dceb91322a4"
+        },
+        {
+          "id": "CORE_DED_009",
+          "data_sha256": "aad4c089660184e42c77ec80b02d8a2a8429488f1f1cee5ebf06f502b4242159"
+        },
+        {
+          "id": "CORE_EX1_002",
+          "data_sha256": "f0ad9f9b1307a8dc4688f85fc00f97c8292d8223adc84b9bf2ef78fbf9645074"
+        },
+        {
+          "id": "CORE_EX1_005",
+          "data_sha256": "824d1e977d0f36e3b45c6b216d4ec1579bca8f76cc226d3ee116960ecde081a7"
+        },
+        {
+          "id": "CORE_REV_023",
+          "data_sha256": "f73f4375bacd6edcb33dc6839292a3abfe65f270dbee963245f26131de37887e"
+        }
+      ]
+    },
+    {
+      "id": "turn_control",
+      "name": "回合与额外行动",
+      "tags": [
+        "EXTRA_TURNS_SPELL_OVERRIDE"
+      ],
+      "depends_on": [
+        "resolution"
+      ],
+      "status": "planned",
+      "next_work": "额外回合、跳过、特殊结束/开始、游戏终局与官方回合上限。",
+      "mode_scope": "unverified",
+      "all_record_matches": 1,
+      "collectible_record_matches": 1,
+      "example_records": [
+        {
+          "id": "TOY_385",
+          "data_sha256": "ef82e1436cd8e259b34b165791e640b9a699bf55e1289cc8db1f61c36b95022b"
+        }
+      ]
+    },
+    {
+      "id": "version_candidates",
+      "name": "版本专属标签候选",
+      "tags": [
+        "KINDRED",
+        "PREPARE",
+        "EMPOWER",
+        "FABLED",
+        "FABLED_PLUS",
+        "GEARS",
+        "DISGUISED",
+        "REPEATABLE",
+        "RITUALIST_MINION"
+      ],
+      "depends_on": [
+        "construction",
+        "play_history",
+        "lifecycle"
+      ],
+      "status": "needs_version_check",
+      "next_work": "HERALD/SHATTER 已据国服上线公告拆出独立任务；其余标签继续核查玩法/上线/目标补丁，不能以预加载标签宣称支持。",
+      "mode_scope": "unverified",
+      "all_record_matches": 108,
+      "collectible_record_matches": 107,
+      "example_records": [
+        {
+          "id": "BOT_299",
+          "data_sha256": "35b2fc4d1087e4f06a62580c00f3dabe1ff159871d30a2d1a436937c426dfa21"
+        },
+        {
+          "id": "BOT_435",
+          "data_sha256": "f7cc9c0b2f8571b9b2dc4fa1f70bf07688ed8d412c9633155006f5d9f7fc3cf4"
+        },
+        {
+          "id": "CAP_004",
+          "data_sha256": "852f97cd276712b07947f7bbfa4953d725d5b3a24453cab2b29a16daea1997b5"
+        },
+        {
+          "id": "CATA_EVENT_400",
+          "data_sha256": "522193329905b882762d49f9a8f8d8c356ba31b154ee08a1ade34a17e7e50b33"
+        },
+        {
+          "id": "CATA_EVENT_401",
+          "data_sha256": "df3dd7842f47de5f3f02b31f4dd11bdb5c5db2834509957a8644d1e0a53b5b73"
+        }
+      ]
+    },
+    {
+      "id": "battlecry_repetition",
+      "name": "战吼与触发复制",
+      "tags": [
+        "BATTLECRY",
+        "FAST_BATTLECRY",
+        "EXTRA_DEATHRATTLES_BASE"
+      ],
+      "depends_on": [
+        "play_history",
+        "lifecycle",
+        "resolution",
+        "choose_one_activation",
+        "battlecry_activation",
+        "battlecry_repeat_batches",
+        "battlecry_player_modifiers",
+        "minion_counter_windows",
+        "private_counter_policies",
+        "card_ability_cost_conditions",
+        "ability_candidate_filters",
+        "indirect_battlecries",
+        "played_battlecries",
+        "bounded_battlecries",
+        "battlecry_source_lifecycle",
+        "shudderwock_composition",
+        "combo_activations",
+        "combo_repeats",
+        "timed_keywords",
+        "combo_sources",
+        "spell_player_modifiers",
+        "held_spell_conditions",
+        "card_spell_repeat_attachments",
+        "creation_spell_repeats",
+        "card_spell_sources",
+        "deathrattle_activations",
+        "deathrattle_repeats",
+        "deathrattle_player_effects",
+        "fixed_deathrattles",
+        "scoped_deathrattles",
+        "power_repeat_audit",
+        "hero_power_payloads",
+        "hero_power_repetition",
+        "end_turn_subjects",
+        "end_turn_repeats",
+        "end_turn_activations"
+      ],
+      "status": "partial",
+      "next_work": "13d-02l-05c主动与异阶段结束能力公共入口已内部验收；91专项、1094相关回归、5468全量及89示例内部通过；五类载体scope、资格profile与真实cause分离，完整proof/嵌套与时钟隔离，内核101/schema98/代表包61。下一项05d主动producer主体资格/选择政策与必要CATA_472代表；固定多轮及TIME_064混合保留，R-146待CN，L05/M0/M6/M7未完成。",
+      "mode_scope": "unverified",
+      "all_record_matches": 3337,
+      "collectible_record_matches": 2313,
+      "example_records": [
+        {
+          "id": "AT_007",
+          "data_sha256": "053a041e51522611185a3d36980ffe0a1545e5c93f584d759cecb9ee9f96649a"
+        },
+        {
+          "id": "AT_010",
+          "data_sha256": "de23f5f445f1f674790a01a2b3ca2dbb02500e3394907bf1aeb3aa8516dde314"
+        },
+        {
+          "id": "AT_012",
+          "data_sha256": "a6518b96c264c6532aced4dc5935515cd72003c973e06603b44b91cbc2942274"
+        },
+        {
+          "id": "AT_017",
+          "data_sha256": "f8ac2fcbf31699bbdc539e3db5731c1ee77e87aae88c4fada397eb4cdc64678a"
+        },
+        {
+          "id": "AT_018",
+          "data_sha256": "cb698b718be030fd88256c6dd417d05a350fec49f4798f1624444902be59926c"
+        }
+      ]
+    },
+    {
+      "id": "core_keywords",
+      "name": "基础关键词与伤害",
+      "tags": [
+        "DEATHRATTLE",
+        "TAUNT",
+        "RUSH",
+        "LIFESTEAL",
+        "DIVINE_SHIELD",
+        "CHARGE",
+        "STEALTH",
+        "WINDFURY",
+        "MEGA_WINDFURY",
+        "REBORN",
+        "FREEZE",
+        "POISONOUS",
+        "ELUSIVE",
+        "SPELLPOWER",
+        "SILENCE",
+        "IMMUNE_WHILE_ATTACKING"
+      ],
+      "depends_on": [
+        "lifecycle",
+        "damage"
+      ],
+      "status": "partial",
+      "next_work": "已有基础子集，巨型风怒/攻击中免疫等例外须单独验收；所有正式时序待 M6。",
+      "mode_scope": "unverified",
+      "all_record_matches": 4025,
+      "collectible_record_matches": 1679,
+      "example_records": [
+        {
+          "id": "AT_006",
+          "data_sha256": "d5d4641ddc76cb5f9ba890392ecf127babb5cf2c5a309667ed5a481e0194aab1"
+        },
+        {
+          "id": "AT_009",
+          "data_sha256": "fe2ed49f097596d5b5beffae7026dc3684ab89dc007dd7b3313e7636be91f85c"
+        },
+        {
+          "id": "AT_019",
+          "data_sha256": "b0f64b5476e107155785d8a1461e523724037873435aed10caa77edd204d903d"
+        },
+        {
+          "id": "AT_036",
+          "data_sha256": "64fe9ad4eedec41ab562511f620b070fdd38048780a7a9c6b000f84db751cab8"
+        },
+        {
+          "id": "AT_038",
+          "data_sha256": "79d89c9353dd4d3e28aa3030e7c28d136900ca611d5e806da0f3d47108a3ba53"
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "name": "费用与职业资源",
+      "tags": [
+        "OVERLOAD",
+        "CORPSE_SPENDER",
+        "COST_BLOOD",
+        "COST_FROST",
+        "COST_UNHOLY",
+        "CARD_ALTERNATE_COST"
+      ],
+      "depends_on": [
+        "costs",
+        "construction"
+      ],
+      "status": "partial",
+      "next_work": "公共法力/过载/尸体/符文已有；动态条件费用、支付致死例外、全部资源策略待续。",
+      "mode_scope": "unverified",
+      "all_record_matches": 373,
+      "collectible_record_matches": 286,
+      "example_records": [
+        {
+          "id": "AT_051",
+          "data_sha256": "ed1a4e99b93164dbf0eb6aad19b1dfa45959ff4f4aaf6e194460fc7c3320085a"
+        },
+        {
+          "id": "AT_052",
+          "data_sha256": "88400a7e1a04464ad2c7d919dbebf46d630133a1c4accdf063806952de5bd48d"
+        },
+        {
+          "id": "AT_053",
+          "data_sha256": "4fcc805789313e5ca0cc96395b294fa6d2411cda7333ba3284c99b54451cda3e"
+        },
+        {
+          "id": "BOT_246",
+          "data_sha256": "c1345304b6e4f7b077d1f4d9f73c08af3a49721dc168a4eb6d40fd692138e082"
+        },
+        {
+          "id": "BOT_451",
+          "data_sha256": "92d4a25d77397e64aba83f5521b93fce8069da2689a2ddfbacdd9c819a50a50b"
+        }
+      ]
+    },
+    {
+      "id": "additional_hero_powers",
+      "name": "额外英雄技能位置与动作",
+      "tags": [],
+      "depends_on": [
+        "hero_powers",
+        "resolution",
+        "lifecycle",
+        "information",
+        "hero_power_activations",
+        "passive_hero_powers",
+        "multiple_hero_powers",
+        "hero_power_lifecycle",
+        "hero_power_combinations"
+      ],
+      "status": "partial",
+      "next_work": "12d-01 位置/动作42项、12d-02 定向生命周期48项、12d-03 回溯/保留结果/终局及恢复组合37项内部通过。公共主线接续 M5-13d-02 战吼重复、目标策略与抑制；正式来源、数量/重复获得/去重政策尚未完成，R-102/R-107/R-108待国服校准，保持partial。",
+      "mode_scope": "unverified",
+      "all_record_matches": 0,
+      "collectible_record_matches": 0,
+      "example_records": []
+    }
+  ],
+  "unassigned_named_tags": {
+    "ADJACENT_BUFF": 8,
+    "AFFECTED_BY_HEALING_DOES_DAMAGE": 7,
+    "AFFECTED_BY_SPELL_POWER": 34,
+    "ALLOWED_SIDEBOARD_SUBSET": 3,
+    "ARMOR": 46,
+    "ATK": 4865,
+    "AURA": 176,
+    "BACON_SUBSET_BEAST": 8,
+    "BACON_SUBSET_DEMON": 5,
+    "BACON_SUBSET_DRAGON": 1,
+    "BACON_SUBSET_MECH": 5,
+    "BACON_SUBSET_MURLOC": 3,
+    "BACON_TRIPLE_UPGRADE_MINION_ID": 32,
+    "CAN_TARGET_CARDS_IN_HAND": 22,
+    "CARDRACE": 2467,
+    "CARDTYPE": 8170,
+    "CHEF_NETHREK_REQUIREMENT": 1,
+    "CLASS": 8130,
+    "COLLECTIBLE": 8170,
+    "COLLECTIONMANAGER_FILTER_MANA_EVEN": 2,
+    "COLLECTIONMANAGER_FILTER_MANA_ODD": 2,
+    "COLLECTION_RELATED_CARD_DATABASE_ID": 958,
+    "CORNER_REPLACEMENT_TYPE": 34,
+    "COSMETIC_ACTION": 4,
+    "COST": 7305,
+    "DARKBISHOP_REQUIREMENT": 2,
+    "DEATH_KNIGHT": 3,
+    "DEATH_KNIGHT_TOURIST": 1,
+    "DECK_ACTION_COST": 96,
+    "DECK_BUILDER_BAR_AMOUNT": 2,
+    "DEMON_HUNTER_TOURIST": 1,
+    "DISCOVER_STUDIES_VISUAL": 11,
+    "DISPLAY_CARD_ON_MOUSEOVER": 56,
+    "DONT_PICK_FROM_SUBSETS": 73,
+    "DRUID_TOURIST": 1,
+    "DURABILITY_DEPRECATED": 3,
+    "DYNAMIC_KEYWORD1": 1,
+    "DYNAMIC_KEYWORD2": 1,
+    "ELITE": 1206,
+    "EMOTECHARACTER": 756,
+    "EMOTECLASS": 764,
+    "ENCHANTMENT_BIRTH_VISUAL": 4,
+    "ENCHANTMENT_IDLE_VISUAL": 4,
+    "ENTITY_TAG_THRESHOLD_TAG_ID": 23,
+    "ENTITY_TAG_THRESHOLD_VALUE": 23,
+    "FACTION": 1789,
+    "FINISH_ATTACK_SPELL_ON_DAMAGE": 1,
+    "FORGETFUL": 8,
+    "GALAKROND_HERO_CARD": 5,
+    "GRIMY_GOONS": 5,
+    "HAMUUL_REQUIREMENT": 1,
+    "HAS_DIAMOND_QUALITY": 115,
+    "HAS_SIGNATURE_QUALITY": 493,
+    "HEALTH": 5862,
+    "HEROPOWER_DAMAGE": 3,
+    "HERO_DOESNT_MOVE_ON_ATTACK": 36,
+    "HERO_FRAME_TYPE": 57,
+    "HERO_POWER": 811,
+    "HIDE_ATTACK_NUMBER": 1,
+    "HIDE_COST": 1,
+    "HIDE_HEALTH_NUMBER": 1,
+    "HIDE_STATS": 3,
+    "HIDE_WATERMARK": 427,
+    "HUNTER_TOURIST": 2,
+    "IGNORE_SUPPRESS_MILL_ANIMATION": 1,
+    "IMMOLATESTAGE": 3,
+    "IMMOLATING": 3,
+    "IMP": 42,
+    "JADE_GOLEM": 4,
+    "JADE_LOTUS": 6,
+    "KABAL": 4,
+    "KEEP_HERO_CLASS": 5,
+    "LITERALLY_UNPLAYABLE": 2,
+    "MAGE_TOURIST": 1,
+    "MINI_SET": 704,
+    "MIN_SIDEBOARD_CARDS": 1,
+    "MUG_ZEE": 1,
+    "MULTIPLE_CLASSES": 149,
+    "MULTIPLY_BUFF_VALUE": 1,
+    "NON_KEYWORD_POISONOUS": 2,
+    "NOZDORMU_DORMANT_EFFECT_WATCHER": 1,
+    "OBJECTIVE_AURA": 8,
+    "OLD_GOD": 1,
+    "OVERRIDECARDTEXTBUILDER": 5,
+    "PALADIN_TOURIST": 1,
+    "PLAYER_TAG_THRESHOLD_TAG_ID": 8,
+    "PLAYER_TAG_THRESHOLD_VALUE": 10,
+    "PRIEST_TOURIST": 1,
+    "PROTOSS": 17,
+    "QUESTLINE_FINAL_REWARD_DATABASE_ID": 10,
+    "QUESTLINE_PART": 10,
+    "QUEST_PROGRESS_TOTAL": 77,
+    "QUEST_REWARD_DATABASE_ID": 44,
+    "RARITY": 8170,
+    "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS": 1,
+    "ROGUE_TOURIST": 2,
+    "SHAMAN_TOURIST": 1,
+    "SHOULD_TRACK_DECK_COST": 1,
+    "SHOULD_TRACK_DECK_COST_COUNT": 1,
+    "SIDEBOARD_CARDS_COUNT_AS_MAX": 1,
+    "SIDEBOARD_IGNORES_CLASS_RULE": 1,
+    "SIDEBOARD_IGNORES_COLLECTIBLE_RULE": 1,
+    "SKIP_ARMOR_ANIMATION": 2,
+    "SKIP_HERO_TWEEN": 2,
+    "SPELLPOWER_FIRE": 1,
+    "SPELLPOWER_NATURE": 1,
+    "SPELL_SCHOOL": 1147,
+    "SUPPRESS_ALT_CARD_TEXT_FOR_OPPONENT": 1,
+    "SUPPRESS_IMMOLATE_VISUAL_FOR_OPPONENT": 3,
+    "TAG_SCRIPT_DATA_NUM_1": 197,
+    "TAG_SCRIPT_DATA_NUM_2": 37,
+    "TAG_SCRIPT_DATA_NUM_3": 3,
+    "TAG_SCRIPT_DATA_NUM_4": 1,
+    "TARGETING_ARROW_TYPE": 2,
+    "TECH_LEVEL": 62,
+    "TERRAN": 14,
+    "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 86,
+    "TRIGGER_VISUAL": 961,
+    "USE_DISCOVER_VISUALS": 347,
+    "VOODOO_LINK": 1,
+    "WARLOCK_TOURIST": 1,
+    "WARRIOR_TOURIST": 1,
+    "WHELP": 13,
+    "ZERG": 17
+  }
+}

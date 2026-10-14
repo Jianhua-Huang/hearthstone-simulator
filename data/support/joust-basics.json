@@ -1,0 +1,140 @@
+{
+  "scope": "Independent Joust. AT_058 has one complete isolated adapter; LOOT_170/AT_048 are source text only. Not a formal pool.",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "AT_058",
+      "data": {
+        "id": "AT_058",
+        "dbf_id": 2635,
+        "name": "皇家雷象",
+        "name_en": "King's Elekk",
+        "text": "<b>战吼：</b>揭示双方牌库里的一张随从牌。如果你的牌法力值消耗较大，抽这张牌。",
+        "text_en": "<b>Battlecry:</b> Reveal a minion in each deck. If yours costs more, draw it.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 3,
+          "COLLECTIBLE": 1,
+          "COST": 2,
+          "HEALTH": 2,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "517a59abe38f13f82dbd63a8d9ea50ef6acf65d90533c6707fb845d177d0510e"
+    },
+    {
+      "id": "LOOT_170",
+      "data": {
+        "id": "LOOT_170",
+        "dbf_id": 45269,
+        "name": "乌鸦魔仆",
+        "name_en": "Raven Familiar",
+        "text": "<b>战吼：</b>揭示双方牌库里的一张法术牌。如果你的牌法力值消耗较大，抽这张牌。",
+        "text_en": "<b>Battlecry:</b> Reveal a spell in each deck. If yours costs more, draw it.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "COST": 2,
+          "HEALTH": 2,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b03dcd644216f8ac208978d4f02167d6160b6bf37c8317a84fd4c3ca6b1c943d"
+    },
+    {
+      "id": "AT_048",
+      "data": {
+        "id": "AT_048",
+        "dbf_id": 2612,
+        "name": "治疗波",
+        "name_en": "Healing Wave",
+        "text": "恢复#8点生命值。揭示双方牌库里的一张随从牌。如果你的牌法力值\n消耗较大，改为恢复#16点生命值。",
+        "text_en": "Restore #8 Health. Reveal a minion in each deck. If yours costs more, restore #16 instead.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 8,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ca3fd494da797aedac5ec431a436dc4f580f8758dfcaa520693d2be8cc94b363"
+    }
+  ]
+}

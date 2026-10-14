@@ -1,0 +1,66 @@
+{
+  "profile": "starting-source-type-expression-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "JAIL_800",
+      "data": {
+        "id": "JAIL_800",
+        "dbf_id": 126416,
+        "name": "穆格·兹伊",
+        "name_en": "Mug'Zee",
+        "text": "<b>对战开始时：</b>如果你的套牌中没有其他随从牌，获得穆格的英雄技能。如果没有法术牌，获得兹伊的技能！",
+        "text_en": "[x]<b>Start of Game:</b> If your deck\nhas no other minions, get\nMug's Hero Power. If it has\nno spells, get Zee's!",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "ATK": 6,
+          "HEALTH": 7,
+          "START_OF_GAME_KEYWORD": 1,
+          "COLLECTIBLE": 1,
+          "2936": 1,
+          "MUG_ZEE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4818": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "START_OF_GAME_KEYWORD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          127468,
+          127476
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9aeba0260e09ce7bff3ba9fea84720b827887eda5055a254c253da6e3c8bc97e"
+    }
+  ],
+  "new_real_card_adapters": [],
+  "new_runtime_capabilities": 0,
+  "policy": "Existing constructed opening binds original_deck and original_entities to MatchSetup. A trusted pure callback resolves all original definitions and excludes one explicitly captured original source row to check absence of other MINIONs. No current-deck, display-name or deck-identity guess. Original no-spells uses existing DeckCondition.",
+  "limits": "Only the original starting fact is tested. Mug/Zee Hero Power bodies and combinations are not adapted; precise source exclusion and CN timing remain pending.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false
+}

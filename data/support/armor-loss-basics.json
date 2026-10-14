@@ -1,0 +1,230 @@
+{
+  "profile": "direct-armor-loss-v1",
+  "records": [
+    {
+      "id": "DRG_069",
+      "dbf_id": 55419,
+      "name": "破甲骑士",
+      "name_en": "Platebreaker",
+      "text": "<b>战吼：</b>\n摧毁你对手的护甲。",
+      "text_en": "<b>Battlecry:</b> Destroy your opponent's Armor.",
+      "cost": 5,
+      "attack": 5,
+      "health": 5,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 1,
+        "COST": 5,
+        "CARDTYPE": 4,
+        "ATK": 5,
+        "HEALTH": 5,
+        "BATTLECRY": 1,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000280,
+        "craftingEvent": 10000281,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "AV_109",
+      "dbf_id": 67194,
+      "name": "凝冰护盾",
+      "name_en": "Frozen Buckler",
+      "text": "获得10点护甲值。在你的下个回合开始时，失去5点护甲值。",
+      "text_en": "Gain 10 Armor. At the start of your next turn, lose 5 Armor.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 10,
+        "COLLECTIBLE": 1,
+        "RARITY": 4,
+        "CARDTYPE": 5,
+        "COST": 2,
+        "SPELL_SCHOOL": 3
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "MIS_902",
+      "dbf_id": 102376,
+      "name": "零件破拆",
+      "name_en": "Part Scrapper",
+      "text": "失去最多5点护甲值，你的下一张机械牌减少等量的法力值消耗。",
+      "text_en": "Lose up to 5 Armor.\nYour next Mech costs\nthat much less.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 10,
+        "RARITY": 1,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "MINI_SET": 1,
+        "COST": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000321,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_803",
+      "dbf_id": 97052,
+      "name": "熔铸",
+      "name_en": "Smelt",
+      "text": "随机使你手牌中的一张随从牌获得+3/+3。失去3点护甲值以重复一次。",
+      "text_en": "[x]Give a random minion in\nyour hand +3/+3. Lose\n3 Armor to do it again.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 10,
+        "RARITY": 3,
+        "COST": 2,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "SPELL_SCHOOL": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "YOG_500",
+      "dbf_id": 100870,
+      "name": "维扎克斯将军",
+      "name_en": "General Vezax",
+      "text": "<b>突袭</b>。<b>战吼：</b>获得4点护甲值。<b>亡语：</b>失去4点护甲值以再次召唤本随从。",
+      "text_en": "[x]<b>Rush</b>\n<b>Battlecry:</b> Gain 4 Armor.\n<b>Deathrattle:</b> Lose 4 Armor\nto resummon this.",
+      "cost": 7,
+      "attack": 7,
+      "health": 6,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 10,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 4,
+        "ELITE": 1,
+        "RARITY": 5,
+        "COST": 7,
+        "ATK": 7,
+        "HEALTH": 6,
+        "RUSH": 1,
+        "BATTLECRY": 1,
+        "DEATHRATTLE": 1,
+        "MINI_SET": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000299,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "source_scope": "DRG_069 necessary isolated adapter only. AV delayed/other three special consumer bodies remain raw and deferred.",
+  "official_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/55419-platebreaker/",
+      "supports": "Official title only from direct extraction; text not returned, no timing proof"
+    }
+  ],
+  "implemented": true,
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "new_runtime_modules": 0,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 1,
+  "requirements": [
+    "Direct armor decrement/all-clear distinct from Damage and actual card-cost payment",
+    "Clamp ordinary removal to current armor; preserve health/shield/immunity; freeze actual delta for consumers",
+    "Use current installed Hero account, events/reactions/rollback/waiting/replay/player information correctly"
+  ],
+  "inventory_exhaustive": false,
+  "new_production_adapters": 0,
+  "new_state_fields": 0,
+  "policy": "LoseArmor removes min(current armor, requested nonnegative amount), or all when amount=None, from the currently installed Hero. Immutable six-field result is published as armor_loss_resolved for every operation; armor_lost only for positive actual delta. Result callback follows ordinary reactions with frozen debit context. No damage or cost payment.",
+  "zero_and_event_policy_CN_calibrated": false
+}

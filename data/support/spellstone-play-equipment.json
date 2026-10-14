@@ -1,0 +1,868 @@
+{
+  "version": "spellstone-play-equipment-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_103",
+      "data": {
+        "id": "LOOT_103",
+        "dbf_id": 43414,
+        "name": "小型法术红宝石",
+        "name_en": "Lesser Ruby Spellstone",
+        "text": "随机将一张法师法术牌置入你的手牌。@<i>（使用两张元素牌后升级。）</i>",
+        "text_en": "Add 1 random Mage spell to your hand. @<i>(Play 2 Elementals to_upgrade.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          43412,
+          43411
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f44066bc39ddcffe917180f34799c02a2f5fe01d0020d44b619feed6098874e4"
+    },
+    {
+      "id": "LOOT_103t1",
+      "data": {
+        "id": "LOOT_103t1",
+        "dbf_id": 43412,
+        "name": "法术红宝石",
+        "name_en": "Ruby Spellstone",
+        "text": "随机将两张法师法术牌置入你的手牌。@",
+        "text_en": "Add 2 random Mage spells to your hand.\n@",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "824a8bc8b411ad1e5498ab1cbb9b45e2fa9fb5f8191242288446ded36401f646"
+    },
+    {
+      "id": "LOOT_103t2",
+      "data": {
+        "id": "LOOT_103t2",
+        "dbf_id": 43411,
+        "name": "大型法术红宝石",
+        "name_en": "Greater Ruby Spellstone",
+        "text": "随机将三张法师法术牌置入你的手牌。",
+        "text_en": "Add 3 random Mage spells to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "86fbe86ebe769d46faff614af89078f8309eb320e63e74f4ae53109614db7aca"
+    },
+    {
+      "id": "LOOT_080",
+      "data": {
+        "id": "LOOT_080",
+        "dbf_id": 43363,
+        "name": "小型法术翡翠",
+        "name_en": "Lesser Emerald Spellstone",
+        "text": "召唤两只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "text_en": "Summon two 3/3_Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 3,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          43362,
+          43361,
+          46446
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f0eb2e6f938c32a0a141ef38ff1433f2e031d90c8ea6761fdf625dc4828761fc"
+    },
+    {
+      "id": "LOOT_080t2",
+      "data": {
+        "id": "LOOT_080t2",
+        "dbf_id": 43362,
+        "name": "法术翡翠",
+        "name_en": "Emerald Spellstone",
+        "text": "召唤三只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "text_en": "Summon three 3/3_Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "21d3c0eb2921b48f13cbdb0c06b9994242981e86185ba9c64aa8dd134073a517"
+    },
+    {
+      "id": "LOOT_080t3",
+      "data": {
+        "id": "LOOT_080t3",
+        "dbf_id": 43361,
+        "name": "大型法术翡翠",
+        "name_en": "Greater Emerald Spellstone",
+        "text": "召唤四只3/3的狼。",
+        "text_en": "Summon four 3/3_Wolves.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "reference_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "6319a5db25bded98688bb108f0b298592ed994321a6b15835c61a44b240dbb7a"
+    },
+    {
+      "id": "LOOT_203",
+      "data": {
+        "id": "LOOT_203",
+        "dbf_id": 45519,
+        "name": "小型法术秘银石",
+        "name_en": "Lesser Mithril Spellstone",
+        "text": "召唤一个5/5的秘银魔像。\n<i>（装备一把武器后升级。）</i>",
+        "text_en": "Summon one 5/5 Mithril Golem. <i>(Equip a weapon to upgrade.)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 7
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          46063,
+          46064,
+          46076
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ff9e0ca68a625feb0d9350bc95150e22ef85a7c15ae0e2bbc0e851c8fd339cc8"
+    },
+    {
+      "id": "LOOT_203t2",
+      "data": {
+        "id": "LOOT_203t2",
+        "dbf_id": 46063,
+        "name": "法术秘银石",
+        "name_en": "Mithril Spellstone",
+        "text": "召唤两个5/5的秘银魔像。\n<i>（装备一把武器后升级。）</i>",
+        "text_en": "Summon two 5/5 Mithril Golems. <i>(Equip a weapon to upgrade.)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 7
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "a7154500e7a12fd5bae249346280208dd044979be8e299038605cdaaa00dbc50"
+    },
+    {
+      "id": "LOOT_203t3",
+      "data": {
+        "id": "LOOT_203t3",
+        "dbf_id": 46064,
+        "name": "大型法术秘银石",
+        "name_en": "Greater Mithril Spellstone",
+        "text": "召唤三个5/5的秘银魔像。",
+        "text_en": "Summon three 5/5 Mithril Golems.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 7,
+          "ELITE": 0
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "70c58cd040f6457b637c739ee74478fdcd03dfddf6a1063af43cf869c6955392"
+    },
+    {
+      "id": "LOOT_503",
+      "data": {
+        "id": "LOOT_503",
+        "dbf_id": 46296,
+        "name": "小型法术黑曜石",
+        "name_en": "Lesser Onyx Spellstone",
+        "text": "随机消灭一个敌方随从。@<i>（使用三张<b>亡语</b>牌后升级。）</i>",
+        "text_en": "Destroy 1 random enemy minion.\n@<i>(Play 3 <b>Deathrattle</b> cards to upgrade.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "ELITE": 0,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          46297,
+          46295
+        ],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "cb9303890225cb3cea790ee361a2743e8fc848e0f27c9a54821c1f34f4bfb146"
+    },
+    {
+      "id": "LOOT_503t",
+      "data": {
+        "id": "LOOT_503t",
+        "dbf_id": 46297,
+        "name": "法术黑曜石",
+        "name_en": "Onyx Spellstone",
+        "text": "随机消灭两个敌方随从。@",
+        "text_en": "Destroy up to 2 random enemy minions.\n@",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 7,
+          "COLLECTIBLE": 0,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "ELITE": 0,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "eea7f96d8c2fe0207b17eae7e05cbfd1236ae59194cfeb0be9283201e2b6bebf"
+    },
+    {
+      "id": "LOOT_503t2",
+      "data": {
+        "id": "LOOT_503t2",
+        "dbf_id": 46295,
+        "name": "大型法术黑曜石",
+        "name_en": "Greater Onyx Spellstone",
+        "text": "随机消灭三个敌方随从。",
+        "text_en": "Destroy up to 3 random enemy minions.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 7,
+          "COLLECTIBLE": 0,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COST": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "920f8a9975f8d3481eea425b639045fbef1174c0f95146cc9df0092680ddd492"
+    },
+    {
+      "id": "UNG_809",
+      "data": {
+        "id": "UNG_809",
+        "dbf_id": 41323,
+        "name": "火羽精灵",
+        "name_en": "Fire Fly",
+        "text": "<b>战吼：</b>将一张1/2的元素牌置入你的手牌。",
+        "text_en": "<b>Battlecry</b>: Add a 1/2 Elemental to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 18,
+          "FACTION": 2,
+          "251": 6,
+          "BATTLECRY": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42044
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000316,
+          "craftingEvent": 10000317,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "054cb9f3ebbb1d5a911692a300a2c641f1e47f6da607c7c2eec19d3ca6bfcf14"
+    },
+    {
+      "id": "UNG_809t1",
+      "data": {
+        "id": "UNG_809t1",
+        "dbf_id": 42044,
+        "name": "烈焰元素",
+        "name_en": "Flame Elemental",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "COST": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 18,
+          "FACTION": 2,
+          "251": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b46c757baa59f3f83f41ec39efad043d81289034104e25096472fa3148f6721c"
+    },
+    {
+      "id": "EX1_556",
+      "data": {
+        "id": "EX1_556",
+        "dbf_id": 778,
+        "name": "麦田傀儡",
+        "name_en": "Harvest Golem",
+        "text": "<b>亡语：</b>召唤一个2/1的损坏的傀儡。",
+        "text_en": "<b>Deathrattle:</b> Summon a 2/1 Damaged Golem.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COST": 3,
+          "HEALTH": 3,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "251": 6,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 471
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "2ce0216e7d4ee98096311d06f26dd8b7aabd21e766971f5ffced5eabe4db0322"
+    },
+    {
+      "id": "skele21",
+      "data": {
+        "id": "skele21",
+        "dbf_id": 471,
+        "name": "损坏的傀儡",
+        "name_en": "Damaged Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "251": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "012d3cc9383848a9f1f30f2946e430b1798061f584904fb7186bef5348b43aa5"
+    },
+    {
+      "id": "EX1_287",
+      "data": {
+        "id": "EX1_287",
+        "dbf_id": 113,
+        "name": "法术反制",
+        "name_en": "Counterspell",
+        "text": "<b>奥秘：</b>当你的对手施放一个法术时，<b>反制</b>该法术。",
+        "text_en": "<b>Secret:</b> When your opponent casts a spell, <b>Counter</b> it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "SECRET": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "COUNTER",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "9a8e2534e99589ab400acca8a3f7742e2fd9a74d7a97de33e59cd2841d5d4ffe"
+    },
+    {
+      "id": "CS2_106",
+      "data": {
+        "id": "CS2_106",
+        "dbf_id": 401,
+        "name": "炽炎战斧",
+        "name_en": "Fiery War Axe",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "COST": 2,
+          "ATK": 3,
+          "CARDTYPE": 7,
+          "FACTION": 3,
+          "251": 6,
+          "HEALTH": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "810017c5dd6021d7be9aa35fb9be9e2affef1bd44941aae3c9b7586816747fd7"
+    },
+    {
+      "id": "LOOT_077t",
+      "data": {
+        "id": "LOOT_077t",
+        "dbf_id": 46446,
+        "name": "狼",
+        "name_en": "Wolf",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 3,
+          "COLLECTIBLE": 0,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 3,
+          "HEALTH": 3,
+          "ELITE": 0,
+          "CARDRACE": 20
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8ee2e2f47995ac7657d7246f7e6ba3d3c192d85f61e6392754c8d9ae7a14b0b6"
+    },
+    {
+      "id": "LOOT_203t4",
+      "data": {
+        "id": "LOOT_203t4",
+        "dbf_id": 46076,
+        "name": "秘银魔像",
+        "name_en": "Mithril Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 5,
+          "HEALTH": 5,
+          "ELITE": 0
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "cf82c29eb2c196a4d0c9e519a874b8913488c306d7f4696f12947221a4c8e4ab"
+    }
+  ]
+}

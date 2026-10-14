@@ -1,0 +1,80 @@
+{
+  "profile": "assemble-independent-foundation-preaudit-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "source_records": 36022,
+  "explicit_text_matching_ids": [],
+  "raw_query_is_not_exhaustive": true,
+  "requested_official_dbf_129801_in_snapshot": false,
+  "primary_sources": [
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1wf8f4k/assemble_a_new_keyword_in_reign_of_the_black/",
+      "authority": "Official HearthstoneTeam announcement",
+      "facts": [
+        "Primary minion keeps Cost, stats, type, name and artwork; part of its abilities changes.",
+        "Curated source pool; own hero class plus Neutral; usual secondary Cost from primary through primary+2, with 8-cost donors also for 9/10-cost primaries.",
+        "Curated outcomes remove redundant nearly identical bodies; specific source constraints are separate."
+      ]
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1wf8f4k/comment/p9jsbdl/",
+      "authority": "Official HearthstoneTeam interface clarification",
+      "facts": [
+        "Primary is the center card; two secondary cards provide top and bottom halves."
+      ]
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/comment/pam1vip/",
+      "authority": "John McIntyre, developer in official Q&A",
+      "facts": [
+        "Copied, returned-to-hand and resummoned minions retain assembled text.",
+        "Curated pool excludes unusable combinations; Annoy-o-Tron is not eligible."
+      ]
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/comment/pb92lw5/",
+      "authority": "Clay Howell / ClayByte, developer in official Q&A",
+      "facts": [
+        "Assembled minion is a new card with its own card definition; normal resurrection and deathrattle dispatch apply."
+      ]
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/reign_of_the_black_empire_how_does_this_work/?sort=qa",
+      "authority": "Official developer Q&A",
+      "facts": [
+        "Trait-limited source constrains the primary; own hero class applies even if the Assemble spell came from another class.",
+        "Assemble sources themselves excluded from its pool; pool changes through Standard then freezes at rotation."
+      ]
+    },
+    {
+      "url": "https://hs.blizzard.cn/news/24297200/",
+      "authority": "CN official expansion notice",
+      "facts": [
+        "CN keyword name is 拼装; ordinary expansion release is October 21, 2026."
+      ]
+    }
+  ],
+  "engine_gaps": [
+    "Existing modular compiler sums Cost/stats and merges complete module text; it is not one-half replacement.",
+    "Existing modular compilation mutates the registry and is prohibited after match freeze.",
+    "A genuinely new complete face can reuse ordinary creation, price, abilities, copy/reset and replay once resolvable.",
+    "Creation-time keyword grants are attachments; they cannot substitute for a new immutable printed card definition."
+  ],
+  "proposed_implementation_not_official": [
+    "Deterministic canonical recipe identity resolved from frozen reviewed templates on demand, without enumerating the full pair space.",
+    "Static compiled callbacks and native card fields reuse the existing effect engine; no arbitrary effect program or dynamic grants."
+  ],
+  "unresolved": [
+    "Complete curated card and text-fragment inventory",
+    "Exact half boundaries and compatibility rules for each actual source",
+    "Whether unchanged center card is selectable",
+    "Exact empty/small/duplicate offer and sampling policies",
+    "Special source cost/class restrictions and Rajh passive hero powers",
+    "CN runtime timing and full official pool"
+  ],
+  "runtime_changes": 0,
+  "new_mechanisms": 0,
+  "full_native_assemble_adapter": false,
+  "formal_pool_closed": false,
+  "CN_calibrated": false,
+  "full_mechanism_inventory_closed": false
+}

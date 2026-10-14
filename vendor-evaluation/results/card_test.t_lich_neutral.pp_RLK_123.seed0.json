@@ -1,0 +1,11 @@
+{
+  "module": "card_test.t_lich_neutral",
+  "case": "pp_RLK_123",
+  "seed": 0,
+  "status": "failed",
+  "error_type": "AssertionError",
+  "error": "self.opp1.damage==2 or self.opponent.hero.damage==2",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\audit.py\", line 84, in worker\n    PresetGame(cls)\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\simulate_game.py\", line 656, in PresetGame\n    pp(game.current_player).execute(test)\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\simulate_game.py\", line 216, in execute\n    self.preset_play()\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\t_lich_neutral.py\", line 250, in preset_play\n    self.assertion(\"self.opp1.damage==2 or self.opponent.hero.damage==2\")\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\audit.py\", line 81, in counted\n    return _original(self,*args,**kwargs)\n  File \"C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\vendor-evaluation\\fireplaceAharaLab\\fireplaceAharaLab\\card_test\\simulate_game.py\", line 612, in assertion\n    assert condition==True, message\nAssertionError: self.opp1.damage==2 or self.opponent.hero.damage==2\n",
+  "assertion_calls": 1,
+  "seconds": 5.969
+}

@@ -1,0 +1,147 @@
+{
+  "profile": "manual-play-eligibility-independent-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CORE_RLK_567",
+      "dbf_id": 126088,
+      "name": "殒命暗影",
+      "name_en": "Shadow of Demise",
+      "text": "每当你施放一个法术，变形成为该法术的复制。",
+      "text_en": "Each time you cast a spell, transform this into a copy of it.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 5,
+        "HIDE_STATS": 1,
+        "SPELL_SCHOOL": 6,
+        "ELITE": 1,
+        "RARITY": 5,
+        "1544": 1,
+        "1413": 86092,
+        "858": 86092,
+        "COLLECTIBLE": 1,
+        "LITERALLY_UNPLAYABLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": 164,
+        "diamondCraftingEvent": 164,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CS2_120",
+      "dbf_id": 1369,
+      "name": "淡水鳄",
+      "name_en": "River Crocolisk",
+      "text": "",
+      "text_en": "",
+      "cost": 2,
+      "attack": 2,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "COST": 2,
+        "HEALTH": 3,
+        "ATK": 2,
+        "CARDTYPE": 4,
+        "CARDRACE": 20
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "RLK_567",
+      "dbf_id": 86092,
+      "name": "殒命暗影",
+      "name_en": "Shadow of Demise",
+      "text": "每当你施放一个法术，变形成为该法术的复制。",
+      "text_en": "Each time you cast a spell, transform this into a copy of it.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 5,
+        "HIDE_STATS": 1,
+        "SPELL_SCHOOL": 6,
+        "ELITE": 1,
+        "RARITY": 5,
+        "COLLECTIBLE": 1,
+        "1544": 1,
+        "LITERALLY_UNPLAYABLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "native_flag": "LITERALLY_UNPLAYABLE",
+  "definition_field": "manual_playable",
+  "new_real_card_adapters": 0,
+  "full_shadow_of_demise_adapted": false,
+  "policy": "Structural hand/deck eligibility and permission to play manually are separate. A locked current face may be held, drawn, created and copied. This primitive does not adapt the reactive spell-copy body of Shadow of Demise or determine automatic casting/pool policies.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false,
+  "all_314_rows_classified": false,
+  "official_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/24290432/36-2-patch-notes",
+      "published": "2026-08-03",
+      "claim": "An official fix prevents Shadow of Demise being playable after a non-spell without a valid effect."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/24293283/364-patch-notes",
+      "published": "2026-08-24",
+      "claim": "An official fix prevents Shadow of Demise being playable when drawn by The Kingslayers."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/86092/",
+      "claim": "Official base card describes transformation into a copy of each spell cast; full timing and executable adaptation remain open."
+    }
+  ]
+}

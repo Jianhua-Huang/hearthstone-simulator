@@ -1,0 +1,28 @@
+C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\simulate_game.py", line 120, in card_test
+    lich_warlock()
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\t_lich_warlock.py", line 7, in lich_warlock
+    PresetGame(pp_RLK_531)##OK
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\simulate_game.py", line 656, in PresetGame
+    pp(game.current_player).execute(test)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\simulate_game.py", line 215, in execute
+    self.preset_deck()
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\t_lich_warlock.py", line 28, in preset_deck
+    self.con1=self.exchange_card("RLK_531", self.controller)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\card_test\simulate_game.py", line 491, in exchange_card
+    new_card = Give(player,_card).trigger(player)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\actions.py", line 929, in trigger
+    target_args = self.get_target_args(source, target)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\actions.py", line 889, in get_target_args
+    v = _eval_card(source, v)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\actions.py", line 42, in _eval_card
+    ret.append(source.controller.card(card, source))
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\player.py", line 296, in card
+    card = Card(id)
+  File "C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\card.py", line 24, in Card
+    data = cards.db[id]
+KeyError: 'RLK_531'
+[[[Dummy2 draws ������Υᥤ��]]]

@@ -1,0 +1,94 @@
+{
+  "profile": "current-turn-spell-damage-price-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CATA_452",
+      "data": {
+        "id": "CATA_452",
+        "dbf_id": 122454,
+        "name": "织法者的光辉",
+        "name_en": "Spellweaver's Brilliance",
+        "text": "召唤一条6/6的龙。在本回合中，你每用法术造成一点伤害，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]Summon a 6/6 Dragon.\nCosts (1) less for\neach damage you dealt\nwith spells this turn.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "COST": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 0,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [
+          122455
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e97f9ce92f2c6b08cd55050f452428713270e6de68b05435ca0d620a06cbabb2"
+    },
+    {
+      "id": "CATA_452t",
+      "data": {
+        "id": "CATA_452t",
+        "dbf_id": 122455,
+        "name": "碧蓝守卫",
+        "name_en": "Azure Warden",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 4,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "CARDRACE": 24,
+          "ATK": 6,
+          "HEALTH": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "13cd030c51d8ca3503468a70c61d80860c3006e0b2fb9ab316b125339de07dbf"
+    }
+  ],
+  "new_real_card_adapters": [
+    "CATA_452",
+    "CATA_452t"
+  ],
+  "policy": "Ordinary physical Spell, current global turn, original direct SPELL face/controller damage units from B221. Original accepted quote frozen; precise CN converted/indirect credit remains uncalibrated.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

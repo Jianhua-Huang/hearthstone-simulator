@@ -1,0 +1,174 @@
+{
+  "kind": "school-spell-damage-evidence-v1",
+  "records": [
+    {
+      "id": "BAR_048",
+      "data": {
+        "id": "BAR_048",
+        "dbf_id": 63074,
+        "name": "布鲁坎",
+        "name_en": "Bru'kan",
+        "text": "<b>自然法术伤害+3</b>",
+        "text_en": "<b>Nature Spell Damage +3</b>",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COST": 4,
+          "CARDTYPE": 4,
+          "ATK": 5,
+          "HEALTH": 4,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "SPELLPOWER_NATURE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "SPELLPOWER_NATURE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000369,
+          "craftingEvent": 10000372,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "427dfc0b9b7147f822080d8f71f4d292896aade54f1d00c97dcd59914cbcbc8e"
+    },
+    {
+      "id": "TSC_635",
+      "data": {
+        "id": "TSC_635",
+        "dbf_id": 72423,
+        "name": "艾萨拉之辉",
+        "name_en": "Radiance of Azshara",
+        "text": "<b>火焰法术伤害+2</b>。你的自然法术法力值消耗降低（1）点。在你施放一个冰霜法术后，获得3点护甲值。",
+        "text_en": "[x]<b>Fire Spell Damage +2</b>\nYour Nature spells cost (1)\nless. After you cast a Frost\nspell, gain 3 Armor.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COST": 3,
+          "CARDTYPE": 4,
+          "ATK": 3,
+          "HEALTH": 4,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 18,
+          "SPELLPOWER_FIRE": 1,
+          "AURA": 1,
+          "TRIGGER_VISUAL": 1,
+          "2553": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "SPELLPOWER_FIRE",
+            "value": 1
+          },
+          {
+            "tag": "AURA",
+            "value": 1
+          },
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "b30593d29072c070334ec3dedab1d9739a9a48fb3690f95d81ea9203a4f9809b"
+    },
+    {
+      "id": "GDB_304",
+      "data": {
+        "id": "GDB_304",
+        "dbf_id": 111938,
+        "name": "恒星之火萨鲁恩",
+        "name_en": "Saruun",
+        "text": "<b>战吼：</b>使你牌库中的所有元素获得<b>火焰法术伤害+1</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Give all\nElementals in your deck\n <b>Fire Spell Damage +1</b>.",
+        "cost": 6,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "COST": 6,
+          "HEALTH": 6,
+          "ATK": 7,
+          "CARDTYPE": 4,
+          "CARDRACE": 18,
+          "BATTLECRY": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "SPELLPOWER_FIRE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e1dfdacbca5d353d5873753bd4e8a9c23b1726ca08c2b114ea795398a164ec7d"
+    }
+  ],
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "executable_needed": [
+    "BAR_048"
+  ],
+  "evidence_only": [
+    "TSC_635",
+    "GDB_304"
+  ]
+}

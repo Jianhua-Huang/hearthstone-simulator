@@ -1,0 +1,62 @@
+{
+  "profile": "native-controller-turn-hero-immunity-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "KAR_712",
+      "dbf_id": 39313,
+      "name": "紫罗兰幻术师",
+      "name_en": "Violet Illusionist",
+      "text": "在你的回合中，你的英雄<b>免疫</b>。",
+      "text_en": "During your turn, your hero is <b>Immune</b>.",
+      "cost": 3,
+      "attack": 4,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 1,
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "COST": 3,
+        "HEALTH": 3,
+        "ATK": 4,
+        "CARDTYPE": 4,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000289,
+        "craftingEvent": 10000289,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "policy": "Native live ordinary minion aura contributes Immune to its current controller hero iff current actual active_player is that controller. Refresh on actual player transition before start-boundary event captures/draw. Ending effects remain in old player turn; skipped slots do not switch player.",
+  "source_scope": "Only KAR_712 necessary experimental adapter; other turn-dependent keyword sources and exact CN timing remain unverified.",
+  "new_runtime_modules": 0,
+  "new_state_fields": 0,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 1,
+  "new_production_adapters": 0,
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

@@ -1,0 +1,95 @@
+{
+  "profile": "board-copy-entry-stats-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "UNG_022",
+      "data": {
+        "id": "UNG_022",
+        "dbf_id": 41155,
+        "name": "幻象制造者",
+        "name_en": "Mirage Caller",
+        "text": "<b>战吼：</b>选择一个随从，召唤一个它的1/1复制。",
+        "text_en": "<b>Battlecry:</b> Choose a minion. Summon a 1/1 copy of it.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 6,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 4,
+          "ATK": 2,
+          "HEALTH": 3,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000316,
+          "craftingEvent": 10000317,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "2d1052c004b9c644dd63fae4fae78e92fd1532276a1198b2e814c86214c84d6f"
+    },
+    {
+      "id": "EDR_100t5",
+      "data": {
+        "id": "EDR_100t5",
+        "dbf_id": 113801,
+        "name": "活体梦魇",
+        "name_en": "Living Nightmare",
+        "text": "当你使用本牌时，召唤一个它的2/2的复制。",
+        "text_en": "When you play this minion, summon a 2/2 copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "IS_NIGHTMARE_BONUS": 1,
+          "HIDE_COST": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ec87323488b13017b225221dcf8aa830da1ab50631ab73c9ddd8875f454b1351"
+    }
+  ],
+  "new_real_card_adapters": [
+    "UNG_022"
+  ],
+  "policy": "CopyMinion uses existing SummonStats before aura refresh and entry publication, for current/base and original attributed ordinary board-copy material. Explicit health resets copied damage as existing summon stats do. No late buff or new copy executor. Only Mirage Caller; Dark Gift source installation deferred.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false
+}

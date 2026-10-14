@@ -1,0 +1,1478 @@
+{
+  "scope": "Independent constructed Invoke. Only the Shaman family, its power/tokens/Claw and three necessary Invoke sources (single/double minion and weapon) are fully adapted in isolated tests. Other families and condition card are complete raw evidence only; not a formal card or generation pool.",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "DRG_600",
+      "data": {
+        "id": "DRG_600",
+        "dbf_id": 57329,
+        "name": "邪火巨龙迦拉克隆",
+        "name_en": "Galakrond, the Wretched",
+        "text": "<b>战吼：</b>随机召唤一个恶魔。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Summon\n1 random Demon.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "COLLECTIBLE": 1,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55807,
+          "BATTLECRY": 1,
+          "OVERRIDECARDTEXTBUILDER": 8,
+          "1724": 1,
+          "2936": 1,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55807,
+          57330,
+          57331,
+          55819,
+          55366
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "54fa2f64551ed68506162845ec4461c7de16002c59d5a8ca32c9598cc250e147"
+    },
+    {
+      "id": "DRG_600t2",
+      "data": {
+        "id": "DRG_600t2",
+        "dbf_id": 57330,
+        "name": "天降浩劫迦拉克隆",
+        "name_en": "Galakrond, the Apocalypse",
+        "text": "<b>战吼：</b>随机召唤两个恶魔。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Summon\n2 random Demons.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55807,
+          "BATTLECRY": 1,
+          "1724": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8cc8e65b74bd7acd6c23b016d2eefba9018d32cb6b81fc345170a12190cfbb9b"
+    },
+    {
+      "id": "DRG_600t3",
+      "data": {
+        "id": "DRG_600t3",
+        "dbf_id": 57331,
+        "name": "世界末日迦拉克隆",
+        "name_en": "Galakrond, Azeroth's End",
+        "text": "<b>战吼：</b>随机召唤四个恶魔。装备一只5/2的巨爪。",
+        "text_en": "[x]<b>Battlecry:</b> Summon\n4 random Demons.\nEquip a 5/2 Claw.",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55807,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ca654d2fda2390301dab2ef9aa8079fbbe408a31a021a4d557e7566d83e98c6c"
+    },
+    {
+      "id": "DRG_610",
+      "data": {
+        "id": "DRG_610",
+        "dbf_id": 57419,
+        "name": "梦魇巨龙迦拉克隆",
+        "name_en": "Galakrond, the Nightmare",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗为（0）点。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Draw 1 card.\nIt costs (0).\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "COLLECTIBLE": 1,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55806,
+          "BATTLECRY": 1,
+          "OVERRIDECARDTEXTBUILDER": 8,
+          "1724": 1,
+          "2936": 1,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55806,
+          57421,
+          57420,
+          53160,
+          53161,
+          53162,
+          52897,
+          52900,
+          53163,
+          55378,
+          55819
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ade40b3d50d5ca617cad4fa39ff6f0cff42c8e0fb2eaa4a476264bff48a7c6ad"
+    },
+    {
+      "id": "DRG_610t2",
+      "data": {
+        "id": "DRG_610t2",
+        "dbf_id": 57421,
+        "name": "天降浩劫迦拉克隆",
+        "name_en": "Galakrond, the Apocalypse",
+        "text": "<b>战吼：</b>抽两张牌，其法力值消耗为（0）点。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Draw 2 cards.\nThey cost (0).\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55806,
+          "BATTLECRY": 1,
+          "1724": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "58c1925cc6c5fc67ad75d7f02fe22313689c46672350d29c533f5c5aba3ba97e"
+    },
+    {
+      "id": "DRG_610t3",
+      "data": {
+        "id": "DRG_610t3",
+        "dbf_id": 57420,
+        "name": "世界末日迦拉克隆",
+        "name_en": "Galakrond, Azeroth's End",
+        "text": "<b>战吼：</b>抽四张牌，其法力值消耗为（0）点。装备一只5/2的巨爪。",
+        "text_en": "[x]<b>Battlecry:</b> Draw 4 cards.\nThey cost (0).\nEquip a 5/2 Claw.",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55806,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "3a19aab5c965ce9856e0b1f3abb97b8bf95bcb868213d8bf1b4c8f7e9f072097"
+    },
+    {
+      "id": "DRG_620",
+      "data": {
+        "id": "DRG_620",
+        "dbf_id": 57427,
+        "name": "风暴巨龙迦拉克隆",
+        "name_en": "Galakrond, the Tempest",
+        "text": "<b>战吼：</b>召唤两个2/2并具有<b>突袭</b>的风暴。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\n2/2 Storms with <b>Rush</b>.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55808,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1,
+          "OVERRIDECARDTEXTBUILDER": 8,
+          "1724": 1,
+          "2936": 1,
+          "3623": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55808,
+          57432,
+          57433,
+          55809,
+          57434,
+          57435,
+          57436,
+          55819
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "456d9601f2e28c1d088602a4cbc472ca336d64f152350d5e54b062a1e9680320"
+    },
+    {
+      "id": "DRG_620t2",
+      "data": {
+        "id": "DRG_620t2",
+        "dbf_id": 57432,
+        "name": "天降浩劫迦拉克隆",
+        "name_en": "Galakrond, the Apocalypse",
+        "text": "<b>战吼：</b>召唤两个4/4并具有<b>突袭</b>的风暴。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\n4/4 Storms with <b>Rush</b>.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55808,
+          "BATTLECRY": 1,
+          "1724": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "7ff272a79e1bd79221a8bc8219621b16e368d859d0e3d33dd68fb1b877691af0"
+    },
+    {
+      "id": "DRG_620t3",
+      "data": {
+        "id": "DRG_620t3",
+        "dbf_id": 57433,
+        "name": "世界末日迦拉克隆",
+        "name_en": "Galakrond, Azeroth's End",
+        "text": "<b>战吼：</b>召唤两个8/8并具有<b>突袭</b>的风暴。装备一只5/2的\n巨爪。",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\n8/8 Storms with <b>Rush</b>.\nEquip a 5/2 Claw.",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55808,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "3380ff808b2ee81ff0d59ec29f4021722e854a8d47344e172f94780f45b5cb30"
+    },
+    {
+      "id": "DRG_650",
+      "data": {
+        "id": "DRG_650",
+        "dbf_id": 57413,
+        "name": "无敌巨龙迦拉克隆",
+        "name_en": "Galakrond, the Unbreakable",
+        "text": "<b>战吼：</b>抽一张随从牌，使其获得+4/+4。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Draw 1 minion.\nGive it +4/+4.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "COLLECTIBLE": 1,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55805,
+          "BATTLECRY": 1,
+          "OVERRIDECARDTEXTBUILDER": 8,
+          "1724": 1,
+          "2936": 1,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55805,
+          57414,
+          57415,
+          55819
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "2f655e1e574f9942e869f437bfe67ca88b8491abcecf369da57f76d70a6514b9"
+    },
+    {
+      "id": "DRG_650t2",
+      "data": {
+        "id": "DRG_650t2",
+        "dbf_id": 57414,
+        "name": "天降浩劫迦拉克隆",
+        "name_en": "Galakrond, the Apocalypse",
+        "text": "<b>战吼：</b>抽两张随从牌，使其获得+4/+4。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Draw 2 minions.\nGive them +4/+4.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55805,
+          "BATTLECRY": 1,
+          "1724": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4d86ae9e319b26f13d540f9902c7d7d21ec1a7b1b71b03408c89c15c32f6aac3"
+    },
+    {
+      "id": "DRG_650t3",
+      "data": {
+        "id": "DRG_650t3",
+        "dbf_id": 57415,
+        "name": "世界末日迦拉克隆",
+        "name_en": "Galakrond, Azeroth's End",
+        "text": "<b>战吼：</b>抽四张随从牌，使其获得+4/+4。装备一只5/2的\n巨爪。",
+        "text_en": "[x]<b>Battlecry:</b> Draw 4 minions.\nGive them +4/+4.\nEquip a 5/2 Claw.",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55805,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "161019d6f34fa215a277aaacb3439aaa42fa1c58ff95b12c91f251a6ecf83bcf"
+    },
+    {
+      "id": "DRG_660",
+      "data": {
+        "id": "DRG_660",
+        "dbf_id": 57416,
+        "name": "讳言巨龙迦拉克隆",
+        "name_en": "Galakrond, the Unspeakable",
+        "text": "<b>战吼：</b>随机消灭一个敌方随从。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Destroy 1\nrandom enemy minion.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "COLLECTIBLE": 1,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "HERO_POWER": 55810,
+          "BATTLECRY": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "OVERRIDECARDTEXTBUILDER": 8,
+          "1724": 1,
+          "2936": 1,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55810,
+          57417,
+          57418,
+          55819
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "c30b5f973d6c9bf41fae5a6e9b511ce483107abd8606200cf434e4acb425ca77"
+    },
+    {
+      "id": "DRG_660t2",
+      "data": {
+        "id": "DRG_660t2",
+        "dbf_id": 57417,
+        "name": "天降浩劫迦拉克隆",
+        "name_en": "Galakrond, the Apocalypse",
+        "text": "<b>战吼：</b>随机消灭两个敌方随从。<i>（@）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Destroy 2\nrandom enemy minions.\n<i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55810,
+          "BATTLECRY": 1,
+          "1724": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "163edd52e15ad5a7764f985b4cc3ba739f311a72f3f05adcb3b1aaba42b01237"
+    },
+    {
+      "id": "DRG_660t3",
+      "data": {
+        "id": "DRG_660t3",
+        "dbf_id": 57418,
+        "name": "世界末日迦拉克隆",
+        "name_en": "Galakrond, Azeroth's End",
+        "text": "<b>战吼：</b>随机消灭四个敌方随从。装备一只5/2的巨爪。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy 4\nrandom enemy minions.\nEquip a 5/2 Claw.",
+        "cost": 7,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 5,
+          "CARDTYPE": 3,
+          "COST": 7,
+          "HEALTH": 30,
+          "ARMOR": 5,
+          "ELITE": 1,
+          "GALAKROND_HERO_CARD": 1,
+          "HERO_POWER": 55810,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "78511b974ea85e101205ad72e5e208fa037ea4c0fc5a0071639d2487c86ad502"
+    },
+    {
+      "id": "DRG_238p",
+      "data": {
+        "id": "DRG_238p",
+        "dbf_id": 55805,
+        "name": "迦拉克隆的巨力",
+        "name_en": "Galakrond's Might",
+        "text": "在本回合中，使你的英雄获得+$a3攻击力。",
+        "text_en": "Give your hero +$a3_Attack this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARDTYPE": 10,
+          "CLASS": 10
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "6b01dcf5eb8ebaeaea280e6514bf671be714a455431893de897acfdd7a7bd1c2"
+    },
+    {
+      "id": "DRG_238p2",
+      "data": {
+        "id": "DRG_238p2",
+        "dbf_id": 55806,
+        "name": "迦拉克隆的诡计",
+        "name_en": "Galakrond's Guile",
+        "text": "将一张<b>跟班</b>牌置入你的手牌。",
+        "text_en": "Add a <b>Lackey</b> to\nyour hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 10,
+          "COST": 2,
+          "CLASS": 7
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "37eda2288a255130399425c47dca8038e91152876bbe76a2745d80de21e18107"
+    },
+    {
+      "id": "DRG_238p3",
+      "data": {
+        "id": "DRG_238p3",
+        "dbf_id": 55807,
+        "name": "迦拉克隆的恶意",
+        "name_en": "Galakrond's Malice",
+        "text": "召唤两个1/1的小鬼。",
+        "text_en": "Summon two\n1/1 Imps.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 10,
+          "COST": 2,
+          "CLASS": 9
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "d6f95239d7adff72b26a43ccb7c1fa5cd0c0fb791b06c7c3ff624e1882281ccb"
+    },
+    {
+      "id": "DRG_238p4",
+      "data": {
+        "id": "DRG_238p4",
+        "dbf_id": 55808,
+        "name": "迦拉克隆的愤怒",
+        "name_en": "Galakrond's Fury",
+        "text": "召唤一个2/1并具有<b>突袭</b>的元素。",
+        "text_en": "Summon a 2/1 Elemental with <b>Rush</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 10,
+          "COST": 2,
+          "CLASS": 8
+        },
+        "reference_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "94d9a89b0b399cf15ac3db2e074181c9f728ad8ef2c251fd3be612ce02f1d7aa"
+    },
+    {
+      "id": "DRG_238p5",
+      "data": {
+        "id": "DRG_238p5",
+        "dbf_id": 55810,
+        "name": "迦拉克隆的智识",
+        "name_en": "Galakrond's Wit",
+        "text": "随机将一张牧师随从牌置入你的手牌。",
+        "text_en": "Add a random Priest minion to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 10,
+          "COST": 2,
+          "CLASS": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "d6c2e0603a7d11e0ceeb329acf19aecb981c34921722cb11cca8280823a7bf5d"
+    },
+    {
+      "id": "DRG_242",
+      "data": {
+        "id": "DRG_242",
+        "dbf_id": 55166,
+        "name": "迦拉克隆之盾",
+        "name_en": "Shield of Galakrond",
+        "text": "<b>嘲讽，战吼：</b>\n<b>祈求</b>迦拉克隆。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> <b>Invoke</b> Galakrond.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "COST": 5,
+          "ATK": 4,
+          "HEALTH": 5,
+          "ELITE": 0,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "TAUNT": 1,
+          "BATTLECRY": 1,
+          "EMPOWER": 1,
+          "CARDRACE": 2,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          57416,
+          55810,
+          57419,
+          55806,
+          57427,
+          55808,
+          57329,
+          55807,
+          57413,
+          55805
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 10000281,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "16e506e6e6fb3fc94df41ef40632f27d2c2c21752ce469dddcc15e717460c823"
+    },
+    {
+      "id": "DRG_218",
+      "data": {
+        "id": "DRG_218",
+        "dbf_id": 54969,
+        "name": "堕落的元素师",
+        "name_en": "Corrupt Elementalist",
+        "text": "<b>战吼：</b><b>祈求</b>迦拉克隆两次。",
+        "text_en": "<b>Battlecry:</b> <b>Invoke</b> Galakrond twice.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "COLLECTIBLE": 1,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 3,
+          "HEALTH": 3,
+          "BATTLECRY": 1,
+          "EMPOWER": 1,
+          "3623": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55808,
+          57427
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 10000281,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1511587ce1632821d3ad1de3813cff1b78b13a38cd3b46e24b750a4f47ac86fb"
+    },
+    {
+      "id": "DRG_620t4",
+      "data": {
+        "id": "DRG_620t4",
+        "dbf_id": 57434,
+        "name": "成型风暴",
+        "name_en": "Brewing Storm",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 2,
+          "CARDRACE": 18,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "08fb42ef915a316fe1ec0305f152f28a46ea30977576b2042851fdd8b5240efb"
+    },
+    {
+      "id": "DRG_620t5",
+      "data": {
+        "id": "DRG_620t5",
+        "dbf_id": 57435,
+        "name": "活化风暴",
+        "name_en": "Living Storm",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 4,
+          "HEALTH": 4,
+          "CARDRACE": 18,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ae2b7fe7c447b1a5a8ae7746f5913f3b1997c497c7bdce8668db8c488a894e0c"
+    },
+    {
+      "id": "DRG_620t6",
+      "data": {
+        "id": "DRG_620t6",
+        "dbf_id": 57436,
+        "name": "狂怒风暴",
+        "name_en": "Raging Storm",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 8,
+          "HEALTH": 8,
+          "CARDRACE": 18,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "8b71ba79731c82e4725141d3e3a3d6d1220a62f328f0df80656c585bd0dc8103"
+    },
+    {
+      "id": "DRG_238t14t3",
+      "data": {
+        "id": "DRG_238t14t3",
+        "dbf_id": 55809,
+        "name": "啸风元素",
+        "name_en": "Windswept Elemental",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "afb573450d37205491c46f7777b310bbfe5604f5043c57ca9bda683cb27b233a"
+    },
+    {
+      "id": "DRG_238ht",
+      "data": {
+        "id": "DRG_238ht",
+        "dbf_id": 55819,
+        "name": "巨龙之爪",
+        "name_en": "Dragon Claw",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "CARDTYPE": 7,
+          "COST": 5,
+          "ATK": 5,
+          "HEALTH": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "a2d9041589b07be400f722ebfb2e3438eaeb9c3ddd0a3ba538f1c1dcbfa8a96d"
+    },
+    {
+      "id": "DRG_217",
+      "data": {
+        "id": "DRG_217",
+        "dbf_id": 54967,
+        "name": "巨龙的兽群",
+        "name_en": "Dragon's Pack",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。如果你已经<b>祈求</b>过两次，则使它们获得+3/+3。",
+        "text_en": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. If you've <b>Invoked</b> twice, give them +3/+3.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "COLLECTIBLE": 1,
+          "COST": 5,
+          "RARITY": 4,
+          "CARDTYPE": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56375,
+          "3623": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "EMPOWER",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 10000281,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f7b400fbea81a8392566f62496b79a5147f6b1f6368a9cb6d6219330a5e809ef"
+    },
+    {
+      "id": "DRG_021",
+      "data": {
+        "id": "DRG_021",
+        "dbf_id": 55002,
+        "name": "仪式斩斧",
+        "name_en": "Ritual Chopper",
+        "text": "<b>战吼：</b><b>\n祈求</b>迦拉克隆。",
+        "text_en": "<b>Battlecry:</b> <b>Invoke</b> Galakrond.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 3,
+          "COST": 2,
+          "CARDTYPE": 7,
+          "COLLECTIBLE": 1,
+          "EMPOWER": 1,
+          "ATK": 1,
+          "BATTLECRY": 1,
+          "3623": 1,
+          "HEALTH": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          55805,
+          57413
+        ],
+        "source_events": {
+          "gameplayEvent": 10000280,
+          "craftingEvent": 10000281,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ba1ecceb27083f9d78168a69efe54872cb1ce0f91831d8c01b90f29538ddb3d8"
+    }
+  ]
+}

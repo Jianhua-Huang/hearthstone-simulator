@@ -1,0 +1,103 @@
+{
+  "profile": "current-spell-damage-presence-weapon-attack-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "KAR_063",
+      "data": {
+        "id": "KAR_063",
+        "dbf_id": 39694,
+        "name": "幽灵之爪",
+        "name_en": "Spirit Claws",
+        "text": "当你拥有<b>法术伤害</b>时，拥有\n+2攻击力。",
+        "text_en": "[x]Has +2 Attack while you\nhave <b>Spell Damage</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 8,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "ATK": 1,
+          "CARDTYPE": 7,
+          "HEALTH": 3
+        },
+        "reference_tags": [
+          {
+            "tag": "SPELLPOWER",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000289,
+          "craftingEvent": 10000289,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "257e5909aa1b03a4f904cfcce31d4fba80b25af7018dc7c076d42efeb010614d"
+    },
+    {
+      "id": "CORE_KAR_063",
+      "data": {
+        "id": "CORE_KAR_063",
+        "dbf_id": 111380,
+        "name": "幽灵之爪",
+        "name_en": "Spirit Claws",
+        "text": "当你拥有<b>法术伤害</b>时，拥有\n+2攻击力。",
+        "text_en": "[x]Has +2 Attack while you\nhave <b>Spell Damage</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "ATK": 1,
+          "CARDTYPE": 7,
+          "858": 39694,
+          "HEALTH": 3
+        },
+        "reference_tags": [
+          {
+            "tag": "SPELLPOWER",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "bbdbe20f7069b84b2427bb081d63fb69e8fd0481f6a0ba2ae0140993f56effe3"
+    }
+  ],
+  "new_real_card_adapters": [
+    "KAR_063"
+  ],
+  "policy": "Current controller has positive ordinary Spell Damage, including school-specific sources: one native weapon receives a fixed additive Attack contribution. Reuse all-school spell_bonus without a cast ID, original active/live/consumed source filtering and existing stats/equipment. Exact CN timing remains uncalibrated.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

@@ -1,0 +1,4296 @@
+{
+  "profile": "silence-source-audit-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "candidate_ids": [
+    "AV_269e",
+    "BAR_064e2",
+    "BAR_552o",
+    "BAR_552o_bom_puzzle",
+    "BOM_03_Murstrous_07e",
+    "BOT_531e2",
+    "BOT_531e2_Puzzle",
+    "BTA_06e",
+    "BTA_BOSS_14p2e",
+    "BTA_BOSS_14p2e2",
+    "CATA_EVENT_000e",
+    "CFM_687e",
+    "CFM_699e",
+    "CRED_15",
+    "CRED_50",
+    "CS2_122e",
+    "DALA_743e",
+    "DALA_903e",
+    "DALA_905e",
+    "DALA_906e",
+    "DALA_908e",
+    "DALA_913e",
+    "DALA_914e",
+    "DALA_BOSS_75e1",
+    "DALA_BOSS_75e2",
+    "DALA_BOSS_75e3",
+    "DALA_BOSS_75e4",
+    "DALA_BOSS_75e5",
+    "DMF_057o",
+    "DMF_058o",
+    "DMF_082e",
+    "DRG_068e",
+    "DRG_225e",
+    "DRG_319e5",
+    "DRG_322e",
+    "EX1_145o",
+    "FB_Champs_UNG_067t1e2",
+    "GILA_805e2",
+    "GILA_BOSS_46e",
+    "GVG_021e",
+    "ICC_828e",
+    "JAIL_502e",
+    "JAIL_800hp1e",
+    "JAM_015t3",
+    "LETL_338e",
+    "LETL_447e2",
+    "LOOTA_828e",
+    "LT24_006P3e",
+    "Mission_AI_Must_Play",
+    "PVPDR_SW_Passive_04e2",
+    "PVPDR_YOP_PaladinT3e2",
+    "PVPDR_YOP_PaladinT3e3",
+    "REV_921t",
+    "REV_939e",
+    "RLK_025o",
+    "RLK_927e",
+    "RLK_Prologue_AV_269e",
+    "RLK_Prologue_RLK_025o",
+    "SC_002e2",
+    "SW_112e2",
+    "Story_03_ClanTrainere",
+    "Story_11_WaterTape",
+    "TB_BaconUps_136e",
+    "TB_Champs_EX1_145o",
+    "TB_GP_03",
+    "TB_LEAGUE_REVIVAL_BrannBoss",
+    "TB_PickYourFate_10_EnchMinion",
+    "TB_PickYourFate_9_EnchMinion",
+    "TB_Superfriends001e",
+    "TB_TempleOutrun_ECo",
+    "TB_TempleOutrun_ECovo",
+    "TB_TempleRun_BestFriendBuff",
+    "THD_019hpe",
+    "TLC_823e1",
+    "TOY_521e",
+    "TRLA_113e",
+    "TRL_058e",
+    "TRL_092e",
+    "TRL_310e",
+    "TRL_319e",
+    "TTN_060t",
+    "TTN_060t1",
+    "TTN_060t2",
+    "ULDA_019e",
+    "ULDA_024e",
+    "ULDA_046e2",
+    "ULDA_101e2",
+    "ULDA_208e2",
+    "ULDA_208e3",
+    "ULDA_603e",
+    "ULDA_605e",
+    "ULDA_606e",
+    "ULD_168e2",
+    "ULD_168e3",
+    "ULD_173e",
+    "UNG_067t1e2",
+    "VAN_CS2_222o",
+    "VAN_EX1_145o",
+    "VAN_NEW1_027e",
+    "YOP_012e"
+  ],
+  "records": [
+    {
+      "id": "AV_269e",
+      "dbf_id": 68217,
+      "name": "",
+      "name_en": "Woe Is Me",
+      "text": "",
+      "text_en": "If this dies summon another.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 14,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_064e2",
+      "dbf_id": 63708,
+      "name": "奥术之触",
+      "name_en": "Touch of Arcane",
+      "text": "在本回合中，你的下一个法术拥有<b>法术伤害+2</b>。",
+      "text_en": "You have <b>Spell Damage +2</b> for your next spell this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_552o",
+      "dbf_id": 63518,
+      "name": "烹油下锅",
+      "name_en": "Cookin!",
+      "text": "在本回合中，你使用的下两张牌的法力值消耗减少（2）点。",
+      "text_en": "The next two cards you play this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_552o_bom_puzzle",
+      "dbf_id": 126708,
+      "name": "烹油下锅",
+      "name_en": "Cookin!",
+      "text": "在本回合中，你使用的下两张牌的法力值消耗减少（3）点。",
+      "text_en": "The next two cards you play this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BOM_03_Murstrous_07e",
+      "dbf_id": 74549,
+      "name": "鱼人凶怪",
+      "name_en": "Murstrous",
+      "text": "穆坦努斯使本随从获得+1/+1。",
+      "text_en": "Mutanus is giving this minion +1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 8,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BOT_531e2",
+      "dbf_id": 52826,
+      "name": "星界之力",
+      "name_en": "Celestial Power",
+      "text": "在本回合中，你的下一个法术拥有<b>法术伤害+2</b>。",
+      "text_en": "You have <b>Spell Damage +2</b> for your next spell this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BOT_531e2_Puzzle",
+      "dbf_id": 123050,
+      "name": "星界之力",
+      "name_en": "Celestial Power",
+      "text": "在本回合中，你的下一个法术拥有<b>法术伤害+2</b>。",
+      "text_en": "You have <b>Spell Damage +2</b> for your next spell this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BTA_06e",
+      "dbf_id": 62080,
+      "name": "斯克里布的强化",
+      "name_en": "Sklibb's Empowerment",
+      "text": "斯克里布使本随从获得+2攻击力。",
+      "text_en": "Sklibb is granting this minion +2 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 14,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BTA_BOSS_14p2e",
+      "dbf_id": 60293,
+      "name": "邪能驱动",
+      "name_en": "Fueled by Fel",
+      "text": "攻击力提高。",
+      "text_en": "Increased Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "HIDE_WATERMARK": 1,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BTA_BOSS_14p2e2",
+      "dbf_id": 62612,
+      "name": "邪能驱动",
+      "name_en": "Fueled by Fel",
+      "text": "攻击力提高。",
+      "text_en": "Increased Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CATA_EVENT_000e",
+      "dbf_id": 126699,
+      "name": "原初之形",
+      "name_en": "Primordial",
+      "text": "法力值消耗为（0）点。",
+      "text_en": "Costs (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CLASS": 12,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_SET_COST_ZERO": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CFM_687e",
+      "dbf_id": 41957,
+      "name": "免费法术",
+      "name_en": "Free Spell",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗为（0）点。",
+      "text_en": "The next spell you cast this turn costs (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CFM_699e",
+      "dbf_id": 42161,
+      "name": "海魔强化",
+      "name_en": "Seadevil Enchant",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CRED_15",
+      "dbf_id": 1775,
+      "name": "Andy Brock",
+      "name_en": "Andy Brock",
+      "text": "无法被<b>沉默，圣盾，潜行</b>。",
+      "text_en": "Can't be <b>Silenced. Divine Shield, Stealth.</b>",
+      "cost": 1,
+      "attack": 1,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "RARITY": 5,
+        "CLASS": 12,
+        "ELITE": 1,
+        "COST": 1,
+        "HEALTH": 3,
+        "ATK": 1,
+        "CARDTYPE": 4
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CRED_50",
+      "dbf_id": 45403,
+      "name": "Brian Farr",
+      "name_en": "Brian Farr",
+      "text": "<b>战吼：</b>在本局对战的剩余时间内，你的随从无法被<b>沉默</b>。",
+      "text_en": "<b>Battlecry:</b> For the rest of the game, your minions can't be <b><b>Silence</b>d</b>.",
+      "cost": 11,
+      "attack": 11,
+      "health": 11,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "ELITE": 1,
+        "COST": 11,
+        "ATK": 11,
+        "HEALTH": 11
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CS2_122e",
+      "dbf_id": 1402,
+      "name": "强化",
+      "name_en": "Enhanced",
+      "text": "团队领袖使本随从获得+1攻击力。",
+      "text_en": "Raid Leader is granting this minion +1 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_743e",
+      "dbf_id": 56187,
+      "name": "",
+      "name_en": "Sleepy",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_903e",
+      "dbf_id": 55138,
+      "name": "好运气",
+      "name_en": "Lucky!",
+      "text": "法力值消耗为（0）点。",
+      "text_en": "Costs (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CLASS": 12,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_SET_COST_ZERO": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_905e",
+      "dbf_id": 56283,
+      "name": "得力助手",
+      "name_en": "Right Hand Man",
+      "text": "始终出现在起始手牌中。",
+      "text_en": "Always starts in your hand.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_906e",
+      "dbf_id": 56287,
+      "name": "众宾欢笑",
+      "name_en": "Merriment",
+      "text": "+1/+1。",
+      "text_en": "+1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_ATK_UP": 1,
+        "UI_BUFF_HEALTH_UP": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_908e",
+      "dbf_id": 55137,
+      "name": "宣传得当",
+      "name_en": "Stories Told",
+      "text": "+2/+2。",
+      "text_en": "+2/+2.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_ATK_UP": 2,
+        "UI_BUFF_HEALTH_UP": 2,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_913e",
+      "dbf_id": 55139,
+      "name": "谣传",
+      "name_en": "Gossip",
+      "text": "+4/+4且法力值消耗增加（2）点。",
+      "text_en": "+4/+4 and costs (2) more.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "COST": 1,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_ATK_UP": 4,
+        "UI_BUFF_HEALTH_UP": 4,
+        "UI_BUFF_COST_UP": 2,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_914e",
+      "dbf_id": 55603,
+      "name": "先发制人",
+      "name_en": "The Upper Hand",
+      "text": "法力值消耗减少（3）点。",
+      "text_en": "Costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_COST_DOWN": 3,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_BOSS_75e1",
+      "dbf_id": 56383,
+      "name": "",
+      "name_en": "Bear Liver Quest",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_BOSS_75e2",
+      "dbf_id": 56426,
+      "name": "",
+      "name_en": "Murloc Quest",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_BOSS_75e3",
+      "dbf_id": 56427,
+      "name": "",
+      "name_en": "Turtle Escort Quest",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_BOSS_75e4",
+      "dbf_id": 56428,
+      "name": "",
+      "name_en": "Herbalist Quest",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_BOSS_75e5",
+      "dbf_id": 56429,
+      "name": "",
+      "name_en": "Hogger Quest",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DMF_057o",
+      "dbf_id": 61457,
+      "name": "月光增效",
+      "name_en": "Lunar Empowerment",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（2）点。",
+      "text_en": "The next spell you cast this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 2,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DMF_058o",
+      "dbf_id": 61459,
+      "name": "日光增效",
+      "name_en": "Solar Empowerment",
+      "text": "在本回合中，你的下一个法术将施放两次。",
+      "text_en": "Your next spell this turn casts twice.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 2,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DMF_082e",
+      "dbf_id": 63484,
+      "name": "宏伟雕像",
+      "name_en": "Imposing Statue",
+      "text": "暗月雕像使其获得+1攻击力。",
+      "text_en": "+1 Attack from Darkmoon Statue.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_068e",
+      "dbf_id": 59238,
+      "name": "暖意融融",
+      "name_en": "Toasty",
+      "text": "无法被<b>冻结</b>。",
+      "text_en": "Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 8,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_225e",
+      "dbf_id": 55053,
+      "name": "机械之力",
+      "name_en": "Mechanical Might",
+      "text": "空中飞爪使其获得+1攻击力。",
+      "text_en": "+1 Attack from Sky Claw.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_319e5",
+      "dbf_id": 55345,
+      "name": "树木之力",
+      "name_en": "Tree Power!",
+      "text": "+1/+1。",
+      "text_en": "+1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_322e",
+      "dbf_id": 55278,
+      "name": "龙族魔法",
+      "name_en": "Draconic Magic",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗为（0）点。",
+      "text_en": "The next spell you cast this turn costs (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CLASS": 4,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EX1_145o",
+      "dbf_id": 1760,
+      "name": "伺机待发",
+      "name_en": "Preparation",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（2）点。",
+      "text_en": "The next spell you cast this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "FB_Champs_UNG_067t1e2",
+      "dbf_id": 55129,
+      "name": "晶化",
+      "name_en": "Crystallized",
+      "text": "5/5。",
+      "text_en": "5/5.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CLASS": 12,
+        "758": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "758",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "GILA_805e2",
+      "dbf_id": 49340,
+      "name": "坚守",
+      "name_en": "Entrenched",
+      "text": "+2生命值。",
+      "text_en": "+2 Health.",
+      "cost": 0,
+      "attack": 0,
+      "health": 0,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "COST": 0,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "HEALTH": 0,
+        "ATK": 0,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "GILA_BOSS_46e",
+      "dbf_id": 48728,
+      "name": "强化",
+      "name_en": "Empowered",
+      "text": "维图斯使本随从获得+1/+1。",
+      "text_en": "Vitus is giving this minion +1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "GVG_021e",
+      "dbf_id": 2203,
+      "name": "玛尔加尼斯之握",
+      "name_en": "Grasp of Mal'Ganis",
+      "text": "玛尔加尼斯使其获得+2/+2。",
+      "text_en": "Mal'Ganis is granting +2/+2.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ICC_828e",
+      "dbf_id": 46120,
+      "name": "缝合",
+      "name_en": "Stitched",
+      "text": "{0}和{1}。",
+      "text_en": "{0} and {1}.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "JAIL_502e",
+      "dbf_id": 125987,
+      "name": "诡诈",
+      "name_en": "Subterfuge",
+      "text": "在本回合中，你施放的下一个法术的法力值消耗减少（3）点。",
+      "text_en": "The next spell you cast this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "JAIL_800hp1e",
+      "dbf_id": 127533,
+      "name": "穆格的魔法",
+      "name_en": "Mug's Magic",
+      "text": "你使用的下一张随从牌法力值消耗减少（2）点。",
+      "text_en": "The next minion you play costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 8,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "JAM_015t3",
+      "dbf_id": 95411,
+      "name": "弧形音叉",
+      "name_en": "Curved Tuning Fork",
+      "text": "同时对你的英雄攻击目标相邻的随从造成伤害。<i>（每回合都会改变。）</i>@同时对你的英雄攻击目标相邻的随从造成伤害。",
+      "text_en": "[x]Also damages minions\nadjacent to whomever\nyour hero attacks.\n<i>(Changes each turn.)</i>@[x]Also damages minions\nadjacent to whomever\nyour hero attacks.",
+      "cost": 2,
+      "attack": 2,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 10,
+        "COST": 2,
+        "ATK": 2,
+        "CARDTYPE": 7,
+        "TRIGGER_VISUAL": 1,
+        "RARITY": 3,
+        "CANT_BE_SILENCED": 1,
+        "TRANSFORMED_FROM_CARD": 95408,
+        "2165": 1,
+        "HEALTH": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        },
+        {
+          "tag": "2165",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_338e",
+      "dbf_id": 73537,
+      "name": "",
+      "name_en": "Mind Thief (Tracking)",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "1724": 1,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_447e2",
+      "dbf_id": 67275,
+      "name": "",
+      "name_en": "Toasty",
+      "text": "",
+      "text_en": "Can't be <b>Frozen</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1,
+        "ENCHANTMENT_INVISIBLE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FROZEN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LOOTA_828e",
+      "dbf_id": 46438,
+      "name": "激励战旗",
+      "name_en": "Banner of Inspiration",
+      "text": "+1/+1。",
+      "text_en": "+1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "HERO_POWER": 229,
+        "FACTION": 3,
+        "251": 1,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_006P3e",
+      "dbf_id": 94923,
+      "name": "",
+      "name_en": "One And The Same (Tracking)",
+      "text": "",
+      "text_en": "",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "Mission_AI_Must_Play",
+      "dbf_id": 64914,
+      "name": "设置为AI必出",
+      "name_en": "Set AI Must Play to True",
+      "text": " 将此牌关联的牌设置为必出。 ",
+      "text_en": " Sets the Card this is attached to to Must Play True. ",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "1137": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "PVPDR_SW_Passive_04e2",
+      "dbf_id": 76585,
+      "name": "精于驯服",
+      "name_en": "Meek Mastery",
+      "text": "属性值提高。",
+      "text_en": "Increased Stats.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "PVPDR_YOP_PaladinT3e2",
+      "dbf_id": 67399,
+      "name": "谦卑祝福",
+      "name_en": "Humble Blessing",
+      "text": "法力值消耗，攻击力和生命值变为3。",
+      "text_en": "Cost, Attack, and Health are set 3.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 5,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "PVPDR_YOP_PaladinT3e3",
+      "dbf_id": 67400,
+      "name": "",
+      "name_en": "Humble Blessing",
+      "text": "",
+      "text_en": "Cost, Attack, and Health are set 3.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 5,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "ENCHANTMENT_INVISIBLE",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "REV_921t",
+      "dbf_id": 95896,
+      "name": "活石",
+      "name_en": "Living Stone",
+      "text": "+2攻击力。",
+      "text_en": "+2 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "REV_939e",
+      "dbf_id": 77568,
+      "name": "锯齿",
+      "name_en": "Serrated",
+      "text": "在本回合中，你使用的下一张牌法力值消耗减少（2）点。",
+      "text_en": "The next card you play this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "RLK_025o",
+      "dbf_id": 79453,
+      "name": "冰川突进",
+      "name_en": "Glacial Advance",
+      "text": "在本回合中，你施放的下一个法术的法力值消耗减少（2）点。",
+      "text_en": "The next spell you cast this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 1,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "RLK_927e",
+      "dbf_id": 90846,
+      "name": "征伐",
+      "name_en": "Crusade",
+      "text": "消耗生命值，而非法力值。",
+      "text_en": "Costs Health instead of Mana.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 5,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "RLK_Prologue_AV_269e",
+      "dbf_id": 100839,
+      "name": "",
+      "name_en": "Woe Is Me",
+      "text": "",
+      "text_en": "If this dies summon another.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 14,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "RLK_Prologue_RLK_025o",
+      "dbf_id": 100798,
+      "name": "冰川突进",
+      "name_en": "Glacial Advance",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（2）点。",
+      "text_en": "The next spell you cast this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 1,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SC_002e2",
+      "dbf_id": 113566,
+      "name": "为了虫群！",
+      "name_en": "For the Swarm!",
+      "text": "+1攻击力。",
+      "text_en": "+1 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 1,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000283,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SW_112e2",
+      "dbf_id": 66298,
+      "name": "火热灼烧！",
+      "name_en": "Burning Hot!",
+      "text": "你的下一个火焰法术拥有<b>法术伤害+2</b>。",
+      "text_en": "Your next Fire spell has <b>Spell Damage +2</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "Story_03_ClanTrainere",
+      "dbf_id": 67030,
+      "name": "训练有素",
+      "name_en": "Trained",
+      "text": "氏族训练官使本随从获得+1攻击力。",
+      "text_en": "Clan Trainer is granting this minion +1 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "Story_11_WaterTape",
+      "dbf_id": 91599,
+      "name": "水闸",
+      "name_en": "Water Tap",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗为（0）点。",
+      "text_en": "The next spell you cast this turn costs (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_BaconUps_136e",
+      "dbf_id": 62238,
+      "name": "呀！",
+      "name_en": "Yarrr!",
+      "text": "南海船长使其获得+2/+2。",
+      "text_en": "Southsea Captain is granting +2/+2.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_Champs_EX1_145o",
+      "dbf_id": 60838,
+      "name": "伺机待发",
+      "name_en": "Preparation",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（3）点。",
+      "text_en": "The next spell you cast this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_GP_03",
+      "dbf_id": 39937,
+      "name": "新暗影塔",
+      "name_en": "Shadow Tower New",
+      "text": "无法被<b>沉默</b>\n相邻的随从无法攻击，并拥有<b>潜行</b>",
+      "text_en": "Can't be <b><b>Silence</b>d</b>\nAdjacent minions Can't Attack, and have <b>Stealth</b>",
+      "cost": null,
+      "attack": null,
+      "health": 4,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "HEALTH": 4,
+        "CARDTYPE": 4,
+        "335": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "335",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_LEAGUE_REVIVAL_BrannBoss",
+      "dbf_id": 57867,
+      "name": "狂野的暴龙王克鲁什",
+      "name_en": "King Krush, Untamed",
+      "text": "<b>首领</b>\n在每个回合结束时，随机攻击一个敌人。",
+      "text_en": "<b>Boss</b>\nAt the end of each turn, attack a random enemy.",
+      "cost": 10,
+      "attack": 8,
+      "health": 60,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CANT_BE_SILENCED": 1,
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 8,
+        "HEALTH": 60,
+        "COLLECTIBLE": 0,
+        "ELITE": 1,
+        "TAUNT": 1,
+        "TRIGGER_VISUAL": 1,
+        "463": 1,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAUNT",
+          "value": 1
+        },
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_PickYourFate_10_EnchMinion",
+      "dbf_id": 39016,
+      "name": "加成",
+      "name_en": "Bonus",
+      "text": "你的<b>战吼</b>随从拥有+1/+1。",
+      "text_en": "Your <b>Battlecry</b> minions have +1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_PickYourFate_9_EnchMinion",
+      "dbf_id": 39017,
+      "name": "加成",
+      "name_en": "Bonus",
+      "text": "你的<b>亡语</b>随从拥有+1/+1。",
+      "text_en": "Your <b>Deathrattle</b> minions have +1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_Superfriends001e",
+      "dbf_id": 39881,
+      "name": "意气风发",
+      "name_en": "Facilitated",
+      "text": "在本回合中，你使用的下一张传说卡牌的法力值消耗减少（3）点。",
+      "text_en": "The next legend you cast this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_TempleOutrun_ECo",
+      "dbf_id": 59526,
+      "name": "缔结合约",
+      "name_en": "Contracted",
+      "text": "你施放的下一个法术的法力值消耗为（0）点。",
+      "text_en": "The next spell you cast this turn cost (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_TempleOutrun_ECovo",
+      "dbf_id": 59549,
+      "name": "缔结契约",
+      "name_en": "Covenanted",
+      "text": "在本回合使用的所有卡牌的法力值消耗为（0）点。",
+      "text_en": "All cards played this turn cost (0).",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_TempleRun_BestFriendBuff",
+      "dbf_id": 59581,
+      "name": "友谊（无法被沉默）",
+      "name_en": "Friendship (Can't be Silenced)",
+      "text": "属性值提高",
+      "text_en": "Increased Stats",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "THD_019hpe",
+      "dbf_id": 113331,
+      "name": "我是！火车王！",
+      "name_en": "Leeroooy! Jeeenkins!",
+      "text": "在本回合中，你使用的下一张随从牌不再消耗法力值，转而消耗生命值。",
+      "text_en": "The next minion you play this turn costs Health instead of Mana.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 5,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TLC_823e1",
+      "dbf_id": 118270,
+      "name": "恐惧畏缩玩家附加效果",
+      "name_en": "Cower in Fear Player Enchant",
+      "text": "在本回合中，你使用的下一张野兽牌法力值消耗减少（2）点。",
+      "text_en": "The next Beast you play this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TOY_521e",
+      "dbf_id": 106545,
+      "name": "甩卖啦！",
+      "name_en": "On Sale!",
+      "text": "在本回合中，你使用的下一张牌法力值消耗减少（2）点。",
+      "text_en": "The next card you play this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TRLA_113e",
+      "dbf_id": 52785,
+      "name": "鲜血的契印玩家附加效果",
+      "name_en": "Blood Pact Player Enchantment",
+      "text": "法术消耗生命值，而非法力值。",
+      "text_en": "Spells cost Health instead of Mana.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TRL_058e",
+      "dbf_id": 50907,
+      "name": "幻象",
+      "name_en": "Visions",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（3）点。",
+      "text_en": "The next spell you cast this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ELITE": 0,
+        "COLLECTIBLE": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TRL_092e",
+      "dbf_id": 52788,
+      "name": "鲨鱼之力",
+      "name_en": "Power of the Shark",
+      "text": "你的随从的<b>战吼</b>和<b>连击</b>效果触发两次。",
+      "text_en": "Your minions' <b>Battlecries</b>\n__and <b>Combos</b> trigger twice._",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TRL_310e",
+      "dbf_id": 50837,
+      "name": "元素唤醒",
+      "name_en": "Elemental Evocation",
+      "text": "在本回合中你的下一张元素牌的法力值消耗减少（2）点。",
+      "text_en": "The next Elemental you play this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 4,
+        "COLLECTIBLE": 0,
+        "RARITY": 1,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TRL_319e",
+      "dbf_id": 52787,
+      "name": "龙鹰之力",
+      "name_en": "Power of the Dragonhawk",
+      "text": "你的英雄技能会以选中的随从及其相邻随从作为目标。",
+      "text_en": "Your Hero Power also hits adjacent minions.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_060t",
+      "dbf_id": 96479,
+      "name": "符文短剑",
+      "name_en": "Runic Shortsword",
+      "text": "{0}{1}",
+      "text_en": "{0} {1}",
+      "cost": 1,
+      "attack": 2,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 1,
+        "ATK": 2,
+        "CANT_BE_SILENCED": 1,
+        "HEALTH": 2
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_060t1",
+      "dbf_id": 96480,
+      "name": "符文斧",
+      "name_en": "Runic Axe",
+      "text": "{0}{1}",
+      "text_en": "{0} {1}",
+      "cost": 5,
+      "attack": 3,
+      "health": 4,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 5,
+        "ATK": 3,
+        "CANT_BE_SILENCED": 1,
+        "HEALTH": 4
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_060t2",
+      "dbf_id": 96481,
+      "name": "符文巨槌",
+      "name_en": "Runic Greatmace",
+      "text": "{0}{1}",
+      "text_en": "{0} {1}",
+      "cost": 10,
+      "attack": 5,
+      "health": 6,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 10,
+        "ATK": 5,
+        "CANT_BE_SILENCED": 1,
+        "HEALTH": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_019e",
+      "dbf_id": 58175,
+      "name": "减轻负重",
+      "name_en": "Unencumbered",
+      "text": "法力值消耗减少（1）点。",
+      "text_en": "Costs (1) less.",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CANT_BE_SILENCED": 1,
+        "CARDTYPE": 6,
+        "COST": 1,
+        "HIDE_WATERMARK": 1,
+        "UI_BUFF_COST_DOWN": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_024e",
+      "dbf_id": 58176,
+      "name": "减轻负重",
+      "name_en": "Unencumbered",
+      "text": "法力值消耗减少（1）点。",
+      "text_en": "Costs (1) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CANT_BE_SILENCED": 1,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "UI_BUFF_COST_DOWN": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_046e2",
+      "dbf_id": 57819,
+      "name": "蜂舞之戒",
+      "name_en": "Band of Bees",
+      "text": "<b>剧毒</b>",
+      "text_en": "<b>Poisonous</b>.",
+      "cost": 0,
+      "attack": 0,
+      "health": 0,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "FACTION": 3,
+        "COST": 0,
+        "ATK": 0,
+        "HEALTH": 0,
+        "DUNGEON_PASSIVE_BUFF": 1,
+        "HIDE_STATS": 1,
+        "HIDE_WATERMARK": 1,
+        "POISONOUS": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "POISONOUS",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_101e2",
+      "dbf_id": 58529,
+      "name": "圣甲虫指环",
+      "name_en": "Band of Scarabs",
+      "text": "-1攻击力。",
+      "text_en": "-1 Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "HERO_POWER": 229,
+        "FACTION": 3,
+        "251": 1,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_208e2",
+      "dbf_id": 57826,
+      "name": "泰坦指环",
+      "name_en": "Titanic Ring",
+      "text": "+1生命值并具有<b>嘲讽</b>。",
+      "text_en": "+1 Health and <b>Taunt</b>.",
+      "cost": 0,
+      "attack": 0,
+      "health": 0,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "FACTION": 3,
+        "COST": 0,
+        "ATK": 0,
+        "HEALTH": 0,
+        "DUNGEON_PASSIVE_BUFF": 1,
+        "HIDE_STATS": 1,
+        "HIDE_WATERMARK": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_208e3",
+      "dbf_id": 57827,
+      "name": "泰坦指环",
+      "name_en": "Titanic Ring",
+      "text": "+1生命值并具有<b>嘲讽</b>。",
+      "text_en": "+1 Health and <b>Taunt</b>.",
+      "cost": 0,
+      "attack": 0,
+      "health": 0,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "FACTION": 3,
+        "COST": 0,
+        "ATK": 0,
+        "HEALTH": 0,
+        "DUNGEON_PASSIVE_BUFF": 1,
+        "HIDE_STATS": 1,
+        "HIDE_WATERMARK": 1,
+        "AURA": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_603e",
+      "dbf_id": 58173,
+      "name": "友情升级",
+      "name_en": "Friendly Upgrade",
+      "text": "+2/+2。",
+      "text_en": "+2/+2.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_ATK_UP": 2,
+        "UI_BUFF_DURABILITY_UP": 2,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_605e",
+      "dbf_id": 58174,
+      "name": "酒足饭饱",
+      "name_en": "Satiated",
+      "text": "法力值消耗减少（1）点。",
+      "text_en": "Costs (1) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CANT_BE_SILENCED": 1,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1,
+        "CLASS": 12,
+        "UI_BUFF_COST_DOWN": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULDA_606e",
+      "dbf_id": 59638,
+      "name": "快去干活",
+      "name_en": "Work, Work!",
+      "text": "+2/+2。",
+      "text_en": "+2/+2.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1,
+        "UI_BUFF_ATK_UP": 2,
+        "UI_BUFF_HEALTH_UP": 2,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULD_168e2",
+      "dbf_id": 56997,
+      "name": "跟班强化",
+      "name_en": "Lackey Empowerment",
+      "text": "你的<b>跟班</b>变为4/4。",
+      "text_en": "Your <b>Lackeys</b> are 4/4.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "CARDTYPE": 6,
+        "ELITE": 0,
+        "COLLECTIBLE": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULD_168e3",
+      "dbf_id": 56998,
+      "name": "",
+      "name_en": "Lackey Empowerment",
+      "text": "",
+      "text_en": "4/4.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "CARDTYPE": 6,
+        "ELITE": 0,
+        "COLLECTIBLE": 0,
+        "ENCHANTMENT_INVISIBLE": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "ENCHANTMENT_INVISIBLE",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULD_173e",
+      "dbf_id": 55710,
+      "name": "维西纳的信念",
+      "name_en": "Vessina's Devotion",
+      "text": "维西纳使本随从获得+2攻击力。",
+      "text_en": "Vessina is granting this minion +2_Attack.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "CLASS": 8,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "UNG_067t1e2",
+      "dbf_id": 46043,
+      "name": "晶化",
+      "name_en": "Crystallized",
+      "text": "5/5。",
+      "text_en": "5/5.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAN_CS2_222o",
+      "dbf_id": 70468,
+      "name": "暴风城之力",
+      "name_en": "Might of Stormwind",
+      "text": "+1/+1。",
+      "text_en": "+1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAN_EX1_145o",
+      "dbf_id": 70415,
+      "name": "伺机待发",
+      "name_en": "Preparation",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（3）点。",
+      "text_en": "The next spell you cast this turn costs (3) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "TAG_ONE_TURN_EFFECT": 1,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        },
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAN_NEW1_027e",
+      "dbf_id": 70472,
+      "name": "呀！",
+      "name_en": "Yarrr!",
+      "text": "+1/+1。",
+      "text_en": "+1/+1.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "YOP_012e",
+      "dbf_id": 68064,
+      "name": "静逝无声",
+      "name_en": "Quiet Death",
+      "text": "这张牌的<b>亡语</b>不会触发。",
+      "text_en": "This card's <b>Deathrattles</b> don't trigger.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "COLLECTIBLE": 0,
+        "ELITE": 0,
+        "CANT_BE_SILENCED": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "CANT_BE_SILENCED",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CS2_122",
+      "dbf_id": 1401,
+      "name": "团队领袖",
+      "name_en": "Raid Leader",
+      "text": "你的其他随从拥有+1攻击力。",
+      "text_en": "Your other minions have +1 Attack.",
+      "cost": 3,
+      "attack": 2,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "COST": 3,
+        "HEALTH": 3,
+        "ATK": 2,
+        "CARDTYPE": 4,
+        "AURA": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EX1_145",
+      "dbf_id": 1158,
+      "name": "伺机待发",
+      "name_en": "Preparation",
+      "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（2）点。",
+      "text_en": "The next spell you cast this turn costs (2) less.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 7,
+        "COLLECTIBLE": 1,
+        "CARDTYPE": 5,
+        "FACTION": 3,
+        "251": 1,
+        "HAS_SIGNATURE_QUALITY": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "YOP_012",
+      "dbf_id": 61950,
+      "name": "死亡守望者",
+      "name_en": "Deathwarden",
+      "text": "<b>亡语</b>不会触发。",
+      "text_en": "<b>Deathrattles</b> can't trigger.",
+      "cost": 3,
+      "attack": 2,
+      "health": 5,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 4,
+        "COST": 3,
+        "CARDTYPE": 4,
+        "ATK": 2,
+        "HEALTH": 5,
+        "COLLECTIBLE": 1,
+        "MINI_SET": 1,
+        "AURA": 1,
+        "CARDRACE": 11
+      },
+      "reference_tags": [
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000360,
+        "craftingEvent": 10000361,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRG_068",
+      "dbf_id": 55418,
+      "name": "活化龙息",
+      "name_en": "Living Dragonbreath",
+      "text": "你的随从无法被\n<b>冻结</b>。",
+      "text_en": "Your minions can't be_<b>Frozen</b>.",
+      "cost": 3,
+      "attack": 3,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 1,
+        "COST": 3,
+        "CARDTYPE": 4,
+        "ATK": 3,
+        "HEALTH": 4,
+        "COLLECTIBLE": 1,
+        "CARDRACE": 18,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "FREEZE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000280,
+        "craftingEvent": 10000281,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "counts": {
+    "ENCHANTMENT": 92,
+    "MINION": 4,
+    "WEAPON": 4
+  },
+  "collectible_candidates": 0,
+  "executable_representatives": [],
+  "conclusion": "100 local candidates: 92 enchantments, four weapons and four TB/CRED minions. These minions are outside the selected constructed mainline. Aura/player attachments and weapon silence domain do not establish a new constructed minion silence-immunity keyword.",
+  "existing_basis": [
+    "Enchantment.remove_on_silence",
+    "AbilityInstance.remove_on_silence",
+    "continuous aura recomputation",
+    "player effects independent of a minion",
+    "Silence board-minion domain"
+  ],
+  "source_mapping_not_complete": true,
+  "formal_mode_pool_verified": false,
+  "CN_calibrated": false
+}

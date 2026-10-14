@@ -1,0 +1,302 @@
+{
+  "version": "scheme-libram-basics-raw-v1",
+  "source": "data/extracted/cards.json",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "DAL_008",
+      "data": {
+        "id": "DAL_008",
+        "dbf_id": 51372,
+        "name": "砰砰博士的阴谋",
+        "name_en": "Dr. Boom's Scheme",
+        "text": "获得@点护甲值。<i>（每回合都会升级！）</i>",
+        "text_en": "Gain @ Armor.\n<i>(Upgrades each turn!)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 4,
+          "ELITE": 0,
+          "TAG_SCRIPT_DATA_NUM_1": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000294,
+          "craftingEvent": 10000388,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "7b5375343573d5c0e46f7123d5198452b05f50383c5ae1d7e0c524d5c43bcfdf"
+    },
+    {
+      "id": "BT_020",
+      "data": {
+        "id": "BT_020",
+        "dbf_id": 56445,
+        "name": "奥尔多侍从",
+        "name_en": "Aldor Attendant",
+        "text": "<b>战吼：</b>在本局对战中，你的圣契的法力值消耗减少（1）点。",
+        "text_en": "<b>Battlecry:</b> Reduce the Cost_of your Librams by_(1) this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "COST": 1,
+          "CARDTYPE": 4,
+          "ATK": 1,
+          "COLLECTIBLE": 1,
+          "HEALTH": 3,
+          "BATTLECRY": 1,
+          "CARDRACE": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          56555,
+          56394,
+          56554,
+          61949
+        ],
+        "source_events": {
+          "gameplayEvent": 10000302,
+          "craftingEvent": 10000303,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "ce07c456ca5b4b1d04d95aed5f46befbf0028333cb7bf793b2e97de43160442b"
+    },
+    {
+      "id": "BT_026",
+      "data": {
+        "id": "BT_026",
+        "dbf_id": 56556,
+        "name": "奥尔多真理追寻者",
+        "name_en": "Aldor Truthseeker",
+        "text": "<b>嘲讽，战吼：</b>\n在本局对战中，你的圣契的法力值消耗减少（2）点。",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b> Reduce the Cost of your Librams by (2) this game.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 3,
+          "COST": 5,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "TAUNT": 1,
+          "ATK": 4,
+          "HEALTH": 6,
+          "BATTLECRY": 1,
+          "CARDRACE": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          56555,
+          56394,
+          56554,
+          61949
+        ],
+        "source_events": {
+          "gameplayEvent": 10000302,
+          "craftingEvent": 10000303,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "e3493c4733a3fecbc51700997b7711a58da5ba6c23e5f2f348147ea275e98f54"
+    },
+    {
+      "id": "BT_024",
+      "data": {
+        "id": "BT_024",
+        "dbf_id": 56554,
+        "name": "希望圣契",
+        "name_en": "Libram of Hope",
+        "text": "恢复#8点生命值。召唤一个8/8并具有<b>嘲讽</b>和<b>圣盾</b>的\n守卫。",
+        "text_en": "Restore #8 Health. Summon an 8/8 Guardian with <b>Taunt</b> and_<b>Divine Shield</b>.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 4,
+          "COST": 9,
+          "CARDTYPE": 5,
+          "COLLECTIBLE": 1,
+          "1546": 1,
+          "SPELL_SCHOOL": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57471
+        },
+        "reference_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000302,
+          "craftingEvent": 10000303,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "6056a8c051dec4a0d57f227db1d468ba6acf1760c6503c22da7cfe42ad55172c"
+    },
+    {
+      "id": "BT_024t",
+      "data": {
+        "id": "BT_024t",
+        "dbf_id": 57471,
+        "name": "远古守卫",
+        "name_en": "Ancient Guardian",
+        "text": "<b>嘲讽，圣盾</b>",
+        "text_en": "<b>Taunt</b>\n<b>Divine Shield</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 8,
+          "HEALTH": 8,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "d8f83dfe8c7c6676d693ff2f5d0bacc22c02b5601744a7830888f0875ae0e96c"
+    },
+    {
+      "id": "YOP_011t",
+      "data": {
+        "id": "YOP_011t",
+        "dbf_id": 61981,
+        "name": "审判圣契",
+        "name_en": "Libram of Judgment",
+        "text": "<b>已腐蚀</b>\n<b>吸血</b>",
+        "text_en": "<b>Corrupted</b>\n<b>Lifesteal</b>",
+        "cost": 7,
+        "attack": 5,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 7,
+          "COST": 7,
+          "1546": 1,
+          "CORRUPTED_CARD": 1,
+          "ATK": 5,
+          "LIFESTEAL": 1,
+          "HEALTH": 3
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "4981c9e058162d4c0113ddc5966500c94c4c2866bc3f7c5d2a579e31573ac9b0"
+    }
+  ]
+}

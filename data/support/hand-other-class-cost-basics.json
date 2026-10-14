@@ -1,0 +1,54 @@
+{
+  "profile": "current-hand-other-class-conditional-price-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "DAL_716",
+      "data": {
+        "id": "DAL_716",
+        "dbf_id": 52606,
+        "name": "宿敌",
+        "name_en": "Vendetta",
+        "text": "对一个随从造成$4点伤害。如果你的手牌中有另一职业的卡牌，则法力值消耗为（0）点。",
+        "text_en": "Deal $4 damage to a minion. Costs (0) if you're holding a card from another class.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 7,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "COST": 4,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000294,
+          "craftingEvent": 10000388,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "da1fb54b7a6fd0de5ac7071ef9340d950d103e7d44c6c1e32cc4656e47e17c47"
+    }
+  ],
+  "new_real_card_adapters": [
+    "DAL_716"
+  ],
+  "policy": "Original quote payer current hero_class, complete physical own HAND including the priced card when physically present. Reuse PoolQuery other-class/non-neutral policy: a dual-class face containing current class is not foreign. Freeze complete original rows and class for accepted price. Exact CN class/self/dual/neutral and layer/window policies remain uncalibrated.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

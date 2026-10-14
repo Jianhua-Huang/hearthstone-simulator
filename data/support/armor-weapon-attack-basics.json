@@ -1,0 +1,92 @@
+{
+  "profile": "continuous-controller-armor-weapon-attack-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "LOOT_044",
+      "data": {
+        "id": "LOOT_044",
+        "dbf_id": 43277,
+        "name": "铁刃护手",
+        "name_en": "Bladed Gauntlet",
+        "text": "攻击力等同于你的\n护甲值。无法攻击英雄。",
+        "text_en": "Has Attack equal to your Armor. Can't attack heroes.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 4,
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "COST": 2,
+          "CARDTYPE": 7,
+          "HEALTH": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000339,
+          "craftingEvent": 10000340,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "63df3edbdfce7319d19dbc5b630af679248369362cbcf67f644c21d7f4323ee3"
+    },
+    {
+      "id": "CORE_LOOT_044",
+      "data": {
+        "id": "CORE_LOOT_044",
+        "dbf_id": 129222,
+        "name": "铁刃护手",
+        "name_en": "Bladed Gauntlet",
+        "text": "攻击力等同于你的\n护甲值。无法攻击英雄。",
+        "text_en": "Has Attack equal to your Armor. Can't attack heroes.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "RARITY": 4,
+          "CLASS": 10,
+          "COST": 2,
+          "CARDTYPE": 7,
+          "HEALTH": 2,
+          "1413": 43277,
+          "858": 43277,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1cd59409cf8fa06a776eaaea191af240d1db54b8bba907e0b7a5b2a126a99724"
+    }
+  ],
+  "new_real_card_adapters": [
+    "LOOT_044"
+  ],
+  "policy": "Native weapon final Attack reads current controller hero armor. Ordinary numeric modifications remain stored but do not override this final value. Existing cannot_attack_heroes policy is reused. Final layer and exact display/combat timing are local policies awaiting CN calibration.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

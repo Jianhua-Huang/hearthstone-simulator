@@ -1,0 +1,106 @@
+{
+  "profile": "fixed-hand-threshold-draw-existing-primitive-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "REV_509",
+      "data": {
+        "id": "REV_509",
+        "dbf_id": 78123,
+        "name": "放大战刃",
+        "name_en": "Magnifying Glaive",
+        "text": "在你的英雄攻击后，抽牌，直到你拥有三张牌。",
+        "text_en": "[x]After your hero attacks,\ndraw until you have\n3 cards.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 1,
+          "CARDTYPE": 7,
+          "COST": 3,
+          "ATK": 3,
+          "COLLECTIBLE": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "29bc3b1c320932f266efb6941f197bc3c1f93ed745c5087f231d830db708c17c"
+    },
+    {
+      "id": "CORE_REV_509",
+      "data": {
+        "id": "CORE_REV_509",
+        "dbf_id": 118115,
+        "name": "放大战刃",
+        "name_en": "Magnifying Glaive",
+        "text": "在你的英雄攻击后，抽牌，直到你拥有三张牌。",
+        "text_en": "[x]After your hero attacks,\ndraw until you have\n3 cards.",
+        "cost": 3,
+        "attack": 3,
+        "health": null,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 1,
+          "CARDTYPE": 7,
+          "COST": 3,
+          "ATK": 3,
+          "DURABILITY_DEPRECATED": 2,
+          "1413": 78123,
+          "858": 78123,
+          "TRIGGER_VISUAL": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "dd8ffa8e23330c0cc57beca343e41c82a8abfc73d67a56ecf053401561cd6f32"
+    }
+  ],
+  "new_real_card_adapters": [
+    "REV_509"
+  ],
+  "policy": "At the captured completed friendly hero attack body, compute max(0,3-current hand size) once and use the original Draw count. Fatigue and replacement draws use existing draw_one. This finite initial-gap policy is internal, not evidence of the exact CN stop rule.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

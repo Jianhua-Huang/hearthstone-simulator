@@ -1,0 +1,65 @@
+{
+  "profile": "other-battlefield-current-tribe-continuous-attack-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "EX1_062",
+      "data": {
+        "id": "EX1_062",
+        "dbf_id": 736,
+        "name": "老瞎眼",
+        "name_en": "Old Murk-Eye",
+        "text": "<b>冲锋</b>，在战场上每有一个其他鱼人便拥有+1攻击力。",
+        "text_en": "<b>Charge</b>. Has +1 Attack for each other Murloc on the battlefield.",
+        "cost": 4,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 5,
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "COST": 4,
+          "HEALTH": 4,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "251": 6,
+          "CHARGE": 1,
+          "BACON_TRIPLE_UPGRADE_MINION_ID": 58382,
+          "TECH_LEVEL": 2,
+          "BACON_SUBSET_MURLOC": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "CHARGE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "f1498da70962de06f774d694d530f6d59cc82222c2d660621b6eb38d972486d6"
+    }
+  ],
+  "new_real_card_adapters": [
+    "EX1_062"
+  ],
+  "policy": "Both physical boards, other minions only, current tribe membership including all-tribe exclusions. Dormant and dying physical minions remain eligible until removal; inert interactables excluded. Positive additive continuous Attack; active carrier only. Presence/display/timing and exact CN behavior await calibration.",
+  "formal_pool_verified": false,
+  "CN_calibrated": false
+}

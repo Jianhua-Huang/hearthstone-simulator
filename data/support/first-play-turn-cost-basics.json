@@ -1,0 +1,169 @@
+{
+  "profile": "native-first-type-play-per-turn-cost-aura-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "EX1_076",
+      "dbf_id": 37,
+      "name": "小个子召唤师",
+      "name_en": "Pint-Sized Summoner",
+      "text": "你每个回合使用的第一张随从牌的法力值消耗减少（1）点。",
+      "text_en": "The first minion you play each turn costs (1) less.",
+      "cost": 2,
+      "attack": 2,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 3,
+        "CLASS": 12,
+        "COST": 2,
+        "HEALTH": 2,
+        "ATK": 2,
+        "CARDTYPE": 4,
+        "FACTION": 2,
+        "251": 6,
+        "AURA": 1,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DAL_609",
+      "dbf_id": 53002,
+      "name": "卡雷苟斯",
+      "name_en": "Kalecgos",
+      "text": "你每个回合使用的第一张法术牌的法力值消耗为（0）点。<b>战吼：</b><b>发现</b>一张法术牌。",
+      "text_en": "Your first spell each\nturn costs (0).\n<b>Battlecry:</b> <b>Discover</b>\na spell.",
+      "cost": 8,
+      "attack": 4,
+      "health": 12,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 4,
+        "COLLECTIBLE": 1,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "COST": 8,
+        "ELITE": 1,
+        "ATK": 4,
+        "HEALTH": 12,
+        "BATTLECRY": 1,
+        "CARDRACE": 24,
+        "AURA": 1,
+        "DISCOVER": 1,
+        "USE_DISCOVER_VISUALS": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000294,
+        "craftingEvent": 10000388,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CORE_DAL_609",
+      "dbf_id": 76271,
+      "name": "卡雷苟斯",
+      "name_en": "Kalecgos",
+      "text": "你每个回合使用的第一张法术牌的法力值消耗为（0）点。<b>战吼：</b><b>发现</b>一张法术牌。",
+      "text_en": "Your first spell each\nturn costs (0).\n<b>Battlecry:</b> <b>Discover</b>\na spell.",
+      "cost": 8,
+      "attack": 4,
+      "health": 12,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 4,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "COST": 8,
+        "ATK": 4,
+        "HEALTH": 12,
+        "CARDRACE": 24,
+        "COLLECTIBLE": 1,
+        "ELITE": 1,
+        "DISCOVER": 1,
+        "USE_DISCOVER_VISUALS": 1,
+        "858": 53002,
+        "BATTLECRY": 1,
+        "AURA": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "policy": "Native friendly cost aura uses payer current actual turn and committed paid-hand plays of one card type, including countered roots. Source lifetime remains the ordinary live aura lifetime; source entry does not reset prior player history.",
+  "source_scope": "Only EX1_076 necessary experimental adapter; Kalecgos records establish a set-to-zero spell aura requirement but their full Battlecry bodies are not adapted.",
+  "new_runtime_modules": 0,
+  "new_state_fields": 0,
+  "new_combinations": 0,
+  "new_source_experimental_adapters": 1,
+  "new_production_adapters": 0,
+  "full_card_adaptation": false,
+  "formal_pool_verified": false,
+  "CN_calibrated": false,
+  "primary_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/cards/37",
+      "scope": "Official first-minion reduction text; not exact CN timing or indirect origins"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "profile": "stored-candidate-summon-basics-v1",
+  "records": [
+    {
+      "id": "BAR_325",
+      "dbf_id": 63163,
+      "name": "剃刀野猪",
+      "name_en": "Razorboar",
+      "text": "<b>亡语：</b>从你的手牌中召唤一个法力值消耗小于或等于（3）点的<b>亡语</b>随从。",
+      "text_en": "<b>Deathrattle:</b> Summon a <b>Deathrattle</b> minion that costs (3) or less from your hand.",
+      "cost": 2,
+      "attack": 3,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 14,
+        "RARITY": 1,
+        "COST": 2,
+        "CARDTYPE": 4,
+        "ATK": 3,
+        "HEALTH": 2,
+        "COLLECTIBLE": 1,
+        "DEATHRATTLE": 1,
+        "CARDRACE": 20
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000369,
+        "craftingEvent": 10000372,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "source_records": 36022,
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "official_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/63163-razorboar?set=forged-in-the-barrens",
+      "supports": "A real hand Deathrattle minion cost threshold; does not certify every discount or current CN timing."
+    }
+  ],
+  "policy": "Pure card callback supplies current quoted hand-cost and active Deathrattle candidates; engine samples distinct physical references and uses existing SummonStoredCard. Stale references cannot identify a later zone lifetime. No new quote engine or printed zone-filter changes.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "new_combinations": 0
+}

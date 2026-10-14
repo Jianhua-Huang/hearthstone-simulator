@@ -1,0 +1,138 @@
+{
+  "profile": "full-health-reborn-independent-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "CS2_120",
+      "dbf_id": 1369,
+      "name": "淡水鳄",
+      "name_en": "River Crocolisk",
+      "text": "",
+      "text_en": "",
+      "cost": 2,
+      "attack": 2,
+      "health": 3,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "RARITY": 2,
+        "CLASS": 12,
+        "COLLECTIBLE": 1,
+        "COST": 2,
+        "HEALTH": 3,
+        "ATK": 2,
+        "CARDTYPE": 4,
+        "CARDRACE": 20
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EDR_100t9",
+      "dbf_id": 113886,
+      "name": "回荡恐怖",
+      "name_en": "Persisting Horror",
+      "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+      "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 5,
+        "IS_NIGHTMARE_BONUS": 1,
+        "HIDE_COST": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "REBORN",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "EDR_100t9e",
+      "dbf_id": 113887,
+      "name": "回荡恐怖",
+      "name_en": "Persisting Horror",
+      "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+      "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6,
+        "FACTION": 3,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 1,
+        "IS_NIGHTMARE_BONUS": 1,
+        "4137": 1,
+        "TAG_SCRIPT_DATA_NUM_6": 113886
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_minion": "CS2_120",
+  "isolated_gift_recipe": "EDR_100t9",
+  "evidence_enchantment": "EDR_100t9e",
+  "full_dark_gift_discover": false,
+  "formal_pool": false,
+  "CN_calibrated": false,
+  "official_sources": [
+    {
+      "url": "https://hs.blizzard.cn/news/24179067/",
+      "date": "2025-02-19",
+      "supports": "Constructed gift Reborn with full health and enchantments; historic ten gifts, not current formal pool."
+    },
+    {
+      "url": "https://hs.blizzard.cn/news/24205006/index.html",
+      "date": "2025-06-03",
+      "supports": "Awakening a dormant minion with this gift must not itself trigger Reborn."
+    }
+  ]
+}

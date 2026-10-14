@@ -1,0 +1,3267 @@
+{
+  "schema_version": 1,
+  "target_id": "local-2026-09-23",
+  "checked_on": "2026-09-23",
+  "scope": {
+    "product": "traditional_constructed",
+    "modes": [
+      "standard",
+      "wild"
+    ],
+    "support_level": "prototype_subset"
+  },
+  "rules": {
+    "candidate_patch": "36.6.1",
+    "region": "CN",
+    "effective_at": null,
+    "hotfix_set_complete": false,
+    "hotfixes": [
+      {
+        "patch": "36.6.1",
+        "announced_rollout_date": "2026-09-22",
+        "region_applied_at": null,
+        "deployment": "server_side",
+        "evidence_refs": [
+          "official-36.6.1"
+        ]
+      }
+    ],
+    "evidence_refs": [
+      "official-36.6",
+      "official-36.6.1",
+      "official-cn-36.6",
+      "official-cn-36.6.1-preview"
+    ]
+  },
+  "data": {
+    "client_version": "36.6.0.251952",
+    "build": 251952,
+    "locale": "zhCN",
+    "extracted_at": "2026-09-23T12:06:48.748569+00:00",
+    "files": {
+      "cards": {
+        "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\data\\extracted\\cards.json",
+        "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08"
+      },
+      "manifest": {
+        "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\data\\extracted\\manifest.json",
+        "sha256": "9479e1bfd5ee8a21eb5ea6942959fdbcaecd0586dc5b8398217e8d5aa0e2799e"
+      },
+      "dbf": {
+        "path": "D:\\游戏\\Hearthstone\\Data\\Win\\dbf.unity3d",
+        "sha256": "0a18316d13689a6fcbd96c2e839afc30068f121617ee4a13293519b45f051c02"
+      },
+      "assembly": {
+        "path": "D:\\游戏\\Hearthstone\\Hearthstone_Data\\Managed\\Assembly-CSharp.dll",
+        "sha256": "eb88e1c6e6833bddc3198badc043959302942d64aa8ec716656ab3a65d8c746b"
+      },
+      "product_db": {
+        "path": "D:\\游戏\\Hearthstone\\.product.db",
+        "sha256": "d97e378876da4af904a99bad8e92460a15e736ffa37291ca2a485710a4097122"
+      }
+    },
+    "evidence_refs": [
+      "local-product-db",
+      "local-extraction",
+      "local-cards"
+    ]
+  },
+  "runtime": {
+    "baseline_ruleset": "prototype-v1",
+    "baseline_content": "synthetic-mechanics-v1",
+    "snapshot_schema": 1,
+    "replay_schema": 1,
+    "rng": "Python random.Random (MT19937), exact Python version must be pinned for replay",
+    "python": "3.12.10"
+  },
+  "support_file": "../support/m1-representatives.json",
+  "evidence": [
+    {
+      "id": "local-product-db",
+      "kind": "local_file",
+      "locator": "D:\\游戏\\Hearthstone\\.product.db",
+      "sha256": "d97e378876da4af904a99bad8e92460a15e736ffa37291ca2a485710a4097122",
+      "checked_on": "2026-09-23",
+      "claims": "Length-delimited protobuf field path 4.1.7 is exactly 36.6.0.251952; installer metadata, not server-rule evidence."
+    },
+    {
+      "id": "local-extraction",
+      "kind": "local_file",
+      "locator": "data/extracted/manifest.json",
+      "sha256": "9479e1bfd5ee8a21eb5ea6942959fdbcaecd0586dc5b8398217e8d5aa0e2799e",
+      "checked_on": "2026-09-23",
+      "claims": "Extraction origin and hashes; executable version 6000.3.11f1 is Unity, not Hearthstone patch."
+    },
+    {
+      "id": "local-cards",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-23",
+      "claims": "Raw local card records; data presence does not establish release, format legality or implemented behavior."
+    },
+    {
+      "id": "official-36.6",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24294373",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Official page dated 2026-09-15: patch 36.6 launch and constructed fixes; later expansion content is not automatically live."
+    },
+    {
+      "id": "official-36.6.1",
+      "kind": "official_patch",
+      "locator": "https://us.forums.blizzard.com/en/hearthstone/t/3661-hotfix-patch/165846",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Official server-side hotfix announced rollout 2026-09-22; includes constructed fixes involving prior-play counts, Dormant transformations and damage/stat interactions. Regional application not confirmed."
+    },
+    {
+      "id": "official-reborn",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23076826/hearthstone-update-august-1-saviors-of-uldum",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Reborn returns a minion on its first death with 1 remaining Health. This short description does not settle deathrattle ordering, buffs or full-board edge cases."
+    },
+    {
+      "id": "prototype-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_engine_mechanics.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Existing prototype regression suite; 75 tests were recorded as passing before the M0/M1 increment. Evidence is limited to the stated prototype contracts, not official parity."
+    },
+    {
+      "id": "m1-lifecycle-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_lifecycle_mechanics.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Prototype-v2 lifecycle interaction regression: grants, silence, expiry, last-known deaths, movement, copy, control, reborn and rollback. Internal contract only."
+    },
+    {
+      "id": "m1-schema-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_attachment_schema.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Snapshot schema 2 attachment/death-history round trips, validation and detached state. Internal contract only."
+    },
+    {
+      "id": "m1-representative-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "15 explicit representative card adapters, pinned data versions and real-ID lifecycle examples. Partial card support, no official calibration."
+    },
+    {
+      "id": "official-cn-36.6",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24294373/index.html",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "CN official page dated 2026-09-16 confirms patch 36.6 release that day, including traditional constructed fixes."
+    },
+    {
+      "id": "official-cn-36.6.1-preview",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24302069/",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "CN official page dated 2026-09-13 previews 36.6.1 Battlegrounds updates on 2026-09-23; not proof of complete constructed hotfix deployment."
+    },
+    {
+      "id": "m2-damage-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_damage.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Classified damage, additive spell damage, immutable batch preparation/results, prevention, lifecycle, invalid-source rollback, RNG, snapshots and replay. Prototype-v3 internal contract only."
+    },
+    {
+      "id": "m2-targeting-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_targeting.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Explicit target domains, required/conditional/optional modes, non-character targets, shared enumeration/validation and pure predicate handling. Internal contract only."
+    },
+    {
+      "id": "m2-representative-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "16 experimental real-ID adapters, including Bloodmage spell damage/deathrattle, Fireball scaling and targetless battlecries. No official calibration or format legality claim."
+    },
+    {
+      "id": "m2-status-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_combat_status.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Prototype-v4 lifesteal/freeze/stealth/health-aura interaction tests; not official calibration."
+    },
+    {
+      "id": "m2-status-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Frostbolt, Chillblade Champion, Worgen Infiltrator and Stormwind Champion adapters; no official calibration."
+    },
+    {
+      "id": "official-lifesteal",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/20944003/arise-knights-of-the-frozen-throne",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Official Lifesteal introduction supports healing the hero for damage dealt; does not certify full batch/death timing."
+    },
+    {
+      "id": "official-stealth-11",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/21694420",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Patch 11.0: ability damage no longer removes minion Stealth; attacking removes it. Historical primary evidence, not target-patch calibration."
+    },
+    {
+      "id": "official-freeze-basic",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/11868609",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Early official patch describes Freeze making a character miss its next attack phase; detailed thaw edge cases remain uncalibrated."
+    },
+    {
+      "id": "m2-stat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_stats.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Ordered stat operations, injury, auras, lifecycle and persistence regression suite; not official calibration."
+    },
+    {
+      "id": "m2-stat-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Inner Fire, Divine Spirit and Crazed Alchemist through public PlayCard actions; provisional aura and damaged-health rules."
+    },
+    {
+      "id": "official-alchemist-basic",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/10463005",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Historical developer explanation supports swapping attack and health, including a zero-attack target dying at zero health. Does not certify damaged-health, aura or current-patch edge cases."
+    },
+    {
+      "id": "m2-equipment-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_equipment_powers.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Weapon/hero-power state, actions, usage and lifecycle integration regressions. Not official calibration."
+    },
+    {
+      "id": "m2-equipment-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Explicit weapon and basic hero power adapters validated through public actions, including generated dagger/recruit. Not full format coverage."
+    },
+    {
+      "id": "m2-resource-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_resources.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "51 public-action resource/payment tests passed; full suite 393 passed. Internal contract verification, not official calibration."
+    },
+    {
+      "id": "m2-resource-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "51 representative tests passed, including six new resource records. Full suite 393 passed; no complete format/official timing claim."
+    },
+    {
+      "id": "official-health-payment-26",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23934449/26-0-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Health/Armor costs no longer count as damage; Immune/Divine Shield do not waive payment. Does not establish all affordability exceptions."
+    },
+    {
+      "id": "official-corpses-all-classes",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23913671",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Patch 25.4: all classes track Corpses throughout the game; not a claim about batch timing."
+    },
+    {
+      "id": "official-dk-resources",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23852696",
+      "sha256": null,
+      "checked_on": "2026-09-23",
+      "claims": "Death Knight deep dive: friendly deaths including summoned/reborn minions provide Corpses; runes constrain deckbuilding. Not a timing calibration."
+    },
+    {
+      "id": "m2-health-rule-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m2_health_rules.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "45 packet-rule combination tests and 449 full regression tests passed. Internal contract verification, not official calibration."
+    },
+    {
+      "id": "m2-health-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "62 representative-card tests passed, including eight new packet-rule records and explicit spell-school mapping; no complete format or official timing claim."
+    },
+    {
+      "id": "official-spell-schools-20",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/23642550",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "20.0 introduced seven magical spell schools; not evidence of current complete-pool membership."
+    },
+    {
+      "id": "official-auchenai-lifesteal-2017",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/20944006/hearthstone-update-august-8-8-8-2017",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official update limits Auchenai and similar effects to triggering once with Lifesteal; not certification of current target-patch modifier ordering."
+    },
+    {
+      "id": "m3-choice-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_choices.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "34 resumable-choice tests passed: captured continuations, branching, deterministic sampling, rollback, aggregate selections, cumulative budgets and strict portable frames; not official timing calibration."
+    },
+    {
+      "id": "m3-choice-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "66 representative tests passed, including four new Nourish/choice scenario tests. Base mana/draw branches only; full Choose One timing and pool support are not claimed."
+    },
+    {
+      "id": "m3-construction-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_construction.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "19 construction tests passed: versioned format pools/bans, deck size, copy groups, class/rarity, default heroes and rune requirements. No complete official pool certification."
+    },
+    {
+      "id": "m3-opening-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_opening.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "25 opening tests passed: initial hands, deferred mulligan replacement, Coin, first turn, hooks/choices, root setup budgets, snapshot rollback and terminal replay."
+    },
+    {
+      "id": "m3-opening-representatives",
+      "kind": "internal_tests",
+      "locator": "tests/test_representative_cards.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "70 representative tests passed, including frozen construction metadata, two starting heroes, an experimental two-deck opening and a full match through terminal replay."
+    },
+    {
+      "id": "official-mulligan-basics",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/21363040/opening-moves-mulligans",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Basic opening: first player gets three initial cards and draws on turn one; second gets four plus The Coin; either player may replace any number. Does not establish exact internal exchange/hook timing for target patch."
+    },
+    {
+      "id": "official-dual-class",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/blog/23453343/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Scholomance introduced dual-class cards; primary basis for multiple allowed classes, not evidence of current format legality."
+    },
+    {
+      "id": "m3-information-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_information.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "31 tests passed for private hand/deck/choice projections, event-time redaction, opaque handles, shuffle retirement, explicit hand reveal/public generation, failure rollback, strict snapshot, clone and replay. Does not certify official visibility rules or player action authorization."
+    },
+    {
+      "id": "m3-player-api-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_player_api.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "36 tests passed for seat-bound JSON commands, observable revisions, shared player-context predicates, blind hand targeting, hidden-state-independent action ordering, sanitized failures, snapshot/replay and a complete representative match using only player DTOs. Official visibility/timing remains uncalibrated."
+    },
+    {
+      "id": "m3-generation-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_pools.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "41 generation tests passed: independent inventories, target/mode isolation, printed metadata filters, declared weights/exclusions, unsupported candidates before RNG, private Discover, zone capacity, suspended batches, transactional rollback, snapshot/clone/replay and Jeweled Scarab sample."
+    },
+    {
+      "id": "official-discover-basics",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/19932699/join-the-league-of-explorers-on-november-12",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Historical primary description: choose among three random cards usable by your class. Does not certify current CN pools or all card exceptions."
+    },
+    {
+      "id": "official-discover-class-weight",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23097372",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "2019-09-10 patch removed the class bonus for random Discover pools. Default unit weights use this historical rule; target-patch calibration remains pending."
+    },
+    {
+      "id": "official-generation-self-exclusion",
+      "kind": "official_rule",
+      "locator": "https://us.forums.blizzard.com/en/hearthstone/t/1801-server-hotfix/39314",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "2020-08-13 official hotfix announcement excludes self-generation/random Discover; author clarification preserves deck-copy cases such as Shadow Visions. This is historical evidence, not current CN deployment certification."
+    },
+    {
+      "id": "m3-zone-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_zones.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "44 tests passed for generated deck insertion, guarded physical moves, current/base hand and deck copies, filtered draw with explicit empty-deck policy, discard, reorder/shuffle, private zone choices, frozen representative selection, stale references, budgets and rollback/snapshot/replay. Includes Shadow Visions, Dead Man's Hand and Soulfire experimental adapters; official timing/copy/discard exceptions remain uncalibrated."
+    },
+    {
+      "id": "official-tradeable-base",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/blog/23689677/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "2021 Stormwind announcement describes Tradeable as an alternative one-mana exchange with a different deck card. Historical baseline, not current CN calibration."
+    },
+    {
+      "id": "official-tradeable-insertion",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23765270/22-2-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "22.2 states Tradeable inserts at a random deck location then draws a different card; it no longer shuffles the entire deck. Current CN fine event windows remain uncalibrated."
+    },
+    {
+      "id": "official-tradeable-enchantments",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23724327/21-3-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "21.3 fixes enchantments incorrectly kept when a Tradeable card was shuffled by a different effect. Supports distinguishing Tradeable preservation from ordinary shuffle resets."
+    },
+    {
+      "id": "official-forge-base",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23973123/titans-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "TITANS announcement describes upgrading a Forge card for two mana. Attachment retention, repeated-forge timing and hidden-face policy are not certified by this announcement."
+    },
+    {
+      "id": "m3-hand-action-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m3_hand_actions.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "45 tests passed covering separate hand action declarations/fees, Tradeable random insertion and different physical draw, Forge upgrades/repeated forging, attachment preservation, payment/normal-play isolation, information-safe commands, failure rollback, choice suspension and restore, representative cards, and a complete constructed player-DTO match with terminal replay. Official CN timing and special action-cost modifiers remain uncalibrated."
+    },
+    {
+      "id": "official-starship-base",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/expansions-adventures/the-great-dark-beyond",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official historical FAQ specifies printed/base component contributions, inactive untargetable board-slot construction, five-mana launch and one construction per player. It does not certify current CN lifecycle edge ordering or bounced card cost."
+    },
+    {
+      "id": "official-starship-launch-order",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24198086",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "32.2 changes Starship Piece when-launched effects to random order. Current CN complete interactions remain uncalibrated."
+    },
+    {
+      "id": "m4-starship-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_starships.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "46 Starship tests passed; full 780-test regression passed in 41.034s. Covers construction/death/duplicate components, inactive isolation, full board, launch fee, lifecycle, random launch effects, choices/restore, player boundary, rollback, strict snapshots and real-card replay. The 12-action/73-event real-card example resumes its construction snapshot and replays identically; this is internal validation, not official calibration."
+    },
+    {
+      "id": "official-starship-liberator",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24187196",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "32.0 specifies Liberator can continue damaging functionally dead minions and lists current Viking/Liberator/Banshee token changes. Deferring all launch-group deaths is a prototype implementation inference, not a complete official timing contract."
+    },
+    {
+      "id": "official-bg-upgrades-excluded",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24179332/31-6-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "31.6 places Jim Raynor Battlecruiser Upgrade spells in Battlegrounds. Those upgrades are excluded from this traditional-constructed roadmap."
+    },
+    {
+      "id": "m4-launch-effects-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_launch_effects.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "42 new launch tests passed; full 822-test regression passed in 42.772s. Covers cost scopes, real Terran effects, current-state callbacks, deferred deaths, nested choice/weapon restore, corrupt frames, budget rollback, fixed-seat commands and replay. A six-action/50-event real-card example restores and CLI-replays identically. These are internal prototype checks, not CN official calibration."
+    },
+    {
+      "id": "official-exodar-stats",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/24161533",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "31.0.3 changes The Exodar from eight mana 6/10 to seven mana 6/8. It does not specify protocol ordering or certify current CN interactions."
+    },
+    {
+      "id": "m4-protocol-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_protocols.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "43 new protocol tests passed; full 865-test regression passed in 46.350s. All three real Exodar branches restore and replay through fixed-seat commands; CLI offensive replay passed. Covers launch followup, dynamic unit damage, generated initial costs, choice-only boundaries, nested choices, privacy, rollback and corrupt snapshots. Exact protocol timing and departed-ship behavior remain R-034 prototype contracts pending CN calibration."
+    },
+    {
+      "id": "m4-bonus-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_bonus_effects.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "33 new tests passed; full 898-test regression passed in 46.944s. Elusive targets, all eight bonus keywords, readiness/nonduplication, faction queries, complete five-piece generation, draw/burn/full board, suspended frames, invalid candidate rejection, rollback and replay. Real-card example: 5 actions, 42 events, snapshot and CLI replay verified. R-035/R-036 remain provisional pending CN calibration."
+    },
+    {
+      "id": "official-elusive",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24056182",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Year of the Pegasus: Elusive minions cannot be targeted by spells or Hero Powers."
+    },
+    {
+      "id": "official-bonus-update",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24122902",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "30.2 replaces Stealth with Elusive in bonus effects and excludes Rush when already able to attack, already attacked, or on the other turn. This does not independently verify the entire eight-item pool or current CN deployment."
+    },
+    {
+      "id": "m4-location-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_locations.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "42 location tests passed; full 940-test regression passed in 56.766 seconds. Real Starport example passed snapshot restore, player commands and replay: 11 actions / 63 events; CLI replay passed. Final-durability, full-board use, deathrattle/ability order and cooldown windows remain provisional R-037, not official CN calibration."
+    },
+    {
+      "id": "official-location-basics",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23831407/murder-at-castle-nathria-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Historical official announcement: locations can be used immediately, activation is free in mana, costs durability and closes the location for the current and following controller turn. Exact checkpoint order and current CN edge cases are not certified."
+    },
+    {
+      "id": "official-location-removal",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23850855/welcome-to-the-players-tavern",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Historical official guide: locations are removed at zero durability. Does not establish last-use ability/deathrattle sequencing or full-board legality."
+    },
+    {
+      "id": "official-location-board-space",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/24122902/30-2-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "30.2 bug fix distinguishes locations from minions while retaining occupied board slots. Not a full location lifecycle specification."
+    },
+    {
+      "id": "official-location-deathrattles",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24267727",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "35.0 notes include Elise locations with Deathrattles, establishing the need to retain supported location death abilities; exact destruction/activation order remains provisional."
+    },
+    {
+      "id": "m4-hero-history-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_heroes_history.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "44 hero/history tests passed; real Raynor example passed player commands, snapshot restore and replay (7 actions / 48 events). Full 984-test regression passed in 54.085 seconds; all 14 examples rerun and Raynor CLI replay verified. Not official calibration."
+    },
+    {
+      "id": "official-hero-card-basics",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/20944006/hearthstone-update-august-8-8-8-2017dlc7xql",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Historical official introduction distinguishes hero cards from spells/minions and describes transformation, Battlecry, armor and new hero powers; detailed replacement windows and CN edge cases remain provisional."
+    },
+    {
+      "id": "official-raynor-relaunch",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24166335",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Heroes of StarCraft overview describes Raynor and relaunching Terran Battlecruisers. Does not specify history inclusion, copy semantics, ordering or current CN edge cases."
+    },
+    {
+      "id": "dormant-official-intro",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23369565",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Historical official introduction: Dormant minions are visible but untouchable before awakening. Does not certify precise CN timing."
+    },
+    {
+      "id": "dormant-official-reborn",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24205006",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "32.4 fixes cover Dormant Reborn health, returning Dormant rather than awake, and preserving existing deathrattle progress through dormancy."
+    },
+    {
+      "id": "dormant-official-triggers",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24135706/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "30.4 fixes explicitly mention While Dormant effects; primary basis for distinct dormant trigger eligibility."
+    },
+    {
+      "id": "m4-dormancy-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_dormancy.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "38 Dormancy tests passed: targeting/effect isolation, occupancy, auras, spell damage, triggers, countdown identity, Reborn/lifecycle, choices, rollback, strict snapshots and player-command replay. R-040/R-041 remain provisional pending CN calibration. Full 1022-test regression passed in 58.254 seconds; all 15 examples rerun; Dormancy example restores/replays and passes CLI verification (11 actions / 44 events)."
+    },
+    {
+      "id": "titan-official-faq",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/expansions-adventures/titans",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Titan FAQ: finite abilities replace attacks, usable on entry, Freeze/Windfury interaction, and exclusion from random generation."
+    },
+    {
+      "id": "titan-developer-rules",
+      "kind": "official_rule",
+      "locator": "https://us.forums.blizzard.com/en/hearthstone/t/dev-talk%E2%80%94totally-titans-all-about-the-new-keyword/109540",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Hearthstone senior engineer statement via official community post: targeted ability restrictions, copy/silence/return/resummon, forced combat, ability damage and Stealth. Historical rule evidence, not CN target-patch calibration."
+    },
+    {
+      "id": "m4-minion-ability-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_minion_abilities.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "54 Titan tests passed: finite abilities and shared attack budget, targeting, freeze/Windfury, lifecycle, forced combat, damage classification, Eonar, player commands and event-time ability identity, strict snapshots, choices, rollback and replay. Full 1076-test regression passed in 64.709 seconds; all 16 examples rerun; Eonar restored/replayed and passed CLI verification (8 actions / 35 events). Precise windows remain R-042/R-043 pending CN calibration."
+    },
+    {
+      "id": "quest-official-design",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/20567342",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official designer: played quests, visible progress and guaranteed opening hand."
+    },
+    {
+      "id": "questline-official-intro",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/23706628",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official launch: three phases, opening hand and intermediate rewards."
+    },
+    {
+      "id": "quest-uniqueness-29",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24064735",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "29.0 retains single-instance restrictions for the same quest, questline or sidequest."
+    },
+    {
+      "id": "quest-druid-attack-fix",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23761712",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "22.4 fixes Park progression after Sphere of Sapience. Exact windows remain uncalibrated."
+    },
+    {
+      "id": "m4-quest-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_quests.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "42 quest tests and full 1118-test regression passed in 72.095 seconds. All 17 examples rerun. Real Druid questline example: 47 actions / 233 events; player commands, mid-stage snapshot restore, complete replay and CLI verification agree. R-044/R-045/R-046 remain provisional pending CN calibration."
+    },
+    {
+      "id": "objective-official-intro",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23748034",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Objectives last three turns; exact owner-turn expiry window is not specified."
+    },
+    {
+      "id": "ongoing-duplicates-29",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24064735",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "29.0 permits multiple copies of the same Sigil, Objective or Aura."
+    },
+    {
+      "id": "dawngrasp-26-revert",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23934449",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "26.0 restores Arcanist Dawngrasp to Spell Damage +3 for the rest of the game."
+    },
+    {
+      "id": "m4-player-effect-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_player_effects.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "55 player-effect tests and full 1173-test regression passed in 77.845 seconds. All 18 examples rerun. New real-card example: 12 actions / 54 events; source death, timed buff, delayed spell damage, snapshot restore, replay and CLI verification agree. R-047/R-048/R-049 remain provisional for CN."
+    },
+    {
+      "id": "secret-counter-9-2",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/21098848",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "9.2 states countered spells still trigger Whenever/After you cast effects; exact interrupt ordering remains provisional."
+    },
+    {
+      "id": "secret-counter-card",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/cards/69607-counterspell",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Counterspell text: opponent spell is countered."
+    },
+    {
+      "id": "m4-secret-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m4_secrets.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "64 secret/interrupt tests and full 1237-test regression passed in 87.738 seconds. All 19 examples rerun. New player-port example: 9 actions / 48 events; snapshot restore, replay and CLI verification agree. Covers hidden information, live eligibility, shared capacity, countering, separate target replacement, attack interruption, choices, nested windows and rollback. R-048/R-050/R-051/R-052/R-053 remain provisional for CN."
+    },
+    {
+      "id": "secret-opponent-turn",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/13154924",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "1.0.0.4944 changed ordinary Secrets to activate only during the opponent turn; explicit later exceptions need individual rules."
+    },
+    {
+      "id": "m5-history-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_play_history.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "43 play-history/condition tests, 11 inventory tests, and full 1291-test regression passed in 92.246 seconds. 20 examples rerun; the new player-port example uses 5 actions / 23 events, with snapshot restore, replay and CLI verification. R-054 commitment/completion timing and R-055 special Combo/Outcast policies remain provisional for CN."
+    },
+    {
+      "id": "outcast-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23305788/introducing-the-demon-hunter",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official introduction states Outcast bonuses apply when played from either end of the hand; exact capture and response timing still needs CN calibration."
+    },
+    {
+      "id": "edwin-combo-text",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/cards/306-edwin-vancleef",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Edwin text grants +2/+2 for each other card played this turn; does not establish every timing edge case."
+    },
+    {
+      "id": "m5-inventory-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_mechanism_inventory.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "11 tests verify deterministic candidate counts, unknown tags, source fingerprint and dependency guards. Frozen source has 36022 records and 8170 collectible-flag records across unverified modes; 26 dependency families, 124 unassigned named tags. This is not a formal legal pool or exhaustive mechanism inventory."
+    },
+    {
+      "id": "m5-limited-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_limited_triggers.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "60 finite-trigger tests and full 1351-test regression passed in 110.554 seconds. 21 examples rerun; new player-port scenario has 5 actions / 39 events with snapshot restore, replay and CLI verification. R-056 Spellburst/consumption windows, R-057 Frenzy batch/live timing and R-058 Gidra cost semantics remain provisional for CN."
+    },
+    {
+      "id": "spellburst-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23486106/scholomance-academy-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Spellburst is a one-time after-cast effect on a minion or weapon in play; precise capture and consumption windows still need CN calibration."
+    },
+    {
+      "id": "frenzy-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23652237/forged-in-the-barrens-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Frenzy triggers the first time a minion survives damage; exact batch, reaction and lifecycle timing requires CN calibration."
+    },
+    {
+      "id": "m5-upgrade-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_hand_upgrades.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "39 upgrade-foundation tests and full 1390-test regression passed in 114.778 seconds. 21 examples rerun; existing Forge integration, CLI replay, private views and snapshot restore verified. Automatic Corrupt/Infuse are not implemented; R-059 conversion and R-060 visibility await CN calibration."
+    },
+    {
+      "id": "corrupt-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23558961/madness-at-the-darkmoon-faire-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Corrupt upgrades a card in hand after playing a higher-cost card. This does not establish exact windows or attachment retention and is not a simulator support claim."
+    },
+    {
+      "id": "infuse-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23831407/murder-at-castle-nathria-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Infuse counts friendly minion deaths while the card is in hand and transforms after the threshold; precise windows, progress retention and exceptions still require calibration."
+    },
+    {
+      "id": "m5-progress-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_hand_progress.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "62 hand-progress tests and full 1452-test regression passed in 121.354 seconds. 22 examples passed, including an eight-command player-port Corrupt/Infuse scenario with restore and replay. R-059/R-060/R-061/R-062 conversion, visibility, exact windows and special lifecycle cases await CN calibration."
+    },
+    {
+      "id": "m5-condition-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_play_conditions.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "50 extra-condition tests and full 1502-test regression passed in 132.264 seconds. 23 examples passed; the eight-command conditions scenario, constructed opening and complete hand-action match passed CLI replay. Exact CN resource and acquisition policies remain R-063/R-064."
+    },
+    {
+      "id": "finale-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23935243/o-festival-das-lendas-ja-comecou",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Finale grants a special effect when playing the card spends all remaining mana; exact resource and reaction windows are not established by this overview."
+    },
+    {
+      "id": "manathirst-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23885940/march-of-the-lich-king-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Manathirst grants a bonus at the specified mana crystal count; it does not require spending that extra mana."
+    },
+    {
+      "id": "quickdraw-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/24008695/showdown-in-the-badlands-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Quickdraw grants a bonus on the turn the card enters hand; exact opening, copy, transfer and transformation policies require calibration."
+    },
+    {
+      "id": "m5-magnetic-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_magnetic.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "55 magnetic tests and full 1557-test regression passed in 144.153 seconds; 24 examples passed, including the eight-command magnetic save/restore/replay scenario. Magnetic and complete constructed/hand-action matches passed CLI replay. CN event/transfer policies remain R-065/R-066."
+    },
+    {
+      "id": "magnetic-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/21953431/hearthside-chat-with-stephen-chang-magnetic",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Placing Magnetic to the left of a friendly Mech merges stats and card text; other placements remain independent. Exact attachment and event policies still require calibration."
+    },
+    {
+      "id": "magnetic-full-board",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23935322/26-2-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "26.2 allows Magnetic with a full board in all modes. This establishes the placement exception, not all resolution timing."
+    },
+    {
+      "id": "m5-colossal-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_colossal.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "52 Colossal tests and final full 1609-test regression passed in 151.733 seconds; 25 examples passed. The five-command Colossal scenario, constructed and hand-action matches passed CLI replay. CN timing/source policies remain R-067/R-068."
+    },
+    {
+      "id": "colossal-introduction",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/23784370/voyage-to-the-sunken-city-is-now-live",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Appendages accompany the body whenever summoned, including non-hand plays. Exact entry, copy, transform and sequencing policies still require CN calibration."
+    },
+    {
+      "id": "colossal-herald-2026",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24245219",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "2026 CATACLYSM reuses Colossal with Herald-upgraded Soldiers and appendages; basic Colossal support does not implement these versioned upgrades."
+    },
+    {
+      "id": "cn-cataclysm-live",
+      "kind": "official_rule",
+      "locator": "https://hs.blizzard.cn/news/24250357/index.html",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "The CN launch article confirms Colossal returns with Herald and Shatter in released constructed content. Herald upgrades and hand-splitting are separate missing mechanisms; this is not target-patch card legality or exact timing certification."
+    },
+    {
+      "id": "m5-herald-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_herald.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "53 Herald tests and full 1662-test regression passed (162.608s); 26 examples passed. Warrior/Demon Hunter foundation only; remaining classes/Deathwing and official timing still pending."
+    },
+    {
+      "id": "m5-herald-extensions-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_herald_extensions.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "42 extension tests and full 1704-test regression passed (171.806s); 27 examples passed. Three additional Soldier classes, adjacent auras, atomic generated cost/expiry. Warlock/Deathwing, formal generation inventory and official timing remain pending."
+    },
+    {
+      "id": "m5-sacrifice-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_sacrifice.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "46 sacrifice tests, full 1750-test regression (181.184s) and 28 examples passed. Warlock Soldier/Arms, identity guards, pending death/reborn/launch interactions; exact CN timing and Colossal body deck-destruction replacement remain pending."
+    },
+    {
+      "id": "m5-deathwing-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deathwing.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "45 targeted tests, full 1795-test regression (200.710s), 29 examples and Deathwing CLI replay passed. Sequential choices, ID-filtered costs, hero replacement and experimental Dragon generation; R-075/R-076 and full CN pools remain provisional."
+    },
+    {
+      "id": "m5-deck-destruction-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deck_destruction.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "50 targeted tests, full 1845-test regression (201.572s), 30 examples and Cho'gall CLI replay passed. Physical deck destruction and successful continuations, live aura, privacy, source/recipient lifecycles, choice and Starship deferral. R-077/R-078 and full CN calibration remain pending."
+    },
+    {
+      "id": "official-chogall-damaged-arms",
+      "kind": "official_patch",
+      "locator": "https://us.forums.blizzard.com/en/hearthstone/t/3502-hotfix-patch/158856",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official 35.0.2 hotfix records damaged Arms losing the Cho'gall effect as a fixed bug. Historical primary evidence; exact CN rollout and other replacement windows remain unverified."
+    },
+    {
+      "id": "official-cn-chogall-summon-fix",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24276665/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "CN 35.6 notes fix Cho's Arm triggering an extra time when Cho'gall is summoned. Does not establish every deck destruction or reward window."
+    },
+    {
+      "id": "m5-keyword-aura-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_keyword_auras.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "47 targeted tests, full 1892-test regression (219.926s), 31 examples and Azshara CLI replay passed. Continuous keyword contributions, lifecycle/weapon/freeze/hero replacement, strict snapshots, choices, rollback and player actions. CN R-079 and full pool pending."
+    },
+    {
+      "id": "official-windfury-two-attacks",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/13023803",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Thrall article describes Doomhammer Windfury as two attacks in one turn. This does not verify current CN aura lifecycle or timing."
+    },
+    {
+      "id": "m5-alakir-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_alakir.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "38 targeted tests, full 1930-test regression (225.539s), 32 examples and Al'Akir CLI replay passed. Settled Attack, Herald/capacity, lifecycle, frozen two-card sampling, private generated costs, pending choices and transactional failures. R-080 and full CN pools/calibration remain pending."
+    },
+    {
+      "id": "m5-spell-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "56 targeted tests, full 1986-test regression (236.113s), 33 examples and Sinestra player-action save/replay passed. Payment/history/windows, class scope/lifecycle, death deferral, Spellburst, Corrupt, Choose One, Discover, nested starship choice, RNG and rollback. R-081 and full CN calibration remain pending."
+    },
+    {
+      "id": "official-36-2-sinestra-fix",
+      "kind": "official_patch",
+      "locator": "https://news.blizzard.com/en-gb/article/24290432/36-2-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official note fixes Sinestra double casting Essence generated by Dragon Soul, Shattered; does not establish all repeat timing, class rules or exact CN deployment. Essence execution is not implemented in this increment."
+    },
+    {
+      "id": "m5-health-loss-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_health_loss.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "58 targeted tests; full 2044-test regression (248.896s) and 34 examples passed. Damage/payment/direct loss, armor/prevention/conversion/redirection, lifecycle, terminal outcomes, choice restore, player information and Onyxia save/replay covered. R-082 and full CN calibration remain pending."
+    },
+    {
+      "id": "official-35-0-3-onyxia-payment",
+      "kind": "official_patch",
+      "locator": "https://news.blizzard.com/en-us/article/24271854/35-0-3-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Allows Health-cost cards above remaining hero Health while Arisen Onyxia is active; precise CN hotfix deployment and all timings are not established."
+    },
+    {
+      "id": "official-35-4-onyxia-health-gain",
+      "kind": "official_patch",
+      "locator": "https://news.blizzard.com/en-us/article/24266874/35-4-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Fixes Liferender Battlecry recognition of Health gained from Arisen Onyxia. Liferender is not implemented here; this does not establish healing semantics or all CN timings."
+    },
+    {
+      "id": "m5-herald-integration-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_herald_integration.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "12 cross-mechanism Herald tests passed: six classes, rank capture, Colossal, spell repetition, health payments, attacks, countering, restoration and atomic rollback. Official CN calibration remains pending. Full 2092-test regression passed in 268.071s; all 34 existing examples passed under prototype-v43 / schema 43."
+    },
+    {
+      "id": "m5-shatter-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_shatter.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "36 synthetic-definition tests passed: acquisition/split, hand adjacency/recombination, capacity, cost inheritance/expiry, copying, zone reset, mulligan, guarded references, private player commands, save/replay and rollback. R-083 fixes provisional policies; no real Shatter card support claimed. Full 2092-test regression passed in 268.071s; all 34 existing examples passed under prototype-v43 / schema 43."
+    },
+    {
+      "id": "official-echo-definition",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-us/article/21658543/the-witchwood-s-newest-keywords",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Echo returns original copies on play without inherited stat changes; unused copies vanish from hand at turn end. This is a basic definition, not exact CN timing certification."
+    },
+    {
+      "id": "official-echo-cost-floor",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23239986",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "The December 5, 2019 update gives Echo copies a minimum cost of one. Original cards and non-keyword repetition are not automatically given this floor."
+    },
+    {
+      "id": "m5-echo-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_echo.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "40 synthetic tests passed for printed Echo, non-keyword repetition, generic temporary hand creation, cost floors, expiry, lifecycle, choices, restoration, rollback, player information and Shatter combinations. R-084 windows and granted Echo remain open. Full 2132-test regression passed in 275.258s; all 34 examples and additional magnetic/Echo restoration/replay smoke passed. Current prototype-v44, snapshot 44, player-view-v25."
+    },
+    {
+      "id": "official-twinspell-definition",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/22927025/join-us-for-the-rise-of-shadows",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Twinspell spells create a copy in hand after casting, which can be used later. This source does not certify exact trigger windows or every copy interaction."
+    },
+    {
+      "id": "official-miniaturize-definition",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/24056183",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Playing a Miniaturize minion grants a one-mana 1/1 copy that can be kept for later."
+    },
+    {
+      "id": "official-gigantify-definition",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24077478",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Playing a Gigantify minion grants an eight-mana 8/8 copy."
+    },
+    {
+      "id": "m5-hand-derivative-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_hand_derivatives.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "44 synthetic tests passed for declared Twinspell/Miniaturize/Gigantify terminal forms, costs, capacity, source lifecycle, Echo, Magnetic, Shatter, effect repetition, choices, restore, replay, rollback and player information. R-085 timing policies await CN calibration; no real-card additions. Full 2176-test regression passed in 277.781s; 34 examples passed. Current prototype-v45, snapshot 45, player-view-v25."
+    },
+    {
+      "id": "local-glinda-hand-echo",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "Frozen GIL_618 / dbf 47295 Glinda Crowskin text grants Echo to minions in hand. This establishes a required live hand scope, not regional legality or exact timing. No real-card adapter added."
+    },
+    {
+      "id": "m5-hand-keyword-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_hand_keywords.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "55 synthetic tests passed for dynamic Echo, live hand keyword auras, persistent captured hand/deck grants, source removal/control, copy/reset, deadline and cost floor, acquisition contexts, deferred death, choices, restoration, replay, rollback and privacy. R-086 policies await CN calibration. Full 2231-test regression passed in 297.623s; all 34 examples and Onyxia CLI replay passed. Current prototype-v46, snapshot 46, player-view-v26."
+    },
+    {
+      "id": "official-recruit-definition",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/21160659/non-printable",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Kobolds and Catacombs announcement defines Recruit as summoning a random minion from the deck. This confirms the basic source distinction, not exact timing or every stat/filter rule."
+    },
+    {
+      "id": "local-resurrection-and-size-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "Frozen BRM_017 requires a random friendly minion that died this game; LOOT_187 requires two 1/1 copies of friendly Deathrattle minions that died. These establish history filtering and initial size requirements, not official detailed selection/timing certification. No real-card adapters added."
+    },
+    {
+      "id": "m5-summon-source-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_summon_sources.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "62 synthetic tests passed for physical hand/deck summons, recruitment filters, immutable death queries, separate base resurrection identities, non-consuming history, distinct death/card batch policies, initial stat overrides, Colossal/Reborn/Starship/Herald/Dormancy, choices, restore, replay, rollback and privacy. R-087 timing and filter policies await CN calibration. Full 2293-test regression passed in 305.382s; 34 examples and Onyxia CLI replay passed. Current prototype-v47, snapshot 47, player-view-v27."
+    },
+    {
+      "id": "local-automatic-cast-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "Frozen OG_134 and DMF_236 require effect-driven spell execution, random targets and spell-history selection. These establish mechanism requirements, not exact CN windows or full card adaptation."
+    },
+    {
+      "id": "m5-spell-cast-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_casts.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "54 tests passed for separate cast provenance, manual/repeated/countered attempts, generated and stored automatic spells, target policies, choices, nested casts, spell conditions, Twinspell, Echo/play isolation, secret privacy, spell damage, snapshots/replay, interruption and rollback. R-088 semantics remain provisional; draw-cast chains, history recasting and complete pools remain outstanding. Full 2347-test regression passed in 311.632s; 34 examples, public player-port choice/restore probe and Sinestra CLI replay passed. Current prototype-v48, snapshot 48, player-view-v28, representative-m5-v16."
+    },
+    {
+      "id": "official-casts-when-drawn",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/22546493",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official 12.2 notes introduce Casts When Drawn and list existing spell examples. This establishes the keyword, not exact current CN replacement, burn or callback timing."
+    },
+    {
+      "id": "local-draw-cast-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "Frozen DAL_582t, SCH_307t, TRL_541t and TTN_450t/t2/t3 require Casts When Drawn; Corrupted Blood separately requires an after-draw shuffle. Records establish requirements, not full adapters or precise timing."
+    },
+    {
+      "id": "m5-draw-cast-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_draw_casts.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "60 tests passed for recorded draws, shared ordinary/targeted/explicit draw paths, original physical cast identity, replacement and after-draw chains, burn/fatigue, opening/turn-start, choices, snapshots, replay, privacy and rollback. R-089 remains provisional; complete card families and CN calibration are outstanding. Includes ordinary/choice/lethal trade combinations. Full 2407-test regression passed in 330.273s; 34 examples, 45 existing hand-action tests, 25 target and 11 inventory tests passed. Current prototype-v49, snapshot 49, player-view-v29; content representative-m5-v16 unchanged."
+    },
+    {
+      "id": "official-rewind-card",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/cards/90592-rewind/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "ETC_532 Rewind (CN 倒带) discovers a copy of another spell cast this game. This establishes historical discovery, not the later REWIND keyword or exact CN counting/identity policy."
+    },
+    {
+      "id": "official-rewind-keyword",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/expansions-adventures/across-the-timeways",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Across the Timeways describes the Rewind keyword as choosing to keep or replay a random result, for spells and minions. It needs resolution checkpoints and retry handling, not merely a spell-history discovery pool. Exact CN behavior and rollback boundaries remain uncalibrated."
+    },
+    {
+      "id": "local-historical-casting-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "ETC_532 needs historical discovery; OG_134 needs sequential random spells based on prior cast counts; DMF_236 needs equal-cost substitution (still separate outstanding work). REWIND-tagged TIME_000 and CORE_EDR_004 plus END_036 require separate retry/keep-both mechanisms, not historical discovery."
+    },
+    {
+      "id": "m5-spell-history-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_history.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "68 tests passed for history filters, discovery/copy privacy, distinct cast/card/identity policies, fresh recasts with original links, target policies, frozen historical candidates, sequential weighted pool batches, current/frozen class queries, source-liveness policy, choice recovery, snapshot corruption, rollback, budget and terminal handling. R-090 policies remain provisional; REWIND keyword and spell substitution remain outstanding. Full 2475-test regression passed in 351.640s; 34 examples, 25 target and 11 inventory tests passed. Current prototype-v50, snapshot 50, player-view-v29; representative-m5-v16 unchanged. REWIND planned next as M5-11, not claimed implemented."
+    },
+    {
+      "id": "m5-rewind-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_rewind.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "M5-11a checkpoint/retry tests: full manual-play attempts, keep/retry, fresh RNG, attempt context, net one payment/play, nested choices, durable snapshots and replay, monotonic identities and append-only player logs, knowledge protection, resource/death/draw/repeat/Echo combinations, terminal and transactional failures. 58 dedicated tests passed in 11.126s; full 2533-test regression passed in 351.135s; 34 examples, 25 target and 11 inventory tests passed. Runtime prototype-v51/core-effects-v51, snapshot51, player-view-v30; real card pack unchanged. R-091 is provisional, including whole-play scope and immediate terminal policy. Printed face transitions and keeping both outcomes remain M5-11b/c."
+    },
+    {
+      "id": "cn-rewind-34-update",
+      "kind": "official_rule",
+      "locator": "https://hs.blizzard.cn/news/24243857/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "CN 34.0 changes Mister Clocksworth from three to two Rewinds. This conflicts with frozen raw TIME_038 text. Effective token mappings and subsequent revisions remain to be reconciled before adapting the current card."
+    },
+    {
+      "id": "official-rewind-state-reload",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24241327/across-the-timeways-community-events",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Developer commentary confirms that Rewind reloads the entire game state, without establishing exact payment/trigger/terminal/identity boundaries."
+    },
+    {
+      "id": "local-rewind-forms-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "TIME_038/t1/t2/t3 are raw three/two/one/zero-Rewind forms; REWIND is Boolean. TIME_000/TIME_EVENT_999 require generated cost reduction and post-retry class-specific discovery. Raw Clocksworth counts are not authoritative current CN rules."
+    },
+    {
+      "id": "m5-rewind-form-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_rewind_forms.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "M5-11b face-chain/lifecycle and representative-source tests. 45 dedicated tests passed in 5.896s; full 2578-test regression passed in 361.270s; 34 examples, 25 target and 11 inventory tests passed. Runtime prototype-v52/core-effects-v52, snapshot52, player-view-v31, representative-m5-v17; raw source and old records unchanged. R-092 identity and original-payment rules are provisional. Miroc dual outcomes remain M5; current Clocksworth token mapping remains unresolved."
+    },
+    {
+      "id": "local-morchie-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "END_036 retains both potential Rewind outcomes and Discovers a class Rewind card. Raw text does not settle capture, sequential resolution, payment, source removal or death windows."
+    },
+    {
+      "id": "cn-morchie-buff",
+      "kind": "official_rule",
+      "locator": "https://hs.blizzard.cn/news/24244400/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "CN 34.4.2 changed Morchie from 2/5 to 3/6, matching the frozen raw stats. This is not proof of current formal pool eligibility or fine timing."
+    },
+    {
+      "id": "official-morchie-card",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/de-de/cards/121202-morchie/",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official card text confirms retaining both potential Rewind outcomes and discovering a Rewind card from any class; exact execution policy is not specified."
+    },
+    {
+      "id": "m5-rewind-outcome-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_rewind_outcomes.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "M5-11c cumulative retained payloads and Morchie representative-source tests. 55 dedicated tests passed in 6.626s; full 2633-test regression passed in 364.215s; 35 examples, 25 target and 11 inventory tests passed. Runtime prototype-v53/core-effects-v53, snapshot53, player-view-v32, representative-m5-v18; raw source unchanged. R-093 capture, ordered result execution, payment/counting, source removal and face policies are provisional."
+    },
+    {
+      "id": "official-dredge",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23765277/announcing-voyage-to-the-sunken-city-hearthstones-next-expansion",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official Dredge description: look at the bottom three cards and choose one to place on top. Does not specify detailed offer order, singleton handling or combination windows."
+    },
+    {
+      "id": "local-dredge-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-24",
+      "claims": "Frozen TID_700/TID_703/TID_099/TID_003 text requires opponent-deck selection, reveal and cost damage, physical summon and a 2/2 Murloc copy. Data is not full rules execution or current formal eligibility."
+    },
+    {
+      "id": "m5-dredge-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_dredge.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Physical Dredge and selected-card continuation tests. 51 dedicated tests passed in 3.157s; full 2684-test regression passed in 375.023s; 36 examples, 25 target and 11 inventory tests passed. Runtime prototype-v54/core-effects-v54, snapshot54, player-view-v33, representative-m5-v19; raw source unchanged. R-094 remains provisional; no CN calibration claim."
+    },
+    {
+      "id": "official-excavate",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/expansions-adventures/showdown-in-the-badlands",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Official FAQ confirms Common/Rare/Epic tiers for all classes, a fourth Legendary for original townsfolk classes, and restart after the final tier. The launch-time membership is historical, not the target CN pool."
+    },
+    {
+      "id": "official-excavate-deepholm",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/24046221",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "28.4 added one neutral treasure at each common/rare/epic tier and Paladin/Shaman legendary rewards. Must not freeze only the original five-class mapping."
+    },
+    {
+      "id": "local-excavate-text",
+      "kind": "local_file",
+      "locator": "data/support/excavation-inventory.json",
+      "sha256": "7440380a122685fc241200492d7f5d590f560c5d66f9c2dccbbd93b9f0350171",
+      "checked_on": "2026-09-24",
+      "claims": "Pinned experimental treasure records; executable coverage is tracked separately in m1-representatives.json. The v56 descriptive scope was separated from changing adapter counts; all raw reward records and pool membership are unchanged. Source data is not executable coverage."
+    },
+    {
+      "id": "m5-excavate-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_excavate.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Excavation player progress, profile validation, reward lifecycle and source composition. 57 dedicated tests passed in 2.672s; full 2741-test regression passed in 381.825s; 37 examples, 70 representative, 25 target and 11 inventory tests passed. Runtime prototype-v55/core-effects-v55, snapshot55, player-view-v34, representative-m5-v20; raw source unchanged. R-095 remains provisional; this does not certify CN rules or full reward support."
+    },
+    {
+      "id": "m5-resurrection-followups-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_resurrection_followups.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Highest/lowest-cost death filters, explicit printed/local-at-death basis, guarded resurrection subject follow-ups and Azerite Rat. 51 dedicated tests passed in 4.783s; full 2792-test regression passed in 386.023s; 38 examples, 70 representative, 25 target and 11 inventory tests passed. Only descriptive inventory scope/hash changed after full regression, with final representative/target/inventory checks; raw reward records and pools unchanged. Runtime prototype-v56/core-effects-v56, snapshot56, representative-m5-v21. R-096 provisional; no full treasure or CN consistency claim."
+    },
+    {
+      "id": "m5-discovery-delivery-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_discovery_delivery.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Explicit specialized generation policy and repeated Discover deliveries with captured eligibility receipts, restoration and privacy. Hawk/Ox experimental adapters. 48 dedicated tests passed in 3.598s; full 2840-test regression passed in 391.110s; 39 examples, 54 Titan, 41 base pool, 25 target and 11 inventory tests passed. Runtime prototype-v57/core-effects-v57, snapshot57, representative-m5-v22, player-view-v35. R-097 remains provisional; sample pools are not formal CN inventories."
+    },
+    {
+      "id": "m5-cross-zone-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_cross_zone.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Captured cross-zone buffs and transformations, explicit cost-tier/cost-retention, physical lifecycle, private information and resumable batches. Dragon/Murloc experimental adapters. 55 dedicated tests passed in 2.129s; full 2895-test regression passed in 400.553s; 40 examples, 41 base pool, 25 target and 11 inventory tests passed. Runtime prototype-v58/core-effects-v58, snapshot58, representative-m5-v23, player-view-v36. R-098 remains provisional; sample pool is not a formal CN inventory."
+    },
+    {
+      "id": "m5-health-transfer-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_health_transfer.py",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "Signed hero maximum changes and atomic transfer, lifecycle, terminal windows, choices, rollback, replay and information boundaries; real Snake adapter. 48 dedicated tests passed in 3.288s; full 2943-test regression passed in 402.329s; 41 examples, 25 target and 11 inventory tests passed. Runtime prototype-v59/core-effects-v59, snapshot59, representative-m5-v24, player-view-v37. R-099 provisional."
+    },
+    {
+      "id": "official-32-snake",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24187196",
+      "sha256": null,
+      "checked_on": "2026-09-24",
+      "claims": "32.0 patch notes restore The Azerite Snake from stealing 7 Health to 10. Supports printed amount only, not precise transfer/protection/window semantics."
+    },
+    {
+      "id": "local-imbue-text",
+      "kind": "local_file",
+      "locator": "data/support/imbue-inventory.json",
+      "sha256": "f9b6e724069ce1880cd3a47a74d63b36398fc8ed8fa1bc69c9561fe8bf72721a",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen eight-class power mappings and necessary source/token records; metadata presence is not execution or legal-pool coverage."
+    },
+    {
+      "id": "official-cn-imbue",
+      "kind": "official_rule",
+      "locator": "https://hs.blizzard.cn/new/24189539/index.html",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Original six class powers replace on first Imbue and grow text numbers on subsequent uses; does not settle precise usage/count/token policies."
+    },
+    {
+      "id": "official-cn-imbue-expanded",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24245105/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "January 2026 mini-set adds Death Knight and Rogue Imbue; original six-class FAQ is not current coverage."
+    },
+    {
+      "id": "official-cn-35.4-imbue",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24266874/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Fixes Rogue Imbue choosing Death Knight power after Deathwing; current hero class and preserved class matter, exact other interactions remain open."
+    },
+    {
+      "id": "official-cn-additional-power",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24276665/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Announces an expansion with a second Hero Power; current single-slot architecture is an explicit M5 gap. Formal target card inventory still unverified."
+    },
+    {
+      "id": "m5-imbue-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_imbue.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Player Imbue history and successful growth, physical power lifecycle, class changes, nested sources, restore/rollback/replay and public views. 58 dedicated tests passed in 5.795s; full 3001-test regression passed in 418.618s; 42 examples, 25 target and 11 inventory tests passed. Runtime prototype-v60/core-effects-v60, snapshot60, representative-m5-v25, player-view-v38. R-100 provisional."
+    },
+    {
+      "id": "official-imbue-faq",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/expansions-adventures/into-the-emerald-dream",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Original six classes replace their power, then upgrade text numbers by one; non-Imbue classes have no effect. Does not settle later class changes or detailed usage policies."
+    },
+    {
+      "id": "local-power-activation-text",
+      "kind": "local_file",
+      "locator": "data/support/power-activation-source.json",
+      "sha256": "f45696a5ca3be2454f041500fab41edd9907f0680d43f2c91c4f349643f8db61",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen EDR_519 Wisprider: Imbue, then trigger the current Hero Power. Card text does not settle all payment, usage, targeting or reaction rules."
+    },
+    {
+      "id": "official-cn-wisprider-fix",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/143615/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "CN 32.0.2 corrected Wisprider activation for Shaman. Evidence of cross-class indirect power behavior, not full validation of prototype R-101."
+    },
+    {
+      "id": "m5-power-activation-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_activations.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Manual and effect power history, payment/use isolation, current power selection, target/choice policy, nested activations, terminal state, transactions, restore/replay and player information. 50 dedicated tests passed in 3.382s; full 3051-test regression passed in 433.582s; 43 examples, 25 target and 11 inventory tests passed. Runtime prototype-v61/core-effects-v61, snapshot61, representative-m5-v26, player-view-v39. R-101 remains provisional."
+    },
+    {
+      "id": "local-power-rewind-text",
+      "kind": "local_file",
+      "locator": "data/support/power-rewind-source.json",
+      "sha256": "761c571084b9a6882272433bda4893bf484a7fb74dfcff13fc63d5baf6610ca8",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen END_000p: Rewind, random other-class minion with Imbue-scaled discount; text alone does not settle all windows or retention interaction."
+    },
+    {
+      "id": "official-cn-power-rewind-fix",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24267727/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "CN 35.0 fixes Rogue Imbue power after Stasis Dragon awakening and an erroneous cost increase when the opponent Rewinds Blessing of the Bronze. Confirms the power has Rewind, not all R-102 policies."
+    },
+    {
+      "id": "m5-power-rewind-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_rewind.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Hero Power checkpoints, single payment/use, nested activation isolation, retained outcomes, choices, terminal state, rollback, restore/replay and information. 51 dedicated tests passed in 5.942s; full 3102-test regression passed in 426.155s; 44 examples, 25 target and 11 inventory tests passed. Runtime prototype-v62/core-effects-v62, snapshot62, representative-m5-v27; player-view-v39 unchanged. R-102 remains provisional."
+    },
+    {
+      "id": "local-passive-power-text",
+      "kind": "local_file",
+      "locator": "data/support/passive-power-source.json",
+      "sha256": "efff8d1bb30f6e7cd1af404dbd54404a29c75f58190277086aa79f6289373b85",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen END_003p passive first Undead each turn gains Imbue-scaled Attack; HIDE_COST and missing COST reviewed individually. HERO_11 class context only, no default active-power adapter."
+    },
+    {
+      "id": "m5-passive-power-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_passive_powers.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Passive/manual/effect separation, skill listener identities and order, first matching original play identity, replacement, turn/lifecycle/rewind/choices, rollback, restore/replay and information. 54 dedicated tests passed in 4.372s; full 3156-test regression passed in 449.354s; 45 examples, 25 target and 11 inventory tests passed. Constructed-start rejection assertions were strengthened after the full run and the 54-test suite passed again. Runtime prototype-v63/core-effects-v63, snapshot63, representative-m5-v28, player-view-v40. R-103 remains provisional."
+    },
+    {
+      "id": "local-directed-modification-text",
+      "kind": "local_file",
+      "locator": "data/support/directed-modification-source.json",
+      "sha256": "7a2d30adf8410cf6f1e80bdfac0e23e57574c6eb1ff6fc646b5397ca3be86dd9",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen Hunter random Beast Attack/cost and Shaman friendly cost-tier transform texts; class heroes have no default skill adapter."
+    },
+    {
+      "id": "m5-directed-modification-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_directed_modification.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Atomic stored stats/cost, random physical filters, guarded single-target cost-tier transformation, lifecycle, powers, choices, rollback, restore/replay and information. 57 dedicated tests passed in 3.295s; full 3213-test regression passed in 451.828s; 46 examples, 25 target and 11 inventory tests passed. Runtime prototype-v64/core-effects-v64, snapshot64, representative-m5-v29; player-view-v40 unchanged. R-104 remains provisional."
+    },
+    {
+      "id": "local-imbue-portal-text",
+      "kind": "local_file",
+      "locator": "data/support/imbue-portal-source.json",
+      "sha256": "87eb8b330372efca58fe686d2154ced0783f5634dfa7ef540203971a6e2aa4dd",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen Paladin power, Emerald Portal, class hero and two low-cost Dragon summon fixtures; default Reinforce remains unadapted. Correction in v66: Reinforce already had an adapter; the missing HERO_04 initial binding has now been added."
+    },
+    {
+      "id": "m5-imbue-portal-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_imbue_portals.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Capacity-aware pool summoning, physical portal shuffling, cast-time growth, transferred/copied sources, draw replacement, powers, choices, rollback, restore/replay and information. 55 dedicated tests passed in 7.570s; full 3268-test regression passed in 469.457s; 47 examples, 70 representative, 25 target and 11 inventory tests passed. Runtime prototype-v65/core-effects-v65, snapshot65, representative-m5-v30; player-view-v40 unchanged. R-105 remains provisional."
+    },
+    {
+      "id": "official-32.2.4-imbue",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24204920",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "May 22, 2025: Blessing of the Dragon cost reduced from 2 to 1; Blessing of the Moon wording restricts choices to playable Priest minions/spells. Does not establish portal growth/copy/capture windows or the full meaning of playable."
+    },
+    {
+      "id": "local-pool-offer-text",
+      "kind": "local_file",
+      "locator": "data/support/pool-offer-source.json",
+      "sha256": "9decff8c672d5a272143f049392b4d5d545f4b056d67e8dbdb205a778fb2bc2b",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen Blessing of the Moon and Priest hero; two mana, discounted temporary Priest minion or spell. Does not alone settle offer cardinality or affordability meaning."
+    },
+    {
+      "id": "m5-pool-offer-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_pool_offers.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Grouped typed candidates, frozen costs/selection, shared payment checks and atomic temporary delivery; life cycle, sources, private information, restore and replay. 60 dedicated tests passed in 10.046s; full 3328-test regression passed in 477.651s; 48 examples, 41 pool, 70 representative, 25 target and 11 inventory tests passed. Runtime prototype-v66/core-effects-v66, snapshot66, representative-m5-v31; player-view-v40 unchanged. R-106 remains provisional."
+    },
+    {
+      "id": "official-cn-32.2.4-imbue",
+      "kind": "official_patch",
+      "locator": "https://hs.blizzard.cn/news/24204920/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "CN announcement May 23, 2025 adds playable to Moon power text and reduces Dragon power to one mana. Does not define complete affordability or target/board eligibility semantics."
+    },
+    {
+      "id": "m5-multiple-power-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_multiple_powers.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "42 dedicated tests passed: independent physical slots, manual actions, payments/uses, passive listeners, player boundaries, restore/rollback/replay. Full 3370-test regression passed in 472.815s; 49 examples and CLI replay passed; 25 target and 11 inventory checks passed. Runtime prototype-v67/core-effects-v67, snapshot67, player-view-v41; representative-m5-v31 unchanged; R-107 provisional."
+    },
+    {
+      "id": "local-multiple-power-text",
+      "kind": "local_file",
+      "locator": "outputs/v67-multiple-power-candidates.json",
+      "sha256": "9f193534ac0ba2f9fc1ba00c46dc615a1209ad8ef1ccce903856cfd27bd0dd3c",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen collectible JAIL_446 text declares a second Hero Power costing Corpses. Does not settle duplicate grants, slot cap, refresh or replacement policies. No new adapter."
+    },
+    {
+      "id": "official-35.6-constructed-powers",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24276665",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "June 2, 2026 constructed expansion introduction explicitly mentions a second Hero Power. Same-page Battlegrounds rules are not constructed evidence. CN exact semantics uncalibrated."
+    },
+    {
+      "id": "m5-power-lifecycle-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_lifecycle.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "48 dedicated tests passed: captured power references, targeted replacement/removal/refresh/limits/indirect activation, atomic installation costs, passive lifecycle and explicit hero replacement policy, recovery and player boundaries. Full 3418-test regression passed in 470.005s; 50 examples and 36 target/inventory checks passed. Runtime prototype-v68/core-effects-v68, snapshot68, player-view-v42; representative-m5-v31 unchanged. R-108 provisional; no new official calibration evidence or real card adapters."
+    },
+    {
+      "id": "m5-power-combinations-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_combinations.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "37 combination tests passed: multiple powers with Rewind, retained outcomes, lifecycle, payment, terminal/rollback and player information. Existing representative artificial scenario completes 18 actions/85 events with recovery and replay. Runtime v68 unchanged; full 3455-test regression passed in 483.237s; 51 examples and 36 metadata checks passed; prior example hashes unchanged. No new official calibration or card adapters."
+    },
+    {
+      "id": "local-health-outcome-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13a-damage-candidates.json",
+      "sha256": "dc8e35a8c7cf389f4484881dd258bc01dd2d55ccaf8629ccb71955127fc98d67",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen tag/text candidates with individual raw-record hashes; 28 Overkill/44 Honorable Kill/10 Overheal records, not the formal CN pool. Three simple minions adapted for mechanism validation."
+    },
+    {
+      "id": "official-health-keywords",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23748034",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official Alterac launch states exact lethal damage to an enemy on your turn. Overkill owner-turn excess damage: https://news.blizzard.com/en-gb/article/22788309/rastakhans-rumble-is-now-live ; Overheal over maximum health: https://hearthstone.blizzard.com/en-us/news/23921495 . These basic definitions do not calibrate R-109 edge timing or current CN pools."
+    },
+    {
+      "id": "m5-health-outcome-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_health_outcomes.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "49 dedicated tests passed: packet-local frozen results, shared Overkill/Honorable Kill/Overheal predicates, one-shot callbacks, lifecycle/source/terminal/rollback/recovery and private observation boundaries. Three fixed real minions and a six-action scenario validated. Full 3504-test regression passed in 485.888s; 52 examples, 70 representative checks and 36 metadata checks passed. Initial full run exposed three legacy event-count expectations, updated with explicit new-event counts before the successful rerun. Runtime69/schema69, representative32, player view42 unchanged. Death-result attribution remains M5-13a-02; R-109 uncalibrated."
+    },
+    {
+      "id": "local-korrak-text",
+      "kind": "local_file",
+      "locator": "outputs/v69-death-attribution-candidate.json",
+      "sha256": "731e4d1e2a867cade7bbf18249f8a9eb311823750ce3a899faea12daad42d1d1",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen AV_143 source record, 4 mana 3/5 and a deathrattle requiring past Honorable Kill attribution; no CN pool verification."
+    },
+    {
+      "id": "official-korrak-text",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/cards/70258-korrak-the-bloodrager/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official card-library search content corroborates conditional resummon text. No evidence for detailed current CN timing/first-fatal policy; R-110 remains provisional."
+    },
+    {
+      "id": "m5-death-cause-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_death_causes.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "52 dedicated tests passed, including six Korrak representative checks. First fatal/rescue and immutable death queries, damage/poison/destroy/health loss/attribute/durability, sources/lifecycles/recovery/rollback/rewind/private boundaries validated. Runtime70/schema70, representative33, view42 unchanged. 53 final examples and player replay passed; final full 3556-test regression passed in 535.806s; 70 representative checks and 36 metadata checks passed. R-110 uncalibrated."
+    },
+    {
+      "id": "local-inspire-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13b-inspire-candidates.json",
+      "sha256": "edc926be9291d52e1448605ee9e02f86671e5432efa79f4e7079b3e94e0d5426",
+      "checked_on": "2026-09-25",
+      "claims": "31 frozen Inspire-tagged candidates, 27 collectible flags; AT_082 and AT_066 selected for mechanism validation. No legal-pool claim."
+    },
+    {
+      "id": "official-inspire",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/19819220/the-grand-tournament-get-inspired-7-30-2015",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official basic Inspire definition: after use of own Hero Power. Does not settle modern CN indirect/multiple-power/rewind capture windows."
+    },
+    {
+      "id": "official-aspirant-fix",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/22546493/update-12-2-october-2-hallow-s-end",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "12.2 historical fix: Rogue Hero Power correctly triggers Orgrimmar Aspirant. Supports weapon-after-payload regression; not current CN certification."
+    },
+    {
+      "id": "m5-inspire-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_inspire.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "55 dedicated Inspire/representative tests passed in 3.827s; final full 3611-test regression passed in 507.728s; 54 examples, 70 representative tests and 36 metadata checks passed. Runtime71, schema70 unchanged, representative34. R-111 remains uncalibrated."
+    },
+    {
+      "id": "local-choose-one-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13c-choose-one-candidates.json",
+      "sha256": "3de04ff634ae942669988d4a6eb2c4ca2ca8f971b0f349b9b5fdbf5c24df41d9",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen candidate survey; 206 tagged records, 102 collectible flags, eight roots and fifteen references. No legal-pool claim."
+    },
+    {
+      "id": "official-fandral-powers",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/news/20944006/hearthstone-update-august-8-8-8-2017dlc7xql",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official 2017 update includes Choose One cards and powers in Fandral combination text; modern CN capture/automatic/repeat details not proven."
+    },
+    {
+      "id": "official-fandral-nourish",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/21363149/the-bar-is-raised-on-day-2-of-the-hct-world-championship",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official 2018 match report documents stolen Fandral enabling both effects on Nourish. Supports ownership interaction, not exhaustive current timing."
+    },
+    {
+      "id": "m5-choose-one-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_choose_one.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "62 dedicated Choose One tests passed in 4.391s; full 3673-test regression passed in 512.906s; 55 examples, 56 spell-repeat tests, 70 representative tests and 36 metadata checks passed. Runtime72/schema71/view43/actions7/representative35. R-112 and special Choose One sources/combinations remain open."
+    },
+    {
+      "id": "local-battlecry-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-battlecry-candidates.json",
+      "sha256": "4dbb198be1070320dcc0056dd70dda0e0e958b753870e1321f7719c53afcbde1",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen survey: 3336 Battlecry-tagged records, 2312 collectible flags, 44 existing tagged representatives and eight investigation roots. Not a formal pool or implementation inventory."
+    },
+    {
+      "id": "m5-battlecry-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecries.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "56 Battlecry identity/activation tests passed in 3.002s, including composed declarations; final full 3729 tests passed in 534.810s; 56 examples, 70 representative tests and 36 metadata checks passed. 44 existing adapters migrated, no new cards. Runtime73/schema72/representative36, view43/actions7 unchanged. R-113 and repeat/suppression/indirect rules remain open."
+    },
+    {
+      "id": "local-battlecry-modifier-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02-modifier-candidates.json",
+      "sha256": "84a27267db06fff414874660ef81e0ebcba9506f4ce6dc7f25e1b94cdb03f88e",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen nine-candidate dependency audit, including correct LOOT_517 identity and negative cost/counter/Combo cases. Not formal pool proof or timing certification."
+    },
+    {
+      "id": "m5-battlecry-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecry_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "47 Battlecry repetition tests passed (4.166s); full3776 (537.742s), 57 examples,70 representative and36 ledger checks passed. Brann/Scarab/weapon scenario4 actions29 events4 activations2 batches restored and replayed. Runtime74/schema73/representative37,view43/actions7 unchanged. R-114 uncalibrated; player policies/suppression/indirect/history remain M5."
+    },
+    {
+      "id": "official-murmuring-elemental",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-us/cards/46432-murmuring-elemental/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official card library confirms next Battlecry this turn triggers twice. Does not establish current CN matching/consumption, duplicate stacking or Rewind windows."
+    },
+    {
+      "id": "m5-battlecry-modifier-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecry_modifiers.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "55 player Battlecry policy tests passed (5.256s); full3831 (543.659s),58 examples,70 representative and36 ledger checks passed. 9-action48-event scenario restored/replayed,5 activations3 batches; old54 JSON summaries preserved. Runtime75/schema74/view44/representative38/actions7. R-115 uncalibrated; suppression/indirect/history remain M5."
+    },
+    {
+      "id": "official-counter-25-4",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/23913671/25-4-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official fix prevents Okani and Objection from spending two counters on the same minion. Not a CN timing trace."
+    },
+    {
+      "id": "official-counter-36-4",
+      "kind": "official_rule",
+      "locator": "https://news.blizzard.com/en-gb/article/24293283/36-4-patch-notes",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official fix requires Double Cross to resolve before Objection can stop it. Supports separate commit and minion-counter phases, not all prototype ordering."
+    },
+    {
+      "id": "m5-minion-counter-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_minion_counters.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "43 minion-counter tests passed (3.723s), full3874 (552.867s),59 examples and36 ledger checks passed. Pending zone/commit/counter/entry, magnetic/colossal cancellation, private projection, saved choices and replay. Representative8-action39-event scenario; R-116 remains CN uncalibrated. Okani private carrier policy remains M5."
+    },
+    {
+      "id": "local-minion-counter-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02c-counter-candidates.json",
+      "sha256": "533a81111841b1d06325761928b977e7949e26d58b705e8fcc0b94ce88fbfcbd",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen local MAW_006 bilingual text describes countering the opposing played minion; no exact CN timing evidence."
+    },
+    {
+      "id": "local-okani-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02c-okani-source.json",
+      "sha256": "8e6fd52d60cd30f3c173983702b2c8b87993a4c20538c360288440178551b261",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen bilingual TSC_032 and private choice descriptors; no exact timing, duplicate-choice or CN knowledge evidence."
+    },
+    {
+      "id": "m5-counter-policy-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_counter_policies.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "51 private counter tests passed (4.275s), full3925 (559.982s),60 examples and70 representative checks passed. Live carrier identity, atomic competition, private choices/knowledge receipts, lifecycle, Rewind, restoration and replay. R-117 remains uncalibrated. Example10actions52events/3counters/2Battlecries."
+    },
+    {
+      "id": "local-weblord-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02d-weblord-source.json",
+      "sha256": "1029d005b2e89bf96bdad2b0aa955380f0aa7c75ecc7ca477ea9dde35662bf00",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen bilingual FP1_017: Battlecry minions cost two more. Does not establish dynamic identity, timing or CN deployment."
+    },
+    {
+      "id": "m5-battlecry-cost-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecry_costs.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "57 ability/cost tests (3.588s), full3982 (577.944s),61 examples and70 representative checks passed. Current/printed predicates, payer-related auras, actual/generated quotes, atomic validation, lifecycle, privacy, restoration/replay. R-118 uncalibrated. Example7actions41events/2Battlecries, paid4then2."
+    },
+    {
+      "id": "local-snapdragon-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02e-snapdragon-source.json",
+      "sha256": "edf99e278a3df2bb2e53de78f0f2ea4f470d98d190f61e96e328d5f4343f55a7",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen bilingual TID_710 deck Battlecry minion buff. Does not establish exact windows or CN target legality."
+    },
+    {
+      "id": "m5-ability-filter-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_ability_filters.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "48 ability-filter tests (2.517s), full4030 (592.732s),62 examples and70 representative checks passed. Physical/base/frozen identity, independent pool facts, missing coverage failure, batch lifecycle, privacy, restoration/replay. R-119 uncalibrated. Example5actions35events/4Battlecries."
+    },
+    {
+      "id": "m5-indirect-battlecry-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecry_sources.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "54 indirect Battlecry tests (3.973s), full4084 (595.704s),63 examples passed. Source/payload separation, frozen successful history, choice/target policies, nested restoration/replay, counters/Rewind/privacy/rollback. No new real adapter. R-120 and card-level played-history policies uncalibrated."
+    },
+    {
+      "id": "local-macaw-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-03b-macaw-source.json",
+      "sha256": "bd40cbb59d73ba917c4be4298aa58c01486a5d297d0be08289abbdc60bbd7b03",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen bilingual DED_509 last played Battlecry text; does not establish counter eligibility, nested windows or CN mode legality."
+    },
+    {
+      "id": "m5-played-battlecry-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_played_battlecries.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "56 played-Battlecry tests (4.831s), full4140 (590.280s),64 examples and CLI passed. Frozen committed declarations, explicit counter/window policy, composed payloads, nested restoration/replay, privacy/rollback. Macaw is an experimental representative; R-121 not CN calibrated."
+    },
+    {
+      "id": "local-bolner-text",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-03c-bolner-source.json",
+      "sha256": "122a78b68dde2a571861deebc7f62cf3e37c4c2d1b4c9467d608fa394ab2dd22",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen bilingual Bolner text; does not establish counter eligibility, carrier lifecycle or CN mode legality."
+    },
+    {
+      "id": "m5-triggered-battlecry-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_triggered_battlecries.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "31 integration tests (3.772s),4171 full tests (584.684s),70 representative checks,65 examples and CLI passed. Existing completed-play, first-history and indirect-carrier composition; R-122 not CN calibrated."
+    },
+    {
+      "id": "official-29.2.2-starting-deck",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/24087317",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Historical patch explicitly changed the Badlands no-duplicate group including Deepminer Brann from play-time deck to starting deck. Source for next common-condition audit, not current CN/full-pool certification."
+    },
+    {
+      "id": "local-deck-condition-candidates",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-02f-deck-source-candidates.json",
+      "sha256": "ac22b731f1c53139ae9c4ca15d1f64e88d2859cbb1115a24401c7bb14b43493f",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen DEEP_020, LOE_011 and TRL_092 source candidates for next dependency audit. Not adapters or confirmed CN legality."
+    },
+    {
+      "id": "m5-deck-condition-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deck_conditions.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "45 deck-condition tests (7.464s),4216 full tests (608.418s),70 representative checks,66 examples and CLI passed. Distinct original/current facts, strict unknowns, typed branches, immutable captured-origin validation and permanent policy integration; R-123 not CN calibrated."
+    },
+    {
+      "id": "official-11.1-battlecry-limit",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/blog/21738246",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Historical May 8 2018 update explicitly limits Shudderwock to 20 reproduced Battlecries. Next-sequence dependency evidence only; not a current CN full-rule or sampling-order certification."
+    },
+    {
+      "id": "m5-battlecry-sequence-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_battlecry_sequences.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "48 bounded payload sequence tests (7.444s),4264 full tests (614.182s),70 representative checks and67 examples passed. Frozen candidates/selection/order, explicit identity filters, direct-attempt caps and typed attempt completion; no new card adapter; R-124 uncalibrated."
+    },
+    {
+      "id": "m5-sequence-lifecycle-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_sequence_lifecycle.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "45 source lifecycle tests (4.358s),404 existing Battlecry regression tests,4309 full tests (631.590s),70 representative checks and68 examples passed. Separate history/execution ownership, per-attempt source/controller policy, target exclusions and strict restore; no new card adapter; R-125 uncalibrated."
+    },
+    {
+      "id": "local-shudderwock-source",
+      "kind": "local_file",
+      "locator": "outputs/m5-13d-03-source-candidates.json",
+      "sha256": "b7282a8ca84c0df160ab6de3f4d10f23bac373430788790e08821f072c99a5b6",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen GIL_820 bilingual text. Does not establish numerical cap, nested window, lifecycle policy or CN legality."
+    },
+    {
+      "id": "m5-shudderwock-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_shudderwock.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "38 Shudderwock composition tests (8.974s),4347 full tests (624.378s),70 representative and11 inventory checks,69 examples and CLI passed. Explicit provisional cap/window/source policies; mixed Macaw/Bolner/Brann, nested recovery/replay, Rewind and rollback; R-126 not CN calibrated."
+    },
+    {
+      "id": "m5-combo-activation-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_combo_activations.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "55 Combo activation tests (4.841s),4402 full tests (616.603s),70 representative and11 inventory checks,70 examples and CLI passed. Independent declaration/captured condition/progress, mixed Battlecry, lifecycle, retained outcomes, restore/replay and rollback; R-127 not CN calibrated."
+    },
+    {
+      "id": "m5-combo-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_combo_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "56 Combo repeat/policy tests (5.879s),4458 full tests (655.545s),55 Combo foundation and47 Battlecry repeat regressions,70 representative and11 inventory checks,71 examples and native representative CLI passed. Separate play/accepted-activation windows, receipts, lifetime, mixed batches, Rewind and recovery; R-128 not CN calibrated."
+    },
+    {
+      "id": "m5-timed-keyword-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_timed_keywords.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "53 timed-keyword tests (4.311s),4511 full tests (631.449s),56 Combo repetition and55 Magnetic regressions,70 representative and11 inventory checks,72 examples and native representative CLI passed. Turn boundaries, printed/granted lifetimes, copy/control/dormancy/magnetic/Starship, restore/rollback and public projection; R-129 not CN calibrated."
+    },
+    {
+      "id": "local-combo-source-text",
+      "kind": "local_file",
+      "locator": "data/support/combo-source-inventory.json",
+      "sha256": "e7bac0ae2341d94bd7abf4c2e9ef0f2457878aa395fd12162e1a9321be5b80d4",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen 56 raw collectible Combo-minion audit and explicit incomplete six-member experiment; includes source and Defias token records. No mode legality or CN timing proof."
+    },
+    {
+      "id": "m5-combo-source-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_combo_sources.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "38 source-composition tests (8.796s),4549 full tests (641.600s),56 Combo repetition,70 representative and11 inventory checks,73 examples and native representative CLI passed. Shark/Comet/Defias/token, independent incomplete pool, strict unsupported candidates, delivery/play consumption, lifetime/rewind/restore; R-130 not CN calibrated."
+    },
+    {
+      "id": "local-spell-modifier-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen BOT_411 and EDR_464 texts require next-this-turn and next-three-spells budgets; not CN timing or legality evidence."
+    },
+    {
+      "id": "m5-spell-modifier-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_modifiers.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "57 player spell modifier tests (16.636s),4606 full tests (666.418s),56 spell repetition,70 representative and11 inventory checks,74 examples and native CLI passed. Independent player budgets/expiry, commitment receipts, late board-aura capture, automatic source exclusion, counters/rewind/restore/information and Electra/Tyrande; R-131 not CN calibrated."
+    },
+    {
+      "id": "local-held-spell-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen TSC_071 requires a spell while holding the card, then next-spell repetition. Text is not CN timing or legality evidence."
+    },
+    {
+      "id": "official-twinbow-text",
+      "kind": "official_rule",
+      "locator": "https://hearthstone.blizzard.com/en-gb/cards/74881/",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Official Twinbow Terrorcoil card text; not detailed holding-window, copying or CN deployment evidence."
+    },
+    {
+      "id": "official-23-0-3-spell-repeat",
+      "kind": "official_patch",
+      "locator": "https://hearthstone.blizzard.com/en-us/news/23797160",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "Historical 2022-04-26 patch limits Twinbow/Electra repetition to hand-played spells, excluding casts by other cards including Nagalings and Casts When Drawn. Does not define all held-card condition sources/windows or certify current CN deployment."
+    },
+    {
+      "id": "m5-held-spell-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_held_spells.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "54 held-spell condition tests (13.446s),4660 full tests (680.302s),75 examples and native CLI passed. Atomic accepted physical-cast witnesses, hand residence/current-copy policies, frozen play/history conditions, rollback/rewind/restore/privacy and Twinbow. Historical effect Battlecries without frozen hand facts reject explicitly; R-132 not CN calibrated."
+    },
+    {
+      "id": "local-card-spell-repeat-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen JAIL_123 text requires the discovered physical spell to cast twice when played. This motivates a generic card attachment; it does not certify CN availability, legal pools, inheritance or timing, and no JAIL adapter is added."
+    },
+    {
+      "id": "m5-card-spell-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_card_spell_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "54 card-local spell repetition tests (13.899s),4714 full tests (697.151s),57 player-policy regression tests,76 examples and previous native CLI passed. Physical attachments, immutable hand-play captures, three-way max counts, lifecycle/automatic-source/rewind/restore/privacy. Synthetic terminal scenario uses a separate registry; no new real adapter. Creation-time discovery grants and R-133 CN calibration remain pending."
+    },
+    {
+      "id": "m5-creation-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_creation_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "50 creation-time repeat tests (3.027s),4764 full tests (698.228s),77 examples and previous native CLI passed. Atomic new-entity grants, full candidate validation, frozen discovery delivery, independent cost/attachment deadlines, copy/transfer/burn/restore/rollback/rewind/privacy. Synthetic terminal example uses separate registry; no new real adapter. R-134 not CN calibrated; JAIL source/pool audit still incomplete."
+    },
+    {
+      "id": "local-card-spell-source-text",
+      "kind": "local_file",
+      "locator": "data/support/card-spell-source-inventory.json",
+      "sha256": "31351ae51518fd617bfd382c8c2041a54ceef13bd66e586fc2b7786f2a9ba58e",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen source and 436 raw five-plus collectible spells; class masks decoded from pinned local EntityBase.GetClasses and enums, name groups retained without identity merging. Six-member experimental pool chosen by mechanism cases and counterexamples; not a full legal pool or CN deployment claim."
+    },
+    {
+      "id": "local-class-mask-decoding",
+      "kind": "local_file",
+      "locator": "reports/decompiled/entity/EntityBase.cs",
+      "sha256": "2571ae9a5af70da08ca49ccdf4f750311e56d825a5ca1983f43363308e93484c",
+      "checked_on": "2026-09-25",
+      "claims": "Pinned local GetClasses gives nonzero MULTIPLE_CLASSES precedence over CLASS, least significant bit maps to class 1. Static metadata evidence only; not a server rules engine or formal Discover pool."
+    },
+    {
+      "id": "m5-card-spell-source-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_card_spell_sources.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "39 source tests (9.615s),50 creation regression (2.937s),41 pool regression (1.077s),4803 full tests (734.518s),78 examples and native representative CLI passed. Four necessary source/payload adapters; current-class discovery, immutable grant, independent 436-row audit and explicit six-member incomplete experimental pool. Multi-class decoding corrects SCH_182 only. R-135 not CN calibrated; JAIL availability and formal pools unknown."
+    },
+    {
+      "id": "m5-deathrattle-activation-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deathrattle_activations.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "54 Deathrattle identity tests (4.959s),4857 full tests (739.294s),79 examples and native representative CLI passed. Separate capture/execution order, natural/effect source provenance, declaration/grant/component identity, checkpoint-preserving controls, strict queued/running restore and terminal/rollback/rewind/privacy. 75 previous summaries retain common results. R-136 not CN calibrated; independent repetition still pending."
+    },
+    {
+      "id": "local-deathrattle-repeat-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen constructed FP1_031 Baron and AV_400 Snowfall records require allied Deathrattle repetition; Snowfall declares three turns. This local file evidence does not prove exact timing, CN availability, carrier scope or stacking."
+    },
+    {
+      "id": "m5-deathrattle-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deathrattle_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "44 repeat tests (5.074s),54 identity regression,70 representative regression,4901 full tests (756.744s),80 examples and native CLI passed. Complete frozen positions and contributors, max set-count, per-ability order, fresh extra execution, natural/effect sources, restore/rollback/terminal/rewind/privacy. 76 old summaries retain common results. R-137 remains provisional; player duration/fixed counts/gained-only scope and CN calibration pending."
+    },
+    {
+      "id": "m5-deathrattle-player-effect-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_deathrattle_player_effects.py",
+      "sha256": null,
+      "checked_on": "2026-09-25",
+      "claims": "46 player repeat tests (12.958s),44 board regression,4947 full tests (767.751s),81 examples and native CLI passed. Frozen player provenance, mixed max set-count, owner countdown guards, expiry/removal, natural/effect scopes, capacity/counterspell, restore/rollback/terminal/rewind/privacy. 77 old summaries retain common results. R-138 remains provisional; fixed active counts/gained-only scope and CN calibration pending."
+    },
+    {
+      "id": "local-fixed-deathrattle-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-09-25",
+      "claims": "Frozen JAM_005 declares a Battlecry triggering a friendly minion Deathrattle twice. Does not prove target filtering, multiplication, execution order, lifecycle windows or CN legality."
+    },
+    {
+      "id": "m5-fixed-deathrattle-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_fixed_deathrattles.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "46 fixed tests,144 prior Deathrattle tests,4993 full tests (795.197s),82 examples and native CLI passed; completed logs verified 2026-10-03. 78 prior summaries unchanged on common fields. Fixed/source axes, complete positions, lifecycle, choice/restore/rollback/rewind, terminal/budget/privacy and real compositions. R-139 not CN calibrated; gained-only and mixed categories pending."
+    },
+    {
+      "id": "local-scoped-deathrattle-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-10-03",
+      "claims": "Frozen RLK_912 limits repeats to Deathrattles given to this minion; EX1_158 grants a Treant Deathrattle and EX1_158t supplies its body. No proof of exact source merge, copied/magnetic origin, timing or CN legality."
+    },
+    {
+      "id": "m5-scoped-deathrattle-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_scoped_deathrattles.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "40 scoped tests,190 prior Deathrattle tests,5033 full tests (1536.566s),83 examples and native CLI passed. 79 prior summary common fields unchanged. Per-payload/self/origin/frozen-natural policies, lifecycle, mixed/fixed positions, choice/restore/rollback/rewind, terminal/budget/privacy, magnetic/starship and Scourge/Forest/Treant compositions. R-140 not CN calibrated; hero/end-turn/mixed categories pending."
+    },
+    {
+      "id": "m5-power-payload-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_payloads.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "70 dedicated tests (15.044s), 505 related regression tests (114.593s), 50 foundation tests (5.752s), 5103 full tests (1573.234s), 84 examples, native fresh-registry restore/replay and CLI passed. Prior summary common fields unchanged. Frozen root abilities, complete payload batches/capture/execution, shared original capture window, nested-root closure/continuation guards, choice/lifecycle/terminal/budget/rollback/ordinary-retained rewind/privacy. No independent repetitions or new real cards; R-141 not CN calibrated."
+    },
+    {
+      "id": "m5-power-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_power_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "74 dedicated tests (34.277s), 505 related regression (128.102s), 70 payload regression (24.069s), 50 foundation (7.853s), 5177 full tests (1642.033s), 85 examples, fresh-registry native restore/replay and CLI passed. Prior summary common fields unchanged. Frozen max source plans, per-ability repeat/retained axes, original first capture/fresh extras, shared retained-root plan, queued-versus-started continuation/source-spec guards, choice/lifecycle/terminal/budget/rollback/privacy and TOY_528 composition. Trusted-save structural consistency, not signed historical authentication. R-142 awaits CN calibration; end-turn/mixed and formal pools pending."
+    },
+    {
+      "id": "local-sing-along-repeat-text",
+      "kind": "local_file",
+      "locator": "data/extracted/cards.json",
+      "sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "checked_on": "2026-10-03",
+      "claims": "Frozen TOY_528 is a 3-mana 2/4 Mech declaring repeated hero power effects; record hash 5f0115d3b003195df90c5eac4f485018f87420a68b0eb77b2162787d7d2b6699. Static data does not prove CN current legality, merge or timing."
+    },
+    {
+      "id": "m5-end-turn-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_end_turns.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "83 dedicated tests (26.316s), 620 related regression (248.273s), 5260 full tests (1682.480s), 86 examples, fresh-registry native restore/replay and CLI passed. Prior summary common fields and all 300 support card rows unchanged. Explicit natural end-turn classification, original mixed slots, ordinary/finite/installed-power windows, player/dormant/granted identities, ordered full acceptance proof, actual/completed/skipped/interrupted facts, choice/restore/terminal/budget/rollback/privacy. No new cards, repetitions or active API. Structural trusted-save consistency, not signed historical authentication. R-143 awaits CN calibration; count/expiry sources, active initiation, TIME_064 and formal pools remain pending."
+    },
+    {
+      "id": "local-end-turn-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v102-end-turn-pre-audit.json",
+      "sha256": "69040e3c7049b05d289eb9ae38b8a4e36d7c5bde262b7214af83bbd3344706b1",
+      "checked_on": "2026-10-03",
+      "claims": "Historical v98/schema95 audit-only classification with full raw records and hashes. Not a complete pool, implementation result or CN rules calibration."
+    },
+    {
+      "id": "m5-end-turn-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_end_turn_repeats.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "83 dedicated (59.603s), 887 related regression (356.968s), 5343 full (1755.742s), 87 examples, fresh synthetic-registry native restore/replay, its own example-module CLI and existing representative hs_sim CLI passed. Prior summary common fields, all 300 support rows and frozen raw inventories unchanged. Public natural end-turn repetitions from board and persistent/timed player sources; per-subject all/minion max plans; complete subject/repeat positions and shared original guard receipts; original ordinary/finite/installed-power windows and mixed slots; exact per-ability real finite guard-event receipts, unreachable waiting first-power Invoke rejection, skipped-first groups, fresh extras, owner clocks, complete pending acceptance proof, choices/restore/terminal/budget/rollback/privacy. No new real cards, active API or mixed TIME_064. Unsigned structural consistency, not authenticated history. R-144 awaits CN calibration; ICC_901/CATA_480 representatives are next05b; full L05 scope and M0/M6/M7 remain pending."
+    },
+    {
+      "id": "local-end-turn-repeat-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v103-end-turn-repeat-pre-audit.json",
+      "sha256": "2caf189b14b22ee9ff795a66e64a86f76697351f8ecdce4597715d2c09f93ea6",
+      "checked_on": "2026-10-03",
+      "claims": "Historical v99/schema96 audit-only candidate classification with 30 complete raw records and canonical hashes. Not a formal pool denominator, implementation result or CN rule calibration."
+    },
+    {
+      "id": "m5-end-turn-representative-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_end_turn_representatives.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "34 dedicated (26.699s), 1176 related (526.388s), 5377 full (1808.916s), 88 examples; fresh representative-registry native restore/replay and hs_sim CLI passed. Exactly ICC_901/CATA_480 new independent complete raw pins and adapters. Old300 full support rows including notes/evidence unchanged; frozen inventories/M0 historical runtime and preaudit20 unchanged. R-145 internal all/minion/duration3/casting-owner-end and generic player duplicate/capacity profiles reuse R-144 full plans, once-only guards, old mixed slots, fresh extras, owner clocks and private guard evidence. No CORE/enchantment/BG/TIME adapters, new kernel/schema, active entry or full L05 claim. Both R-145 and R-144 await CN calibration; next05c active/different-phase scope-preserving entry; M0/M6/M7 remain pending."
+    },
+    {
+      "id": "local-end-turn-representatives-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v104-end-turn-representatives-pre-audit.json",
+      "sha256": "358121adcad6934abb667203a3da07cfc7abce3083b280a0dc3396b79453888a",
+      "checked_on": "2026-10-03",
+      "claims": "Immutable audit-only historical evidence: 20 full raw records and canonical hashes, 134 dependency file observations during05a validation. Not final validation, a formal pool denominator, complete source graph or CN calibration."
+    },
+    {
+      "id": "m5-end-turn-activation-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_end_turn_activations.py",
+      "sha256": null,
+      "checked_on": "2026-10-03",
+      "claims": "91 dedicated (61.959s), 1094 related (506.731s), 5468 full (1813.979s), 89 examples; native extended-registry restore/replay and explicit example CLI passed. Generic natural/effect/phase activation roots with separate owner/selected all-carrier scopes, registered eligibility/cause profiles, complete nested acceptance proof and original guard/receipt windows. All302 complete support rows/frozen inventories/M0 and historical audit observations unchanged; no real adapter, fixed-times axis or mixed-family completion. R-146 internal profile awaits CN calibration; next05d producer eligibility/selection policy and necessary CATA_472; L05/M0/M6/M7 remain pending."
+    },
+    {
+      "id": "local-end-turn-activation-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v105-end-turn-activation-pre-audit.json",
+      "sha256": "97072c0ff03a2f8e024e2962bc4b6336962cd539c0917c7754714738e1f0f6fc",
+      "checked_on": "2026-10-03",
+      "claims": "Immutable audit-only historical evidence: 1159 full raw records, 21 precise reference classifications and 147 dependency observations during05b validation; not current implementation acceptance, complete semantic scope, formal pool denominator or CN calibration."
+    },
+    {
+      "id": "m5-end-turn-producer-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_end_turn_producers.py",
+      "sha256": "338b9dcb48842d6aa445c40cb151ea517cefd2bc6465b3e1f18e488456a0cdd8",
+      "checked_on": "2026-10-03",
+      "claims": "81专项、1316相关回归、5549全量及90示例内部通过；专项23.619秒、相关588.131秒、全量1883.387秒。原生8动作/53事件/3随机根/4位置/4选择，真实Maul外层两次独立抽选；全部waiting恢复、回放及模块CLI通过，owner时钟[3,3]。旧86示例摘要共同行为字段保持；仅内部证据，R-147未CN校准。"
+    },
+    {
+      "id": "local-end-turn-producer-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v106-end-turn-producer-pre-audit.json",
+      "sha256": "f99826601007529eeab6be88a87ec7f9cf1a870513401d2677cfbd95950212d8",
+      "checked_on": "2026-10-03",
+      "claims": "Immutable audit-only observation:47 full raw and30 historical dependencies during05c validation; not complete producer graph, formal pool or CN deployment."
+    },
+    {
+      "id": "m5-mixed-repeat-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_mixed_repeats.py",
+      "sha256": "91a2735dfefd4cadc57d9014ec67e448d7fd69c1af783c2c5a6118b86b7fa343",
+      "checked_on": "2026-10-03",
+      "claims": "65公共专项、16代表专项、1611相关回归、5630全量及91示例内部通过；公共57.706秒、代表18.090秒、相关727.359秒、全量2009.161秒。旧87示例摘要共同行为字段保持，schema及摘要哈希变化另行登记；原生全部waiting恢复、独立注册表回放与模块CLI通过。仅内部证据，R-148未国服校准。"
+    },
+    {
+      "id": "local-mixed-repeat-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v107-mixed-repeat-pre-audit.json",
+      "sha256": "68f80171a60a77fb199c865c5c6d830562af937ad4b9986802f5adbcb65ff099",
+      "checked_on": "2026-10-03",
+      "claims": "Immutable audit-only:138 full raw,30 historical dependency observations during05d validation; no formal pool, complete source graph or CN calibration claim."
+    },
+    {
+      "id": "m5-spell-match-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_match.py",
+      "sha256": "bba49179fceb521eaf6081841d309069aafd7e738155b8cb305c96196b0d8ee9",
+      "checked_on": "2026-10-03",
+      "claims": "A1 public spell-school/class intersection and two-window acceptance proof; internal gates only, CN calibration pending."
+    },
+    {
+      "id": "local-spell-match-representative-pre-audit",
+      "kind": "local_file",
+      "locator": "outputs/v109-rlk541-pre-audit.json",
+      "sha256": "faa659ef592fdd01778cf2685fca73f8aa9b1e18bfe0816cf37e8d559098bce4",
+      "checked_on": "2026-10-04",
+      "claims": "Immutable 11 full local raw records and proposed necessary RLK_541 manual profile; audit-only, generated during A1 validation. No A2 pass, complete formal pool, automatic-cast or CN calibration claim."
+    },
+    {
+      "id": "m5-spell-match-representative-tests",
+      "kind": "internal_tests",
+      "locator": "tests/test_m5_spell_match_representatives.py",
+      "sha256": "10fadfd804f381758905afbbdeb0befa7908ebcd1e3027799427cd047840dcb3",
+      "checked_on": "2026-10-04",
+      "claims": "15代表专项、770相关回归、5678全量及93示例内部通过；代表8.390秒、相关245.647秒、全量1177.607秒。原生10动作/49事件/7casts/2真实待选，次数[2,1,1,1,2]，每根仅支付一次；waiting独立注册表恢复/clone/回放与模块CLI一致。89旧/90当前摘要共同行为与字段保持，1265历史文件字节保留，历史v105存档与A1实际after逐字段比对，仅命名identity不同。只覆盖manual paid hand profile，R-150未国服校准，自动CAST与完整合法池未覆盖。"
+    },
+    {
+      "id": "local-spell-source-conditions-verification",
+      "kind": "local_file",
+      "locator": "outputs/v110-verification.json",
+      "sha256": "d3a3fcb27533e0d686da50bdf8b2b49c9ea7d576bbd73465a67fe0a56fe0b75a",
+      "checked_on": "2026-10-04",
+      "claims": "41公共专项、5719全量及94示例内部通过；专项51.845秒、全量1242.151秒、示例196.094秒。原生9动作/34事件/4casts/4真实待选，根次数[1,2,1]、贡献来源[0,2,0]；同卡名的另一物理实体成立，首次选择后见证/来源变形仍保留已接受2，下一真实根重算1。全部waiting与终态的独立注册表恢复/clone/回放及模块CLI通过，支付每根一次。90旧/91当前摘要共同行为与字段保持，1498历史文件原字节保持；原历史存档与A2实际after副本直接比，B1仅明确版本/身份及必需source_eligibility:null迁移。没有新增真实卡，仅实际场上来源及manual paid hand profile；R-151未国服校准，其他逐族匹配、自动CAST与完整合法池未完成。"
+    },
+    {
+      "id": "local-battlecry-recipient-matching-verification",
+      "kind": "local_file",
+      "locator": "outputs/v111-verification.json",
+      "sha256": "a6a847840d8aabb39450b17b6428a79339aaa37deb03a45e9ca6d6ec72834274",
+      "checked_on": "2026-10-04",
+      "claims": "48公共专项、5767全量及95示例内部通过；专项10.211秒、全量1250.632秒、示例225.937秒。原生9动作/50事件/5战吼/5真实待选，根次数[1,3,1]、贡献来源[0,3,0]；同卡名另一载体不能冒作self，首次选择后接收者与见证变形仍保留已接受3，下一真实根重算1。全部waiting及终态的独立注册表恢复/clone/回放、模块CLI及CLI回放通过，每根支付一次，匹配有限玩家政策每根消费一次。91旧/92当前摘要共同行为及字段保持，2133历史文件原字节保持；全部282份B1实际after直接比较，版本/身份、BCscope/match、原接受对象及观察revision变化明确分类。没有新增真实卡；仅manual paid physical hand profile，种族能力为合成验证，R-152未国服校准，Dark Gift交付、同外部动作直接付费嵌套及其他族/轴与正式池未完成。 首次全量5767项在1274.047秒结束，18处ERROR均为同一个旧测试查询助手遗漏注册表/物理接收对象；原失败与输入字节保留。仅三处接口迁移，原断言与5719方法保持；迁移后65混合专项和新的5767全量实际通过。95示例在原冻结上实际执行，最终仅改测试助手，204份运行源码及示例原字节保持，证据显式继承。"
+    },
+    {
+      "id": "local-combo-recipient-matching-verification",
+      "kind": "local_file",
+      "locator": "outputs/v112-verification.json",
+      "sha256": "e192e2b59afd75b8fae9c24923cd463127479527780f786262a31a3581a13df1",
+      "checked_on": "2026-10-04",
+      "claims": "67公共专项、5834全量及96示例内部通过；专项41.969秒、全量1390.547秒、示例238.281秒。原生9动作/52事件/5连击主体/5真实待选，根次数[1,3,1]、贡献来源[0,4,0]及6双窗政策收据。各waiting与终态独立注册表恢复/clone/回放、模块CLI和CLI回放通过，支付及匹配用途每根一次。原生实际S0的105加载源码对S3相同、96示例实际S2的运行源码与示例对S3相同，均显式继承，未冒作重跑。旧示例实际after直接比较并完整分类；2803历史文件253171219字节保持。原失败、修前字节和旧127测试88处接口迁移证据保留；5767旧方法及13010原断言数量保持。本批没有新真实卡，仅付费手牌随从/武器/英雄profile，R-153未国服校准。其余族/轴、动态交付、同动作付费嵌套、固定多轮producer及M0/M6/M7仍未完成。"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "V-002",
+      "description": "CN acceptance region was selected by the user; regional effective timestamp and complete constructed hotfix set remain unconfirmed.",
+      "blocks_complete": true
+    },
+    {
+      "id": "C-001",
+      "description": "Standard/wild legal roots and reachable-content pools are not frozen; sample size is not a complete-pool denominator.",
+      "blocks_complete": true
+    },
+    {
+      "id": "R-001",
+      "description": "No target-patch official timing calibration suite is complete.",
+      "blocks_complete": true
+    },
+    {
+      "id": "C-002",
+      "description": "Local static data includes other modes and possible preload records; installed build is not proof of server behavior.",
+      "blocks_complete": true
+    },
+    {
+      "id": "C-005",
+      "description": "Frozen raw TIME_038 text says three Rewinds while CN 34.0 changed it to two. Effective hotfix overlays/token mappings and later revisions must be reconciled before claiming current formal card data.",
+      "blocks_complete": true
+    },
+    {
+      "id": "R-151",
+      "blocks_complete": true,
+      "description": "B1 controlled-minion sustained repeat-source conditions and actual-carrier another relation are internally verified only for paid manual hand spell board sources. Registered presence/accepted-window rules have not been CN calibrated; automatic/effect/draw/history CAST, other repeat families and the complete formal Standard/Wild pool remain outside this increment."
+    },
+    {
+      "id": "R-152",
+      "blocks_complete": true,
+      "description": "B2-01 accepted physical Battlecry recipient, friendly/self and printed-tribe matching, sustained board conditions and complete original source identity are internally verified only for manual paid physical hand-play acceptance. Tribe filtering is synthetic capability; Dark Gift delivery and a constructed tribal set-count representative are not established. Source/presence/windows remain CN uncalibrated. Same-external-action paid nesting has an observed existing chronology limitation. Other repeat families, costs/per-body/periodic/+1/CAST/dynamic/fixed producers, official patch/pool lock and full Standard/Wild coverage remain incomplete."
+    },
+    {
+      "id": "R-153",
+      "blocks_complete": true,
+      "description": "B2-02 two accepted physical Combo recipients, friendly/self/printed-tribe and sustained board matching, independent original acceptance proofs and once-per-root policy usage are internally verified for manually paid physical hand MINION/WEAPON/HERO only. Synthetic tribe/self conditions and local presence/windows are not CN calibrated. SPELL retains its numeric on_play branch and Spell proofs. Preentry recipient face changes, arbitrary dynamic Combo bodies, same-action paid nesting, other repeat families/axes, CAST, Dark Gift delivery, fixed multi-round producers and M0/M6/M7 remain incomplete."
+    }
+  ],
+  "extensions": {
+    "extraction_tool": {
+      "name": "UnityPy",
+      "version": "1.25.0"
+    },
+    "build_info_present": false,
+    "build_source_field_path": [
+      4,
+      1,
+      7
+    ],
+    "runtime_semantics": "baseline_* records the audited starting point, not a dynamic claim about the newest code.",
+    "current_runtime": {
+      "ruleset": "prototype-v112",
+      "mechanics": "core-effects-v112",
+      "snapshot_schema": 109,
+      "replay_schema": 1,
+      "content": "representative-m5-v64",
+      "player_view": "player-view-v55",
+      "player_api": "player-actions-v7",
+      "generation_pool": "representative-generation-v1"
+    },
+    "region_basis": "User explicitly selected the mainland China server as the final acceptance target on 2026-09-24; this does not verify regional deployment.",
+    "confirmed_regional_base_patch": "36.6",
+    "mechanism_dependency_plan": "data/support/m5-mechanism-plan.json",
+    "mechanism_inventory": "data/support/m5-inventory.json",
+    "confirmed_mechanism_sources": {
+      "HERALD": "cn-cataclysm-live",
+      "SHATTER": "cn-cataclysm-live"
+    },
+    "power_payload_increment": {
+      "increment": "M5-13d-02l-02",
+      "validation": "internally_verified",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-141",
+      "evidence": "m5-power-payload-tests"
+    },
+    "power_repeat_increment": {
+      "increment": "M5-13d-02l-03",
+      "validation": "internally_verified",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-142",
+      "evidence": "m5-power-repeat-tests"
+    },
+    "end_turn_increment": {
+      "increment": "M5-13d-02l-04",
+      "validation": "internally_verified",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-143",
+      "evidence": "m5-end-turn-tests"
+    },
+    "end_turn_repeat_increment": {
+      "increment": "M5-13d-02l-05a",
+      "validation": "internally_verified",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-144",
+      "evidence": "m5-end-turn-repeat-tests"
+    },
+    "end_turn_representative_increment": {
+      "increment": "M5-13d-02l-05b",
+      "validation": "internally_verified",
+      "contract": "docs/m5-end-turn-representatives.md",
+      "evidence": "m5-end-turn-representative-tests",
+      "new_real_cards": [
+        "ICC_901",
+        "CATA_480"
+      ],
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-145",
+      "public_dependency": "R-144",
+      "duration_profile": 3,
+      "casting_owner_end_counts": true,
+      "board_scope": "all",
+      "player_scope": "minion",
+      "merge": "max",
+      "active_initiation": false,
+      "mixed_family": false,
+      "next_work": "M5-13d-02l-05c"
+    },
+    "end_turn_activation_increment": {
+      "increment": "M5-13d-02l-05c",
+      "validation": "internally_verified",
+      "contract": "docs/m5-end-turn-activations.md",
+      "evidence": "m5-end-turn-activation-tests",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "rule_assumption": "R-146",
+      "public_dependencies": [
+        "R-143",
+        "R-144"
+      ],
+      "kinds": [
+        "natural",
+        "effect",
+        "phase"
+      ],
+      "selectors": [
+        "owner",
+        "selected"
+      ],
+      "carrier_kinds": [
+        "minion",
+        "weapon",
+        "hero_power",
+        "location",
+        "player_effect"
+      ],
+      "real_cause": true,
+      "nested": true,
+      "complete_acceptance_proof": true,
+      "natural_clocks_only": true,
+      "fixed_times_axis": false,
+      "new_real_cards": [],
+      "mixed_family": false,
+      "next_work": "M5-13d-02l-05d"
+    },
+    "end_turn_producer_increment": {
+      "increment": "M5-13d-02l-05d",
+      "validation": "internally_verified",
+      "rule_assumption": "R-147",
+      "contract": "docs/m5-end-turn-producers.md",
+      "evidence": "m5-end-turn-producer-tests",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "pure_candidate_query": true,
+      "candidate_basis": [
+        "current",
+        "printed",
+        "active"
+      ],
+      "all_carrier_scope": true,
+      "selection": "random_one",
+      "same_acceptance_window": true,
+      "complete_candidate_witness": true,
+      "random_state_witness": true,
+      "empty_pool_no_rng": true,
+      "natural_clocks_only": true,
+      "fixed_times_axis": false,
+      "mixed_family": false,
+      "new_real_cards": [
+        "CATA_472"
+      ],
+      "next_work": "M5-13d-02l-05e",
+      "dedicated_tests": 81,
+      "related_regression": 1316,
+      "full_tests": 5549,
+      "examples": 90,
+      "native_hash": "c096cc090f9e98ee99f731c56bb4ba30ccdd9c994920df4dbcadcc91370f05e8",
+      "evidence_summary": "81专项、1316相关回归、5549全量及90示例内部通过；专项23.619秒、相关588.131秒、全量1883.387秒。原生8动作/53事件/3随机根/4位置/4选择，真实Maul外层两次独立抽选；全部waiting恢复、回放及模块CLI通过，owner时钟[3,3]。旧86示例摘要共同行为字段保持；仅内部证据，R-147未CN校准。"
+    },
+    "mixed_repeat_increment": {
+      "increment": "M5-13d-02l-05e",
+      "validation": "internally_verified",
+      "contract": "docs/m5-mixed-repeats.md",
+      "rule_assumption": "R-148",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "evidence": "m5-mixed-repeat-tests",
+      "independent_family_plans": true,
+      "shared_lifecycle": true,
+      "preserved_family_windows": true,
+      "public_runtime_changed": true,
+      "whole_battlecry_acceptance_proof": true,
+      "whole_deathrattle_acceptance_proof": true,
+      "durable_battlecry_acceptance_receipt": true,
+      "monotonic_deathrattle_allocation": true,
+      "fixed_end_turn_rounds": false,
+      "new_real_cards": [
+        "TIME_064"
+      ],
+      "next_work": "M5-13d-02m-01",
+      "families": [
+        "battlecry_repeat",
+        "deathrattle_repeat",
+        "hero_power_repeat",
+        "end_turn_repeat"
+      ],
+      "dedicated_tests": 65,
+      "representative_tests": 16,
+      "related_regression": 1611,
+      "full_tests": 5630,
+      "examples": 91,
+      "native_hash": "ca767f633d13c16cbe6773aba117e6eee567efecbd9ac02e2c8682fe661b50e2",
+      "evidence_summary": "65公共专项、16代表专项、1611相关回归、5630全量及91示例内部通过；公共57.706秒、代表18.090秒、相关727.359秒、全量2009.161秒。旧87示例摘要共同行为字段保持，schema及摘要哈希变化另行登记；原生全部waiting恢复、独立注册表回放与模块CLI通过。仅内部证据，R-148未国服校准。"
+    },
+    "spell_match_increment": {
+      "increment": "M5-13d-02m-01-A1",
+      "validation": "internally_verified",
+      "contract": "docs/m5-spell-match.md",
+      "rule_assumption": "R-149",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "runtime": {
+        "engine": 104,
+        "schema": 101,
+        "view": 52,
+        "action": 7,
+        "replay": 1,
+        "representative": 63
+      },
+      "source_scope": "manual_hand_play",
+      "school_and_existing_class_intersection": true,
+      "player_and_board_separate_windows": true,
+      "two_window_complete_proof_required": true,
+      "new_real_cards": [],
+      "records": 304,
+      "definitions": 305,
+      "choice_only": 14,
+      "tests_not_yet_accepted": false,
+      "next_work": "A1 gates then A2 necessary RLK_541; sustained-source/another B1 and family B2 follow",
+      "ordered_frame_acceptance_obligations": true,
+      "original_submission_target_bound": true,
+      "actual_nested_paid_play_supported": true,
+      "source_freeze": "outputs/v108-stage.json",
+      "verification": "outputs/v108-verification.json",
+      "actual_validation": {
+        "public": 33,
+        "related": 892,
+        "information": 67,
+        "full": 5663,
+        "examples": 92
+      }
+    },
+    "spell_match_representative_increment": {
+      "increment": "M5-13d-02m-01-A2",
+      "validation": "internally_verified",
+      "contract": "docs/m5-spell-match-representatives.md",
+      "rule_assumption": "R-150",
+      "depends_on": [
+        "R-149"
+      ],
+      "internal_only": true,
+      "cn_calibrated": false,
+      "public_runtime_changed": false,
+      "runtime": {
+        "engine": 104,
+        "schema": 101,
+        "view": 52,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "source_scope": "manual_paid_hand_play",
+      "new_real_cards": [
+        "RLK_541"
+      ],
+      "records": 305,
+      "definitions": 306,
+      "choice_only": 14,
+      "tests_not_yet_accepted": false,
+      "old_304_complete_rows_unchanged": true,
+      "original_A1_verification": "outputs/v108-verification.json",
+      "original_A1_verification_sha256": "bbbfae5f715e0eb513afe7cacc6b322291b348a2ffab02562d18cd92a4c42593",
+      "next_work": "sustained-source/another B1, then family matching B2; costs/per-payload/periodic/+1/CAST remain separate",
+      "source_freeze": "outputs/v109-stage.json",
+      "verification": "outputs/v109-verification.json",
+      "actual_validation": {
+        "dedicated": 15,
+        "related": 770,
+        "full": 5678,
+        "examples": 93
+      },
+      "evidence_summary": "15代表专项、770相关回归、5678全量及93示例内部通过；代表8.390秒、相关245.647秒、全量1177.607秒。原生10动作/49事件/7casts/2真实待选，次数[2,1,1,1,2]，每根仅支付一次；waiting独立注册表恢复/clone/回放与模块CLI一致。89旧/90当前摘要共同行为与字段保持，1265历史文件字节保留，历史v105存档与A1实际after逐字段比对，仅命名identity不同。只覆盖manual paid hand profile，R-150未国服校准，自动CAST与完整合法池未覆盖。"
+    },
+    "spell_source_conditions_increment": {
+      "increment": "M5-13d-02m-01-B1",
+      "validation": "internally_verified",
+      "tests_not_yet_accepted": false,
+      "rule_assumption": "R-151",
+      "depends_on": [
+        "R-149"
+      ],
+      "contract": "docs/m5-repeat-source-conditions.md",
+      "internal_only": true,
+      "cn_calibrated": false,
+      "runtime": {
+        "engine": 105,
+        "schema": 102,
+        "view": 52,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "source_scope": "manual_paid_hand_play",
+      "conditions_scope": "actual_board_spell_repeat",
+      "new_real_cards": [],
+      "records": 305,
+      "definitions": 306,
+      "choice_only": 14,
+      "old_305_complete_rows_unchanged": true,
+      "source_profiles": [
+        "repeat.witness.controlled",
+        "repeat.witness.active_live"
+      ],
+      "witness_basis": "current_face_printed",
+      "exclude_actual_carrier": true,
+      "ordinary_presence_supported": true,
+      "another_relation_supported": true,
+      "original_acceptance_window_required": true,
+      "compact_history_does_not_rejudge_live_witnesses": true,
+      "public_view_unchanged": true,
+      "next_work": "M5-13d-02m-01-B2-01; costs/per-payload/periodic/+1/CAST and M0/M6/M7 remain pending",
+      "source_freeze": "outputs/v110-stage.json",
+      "verification": "outputs/v110-verification.json",
+      "verification_sha256": "d3a3fcb27533e0d686da50bdf8b2b49c9ea7d576bbd73465a67fe0a56fe0b75a",
+      "evidence_summary": "41公共专项、5719全量及94示例内部通过；专项51.845秒、全量1242.151秒、示例196.094秒。原生9动作/34事件/4casts/4真实待选，根次数[1,2,1]、贡献来源[0,2,0]；同卡名的另一物理实体成立，首次选择后见证/来源变形仍保留已接受2，下一真实根重算1。全部waiting与终态的独立注册表恢复/clone/回放及模块CLI通过，支付每根一次。90旧/91当前摘要共同行为与字段保持，1498历史文件原字节保持；原历史存档与A2实际after副本直接比，B1仅明确版本/身份及必需source_eligibility:null迁移。没有新增真实卡，仅实际场上来源及manual paid hand profile；R-151未国服校准，其他逐族匹配、自动CAST与完整合法池未完成。",
+      "actual_validation": {
+        "dedicated": 41,
+        "full": 5719,
+        "examples": 94
+      }
+    },
+    "battlecry_recipient_matching_increment": {
+      "increment": "M5-13d-02m-01-B2-01",
+      "runtime": {
+        "engine": 106,
+        "schema": 103,
+        "view": 53,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "source_freeze": "outputs/v111-stage-final.json",
+      "contract": "docs/m5-battlecry-matching.md",
+      "new_real_cards": [],
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "recipient_basis": "accepted_carrier_face_printed",
+      "scope": [
+        "friendly",
+        "self"
+      ],
+      "profile": "manual paid physical hand play",
+      "synthetic_tribe_filter": true,
+      "dark_gift_delivery_implemented": false,
+      "next_work": "M5-13d-02m-01-B2-02; remaining repeat families/axes and M0/M6/M7 remain pending",
+      "internal_only": true,
+      "tests_not_yet_accepted": false,
+      "rule_assumption": "R-152",
+      "verification": "outputs/v111-verification.json",
+      "verification_sha256": "a6a847840d8aabb39450b17b6428a79339aaa37deb03a45e9ca6d6ec72834274",
+      "evidence_summary": "48公共专项、5767全量及95示例内部通过；专项10.211秒、全量1250.632秒、示例225.937秒。原生9动作/50事件/5战吼/5真实待选，根次数[1,3,1]、贡献来源[0,3,0]；同卡名另一载体不能冒作self，首次选择后接收者与见证变形仍保留已接受3，下一真实根重算1。全部waiting及终态的独立注册表恢复/clone/回放、模块CLI及CLI回放通过，每根支付一次，匹配有限玩家政策每根消费一次。91旧/92当前摘要共同行为及字段保持，2133历史文件原字节保持；全部282份B1实际after直接比较，版本/身份、BCscope/match、原接受对象及观察revision变化明确分类。没有新增真实卡；仅manual paid physical hand profile，种族能力为合成验证，R-152未国服校准，Dark Gift交付、同外部动作直接付费嵌套及其他族/轴与正式池未完成。 首次全量5767项在1274.047秒结束，18处ERROR均为同一个旧测试查询助手遗漏注册表/物理接收对象；原失败与输入字节保留。仅三处接口迁移，原断言与5719方法保持；迁移后65混合专项和新的5767全量实际通过。95示例在原冻结上实际执行，最终仅改测试助手，204份运行源码及示例原字节保持，证据显式继承。",
+      "actual_validation": {
+        "dedicated": 48,
+        "full": 5767,
+        "examples": 95
+      },
+      "actual_validation_seconds": {
+        "dedicated": 10.211,
+        "full": 1250.632,
+        "examples": 225.937
+      }
+    },
+    "combo_recipient_matching_increment": {
+      "increment": "M5-13d-02m-01-B2-02",
+      "runtime": {
+        "engine": 107,
+        "schema": 104,
+        "view": 54,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "source_freeze": "outputs/v112-stage-final3.json",
+      "contract": "docs/m5-combo-matching.md",
+      "rule_assumption": "R-153",
+      "new_real_cards": [],
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "internal_only": true,
+      "recipient_basis": "accepted_window_face_printed",
+      "scope": [
+        "friendly",
+        "self"
+      ],
+      "profile": "manual paid physical hand MINION/WEAPON/HERO play",
+      "player_policy_windows": [
+        "play",
+        "activation"
+      ],
+      "synthetic_tribe_filter": true,
+      "spell_numeric_combo_branch_preserved": true,
+      "tests_not_yet_accepted": false,
+      "next_work": "M5-13d-02m-01-B2-03 Deathrattle matching; remaining families/axes and M0/M6/M7 pending",
+      "verification": "outputs/v112-verification.json",
+      "verification_sha256": "e192e2b59afd75b8fae9c24923cd463127479527780f786262a31a3581a13df1",
+      "evidence_summary": "67公共专项、5834全量及96示例内部通过；专项41.969秒、全量1390.547秒、示例238.281秒。原生9动作/52事件/5连击主体/5真实待选，根次数[1,3,1]、贡献来源[0,4,0]及6双窗政策收据。各waiting与终态独立注册表恢复/clone/回放、模块CLI和CLI回放通过，支付及匹配用途每根一次。原生实际S0的105加载源码对S3相同、96示例实际S2的运行源码与示例对S3相同，均显式继承，未冒作重跑。旧示例实际after直接比较并完整分类；2803历史文件253171219字节保持。原失败、修前字节和旧127测试88处接口迁移证据保留；5767旧方法及13010原断言数量保持。本批没有新真实卡，仅付费手牌随从/武器/英雄profile，R-153未国服校准。其余族/轴、动态交付、同动作付费嵌套、固定多轮producer及M0/M6/M7仍未完成。",
+      "actual_validation": {
+        "dedicated": 67,
+        "full": 5834,
+        "examples": 96
+      },
+      "actual_validation_seconds": {
+        "dedicated": 41.969,
+        "full": 1390.547,
+        "examples": 238.281
+      },
+      "native_actual_execution_freeze": "outputs/v112-stage.json",
+      "examples_actual_execution_freeze": "outputs/v112-stage-final2.json"
+    },
+    "deathrattle_recipient_matching_increment": {
+      "increment": "M5-13d-02m-01-B2-03",
+      "runtime": {
+        "engine": 108,
+        "schema": 105,
+        "view": 54,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "input_baseline": "outputs/v113-runtime-inputs.json",
+      "contract": "docs/m5-deathrattle-matching.md",
+      "rule_assumption": "R-154",
+      "new_real_cards": [],
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "internal_only": true,
+      "recipient_basis": "accepted_carrier_face_printed",
+      "profile": "natural post-removal / effect live; per-payload kinds/origins/max; frozen MINION self",
+      "tests_not_yet_accepted": false,
+      "next_work": "M5-13d-02m-01-B2-04 Hero Power source conditions and full-root proof; remaining families/axes and M0/M6/M7 pending",
+      "source_freeze": "outputs/v113-stage-S1b.json",
+      "verification": "outputs/v113-verification.json",
+      "verification_sha256": "ab894a014baadbb2763161c7a4f6419e20cd114d36472349390ba8c01f83c6f9",
+      "evidence_summary": "78公共专项、5912全量及97示例内部通过；专项149.175秒、全量1574.283秒、审计示例批1121.235秒。原生13动作/53事件/8真实待选，三个death/effect/death组，逐能力次数[[1],[2,3],[2]]及来源[[0],[2,1],[1]]。八waiting和终态九位置独立注册表恢复/clone/replay、native/模块CLI/CLI回放一致；三独立child88.059/86.064/2.719秒，审计native child461.11秒，未作单对局吞吐结论。HP全根原窗遗漏经真实RED→GREEN修补并在最终78和全量重跑。339标准源、4工具、14元信息及38辅助输入合计381去重输入保持。292旧actual-after与297当前副本、1943直接/2464三腿/105stdout差异完整分类，未分类0；211完整快照独立重算、完整事件数组及队列结构保持。未导出的中间私有状态未冒作逐动作独立重算，来源绑定范围明确。4114历史文件489966715字节保持；5834旧方法及13249断言按已登记迁移保留。无新真实卡，代表64/305记录/306定义/14choice-only保持；R-154未国服校准。其他族/轴、动态交付、成功空技能公共组合、同动作付费嵌套、固定多轮producer及M0/M6/M7和完整目标继续保留。",
+      "actual_validation": {
+        "dedicated": 78,
+        "full": 5912,
+        "examples": 97
+      },
+      "actual_validation_seconds": {
+        "dedicated": 149.175,
+        "full": 1574.283,
+        "examples": 1121.235
+      }
+    },
+    "hero_power_source_matching_increment": {
+      "increment": "M5-13d-02m-01-B2-04",
+      "runtime": {
+        "engine": 109,
+        "schema": 106,
+        "view": 54,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "input_baseline": "outputs/v114-runtime-inputs.json",
+      "contract": "docs/m5-hero-power-matching.md",
+      "rule_assumption": "R-155",
+      "new_real_cards": [],
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "internal_only": true,
+      "tests_not_yet_accepted": false,
+      "profile": "source-only sustained board condition; existing selected installed HeroPowerRecord; one accepted plan",
+      "next_work": "M5-13d-02m-01-B2-05 EndTurn source matching and complete original prebatch proof; other axes/M0/M6/M7 pending",
+      "source_freeze": "outputs/v114-stage-S1.json",
+      "source_freeze_sha256": "540d0194827ca931aa007700bb7cf8250b79837ada4542c252882353cd972599",
+      "verification": "outputs/v114-verification.json",
+      "verification_sha256": "10ffc2149af9bcef7c3de043502f2f9778295a100b6844ad7db23cc9596f56f7",
+      "evidence_summary": "97公共专项、6009全量及98示例内部通过；专项31.601秒、全量1635.878秒、示例审计批1139.250秒。原生8动作/30事件/3根manual/effect/effect，次数[3,1,1]、来源[2,0,0]、5主体/5真实待选/6完整位置，逐位置独立注册表恢复/clone/replay、模块CLI与CLI回放一致。原生三child6.084/4.378/1.212秒；113专项/319全量/110各原生child加载源码绑定S1。345标准源、4工具、14元信息及38辅助输入合计387去重输入保持。297旧actual-after/302当前副本，2002直接/2523三腿/107stdout差异完整分类，未分类0；221共享快照双操作数与228当前完整快照重算，11573操作数绑定重建。5旧HP仅ordinary未执行batch/captures证明安装差异；未观察到旧retained差异。完整事件及队列类型/相对顺序/完整字段核对，未导出中间私有状态不冒作逐动作独立重算。旧5912方法、129测试、13488断言和60schema赋值按74精确迁移保持；5224历史文件722893796字节完整重算。首次专项4FAIL/4ERROR及修前字节、只读helper失败均保留。无新真实卡，代表64/305记录/306定义/14choice-only保持。R-155仅内部组合契约，未国服校准。成功空/多主体仅自定义dispatcher专项，默认原生不扩大可达范围。下一B2-05结束回合来源匹配；其他轴/动态交付/固定多轮producer与M0/M6/M7和完整目标保留。",
+      "actual_validation": {
+        "dedicated": 97,
+        "full": 6009,
+        "examples": 98
+      },
+      "actual_validation_seconds": {
+        "dedicated": 31.60123679996468,
+        "full": 1635.8775541000068,
+        "examples": 1139.25
+      },
+      "posttested_bookkeeping": true
+    },
+    "end_turn_source_matching_increment": {
+      "increment": "M5-13d-02m-01-B2-05",
+      "runtime": {
+        "engine": 110,
+        "schema": 107,
+        "view": 54,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "input_baseline": "outputs/v115-runtime-inputs.json",
+      "contract": "docs/m5-end-turn-matching.md",
+      "rule_assumption": "R-156",
+      "new_real_cards": [],
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "internal_only": true,
+      "tests_not_yet_accepted": false,
+      "profile": "source-only sustained board condition; existing EndTurnSubject all/minion; complete original pre-install batch proof",
+      "next_work": "Next public increment: Spell repeat cost eligibility with submitted_quote/window_quote accepted facts, full prepayment proof bound to the actual Rewind session/attempt and cross-payment cost-use chain. Dynamic intrinsic/history costs, other repeat axes, ETM-36 unproven same-PlayRecord default concurrent route, ETM-43 recipient tribes, M0/M6/M7 and the complete simulator remain pending.",
+      "source_freeze": "outputs/v115-stage-S3.json",
+      "source_freeze_sha256": "20186478942ae2d9f386e19f4907a9202d71ba235954f35e149a075cc73a5baa",
+      "verification": "outputs/v115-verification.json",
+      "verification_sha256": "8c1cdaccebe2653bea6085d11b39741a3aa2a10507522fbeb9210bb4749ceef8",
+      "actual_validation": {
+        "dedicated": 92,
+        "full": 6101,
+        "examples": 99
+      },
+      "actual_validation_seconds": {
+        "dedicated_S3_attempt3": 215.75202110002283,
+        "full_S3_attempt1": 1900.161642699968,
+        "examples_final_parent_attempt3_excludes_inherited_execution": 156.85900000005495
+      },
+      "actual_execution_origins": {
+        "dedicated": {
+          "stage": "outputs/v115-stage-S3.json",
+          "actual_terminal": "outputs/v115-end-turn-matching-specialist-S3-attempt-3-terminal.json"
+        },
+        "full": {
+          "stage": "outputs/v115-stage-S3.json",
+          "actual_terminal": "outputs/v115-end-turn-matching-full-S3-attempt-1-terminal.json"
+        },
+        "examples": {
+          "actual_tool_terminal": "outputs/v115-root-examples-S3-actual-tool-terminal.json",
+          "inherited": 73,
+          "fresh": 26,
+          "prior_attempt1": 69,
+          "prior_attempt2": 4,
+          "all99_rerun_in_final_parent": false
+        },
+        "native": {
+          "actual_stage": "outputs/v115-stage-S0.json",
+          "inherited_to": "outputs/v115-stage-S3.json",
+          "target_rerun": false,
+          "inheritance": "outputs/v115-S0-foundation-native-to-S3-inheritance-independent-review.json",
+          "child_seconds": [
+            54.86597659997642,
+            28.96267739997711,
+            5.621514800004661
+          ]
+        }
+      },
+      "posttested_bookkeeping": true
+    },
+    "spell_cost_matching_increment": {
+      "increment": "M5 manual paid Spell cost matching",
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "tests_not_yet_accepted": false,
+      "internal_only": true,
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "full_simulator_goal_complete": false,
+      "runtime": {
+        "engine": 111,
+        "mechanics": "core-effects-v111",
+        "schema": 108,
+        "view": 55,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "source_freeze": "outputs/v116-stage-S2.json",
+      "source_freeze_sha256": "2f6f5baad8408c5e4b90522dd10c93e7e3845d642381de7a45769970ffe58859",
+      "contract": "docs/m5-spell-cost-matching.md",
+      "rule_assumption": "R-157",
+      "profile": "manual paid physical hand Spell; accepted printed/local/submitted_quote/window_quote facts",
+      "recipient_cost_bases": [
+        "printed",
+        "local",
+        "submitted_quote",
+        "window_quote"
+      ],
+      "accepted_hand_profile": "repeat.cost.accepted_hand",
+      "actual_payment_supported": false,
+      "intrinsic_history_formula_supported": false,
+      "automatic_CAST_cost_matching_supported": false,
+      "other_repeat_family_recipient_cost_matching_supported": false,
+      "prepayment_proof": true,
+      "two_existing_acceptance_windows_preserved": true,
+      "true_Rewind_original_quote_and_attempt_anchor": true,
+      "complete_false_source_and_global_ID_identity": true,
+      "cross_payment_scope_exact_finite_use_history": true,
+      "HEALTH_staged_event_order_preserved": true,
+      "new_real_cards": [],
+      "records": 305,
+      "definitions": 306,
+      "choice_only": 14,
+      "mechanism_rows": 100,
+      "representative_package": "representative-m5-v64",
+      "new_methods_are_subset_of_full_not_a_separate_S2_specialist_suite": true,
+      "development_focused_evidence_policy": "13 contract /37 quote /36 proof /15 foreign /9 account and root native/bootstrap/special/stale runs retain their actual original source and timing records; no false combined count or S2 dedicated rerun claim.",
+      "next_work": "Define and implement explicit own-turn history and ordered intrinsic cost profiles (Kindred dependency), then scoped internal validation and later CN calibration. Actual payment ledger predicates, automatic CAST cost semantics, other repeat fee axes, dynamic bodies/fixed-round producers, ETM-36/43 and M0/M6/M7 remain independent.",
+      "development_focused_evidence": [
+        {
+          "scope": "contract",
+          "actual_original_report": "outputs/v116-fee-contract-attempt-1-actual-tool-terminal.json",
+          "report_sha256": "d36c25270b4756a51367666887cacdaa104c081678b9db573b08e33d914bb130",
+          "actual_methods": 13,
+          "unittest_seconds": 0.011,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "quote",
+          "actual_original_report": "outputs/v116-cost-quote-focused-scoped-result.json",
+          "report_sha256": "4414001af61b9ffed81200c0438e90a6bf2059631bc670831a9111c3ea72b575",
+          "actual_methods": 37,
+          "unittest_seconds": 1.94,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "proof",
+          "actual_original_report": "outputs/v116-spell-cost-acceptance-final-scoped-result.json",
+          "report_sha256": "bf245e125313fd1758f9ba26e4e0da8022c2a5cec84171178d8da7356c510e2b",
+          "actual_methods": 36,
+          "unittest_seconds": 65.08,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "foreign",
+          "actual_original_report": "outputs/v116-cost-foreign-windows-final-ready.json",
+          "report_sha256": "f788795412e8e64c7d77a6cef591d9d5fc6383bb1af9a256a94d94fe4196a8c9",
+          "actual_methods": 15,
+          "unittest_seconds": 26.94,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "account",
+          "actual_original_report": "outputs/v116-cost-account-boundaries-scoped-result.json",
+          "report_sha256": "19d3b2c25c0501053613051e74233a7cc6a392a2f19d65530520267be64ebd3b",
+          "actual_methods": 9,
+          "unittest_seconds": 55.514,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "native",
+          "actual_original_report": "outputs/v116-root-native-attempt-2-actual-tool-terminal.json",
+          "report_sha256": "c89892d900a3d2b63cb2b7cda4ec0df1cf19fb30f8cc63c552b80745b3653f94",
+          "actual_methods": 1,
+          "unittest_seconds": 14.838,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "bootstrap",
+          "actual_original_report": "outputs/v116-root-bootstrap-attempt-1-actual-tool-terminal.json",
+          "report_sha256": "63a1a4244bf69466643f79704b9eb8a647293d1a8606ae97971eabc783d8341d",
+          "actual_methods": 2,
+          "unittest_seconds": 0.66,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "special_scopes",
+          "actual_original_report": "outputs/v116-root-special-scopes-attempt-1-actual-tool-terminal.json",
+          "report_sha256": "0f0c2a24a7ca2554d8f75cb222f065a7c4f24df1a1e596e262fd434ef493e623",
+          "actual_methods": 3,
+          "unittest_seconds": 0.277,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        },
+        {
+          "scope": "stale",
+          "actual_original_report": "outputs/v116-stale-cost-declaration-green-actual-tool-terminal.json",
+          "report_sha256": "2fd072027ae8c259250409429de9d814ed870dc21971f168a8bc88d02db98515",
+          "actual_methods": 2,
+          "unittest_seconds": 0.091,
+          "source_scope": "original development inputs, not a separate S2 unified suite"
+        }
+      ],
+      "source_authenticity_from_unsigned_saved_states_provided": false,
+      "actual_validation": {
+        "full": 6219,
+        "old_methods_in_full": 6101,
+        "new_methods_in_full": 118,
+        "examples": 100
+      },
+      "actual_validation_seconds": {
+        "full_S2_unittest": 3145.793,
+        "examples_S0_actual_parent_inherited_to_S2": 1791.3439999999246
+      },
+      "actual_execution_origins": {
+        "full": {
+          "stage": "outputs/v116-stage-S2.json",
+          "terminal": "outputs/v116-root-full-S2-actual-tool-terminal.json"
+        },
+        "examples": {
+          "actual_stage": "outputs/v116-stage-S0.json",
+          "inherited_to": "outputs/v116-stage-S2.json",
+          "S2_rerun": false,
+          "terminal": "outputs/v116-root-examples-S0-actual-tool-terminal.json",
+          "inheritance": "outputs/v116-actual100-and-semantic-S0-to-S2-inheritance.json"
+        },
+        "semantic_independent": {
+          "actual_stage": "outputs/v116-stage-S0.json",
+          "inherited_to": "outputs/v116-stage-S2.json",
+          "S2_rerun": false,
+          "result": "outputs/v116-example-semantic-independent-review.json"
+        }
+      },
+      "verification": "outputs/v116-verification.json",
+      "verification_sha256": "2ef9a2bd214a38699181db7a308cf64b01cd0622e6447613553b45085b0a2f4f",
+      "final_gate_evidence_pins": {
+        "outputs/v116-verification.json": "2ef9a2bd214a38699181db7a308cf64b01cd0622e6447613553b45085b0a2f4f",
+        "outputs/v116-root-full-S2-actual-tool-terminal.json": "8f273b484014aa0278e957467f996823dcebdf2b1c661944c0e43b01ae5cfb63",
+        "outputs/v116-fee-full-attempt-2-terminal.json": "fc809516ddd23131c71fb142dd8b5e8dfef6539764ac16b431cb555ff4976b41",
+        "outputs/v116-root-examples-S0-actual-tool-terminal.json": "3ea809c4141c41f53a0caa6ba1faa8dea1f1cb61024376bfc54f02cd9d7c8e15",
+        "outputs/v116-example-exit-codes.json": "b50a9a0f9bcb030acc3074840a98bf7ae3e295ab173d961aa4a1c029f8d546d4",
+        "outputs/v116-actual100-and-semantic-S0-to-S2-inheritance.json": "5f3de563d24b1890544a99d8258ebd41806c500d0c9c5a87343b837e5ba12ce8",
+        "outputs/v116-example-semantic-independent-review.json": "c58903730528ce4fc7f9ea5ccacf14cbe941877f46ea727586b118fd252c5d1b",
+        "outputs/v116-old-tests-S2-final-exact-preservation-check.json": "548c2ecd5e6d525781ee6f673a9bafe494c53c8089fd5591353bbc2451316f67"
+      },
+      "posttested_bookkeeping": true
+    },
+    "owner_turn_history_increment": {
+      "increment": "H1 real owner-turn history and frozen submitted-face query",
+      "implementation": "internally_verified",
+      "validation": "internally_verified",
+      "tests_not_yet_accepted": false,
+      "internal_only": true,
+      "cn_calibrated": false,
+      "formal_pool_complete": false,
+      "full_simulator_goal_complete": false,
+      "runtime": {
+        "engine": 112,
+        "mechanics": "core-effects-v112",
+        "schema": 109,
+        "view": 55,
+        "action": 7,
+        "replay": 1,
+        "representative": 64
+      },
+      "source_freeze": "outputs/v117-stage-S1.json",
+      "source_freeze_sha256": "033e90303785529e9cc08a49e92136ba02f7cd400f7f6a8d413a2f82aaba0e98",
+      "contract": "docs/m5-owner-turn-history.md",
+      "rule_assumption": "R-158",
+      "query_profile": "owner-turn.latest-closed-v1",
+      "scope": "real owner-turn interval ledger and frozen successful physical hand submission faces; pure full-row previous closed own-turn query",
+      "typed_owner_intervals": true,
+      "start_and_publication_are_distinct": true,
+      "typed_lethal_start_interruption": true,
+      "pre_first_opening_has_no_owner_interval": true,
+      "hand_submitter_and_actual_turn_owner_are_distinct": true,
+      "frozen_submitted_face_before_payment": true,
+      "all_true_false_rows_validated_before_aggregation": true,
+      "unknown_metadata_explicit_error": true,
+      "single_spell_school_exact_matching_only": true,
+      "six_family_original_acceptance_history_prefix": true,
+      "progress_capture_and_forward_transition_action_clock_guards": true,
+      "true_Rewind_restores_original_timeline": true,
+      "omniscient_history_exposed_in_player_view": false,
+      "unsigned_saved_state_external_source_authenticity_provided": false,
+      "H2_intrinsic_history_cost_supported": false,
+      "extra_or_skipped_turn_scheduler_supported": false,
+      "non_spell_full_original_pre_payment_acceptance_proof_supported": false,
+      "automatic_CAST_fee_semantics_supported": false,
+      "other_repeat_family_recipient_cost_matching_supported": false,
+      "new_real_cards": [],
+      "records": 305,
+      "definitions": 306,
+      "choice_only": 14,
+      "mechanism_rows": 100,
+      "representative_package": "representative-m5-v64",
+      "next_work": "H2 ordered intrinsic history costs; preserve other payment/CAST/recipient-cost axes, default same-action nested paid roots, extra/skipped turn scheduling, dynamic bodies/fixed-round producers and M0/M6/M7 obligations. Actual execution position and evidence remain in project-status and mechanism-backlog only.",
+      "actual_validation": {
+        "focused": 62,
+        "old_schema": 17,
+        "full": 6281,
+        "old_methods_in_full": 6219,
+        "new_methods_in_full": 62,
+        "examples": 101,
+        "previous_actual_exports": 317,
+        "current_actual_exports": 323
+      },
+      "actual_validation_seconds": {
+        "focused_S1_unittest": 21.226,
+        "old_schema_S1_unittest": 0.1,
+        "full_S1_unittest": 4088.73,
+        "examples_S1_actual_parent": 1936.5183844000567
+      },
+      "actual_execution_origins": {
+        "full": {
+          "stage": "outputs/v117-stage-S1.json",
+          "result": "outputs/v117-h1-full-attempt-1-terminal.json",
+          "actual_tool_terminal": "outputs/v117-root-H1-full6281-actual-tool-terminal.json"
+        },
+        "examples": {
+          "actual_stage": "outputs/v117-stage-S1.json",
+          "inherited_from_old_execution": false,
+          "result": "outputs/v117-examples-attempt-1-terminal.json",
+          "actual_tool_terminal": "outputs/v117-root-examples-attempt-1-actual-tool-terminal.json"
+        },
+        "semantic_independent": {
+          "result": "outputs/v117-h1-semantic-complete-review-attempt-3.json"
+        },
+        "old_tests_preservation": {
+          "result": "outputs/v117-root-H1-final-source-tests-history-aggregate.json"
+        },
+        "source_history": {
+          "result": "outputs/v117-root-H1-final-source-tests-history-aggregate.json"
+        }
+      },
+      "verification": "outputs/v117-verification.json",
+      "verification_sha256": "674e2709e44f32de4d4c553144c2aa190b1a7898d37a83e16c6409b0197d6078",
+      "final_gate_evidence_pins": {
+        "outputs/v117-verification.json": "674e2709e44f32de4d4c553144c2aa190b1a7898d37a83e16c6409b0197d6078",
+        "outputs/v117-stage-S1.json": "033e90303785529e9cc08a49e92136ba02f7cd400f7f6a8d413a2f82aaba0e98",
+        "outputs/v117-h1-full-attempt-1-terminal.json": "5a8ab0a83f094d007846104868cfe592f8262f77ba5774445a3f4d1253cdecfd",
+        "outputs/v117-examples-attempt-1-terminal.json": "a948d2916aecbe69bd14a42dcbb86164ea551e5ef1e6040eee106c3b7398eb86",
+        "outputs/v117-h1-focused-attempt-1-terminal.json": "9df47a9066c7c1234103ea81f221bea80cc0afa509076af12387f9ed0731a657",
+        "outputs/v117-h1-focused-attempt-2-terminal.json": "5d9ecc500696584400880a742997d561057ad8bc8be1e43651994a70e4bd44c1",
+        "outputs/v117-root-H1-full6281-actual-tool-terminal.json": "8379fe9ff76156c90045a6f21fd23616cdce4da5e0441a1fe1321a9dfcd4fbfb",
+        "outputs/v117-root-examples-attempt-1-actual-tool-terminal.json": "5a6f22ce73abd758fc147b3e3036c9e6739cbe8307291f6f0d6ad88271af56d1",
+        "outputs/v117-h1-semantic-complete-review-attempt-3.json": "93d5f139b484c5034c5446df26c31b2841bed1ba53bf9ab3dd30b28cef63b08d",
+        "outputs/v117-root-H1-final-source-tests-history-aggregate.json": "8e203cabf27d06fffea670aa929919db33fcde25e6dd1fdbec2d9d805814a863"
+      },
+      "posttested_bookkeeping": true
+    }
+  }
+}

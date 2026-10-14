@@ -1,0 +1,350 @@
+{
+  "profile": "minion-subtype-basics-raw-v1",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "REV_245",
+      "data": {
+        "id": "REV_245",
+        "dbf_id": 77055,
+        "name": "灾祸降临",
+        "name_en": "Impending Catastrophe",
+        "text": "抽一张牌。你每控制一个小鬼，重复一次。",
+        "text_en": "Draw a card. Repeat for each Imp you control.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 4,
+          "COST": 2,
+          "CARDTYPE": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "90e54f623de3b8d44e96b8adf7fb0d6f2893c9bf456f7bea7896b4887a83797b"
+    },
+    {
+      "id": "EX1_598",
+      "data": {
+        "id": "EX1_598",
+        "dbf_id": 76,
+        "name": "小鬼",
+        "name_en": "Imp",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "IMP": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "5c950c72b1e8e7cc09efd1b567dfaa671b9804e33734f9a941a3cd5d5c5bdb8d"
+    },
+    {
+      "id": "ds1_whelptoken",
+      "data": {
+        "id": "ds1_whelptoken",
+        "dbf_id": 54,
+        "name": "雏龙",
+        "name_en": "Whelp",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "251": 3,
+          "WHELP": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "759893d81fa775bd9d57a8437d354e0c83badbd9a8c6f628cf4d49cdbb70d3ee"
+    },
+    {
+      "id": "ONY_004",
+      "data": {
+        "id": "ONY_004",
+        "dbf_id": 71333,
+        "name": "团本首领奥妮克希亚",
+        "name_en": "Raid Boss Onyxia",
+        "text": "<b>突袭</b>。当你控制着雏龙时<b>免疫</b>。<b>战吼：</b>召唤六条2/1并具有<b>突袭</b>的雏龙。",
+        "text_en": "[x]<b>Rush</b>. <b>Immune</b> while\nyou control a Whelp.\n<b>Battlecry:</b> Summon six\n_2/1 Whelps with <b>Rush</b>.",
+        "cost": 10,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COST": 10,
+          "CARDTYPE": 4,
+          "ATK": 8,
+          "HEALTH": 8,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1,
+          "CARDRACE": 24,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71299
+        },
+        "reference_tags": [
+          {
+            "tag": "IMMUNE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000315,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "64c873dbbdf5df96e9ee6050ef6fd6f0aee42f026e410b1819c0fc55fbe7b706"
+    },
+    {
+      "id": "REV_835",
+      "data": {
+        "id": "REV_835",
+        "dbf_id": 78363,
+        "name": "小鬼大王拉法姆",
+        "name_en": "Imp King Rafaam",
+        "text": "<b>战吼：</b>复活四个友方小鬼。<b>注能（@）：</b>使你的小鬼获得+2/+2。",
+        "text_en": "<b>Battlecry:</b> Resurrect\nfour friendly Imps.\n<b>Infuse (@):</b> Give your\nImps +2/+2.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "ATK": 6,
+          "HEALTH": 6,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 78367,
+          "COLLECTIBLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 5,
+          "BATTLECRY": 1,
+          "INFUSE": 1,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "1ceef8335bac247674eca4509c6305c2d36d9f285e377f861cf0e4b5a10b825c"
+    },
+    {
+      "id": "GIL_681",
+      "data": {
+        "id": "GIL_681",
+        "dbf_id": 49502,
+        "name": "梦魇融合怪",
+        "name_en": "Nightmare Amalgam",
+        "text": "<i>本随从拥有全部随从类型。</i>",
+        "text_en": "<i>This has all minion types.</i>",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 3,
+          "HEALTH": 4,
+          "ELITE": 0,
+          "CARDRACE": 26
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000357,
+          "craftingEvent": 10000358,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "150a1285a22a8c517884ed98051f6261aa9b403dd9446f12b17e2fdbd01e3fda"
+    },
+    {
+      "id": "CS2_065",
+      "data": {
+        "id": "CS2_065",
+        "dbf_id": 48,
+        "name": "虚空行者",
+        "name_en": "Voidwalker",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 9,
+          "COST": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "251": 9,
+          "268": 2,
+          "TAUNT": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "data_sha256": "373dc073ca56fec2afb834c8d11a55bf8868d2f161ec8539ae7a367f6e4f57b7"
+    }
+  ],
+  "new_real_card_adapters": [
+    "REV_245",
+    "EX1_598",
+    "ds1_whelptoken"
+  ],
+  "official_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23763644",
+      "supports": "Raid Boss Onyxia has a Whelp-specific condition; not a condition on all Dragons or a timing proof."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/cards/78363-imp-king-rafaam?set=murder-at-castle-nathria",
+      "supports": "Official search-indexed card text identifies Imps; direct page body is JS-only, no membership/timing calibration claimed."
+    }
+  ],
+  "policy": "Finite printed subtypes imp/whelp are independent of ordinary tribes/factions/names. Explicit known empty versus unknown, shared pure minion and pool metadata queries, no all-tribe wildcard or subtype grants. Original physical copying/silence/control/transform/read receipts keep existing lifecycles.",
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "all_subtypes_exhausted": false
+}

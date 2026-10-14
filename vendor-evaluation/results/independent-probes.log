@@ -1,0 +1,8 @@
+C:\Users\Administrator\Documents\ChatGPT\¯ʯģ����\vendor-evaluation\fireplaceAharaLab\fireplaceAharaLab\fireplace\__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+{'name': 'fireball_six_damage', 'observed': 24, 'expected': 24, 'match': True}
+{'name': 'vampiric_blood_full_health_no_corpses', 'observed': {'health': 30, 'max_health': 30, 'corpses': 0, 'hand_delta': 0}, 'expected': {'health': 35, 'max_health': 35, 'corpses': 0, 'hand_delta': 0}, 'match': False}
+{'name': 'vampiric_blood_full_health_three_corpses', 'observed': {'health': 30, 'max_health': 30, 'corpses': 0, 'hand_delta': 1}, 'expected': {'health': 40, 'max_health': 40, 'corpses': 0, 'hand_delta': 1}, 'match': False}
+{'name': 'corpse_explosion_continues_after_first_death', 'observed': {'weak_dead': True, 'strong_health': 4, 'corpses': 2}, 'expected': {'weak_dead': True, 'strong_health': 2, 'corpses': 0}, 'match': False}
+{'name': 'constructed_deck_validation', 'observed': 'accepted', 'expected': 'rejected by deck validation', 'match': False}
+{'name': 'clone_preserves_deathknight_corpses', 'observed': {'original': 7, 'clone': 0}, 'expected': {'original': 7, 'clone': 7}, 'match': False}

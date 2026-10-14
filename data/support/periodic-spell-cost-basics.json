@@ -1,0 +1,71 @@
+{
+  "profile": "periodic-accepted-physical-spell-cost-v1",
+  "records": [
+    {
+      "id": "BT_255",
+      "dbf_id": 56622,
+      "name": "凯尔萨斯·逐日者",
+      "name_en": "Kael'thas Sunstrider",
+      "text": "在每回合中，你每施放三个法术，第三个法术的法力值消耗为（1）点。",
+      "text_en": "Every third spell you cast each turn costs (1).",
+      "cost": 6,
+      "attack": 4,
+      "health": 7,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 5,
+        "COST": 6,
+        "CARDTYPE": 4,
+        "ATK": 4,
+        "HEALTH": 7,
+        "COLLECTIBLE": 1,
+        "ELITE": 1,
+        "AURA": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000302,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "CN_calibrated": false,
+  "formal_pool_verified": false,
+  "source": "Complete local record from data/support/periodic-play-turn-cost-basics.json",
+  "source_pin": "1ad581cc25921e0a17135cac8658563883cb8206d00f6db15d1e1a903c3839de",
+  "official_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23797160/23-0-3-patch-notes",
+      "published": "2022-04-26",
+      "supports": "Third spell cost changed from 0 to 1; no exact current CN counting-window evidence"
+    },
+    {
+      "url": "https://news.blizzard.com/en-gb/article/23494815/18-0-2-patch-notes",
+      "published": "2020-08-17",
+      "supports": "Historical third spell costs 1, not 0"
+    }
+  ],
+  "policy": "Ordinal from the complete physical CAST prefix, current actual turn and payer, accepted payloads of all existing origins. Pending/unaccepted, countered and no-target attempts do not count. The candidate is ordinal prior_count+1. This is explicit local policy inferred from cast wording, not official CN timing calibration.",
+  "existing_gap": "Periodic declaration rejects SPELL. Paid-hand prefix cannot represent effect/draw/history roots or separate repeats; no dedicated new account/module is needed.",
+  "new_source_experimental_adapters": 1,
+  "new_production_adapters": 0,
+  "new_state_fields": 2,
+  "new_runtime_modules": 0,
+  "new_combinations": 0
+}

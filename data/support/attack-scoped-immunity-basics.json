@@ -1,0 +1,6269 @@
+{
+  "profile": "attack-scoped-immunity-basics-raw-v1",
+  "local_build": "36.6.0.251952",
+  "locale": "zhCN",
+  "source_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+  "records": [
+    {
+      "id": "DS1_188",
+      "dbf_id": 311,
+      "name": "角斗士的长弓",
+      "name_en": "Gladiator's Longbow",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": 7,
+      "attack": 5,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": true,
+      "tags": {
+        "RARITY": 4,
+        "CLASS": 3,
+        "COST": 7,
+        "ATK": 5,
+        "CARDTYPE": 7,
+        "FACTION": 3,
+        "251": 8,
+        "COLLECTIBLE": 1,
+        "HEALTH": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAC_410t",
+      "dbf_id": 107903,
+      "name": "愤怒的小鸟",
+      "name_en": "Angry Bird",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 3,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "COST": 3,
+        "ATK": 3,
+        "HEALTH": 3,
+        "CARDRACE": 20,
+        "CARDTYPE": 4,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_321",
+      "dbf_id": 62892,
+      "name": "麻痹药膏",
+      "name_en": "Paralytic Poison",
+      "text": "使你的武器获得+1攻击力和“你的英雄在攻击时<b>免疫</b>。”",
+      "text_en": "[x]Give your weapon +1\nAttack and \"Your hero is\n<b>Immune</b> while attacking.\"",
+      "cost": 1,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 7,
+        "RARITY": 3,
+        "COST": 1,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "1623": 1,
+        "SPELL_SCHOOL": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000369,
+        "craftingEvent": 10000372,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BAR_321e",
+      "dbf_id": 62900,
+      "name": "麻痹药膏",
+      "name_en": "Paralytic Poison",
+      "text": "+1攻击力和攻击时<b>免疫</b>。",
+      "text_en": "+1 Attack and <b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG24_004",
+      "dbf_id": 92413,
+      "name": "折跃之翼",
+      "name_en": "Warpwing",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": 12,
+      "health": 4,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 10,
+        "CARDTYPE": 4,
+        "CARDRACE": 24,
+        "TECH_LEVEL": 6,
+        "BACON_SUBSET_DRAGON": 1,
+        "BACON_TRIPLE_UPGRADE_MINION_ID": 92422,
+        "ATK": 12,
+        "HEALTH": 4,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "ELITE": 1,
+        "IS_BACON_POOL_MINION": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG24_004_G",
+      "dbf_id": 92422,
+      "name": "折跃之翼",
+      "name_en": "Warpwing",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": 24,
+      "health": 8,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 10,
+        "CARDTYPE": 4,
+        "CARDRACE": 24,
+        "TECH_LEVEL": 6,
+        "ATK": 24,
+        "HEALTH": 8,
+        "PREMIUM": 1,
+        "BACON_TRIPLED_BASE_MINION_ID": 92413,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "ELITE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG31_HERO_811t8",
+      "dbf_id": 120381,
+      "name": "飞蛇",
+      "name_en": "Viper",
+      "text": "<b>烈毒</b>。攻击时免疫。<i>（每回合变异！）</i>@<b>烈毒</b>。攻击时免疫。",
+      "text_en": "<b>Venomous\nImmune</b> while attacking.\n<i>(Morphs each turn!)</i>@<b>Venomous\nImmune</b> while attacking.",
+      "cost": null,
+      "attack": 2,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "ATK": 2,
+        "HEALTH": 2,
+        "ZERG": 1,
+        "CARDTYPE": 4,
+        "TECH_LEVEL": 3,
+        "BACON_TRIPLE_UPGRADE_MINION_ID": 120382,
+        "VENOMOUS": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "TRIGGER_VISUAL": 1,
+        "2769": 1,
+        "1724": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "VENOMOUS",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG31_HERO_811t8_G",
+      "dbf_id": 120382,
+      "name": "飞蛇",
+      "name_en": "Viper",
+      "text": "<b>烈毒</b>。攻击时免疫。<i>（每回合变异！）</i>@<b>烈毒</b>。攻击时免疫。",
+      "text_en": "<b>Venomous\nImmune</b> while attacking.\n<i>(Morphs each turn!)</i>@<b>Venomous\nImmune</b> while attacking.",
+      "cost": null,
+      "attack": 4,
+      "health": 4,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "TECH_LEVEL": 3,
+        "ATK": 4,
+        "HEALTH": 4,
+        "ZERG": 1,
+        "CARDTYPE": 4,
+        "VENOMOUS": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "PREMIUM": 1,
+        "BACON_TRIPLED_BASE_MINION_ID": 120381,
+        "TRIGGER_VISUAL": 1,
+        "2769": 1,
+        "2768": 1,
+        "1724": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "VENOMOUS",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG34_Treasure_990",
+      "dbf_id": 127134,
+      "name": "时空扭曲飞蛇",
+      "name_en": "Timewarped Viper",
+      "text": "<b>烈毒</b>。攻击时<b>免疫</b>。",
+      "text_en": "<b>Venomous\nImmune</b> while attacking.",
+      "cost": 1,
+      "attack": 8,
+      "health": 8,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "ATK": 8,
+        "HEALTH": 8,
+        "CARDTYPE": 4,
+        "TECH_LEVEL": 5,
+        "2769": 1,
+        "VENOMOUS": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "1724": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "COST": 1,
+        "4408": 0,
+        "4467": 0,
+        "4463": 0,
+        "ZERG": 1,
+        "BACON_TRIPLE_UPGRADE_MINION_ID": 127785,
+        "BACON_TIMEWARPED": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "VENOMOUS",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG34_Treasure_990_G",
+      "dbf_id": 127785,
+      "name": "时空扭曲飞蛇",
+      "name_en": "Timewarped Viper",
+      "text": "<b>烈毒</b>。攻击时<b>免疫</b>。",
+      "text_en": "<b>Venomous\nImmune</b> while attacking.",
+      "cost": 1,
+      "attack": 16,
+      "health": 16,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "TECH_LEVEL": 5,
+        "ATK": 16,
+        "HEALTH": 16,
+        "ZERG": 1,
+        "CARDTYPE": 4,
+        "PREMIUM": 1,
+        "BACON_TRIPLED_BASE_MINION_ID": 127134,
+        "2769": 1,
+        "2768": 1,
+        "VENOMOUS": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "1724": 1,
+        "COST": 1,
+        "BACON_TIMEWARPED": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "VENOMOUS",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "1724",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG36_MidGameEffect_000t60",
+      "dbf_id": 132833,
+      "name": "无懈可击",
+      "name_en": "Invulnerability",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 5,
+        "IS_NIGHTMARE_BONUS": 1,
+        "HIDE_COST": 1,
+        "4853": 12,
+        "4855": 1,
+        "4856": 50,
+        "4874": 1,
+        "4921": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BG36_MidGameEffect_000t60e",
+      "dbf_id": 132834,
+      "name": "无懈可击",
+      "name_en": "Invulnerability",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 1,
+        "IS_NIGHTMARE_BONUS": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "BOM_01_Garrosh_08p",
+      "dbf_id": 67698,
+      "name": "装备血吼",
+      "name_en": "Equip Gorehowl",
+      "text": "装备血吼。你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Equip Gorehowl.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 4,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 10,
+        "CARDTYPE": 10,
+        "COLLECTIBLE": 0,
+        "FACTION": 3,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "COST": 4
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CORE_LOOT_222",
+      "dbf_id": 86543,
+      "name": "蜡烛弓",
+      "name_en": "Candleshot",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": 1,
+      "attack": 1,
+      "health": 3,
+      "type": "WEAPON",
+      "collectible": true,
+      "tags": {
+        "CLASS": 3,
+        "RARITY": 1,
+        "CARDTYPE": 7,
+        "COST": 1,
+        "ATK": 1,
+        "COLLECTIBLE": 1,
+        "858": 45537,
+        "HEALTH": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CORE_TOY_102",
+      "dbf_id": 112099,
+      "name": "人类步兵",
+      "name_en": "Footman",
+      "text": "<b>嘲讽</b>。相邻随从在攻击时<b>免疫</b>。",
+      "text_en": "<b>Taunt</b>\nAdjacent minions are <b>Immune</b> while attacking.",
+      "cost": 4,
+      "attack": 2,
+      "health": 5,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 3,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 2,
+        "HEALTH": 5,
+        "COLLECTIBLE": 1,
+        "HAS_SIGNATURE_QUALITY": 1,
+        "858": 109166,
+        "AURA": 1,
+        "TAUNT": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        },
+        {
+          "tag": "TAUNT",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": 164,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "CRED_336",
+      "dbf_id": 110531,
+      "name": "Cynthia Park",
+      "name_en": "Cynthia Park",
+      "text": "<b>嘲讽</b>。<b>战吼：</b>召唤一只2/2的小猫宝丽。每当友方角色被攻击时，获得<b>圣盾</b>和<b>免疫</b>。   ",
+      "text_en": "[x]<b>Taunt.</b> <b>Battlecry:</b> Summon a\n2/2 Bori. Whenever friendly\ncharacters are attacked, gain\n<b>      Divine Shield</b> and <b>Immune</b>.   ",
+      "cost": 7,
+      "attack": 7,
+      "health": 7,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "ELITE": 1,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 7,
+        "HEALTH": 7
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_723",
+      "dbf_id": 54402,
+      "name": "超级能量枪",
+      "name_en": "Hyperblaster",
+      "text": "<b>剧毒</b>\n你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "<b>Poisonous</b>.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 1,
+      "health": 5,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "ATK": 1,
+        "POISONOUS": 1,
+        "COST": 3,
+        "HIDE_WATERMARK": 1,
+        "HEALTH": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "POISONOUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DALA_723e",
+      "dbf_id": 56345,
+      "name": "超级能量枪附加效果",
+      "name_en": "Hyperblaster Enchantment",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DINO_136",
+      "dbf_id": 118503,
+      "name": "盛宴之角",
+      "name_en": "Horn of Feasting",
+      "text": "召唤三只2/1并具有<b>突袭</b>的迅猛龙。<b>流放：</b>使其在本回合中获得攻击时<b>免疫</b>。",
+      "text_en": "Summon three\n2/1 Raptors with <b>Rush</b>.\n<b>Outcast:</b> Give them <b>Immune</b>\nwhile attacking this turn.",
+      "cost": 4,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 14,
+        "RARITY": 1,
+        "COST": 4,
+        "CARDTYPE": 5,
+        "COLLECTIBLE": 1,
+        "MINI_SET": 1,
+        "OUTCAST": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "OUTCAST",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "OUTCAST",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [
+        118502
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000370,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DINO_136e",
+      "dbf_id": 126207,
+      "name": "进食",
+      "name_en": "Feasting",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRGA_BOSS_22t",
+      "dbf_id": 58316,
+      "name": "屠龙巨弓",
+      "name_en": "Dragonslayer's Greatbow",
+      "text": "无法攻击英雄。你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Can't attack heroes.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 5,
+      "attack": 12,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 7,
+        "COST": 5,
+        "ATK": 12,
+        "HIDE_WATERMARK": 1,
+        "HEALTH": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DRGA_BOSS_22t4",
+      "dbf_id": 60775,
+      "name": "屠龙巨弓",
+      "name_en": "Dragonslayer's Greatbow",
+      "text": "无法攻击英雄。你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Can't attack heroes.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 5,
+      "attack": 6,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 7,
+        "COST": 5,
+        "ATK": 6,
+        "HIDE_WATERMARK": 1,
+        "HEALTH": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "DS1_188e",
+      "dbf_id": 40197,
+      "name": "角斗士的长弓附加效果",
+      "name_en": "Gladiator's Longbow enchantment",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "GDB_230",
+      "dbf_id": 110910,
+      "name": "坚定的复仇者",
+      "name_en": "Stalwart Avenger",
+      "text": "攻击时<b>免疫</b>。\n在每个回合结束时，本随从的攻击力和生命值互换。",
+      "text_en": "<b>Immune</b> while attacking.\nAt the end of EACH turn, swap this minion's Attack and Health.",
+      "cost": 4,
+      "attack": 7,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 10,
+        "RARITY": 4,
+        "COLLECTIBLE": 1,
+        "COST": 4,
+        "CARDTYPE": 4,
+        "ATK": 7,
+        "HEALTH": 2,
+        "CARDRACE": 2,
+        "TRIGGER_VISUAL": 1,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETLT_054_02",
+      "dbf_id": 77965,
+      "name": "飞掠攻击",
+      "name_en": "Flyby Attack",
+      "text": "<b>攻击</b>一个敌人，<b>攻击</b>时<b>免疫</b>。然后使你的所有角色获得+2攻击力。",
+      "text_en": "<b>Attack</b> an enemy with \"<b>Immune</b> while <b>Attacking</b>.\" Then give +2 Attack to all of_your characters.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "FACTION": 3,
+        "CARDTYPE": 23,
+        "COST": 2,
+        "1726": 1,
+        "1679": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETLT_112_01",
+      "dbf_id": 83850,
+      "name": "雷矛羊骑兵",
+      "name_en": "Stormpike Ramrider",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking",
+      "cost": 4,
+      "attack": 5,
+      "health": 20,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 3,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 5,
+        "HEALTH": 20,
+        "FACTION": 2,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 2,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276_01",
+      "dbf_id": 71419,
+      "name": "原始之力1",
+      "name_en": "Primal Power 1",
+      "text": "使一只友方野兽获得+@攻击力，且在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Give a friendly Beast +@ Attack and <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "SPELL_SCHOOL": 4,
+        "2609": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276_02",
+      "dbf_id": 71418,
+      "name": "原始之力2",
+      "name_en": "Primal Power 2",
+      "text": "使一只友方野兽获得+@攻击力，且在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Give a friendly Beast +@ Attack and <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "SPELL_SCHOOL": 4,
+        "2609": 2,
+        "TAG_SCRIPT_DATA_NUM_1": 8
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276_03",
+      "dbf_id": 70886,
+      "name": "原始之力3",
+      "name_en": "Primal Power 3",
+      "text": "使一只友方野兽获得+@攻击力，且在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Give a friendly Beast +@ Attack and <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "SPELL_SCHOOL": 4,
+        "2609": 3,
+        "TAG_SCRIPT_DATA_NUM_1": 11
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276_04",
+      "dbf_id": 76835,
+      "name": "原始之力4",
+      "name_en": "Primal Power 4",
+      "text": "使一只友方野兽获得+@攻击力，且在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Give a friendly Beast +@ Attack and <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "SPELL_SCHOOL": 4,
+        "2609": 4,
+        "TAG_SCRIPT_DATA_NUM_1": 13
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276_05",
+      "dbf_id": 76836,
+      "name": "原始之力{0}",
+      "name_en": "Primal Power {0}",
+      "text": "使一只友方野兽获得+@攻击力，且在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Give a friendly Beast +@ Attack and <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "SPELL_SCHOOL": 4,
+        "2609": 5,
+        "LETTUCE_ABILITY_TIER": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 15
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_276e2",
+      "dbf_id": 70895,
+      "name": "原始之力",
+      "name_en": "Primal Power",
+      "text": "在本回合中，攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_534_01",
+      "dbf_id": 76089,
+      "name": "精魂之刃",
+      "name_en": "Spirit Blade",
+      "text": "<b>被动：</b>攻击时<b>免疫</b>。",
+      "text_en": "<b>Passive:</b> <b>Immune</b> while Attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "HIDE_COST": 1,
+        "CARDTYPE": 23,
+        "LETTUCE_PASSIVE_ABILITY": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_534e",
+      "dbf_id": 76090,
+      "name": "精魂之刃",
+      "name_en": "Spirit Blade",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while Attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_842H3",
+      "dbf_id": 80318,
+      "name": "食人魔步兵",
+      "name_en": "Ogre Brute",
+      "text": "<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while\n<b>Attacking</b>.",
+      "cost": 10,
+      "attack": 25,
+      "health": 150,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_MERCENARY": 1,
+        "CARDTYPE": 4,
+        "COST": 10,
+        "ATK": 25,
+        "HEALTH": 150,
+        "LETTUCE_ROLE": 3,
+        "CARDRACE": 19,
+        "RARITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_856H",
+      "dbf_id": 85121,
+      "name": "空军指挥官艾克曼",
+      "name_en": "Wing Commander Ichman",
+      "text": "<b>被动：</b>被<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>把他从天上打下来！",
+      "text_en": "<b>Passive:</b> <b>Immune</b> while being <b>Attacked</b>. \n<b>Deathrattle:</b> Knock him out of the air!",
+      "cost": 7,
+      "attack": 15,
+      "health": 250,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 15,
+        "HEALTH": 250,
+        "CARDRACE": 6,
+        "LETTUCE_ROLE": 2,
+        "LETTUCE_MERCENARY": 1,
+        "DEATHRATTLE": 1,
+        "FACTION": 2,
+        "LETTUCE_FACTION": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_856H2",
+      "dbf_id": 85120,
+      "name": "艾克曼",
+      "name_en": "Ichman",
+      "text": "<b>被动：</b>被攻击时<b>免疫</b>。<b>突袭</b>。",
+      "text_en": "<b>Passive:</b> <b>Immune</b> while being Attacked. <b>Rush</b>. ",
+      "cost": 7,
+      "attack": 25,
+      "health": 90,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 25,
+        "HEALTH": 90,
+        "CARDRACE": 6,
+        "LETTUCE_ROLE": 2,
+        "RUSH": 1,
+        "LETTUCE_MERCENARY": 1,
+        "FACTION": 2,
+        "LETTUCE_FACTION": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_856e3",
+      "dbf_id": 85851,
+      "name": "联盟领空",
+      "name_en": "Alliance Skies",
+      "text": "被攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while being Attacked.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "FACTION": 3
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_859P2",
+      "dbf_id": 85179,
+      "name": "联盟获胜",
+      "name_en": "Alliance Victory!",
+      "text": "获得+@攻击力和<b>攻击</b>时<b>免疫</b>，<b>攻击</b>所有敌人。",
+      "text_en": "Gain +@ Attack and <b>Immune</b> while <b>Attacking</b>.\n<b>Attack</b>_all_enemies.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 3,
+        "TAG_SCRIPT_DATA_NUM_1": 100
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_859P2e",
+      "dbf_id": 85180,
+      "name": "",
+      "name_en": "Alliance Victory!",
+      "text": "",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "FACTION": 3,
+        "CARDTYPE": 6,
+        "COST": 3
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_958_01",
+      "dbf_id": 78864,
+      "name": "闪避{0}",
+      "name_en": "Evasion {0}",
+      "text": "<b>被动：</b>被攻击时<b>免疫</b>。",
+      "text_en": "<b>Passive:</b> <b>Immune</b> while being Attacked.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "FACTION": 3,
+        "CARDTYPE": 23,
+        "HIDE_STATS": 1,
+        "LETTUCE_PASSIVE_ABILITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_958e",
+      "dbf_id": 78865,
+      "name": "闪避",
+      "name_en": "Evasion",
+      "text": "被攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while being Attacked.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "FACTION": 3
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_959_01",
+      "dbf_id": 78866,
+      "name": "精魂之刃{0}",
+      "name_en": "Spirit Blade {0}",
+      "text": "<b>被动：</b>+@攻击力。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Passive:</b> +@ Attack. <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "FACTION": 3,
+        "CARDTYPE": 23,
+        "HIDE_STATS": 1,
+        "LETTUCE_PASSIVE_ABILITY": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LETL_959e2",
+      "dbf_id": 78867,
+      "name": "精魂之刃",
+      "name_en": "Spirit Blade",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6,
+        "FACTION": 3
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LOOT_222",
+      "dbf_id": 45537,
+      "name": "蜡烛弓",
+      "name_en": "Candleshot",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": 1,
+      "attack": 1,
+      "health": 3,
+      "type": "WEAPON",
+      "collectible": true,
+      "tags": {
+        "CLASS": 3,
+        "COLLECTIBLE": 1,
+        "RARITY": 1,
+        "CARDTYPE": 7,
+        "COST": 1,
+        "ATK": 1,
+        "HEALTH": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000339,
+        "craftingEvent": 10000340,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003_01",
+      "dbf_id": 77683,
+      "name": "辅助打击1",
+      "name_en": "Assisted Strike 1",
+      "text": "每有一个友方海盗便获得+{0}攻击力，并随机<b>攻击</b>一个敌人。<b>连击：</b>在本回合中<b>攻击</b>时获得<b>免疫</b>。",
+      "text_en": "Gain +{0} Attack for each\nfriendly Pirate and\n<b>Attack</b> a random enemy.\n<b>Combo</b>: Gain <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "1672": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 1,
+        "COMBO": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "COMBO",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003_02",
+      "dbf_id": 77687,
+      "name": "辅助打击2",
+      "name_en": "Assisted Strike 2",
+      "text": "每有一个友方海盗便获得+{0}攻击力，并随机<b>攻击</b>一个敌人。<b>连击：</b>在本回合中<b>攻击</b>时获得<b>免疫</b>。",
+      "text_en": "Gain +{0} Attack for each\nfriendly Pirate and\n<b>Attack</b> a random enemy.\n<b>Combo</b>: Gain <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "1672": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "COMBO": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "COMBO",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003_03",
+      "dbf_id": 77688,
+      "name": "辅助打击3",
+      "name_en": "Assisted Strike 3",
+      "text": "每有一个友方海盗便获得+{0}攻击力，并随机<b>攻击</b>一个敌人。<b>连击：</b>在本回合中<b>攻击</b>时获得<b>免疫</b>。",
+      "text_en": "Gain +{0} Attack for each\nfriendly Pirate and\n<b>Attack</b> a random enemy.\n<b>Combo</b>: Gain <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "1672": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "COMBO": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "COMBO",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003_04",
+      "dbf_id": 77689,
+      "name": "辅助打击4",
+      "name_en": "Assisted Strike 4",
+      "text": "每有一个友方海盗便获得+{0}攻击力，并随机<b>攻击</b>一个敌人。<b>连击：</b>在本回合中<b>攻击</b>时获得<b>免疫</b>。",
+      "text_en": "Gain +{0} Attack for each\nfriendly Pirate and\n<b>Attack</b> a random enemy.\n<b>Combo</b>: Gain <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "1672": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "COMBO": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "COMBO",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003_05",
+      "dbf_id": 77690,
+      "name": "辅助打击{0}",
+      "name_en": "Assisted Strike {0}",
+      "text": "每有一个友方海盗便获得+{0}攻击力，并随机<b>攻击</b>一个敌人。<b>连击：</b>在本回合中<b>攻击</b>时获得<b>免疫</b>。",
+      "text_en": "Gain +{0} Attack for each\nfriendly Pirate and\n<b>Attack</b> a random enemy.\n<b>Combo</b>: Gain <b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "1672": 1,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "COMBO": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 5,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "COMBO",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_003e2",
+      "dbf_id": 80606,
+      "name": "辅助打击",
+      "name_en": "Assisted Strike",
+      "text": "在本回合中，攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1_01",
+      "dbf_id": 81937,
+      "name": "天空守卫1",
+      "name_en": "Sky Guard 1",
+      "text": "获得+@攻击力并<b>攻击</b>一个敌人。如果目标是海盗，则在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "[x]Gain +@ Attack and\n<b>Attack</b> an enemy.\nIf it's a Pirate, gain <b>Immune</b>\nwhile <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1_02",
+      "dbf_id": 81936,
+      "name": "天空守卫2",
+      "name_en": "Sky Guard 2",
+      "text": "获得+@攻击力并<b>攻击</b>一个敌人。如果目标是海盗，则在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "[x]Gain +@ Attack and\n<b>Attack</b> an enemy.\nIf it's a Pirate, gain <b>Immune</b>\nwhile <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1_03",
+      "dbf_id": 81935,
+      "name": "天空守卫3",
+      "name_en": "Sky Guard 3",
+      "text": "获得+@攻击力并<b>攻击</b>一个敌人。如果目标是海盗，则在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "[x]Gain +@ Attack and\n<b>Attack</b> an enemy.\nIf it's a Pirate, gain <b>Immune</b>\nwhile <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1_04",
+      "dbf_id": 81934,
+      "name": "天空守卫4",
+      "name_en": "Sky Guard 4",
+      "text": "获得+@攻击力并<b>攻击</b>一个敌人。如果目标是海盗，则在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "[x]Gain +@ Attack and\n<b>Attack</b> an enemy.\nIf it's a Pirate, gain <b>Immune</b>\nwhile <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1_05",
+      "dbf_id": 81017,
+      "name": "天空守卫{0}",
+      "name_en": "Sky Guard {0}",
+      "text": "获得+@攻击力并<b>攻击</b>一个敌人。如果目标是海盗，则在本回合中<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "[x]Gain +@ Attack and\n<b>Attack</b> an enemy.\nIf it's a Pirate, gain <b>Immune</b>\nwhile <b>Attacking</b> this turn.",
+      "cost": 5,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 23,
+        "COST": 5,
+        "TAG_SCRIPT_DATA_NUM_1": 5,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT21_07P1e2",
+      "dbf_id": 81877,
+      "name": "广阔空域",
+      "name_en": "Open Skies",
+      "text": "<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2_01",
+      "dbf_id": 84018,
+      "name": "吃炸鸡1",
+      "name_en": "Get Chicken 1",
+      "text": "获得+@生命值，且在下个回合<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Gain +@ Health and become <b>Immune</b> while <b>Attacking</b> next turn.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "TAG_SCRIPT_DATA_NUM_1": 2,
+        "CARDTYPE": 23,
+        "COST": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2_02",
+      "dbf_id": 84021,
+      "name": "吃炸鸡2",
+      "name_en": "Get Chicken 2",
+      "text": "获得+@生命值，且在下个回合<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Gain +@ Health and become <b>Immune</b> while <b>Attacking</b> next turn.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "TAG_SCRIPT_DATA_NUM_1": 4,
+        "CARDTYPE": 23,
+        "COST": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2_03",
+      "dbf_id": 84022,
+      "name": "吃炸鸡3",
+      "name_en": "Get Chicken 3",
+      "text": "获得+@生命值，且在下个回合<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Gain +@ Health and become <b>Immune</b> while <b>Attacking</b> next turn.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "TAG_SCRIPT_DATA_NUM_1": 6,
+        "CARDTYPE": 23,
+        "COST": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2_04",
+      "dbf_id": 84023,
+      "name": "吃炸鸡4",
+      "name_en": "Get Chicken 4",
+      "text": "获得+@生命值，且在下个回合<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Gain +@ Health and become <b>Immune</b> while <b>Attacking</b> next turn.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "TAG_SCRIPT_DATA_NUM_1": 8,
+        "CARDTYPE": 23,
+        "COST": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2_05",
+      "dbf_id": 84024,
+      "name": "吃炸鸡{0}",
+      "name_en": "Get Chicken {0}",
+      "text": "获得+@生命值，且在下个回合<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Gain +@ Health and become <b>Immune</b> while <b>Attacking</b> next turn.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "TAG_SCRIPT_DATA_NUM_1": 10,
+        "CARDTYPE": 23,
+        "COST": 2,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT22_015P2e2",
+      "dbf_id": 84020,
+      "name": "正在吃鸡",
+      "name_en": "Eating Chicken",
+      "text": "在本回合中，<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while <b>Attacking</b> this turn.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 6
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_003E1e",
+      "dbf_id": 92893,
+      "name": "广阔海域",
+      "name_en": "Open Seas",
+      "text": "<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "TAG_ONE_TURN_EFFECT": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [
+        {
+          "tag": "TAG_ONE_TURN_EFFECT",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022E1_01",
+      "dbf_id": 90508,
+      "name": "勾住船员1",
+      "name_en": "Hook the Crew 1",
+      "text": "眼魔船工和眼魔船长召唤的海盗拥有+@生命值，且<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Pirates summoned by Eye Matey and Eye Cap'n have +@ Health and are <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022E1_02",
+      "dbf_id": 90509,
+      "name": "勾住船员2",
+      "name_en": "Hook the Crew 2",
+      "text": "眼魔船工和眼魔船长召唤的海盗拥有+@生命值，且<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Pirates summoned by Eye Matey and Eye Cap'n have +@ Health and are <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022E1_03",
+      "dbf_id": 90510,
+      "name": "勾住船员3",
+      "name_en": "Hook the Crew 3",
+      "text": "眼魔船工和眼魔船长召唤的海盗拥有+@生命值，且<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Pirates summoned by Eye Matey and Eye Cap'n have +@ Health and are <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022E1_04",
+      "dbf_id": 90511,
+      "name": "勾住船员{0}",
+      "name_en": "Hook the Crew {0}",
+      "text": "眼魔船工和眼魔船长召唤的海盗拥有+@生命值，且<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "Pirates summoned by Eye Matey and Eye Cap'n have +@ Health and are <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 5,
+        "LETTUCE_EQUIPMENT_TIER": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P1_01",
+      "dbf_id": 90479,
+      "name": "眼魔船工1",
+      "name_en": "Eye Matey 1",
+      "text": "<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>的海盗恶魔。@<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔。",
+      "text_en": "<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b>.@<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 7,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 2,
+        "TAG_SCRIPT_DATA_NUM_2": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P1_02",
+      "dbf_id": 90486,
+      "name": "眼魔船工2",
+      "name_en": "Eye Matey 2",
+      "text": "<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>的海盗恶魔。@<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔。",
+      "text_en": "<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b>.@<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 7,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 4,
+        "TAG_SCRIPT_DATA_NUM_2": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P1_03",
+      "dbf_id": 90487,
+      "name": "眼魔船工3",
+      "name_en": "Eye Matey 3",
+      "text": "<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>的海盗恶魔。@<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔。",
+      "text_en": "<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b>.@<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 7,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 6,
+        "TAG_SCRIPT_DATA_NUM_2": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P1_04",
+      "dbf_id": 90488,
+      "name": "眼魔船工4",
+      "name_en": "Eye Matey 4",
+      "text": "<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>的海盗恶魔。@<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔。",
+      "text_en": "<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b>.@<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 7,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 8,
+        "TAG_SCRIPT_DATA_NUM_2": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P1_05",
+      "dbf_id": 90489,
+      "name": "眼魔船工{0}",
+      "name_en": "Eye Matey {0}",
+      "text": "<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>的海盗恶魔。@<b>攻击</b>一个敌人。召唤一个{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔。",
+      "text_en": "<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b>.@<b>Attack</b> an enemy. Summon a {0}/{1} Pirate Demon with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 7,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 10,
+        "TAG_SCRIPT_DATA_NUM_2": 5,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P2_01",
+      "dbf_id": 90482,
+      "name": "眼魔船长1",
+      "name_en": "Eye Cap'n 1",
+      "text": "用{0}/{1}并具有<b>突袭</b>的海盗恶魔填满你的面板。@用{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔填满你的面板。",
+      "text_en": "Fill your board with {0}/{1} Pirate Demons with <b>Rush</b>.@Fill your board with {0}/{1} Pirate Demons with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 9,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 9,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 2,
+        "TAG_SCRIPT_DATA_NUM_2": 1,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "1672": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P2_02",
+      "dbf_id": 90490,
+      "name": "眼魔船长2",
+      "name_en": "Eye Cap'n 2",
+      "text": "用{0}/{1}并具有<b>突袭</b>的海盗恶魔填满你的面板。@用{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔填满你的面板。",
+      "text_en": "Fill your board with {0}/{1} Pirate Demons with <b>Rush</b>.@Fill your board with {0}/{1} Pirate Demons with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 9,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 9,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 4,
+        "TAG_SCRIPT_DATA_NUM_2": 2,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "1672": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P2_03",
+      "dbf_id": 90491,
+      "name": "眼魔船长3",
+      "name_en": "Eye Cap'n 3",
+      "text": "用{0}/{1}并具有<b>突袭</b>的海盗恶魔填满你的面板。@用{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔填满你的面板。",
+      "text_en": "Fill your board with {0}/{1} Pirate Demons with <b>Rush</b>.@Fill your board with {0}/{1} Pirate Demons with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 9,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 9,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 6,
+        "TAG_SCRIPT_DATA_NUM_2": 3,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "1672": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P2_04",
+      "dbf_id": 90492,
+      "name": "眼魔船长4",
+      "name_en": "Eye Cap'n 4",
+      "text": "用{0}/{1}并具有<b>突袭</b>的海盗恶魔填满你的面板。@用{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔填满你的面板。",
+      "text_en": "Fill your board with {0}/{1} Pirate Demons with <b>Rush</b>.@Fill your board with {0}/{1} Pirate Demons with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 9,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 9,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 8,
+        "TAG_SCRIPT_DATA_NUM_2": 4,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "1672": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022P2_05",
+      "dbf_id": 90493,
+      "name": "眼魔船长{0}",
+      "name_en": "Eye Cap'n {0}",
+      "text": "用{0}/{1}并具有<b>突袭</b>的海盗恶魔填满你的面板。@用{0}/{1}并具有<b>突袭</b>，且<b>攻击</b>时<b>免疫</b>的海盗恶魔填满你的面板。",
+      "text_en": "Fill your board with {0}/{1} Pirate Demons with <b>Rush</b>.@Fill your board with {0}/{1} Pirate Demons with <b>Rush</b> and <b>Immune</b> while <b>Attacking</b>.",
+      "cost": 9,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 9,
+        "1679": 1,
+        "TAG_SCRIPT_DATA_NUM_1": 10,
+        "TAG_SCRIPT_DATA_NUM_2": 5,
+        "LETTUCE_COOLDOWN_CONFIG": 1,
+        "1672": 1,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022PmE_01",
+      "dbf_id": 90472,
+      "name": "小帕奇1",
+      "name_en": "Patchling 1",
+      "text": "<b>突袭</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Rush</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 4,
+      "attack": 2,
+      "health": 1,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 15,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 2,
+        "HEALTH": 1,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 6
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022PmE_02",
+      "dbf_id": 90473,
+      "name": "小帕奇2",
+      "name_en": "Patchling 2",
+      "text": "<b>突袭</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Rush</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 4,
+      "attack": 4,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 15,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 4,
+        "HEALTH": 2,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 6
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022PmE_03",
+      "dbf_id": 90474,
+      "name": "小帕奇3",
+      "name_en": "Patchling 3",
+      "text": "<b>突袭</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Rush</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 4,
+      "attack": 6,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 15,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 6,
+        "HEALTH": 3,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 6
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022PmE_04",
+      "dbf_id": 90475,
+      "name": "小帕奇4",
+      "name_en": "Patchling 4",
+      "text": "<b>突袭</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Rush</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 4,
+      "attack": 8,
+      "health": 4,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 15,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 8,
+        "HEALTH": 4,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 6
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_022PmE_05",
+      "dbf_id": 90476,
+      "name": "小帕奇{0}",
+      "name_en": "Patchling {0}",
+      "text": "<b>突袭</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Rush</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 4,
+      "attack": 10,
+      "health": 5,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 15,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 10,
+        "HEALTH": 5,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_FACTION": 6,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1_01",
+      "dbf_id": 87103,
+      "name": "恩佐斯的子嗣1",
+      "name_en": "Spawn of N'Zoth 1",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。@<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.@<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 5,
+      "attack": 5,
+      "health": 5,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 87095,
+        "CARDRACE": 93,
+        "ATK": 5,
+        "HEALTH": 5,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1_02",
+      "dbf_id": 87105,
+      "name": "恩佐斯的子嗣2",
+      "name_en": "Spawn of N'Zoth 2",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。@<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.@<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 5,
+      "attack": 9,
+      "health": 9,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 87099,
+        "CARDRACE": 93,
+        "ATK": 9,
+        "HEALTH": 9,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1_03",
+      "dbf_id": 87106,
+      "name": "恩佐斯的子嗣3",
+      "name_en": "Spawn of N'Zoth 3",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。@<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.@<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 5,
+      "attack": 12,
+      "health": 12,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 87100,
+        "CARDRACE": 93,
+        "ATK": 12,
+        "HEALTH": 12,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1_04",
+      "dbf_id": 87107,
+      "name": "恩佐斯的子嗣4",
+      "name_en": "Spawn of N'Zoth 4",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。@<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.@<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 5,
+      "attack": 14,
+      "health": 14,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 87101,
+        "CARDRACE": 93,
+        "ATK": 14,
+        "HEALTH": 14,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1_05",
+      "dbf_id": 87108,
+      "name": "恩佐斯的子嗣{0}",
+      "name_en": "Spawn of N'Zoth {0}",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。@<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.@<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 5,
+      "attack": 15,
+      "health": 15,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 87102,
+        "CARDRACE": 93,
+        "ATK": 15,
+        "HEALTH": 15,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_01",
+      "dbf_id": 87095,
+      "name": "恩佐斯的子嗣1",
+      "name_en": "Spawn of N'Zoth 1",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": 5,
+      "health": 5,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 5,
+        "HEALTH": 5,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_01b",
+      "dbf_id": 91217,
+      "name": "恩佐斯的子嗣1",
+      "name_en": "Spawn of N'Zoth 1",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 7,
+      "attack": 5,
+      "health": 5,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 5,
+        "HEALTH": 5,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "DEATHRATTLE": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_02",
+      "dbf_id": 87099,
+      "name": "恩佐斯的子嗣2",
+      "name_en": "Spawn of N'Zoth 2",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": 9,
+      "health": 9,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 9,
+        "HEALTH": 9,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_02b",
+      "dbf_id": 91218,
+      "name": "恩佐斯的子嗣2",
+      "name_en": "Spawn of N'Zoth 2",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 7,
+      "attack": 9,
+      "health": 9,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 9,
+        "HEALTH": 9,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "DEATHRATTLE": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_03",
+      "dbf_id": 87100,
+      "name": "恩佐斯的子嗣3",
+      "name_en": "Spawn of N'Zoth 3",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": 12,
+      "health": 12,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 12,
+        "HEALTH": 12,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_03b",
+      "dbf_id": 91219,
+      "name": "恩佐斯的子嗣3",
+      "name_en": "Spawn of N'Zoth 3",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 7,
+      "attack": 12,
+      "health": 12,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 12,
+        "HEALTH": 12,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "DEATHRATTLE": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_04",
+      "dbf_id": 87101,
+      "name": "恩佐斯的子嗣4",
+      "name_en": "Spawn of N'Zoth 4",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": 14,
+      "health": 14,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 14,
+        "HEALTH": 14,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_04b",
+      "dbf_id": 91220,
+      "name": "恩佐斯的子嗣4",
+      "name_en": "Spawn of N'Zoth 4",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 7,
+      "attack": 14,
+      "health": 14,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 14,
+        "HEALTH": 14,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "DEATHRATTLE": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_05",
+      "dbf_id": 87102,
+      "name": "恩佐斯的子嗣{0}",
+      "name_en": "Spawn of N'Zoth {0}",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.",
+      "cost": 7,
+      "attack": 15,
+      "health": 15,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 15,
+        "HEALTH": 15,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_025P1m_05b",
+      "dbf_id": 91221,
+      "name": "恩佐斯的子嗣{0}",
+      "name_en": "Spawn of N'Zoth {0}",
+      "text": "<b>冲锋</b>。<b>攻击</b>时<b>免疫</b>。<b>亡语：</b>随机使一个友方角色获得+{0}/+{1}。",
+      "text_en": "<b>Charge</b>.\n<b>Immune</b> while <b>Attacking</b>.\n<b>Deathrattle:</b> Give a random friendly character +{0}/+{1}.",
+      "cost": 7,
+      "attack": 15,
+      "health": 15,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDRACE": 93,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 7,
+        "ATK": 15,
+        "HEALTH": 15,
+        "FACTION": 3,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "DEATHRATTLE": 1,
+        "LETTUCE_CHARGE": 1,
+        "LETTUCE_FACTION": 3,
+        "LETTUCE_ABILITY_TIER": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_CHARGE",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT23_807H",
+      "dbf_id": 87316,
+      "name": "珊瑚元素",
+      "name_en": "Coral Elemental",
+      "text": "<b>攻击</b>时<b>免疫</b>。在本角色受到伤害后，随机<b>攻击</b>一个敌人。",
+      "text_en": "<b>Immune</b> while <b>Attacking</b>.\nAfter this takes damage, <b>Attack</b> a random enemy.",
+      "cost": null,
+      "attack": 1,
+      "health": 100,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDRACE": 18,
+        "ELITE": 1,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 4,
+        "TRIGGER_VISUAL": 1,
+        "ATK": 1,
+        "HEALTH": 100,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_016E3_04",
+      "dbf_id": 93022,
+      "name": "恶魔护甲{0}",
+      "name_en": "Demon Armor {0}",
+      "text": "<b>被动：</b>你的恶魔拥有“<b>攻击</b>时<b>免疫</b>。”",
+      "text_en": "<b>Passive:</b> Your Demons have \"<b>Immune</b> while <b>Attacking</b>.\"",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "LETTUCE_IS_EQUPIMENT": 1,
+        "CARDTYPE": 23,
+        "HIDE_COST": 1,
+        "LETTUCE_EQUIPMENT_TIER": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_021T1_01a",
+      "dbf_id": 94417,
+      "name": "骑士",
+      "name_en": "Knight",
+      "text": "攻击时<b>免疫</b>。<b>战吼：</b><b>攻击</b>最左边和最右边的敌人。",
+      "text_en": "<b>Immune</b> while Attacking.\n<b>Battlecry:</b> <b>Attack</b> the left and right-most enemies.",
+      "cost": 5,
+      "attack": 15,
+      "health": 20,
+      "type": "LETTUCE_ABILITY",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 23,
+        "COST": 5,
+        "ATK": 15,
+        "HEALTH": 20,
+        "LETTUCE_ABILITY_SUMMONED_MINION": 94418
+      },
+      "reference_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_021T1_01am",
+      "dbf_id": 94418,
+      "name": "骑士",
+      "name_en": "Knight",
+      "text": "<b>攻击</b>时<b>免疫</b>。<b>战吼：</b><b>攻击</b>最左边和最右边的敌人。",
+      "text_en": "<b>Immune</b> while <b>Attacking</b>.\n<b>Battlecry:</b> <b>Attack</b> the left and right-most enemies.",
+      "cost": 5,
+      "attack": 15,
+      "health": 20,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CARDTYPE": 4,
+        "COST": 5,
+        "ATK": 15,
+        "HEALTH": 20,
+        "BATTLECRY": 1,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "BATTLECRY",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_814H4",
+      "dbf_id": 90553,
+      "name": "大灰狼",
+      "name_en": "Big Bad Wolf",
+      "text": "所有角色在<b>攻击</b>时<b>免疫</b>。",
+      "text_en": "All characters are <b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": 20,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "HEALTH": 20,
+        "ELITE": 1,
+        "LETTUCE_MERCENARY": 1,
+        "LETTUCE_ROLE": 2,
+        "AURA": 1,
+        "CARDRACE": 12
+      },
+      "reference_tags": [
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_814H4e",
+      "dbf_id": 90554,
+      "name": "",
+      "name_en": "What Big Immune You Have",
+      "text": "",
+      "text_en": "<b>Immune</b> while <b>Attacking</b>.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_INVISIBLE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "LT24_821H4",
+      "dbf_id": 93290,
+      "name": "玛克扎尔的小鬼",
+      "name_en": "Malchezaar's Imp",
+      "text": "<b>突袭</b>，<b>嘲讽</b>，<b>攻击</b>时具有<b>免疫</b>。",
+      "text_en": "<b>Rush</b>, <b>Taunt</b>\n<b>Immune</b> while <b>Attacking</b>",
+      "cost": 1,
+      "attack": 12,
+      "health": 20,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 9,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 1,
+        "ATK": 12,
+        "HEALTH": 20,
+        "CARDRACE": 15,
+        "LETTUCE_ROLE": 1,
+        "LETTUCE_MERCENARY": 1,
+        "RUSH": 1,
+        "TAUNT": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "IMP": 1,
+        "LETTUCE_FACTION": 5
+      },
+      "reference_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "TAUNT",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "LETTUCE_KEYWORD_ATTACK",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "TAUNT",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ONY_005tb1",
+      "dbf_id": 75806,
+      "name": "超级能量枪",
+      "name_en": "Hyperblaster",
+      "text": "<b>剧毒</b>\n你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "<b>Poisonous</b>.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 1,
+      "health": 4,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 3,
+        "ATK": 1,
+        "POISONOUS": 1,
+        "2054": 1,
+        "HEALTH": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "POISONOUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000315,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ONY_005tb1e",
+      "dbf_id": 75807,
+      "name": "超级能量枪附加效果",
+      "name_en": "Hyperblaster Enchantment",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000315,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "PVPDR_SCH_Active51",
+      "dbf_id": 66249,
+      "name": "超级能量枪",
+      "name_en": "Hyperblaster",
+      "text": "<b>剧毒</b>\n你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "<b>Poisonous</b>.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 1,
+      "health": 4,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 3,
+        "ATK": 1,
+        "HIDE_WATERMARK": 1,
+        "POISONOUS": 1,
+        "HEALTH": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "POISONOUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "PVPDR_SCH_Active51e",
+      "dbf_id": 66250,
+      "name": "超级能量枪附加效果",
+      "name_en": "Hyperblaster Enchantment",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6,
+        "HIDE_WATERMARK": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SCH_538",
+      "dbf_id": 60003,
+      "name": "金牌猎手克里",
+      "name_en": "Ace Hunter Kreen",
+      "text": "你的其他角色在攻击时<b>免疫</b>。",
+      "text_en": "Your other characters are <b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 2,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 14,
+        "COLLECTIBLE": 1,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "COST": 3,
+        "ATK": 2,
+        "HEALTH": 4,
+        "MULTIPLE_CLASSES": 8196,
+        "ELITE": 1,
+        "AURA": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 10000349,
+        "craftingEvent": 10000350,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SCH_538e",
+      "dbf_id": 60358,
+      "name": "金牌猎手特训",
+      "name_en": "Ace Hunter's Lesson",
+      "text": "在攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SW_458",
+      "dbf_id": 64965,
+      "name": "山羊坐骑",
+      "name_en": "Ramming Mount",
+      "text": "使一个随从获得+2/+2和攻击时具有<b>免疫</b>。当该随从死亡时，召唤一只山羊。",
+      "text_en": "[x]Give a minion +2/+2\nand <b>Immune</b> while\nattacking. When it dies,\nsummon a Ram.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 3,
+        "RARITY": 3,
+        "CARDTYPE": 5,
+        "COST": 3,
+        "COLLECTIBLE": 1,
+        "COLLECTION_RELATED_CARD_DATABASE_ID": 64966
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "DEATHRATTLE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SW_458e",
+      "dbf_id": 64967,
+      "name": "骑乘山羊",
+      "name_en": "On a Ram",
+      "text": "+2/+2和攻击时<b>免疫</b>。<b>亡语：</b>召唤一只山羊。",
+      "text_en": "+2/+2 and <b>Immune</b> while attacking. <b>Deathrattle:</b> Summon a Ram.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "SW_458t",
+      "dbf_id": 64966,
+      "name": "塔维什的山羊",
+      "name_en": "Tavish's Ram",
+      "text": "在攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": 2,
+      "attack": 2,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 4,
+        "COST": 2,
+        "ATK": 2,
+        "HEALTH": 2,
+        "CARDRACE": 20,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_BaconShop_HERO_08_Buddy",
+      "dbf_id": 77626,
+      "name": "日蚀伊利达雷",
+      "name_en": "Eclipsion Illidari",
+      "text": "你的第一个攻击的\n随从拥有仅在一次攻击中有效的“攻击时<b>免疫</b>”。",
+      "text_en": "[x]Your first minion that\nattacks has \"<b>Immune</b>\nwhile Attacking\" for one\nattack only.",
+      "cost": null,
+      "attack": 6,
+      "health": 3,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "ATK": 6,
+        "HEALTH": 3,
+        "BACON_BUDDY": 1,
+        "TECH_LEVEL": 2,
+        "BACON_TRIPLE_UPGRADE_MINION_ID": 77731,
+        "TRIGGER_VISUAL": 1,
+        "SCORE_VALUE_2": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_BaconShop_HERO_08_Buddy_G",
+      "dbf_id": 77731,
+      "name": "日蚀伊利达雷",
+      "name_en": "Eclipsion Illidari",
+      "text": "你的前两个攻击的\n随从拥有仅在一次攻击中有效的“攻击时<b>免疫</b>”。",
+      "text_en": "[x]Your first two minions that\nattack have \"<b>Immune</b>\nwhile Attacking\" for one\nattack only.",
+      "cost": null,
+      "attack": 12,
+      "health": 6,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "ATK": 12,
+        "HEALTH": 6,
+        "TECH_LEVEL": 2,
+        "BACON_BUDDY": 1,
+        "TRIGGER_VISUAL": 1,
+        "SCORE_VALUE_2": 2,
+        "BACON_TRIPLED_BASE_MINION_ID": 77626,
+        "PREMIUM": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_BaconShop_HERO_08_Buddy_e",
+      "dbf_id": 78157,
+      "name": "黑暗之心",
+      "name_en": "Darkened Heart",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while Attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TB_CoOpv3_101e",
+      "dbf_id": 40524,
+      "name": "团队的力量",
+      "name_en": "Team Player Enchantment",
+      "text": "攻击时<b>免疫</b>",
+      "text_en": "<b>Immune</b> ahile attacking",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 203,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TID_080",
+      "dbf_id": 76261,
+      "name": "墨晕伏击者",
+      "name_en": "Inkveil Ambusher",
+      "text": "<b>潜行</b>。攻击时拥有+3攻击力和<b>免疫</b>。",
+      "text_en": "<b>Stealth</b>\nHas +3 Attack and <b>Immune</b> while attacking. ",
+      "cost": 2,
+      "attack": 1,
+      "health": 2,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 7,
+        "RARITY": 3,
+        "CARDTYPE": 4,
+        "COST": 2,
+        "ATK": 1,
+        "HEALTH": 2,
+        "CARDRACE": 92,
+        "COLLECTIBLE": 1,
+        "STEALTH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "MINI_SET": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "STEALTH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000298,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TID_080e2",
+      "dbf_id": 79989,
+      "name": "染墨",
+      "name_en": "Inked",
+      "text": "在攻击时+3攻击力和<b>免疫</b>。",
+      "text_en": "<b>Immune</b> and +3 Attack while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000298,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TID_712t",
+      "dbf_id": 75584,
+      "name": "耐普图隆之手",
+      "name_en": "Neptulon's Hand",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": 4,
+      "attack": 4,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "CARDRACE": 18,
+        "ATK": 4,
+        "HEALTH": 2,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "COLOSSAL_LIMB": 1,
+        "ELITE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000298,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TID_712t2",
+      "dbf_id": 80016,
+      "name": "耐普图隆之手",
+      "name_en": "Neptulon's Hand",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": 4,
+      "attack": 4,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 4,
+        "HEALTH": 2,
+        "CARDRACE": 18,
+        "IMMUNE_WHILE_ATTACKING": 1,
+        "COLOSSAL_LIMB": 1,
+        "ELITE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": 10000298,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TOY_102",
+      "dbf_id": 109166,
+      "name": "人类步兵",
+      "name_en": "Footman",
+      "text": "<b>嘲讽</b>。相邻随从在攻击时<b>免疫</b>。",
+      "text_en": "<b>Taunt</b>\nAdjacent minions are <b>Immune</b> while attacking.",
+      "cost": 4,
+      "attack": 2,
+      "health": 5,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 3,
+        "CARDTYPE": 4,
+        "COST": 4,
+        "ATK": 2,
+        "HEALTH": 5,
+        "COLLECTIBLE": 1,
+        "AURA": 1,
+        "TAUNT": 1,
+        "HAS_SIGNATURE_QUALITY": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "AURA",
+          "value": 1
+        },
+        {
+          "tag": "TAUNT",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TOY_102e",
+      "dbf_id": 109167,
+      "name": "步兵的保护",
+      "name_en": "Footman's Protection",
+      "text": "攻击时<b>免疫</b>。",
+      "text_en": "<b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 6
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TSC_007",
+      "dbf_id": 71695,
+      "name": "潜水跳板船员",
+      "name_en": "Gangplank Diver",
+      "text": "<b>休眠</b>1回合。<b>突袭</b>。攻击时具有<b>免疫</b>。",
+      "text_en": "<b>Dormant</b> for 1 turn.\n<b>Rush</b>. <b>Immune</b> while attacking.",
+      "cost": 5,
+      "attack": 6,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 12,
+        "RARITY": 1,
+        "CARDTYPE": 4,
+        "COST": 5,
+        "ATK": 6,
+        "HEALTH": 4,
+        "CARDRACE": 23,
+        "COLLECTIBLE": 1,
+        "1652": 1,
+        "RUSH": 1,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        },
+        {
+          "tag": "DORMANT",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "RUSH",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TSC_218",
+      "dbf_id": 73723,
+      "name": "赛丝诺女士",
+      "name_en": "Lady S'theno",
+      "text": "攻击时<b>免疫</b>。在你施放一个法术后，攻击生命值最低的敌人。",
+      "text_en": "[x]<b>Immune</b> while attacking.\nAfter you cast a spell, attack\nthe lowest Health enemy.",
+      "cost": 3,
+      "attack": 1,
+      "health": 4,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "CLASS": 14,
+        "COLLECTIBLE": 1,
+        "ELITE": 1,
+        "RARITY": 5,
+        "CARDTYPE": 4,
+        "COST": 3,
+        "ATK": 1,
+        "HEALTH": 4,
+        "CARDRACE": 92,
+        "TRIGGER_VISUAL": 1,
+        "IMMUNE_WHILE_ATTACKING": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "TRIGGER_VISUAL",
+          "value": 1
+        },
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_060t9",
+      "dbf_id": 100075,
+      "name": "莱登的电光",
+      "name_en": "Spark of Ra-den",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 5,
+        "HIDE_COST": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE_WHILE_ATTACKING",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_092e3",
+      "dbf_id": 97525,
+      "name": "身手矫健",
+      "name_en": "Swiftness",
+      "text": "+2攻击力和攻击时<b>免疫</b>。",
+      "text_en": "+2 Attack and <b>Immune</b> while attacking.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 1,
+        "ENCHANTMENT_IDLE_VISUAL": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "TTN_092t3",
+      "dbf_id": 97521,
+      "name": "迅疾挥剑",
+      "name_en": "Swift Slash",
+      "text": "使你的武器获得+2攻击力和“你的英雄在攻击时<b>免疫</b>。”",
+      "text_en": "[x]Give your weapon +2\nAttack and \"Your hero is\n<b>Immune</b> while attacking.\"",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": false,
+      "tags": {
+        "CLASS": 3,
+        "CARDTYPE": 5,
+        "HIDE_STATS": 1,
+        "ELITE": 1
+      },
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULD_326p",
+      "dbf_id": 54312,
+      "name": "远古刀锋",
+      "name_en": "Ancient Blades",
+      "text": "装备一把3/2的在攻击时<b>免疫</b>的战刃。",
+      "text_en": "[x]Equip a 3/2 Blade with\n<b>Immune</b> while attacking.",
+      "cost": 2,
+      "attack": null,
+      "health": null,
+      "type": "HERO_POWER",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 10,
+        "COST": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "ULD_326t",
+      "dbf_id": 54318,
+      "name": "幻象之刃",
+      "name_en": "Mirage Blade",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": 2,
+      "attack": 3,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 7,
+        "CARDTYPE": 7,
+        "COST": 2,
+        "ATK": 3,
+        "HEALTH": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAC_410",
+      "dbf_id": 106585,
+      "name": "猛禽狂怒",
+      "name_en": "Furious Fowls",
+      "text": "选择一个敌人。召唤两只3/3并具有攻击时<b>免疫</b>的小鸟，攻击选中的敌人。",
+      "text_en": "Choose an enemy. Summon two 3/3 Birds with <b>Immune</b> while attacking to attack it.",
+      "cost": 6,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "CLASS": 3,
+        "RARITY": 3,
+        "CARDTYPE": 5,
+        "COST": 6,
+        "COLLECTIBLE": 1
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [
+        107903
+      ],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAC_464t14",
+      "dbf_id": 111951,
+      "name": "超级能量枪",
+      "name_en": "Hyperblaster",
+      "text": "<b>剧毒</b>\n你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "<b>Poisonous</b>.\nYour hero is <b>Immune</b> while attacking.",
+      "cost": 3,
+      "attack": 1,
+      "health": 4,
+      "type": "WEAPON",
+      "collectible": false,
+      "tags": {
+        "CLASS": 12,
+        "CARDTYPE": 7,
+        "COST": 3,
+        "ATK": 1,
+        "POISONOUS": 1,
+        "3431": 1,
+        "HEALTH": 4
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [
+        {
+          "tag": "POISONOUS",
+          "value": 1
+        }
+      ],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": -1,
+        "craftingEvent": -1,
+        "goldenCraftingEvent": -1,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 164,
+        "battlegroundsEveryGameEvent": 164
+      }
+    },
+    {
+      "id": "VAN_DS1_188",
+      "dbf_id": 69803,
+      "name": "角斗士的长弓",
+      "name_en": "Gladiator's Longbow",
+      "text": "你的英雄在攻击时<b>免疫</b>。",
+      "text_en": "Your hero is <b>Immune</b> while attacking.",
+      "cost": 7,
+      "attack": 5,
+      "health": 2,
+      "type": "WEAPON",
+      "collectible": true,
+      "tags": {
+        "CLASS": 3,
+        "RARITY": 4,
+        "CARDTYPE": 7,
+        "COST": 7,
+        "ATK": 5,
+        "ELITE": 0,
+        "FACTION": 3,
+        "251": 8,
+        "ENCHANTMENT_BIRTH_VISUAL": 0,
+        "ENCHANTMENT_IDLE_VISUAL": 0,
+        "COLLECTIBLE": 1,
+        "858": 311,
+        "HEALTH": 2
+      },
+      "reference_tags": [
+        {
+          "tag": "IMMUNE",
+          "value": 1
+        }
+      ],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "source_events": {
+        "gameplayEvent": 203,
+        "craftingEvent": 164,
+        "goldenCraftingEvent": 164,
+        "signatureCraftingEvent": -1,
+        "diamondCraftingEvent": -1,
+        "featuredCardsEvent": -1,
+        "battlegroundsActiveEvent": 203,
+        "battlegroundsEarlyAccessEvent": 203,
+        "battlegroundsEveryGameEvent": 164
+      }
+    }
+  ],
+  "executable_representatives": [
+    "DS1_188",
+    "VAC_410t"
+  ],
+  "evidence_only": [
+    "BAR_321",
+    "BAR_321e",
+    "BG24_004",
+    "BG24_004_G",
+    "BG31_HERO_811t8",
+    "BG31_HERO_811t8_G",
+    "BG34_Treasure_990",
+    "BG34_Treasure_990_G",
+    "BG36_MidGameEffect_000t60",
+    "BG36_MidGameEffect_000t60e",
+    "BOM_01_Garrosh_08p",
+    "CORE_LOOT_222",
+    "CORE_TOY_102",
+    "CRED_336",
+    "DALA_723",
+    "DALA_723e",
+    "DINO_136",
+    "DINO_136e",
+    "DRGA_BOSS_22t",
+    "DRGA_BOSS_22t4",
+    "DS1_188e",
+    "GDB_230",
+    "LETLT_054_02",
+    "LETLT_112_01",
+    "LETL_276_01",
+    "LETL_276_02",
+    "LETL_276_03",
+    "LETL_276_04",
+    "LETL_276_05",
+    "LETL_276e2",
+    "LETL_534_01",
+    "LETL_534e",
+    "LETL_842H3",
+    "LETL_856H",
+    "LETL_856H2",
+    "LETL_856e3",
+    "LETL_859P2",
+    "LETL_859P2e",
+    "LETL_958_01",
+    "LETL_958e",
+    "LETL_959_01",
+    "LETL_959e2",
+    "LOOT_222",
+    "LT21_003_01",
+    "LT21_003_02",
+    "LT21_003_03",
+    "LT21_003_04",
+    "LT21_003_05",
+    "LT21_003e2",
+    "LT21_07P1_01",
+    "LT21_07P1_02",
+    "LT21_07P1_03",
+    "LT21_07P1_04",
+    "LT21_07P1_05",
+    "LT21_07P1e2",
+    "LT22_015P2_01",
+    "LT22_015P2_02",
+    "LT22_015P2_03",
+    "LT22_015P2_04",
+    "LT22_015P2_05",
+    "LT22_015P2e2",
+    "LT23_003E1e",
+    "LT23_022E1_01",
+    "LT23_022E1_02",
+    "LT23_022E1_03",
+    "LT23_022E1_04",
+    "LT23_022P1_01",
+    "LT23_022P1_02",
+    "LT23_022P1_03",
+    "LT23_022P1_04",
+    "LT23_022P1_05",
+    "LT23_022P2_01",
+    "LT23_022P2_02",
+    "LT23_022P2_03",
+    "LT23_022P2_04",
+    "LT23_022P2_05",
+    "LT23_022PmE_01",
+    "LT23_022PmE_02",
+    "LT23_022PmE_03",
+    "LT23_022PmE_04",
+    "LT23_022PmE_05",
+    "LT23_025P1_01",
+    "LT23_025P1_02",
+    "LT23_025P1_03",
+    "LT23_025P1_04",
+    "LT23_025P1_05",
+    "LT23_025P1m_01",
+    "LT23_025P1m_01b",
+    "LT23_025P1m_02",
+    "LT23_025P1m_02b",
+    "LT23_025P1m_03",
+    "LT23_025P1m_03b",
+    "LT23_025P1m_04",
+    "LT23_025P1m_04b",
+    "LT23_025P1m_05",
+    "LT23_025P1m_05b",
+    "LT23_807H",
+    "LT24_016E3_04",
+    "LT24_021T1_01a",
+    "LT24_021T1_01am",
+    "LT24_814H4",
+    "LT24_814H4e",
+    "LT24_821H4",
+    "ONY_005tb1",
+    "ONY_005tb1e",
+    "PVPDR_SCH_Active51",
+    "PVPDR_SCH_Active51e",
+    "SCH_538",
+    "SCH_538e",
+    "SW_458",
+    "SW_458e",
+    "SW_458t",
+    "TB_BaconShop_HERO_08_Buddy",
+    "TB_BaconShop_HERO_08_Buddy_G",
+    "TB_BaconShop_HERO_08_Buddy_e",
+    "TB_CoOpv3_101e",
+    "TID_080",
+    "TID_080e2",
+    "TID_712t",
+    "TID_712t2",
+    "TOY_102",
+    "TOY_102e",
+    "TSC_007",
+    "TSC_218",
+    "TTN_060t9",
+    "TTN_092e3",
+    "TTN_092t3",
+    "ULD_326p",
+    "ULD_326t",
+    "VAC_410",
+    "VAC_464t14",
+    "VAN_DS1_188"
+  ],
+  "official_sources": [
+    "https://hearthstone.blizzard.com/en-gb/cards/311-gladiators-longbow",
+    "https://hearthstone.blizzard.com/en-us/news/24134638"
+  ],
+  "formal_mode_pool_verified": false,
+  "CN_calibrated": false,
+  "candidate_filter": "Preserve all literal tag and attack-scoped wording matches across all modes; these are candidates, not a closed semantic or legal constructed pool."
+}
