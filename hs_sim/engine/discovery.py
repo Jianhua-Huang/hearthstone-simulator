@@ -1,14 +1,14 @@
 """Repeated version-pool discoveries with explicit delivery timing and receipts."""
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, fields, is_dataclass, replace
 from itertools import permutations
 import json
 
 from .construction import ids, name
-from .effects import AddToHand, ChoiceOption, Effect, RequestChoice
+from .effects import AddToHand, ChoiceOption, Effect, Heal, RequestChoice
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardPreview, CardType, ChoicePurpose, ChoiceResult, CostSpec
+from .model import CardClass, CardPreview, CardType, ChoicePurpose, ChoiceResult, CostSpec, GameState
 from .card_creation import DiscoveryMinionGift
-from .pools import (DiscoverFromPool, generation_candidates, resolve_candidates,
+from .pools import (DiscoverFromPool, GenerationContext, generation_candidates, resolve_candidates,
                     sample_candidates, deliver_generated)
 
 
@@ -74,11 +74,38 @@ class ResolvePoolDiscovery(Effect):
                 len({g.id for g in self.offered_gifts}) != len(self.offered_gifts)):
             raise ValueError('Gift discovery requires different gifts bound to every offered card')
         if self.choice_result is not None:
-            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None):raise ValueError('Actual result requires attributed discovery')
+            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
                 len(self.batch.selections) >= self.batch.spec.discoveries):
             raise ValueError('Discovery selection exceeds its offered batch')
+
+
+@dataclass(frozen=True)
+class HealHeroFromDiscoveredSpell(Effect):
+    discovery: ResolvePoolDiscovery
+    context: GenerationContext
+
+    def __post_init__(self):
+        if type(self.discovery)is not ResolvePoolDiscovery or type(self.context)is not GenerationContext:
+            raise ValueError('Discovered healing requires the original typed selection and context')
+        self.discovery.__post_init__();self.context.__post_init__()
+        if not self.discovery.batch.spec.heal_hero_by_printed_cost or self.discovery.choice_result is None:
+            raise ValueError('Discovered healing requires an actual declared selection result')
+
+
+def validate_cost_healing(registry,effect):
+    effect.__post_init__()
+    validate_selection(registry,effect.context,effect.discovery)
+
+
+def heal_discovered_spell(r,effect):
+    validate_cost_healing(r.registry,effect)
+    if effect.context!=r.game._generation_context:raise ValueError('Discovered healing context changed')
+    spec=effect.discovery.batch.spec
+    if spec.source_id not in r.state.entities:raise ValueError('Discovered healing source does not exist')
+    card=r.registry.card(effect.discovery.selection.card_id)
+    return(Heal(r.player(spec.player_id).hero_id,card.cost,spec.source_id),)
 
 
 def validate_gift_candidates(registry, context, spec, candidates):
@@ -197,15 +224,15 @@ def validate_selection(registry, context, effect):
             validate_pick_gift(registry,spec,DiscoveryPick(cid,effect.selection.hero_class,effect.selection.source_card_id,gift))
         if effect.selection.gift != effect.offered_gifts[offered.index(effect.selection.card_id)]:
             raise ValueError('Selected gift belongs to another offered minion')
-        if effect.choice_result is not None:
-            result=effect.choice_result;choice=result.choice
-            expected=tuple(o.item for o in options_for(registry,batch,offered,
-                effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts))
-            if (choice.purpose!=ChoicePurpose.POOL_DISCOVERY or choice.options!=expected or
-                    (choice.player_id,choice.source_id,choice.prompt,choice.min_count,choice.max_count,choice.repeat_key)!=
-                    (spec.player_id,spec.source_id,spec.prompt,1,1,None) or
-                    result.selected_ids!=(f'generated-{offered.index(effect.selection.card_id)+1}',)):
-                raise ValueError('Gift receipt differs from the actual complete discovery choice/result')
+    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost):
+        result=effect.choice_result;choice=result.choice
+        expected=tuple(o.item for o in options_for(registry,batch,offered,
+            effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts))
+        if (choice.purpose!=ChoicePurpose.POOL_DISCOVERY or choice.options!=expected or
+                (choice.player_id,choice.source_id,choice.prompt,choice.min_count,choice.max_count,choice.repeat_key)!=
+                (spec.player_id,spec.source_id,spec.prompt,1,1,None) or
+                result.selected_ids!=(f'generated-{offered.index(effect.selection.card_id)+1}',)):
+            raise ValueError('Pool receipt differs from the actual complete discovery choice/result')
 
 
 def start(r, effect):
@@ -267,6 +294,8 @@ def resolve_discovery(r, effect):
         reject_ambiguous(r)
     validate_selection(r.registry,r.game._generation_context,effect)
     batch=effect.batch; spec=batch.spec
+    if spec.heal_hero_by_printed_cost and effect.choice_result is None:
+        raise ValueError('Discovery cost healing requires the actual complete choice result')
     if spec.gift_pool is not None:
         if effect.choice_result is None:raise ValueError('Gift delivery requires the actual discovery result')
         from .continuations import FrameCodec
@@ -279,12 +308,27 @@ def resolve_discovery(r, effect):
         from .discovery_summons import select_offer
         delivery=select_offer(r,effect)
     else:delivery=deliver_pick(spec,effect.selection) if spec.delivery=='after_each' else ()
-    return (*delivery,continued)
+    healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
+    return (*delivery,*healing,continued)
 
 
 def validate_boundary(game):
     frame=game._frame; choice=game._state.pending_choice
     if frame is None:return
+    def visit(value,depth=0):
+        from .continuations import FrameCodec
+        if depth>FrameCodec.MAX_DEPTH:raise ValueError('Discovery outcome frame depth exceeded')
+        if type(value)is HealHeroFromDiscoveredSpell:
+            validate_cost_healing(game.registry,value)
+            if value.context!=game._generation_context or value.discovery.batch.spec.source_id not in game._state.entities:
+                raise ValueError('Discovered healing context or source differs from its queued outcome')
+            return
+        if type(value)is GameState:return
+        if type(value)in(tuple,list):
+            for child in value:visit(child,depth+1)
+        elif is_dataclass(value):
+            for field in fields(value):visit(getattr(value,field.name),depth+1)
+    visit(frame)
     for work in (*frame.prefix,*frame.continuation):
         if type(work) is ContinuePoolDiscovery:validate_batch(game.registry,game._generation_context,work)
         if type(work) is ResolvePoolDiscovery:validate_selection(game.registry,game._generation_context,work)
@@ -313,3 +357,4 @@ def register(mechanics):
     mechanics.register_payload_type(DiscoveryPick)
     mechanics.register(ContinuePoolDiscovery,continue_discovery)
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)
+    mechanics.register(HealHeroFromDiscoveredSpell,heal_discovered_spell)

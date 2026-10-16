@@ -4,6 +4,8 @@
 
 固定1188候选的独立PoolQuery字段不依赖可执行覆盖，未知效果仍在完整资格查询后明确失败；有限地标兆示标记及原生连击入口修正见[候选目录契约](m3-candidate-generation-catalog.md)，不据此声明正式标准池完成。
 
+真实发现后的按费用治疗使用原选择收据和有限声明，不扫描后来手牌或私自重建发现；来源、交付反应和恢复边界见[发现费用治疗契约](m3-discovery-cost-healing.md)。
+
 通用构筑生成使用宿主GenerationContext绑定的constructed.cards完整资格池；原生已重组状态在首个入手通知前消费印刷裂变，见[生成与创建契约](m3-combined-shatter-generation.md)。
 
 原致死随从变形从DeathCause取得原身份，再在实际执行时核对完整驻留，交由公共变形生命周期执行；见[原凶手变形契约](m3-native-killer-transform.md)。

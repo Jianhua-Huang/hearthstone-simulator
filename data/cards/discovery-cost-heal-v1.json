@@ -1,0 +1,204 @@
+{
+  "schema": "discovery-cost-heal-v1",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_KAR_057",
+        "dbf_id": 130821,
+        "name": "象牙骑士",
+        "name_en": "Ivory Knight",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。为你的英雄恢复等同于其法力值消耗的生命值。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a spell.\nRestore Health to your hero\nequal to its Cost.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 39439,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 39439
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39439",
+              "type": "Int",
+              "value": "39439"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "18ade6d34511e6dec569f0aa7a74618bd9612278e4cfaa7689192b660e2a695c"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "KAR_057",
+        "dbf_id": 39439,
+        "name": "象牙骑士",
+        "name_en": "Ivory Knight",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。为你的英雄恢复等同于其法力值消耗的生命值。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a spell.\nRestore Health to your hero\nequal to its Cost.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 23,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "fb66f413d5e61ac261de4df043b535d2bf057df2e9eea1a635b1eb18690433dd"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T21:07:41.598573+00:00",
+    "observations": [
+      {
+        "card_id": "CORE_KAR_057",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130821&locale=en_US",
+        "response_file": "official-CORE_KAR_057-en_US.json",
+        "response_sha256": "6c7569e7b5b3f4ff863a70ad28fb0d4ab24caa7af6b788bafa5141740e0de7fb",
+        "face": {
+          "id": 130821,
+          "collectible": 1,
+          "slug": "130821-ivory-knight",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Zoltan Boros",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "Ivory Knight",
+          "text": "<b>Battlecry:</b> <b>Discover</b> a spell. Restore Health to your hero equal to its Cost.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e54f5630606da20466c3b24c606d93b85c67efb0df278de071ba5204472f8896.png",
+          "imageGold": "",
+          "flavorText": "Do <i>NOT</i> call it a \"horse\".",
+          "cropImage": null,
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            102572,
+            39439
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_KAR_057",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130821&locale=zh_CN",
+        "response_file": "official-CORE_KAR_057-zh_CN.json",
+        "response_sha256": "63d28f9f0ac0f2a632c553d411f1f712a9567aa54e977b4834eb162dc12b573c",
+        "face": {
+          "id": 130821,
+          "collectible": 1,
+          "slug": "130821-ivory-knight",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Zoltan Boros",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "象牙骑士",
+          "text": "<b>战吼：</b><b>发现</b>一张法术牌。为你的英雄恢复等同于其法力值消耗的生命值。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91764b838d0ac23b661110353d32088501cca5c8c4d178089f82996ef889c6e5.png",
+          "imageGold": "",
+          "flavorText": "如何骑上去，这是一个问题。",
+          "cropImage": null,
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            102572,
+            39439
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "pool_id": "constructed.cards",
+  "required_generation_context": true,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": [
+    "One ordinary native Battlecry discovers a collectible spell with the existing current hero class query and neutral policy. Explicit host format pool required; no registered-only fallback or production pool.",
+    "Finite discovery continuation binds original ChoiceResult, selected spell, player, source and GenerationContext. After ordinary delivery and its reactions, heal the original actor current hero by the selected spell printed cost using public Heal. Selection, not a later hand/log scan, defines the amount.",
+    "Full hand burns selected material and still permits the accepted healing continuation. Source removal/control change does not change the original actor. Empty pool or no selected card does not heal. Native game-over interruption remains.",
+    "Printed-cost basis, implicit discovery class eligibility, exact acquisition/reaction/healing order and unusual source attribution remain local internal policy pending CN calibration."
+  ]
+}

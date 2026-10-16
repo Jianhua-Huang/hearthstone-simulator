@@ -395,8 +395,18 @@ class DiscoverFromPool(Effect):
     spell_repeat: CardSpellRepeatGrant | None = None
     cause: SummonCause | None = None
     gift_pool: DiscoveryGiftPool | None = None
+    heal_hero_by_printed_cost: bool = False
 
     def __post_init__(self):
+        if type(self.heal_hero_by_printed_cost)is not bool:
+            raise ValueError('Discovery cost healing must be an explicit boolean')
+        if self.heal_hero_by_printed_cost and(
+                self.source_id is None or self.count!=3 or self.discoveries!=1 or type(self.query)is not PoolQuery or
+                self.query.kinds!=(CardType.SPELL,)or self.query.collectible is not True or
+                self.destination!='hand'or self.delivery!='after_each'or not self.replacement or
+                self.cost is not None or self.expires_turn is not None or self.spell_repeat is not None or
+                self.cause is not None or self.gift_pool is not None):
+            raise ValueError('Cost healing requires one ordinary source-bound collectible spell discovery')
         if self.gift_pool is not None:
             if type(self.gift_pool) is not DiscoveryGiftPool:raise ValueError('Expected DiscoveryGiftPool')
             self.gift_pool.__post_init__()
