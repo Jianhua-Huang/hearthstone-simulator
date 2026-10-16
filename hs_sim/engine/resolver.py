@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v409'
+CORE_EFFECTS_VERSION = 'core-effects-v410'
 
 
 class Mechanics:
@@ -2413,9 +2413,10 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_body_grants(mechanics)
     from .body_conditions import register as register_body_conditions
     register_body_conditions(mechanics)
-    from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant
+    from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats
     mechanics.register_payload_type(CardSpellRepeatGrant)
     mechanics.register_payload_type(CreatedMinionGrant)
+    mechanics.register_payload_type(CreatedMinionStats)
     from .dark_gifts import register as register_dark_gifts
     register_dark_gifts(mechanics)
     from .stored_gift_discovery import register as register_stored_gift_discovery

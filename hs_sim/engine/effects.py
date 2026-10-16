@@ -7,7 +7,7 @@ an interpreter; the engine must reject types without a registered interpreter.
 from __future__ import annotations
 from .model import BoardPresenceReference, ChooseBranchSelection, EquippedWeaponReference
 
-from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, validate_declaration,
+from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats, validate_minion_stats, validate_declaration,
     validate_branch_declaration, validate_branch_transfer, validate_minion_grant)
 from dataclasses import dataclass
 from .model import HeroAttackReference
@@ -99,12 +99,14 @@ class AddToHand(Effect):
     minion_grant: CreatedMinionGrant | None = None
     spell_damage: int = 0
     combined_shatter: bool = False
+    minion_stats: CreatedMinionStats | None = None
 
     def __post_init__(self):
         from .card_creation import validate_combined_shatter
         validate_combined_shatter(self.combined_shatter)
         validate_declaration(self.spell_repeat)
         validate_minion_grant(self.minion_grant)
+        validate_minion_stats(self.minion_stats)
         validate_branch_declaration(self.choose_branch, self.card_id)
         _player(self.player_id)
         if type(self.card_id) is not str or not self.card_id.strip():

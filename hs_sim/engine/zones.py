@@ -5,7 +5,7 @@ Captured physical targets include zone/controller/definition guards so later
 reactions cannot pull a departed card back or operate on a different face.
 """
 from .hand_capacity import hand_capacity
-from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, validate_declaration,
+from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats, validate_minion_stats, validate_declaration,
     validate_branch_declaration, validate_minion_grant)
 from dataclasses import dataclass, replace
 
@@ -87,9 +87,11 @@ class AddToDeck(Effect):
     spell_repeat: CardSpellRepeatGrant | None = None
     choose_branch: ChooseBranchSelection | None = None
     minion_grant: CreatedMinionGrant | None = None
+    minion_stats: CreatedMinionStats | None = None
 
     def __post_init__(self):
         validate_minion_grant(self.minion_grant)
+        validate_minion_stats(self.minion_stats)
         validate_declaration(self.spell_repeat)
         validate_branch_declaration(self.choose_branch, self.card_id)
         _player(self.player_id); name(self.card_id, 'card ID'); _source(self.source_id)

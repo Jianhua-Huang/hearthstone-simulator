@@ -4,7 +4,8 @@ Inventories describe rule eligibility independently of executable card coverage.
 Generation rules and declared pool/query exclusions define eligibility, never
 absence from Registry.cards. These are trusted host definitions, not player input.
 """
-from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant, DiscoveryMinionGift, validate_declaration, validate_minion_grant
+from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats, DiscoveryMinionGift,
+                            validate_declaration, validate_minion_grant, validate_minion_stats)
 from dataclasses import dataclass
 
 from .construction import ids, integer, name
@@ -501,10 +502,26 @@ class GenerateFromPool(Effect):
     combined_shatter: bool = False
     temporary_until_turn: int | None = None
     board_position: int | None = None
+    minion_stats: CreatedMinionStats | None = None
+    shuffle_actor_id: int | None = None
 
     def __post_init__(self):
         from .card_creation import validate_combined_shatter
         validate_combined_shatter(self.combined_shatter)
+        validate_minion_stats(self.minion_stats)
+        if self.shuffle_actor_id is not None:
+            _player(self.shuffle_actor_id)
+            if (self.destination != 'deck' or self.position != 'random' or self.source_id is None or
+                    self.minion_stats is None):
+                raise ValueError('Generated numeric shuffle requires its original actor and random deck delivery')
+        if self.minion_stats is not None:
+            if (self.source_id is None or
+                    self.destination not in ('hand','deck') or not self.replacement or
+                    type(self.query) is not PoolQuery or self.query.kinds != (CardType.MINION,) or
+                    self.query.collectible is not True or self.expires_turn is not None or
+                    self.spell_repeat is not None or self.cause is not None or self.producer_profile_id is not None or
+                    self.combined_shatter or self.temporary_until_turn is not None or self.board_position is not None):
+                raise ValueError('Generated minion numeric recipe requires a plain source-bound hand or deck delivery')
         if self.producer_profile_id is not None:
             if type(self.producer_profile_id) is not str or not self.producer_profile_id or self.cause is None or self.destination != 'board':
                 raise ValueError('Logical summon profile requires a named attributed board batch')
@@ -608,11 +625,18 @@ def deliver_generated(effect, selected):
         return tuple(Summon(effect.player_id, card_id) for card_id in selected)
     if effect.destination == 'deck':
         from .zones import AddToDeck
-        return tuple(AddToDeck(effect.player_id, card_id, effect.position, effect.source_id,
-                               effect.cost, effect.expires_turn, spell_repeat=effect.spell_repeat) for card_id in selected)
+        entries = tuple(AddToDeck(effect.player_id, card_id, effect.position, effect.source_id,
+                               effect.cost, effect.expires_turn, spell_repeat=effect.spell_repeat,
+                               minion_grant=getattr(effect,'minion_grant',None),
+                               minion_stats=getattr(effect,'minion_stats',None)) for card_id in selected)
+        if getattr(effect,'shuffle_actor_id',None) is not None:
+            from .deck_shuffles import ShuffleDeckCards
+            return (ShuffleDeckCards(effect.player_id, effect.shuffle_actor_id, entries, effect.source_id),) if entries else ()
+        return entries
     return tuple(AddToHand(effect.player_id, card_id, effect.source_id,
                           cost=effect.cost, expires_turn=effect.expires_turn, spell_repeat=effect.spell_repeat,
                           minion_grant=getattr(effect,'minion_grant',None),
+                          minion_stats=getattr(effect,'minion_stats',None),
                           combined_shatter=getattr(effect,'combined_shatter',False)) for card_id in selected)
 
 

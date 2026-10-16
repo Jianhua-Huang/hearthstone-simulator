@@ -3,7 +3,8 @@ from dataclasses import dataclass, fields, is_dataclass
 
 from .construction import integer, name
 from .errors import ResolutionError
-from .model import CardType, ChooseBranchSelection, Keyword, validate_reborn_policy
+from .model import (CardType, ChooseBranchSelection, Keyword, SummonStats,
+                    validate_reborn_policy, validate_summon_stats)
 
 
 # Only the basic keyword grants required by known constructed Dark Gifts.
@@ -41,6 +42,27 @@ def validate_minion_grant(value):
     if value is not None:
         if type(value) is not CreatedMinionGrant:
             raise ValueError('Expected CreatedMinionGrant')
+        value.__post_init__()
+
+
+@dataclass(frozen=True)
+class CreatedMinionStats:
+    """One numeric recipe for a freshly allocated hand/deck minion."""
+    set_to: SummonStats | None = None
+    double: bool = False
+
+    def __post_init__(self):
+        validate_summon_stats(self.set_to)
+        if type(self.double) is not bool or (self.set_to is not None) == self.double:
+            raise ValueError('Created minion stats require exactly one replacement or doubling')
+        if self.set_to is not None and (self.set_to.attack is None or self.set_to.health is None):
+            raise ValueError('Created minion stats require both Attack and Health')
+
+
+def validate_minion_stats(value):
+    if value is not None:
+        if type(value) is not CreatedMinionStats:
+            raise ValueError('Expected CreatedMinionStats')
         value.__post_init__()
 
 
@@ -137,9 +159,15 @@ def validate_candidates(effect, definitions):
     selection = getattr(effect, 'choose_branch', None)
     grant = getattr(effect, 'minion_grant', None)
     validate_minion_grant(grant)
+    stats = getattr(effect, 'minion_stats', None)
+    validate_minion_stats(stats)
+    if stats is not None and (grant is not None or spec is not None or selection is not None or
+            getattr(effect,'combined_shatter',False) or getattr(effect,'spell_damage',0) or
+            effect.source_id is None):
+        raise ResolutionError('Created minion numeric recipe requires a separate source-bound declaration')
     spell_damage = getattr(effect, 'spell_damage', 0)
     validate_spell_damage_grant(spell_damage, effect.source_id)
-    if spec is None and selection is None and grant is None and not spell_damage and not combined: return
+    if spec is None and selection is None and grant is None and stats is None and not spell_damage and not combined: return
     definitions = tuple(definitions)
     if combined and any(d.kind!=CardType.SPELL or d.shatter is None or Keyword.SHATTER not in d.keywords for d in definitions):
         raise ResolutionError('Every combined Shatter creation candidate must be a native whole spell')
@@ -147,6 +175,8 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
+    if stats is not None and any(d.kind != CardType.MINION for d in definitions):
+        raise ResolutionError('Every created numeric carrier must be a minion')
     if spec is not None and any(d.kind != CardType.SPELL for d in definitions):
         raise ResolutionError('Every created repeat carrier must be a spell')
     if selection is not None:
@@ -157,7 +187,7 @@ def validate_candidates(effect, definitions):
 def validate_creation(state, effect, definitions=()):
     validate_candidates(effect, definitions)
     spec = getattr(effect, 'spell_repeat', None)
-    if (spec is None and getattr(effect, 'minion_grant', None) is None and
+    if (spec is None and getattr(effect, 'minion_grant', None) is None and getattr(effect,'minion_stats',None) is None and
             not getattr(effect, 'spell_damage', 0) and not getattr(effect,'combined_shatter',False)):
         return
     if effect.source_id is not None and effect.source_id not in state.entities:
@@ -185,6 +215,18 @@ def install(state, entity, effect):
     if spell_damage:
         from .stored_spell_damage import attach_local_bonus
         attach_local_bonus(state, entity, spell_damage, effect.source_id)
+    stats = getattr(effect, 'minion_stats', None)
+    if stats is not None:
+        from .lifecycle import attachment_id, refresh_entity
+        from .model import Enchantment
+        if stats.set_to is not None:
+            numeric = dict(set_attack=stats.set_to.attack, set_health=stats.set_to.health)
+        else:
+            # Freeze actual fresh undamaged values once, as DoubleStats does.
+            numeric = dict(attack=entity.attack, health=entity.health)
+        entity.enchantments.append(Enchantment(attachment_id(state), source_id=effect.source_id,
+            label='created_minion_stats', **numeric))
+        refresh_entity(entity)
     grant = getattr(effect, 'minion_grant', None)
     if grant is not None:
         # The generated physical entity is already known, including a burned
