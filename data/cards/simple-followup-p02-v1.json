@@ -1,0 +1,1172 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_416",
+        "dbf_id": 113568,
+        "name": "牧人之杖",
+        "name_en": "Shepherd's Crook",
+        "text": "在你的英雄\n攻击后，召唤一只3/3并<b>休眠</b>2回合的羊。",
+        "text_en": "After your hero attacks, summon a 3/3 Sheep that's <b>Dormant</b> for 2 turns.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 7,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7659f51212d1391dfa7ac5bbd592072ec3908196eef4472fae15c6b696c8c4cd"
+    },
+    {
+      "record": {
+        "id": "TIME_006",
+        "dbf_id": 119541,
+        "name": "镜像维度",
+        "name_en": "Mirror Dimension",
+        "text": "召唤一个0/4并具有<b>嘲讽</b>的随从。如果你的手牌中有龙牌，再召唤一个。",
+        "text_en": "Summon a 0/4 minion with <b>Taunt</b>. If you are holding a Dragon, summon another.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0e56b04e6b5d18610ac39bf92efafed7a62f7ce80de474ffb8c2f0decb0144d9"
+    },
+    {
+      "record": {
+        "id": "TLC_519",
+        "dbf_id": 118580,
+        "name": "潜踪掠食",
+        "name_en": "Ambush Predators",
+        "text": "召唤一只1/1并具有<b>潜行</b>和<b>剧毒</b>的喷毒龙。<b>延系：</b>重复一次。",
+        "text_en": "Summon a 1/1 Spitter with <b>Stealth</b>\nand <b>Poisonous</b>.\n<b>Kindred:</b> Do it again.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b1ed5f3a112c53a418ab6971ccf96ead429d07cf692d2ab4122903ac4a16f061"
+    },
+    {
+      "record": {
+        "id": "TLC_622",
+        "dbf_id": 117917,
+        "name": "城防守卫",
+        "name_en": "City Defenses",
+        "text": "召唤两个0/6并具有<b>嘲讽</b>的守卫。守卫在受到伤害时会获得+1攻击力。",
+        "text_en": "Summon two 0/6 Security with <b>Taunt</b>.\nThey gain +1 Attack\nwhen damaged.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 116796
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a689c97c554776cdee2439aeb36e15e3801b35b6603ab6eb95ea176a0aa5a259"
+    },
+    {
+      "record": {
+        "id": "CATA_586",
+        "dbf_id": 123166,
+        "name": "毁灭之焰",
+        "name_en": "Destructive Blaze",
+        "text": "在本随从受到伤害并存活下来后，召唤一个毁灭之焰。<b>亡语：</b>随机对一个敌人造成2点伤害。",
+        "text_en": "[x]After this survives damage,\nsummon a Destructive Blaze.\n<b>Deathrattle:</b> Deal 2 damage\nto a random enemy.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "f4bcd79713d2cb953f5dc8775acd39685869faf09f019c1bb946414c14542fd6"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_416t",
+        "dbf_id": 115083,
+        "name": "懒洋羊",
+        "name_en": "Sleepy Sheep",
+        "text": "<b>休眠</b>2回合。",
+        "text_en": "<b>Dormant</b> for 2 turns.",
+        "cost": 2,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "1652": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          }
+        ]
+      },
+      "record_sha256": "4a23557a1732068b9eec1b3c3f1b57dc3edbac595af6ac32450e3f66682e4b7a"
+    },
+    {
+      "record": {
+        "id": "TLC_622t",
+        "dbf_id": 116796,
+        "name": "坚毅的守卫",
+        "name_en": "Steadfast Security",
+        "text": "<b>嘲讽</b>\n在本随从受到伤害后，获得+1攻击力。",
+        "text_en": "<b>Taunt</b>\nAfter this takes damage, gain +1 Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "19c0499f0d91f012f639a4af14c6d3b43fac95b31153f2c366e918dfda3399f0"
+    },
+    {
+      "record": {
+        "id": "TLC_519t",
+        "dbf_id": 119664,
+        "name": "喷毒龙",
+        "name_en": "Venomous Spitter",
+        "text": "<b>潜行</b>。<b>剧毒</b>",
+        "text_en": "<b>Stealth</b>\n <b>Poisonous</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "POISONOUS": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "3daa7b95299c8345f2eeb1fb94311989a98cb6cb62f0a6c0699789b13b458517"
+    },
+    {
+      "record": {
+        "id": "TIME_006t1",
+        "dbf_id": 119916,
+        "name": "镜像法师",
+        "name_en": "Mirrored Mage",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": null,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kleston Marques"
+          }
+        ]
+      },
+      "record_sha256": "0f6ef0d029a4ed321e817bd5f21a0f08e5c0af7b5aa76113fdd7da956cc79fa7"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": {
+    "observed_at": "2026-10-16T22:07:24.824566+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_416",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113568&locale=en_US",
+        "sha256": "e2d85fb6064d2c765f151b125a02c2a4ac6f75c4d8dc224e8fc4350f62b48196",
+        "face": {
+          "id": 113568,
+          "collectible": 1,
+          "slug": "113568-shepherds-crook",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Shepherd's Crook",
+          "text": "After your hero attacks, summon a 3/3 Sheep that's <b>Dormant</b> for 2 turns.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48dee89316fe8a363480f75795ffa736cf42636f9f1842bfaf13adf433c59f64.png",
+          "imageGold": "",
+          "flavorText": "Beloved weapon of Little Bo-Sleep.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15d321c3fcff528968fa54fd64cf18d09190180e18b16bedc638aad51e386f32.png",
+          "childIds": [
+            115083
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_416",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=113568&locale=zh_CN",
+        "sha256": "b68aca94264361bcfd3227fec5d5a2d49b0a42d03ea121c874397cf34c65587a",
+        "face": {
+          "id": 113568,
+          "collectible": 1,
+          "slug": "113568-shepherds-crook",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "牧人之杖",
+          "text": "在你的英雄 攻击后，召唤一只3/3并<b>休眠</b>2回合的羊。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb18957ba9ce366bdb535bcf2e7dda162f21e890597592525ad1d04d45bff680.png",
+          "imageGold": "",
+          "flavorText": "催眠专家推荐神器。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15d321c3fcff528968fa54fd64cf18d09190180e18b16bedc638aad51e386f32.png",
+          "childIds": [
+            115083
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_006",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119541&locale=en_US",
+        "sha256": "b8fae1eeeac1921d8ca1ef22439453756b31916d163696511b4c3d6993fd7fa1",
+        "face": {
+          "id": 119541,
+          "collectible": 1,
+          "slug": "119541-mirror-dimension",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 1,
+          "name": "Mirror Dimension",
+          "text": "Summon a 0/4 minion with <b>Taunt</b>. If you are holding a Dragon, summon another.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa8397f052a973b8b17b9c8fb00877350f2e595e0903b75501f1fa59160c8665.png",
+          "imageGold": "",
+          "flavorText": "Also summons two 4/0s.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb299fd5cd514025a83d204c42cc6c354e04ce5cdfe2f5318112d15a34525d66.png",
+          "childIds": [
+            119916
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_006",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=119541&locale=zh_CN",
+        "sha256": "1436fae4f77100362b39c79aafac9bf795f081a5bb735f783e7578ac622a334a",
+        "face": {
+          "id": 119541,
+          "collectible": 1,
+          "slug": "119541-mirror-dimension",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 1,
+          "name": "镜像维度",
+          "text": "召唤一个0/4并具有<b>嘲讽</b>的随从。如果你的手牌中有龙牌，再召唤一个。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a4b0100a647b7554ffc91853a7298ef4562e76ee540a694d69bc4349793ce4f.png",
+          "imageGold": "",
+          "flavorText": "还会召唤两个4/0的镜像。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb299fd5cd514025a83d204c42cc6c354e04ce5cdfe2f5318112d15a34525d66.png",
+          "childIds": [
+            119916
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_008",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119545&locale=en_US",
+        "sha256": "a0ddebd61a4369143b15d44d36e5acae35e69895f3e1d0e4bd5428c2d1e08523",
+        "face": {
+          "id": 119545,
+          "collectible": 1,
+          "slug": "119545-bygone-doomspeaker",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 4,
+          "artistName": "Juan Calle",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Bygone Doomspeaker",
+          "text": "<b>Rewind</b> <b>Battlecry:</b> Both players discard a random card.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9f18465052b470483d6aa8fdebe5a86b62ee8df5c5142e023bcc07dd4e3dc13.png",
+          "imageGold": "",
+          "flavorText": "Let bygones be Doomspeakers.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dafb6ad2ce9b4921de00e0c582281239d9cbf39cc0056fba1bc6294ebbb58bc.png",
+          "keywordIds": [
+            8,
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_008",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=119545&locale=zh_CN",
+        "sha256": "6e3abcb727187451e8d9f50b382df79cb2c37ae34dff787644cc0bb162b26301",
+        "face": {
+          "id": 119545,
+          "collectible": 1,
+          "slug": "119545-bygone-doomspeaker",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 4,
+          "artistName": "Juan Calle",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "过去的末日宣言者",
+          "text": "<b>回溯</b>。<b>战吼：</b>双方玩家各随机弃一张牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7a3e7f597474050438682b7035a26e6a01bf33284e912429c5939233795f9d8.png",
+          "imageGold": "",
+          "flavorText": "过去的……就让他说去吧。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dafb6ad2ce9b4921de00e0c582281239d9cbf39cc0056fba1bc6294ebbb58bc.png",
+          "keywordIds": [
+            8,
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_519",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118580&locale=en_US",
+        "sha256": "560fac8715d128e90df1f11d49d11292997363a0eece00f4d04a77bac51c15c9",
+        "face": {
+          "id": 118580,
+          "collectible": 1,
+          "slug": "118580-ambush-predators",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Gabor Szikszai",
+          "manaCost": 3,
+          "name": "Ambush Predators",
+          "text": "Summon a 1/1 Spitter with <b>Stealth</b> and <b>Poisonous</b>. <b>Kindred:</b> Do it again.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e786247dccdf3e07b34bcd6decafbd85ebbfd554806abfe8c4f2046f42a4221.png",
+          "imageGold": "",
+          "flavorText": "Ah, no wonder YOU'RE extinct.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8577d653db1f9693a00f0554d50c9d13dbf09e708bf3d0472396f1e27d040b85.png",
+          "childIds": [
+            119664
+          ],
+          "keywordIds": [
+            6,
+            32,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_519",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118580&locale=zh_CN",
+        "sha256": "af8cc0e72978484821d3ba09feda435f4d68563ec5b75da7c4000cfcfc8bb2dd",
+        "face": {
+          "id": 118580,
+          "collectible": 1,
+          "slug": "118580-ambush-predators",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Gabor Szikszai",
+          "manaCost": 3,
+          "name": "潜踪掠食",
+          "text": "召唤一只1/1并具有<b>潜行</b>和<b>剧毒</b>的喷毒龙。<b>延系：</b>重复一次。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06214a22c74042d544d775a51d3ba1cb7425ab82d9f977e783462038bf96259c.png",
+          "imageGold": "",
+          "flavorText": "啊，难怪你们都灭绝了。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8577d653db1f9693a00f0554d50c9d13dbf09e708bf3d0472396f1e27d040b85.png",
+          "childIds": [
+            119664
+          ],
+          "keywordIds": [
+            6,
+            32,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_622",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117917&locale=en_US",
+        "sha256": "18264b4ff4eece32f170719ee588e16ced10dc8f362accd3acb46ca0861b16dd",
+        "face": {
+          "id": 117917,
+          "collectible": 1,
+          "slug": "117917-city-defenses",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 4,
+          "name": "City Defenses",
+          "text": "Summon two 0/6 Security with <b>Taunt</b>. They gain +1 Attack when damaged.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d5c5320dadf24ad8e18cc6bcfc2bdc0f245db9b9dafc73abdfbb13b182107b4.png",
+          "imageGold": "",
+          "flavorText": "These 0/6 <b>Taunts</b> have kept invaders out for centuries.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a508910ce0a3edc8de7f898e2850be9aa4b7e560a8aa3c4272be0acff447392e.png",
+          "childIds": [
+            116796
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_622",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117917&locale=zh_CN",
+        "sha256": "81b8b8d43f39b046580d287f0848abb0877531ecf2e6cae2b3b94b517089befc",
+        "face": {
+          "id": 117917,
+          "collectible": 1,
+          "slug": "117917-city-defenses",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 4,
+          "name": "城防守卫",
+          "text": "召唤两个0/6并具有<b>嘲讽</b>的守卫。守卫在受到伤害时会获得+1攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21a708dcc6af859b68450ebc99be19dda1c9b58f28f38f699677656b3ce0fa54.png",
+          "imageGold": "",
+          "flavorText": "千百年来，正是这些0/6的<b>嘲讽</b>随从挡住了入侵者。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a508910ce0a3edc8de7f898e2850be9aa4b7e560a8aa3c4272be0acff447392e.png",
+          "childIds": [
+            116796
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_586",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123166&locale=en_US",
+        "sha256": "cb5624b4eceea691ddcbe2d04a18efc4c7e8234410d31c83df97c652c21ac1fc",
+        "face": {
+          "id": 123166,
+          "collectible": 1,
+          "slug": "123166-destructive-blaze",
+          "classId": 10,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Bima Kusuma",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "Destructive Blaze",
+          "text": "After this survives damage, summon a Destructive Blaze. <b>Deathrattle:</b> Deal 2 damage to a random enemy.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91cd13cdbe50ebb892318d0282c5743f006aa88ebb49810d6fb61095aa53c33e.png",
+          "imageGold": "",
+          "flavorText": "You are required to kill a couple of these to reach the End.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2059dc74966ad079b8e358f708867d6b0dbf063205206510f020f730a3e7b91.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_586",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123166&locale=zh_CN",
+        "sha256": "c18062611df831544a6c71d72690aa539fdef0e0197289f8f145a9610db9ff12",
+        "face": {
+          "id": 123166,
+          "collectible": 1,
+          "slug": "123166-destructive-blaze",
+          "classId": 10,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Bima Kusuma",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "毁灭之焰",
+          "text": "在本随从受到伤害并存活下来后，召唤一个毁灭之焰。<b>亡语：</b>随机对一个敌人造成2点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ab262ccf78a3ee8cd95c2587a1700c5c409836fa2d842f4973e1324722493d9.png",
+          "imageGold": "",
+          "flavorText": "斩却毁灭之焰，方能抵达末世。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2059dc74966ad079b8e358f708867d6b0dbf063205206510f020f730a3e7b91.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_416t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115083&locale=en_US",
+        "sha256": "fca5a7ca5e9f89d2fdcd51aa5e1e74ce994a721f6232909d6d5ae6426693df9c",
+        "face": {
+          "id": 115083,
+          "collectible": 0,
+          "slug": "115083-sleepy-sheep",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Sleepy Sheep",
+          "text": "<b>Dormant</b> for 2 turns.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/adead43d19f6f6a858829a3150543edcefb383451fda2aa8090a8a1926481ac9.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 113568,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_416t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115083&locale=zh_CN",
+        "sha256": "52cf5d06e8647f7b8e5b6489b6ae6349003cefec1cfc1bb9bcd2f6626c547c9f",
+        "face": {
+          "id": 115083,
+          "collectible": 0,
+          "slug": "115083-sleepy-sheep",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "懒洋羊",
+          "text": "<b>休眠</b>2回合。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5305022a4209674170b5b340faf9896d3e1c718f15637e87149e0805e152ac9e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 113568,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_622t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116796&locale=en_US",
+        "sha256": "20fac205f5071bf2d5a203db3d34c270be7666be240ee54b1b3d5f8775c35c94",
+        "face": {
+          "id": 116796,
+          "collectible": 0,
+          "slug": "116796-steadfast-security",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Kevin Sidharta",
+          "health": 6,
+          "attack": 0,
+          "manaCost": 2,
+          "name": "Steadfast Security",
+          "text": "<b>Taunt</b> After this takes damage, gain +1 Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bf4c1bb02f1ea2954394942fcd89f06e66f2ddcbb294fb1854d8147ca1bc6a3.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117917,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_622t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116796&locale=zh_CN",
+        "sha256": "d4f91d2b9d5fd4fc3404f31ace5e118d6bd8ddf92a57d17f041ab79fc29d0131",
+        "face": {
+          "id": 116796,
+          "collectible": 0,
+          "slug": "116796-steadfast-security",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Kevin Sidharta",
+          "health": 6,
+          "attack": 0,
+          "manaCost": 2,
+          "name": "坚毅的守卫",
+          "text": "<b>嘲讽</b> 在本随从受到伤害后，获得+1攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a9358578240ba8e957271adc74fcf17449dd76a9978f1ace76af11652e21584.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117917,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_519t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119664&locale=en_US",
+        "sha256": "fab16ad9db017b9810e9b0f3d2908dd4b831f65f12d7e17756482e7eaa75d1fa",
+        "face": {
+          "id": 119664,
+          "collectible": 0,
+          "slug": "119664-venomous-spitter",
+          "classId": 7,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Gabor Szikszai",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "Venomous Spitter",
+          "text": "<b>Stealth</b> <b>Poisonous</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fb6c72348994871f7b19ca1ef20da9c0892f07542de34cda30c5f55e495e912.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 118580,
+          "keywordIds": [
+            6,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_519t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=119664&locale=zh_CN",
+        "sha256": "e74509c4ef0c96e600cc71e2a262cf7dcc1f0ae2d41d927f7f22623549cd017e",
+        "face": {
+          "id": 119664,
+          "collectible": 0,
+          "slug": "119664-venomous-spitter",
+          "classId": 7,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Gabor Szikszai",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "喷毒龙",
+          "text": "<b>潜行</b>。<b>剧毒</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cdb3fa2615987d951c19e6d1ce29615336557f3f237bf76ba9987523732b695.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 118580,
+          "keywordIds": [
+            6,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_006t1",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119916&locale=en_US",
+        "sha256": "dfb73764e756ec39c0c7709bf777dac7c4f42194d6749ba63a5b8b8457f3716f",
+        "face": {
+          "id": 119916,
+          "collectible": 0,
+          "slug": "119916-mirrored-mage",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Kleston Marques",
+          "health": 4,
+          "attack": 0,
+          "manaCost": 1,
+          "name": "Mirrored Mage",
+          "text": "<b>Taunt</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aad251d12ec30d233ba63fd9164729bf5469c0d28ab54d12ca2ea23d809bc1b6.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 119541,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_006t1",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=119916&locale=zh_CN",
+        "sha256": "91c997774da295c5343ff874d7245659e781a95ec86c9f1f99f35b14d674791a",
+        "face": {
+          "id": 119916,
+          "collectible": 0,
+          "slug": "119916-mirrored-mage",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Kleston Marques",
+          "health": 4,
+          "attack": 0,
+          "manaCost": 1,
+          "name": "镜像法师",
+          "text": "<b>嘲讽</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/903efcad0863772fcfc6bfb52d043f78e0ac10369e9bdf5c255c0d0594f9a39b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 119541,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "child_dbf_ids": [
+      115083,
+      116796,
+      119664,
+      119916
+    ],
+    "note": "Complete official faces and listed children, not exact CN timing calibration."
+  },
+  "internal_policy": [
+    "Shepherd uses original completed owner hero attack including last weapon durability; Sleepy Sheep has native dormant_turns=2.",
+    "Mirror summons one exact Mirrored Mage, then checks current/all Dragon membership of actual hand at its continuation for another.",
+    "Predators uses native Kindred prepare for the ordinary summon and active for each accepted qualified repeat; no bespoke history or repeat state.",
+    "Security reads actual positive health results of its own original physical source, then ordinary captured-source Buff; each damage packet gives +1 Attack, independent of its amount.",
+    "Blaze requires positive original damage and surviving original physical source, then summons new base self, not current-copy material. Its deathrattle is separate ordinary MINION_ABILITY random two-damage hit.",
+    "Existing summoning, dormancy, damage, death, discard, Kindred and Rewind windows remain internal policies pending exact CN server calibration.",
+    "TIME_008 is explicitly unregistered; its complete source and official faces remain evidence. Rewind/discard history compatibility requires public work outside this batch."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "skipped": [
+    {
+      "record": {
+        "id": "TIME_008",
+        "dbf_id": 119545,
+        "name": "过去的末日宣言者",
+        "name_en": "Bygone Doomspeaker",
+        "text": "<b>回溯</b>。<b>战吼：</b>双方玩家各随机弃一张牌。",
+        "text_en": "[x]<b>Rewind</b>\n<b>Battlecry:</b> Both players\n_discard a random card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "2c5f4caa89942d1ea31f6cdf9f2bd3126ecb9b8e98e3d786eb7fc097aa488cca",
+      "reason": "Existing native Rewind after physical discard fails discard_history.validate_boundary: Discard history lost its complete committed event inventory.",
+      "evidence": "outputs/simple-cards-p02/failure-02-source/review.json"
+    }
+  ]
+}
