@@ -1,0 +1,138 @@
+{
+  "batch": "K117",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_433",
+        "dbf_id": 120492,
+        "name": "抹除存在",
+        "name_en": "Cease to Exist",
+        "text": "<b>回溯</b>。<b>沉默</b>并消灭一个随机敌方随从。",
+        "text_en": "<b>Rewind</b>\n<b>Silence</b> and destroy a random enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "339",
+              "name": "SILENCE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "27a3129ecd07d08f991292f9d3dbc126441f1d1b57c2797a5bf6f3b47b91d4e0"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "TIME_433",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120492&locale=en_US",
+        "response_file": "official-TIME_433-en_US.json",
+        "response_sha256": "fc2b64c9250aff769f8aafcfaeca1e3ed916316782d9eae7498d21c68d184916",
+        "face": {
+          "id": 120492,
+          "collectible": 1,
+          "slug": "120492-cease-to-exist",
+          "classId": 6,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Brian Despain",
+          "manaCost": 3,
+          "name": "Cease to Exist",
+          "text": "<b>Rewind</b> <b>Silence</b> and destroy a random enemy minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f90bf5861c2297b8249ffe673e584225023de7fb9013a2c89f4fb4f6e027a4e1.png",
+          "imageGold": "",
+          "flavorText": "NullReferenceException: Object reference not set to an instance of an object.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b7574def3e8a610588469af690675afafb576fea3c234941ae15879d9a78f68.png",
+          "keywordIds": [
+            15,
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_433",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120492&locale=zh_CN",
+        "response_file": "official-TIME_433-zh_CN.json",
+        "response_sha256": "f4d70272abfd5bd83f5ca320ea7598f647f9af382577a3967d39976745700f55",
+        "face": {
+          "id": 120492,
+          "collectible": 1,
+          "slug": "120492-cease-to-exist",
+          "classId": 6,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Brian Despain",
+          "manaCost": 3,
+          "name": "抹除存在",
+          "text": "<b>回溯</b>。<b>沉默</b>并消灭一个随机敌方随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e70023386c28e58656e8ebf404e02f6f3034bc8e8075c71e29fb01264fb30d7.png",
+          "imageGold": "",
+          "flavorText": "空引用异常：对象引用未设置为对象的实例。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b7574def3e8a610588469af690675afafb576fea3c234941ae15879d9a78f68.png",
+          "keywordIds": [
+            15,
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Cease to Exist current3manaPriestSPELL nativeRewind/RewindSpec. Random currentliveordinaryenemyMINION; no targetchoice, minionclass/schoolinference or manualpayment.",
+    "Random selection captures originalBoardPresenceReference before random-choice reactions; silence then destroy both follow same residence across control/face changes, never leave/reentry. Existing Silence, destruction, Rewind, rollback and private frame interpreter remain responsible.",
+    "Selection snapshot and exact reaction/checkpoint windows inherit current localspelltarget policy pendingCN. Empty pool RNGneutral; onecandidate no randomnumber under existingquery contract."
+  ]
+}

@@ -78,8 +78,8 @@ class FrameCodec:
             validate_frozen_group(self.origin_state,self.registry,value)
         from .summon_attack_groups import AttackSummonedGroup,validate_request as validate_summon_attack_request
         if type(value)is AttackSummonedGroup:validate_summon_attack_request(self.registry,value,self.origin_state)
-        from .spell_targets import DamageResidentSpellTarget
-        if type(value) is DamageResidentSpellTarget and self.origin_state is not None:
+        from .spell_targets import DamageResidentSpellTarget,ApplyResidentSpellTarget
+        if type(value) in(DamageResidentSpellTarget,ApplyResidentSpellTarget) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         if type(value) is model.AbilityInstance and value.kind == 'corpse_gain':
             from .corpse_gains import validate_ability as validate_corpse_gain_ability

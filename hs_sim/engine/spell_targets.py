@@ -1,6 +1,6 @@
 """Original spell target references across random-selection reactions."""
 from dataclasses import dataclass
-from .effects import Damage, Destroy, Effect, _integer
+from .effects import Damage, Destroy, Effect, Silence, _integer
 from .errors import ResolutionError
 from .model import BoardPresenceReference, CardType, DamageKind, Zone
 from .sacrifice import MinionReference, live_minion, reference_value
@@ -15,10 +15,10 @@ def reference_id(reference):
 
 
 def operation_value(operation, amount):
-    if operation not in ('damage', 'destroy'):
+    if operation not in ('damage', 'destroy', 'silence_destroy'):
         raise ValueError('Unsupported captured spell operation')
     _integer(amount, 'captured spell amount', 0)
-    if operation == 'destroy' and amount != 0:
+    if operation in ('destroy','silence_destroy') and amount != 0:
         raise ValueError('Destruction has no damage amount')
 
 
@@ -57,6 +57,43 @@ def damage_resident(r, request):
 
 
 @dataclass(frozen=True)
+class ApplyResidentSpellTarget(Effect):
+    """Silence and destruction of one original board residence, in two steps."""
+    target: BoardPresenceReference
+    source_id: int
+    operation: str = 'silence_destroy'
+
+    def __post_init__(self):
+        if type(self.target)is not BoardPresenceReference:
+            raise ValueError('Resident destruction requires its original board presence')
+        self.target.__post_init__()
+        _integer(self.source_id,'resident destruction SPELL source',1)
+        if self.operation not in('silence_destroy','destroy'):
+            raise ValueError('Unsupported resident destruction step')
+
+    def validate_in_state(self,state):
+        self.__post_init__()
+        target=state.entities.get(self.target.entity_id);source=state.entities.get(self.source_id)
+        if target is None or source is None or source.kind!=CardType.SPELL:
+            raise ValueError('Resident destruction target/source was never allocated')
+        if self.target.presence_id>=state.next_order:
+            raise ValueError('Resident destruction borrowed a future board presence')
+
+
+def apply_resident(r,request):
+    from .board_presence import resolve_board_presence
+    request.validate_in_state(r.state)
+    target=resolve_board_presence(r.state,request.target)
+    if target is None or not target.active or target.doomed or target.health<=0:
+        r.stale(request,request.target.entity_id)
+        return ()
+    if request.operation=='silence_destroy':
+        return(Silence(target.id),ApplyResidentSpellTarget(request.target,request.source_id,'destroy'))
+    from .resolver import destroy
+    return destroy(r,Destroy(target.id,request.source_id))
+
+
+@dataclass(frozen=True)
 class ApplySpellTarget(Effect):
     target: MinionReference | int
     source_id: int
@@ -67,7 +104,7 @@ class ApplySpellTarget(Effect):
         reference_id(self.target)
         _integer(self.source_id, 'captured SPELL source', 1)
         operation_value(self.operation, self.amount)
-        if self.operation == 'destroy' and type(self.target) is not MinionReference:
+        if self.operation in ('destroy','silence_destroy') and type(self.target) is not MinionReference:
             raise ValueError('Captured destruction requires an ordinary minion')
 
 
@@ -115,6 +152,9 @@ def deliver(r, request):
     if entity is None:
         r.stale(request, reference_id(request.target))
         return ()
+    if request.operation=='silence_destroy':
+        from .board_presence import capture_board_presence
+        return(ApplyResidentSpellTarget(capture_board_presence(r.state,entity.id),request.source_id),)
     if request.operation == 'destroy':
         from .resolver import destroy
         return destroy(r, Destroy(entity.id, request.source_id))
@@ -129,13 +169,19 @@ def choose(r, request):
         r.emit('random_choice_skipped', source_id=request.source_id, reason='no_candidates')
         return ()
     selected = candidates[0] if len(candidates) == 1 else r.game._rng.choice(candidates)
+    resident=None
+    if request.operation=='silence_destroy':
+        from .board_presence import capture_board_presence
+        resident=capture_board_presence(r.state,reference_id(selected))
     if len(candidates) > 1:
         r.emit('random_choice', source_id=request.source_id, target_id=reference_id(selected),
                candidates=tuple(reference_id(ref) for ref in candidates))
+    if resident is not None:return(ApplyResidentSpellTarget(resident,request.source_id),)
     return (ApplySpellTarget(selected, request.source_id, request.operation, request.amount),)
 
 
 def register(mechanics):
+    mechanics.register(ApplyResidentSpellTarget,apply_resident)
     mechanics.register(DamageResidentSpellTarget, damage_resident)
     mechanics.register(ApplySpellTarget, deliver)
     mechanics.register(RandomSpellTarget, choose)

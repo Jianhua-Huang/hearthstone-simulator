@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+随机沉默后消灭保留原战场驻留，能跨沉默撤销控制而不追踪重入实体；有限请求及恢复边界见[随机沉默消灭契约](m3-random-silence-destruction.md)。
+
 随机池召唤的有限嘲讽声明沿原完整basis转交已有入场材料；候选、权重与材料一致性见[池入场关键词契约](m3-pool-entry-keywords.md)。
 
 普通池发现/随机获取的临时随从交付复用原CreateTemporaryCard，独立于费用到期；原期限、批次与等待恢复见[临时池随从契约](m3-temporary-pool-minions.md)。
