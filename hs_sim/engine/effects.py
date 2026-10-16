@@ -97,6 +97,7 @@ class AddToHand(Effect):
     spell_repeat: CardSpellRepeatGrant | None = None
     choose_branch: ChooseBranchSelection | None = None
     minion_grant: CreatedMinionGrant | None = None
+    spell_damage: int = 0
 
     def __post_init__(self):
         validate_declaration(self.spell_repeat)
@@ -106,6 +107,8 @@ class AddToHand(Effect):
         if type(self.card_id) is not str or not self.card_id.strip():
             raise ValueError('card_id must be nonempty')
         _source(self.source_id)
+        from .card_creation import validate_spell_damage_grant
+        validate_spell_damage_grant(self.spell_damage, self.source_id)
         if type(self.revealed_to) is not tuple:
             raise ValueError('revealed_to must be a tuple of player IDs')
         for viewer in self.revealed_to:

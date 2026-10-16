@@ -1,0 +1,363 @@
+{
+  "batch": "K94",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_874",
+        "dbf_id": 116980,
+        "name": "星体平衡",
+        "name_en": "Stellar Balance",
+        "text": "获取一张月火术和一张星火术，使其获得<b>法术伤害+1</b>。",
+        "text_en": "Get a Moonfire and\na Starfire. Give them <b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & R. Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "08e926f7e8d82da355326f936163a2d328d48d5875e7bdcdaeafb1733b030c5c"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CS2_008",
+        "dbf_id": 467,
+        "name": "月火术",
+        "name_en": "Moonfire",
+        "text": "造成$1点伤害。",
+        "text_en": "Deal $1 damage.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Richard Wright"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "5b277b502ee09f179b5eb619939856214b5afab59d40a0414238ec55595bd0e8"
+    },
+    {
+      "record": {
+        "id": "EX1_173",
+        "dbf_id": 823,
+        "name": "星火术",
+        "name_en": "Starfire",
+        "text": "造成$5点伤害。抽一张牌。",
+        "text_en": "Deal $5 damage.\nDraw a card.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "617e099c765c3fa4947e75562ae57386ce446fcb3359d29ada1cf733e34d324d"
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116980&locale=en_US",
+      "status": 200,
+      "sha256": "8c54bcf3aa3239c67c16faac2df329374f71de461f4d49a2f2d61c872ffa3d12",
+      "face": {
+        "id": 116980,
+        "collectible": 1,
+        "slug": "116980-stellar-balance",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & R. Kamen",
+        "manaCost": 2,
+        "name": "Stellar Balance",
+        "text": "Get a Moonfire and a Starfire. Give them <b>Spell Damage +1</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc9b9a0af8ef86aa0965bddca4f9aa67e126ceae633129662a19600e0dee2e70.png",
+        "imageGold": "",
+        "flavorText": "Famously, Moonfire and Starfire are about equal in power.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31bfb0cfbc9c4ccd831d6b700946718c1d5a5895c7808c0d26fc7456e295333c.png",
+        "childIds": [
+          467,
+          823
+        ],
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116980&locale=zh_CN",
+      "status": 200,
+      "sha256": "1caff5a086fb549962234168d8041c512b200049c5bcd5e5e092970228b0ae54",
+      "face": {
+        "id": 116980,
+        "collectible": 1,
+        "slug": "116980-stellar-balance",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & R. Kamen",
+        "manaCost": 2,
+        "name": "星体平衡",
+        "text": "获取一张月火术和一张星火术，使其获得<b>法术伤害+1</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85d63478d00698e44ccbe1e270c87abbd247f4472aaec09702d4c2010737d388.png",
+        "imageGold": "",
+        "flavorText": "众所周知，月火术和星火术的威力大致相同。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31bfb0cfbc9c4ccd831d6b700946718c1d5a5895c7808c0d26fc7456e295333c.png",
+        "childIds": [
+          467,
+          823
+        ],
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=467&locale=en_US",
+      "status": 200,
+      "sha256": "571f2dc6acbb15ce98176fbbfaaa590abac2d33a86485b0e70586f16cbe53b65",
+      "face": {
+        "id": 467,
+        "collectible": 1,
+        "slug": "467-moonfire",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Richard Wright",
+        "manaCost": 0,
+        "name": "Moonfire",
+        "text": "Deal 1 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a005d7735492c6a45c1b25ba95c4e419586873b53d706d9443f443b37af0fa4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1446dc8d74d7c983fc6179ab7f9884a44bfa1a85c2fed4672e981246c71c53f.png",
+        "flavorText": "\"Cast Moonfire, and never stop.\" - How to Be a Druid, Chapter 5, Section 3",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9a8cd0101f46a009cc2e8e81b8073b6f7e6942299ce7fd9a9e60ae07e545ba3.png",
+        "copyOfCardId": [
+          68310,
+          112918
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=467&locale=zh_CN",
+      "status": 200,
+      "sha256": "f3dad5ad6683c75e80c3f8778eda7b736779cdd183bc1dd1a91a9908d9c75356",
+      "face": {
+        "id": 467,
+        "collectible": 1,
+        "slug": "467-moonfire",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Richard Wright",
+        "manaCost": 0,
+        "name": "月火术",
+        "text": "造成 1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0cbd96ccfde678fd42cad27e55e2088fe8a861c353dbea9a18548b25ffbf1e60.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1446dc8d74d7c983fc6179ab7f9884a44bfa1a85c2fed4672e981246c71c53f.png",
+        "flavorText": "“把月火术拖到每一个技能栏位上。”——《如何成为一名德鲁伊》，第五章，第三节",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9a8cd0101f46a009cc2e8e81b8073b6f7e6942299ce7fd9a9e60ae07e545ba3.png",
+        "copyOfCardId": [
+          68310,
+          112918
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=823&locale=en_US",
+      "status": 200,
+      "sha256": "e9abfcbf07a5f77b7008a2b0db6acd4c4c59cc63944299bba5d25383a75d531a",
+      "face": {
+        "id": 823,
+        "collectible": 1,
+        "slug": "823-starfire",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 6,
+        "name": "Starfire",
+        "text": "Deal 5 damage. Draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/debcecece162c9adfe61729ed8955f4d59d1432c469603f1b59036462dd573a3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/413f5df1dd1083d20070bdd11292bdce4762c3f229ea4ce78b6e2b830f4306f8.png",
+        "flavorText": "Balance is important to druids. This card is perfectly balanced.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e73b861a629744f42487075c841ea239815a360ee7cd5507cb3536c74923e85.png",
+        "copyOfCardId": [
+          68446
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=823&locale=zh_CN",
+      "status": 200,
+      "sha256": "69fbd6de0e9e979d5445b5ab51ec8c8890bf0355407abd131f9cb975538ba105",
+      "face": {
+        "id": 823,
+        "collectible": 1,
+        "slug": "823-starfire",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 6,
+        "name": "星火术",
+        "text": "造成 5点伤害。抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37b07fa063e160566451698c7bfa8666b749a0cd46b5f8ce269c7f4468173e45.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/413f5df1dd1083d20070bdd11292bdce4762c3f229ea4ce78b6e2b830f4306f8.png",
+        "flavorText": "平衡对德鲁伊来说很重要。这张卡牌现在就很平衡了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e73b861a629744f42487075c841ea239815a360ee7cd5507cb3536c74923e85.png",
+        "copyOfCardId": [
+          68446
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "identity": "EDR_874 official en/zh childIds[467,823] require exact original CS2_008 and EX1_173; Core_CS2_008 remains unchanged and is not substituted. Full raw original cost-null Moonfire maps to official printed manaCost0.",
+    "material": "AddToHand spell_damage positive local attachment before card_created/acquisition events through existing shared creation install. Only actual allocated SPELL including burned overflow; source required and bound. Default0 preserves old creation. Ordinary GrantStoredSpellDamage and creation share one local attachment helper; no global provider.",
+    "ordering": "Moonfire then Starfire, same ordinary separate AddToHand execution windows, each has fixed +1 independent of parent spell damage. Original creation/capacity/burn and actual spell CAST pipelines remain. Exact CN acquisition/reward ordering and full-hand policy uncalibrated; official faces prove identity/text/stats only."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

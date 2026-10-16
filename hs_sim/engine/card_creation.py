@@ -119,14 +119,24 @@ def validate_branch_transfer(policy, value, mapping):
             raise ValueError('Branch mapping cannot duplicate source or target branches')
 
 
+def validate_spell_damage_grant(amount, source_id):
+    integer(amount, 'created local Spell Damage', 0)
+    if amount and source_id is None:
+        raise ValueError('Created local Spell Damage requires its original source')
+
+
 def validate_candidates(effect, definitions):
     spec = getattr(effect, 'spell_repeat', None)
     validate_declaration(spec)
     selection = getattr(effect, 'choose_branch', None)
     grant = getattr(effect, 'minion_grant', None)
     validate_minion_grant(grant)
-    if spec is None and selection is None and grant is None: return
+    spell_damage = getattr(effect, 'spell_damage', 0)
+    validate_spell_damage_grant(spell_damage, effect.source_id)
+    if spec is None and selection is None and grant is None and not spell_damage: return
     definitions = tuple(definitions)
+    if spell_damage and any(d.kind != CardType.SPELL for d in definitions):
+        raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
     if spec is not None and any(d.kind != CardType.SPELL for d in definitions):
@@ -139,7 +149,7 @@ def validate_candidates(effect, definitions):
 def validate_creation(state, effect, definitions=()):
     validate_candidates(effect, definitions)
     spec = getattr(effect, 'spell_repeat', None)
-    if spec is None and getattr(effect, 'minion_grant', None) is None:
+    if spec is None and getattr(effect, 'minion_grant', None) is None and not getattr(effect, 'spell_damage', 0):
         return
     if effect.source_id is not None and effect.source_id not in state.entities:
         raise ResolutionError('Creation attachment source does not exist')
@@ -159,6 +169,10 @@ def install(state, entity, effect):
         attach(state, entity, spec.casts, effect.source_id, spec.expires_turn)
     selection = getattr(effect, 'choose_branch', None)
     if selection is not None: entity.choose_branch = selection
+    spell_damage = getattr(effect, 'spell_damage', 0)
+    if spell_damage:
+        from .stored_spell_damage import attach_local_bonus
+        attach_local_bonus(state, entity, spell_damage, effect.source_id)
     grant = getattr(effect, 'minion_grant', None)
     if grant is not None:
         # The generated physical entity is already known, including a burned

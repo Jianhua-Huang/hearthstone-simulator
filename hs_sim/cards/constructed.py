@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v109"
+CONTENT_VERSION = "constructed-cn37-preview-v110"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -273,5 +273,7 @@ def build_registry():
     register_simple_temporal_p07_cards(registry)
     from .stored_spell_bonus_cards import register_stored_spell_bonus_cards
     register_stored_spell_bonus_cards(registry)
+    from .created_spell_bonus_cards import register_created_spell_bonus_cards
+    register_created_spell_bonus_cards(registry)
     registry.validate()
     return registry
