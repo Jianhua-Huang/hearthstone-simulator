@@ -1,0 +1,593 @@
+{
+  "batch": "P22",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_479",
+        "dbf_id": 123139,
+        "name": "飞龙机动",
+        "name_en": "Flight Maneuvers",
+        "text": "<b>裂变</b>\n召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。@召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。",
+        "text_en": "[x]<b>Shatter</b>. Summon\ntwo 4/2 Drakes. Give\nyour minions +1 Attack\nand <b>Divine Shield</b>.@Summon two 4/2 Drakes. Give your minions +1 Attack and <b>Divine Shield</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 123141,
+          "TAG_SCRIPT_DATA_NUM_2": 123142,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 5,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "217499fc47091dbf282e70c378b3012724e6541f5b352ba7f75ce7ffdb98f242"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_479t",
+        "dbf_id": 123141,
+        "name": "飞龙机动",
+        "name_en": "Flight Maneuvers",
+        "text": "<b>已裂变</b>\n召唤两条4/2的\n幼龙。",
+        "text_en": "[x]<b>Shattered</b>\nSummon two 4/2 Drakes.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 123142,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 123139,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "bbfcd8d4c9898cfb73db4bec3553510195018ea645093738744be13e1cdc3b91"
+    },
+    {
+      "record": {
+        "id": "CATA_479t2",
+        "dbf_id": 123142,
+        "name": "飞龙机动",
+        "name_en": "Flight Maneuvers",
+        "text": "<b>已裂变</b>\n使你的随从获得+1攻击力和<b>圣盾</b>。",
+        "text_en": "<b>Shattered</b>. Give your minions +1 Attack and <b>Divine Shield</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 5,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2d7c5e594bd34df382f8280ce7a7304c3c90eaeb4421ad07ee63168f7d44450f"
+    },
+    {
+      "record": {
+        "id": "CATA_479t3",
+        "dbf_id": 123140,
+        "name": "天空幼龙",
+        "name_en": "Sky Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "5445384c5b61b2f61f68f1ef6b565709249923d896b4f4a84bcd7be39f5278f6"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_101",
+        "dbf_id": 121670,
+        "name": "穿越的炎术士",
+        "name_en": "Misplaced Pyromancer",
+        "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+        "text_en": "Whenever you <b>Shatter</b> a card, deal 2 damage to\nall enemy minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1ab6d031ae0b1ac9f24a89420969187613a7ccfc265dc468c46d646af713262f",
+      "definition_sha256": "71bd9e1686f9913dee6f5e7e73371018946f5f8ea76d0e680115eaa4166b9ef6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_479e",
+        "dbf_id": 127188,
+        "name": "英勇无畏",
+        "name_en": "Courageous",
+        "text": "+1攻击力和<b>圣盾</b>。",
+        "text_en": "+1 Attack and <b>Divine Shield</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "6ea4a93fd298227b0a20e6956acddc2adcfcaea14788266dd5b43fec09493db5"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T03:40:52.807239+08:00",
+    "source": "Eight complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_479",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123139&locale=en_US",
+        "response_file": "official-CATA_479-en_US.json",
+        "response_sha256": "3e566e420017581abc765d8f41fbc3b72f8810350c8c80adbba0b8ba2411c2da",
+        "face": {
+          "id": 123139,
+          "collectible": 1,
+          "slug": "123139-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "Flight Maneuvers",
+          "text": "<b>Shatter</b>. Summon two 4/2 Drakes. Give your minions +1 Attack and <b>Divine Shield</b>. Summon two 4/2 Drakes. Give your minions +1 Attack and <b>Divine Shield</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85b6254050c56168448ff7c43fa9eb4415c7bfe7bc050192119ae6ee59a64ce6.png",
+          "imageGold": "",
+          "flavorText": "First, we're going to board zones A through C, then take off, loop around the airport just for fun, come back down, then Economy can board.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a57f05f0da84b6b1905be19997febe8edafe68af8b6aa7c39f09ca38c32aa54.png",
+          "childIds": [
+            123141,
+            123142,
+            123140
+          ],
+          "keywordIds": [
+            3,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123139&locale=zh_CN",
+        "response_file": "official-CATA_479-zh_CN.json",
+        "response_sha256": "a829075731aa603dbb0bc3094277e20db512c4506f98aa213141ee01e9a52bc9",
+        "face": {
+          "id": 123139,
+          "collectible": 1,
+          "slug": "123139-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "飞龙机动",
+          "text": "<b>裂变</b> 召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。 召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00bd27c397e4c01b36c39732542b71f5862c814b4e297ce8bb9954f9f2441a7a.png",
+          "imageGold": "",
+          "flavorText": "首先，我们让A区至C区的乘客登机，然后起飞，绕机场飞一圈——不为别的，就是玩儿。然后降落，再让经济舱登机。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a57f05f0da84b6b1905be19997febe8edafe68af8b6aa7c39f09ca38c32aa54.png",
+          "childIds": [
+            123141,
+            123142,
+            123140
+          ],
+          "keywordIds": [
+            3,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123141&locale=en_US",
+        "response_file": "official-CATA_479t-en_US.json",
+        "response_sha256": "29151e138cbc2c8156bc028b7cd4d790b685ccef2cc4cfb8ec5ff02619050db8",
+        "face": {
+          "id": 123141,
+          "collectible": 0,
+          "slug": "123141-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "Flight Maneuvers",
+          "text": "<b>Shattered</b> Summon two 4/2 Drakes.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9950937ed483f50440d0cdcdf4ae00d4b6c5381655e466af3b0e26118bd0ef65.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123141&locale=zh_CN",
+        "response_file": "official-CATA_479t-zh_CN.json",
+        "response_sha256": "d4d3450295313a47b664836b2fb490cebb3be45e0e71ed96dfee7712b8387083",
+        "face": {
+          "id": 123141,
+          "collectible": 0,
+          "slug": "123141-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "飞龙机动",
+          "text": "<b>已裂变</b> 召唤两条4/2的 幼龙。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f24f3fdae57d03f8b0fec9711f4b86d66dd464d34ad684267538389a6adcdcdc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t2",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123142&locale=en_US",
+        "response_file": "official-CATA_479t2-en_US.json",
+        "response_sha256": "57355bc968480e7f25342e8d87af1c8e2c1e73cd9ea52806c492e3e9e03cd046",
+        "face": {
+          "id": 123142,
+          "collectible": 0,
+          "slug": "123142-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "Flight Maneuvers",
+          "text": "<b>Shattered</b>. Give your minions +1 Attack and <b>Divine Shield</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5900ff7d6161a3b1d079a3e76a6b144b8c8fe2c46cda3ab14f244f921d538a1.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "keywordIds": [
+            3,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t2",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123142&locale=zh_CN",
+        "response_file": "official-CATA_479t2-zh_CN.json",
+        "response_sha256": "4f992f404f48a43369202c370e76826833a801031bf24acb70976d91fbc94c8d",
+        "face": {
+          "id": 123142,
+          "collectible": 0,
+          "slug": "123142-flight-maneuvers",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 4,
+          "name": "飞龙机动",
+          "text": "<b>已裂变</b> 使你的随从获得+1攻击力和<b>圣盾</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1908bb0a2b798581edb897f3aef760e11545502acd16c0af840ee43065184942.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "keywordIds": [
+            3,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t3",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123140&locale=en_US",
+        "response_file": "official-CATA_479t3-en_US.json",
+        "response_sha256": "4154481226218afc70145db4e00c9fb506c2c0005d9527e170c062c822719313",
+        "face": {
+          "id": 123140,
+          "collectible": 0,
+          "slug": "123140-sky-drake",
+          "classId": 5,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Sky Drake",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ec3df837cbb74955c43be36c673d632e8b46147bd40e4f780207549e8ba7bc7.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_479t3",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123140&locale=zh_CN",
+        "response_file": "official-CATA_479t3-zh_CN.json",
+        "response_sha256": "64007c25c2efe3b3793d7d8bb8413b7bd0ae405192e0d531e46a10c5b6f36be9",
+        "face": {
+          "id": 123140,
+          "collectible": 0,
+          "slug": "123140-sky-drake",
+          "classId": 5,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "天空幼龙",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e20c3f69d78c3d723e59db1589c2f4dbac48a33ebe760bd02b96caa11aefe78.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123139,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Complete Flight Maneuvers real Shatter family; raw@alternate display and official duplicated tooltip retained, actual half payloads each execute once.",
+    "Whole completes two actual SummonByCard requests/quantity deliveries/reactions then invokes named fresh-state grant, capturing current eligible friendly MinionReference recipients once.",
+    "Captured ordinary +1Attack and DivineShield grants share recipient references, source actual spell; no persistent aura/player effect or automatic reward for later newborns. Buff and keyword notifications/acceptance follow native sequential effects, pending exact CN.",
+    "Exact CATA_479t3 is Paladin3mana4/2Dragon vanilla, no native DivineShield; spells all Holy4mana. No same-name token substitution or metadata override.",
+    "Existing TIME_101 exact definition pinned for real family bridge; CATA_479e evidence only; native Shatter/current-base copy, shield consumption, silence/reset and source continuity policies remain pending CN."
+  ]
+}
