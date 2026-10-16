@@ -19,7 +19,7 @@ from hs_sim.engine.serialization import canonical_hash
 from hs_sim.engine.zones import CardReference, DiscardCard
 
 YETI='CORE_CS2_182'; FIRE='CORE_CS2_029'
-BEFORE=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k87-before'
+BEFORE=Path(__file__).resolve().parent/'fixtures/native-discard-rewind-core378'
 
 
 def registry():
