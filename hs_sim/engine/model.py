@@ -2613,6 +2613,7 @@ class AbilityInstance:
     hand_mirror: HandMirrorBinding | None = None
     native_condition: NativeSourceCondition | None = None
     deathrattle_memory: DeathrattleMemory | None = None
+    deathrattle_inherited_from: tuple[int, int] | None = None
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
     spell_base_value: SpellBaseDamageValue | None = None
@@ -2644,13 +2645,21 @@ class AbilityInstance:
                 raise ValueError('Corpse gain source cannot carry an unrelated ability profile')
         elif self.corpse_gain_card_id is not None:
             raise ValueError('Only corpse gain sources carry their native declaration')
+        if self.deathrattle_inherited_from is not None:
+            link=self.deathrattle_inherited_from
+            if (type(link)is not tuple or len(link)!=2 or
+                    any(type(x)is not int or x<1 for x in link) or
+                    self.kind!='deathrattle'or self.origin!='granted'or self.source_id is None or
+                    self.deathrattle_grant_card_id is None or self.expires_turn is not None or
+                    self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
+                raise ValueError('Inherited Deathrattle requires a removable physical death declaration')
         if self.deathrattle_memory is not None:
             if type(self.deathrattle_memory) is not DeathrattleMemory:
                 raise ValueError('Expected typed native Deathrattle memory')
             self.deathrattle_memory.__post_init__()
-            if (self.kind!='deathrattle'or self.origin!='printed'or self.source_id is None or
+            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None or self.source_id is None or
                     self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
-                raise ValueError('Native Deathrattle memory requires removable unconsumed printed provenance')
+                raise ValueError('Native Deathrattle memory requires printed or inherited physical provenance')
         if self.kind == 'board_full_awaken':
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin'}

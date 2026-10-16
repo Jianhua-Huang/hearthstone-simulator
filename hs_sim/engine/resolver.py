@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v396'
+CORE_EFFECTS_VERSION = 'core-effects-v397'
 
 
 class Mechanics:
@@ -2449,6 +2449,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_draw_casts(mechanics)
     from .deathrattle_memory import register as register_deathrattle_memory
     register_deathrattle_memory(mechanics)
+    from .deathrattle_inheritance import register as register_deathrattle_inheritance
+    register_deathrattle_inheritance(mechanics)
     from .discard_history import DiscardRecord
     mechanics.register_payload_type(DiscardRecord)
     from .successful_summons import SuccessfulSummonRecord, BuffSummonedMinion, buff_summoned_minion, GrantSummonedKeyword, grant_summoned_keyword

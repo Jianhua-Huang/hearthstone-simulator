@@ -1,0 +1,396 @@
+{
+  "batch": "K105",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_491",
+        "dbf_id": 115307,
+        "name": "荆棘大德鲁伊",
+        "name_en": "Archdruid of Thorns",
+        "text": "<b>战吼：</b>获得在本回合中死亡的你的随从的<b>亡语</b>。",
+        "text_en": "<b>Battlecry:</b> Gain the\n<b>Deathrattles</b> of your minions\nthat died this turn.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e71698cbbba51921576fb050ecebcdf98c8f00282ca6c2544f3624b1d2baf2d0"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_210",
+        "dbf_id": 123126,
+        "name": "暮光龙卵",
+        "name_en": "Twilight Egg",
+        "text": "<b>亡语：</b>召唤一条{0}/{1}的雏龙。<i>（在你的回合开始时获得+1/+1！）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\n{0}/{1} Whelp. <i>(Gains +1/+1\n__at the start of your turns!)__</i>",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "50093ef8eec01fc9cf048fb3d7988c581099e71be35b2d74be93b1f09c252688",
+      "definition_sha256": "8d2e64eaeb82c42842c44d629fea1fb90ee7a52e1bb811964166fbdae31ac82c"
+    },
+    {
+      "record": {
+        "id": "CATA_210t",
+        "dbf_id": 123127,
+        "name": "速生雏龙",
+        "name_en": "Accelerated Whelp",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "WHELP": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "5db38cde1ca561e9625ec744ca41cf66734d4cde89bbe42bf997b58a98244708",
+      "definition_sha256": "c25c7ee4de3d4307e3df869975f04381ff2332a4cf60a64fba96a64c98277740"
+    },
+    {
+      "record": {
+        "id": "TLC_603",
+        "dbf_id": 117719,
+        "name": "栉龙",
+        "name_en": "Platysaur",
+        "text": "<b>战吼：</b>抽一张牌。<b>亡语：</b>弃掉该牌。",
+        "text_en": "<b>Battlecry:</b> Draw a card. <b>Deathrattle:</b> Discard it.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          }
+        ]
+      },
+      "record_sha256": "90d472f79f5a38575bdffa6e269082c7e4b49878a09bef52b39b20457a2584b0",
+      "definition_sha256": "a3e280eceec2a12d2ce981af72edc99582d47c70a9b278b578401aaacb6c6cf9"
+    },
+    {
+      "record": {
+        "id": "CATA_897",
+        "dbf_id": 123660,
+        "name": "宝石囤积者",
+        "name_en": "Gemstone Hoarder",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌并弃掉。<b>亡语：</b>重新获取弃掉的牌，其法力值消耗减少（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a card in\nyour hand to discard.\n<b>Deathrattle:</b> Get it back.\nIt costs (1) less.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "7e3f3d8895a7bf66bb1928252bfc5b6e8c663551eb11517d5e6b680556ecc3d3",
+      "definition_sha256": "7478b880d64d0364d331df56a9ec8fc255c8bb750d1bbd2189480ab66087411c"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_096",
+        "dbf_id": 69665,
+        "name": "战利品贮藏者",
+        "name_en": "Loot Hoarder",
+        "text": "<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 251
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "251",
+              "type": "Int",
+              "value": "251"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "11ab56aa6736f0316cb6c9dd4b8badf5e8b5be4fc97d257232f0799e7ebb1de0",
+      "definition_sha256": "381cd9ee0735a6d929a0d1b42f1d698be901a0838726679ec2a5d8874bc7b19b"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-16T19:30:06.518221+00:00",
+    "observations": [
+      {
+        "card_id": "EDR_491",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115307&locale=en_US",
+        "response_file": "official-EDR_491-en_US.json",
+        "response_sha256": "e8b1101fcc872030c70ec514ccf9416e26116ca7855d1ad82a517b8afdc2b2e4",
+        "face": {
+          "id": 115307,
+          "collectible": 1,
+          "slug": "115307-archdruid-of-thorns",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Ramzy Kamen",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Archdruid of Thorns",
+          "text": "<b>Battlecry:</b> Gain the <b>Deathrattles</b> of your minions that died this turn.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f0500e76b6209d1fd9d10642c0982441b64dae420f8cb450160e6be6d50e39c.png",
+          "imageGold": "",
+          "flavorText": "He EARNED that \"arch\" gosh dangit!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dfc330c7db383f0eb8b8eab25eb8d7575910ca8b9a721bbf48a006aeebb35237.png",
+          "keywordIds": [
+            8,
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_491",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115307&locale=zh_CN",
+        "response_file": "official-EDR_491-zh_CN.json",
+        "response_sha256": "2b55a02cac93926e763d65ff1ad57b0e01be06789287fcfe2d9c4e832d29af3c",
+        "face": {
+          "id": 115307,
+          "collectible": 1,
+          "slug": "115307-archdruid-of-thorns",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Ramzy Kamen",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "荆棘大德鲁伊",
+          "text": "<b>战吼：</b>获得在本回合中死亡的你的随从的<b>亡语</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10b69130419d6de0e75f70dd4fb752dc80029afc0134ff96287ce36a0470de9d.png",
+          "imageGold": "",
+          "flavorText": "他这个“大”字是自己挣来的！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dfc330c7db383f0eb8b8eab25eb8d7575910ca8b9a721bbf48a006aeebb35237.png",
+          "keywordIds": [
+            8,
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Current global turn, controller at death, ordered physical death/ability declarations, no suppression/condition filter and no deduplication.",
+    "Copy original frozen memory/native declaration with fresh removable granted identity and original death/ability pointer. Original grant/lifecycle provenance remains in original DeathRecord. No old expiry/magnetic group copied.",
+    "Native receiver semantics use actual new carrier/current controller; exact CN retained memory, ordering and control policy remains uncalibrated."
+  ]
+}

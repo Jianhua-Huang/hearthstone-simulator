@@ -92,6 +92,8 @@ def activated_deathrattles(state, player_id, *, completed=None, origin=None, tur
 
 def validate_ability(state, registry, ability):
     if ability.kind!='deathrattle': return
+    from .deathrattle_inheritance import validate_ability as validate_inherited
+    validate_inherited(state,registry,ability)
     from .deathrattle_memory import validate_ability as validate_memory_ability
     validate_memory_ability(state,registry,ability)
     registry.behavior(ability.behavior_id)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+本回合死亡随从的亡语继承读取原完整物理声明，保留原生记忆和声明证明，分配新的可移除身份；不能只复制behavior ID，见[亡语继承契约](m3-deathrattle-inheritance.md)。
+
 混合普通效果与延系奖励应按原prepare/active接续，原属性与实际消灭奖励可直接复用已接受材料和原引用执行器，见[魔暴龙契约](m3-native-kindred-destruction.md)。
 
 纯延系随从的原生条件目标通过KindredTargetProfile连接既有主体与原目标流程，公开端只给本人手牌必要布尔值；约束见[契约](m3-native-kindred-target.md)。
