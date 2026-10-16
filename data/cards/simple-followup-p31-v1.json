@@ -1,0 +1,550 @@
+{
+  "batch": "P31",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_BAR_541",
+        "dbf_id": 126982,
+        "name": "符文宝珠",
+        "name_en": "Runed Orb",
+        "text": "造成$2点伤害。<b>发现</b>一张法术牌。",
+        "text_en": "Deal $2 damage. <b>Discover</b> a spell.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 63056,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 63056,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "63056",
+              "type": "Int",
+              "value": "63056"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "993714f0b615b557dd26054dfa02040b713f60285e3f0766ebd6be991eb3e0d3"
+    },
+    {
+      "record": {
+        "id": "CORE_CATA_009",
+        "dbf_id": 127412,
+        "name": "死亡脚步",
+        "name_en": "Death's Advance",
+        "text": "<b>冻结</b>一个角色。<b>发现</b>一张法术牌。",
+        "text_en": "<b>Freeze</b> a character. <b>Discover</b> a spell.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 2
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0677f4b0d54a1c5c9ce4b1c9e509878650afd85d76fc5c08bca935bfcac55e97"
+    },
+    {
+      "record": {
+        "id": "JAIL_125",
+        "dbf_id": 126356,
+        "name": "急速冷却",
+        "name_en": "Cold Snap",
+        "text": "<b>冻结</b>一个敌人。随机获取一张冰霜法术牌。",
+        "text_en": "<b>Freeze</b> an enemy.\nGet a random\nFrost spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8e1823479d0a06de143efdd3ba0361023e7fdc747d40db1294ed7f7f5e20f474"
+    },
+    {
+      "record": {
+        "id": "EDR_848",
+        "dbf_id": 114914,
+        "name": "光合作用",
+        "name_en": "Photosynthesis",
+        "text": "恢复#6点生命值。随机获取3张德鲁伊法术牌。",
+        "text_en": "Restore #6 Health. Get 3 random Druid spells.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "6f77490425db83d2bf62ba450b2a27fa838e7a59daf67b5195f5857e3dd4f0f9"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BAR_541",
+        "dbf_id": 63056,
+        "name": "符文宝珠",
+        "name_en": "Runed Orb",
+        "text": "造成$2点伤害。<b>发现</b>一张法术牌。",
+        "text_en": "Deal $2 damage. <b>Discover</b> a spell.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "b76754863c6216240267abef55ad6abb648159ea20ea0ac2748fb836679e1534"
+    }
+  ],
+  "skipped": [],
+  "reviewed_display_normalizations": {
+    "EDR_848": {
+      "#6": "6"
+    }
+  },
+  "official_observations": {
+    "checked_at": "2026-10-17T06:08:37.807810+08:00",
+    "source": "Eight complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CORE_BAR_541",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126982&locale=en_US",
+        "response_file": "official-CORE_BAR_541-en_US.json",
+        "response_sha256": "d0de792cf1db80c6f5a748ac4ce67c9aff31a6b264e0ffa0cb482369bece5505",
+        "face": {
+          "id": 126982,
+          "collectible": 1,
+          "slug": "126982-runed-orb",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Hideaki Takamura",
+          "manaCost": 2,
+          "name": "Runed Orb",
+          "text": "Deal 2 damage. <b>Discover</b> a spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c1c9830f4d3f801dd975afcd3ecdc328b1be7b9c7f45f106c398aea0a2c1c19.png",
+          "imageGold": "",
+          "flavorText": "The most dangerous Winter Veil ornament.",
+          "cropImage": null,
+          "keywordIds": [
+            21
+          ],
+          "copyOfCardId": [
+            63056
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_BAR_541",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126982&locale=zh_CN",
+        "response_file": "official-CORE_BAR_541-zh_CN.json",
+        "response_sha256": "37599fd38fde2ce792c97b582a284ed6e0e9a836944db30058c43c55e2692e2b",
+        "face": {
+          "id": 126982,
+          "collectible": 1,
+          "slug": "126982-runed-orb",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Hideaki Takamura",
+          "manaCost": 2,
+          "name": "符文宝珠",
+          "text": "造成 2点伤害。<b>发现</b>一张法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9bded28790666d17cf9aed1124222e539f151411097659baa2ea720c8f213163.png",
+          "imageGold": "",
+          "flavorText": "最危险的冬幕节饰品。",
+          "cropImage": null,
+          "keywordIds": [
+            21
+          ],
+          "copyOfCardId": [
+            63056
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_CATA_009",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127412&locale=en_US",
+        "response_file": "official-CORE_CATA_009-en_US.json",
+        "response_sha256": "1782dcda999661a1063ee01b0a0088d93456b3d0a9ab760acefc470bf8afa2eb",
+        "face": {
+          "id": 127412,
+          "collectible": 1,
+          "slug": "127412-deaths-advance",
+          "classId": 1,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Vladimir Kafanov",
+          "manaCost": 2,
+          "name": "Death's Advance",
+          "text": "<b>Freeze</b> a character. <b>Discover</b> a spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19cfa6e008f6065ed6778e5e153b18d397ec7e1b17fbeb2b64e5ca7a559117c4.png",
+          "imageGold": "",
+          "flavorText": "For those who come after.",
+          "cropImage": null,
+          "keywordIds": [
+            10,
+            21
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false,
+          "runeCost": {
+            "blood": 0,
+            "frost": 2,
+            "unholy": 0
+          }
+        }
+      },
+      {
+        "card_id": "CORE_CATA_009",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127412&locale=zh_CN",
+        "response_file": "official-CORE_CATA_009-zh_CN.json",
+        "response_sha256": "d4edbb6ea9028cb17761360345169995e961bf0e9ce227c0c1c474e8f1f5de58",
+        "face": {
+          "id": 127412,
+          "collectible": 1,
+          "slug": "127412-deaths-advance",
+          "classId": 1,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Vladimir Kafanov",
+          "manaCost": 2,
+          "name": "死亡脚步",
+          "text": "<b>冻结</b>一个角色。<b>发现</b>一张法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2565e25ce4789ea3313d81a26406a3ebd5d9a09090a93cf849ea5f4708f85ff.png",
+          "imageGold": "",
+          "flavorText": "这是留给后人的足迹。",
+          "cropImage": null,
+          "keywordIds": [
+            10,
+            21
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false,
+          "runeCost": {
+            "blood": 0,
+            "frost": 2,
+            "unholy": 0
+          }
+        }
+      },
+      {
+        "card_id": "JAIL_125",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126356&locale=en_US",
+        "response_file": "official-JAIL_125-en_US.json",
+        "response_sha256": "06ee9a44ee73a575dc9a50d763d2a18c33031850cc2893ecb301a3860c2b6f06",
+        "face": {
+          "id": 126356,
+          "collectible": 1,
+          "slug": "126356-cold-snap",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 1,
+          "name": "Cold Snap",
+          "text": "<b>Freeze</b> an enemy. Get a random Frost spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d067e2647ec47550b4ccd4bd7cd16b067f2ce1cf66597e0b14e0fcdde67105e5.png",
+          "imageGold": "",
+          "flavorText": "Oh snappers!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08acba6a00790e8a2ebdbcfd67a7321dd462cc7d6841a73d987648096340fa4b.png",
+          "keywordIds": [
+            10
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_125",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126356&locale=zh_CN",
+        "response_file": "official-JAIL_125-zh_CN.json",
+        "response_sha256": "900b922be17dcd5ddad33650ba3ab9e35e7f3166afaa2030817df86f76f778de",
+        "face": {
+          "id": 126356,
+          "collectible": 1,
+          "slug": "126356-cold-snap",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 1,
+          "name": "急速冷却",
+          "text": "<b>冻结</b>一个敌人。随机获取一张冰霜法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef8bbe788c4899bdb5f4f0177521359d2042c287651dc8f55016bd4603e5c428.png",
+          "imageGold": "",
+          "flavorText": "哦，太冷了！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08acba6a00790e8a2ebdbcfd67a7321dd462cc7d6841a73d987648096340fa4b.png",
+          "keywordIds": [
+            10
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_848",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114914&locale=en_US",
+        "response_file": "official-EDR_848-en_US.json",
+        "response_sha256": "9d619c0cad993651d12e60833e840a77bfeab31f542c6b4ce6587a93b8fa4ab2",
+        "face": {
+          "id": 114914,
+          "collectible": 1,
+          "slug": "114914-photosynthesis",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Drew Hill",
+          "manaCost": 3,
+          "name": "Photosynthesis",
+          "text": "Restore 6 Health. Get 3 random Druid spells.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9a4deb5d139672449f5aa0d93005033ec9087db4e7b58cb03b1bbf9b2fb7a17.png",
+          "imageGold": "",
+          "flavorText": "Nothing beats some time relaxing in the sun with a pile of good mulch.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/108afa7d6f81296137b28a57239816b09ded1297ef592d9fc5cec127b9de7ff2.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_848",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114914&locale=zh_CN",
+        "response_file": "official-EDR_848-zh_CN.json",
+        "response_sha256": "7ec2402a25bbd33d0db4daac23abb036d5010f74bf71476a9148ba6dfc106fd0",
+        "face": {
+          "id": 114914,
+          "collectible": 1,
+          "slug": "114914-photosynthesis",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Drew Hill",
+          "manaCost": 3,
+          "name": "光合作用",
+          "text": "恢复 6点生命值。随机获取3张德鲁伊法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a12926b9b848b65ef645f81ea55327e6ef509450ed278e9004dbb8b34a308d0.png",
+          "imageGold": "",
+          "flavorText": "能在阳光下舒舒服服地做一次根部保养，夫复何求？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/108afa7d6f81296137b28a57239816b09ded1297ef592d9fc5cec127b9de7ff2.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "All4 spells require an ordinary HERO/BOARD character target; only Cold Snap restricts relation enemy. Native target/payment/sequence and health/freeze lifecycle remain shared.",
+    "Runed Orb Damage2 kindSPELL then ordinary collectible SPELL discovery/current hero+neutral. Deaths Advance Freeze then same ordinary discovery; Frost school and original2Frost runes preserved, own CID deck identity. Orb Core alias BAR_541, old row evidence only. Default heal_hero_by_printed_cost and freeze_summoned remainFalse, no gift/board delivery.",
+    "Cold Snap Freeze enemy character then1 collectible FROST SPELL any class, ordinary source/new hand identity. Photosynthesis Heal6 kindSPELL on original character then3 collectible specifiedDruid SPELLs, include_neutralFalse, actual Druid dual-class members eligible; any current hero.",
+    "Only EDR_848 audited raw #6 marker is normalized to literal6 for official display comparison; original complete raw strings retained, no text-derived runtime recipe.",
+    "Explicit GenerationContext/matching constructed.cards host inventory required. Complete metadata is not executable/formal qualification; shared source/edition exclusions apply, eligible unknowns fail beforeRNG, no fallback/placeholder/cropped production pool.",
+    "Batch definitions/PoolCards precede original final public candidate catalog validation. No shared/core/registry/identity/UI/ledger edit. Exact CN timing/implicit discover qualification and formal M0/M6 remain open."
+  ]
+}
