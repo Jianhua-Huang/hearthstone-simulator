@@ -1,0 +1,455 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_720",
+        "dbf_id": 122635,
+        "name": "战争大师黑角",
+        "name_en": "Warmaster Blackhorn",
+        "text": "<b>战吼：</b>摧毁双方玩家牌库中所有法力值消耗小于或等于（2）点的牌。",
+        "text_en": "<b>Battlecry:</b> Destroy all cards that cost (2) or less in both players' decks.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "b99ae51762d9abdbc5202e26a0caa025058aa015d484b12515d6321153341616"
+    },
+    {
+      "record": {
+        "id": "FIR_922",
+        "dbf_id": 115649,
+        "name": "燃薪之剑",
+        "name_en": "Cindersword",
+        "text": "<b>战吼：</b>如果你的手牌中有具有<b>黑暗之赐</b>的随从牌，获得+3攻击力。",
+        "text_en": "<b>Battlecry:</b> If you're holding a minion with\na <b>Dark Gift</b>, gain +3 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b3408d033b3c0e24798a653407a8feb6604a2b2189cea576bd9d5097832c5326"
+    },
+    {
+      "record": {
+        "id": "JAIL_030",
+        "dbf_id": 125643,
+        "name": "逃命专家",
+        "name_en": "Escape Artist",
+        "text": "在本随从攻击并存活下来后，抽一张牌并逃离对战！",
+        "text_en": "[x]After this attacks and\nsurvives, draw a card and\nescape the game!",
+        "cost": 2,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "79bac380fa2d5d2726da2b5a32ebe2b8a698aefbbcd659f9d82656126df86688"
+    },
+    {
+      "record": {
+        "id": "MEND_805",
+        "dbf_id": 123625,
+        "name": "捐助",
+        "name_en": "Charity",
+        "text": "获取在本回合中死亡的所有友方随从的复制，并使其获得+3/+3。",
+        "text_en": "Get copies of all friendly minions that died this turn. Give them +3/+3.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "77fed82038cd574de88b2b9908beec3b770012364d16cce4328edf1862634e63"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T00:52:40.422403+08:00",
+    "observations": [
+      {
+        "card_id": "FIR_922",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115649&locale=en_US",
+        "response_file": "official-FIR_922-en-us.json",
+        "response_sha256": "007c453e9195fea24ced140e41cc177f4fb9e44afe712fd58ce6ee29b7da5264",
+        "face": {
+          "id": 115649,
+          "collectible": 1,
+          "slug": "115649-cindersword",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Studio Hive",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Cindersword",
+          "text": "<b>Battlecry:</b> If you're holding a minion with a <b>Dark Gift</b>, gain +3 Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27ff768c255749790affff2c85d2498b85aa7ef5b1dc411e24bc248748ca0c17.png",
+          "imageGold": "",
+          "flavorText": "Where did I put de metals? It cindersword.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40c5e3a77923a8af2f10295b2e2a3d94e19cfdab6d31c2b7dea7b9beadbd4cd1.png",
+          "keywordIds": [
+            8,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_922",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115649&locale=zh_CN",
+        "response_file": "official-FIR_922-zh-cn.json",
+        "response_sha256": "019cf486013ec39ff3f36d88223e3306558b9d5db2b7dd0699c9430f4a9c980e",
+        "face": {
+          "id": 115649,
+          "collectible": 1,
+          "slug": "115649-cindersword",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Studio Hive",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "燃薪之剑",
+          "text": "<b>战吼：</b>如果你的手牌中有具有<b>黑暗之赐</b>的随从牌，获得+3攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9821e4f722bdb182bc6c39834277f1181406dcc1b430cb35582ee4b2d849f6b3.png",
+          "imageGold": "",
+          "flavorText": "剑在何处？剑在薪中。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40c5e3a77923a8af2f10295b2e2a3d94e19cfdab6d31c2b7dea7b9beadbd4cd1.png",
+          "keywordIds": [
+            8,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_720",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122635&locale=en_US",
+        "response_file": "official-CATA_720-en-us.json",
+        "response_sha256": "a9afb221f5845bb908bc103c95812b128ef3ac92d039f191007ce75bb9282f44",
+        "face": {
+          "id": 122635,
+          "collectible": 1,
+          "slug": "122635-warmaster-blackhorn",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Kevin Sidharta",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 7,
+          "name": "Warmaster Blackhorn",
+          "text": "<b>Battlecry:</b> Destroy all cards that cost (2) or less in both players' decks.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a4148cc0f731a2e81e3a12606bbfe3af12d008a6223892c22551cce44725fe7.png",
+          "imageGold": "",
+          "flavorText": "The brave warrior who finally defeats Warmaster Blackhorn, once and for all, will be bestowed with the most prestigious title in the land: Cowtipper.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45d7de1169772d8b487cf183c88aaba0e9346747dd083e9af8fd1b48d9f12d34.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_720",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122635&locale=zh_CN",
+        "response_file": "official-CATA_720-zh-cn.json",
+        "response_sha256": "e3161a241315b3719a93a10d69407335aec9986e0d7b7b0162b954cf1db2613e",
+        "face": {
+          "id": 122635,
+          "collectible": 1,
+          "slug": "122635-warmaster-blackhorn",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Kevin Sidharta",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 7,
+          "name": "战争大师黑角",
+          "text": "<b>战吼：</b>摧毁双方玩家牌库中所有法力值消耗小于或等于（2）点的牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d3957493747cf5dd546632dffaaa32d653929403aae711a1173e9a1980b604b.png",
+          "imageGold": "",
+          "flavorText": "能够彻底击败战争大师黑角的勇士会被授予这片土地上的最高评价：牛翻了。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45d7de1169772d8b487cf183c88aaba0e9346747dd083e9af8fd1b48d9f12d34.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_805",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123625&locale=en_US",
+        "response_file": "official-MEND_805-en-us.json",
+        "response_sha256": "cb831b19217d5f9cb5331181ca6fba21b5293c8bbf4cd43fa1a18319eae03c4e",
+        "face": {
+          "id": 123625,
+          "collectible": 1,
+          "slug": "123625-charity",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Bima Kusuma",
+          "manaCost": 3,
+          "name": "Charity",
+          "text": "Get copies of all friendly minions that died this turn. Give them +3/+3.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1be91684d94ffbab2a19eda5845e031f08c1174452fbd75ebd288cf1111d6de.png",
+          "imageGold": "",
+          "flavorText": "I am donating these minions... to myself!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/092f82ab872d8104e4c2b122629d56afc64d28ddf7d06cd1c7a63cf89e1e71f2.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_805",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123625&locale=zh_CN",
+        "response_file": "official-MEND_805-zh-cn.json",
+        "response_sha256": "59ef3362a5ba452fcdfba0fda03d565ae0152b329ea5b636de6331df00c1d1c5",
+        "face": {
+          "id": 123625,
+          "collectible": 1,
+          "slug": "123625-charity",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Bima Kusuma",
+          "manaCost": 3,
+          "name": "捐助",
+          "text": "获取在本回合中死亡的所有友方随从的复制，并使其获得+3/+3。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08bbbb4f1e40dff78ef477242d27e421f9d42cd7dbf0ce9d357379697cd0d1a6.png",
+          "imageGold": "",
+          "flavorText": "我把这些随从捐赠给……我自己！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/092f82ab872d8104e4c2b122629d56afc64d28ddf7d06cd1c7a63cf89e1e71f2.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_030",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125643&locale=en_US",
+        "response_file": "official-JAIL_030-en-us.json",
+        "response_sha256": "4e33bbc9e24ed6c54402df6a4a750114435654633094054358ad636ac07ecc8c",
+        "face": {
+          "id": 125643,
+          "collectible": 1,
+          "slug": "125643-escape-artist",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Tee Fuyuan",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 2,
+          "name": "Escape Artist",
+          "text": "After this attacks and survives, draw a card and escape the game!",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53cc2676c26f9f03f5c6d685c401f19d104c49ff0193054f4dbf47066cd61223.png",
+          "imageGold": "",
+          "flavorText": "For my next trick I need a volunteer. Please inspect the battlefield and ensure there are no trap doors or otherwise concealed exits.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/971e7221ad3f03c7b65c2259d91067c277ec61eaa3e8262820b8696aada8bed3.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_030",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125643&locale=zh_CN",
+        "response_file": "official-JAIL_030-zh-cn.json",
+        "response_sha256": "405f6157ae8bc5ee329bae33e8a0d004d2850bb56a8b302043e241b5a6561bb8",
+        "face": {
+          "id": 125643,
+          "collectible": 1,
+          "slug": "125643-escape-artist",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Tee Fuyuan",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 2,
+          "name": "逃命专家",
+          "text": "在本随从攻击并存活下来后，抽一张牌并逃离对战！",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b92cb2d5398909ee2ba61ee73a03b03f3d3a377087d342c4885014484dd255b2.png",
+          "imageGold": "",
+          "flavorText": "下一个节目，我需要一个观众自愿配合。请仔细检查，战场上没有暗门，也没有什么秘密出口。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/971e7221ad3f03c7b65c2259d91067c277ec61eaa3e8262820b8696aada8bed3.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "CATA_720": "One Battlecry body captures both original physical decks in player1/player2 order and each deck order. Select current stored local_cost amount<=2 (not hand/player quote or printed-only cost), capture CardReferences once, then one DestroyDeckBatch. All selected movements precede destruction reactions; no requery, discard, minion death/corpse or fatigue.",
+    "FIR_922": "Actual 1mana1Attack2durability weapon Battlecry. Requires original source still the captured player actual equipped weapon, live and positive durability. Own current HAND must contain MINION with native public_gifts identity; ordinary equal stats, deck/board/opponent minions do not qualify. ModifyWeapon(original id,attack3) only; no durability gain or generated pool.",
+    "JAIL_030": "Native attack_finished and completed_attack fact: original self actual attacker, real combat, matching original source epoch/entry/card, live/healthy at accepted finish snapshot. Draw1 first then RemoveFromGame on same captured MinionReference. Draw reactions can retire/return/transform/control source so stale removal skips. No death/deathrattle/corpse; cancelled attacks, defending, other attackers and bare CombatDamage do not qualify. Terminal draw consequences stop tail through existing scheduler.",
+    "MEND_805": "Un-schooled SPELL. death_candidates(DeathQuery(side=friendly,min_turn=current global turn,max_turn=same)) captures ordered separate BOARD MINION deaths by controller-at-death once. Each original DeathRecord goes to existing CopyCard(mode=base,HAND), preserving current death face, physical components and supported innate identity. Existing SummonStats(original base_attack+3,base_health+3) creates base-recovery reward before acquisition notification; old local buffs, injury, silence and hand cost do not transfer. Repeated deaths of same physical entity remain separate copies, no entity/card dedup. This printed-base stat recipe and exact copy/acquisition windows remain CN-uncalibrated. Baseline has no registered Jade or Cthun profiles; no such unsupported family is invented for this adapter.",
+    "evidence": "Four complete fixed37.0 raw records and eight full official en-US/zh-CN faces, all without named child dependencies. Internal source/lifecycle/acceptance tests do not certify complete M0 formal pool or precise M6 server timing."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
