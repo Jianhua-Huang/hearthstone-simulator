@@ -1,0 +1,1996 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_492",
+        "dbf_id": 122712,
+        "name": "暮光神坛",
+        "name_en": "Shrine of Twilight",
+        "text": "<b>兆示</b>{0}。抽一张牌。",
+        "text_en": "<b>Herald</b> {0}.\nDraw a card.",
+        "cost": 4,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 39,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          }
+        ]
+      },
+      "record_sha256": "43b104ee107ed2a6b1d79dfa6cb257bb31315cedca6e318f996710bf5f182fcf"
+    },
+    {
+      "record": {
+        "id": "CATA_561",
+        "dbf_id": 122947,
+        "name": "能量仪式",
+        "name_en": "Ritual of Power",
+        "text": "<b>兆示</b>{0}。获取两张1/1并具有<b>突袭</b>的元素牌。",
+        "text_en": "[x]<b>Herald</b> {0}.\nGet two 1/1 Elementals\nwith <b>Rush</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "15077b00c86a8223eeb99a940b24a50170674266b84d30bfcd8dc8ff39cb4de4"
+    },
+    {
+      "record": {
+        "id": "EDR_871",
+        "dbf_id": 116462,
+        "name": "灵体采集者",
+        "name_en": "Spirit Gatherer",
+        "text": "<b>战吼：</b>获取\n一张小精灵。<b>灌注</b>你的英雄技能。",
+        "text_en": "<b>Battlecry:</b> Get a Wisp. <b>Imbue</b> your Hero Power.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2ed1e5d2abdee60aba2cf69188ba29b92fd9ec9c277fdb85452fb3caa95f2828"
+    },
+    {
+      "record": {
+        "id": "CATA_473",
+        "dbf_id": 123109,
+        "name": "诺兹多姆，青铜守护巨龙",
+        "name_en": "Nozdormu, Bronze Aspect",
+        "text": "在你的回合结束时，使你的随从获得<b>圣盾</b>，已有圣盾的随从改为获得+3/+3。",
+        "text_en": "[x]At the end of your turn, give\nyour minions <b>Divine Shield</b>.\nAny that already had one\n__gain +3/+3 instead.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "49fab88a92820a3f6628cf8045a5018b0f51ff563aeab187b9b4464499898583"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_561t",
+        "dbf_id": 127584,
+        "name": "幼体风灵",
+        "name_en": "Breezling",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "4317620e2cb5beb171aadb2e95e0d2e4bda137c750dc51f3c463b8ee3474259a"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_851p",
+        "dbf_id": 114056,
+        "name": "小精灵的祝福",
+        "name_en": "Blessing of the Wisp",
+        "text": "召唤<b>@个小精灵</b>。造成<b>$@</b>点伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]Summon |4(<b>@</b> Wisp,<b>@</b> Wisps).\nDeal <b>$@</b> damage\nrandomly split among\nall enemies.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 10,
+          "349": 1,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6958fe963c899281ece90d8859367e28bbd7fbdc88208beabdad56dea1ee764d",
+      "definition_sha256": "9a97b4f13875b68a43a867550f7155d0e6cdecc4d10d769ed438fe5c0aa3f640"
+    },
+    {
+      "record": {
+        "id": "EDR_851t",
+        "dbf_id": 116450,
+        "name": "小精灵",
+        "name_en": "Wisp",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "3881": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3881",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3881"
+          }
+        ]
+      },
+      "record_sha256": "3d3627ec4bd3e6037d8509d57448553a84c3ab747cdf86d3f848b712e5bcb5b7",
+      "definition_sha256": "096f42222a08f672eb31e9c3263fd6f5dd67dba8999abd5c8808ee9852cf8bad"
+    },
+    {
+      "record": {
+        "id": "CATA_725t",
+        "dbf_id": 127045,
+        "name": "古加尔的士兵",
+        "name_en": "Soldier of Cho'gall",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "26cb48befb0f8888d817db48bd301466daca60e0f45a54e4d5e12517fc3f2a9c",
+      "definition_sha256": "4cd30715192c9db6df288f68c22232341089df9b5cae2292aab358bd0e8ec24d"
+    },
+    {
+      "record": {
+        "id": "CATA_565t",
+        "dbf_id": 127071,
+        "name": "奥拉基尔的士兵",
+        "name_en": "Soldier of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "3480822aca6e996a5cd1d44187f43f3479bedce1cff9eaa08e75e564479f5ea9",
+      "definition_sha256": "0204b12b12d36c1c54d1ac447b095e11472804bb7600e6447ff60c4c0e4ad98c"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_726",
+        "dbf_id": 125432,
+        "name": "古加尔，暮光主谋",
+        "name_en": "Cho'gall, Mastermind",
+        "text": "<b>巨型+2</b>\n你的手臂和士兵改为消灭敌方牌库中的\n随从。",
+        "text_en": "[x]<b>Colossal +2</b>\nYour Arms and Soldiers\ndestroy minions in the\n_enemy's deck instead.",
+        "cost": 9,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125435,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125435,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leroy Steinmann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "db9c248973565b1145529ef86f4efa4ee5c6372cfb78f29bc251b2bf4a343e9e",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    },
+    {
+      "record": {
+        "id": "CATA_726t",
+        "dbf_id": 125433,
+        "name": "古的手臂",
+        "name_en": "Cho's Arm",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}. \n<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "faa10e9d87dce493b840df0925953af131ff7a566647e86c44ed87687917d63d",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    },
+    {
+      "record": {
+        "id": "CATA_726t1",
+        "dbf_id": 125435,
+        "name": "加尔的手臂",
+        "name_en": "Gall's Arm",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "08a86b56cc15068d18b891f71aa87a3bcd625226365a2c5d67c22ad27ae4cc04",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    },
+    {
+      "record": {
+        "id": "CATA_153",
+        "dbf_id": 125442,
+        "name": "奥拉基尔，风暴之主",
+        "name_en": "Al'Akir, Lord of Storms",
+        "text": "<b>巨型+2\n<b>突袭。</b>风怒。</b><b>战吼：</b>获取2张法力值消耗等同于本随从攻击力的随从牌，这两张牌的法力值消耗为（1）点。",
+        "text_en": "[x]<b>Colossal +2, <b>Rush</b>, Windfury</b>\n<b>Battlecry:</b> Get 2 minions with\nCost equal to this minion's\nAttack. They cost (1).",
+        "cost": 8,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 127053,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127053,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0599e804213c05e615783c9ab68241d927194efbf83d3ed1f6a44e69640192b3",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    },
+    {
+      "record": {
+        "id": "CATA_153t",
+        "dbf_id": 125443,
+        "name": "奥拉基尔的灌能之手",
+        "name_en": "Charged Hand of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "d58f95d1890fe6997f6b399476ea60ffa5dddc0570a9347c3bf0c4cb0df988a5",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    },
+    {
+      "record": {
+        "id": "CATA_153t1",
+        "dbf_id": 127053,
+        "name": "奥拉基尔的灌能之手",
+        "name_en": "Charged Hand of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "017b28d4539eb4858b67966e6c8056f5a91f228b9e242ac50152e76d3e5f7527",
+      "role": "Official gallery display-related existing Colossal/limb face; not created by these roots. Its existing adapter is unchanged and is not newly certified here."
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T23:44:18.542434+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_871",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116462&locale=en_US",
+        "response_file": "official-EDR_871-en-us.json",
+        "response_sha256": "758fcda7198ce91a08d25c4fe8db50e38beff75ec2cdfa6cbfe9db37fd790252",
+        "face": {
+          "id": 116462,
+          "collectible": 1,
+          "slug": "116462-spirit-gatherer",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Mike Sass",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Spirit Gatherer",
+          "text": "<b>Battlecry:</b> Get a Wisp. <b>Imbue</b> your Hero Power.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fca14909f2352cb749fb6ce44ebae4ba91f9c6d20e9354b23ca4b1114424331.png",
+          "imageGold": "",
+          "flavorText": "They call him the Wisp Whisperer.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa865c03129ce359e834aeb0ed68663176880706590378fa76cb2cdb7439635c.png",
+          "childIds": [
+            114056,
+            116450
+          ],
+          "keywordIds": [
+            8,
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_871",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116462&locale=zh_CN",
+        "response_file": "official-EDR_871-zh-cn.json",
+        "response_sha256": "906fc925f1c88b6bd15d5277c3bc0b1bc34310242363f2cae2244d320900e9de",
+        "face": {
+          "id": 116462,
+          "collectible": 1,
+          "slug": "116462-spirit-gatherer",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Mike Sass",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "灵体采集者",
+          "text": "<b>战吼：</b>获取 一张小精灵。<b>灌注</b>你的英雄技能。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7232665820e58254691248bfb4f7807fc7cbf13729b521acc2119809aca4f3e2.png",
+          "imageGold": "",
+          "flavorText": "静聆小精灵，小精灵径临。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa865c03129ce359e834aeb0ed68663176880706590378fa76cb2cdb7439635c.png",
+          "childIds": [
+            114056,
+            116450
+          ],
+          "keywordIds": [
+            8,
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_492",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122712&locale=en_US",
+        "response_file": "official-CATA_492-en-us.json",
+        "response_sha256": "49e4d9f3b13b6dff86b0191e615204ddba51cb78eace8ce997e904696dc565a7",
+        "face": {
+          "id": 122712,
+          "collectible": 1,
+          "slug": "122712-shrine-of-twilight",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 39,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "manaCost": 4,
+          "name": "Shrine of Twilight",
+          "text": "<b>Herald</b> Cho'gall. Draw a card.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f591a90c5e25461c461cb27c558796e5d8e1896430e4cdc42bcec69cf2fa166e.png",
+          "imageGold": "",
+          "flavorText": "This is where Cho'gall puts all his Old God merch.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca5674f72ea43eeda340db2c1d700adcd220ddb3c6da39630dbd7172bc96ebec.png",
+          "childIds": [
+            127045,
+            125432,
+            125433,
+            125435
+          ],
+          "keywordIds": [
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_492",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122712&locale=zh_CN",
+        "response_file": "official-CATA_492-zh-cn.json",
+        "response_sha256": "690f9e5002890207121dbe14b05452c1ab03c5595585df36672346497ed033c1",
+        "face": {
+          "id": 122712,
+          "collectible": 1,
+          "slug": "122712-shrine-of-twilight",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 39,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "manaCost": 4,
+          "name": "暮光神坛",
+          "text": "<b>兆示</b>古加尔。抽一张牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a08201b9bf425a76ffa25e1909a139095c9a48b5a0653305d3c24798440ce803.png",
+          "imageGold": "",
+          "flavorText": "古加尔摆放上古之神周边的地方。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca5674f72ea43eeda340db2c1d700adcd220ddb3c6da39630dbd7172bc96ebec.png",
+          "childIds": [
+            127045,
+            125432,
+            125433,
+            125435
+          ],
+          "keywordIds": [
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_561",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122947&locale=en_US",
+        "response_file": "official-CATA_561-en-us.json",
+        "response_sha256": "6a4014f034376a91f7c7493fb2adb4e395c1c54e73c7d1640db5c7c84112c01e",
+        "face": {
+          "id": 122947,
+          "collectible": 1,
+          "slug": "122947-ritual-of-power",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 2,
+          "name": "Ritual of Power",
+          "text": "<b>Herald</b> Al'Akir. Get two 1/1 Elementals with <b>Rush</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/159629a1c494adec8d0efb99794f8335ffaa6eee6f826a9e9260fd1ceb7cfdb0.png",
+          "imageGold": "",
+          "flavorText": "Just ONCE I'd like someone to do a Ritual of Friendship.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9538b1f67cbc3202a7ce38c438f17ad52525ff9e5016209e984d723c85b16304.png",
+          "childIds": [
+            127071,
+            125442,
+            127584,
+            125443,
+            127053
+          ],
+          "keywordIds": [
+            53,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_561",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122947&locale=zh_CN",
+        "response_file": "official-CATA_561-zh-cn.json",
+        "response_sha256": "339e6b03033bfeda5e7c57c91557524a94212f3d841154430e91b677a1e5d8a7",
+        "face": {
+          "id": 122947,
+          "collectible": 1,
+          "slug": "122947-ritual-of-power",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 2,
+          "name": "能量仪式",
+          "text": "<b>兆示</b>奥拉基尔。获取两张1/1并具有<b>突袭</b>的元素牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c81c7d3de805f71ccc4780dbf7bc64921281794afea14566b4aed1169ef09eea.png",
+          "imageGold": "",
+          "flavorText": "多希望有人能办一次友谊仪式。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9538b1f67cbc3202a7ce38c438f17ad52525ff9e5016209e984d723c85b16304.png",
+          "childIds": [
+            127071,
+            125442,
+            127584,
+            125443,
+            127053
+          ],
+          "keywordIds": [
+            53,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_473",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123109&locale=en_US",
+        "response_file": "official-CATA_473-en-us.json",
+        "response_sha256": "7e102bacd243321e0fc68ad83da91d0c243e80eba1c524b6e03e27f2293d65b8",
+        "face": {
+          "id": 123109,
+          "collectible": 1,
+          "slug": "123109-nozdormu-bronze-aspect",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Zoltan Boros",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 5,
+          "name": "Nozdormu, Bronze Aspect",
+          "text": "At the end of your turn, give your minions <b>Divine Shield</b>. Any that already had one gain +3/+3 instead.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f192f21c779614e2ad99a51159cec51546f2f6a977fa605aa53c070a2e4e30a.png",
+          "imageGold": "",
+          "flavorText": "Nozdormu, I've come to bargain!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e529b62c4ee0345e8122ee138a037cab6d3c4c05f7f81eb6c341cc6f7d3d2e3c.png",
+          "keywordIds": [
+            3
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_473",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123109&locale=zh_CN",
+        "response_file": "official-CATA_473-zh-cn.json",
+        "response_sha256": "c22672b137decdcf8f273674ab16b9b599dedfd680f080f0f270284b8c0f9cac",
+        "face": {
+          "id": 123109,
+          "collectible": 1,
+          "slug": "123109-nozdormu-bronze-aspect",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Zoltan Boros",
+          "health": 4,
+          "attack": 4,
+          "manaCost": 5,
+          "name": "诺兹多姆，青铜守护巨龙",
+          "text": "在你的回合结束时，使你的随从获得<b>圣盾</b>，已有圣盾的随从改为获得+3/+3。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a0f4292d9e7ee290249599e32b50b0b60a5fe54769e367a5229514eaec62ed5.png",
+          "imageGold": "",
+          "flavorText": "诺兹多姆，我是来谈条件的！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e529b62c4ee0345e8122ee138a037cab6d3c4c05f7f81eb6c341cc6f7d3d2e3c.png",
+          "keywordIds": [
+            3
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_851p",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114056&locale=en_US",
+        "response_file": "official-EDR_851p-en-us.json",
+        "response_sha256": "f4e466e364dc0d291a7d3737222b35ba61b8083ad663c8a491a0ec6d7d224a80",
+        "face": {
+          "id": 114056,
+          "collectible": 0,
+          "slug": "114056-blessing-of-the-wisp",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 10,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Studio Hive",
+          "manaCost": 2,
+          "name": "Blessing of the Wisp",
+          "text": "Summon (<b> </b> Wisp,<b> </b> Wisps). Deal <b> </b> damage randomly split among all enemies.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3548d162e819b93bca7ff58adbf843aec2732875e3ec00c2fdbb3e439b72587.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "childIds": [
+            116450
+          ],
+          "keywordIds": [
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_851p",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114056&locale=zh_CN",
+        "response_file": "official-EDR_851p-zh-cn.json",
+        "response_sha256": "11c9472a9ec7a1437c117bac39b6d85c48cb44e7dc5933c6e5220a44dce4808b",
+        "face": {
+          "id": 114056,
+          "collectible": 0,
+          "slug": "114056-blessing-of-the-wisp",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 10,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Studio Hive",
+          "manaCost": 2,
+          "name": "小精灵的祝福",
+          "text": "召唤<b> 个小精灵</b>。造成<b> </b>点伤害，随机分配到所有敌人身上。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb770564a1a5590911623a93f7dd77d352c6ca76e0b215630c88253c0a3b7097.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "childIds": [
+            116450
+          ],
+          "keywordIds": [
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_851t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116450&locale=en_US",
+        "response_file": "official-EDR_851t-en-us.json",
+        "response_sha256": "8c7ee5d5dc95b3c51f9519cdd9fb019c268d020487b55baa186e9a8cb59c6e05",
+        "face": {
+          "id": 116450,
+          "collectible": 0,
+          "slug": "116450-wisp",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 11,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Studio Hive",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 0,
+          "name": "Wisp",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7123934610479d1cc7a7a85a22f00693513c19a14e4c46cbd0e4b825fb1e57a6.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_851t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116450&locale=zh_CN",
+        "response_file": "official-EDR_851t-zh-cn.json",
+        "response_sha256": "eebe4bc33f09386efe90c176b531966f18dd349aa3cea2ba5907029274f1dceb",
+        "face": {
+          "id": 116450,
+          "collectible": 0,
+          "slug": "116450-wisp",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 11,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Studio Hive",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 0,
+          "name": "小精灵",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/551bc26a54a591efbacb4a292d285ad4acb441dfd3a4c89875db22fa0a09f825.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125432&locale=en_US",
+        "response_file": "official-CATA_726-en-us.json",
+        "response_sha256": "6782178d8e1a3afc0f95cb1fdd1671d3f939ba76124fd741a1db8879dadef9d9",
+        "face": {
+          "id": 125432,
+          "collectible": 1,
+          "slug": "125432-chogall-mastermind",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Leroy Steinmann",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 9,
+          "name": "Cho'gall, Mastermind",
+          "text": "<b>Colossal +2</b> Your Arms and Soldiers destroy minions in the enemy's deck instead.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d3388d288af49379952d926b44243bd180c5dc6aa673a80b33226e22953b0e9.png",
+          "imageGold": "",
+          "flavorText": "Once a servant of the Old Gods, Cho'gall believes he has become a god, worthy to stand beside them.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37587bc94138be0f6a23f0ca01eb3c3b5afa7dbfd38f185141c0d49c8677d23d.png",
+          "childIds": [
+            125433,
+            125435
+          ],
+          "keywordIds": [
+            231,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125432&locale=zh_CN",
+        "response_file": "official-CATA_726-zh-cn.json",
+        "response_sha256": "6cc17ee98d7174148b12a32f5436ae712a552e41ee2e95a1e8e226f2d8534b1e",
+        "face": {
+          "id": 125432,
+          "collectible": 1,
+          "slug": "125432-chogall-mastermind",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Leroy Steinmann",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 9,
+          "name": "古加尔，暮光主谋",
+          "text": "<b>巨型+2</b> 你的手臂和士兵改为消灭敌方牌库中的 随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d380780f2692bcb98c2de4f7209846db48ac5d45bfa4c0d65a064a09c8f01b6b.png",
+          "imageGold": "",
+          "flavorText": "古加尔曾是上古之神的忠仆，但现在他相信自己也成了神，足以与古神并立。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37587bc94138be0f6a23f0ca01eb3c3b5afa7dbfd38f185141c0d49c8677d23d.png",
+          "childIds": [
+            125433,
+            125435
+          ],
+          "keywordIds": [
+            231,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125433&locale=en_US",
+        "response_file": "official-CATA_726t-en-us.json",
+        "response_sha256": "1b7a20875e8f8c669f6e01b0437104e7e3f30a3cb97ce53369453209d8df5a99",
+        "face": {
+          "id": 125433,
+          "collectible": 0,
+          "slug": "125433-chos-arm",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Cho's Arm",
+          "text": "At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> twice to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> once to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ .",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8971199056823feedc777e9a751edb4141073df60e03abcbce255224de957355.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125432,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125433&locale=zh_CN",
+        "response_file": "official-CATA_726t-zh-cn.json",
+        "response_sha256": "2ce16f0987c61bb82a9a57dfca34a5545c575960068683381a7a747be1bd41e3",
+        "face": {
+          "id": 125433,
+          "collectible": 0,
+          "slug": "125433-chos-arm",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "古的手臂",
+          "text": "在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>两次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>一次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86cfb332f484cceac85ed2066e8ff9436a9c0f3c928e66b0b9e117b478f5f864.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125432,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726t1",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125435&locale=en_US",
+        "response_file": "official-CATA_726t1-en-us.json",
+        "response_sha256": "4104aa2167deab763717276cac99baebc1ddd82ef98da520255c817364137495",
+        "face": {
+          "id": 125435,
+          "collectible": 0,
+          "slug": "125435-galls-arm",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Gall's Arm",
+          "text": "At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> twice to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> once to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ .",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7099b7fd0a838b0eef569862712bb3c7bfae0cf8e0d32bdf33ad2ee4ea3c0ff5.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125432,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_726t1",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125435&locale=zh_CN",
+        "response_file": "official-CATA_726t1-zh-cn.json",
+        "response_sha256": "d6f2c69d96c4a800e8d51d5e9e7e4f7be7ffb66f04c258f89bac584f607b5cd8",
+        "face": {
+          "id": 125435,
+          "collectible": 0,
+          "slug": "125435-galls-arm",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "加尔的手臂",
+          "text": "在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>两次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>一次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d4aada66315506affcbca176f71e15e6c4b8a2dff2f0acea471eda414767e8a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125432,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125442&locale=en_US",
+        "response_file": "official-CATA_153-en-us.json",
+        "response_sha256": "010c21d928a071ca1b4f601c05ef6894287b75b765902092ad15fd780eaf7af4",
+        "face": {
+          "id": 125442,
+          "collectible": 1,
+          "slug": "125442-alakir-lord-of-storms",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Slawomir Maniak",
+          "health": 8,
+          "attack": 2,
+          "manaCost": 8,
+          "name": "Al'Akir, Lord of Storms",
+          "text": "<b>Colossal +2, <b>Rush</b>, Windfury</b> <b>Battlecry:</b> Get 2 minions with Cost equal to this minion's Attack. They cost (1).",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/593c7d43ed53d6ea1e7d6cf0e910147396a6f9b715685525d822910b49a48a4c.png",
+          "imageGold": "",
+          "flavorText": "Seduced by Deathwing's promises of freedom and power, the Windlord summoned massive storms over Uldum as he led his forces to assault the Titans' strongholds.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01f540cdab16b20e3fc12bf57a52f14433987af9294a75c39cfd8dd6cbc5e915.png",
+          "childIds": [
+            125443,
+            127053
+          ],
+          "keywordIds": [
+            8,
+            11,
+            53,
+            231,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125442&locale=zh_CN",
+        "response_file": "official-CATA_153-zh-cn.json",
+        "response_sha256": "1ce1d2b816ed5d1ff4b3418f3ab2fe61867060fe9807836ae30957f311d4166a",
+        "face": {
+          "id": 125442,
+          "collectible": 1,
+          "slug": "125442-alakir-lord-of-storms",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 5,
+          "artistName": "Slawomir Maniak",
+          "health": 8,
+          "attack": 2,
+          "manaCost": 8,
+          "name": "奥拉基尔，风暴之主",
+          "text": "<b>巨型+2 <b>突袭。</b>风怒。</b><b>战吼：</b>获取2张法力值消耗等同于本随从攻击力的随从牌，这两张牌的法力值消耗为（1）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e42d7a7a1a3aea04c25003ff494659fa249517a0fe6751b52adf553b3ccf5d06.png",
+          "imageGold": "",
+          "flavorText": "死亡之翼向风领主许下了自由与力量。于是奥拉基尔在奥丹姆上空召来了巨大的风暴，亲率部队攻向了泰坦的要塞。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01f540cdab16b20e3fc12bf57a52f14433987af9294a75c39cfd8dd6cbc5e915.png",
+          "childIds": [
+            125443,
+            127053
+          ],
+          "keywordIds": [
+            8,
+            11,
+            53,
+            231,
+            378
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125443&locale=en_US",
+        "response_file": "official-CATA_153t-en-us.json",
+        "response_sha256": "aca6032d34b68cde2246a2815cab8af01367b6c7c0d8faa42bdb2c4b5cb39449",
+        "face": {
+          "id": 125443,
+          "collectible": 0,
+          "slug": "125443-charged-hand-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Charged Hand of Al'Akir",
+          "text": "Adjacent minions have + Attack. <i><b>Herald</b> twice to upgrade.</i> Adjacent minions have + Attack. <i><b>Herald</b> once to upgrade.</i> Adjacent minions have + Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/632eb0cde1575717ef015d5b09920c2f51d8977c64f88f745ae547d8b0c8f925.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125442,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125443&locale=zh_CN",
+        "response_file": "official-CATA_153t-zh-cn.json",
+        "response_sha256": "6501aaf88782a7d2e339bdf31a119fbc9bfbb6e3acad6098e51baa15076f072f",
+        "face": {
+          "id": 125443,
+          "collectible": 0,
+          "slug": "125443-charged-hand-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "奥拉基尔的灌能之手",
+          "text": "相邻的随从拥有+ 攻击力。<i><b>兆示</b>两次后升级。</i> 相邻的随从拥有+ 攻击力。<i><b>兆示</b>一次后升级。</i> 相邻的随从拥有+ 攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29b9254dcb2639c607c55ff2ca4d533cd62fc454321be2f2aaddacbd385dc921.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125442,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_725t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127045&locale=en_US",
+        "response_file": "official-CATA_725t-en-us.json",
+        "response_sha256": "d84a1457aa0e1faa4a71c1fa7826db388210d6e13f0ee5d4b05f8c57a0667442",
+        "face": {
+          "id": 127045,
+          "collectible": 0,
+          "slug": "127045-soldier-of-chogall",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Juan Calle",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Soldier of Cho'gall",
+          "text": "At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> twice to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ . <i><b>Herald</b> once to upgrade.</i> At the end of your turn, destroy the minion to the right to gain + /+ .",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51cb7776504bcc5692e7fe2d0be6275316f25fc12d3b7402df973edbc1d4201a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122643,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_725t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=127045&locale=zh_CN",
+        "response_file": "official-CATA_725t-zh-cn.json",
+        "response_sha256": "e92a73e58e8eb5ac4bc2b39c96c4236d54763e43e4741d68c64f01ca9c9933b0",
+        "face": {
+          "id": 127045,
+          "collectible": 0,
+          "slug": "127045-soldier-of-chogall",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Juan Calle",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "古加尔的士兵",
+          "text": "在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>两次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。<i><b>兆示</b>一次后升级。</i> 在你的回合结束时，消灭本随从右边的随从以获得+ /+ 。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62e6fa6a04febdc4dc1e962ca8edac68d35ef15fdc0187290760abec3cb8c3d6.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122643,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153t1",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127053&locale=en_US",
+        "response_file": "official-CATA_153t1-en-us.json",
+        "response_sha256": "f1af157747939eb453503edb442f2f83fb9b969c2b8f17db9c577292845d4e6c",
+        "face": {
+          "id": 127053,
+          "collectible": 0,
+          "slug": "127053-charged-hand-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Charged Hand of Al'Akir",
+          "text": "Adjacent minions have + Attack. <i><b>Herald</b> twice to upgrade.</i> Adjacent minions have + Attack. <i><b>Herald</b> once to upgrade.</i> Adjacent minions have + Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15a9bc95a736ed410591928e9012e432d25aa5c5c39ba6f0109684840998a7e7.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125442,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_153t1",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=127053&locale=zh_CN",
+        "response_file": "official-CATA_153t1-zh-cn.json",
+        "response_sha256": "ac17dbb28bdb6c7a9245fd1d331d9b0d4d1748fa97ece15a010141ba28210733",
+        "face": {
+          "id": 127053,
+          "collectible": 0,
+          "slug": "127053-charged-hand-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "奥拉基尔的灌能之手",
+          "text": "相邻的随从拥有+ 攻击力。<i><b>兆示</b>两次后升级。</i> 相邻的随从拥有+ 攻击力。<i><b>兆示</b>一次后升级。</i> 相邻的随从拥有+ 攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3044d589198fe81bd423f50465f1c0693294ac559e82dd551f579c7e14cf90a0.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 125442,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_565t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127071&locale=en_US",
+        "response_file": "official-CATA_565t-en-us.json",
+        "response_sha256": "8e54abb6a2fc32eb73c96e7834ec81524f6168cc2e51979963523d908467b6fb",
+        "face": {
+          "id": 127071,
+          "collectible": 0,
+          "slug": "127071-soldier-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Daniil Kudriavtsev",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Soldier of Al'Akir",
+          "text": "Adjacent minions have + Attack. <i><b>Herald</b> twice to upgrade.</i> Adjacent minions have + Attack. <i><b>Herald</b> once to upgrade.</i> Adjacent minions have + Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecc7889290741f735be6f926259aab70eaf7700c6f36cadde9b48d6b0fd2bccd.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122953,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_565t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=127071&locale=zh_CN",
+        "response_file": "official-CATA_565t-zh-cn.json",
+        "response_sha256": "1ac2840159be6f81d698f83a694df12f9afc74e42182e7a90b4cc14999b0fb4b",
+        "face": {
+          "id": 127071,
+          "collectible": 0,
+          "slug": "127071-soldier-of-alakir",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Daniil Kudriavtsev",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "奥拉基尔的士兵",
+          "text": "相邻的随从拥有+ 攻击力。<i><b>兆示</b>两次后升级。</i> 相邻的随从拥有+ 攻击力。<i><b>兆示</b>一次后升级。</i> 相邻的随从拥有+ 攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b90d86f895d4ee747aefead1b9e80276e6b03326cce75d5dd0ef041aa6d2b9fb.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122953,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_561t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127584&locale=en_US",
+        "response_file": "official-CATA_561t-en-us.json",
+        "response_sha256": "189b3da98c1c4371535577be1b7d9f31d1b7595ff66537723781d35a6ca75645",
+        "face": {
+          "id": 127584,
+          "collectible": 0,
+          "slug": "127584-breezling",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Breezling",
+          "text": "<b>Rush</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2458396971e47d4069bd036e430cdd044d4b9db6017d77dbad4db6098770d14f.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122947,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_561t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=127584&locale=zh_CN",
+        "response_file": "official-CATA_561t-zh-cn.json",
+        "response_sha256": "5719a54bc05efa49d4ed2ea7fb259118866ef0182683639d4de7388e7cfe09ea",
+        "face": {
+          "id": 127584,
+          "collectible": 0,
+          "slug": "127584-breezling",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "幼体风灵",
+          "text": "<b>突袭</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4154eaadd6a0e34d4f11666758e36af91c1beeb0a5b3055c62a98ff9e920b5b1.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122947,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "CATA_492": "Real 4-mana2-durability LOCATION. Ordinary PlayCard only installs location; zero-cost UseLocation invokes Herald then Draw1. No character health or spell payload. Native last-use removal, shared occupancy/cooldown and captured continuation govern Herald failure/success and draw.",
+    "CATA_561": "Nature hand/effect SPELL payload Herald then two ordered AddToHand(CATA_561t127584), exact 1-mana1/1 Elemental Rush. The two hand additions are independent of Soldier field capacity and Herald rank; they are not summons. Counter suppresses whole spell payload; repeated/automatic actual casts use original cast machinery.",
+    "EDR_871": "Actual MINION battlecry adds official EDR_851t116450 0-mana1/1 Undead Wisp, then Imbue through existing class profile. Not classic CORE_CS2_231. Full-hand failed addition does not suppress Imbue. Existing Mage EDR_851p114056 and class resource histories remain native.",
+    "CATA_473": "EndTurnSpec(controller) classifies natural owner-end body. Each original body context accepts board-ordered original active/live friendly ordinary minions including source; freezes each current Divine Shield branch once: shielded +3/+3 via BuffCapturedMinion, otherwise GrantCapturedKeyword(DIVINE_SHIELD). Effects use original MinionReference; later same-ID reentry/transform/control does not inherit accepted reward. Newly granted/lost Shield after acceptance does not change that body branch. Native max-plan repetition captures extra body contexts through original end scheduler. Exact ordering/acceptance boundaries remain uncalibrated.",
+    "evidence": "Complete raw and full official en-US/zh-CN gallery faces and recursive child graph saved. Herald {0} source placeholder renders to named Cho'gall/Al'Akir in official root face; full unmodified raw retained. Existing Colossal/limb gallery associations kept as evidence, no extra executable root created or blanket certification. M0 formal pool and M6 CN timing incomplete."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
