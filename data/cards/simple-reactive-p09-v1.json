@@ -1,0 +1,610 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "END_000",
+        "dbf_id": 121242,
+        "name": "不测之变",
+        "name_en": "Eventuality",
+        "text": "造成$2点伤害。<b>灌注</b>你的英雄技能。",
+        "text_en": "[x]Deal $2 damage.\n<b>Imbue</b> your Hero Power.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "MINI_SET": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dez Bencosme"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9e16222d7d34021dd8daeb93bc6c061e492f5f6e57cd6f40a11815c5ee2ad94b"
+    },
+    {
+      "record": {
+        "id": "JAIL_029",
+        "dbf_id": 126094,
+        "name": "暴动匪徒",
+        "name_en": "Rioter",
+        "text": "在一个友方随从受到伤害并存活下来后，使其获得+1攻击力。",
+        "text_en": "After a friendly minion survives damage,\ngive it +1 Attack.",
+        "cost": 3,
+        "attack": 1,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "f7245cb8877242b79d799a0313930112e80c111cfda682d979308b1667165caf"
+    },
+    {
+      "record": {
+        "id": "JAIL_802",
+        "dbf_id": 126409,
+        "name": "加乐宫恶棍",
+        "name_en": "Gallagio Goon",
+        "text": "在你使用一张<b>战吼</b>随从牌后，使其获得+1/+1。",
+        "text_en": "After you play a <b>Battlecry</b> minion, give it +1/+1.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "218",
+              "name": "BATTLECRY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "76651d4f3e5b7e1e2eea97fbabca8b02bdd900ff44861fc53806ea1b97a107a8"
+    },
+    {
+      "record": {
+        "id": "MEND_041",
+        "dbf_id": 123478,
+        "name": "年迈的荒语者",
+        "name_en": "Wizened Wildspeaker",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在上回合没有使用随从牌，复原三个法力水晶。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If you didn't play\na minion last turn, refresh\n3 Mana Crystals.",
+        "cost": 5,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          }
+        ]
+      },
+      "record_sha256": "a9df9b899cef9a432e02fe5d5aec548e58c36b44241e2535aa193d2ffb8dec83"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "END_000p",
+        "dbf_id": 121243,
+        "name": "青铜龙的祝福",
+        "name_en": "Blessing of the Bronze",
+        "text": "<b>回溯</b>\n随机获取一张另一职业的随从牌，其法力值消耗减少（<b>@</b>）点。",
+        "text_en": "[x]<b>Rewind</b>\nGet a random minion\nfrom another class.\nIt costs (<b>@</b>) less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 7,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "381a7f9eb822703d0647e78fe14730a0115674291f0d676caa0c6eaf436ab977",
+      "definition_sha256": "547dbd0068b90995eb9a8e20a08448f383d06912e9f46badbab5680e542cc610"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T00:03:40.302456+08:00",
+    "observations": [
+      {
+        "card_id": "END_000",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121242&locale=en_US",
+        "response_file": "official-END_000-en-us.json",
+        "response_sha256": "b4f3c9506467ddbd02530bdb5716f3af7473fc92a92a43184f38b9d3c05a1999",
+        "face": {
+          "id": 121242,
+          "collectible": 1,
+          "slug": "121242-eventuality",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Dez Bencosme",
+          "manaCost": 2,
+          "name": "Eventuality",
+          "text": "Deal 2 damage. <b>Imbue</b> your Hero Power.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8d703476efca90428ba9978849133183beee0e02325f46dcc0fe8ed6f02911c.png",
+          "imageGold": "",
+          "flavorText": "At most 29 draws away!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8756d9264bc9c831e7e82aff55ce2b94211fd92137bf79c5bbbcf783e01c1905.png",
+          "childIds": [
+            121243
+          ],
+          "keywordIds": [
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_000",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=121242&locale=zh_CN",
+        "response_file": "official-END_000-zh-cn.json",
+        "response_sha256": "f201bde17045f7d9216b97dd03b0685754b5ccad43dbd9b55245bdf00049a69f",
+        "face": {
+          "id": 121242,
+          "collectible": 1,
+          "slug": "121242-eventuality",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Dez Bencosme",
+          "manaCost": 2,
+          "name": "不测之变",
+          "text": "造成 2点伤害。<b>灌注</b>你的英雄技能。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce78a8e7358583c60cd67cdf12b0220842088b045233fd10afec29acea013875.png",
+          "imageGold": "",
+          "flavorText": "不必预测，最多还需29抽！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8756d9264bc9c831e7e82aff55ce2b94211fd92137bf79c5bbbcf783e01c1905.png",
+          "childIds": [
+            121243
+          ],
+          "keywordIds": [
+            318
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_041",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123478&locale=en_US",
+        "response_file": "official-MEND_041-en-us.json",
+        "response_sha256": "452d0295a46171f898697ac679183055cc76b5ba57c72872aa20f6a8be600885",
+        "face": {
+          "id": 123478,
+          "collectible": 1,
+          "slug": "123478-wizened-wildspeaker",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Eva Widermann",
+          "health": 7,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "Wizened Wildspeaker",
+          "text": "<b>Taunt</b> <b>Battlecry:</b> If you didn't play a minion last turn, refresh 3 Mana Crystals.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7af548fdb3953b5a9b847edd0471ed9d06dd6222e68075079538c89672df9444.png",
+          "imageGold": "",
+          "flavorText": "He's not old, he's \"Wizened\".",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/288b4ed5b667346b063ceedec9a0a405427bcd9ab6dbded1ec8860c7a37697c1.png",
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_041",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123478&locale=zh_CN",
+        "response_file": "official-MEND_041-zh-cn.json",
+        "response_sha256": "77f5e1b26ef752ec30ee42cda556d35075e13b4e6c6d6a5e143f5201fffbcd6a",
+        "face": {
+          "id": 123478,
+          "collectible": 1,
+          "slug": "123478-wizened-wildspeaker",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Eva Widermann",
+          "health": 7,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "年迈的荒语者",
+          "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在上回合没有使用随从牌，复原三个法力水晶。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a87888f1d45f39489eb63dc35db5646ae4322f3f88b58b800e17272971655e97.png",
+          "imageGold": "",
+          "flavorText": "这不是老迈，这只是“年迈”。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/288b4ed5b667346b063ceedec9a0a405427bcd9ab6dbded1ec8860c7a37697c1.png",
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_029",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126094&locale=en_US",
+        "response_file": "official-JAIL_029-en-us.json",
+        "response_sha256": "e7bad0696bb46a2d98e12f31aef2bc917c7557e23a2f5f1fc5aa61c35912b51c",
+        "face": {
+          "id": 126094,
+          "collectible": 1,
+          "slug": "126094-rioter",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Luca Zontini",
+          "health": 6,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "Rioter",
+          "text": "After a friendly minion survives damage, give it +1 Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7586169900e93062bb69ed5f279948574d8ec6ad0e16727ec5dc799bde76ee5.png",
+          "imageGold": "",
+          "flavorText": "YOU NO THROW CANDLE!!!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fccec8f731cc828e0f92e3f1225ba4fd669bcbe672bb104c7541dd96be4b739.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_029",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=126094&locale=zh_CN",
+        "response_file": "official-JAIL_029-zh-cn.json",
+        "response_sha256": "3fb699b31ffab36094d7f0413f85de64901306e95cc3d83867e0967e6ade3cc7",
+        "face": {
+          "id": 126094,
+          "collectible": 1,
+          "slug": "126094-rioter",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Luca Zontini",
+          "health": 6,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "暴动匪徒",
+          "text": "在一个友方随从受到伤害并存活下来后，使其获得+1攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a7e5ccbb063dd876f761162558db9e98baf45b9baafa067ad5aa259e2ece011.png",
+          "imageGold": "",
+          "flavorText": "你不能扔蜡烛！！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fccec8f731cc828e0f92e3f1225ba4fd669bcbe672bb104c7541dd96be4b739.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_802",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126409&locale=en_US",
+        "response_file": "official-JAIL_802-en-us.json",
+        "response_sha256": "a515878d175647c497aec74f6bec613c906efdac82a295476d92ed9ace327f51",
+        "face": {
+          "id": 126409,
+          "collectible": 1,
+          "slug": "126409-gallagio-goon",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Mauricio Herrera",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Gallagio Goon",
+          "text": "After you play a <b>Battlecry</b> minion, give it +1/+1.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/847b8b851143486dbbaf057712fabe1299edfb53eda63a72e9857c1be73adfbc.png",
+          "imageGold": "",
+          "flavorText": "Sure the knuckle dusters are kind of redundant but look how cool they look!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14d99c6baabe1e5e3642e000c2c66d4dc2c9113f1c1dc435fc17b359fe99c5aa.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_802",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=126409&locale=zh_CN",
+        "response_file": "official-JAIL_802-zh-cn.json",
+        "response_sha256": "f77ddf9e845ccd55f3af8819665987abe293ea46de3cc202a65301423e3abd0f",
+        "face": {
+          "id": 126409,
+          "collectible": 1,
+          "slug": "126409-gallagio-goon",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Mauricio Herrera",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "加乐宫恶棍",
+          "text": "在你使用一张<b>战吼</b>随从牌后，使其获得+1/+1。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08f7c0990faf91197e70cc9bcf8e0d6a474fb909f0d1082e23bed945f2cd2c76.png",
+          "imageGold": "",
+          "flavorText": "没错，指虎确实没什么必要。可是多帅啊！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14d99c6baabe1e5e3642e000c2c66d4dc2c9113f1c1dc435fc17b359fe99c5aa.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_000p",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121243&locale=en_US",
+        "response_file": "official-END_000p-en-us.json",
+        "response_sha256": "c02da97878fde7bdc46d0c5f136a90f76d317c82a8770bf63b36df36108ffc96",
+        "face": {
+          "id": 121243,
+          "collectible": 0,
+          "slug": "121243-blessing-of-the-bronze",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 10,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Tanamaes Leejierasaes",
+          "manaCost": 1,
+          "name": "Blessing of the Bronze",
+          "text": "<b>Rewind</b> Get a random minion from another class. It costs (<b> </b>) less.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91452b5bd9c7a7a6910422edc6ebf07df7f6748b46649d20780184317f51df69.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121242,
+          "keywordIds": [
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_000p",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=121243&locale=zh_CN",
+        "response_file": "official-END_000p-zh-cn.json",
+        "response_sha256": "23b175d23aabac66ff58c30a64671c92fa7db5658e1134d4f72b005c59ba9a1e",
+        "face": {
+          "id": 121243,
+          "collectible": 0,
+          "slug": "121243-blessing-of-the-bronze",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 10,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Tanamaes Leejierasaes",
+          "manaCost": 1,
+          "name": "青铜龙的祝福",
+          "text": "<b>回溯</b> 随机获取一张另一职业的随从牌，其法力值消耗减少（<b> </b>）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5226969ceaa98483e922b4b462455f7b267a00a2a169c0ad37d909f8d63dc44b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121242,
+          "keywordIds": [
+            344
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "END_000": "Mandatory ordinary character target; Shadow SPELL Damage2 then Imbue. Existing SPELL cast modifiers, actual packet/death/reaction/terminal windows and class profile own execution. Exact existing Rogue END_000p121243 is reused unchanged; its prior experimental generation/Rewind limitations and incomplete formal pool are not newly certified.",
+    "JAIL_029": "Original health_resolved HealthResult must describe actual DAMAGE to own MINION, damage_dealt>0, health_after>0 and !doomed_after. Living Rioter source at captured listener window; original result target controller/card/zone_epoch/entered_order creates MinionReference and live_minion validates original current residence. BuffCapturedMinion+1 Attack,0 Health only. Heroes, opponent, prevention/Shield/immune/zero, conversion-to-heal and lethal/Poison do not qualify. Later accepted-source departure does not revoke accepted reward; stale target skips. Damage packet survival and native batch/publication window remain internal policies pending CN calibration.",
+    "JAIL_802": "Original completed own noncountered MINION PlayRecord; Battlecry qualification is unconsumed kind=battlecry in submitted_cost.quote.quote_input.abilities, not later face. Existing played_minion/original_recipient helpers and play_id-bearing InvokeBehavior bind first SuccessfulSummonRecord within original external action and current continuous BoardPresence. Same-residence transform/control may receive original played-body reward; leave/reenter cannot. Final BuffCapturedMinion+1/+1 carries current original recipient residence, listener attribution separate. Ordinary summons/powers/spells/other player or countered plays never qualify. No extra reward per repeated battlecry; completed paid play triggers once.",
+    "MEND_041": "5mana3/7 Taunt battlecry validates native owner_turn_history, reads latest closed original own interval and all actual MINION played_face submissions in that interval. No previous interval means no prior minion. Current interval, opponent plays and effect summons do not count; previous countered commitments do. Extra real own turns replace previous interval; skipped slots create none. Qualifying accepted body requests RefreshMana3, restoring spent ordinary mana without changing max_mana/mana_cap/temporary/overload. No tribe-intersection query or custom timer. First-interval and exact accepted-history policy remain uncalibrated.",
+    "evidence": "Complete fixed37.0 raw and full en-US/zh-CN official faces/child graph preserved. Four root faces match after markup/layout/$ cleanup. Power face contains known unresolved display operands, retained as full existing dependency. Identity/text evidence does not certify server trigger ordering or complete M0/M6 standard support."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
