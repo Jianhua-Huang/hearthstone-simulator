@@ -1,4 +1,5 @@
 """Actual generated physical sources, independent bodies and original windows."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -308,7 +309,7 @@ class GeneratedBodyTargetTests(unittest.TestCase):
         self.reject(g,corrupt)
 
     def test_current_version_and_old_schema_rejected(self):
-        g=self.settled();s=g.snapshot();self.assertEqual(s['schema_version'],266)
+        g=self.settled();s=g.snapshot();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         s['schema_version']=135
         with self.assertRaises(SnapshotError): Game.from_snapshot(s,registry())
 

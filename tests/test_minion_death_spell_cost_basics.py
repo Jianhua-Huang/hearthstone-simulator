@@ -1,4 +1,5 @@
 """Real ordinary Spell consumer of the existing finite minion death price."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -292,7 +293,7 @@ class MinionDeathSpellCostTests(unittest.TestCase):
 
     def test_rule_semantics_advance_while_the_strict_snapshot_layout_stays_201(self):
         g=self.two(); self.play(g,VIGIL); saved=self.portable(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         bad=deepcopy(saved); bad['ruleset']['id']='prototype-v213'
         with self.assertRaises(SnapshotError): Game.from_snapshot(rehash(bad),registry())
 

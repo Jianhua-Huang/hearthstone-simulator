@@ -1,0 +1,845 @@
+{
+  "batch": "K47",
+  "purpose": "Untrimmed Crystallized Leyline pool dependencies, native Battlecry/Deathrattle/copy/health effects",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_RLK_505",
+        "dbf_id": 111323,
+        "name": "髓骨使御者",
+        "name_en": "Marrow Manipulator",
+        "text": "<b>战吼：</b>消耗最多5份<b>残骸</b>。每消耗一份残骸，随机对一个敌人造成2点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Spend up to 5\n<b>Corpses</b>. Deal 2 damage to\na random enemy for each.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80822,
+          "COST_FROST": 2,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anzka Nguyen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80822",
+              "type": "Int",
+              "value": "80822"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3f447e67c2ffd67f74d60c46e45ea7f69cfbfdd98bc2ecce170b3c7125f5e95f",
+      "recipe": {
+        "script": "marrow",
+        "root": true,
+        "deck_identity": "RLK_505",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_238",
+        "dbf_id": 114284,
+        "name": "麦琳瑟拉",
+        "name_en": "Merithra",
+        "text": "<b>战吼：</b>复活所有\n法力值消耗大于或等于（8）点的不同的友方随从。",
+        "text_en": "[x]<b>Battlecry:</b> Resurrect all\ndifferent friendly minions\nthat cost (8) or more.",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "ffa0657b90b4554b5f3a82f2d342189dfc83971fa9fec5deb4b05977efb7bb27",
+      "recipe": {
+        "script": "merithra",
+        "root": true,
+        "deck_identity": "EDR_238",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_940",
+        "dbf_id": 115654,
+        "name": "扎卡利驭焰者",
+        "name_en": "Zaqali Flamemancer",
+        "text": "<b>战吼：</b>如果你每张手牌的法力值消耗各不相同，使其法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b> If every card in your hand is of a different Cost, reduce their Costs by (2).",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "2c442ac534b76027e56ab1358a7649f2e7c7aa3d69fbb14534514e357abb1669",
+      "recipe": {
+        "script": "flamebinder",
+        "root": true,
+        "deck_identity": "FIR_940",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_720",
+        "dbf_id": 80819,
+        "name": "侏儒嚼嚼怪",
+        "name_en": "Gnome Muncher",
+        "text": "<b>嘲讽</b>。<b>吸血</b>。在你的回合结束时，&攻击生命值最低的敌人。",
+        "text_en": "[x]<b>Taunt</b>, <b>Lifesteal</b>\nAt the end of your turn,&\nattack the lowest Health\nenemy.",
+        "cost": 6,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1,
+          "4975": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "deb60a249208cd343cf6b6ea0ef7e2648d802a9d694d93905e564a33dd16f143",
+      "recipe": {
+        "script": "gnome",
+        "root": true,
+        "deck_identity": "RLK_720",
+        "keywords": [
+          "taunt",
+          "lifesteal"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_043",
+        "dbf_id": 120818,
+        "name": "无穷永动机",
+        "name_en": "PMM Infinitizer",
+        "text": "<b>战吼：</b>将一个友方随从的攻击力和生命值变为8。该随从在本回合中无法攻击英雄。",
+        "text_en": "<b>Battlecry:</b> Set a friendly minion's Attack and Health to 8. It can't attack heroes this turn.",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "8612ee1a905cf9bc53f20d2e53548b65811009bfaf8db03fc3bdf67b1e073dba",
+      "recipe": {
+        "script": "infinitizer",
+        "root": true,
+        "deck_identity": "TIME_043",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_050",
+        "dbf_id": 120947,
+        "name": "灵知沙漏",
+        "name_en": "Sentient Hourglass",
+        "text": "<b>突袭</b>。在本随从受到伤害并存活下来后，&其攻击力和生命值互换。",
+        "text_en": "[x]<b>Rush</b>\nAfter this minion survives\ndamage,& swap its stats.",
+        "cost": 6,
+        "attack": 4,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 9,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "4548": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "2201933b7ae15d7fa3456ac54db61c136f32cf51070e7224a52b3fb2e36b17a8",
+      "recipe": {
+        "script": "hourglass",
+        "root": true,
+        "deck_identity": "TIME_050",
+        "keywords": [
+          "rush"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_605",
+        "dbf_id": 119703,
+        "name": "纪元追猎者",
+        "name_en": "Epoch Stalker",
+        "text": "<b>突袭</b>。<b>扰魔</b>。<b>战吼：</b>&召唤一个本随从的复制。",
+        "text_en": "<b>Rush</b>, <b>Elusive</b>\n<b>Battlecry:</b>& Summon a\ncopy of this.",
+        "cost": 6,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "ELUSIVE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "f38a403398ce80dbf5428ee9a1ef15931eecb80eb230e0c993fb7523dbbef5f2",
+      "recipe": {
+        "script": "stalker",
+        "root": true,
+        "deck_identity": "TIME_605",
+        "keywords": [
+          "rush",
+          "elusive"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_401",
+        "dbf_id": 116376,
+        "name": "寒骨剑龙",
+        "name_en": "Bonechill Stegodon",
+        "text": "<b>亡语：</b>随机对三个敌人造成6点伤害。",
+        "text_en": "<b>Deathrattle:</b> Deal\n6 damage to three\nrandom enemies.",
+        "cost": 6,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "f4538c99ea05725dccfaa0a305b99cdf38c35f56df7c6b6286ced93bd49798c5",
+      "recipe": {
+        "script": "stegodon",
+        "root": true,
+        "deck_identity": "TLC_401",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_454",
+        "dbf_id": 118182,
+        "name": "鳞皮科多兽",
+        "name_en": "Scalehide Kodo",
+        "text": "<b>战吼：</b>消灭攻击力最低的敌方随从。<b>延系：</b>改为消灭攻击力最高的敌方随从。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy the\nlowest Attack enemy minion.\n<b>Kindred:</b> The highest\nAttack instead.",
+        "cost": 6,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "13cde3a23d5287686bbe5b3c54d05e99d909485feee2941ee8cd8553f1bc3edd",
+      "recipe": {
+        "script": "kodo",
+        "root": true,
+        "deck_identity": "TLC_454",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_522",
+        "dbf_id": 119532,
+        "name": "潜踪大师奥普",
+        "name_en": "Opu the Unseen",
+        "text": "<b><b>潜行</b>。</b><b>战吼，连击，亡语：</b>&施放刀扇。",
+        "text_en": "<b><b>Stealth</b>.</b> <b>Battlecry, Combo,\nand Deathrattle:</b>& Cast\n'Fan of Knives'.",
+        "cost": 6,
+        "attack": 6,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 667,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "a02e5086817ec18286f11873ca50889a9f52b7d5465c29a81bf675b036c4d14c",
+      "recipe": {
+        "script": "opu",
+        "root": true,
+        "deck_identity": "TLC_522",
+        "keywords": [
+          "stealth",
+          "combo"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_624",
+        "dbf_id": 117919,
+        "name": "观察者娜博亚",
+        "name_en": "Nablya, the Watcher",
+        "text": "<b>战吼：</b>召唤你受伤的随从的复制，使复制获得<b>突袭</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Summon copies\n of your damaged minions.\nGive the copies <b>Rush</b>.",
+        "cost": 6,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b344b2659cd3c0e8cb17f7bedb07688687be17b46faabc6efedfb7ce73de8131",
+      "recipe": {
+        "script": "nablya",
+        "root": true,
+        "deck_identity": "TLC_624",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EX1_129",
+        "dbf_id": 667,
+        "name": "刀扇",
+        "name_en": "Fan of Knives",
+        "text": "对所有敌方随从造成$1点伤害，抽一张牌。",
+        "text_en": "Deal $1 damage to all enemy minions. Draw_a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Robinson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "ebfd8f212997de1c2f087da56ec69c0afc9265000786966328de56fe895ba4cb",
+      "recipe": {
+        "script": "fan",
+        "root": false,
+        "deck_identity": "EX1_129",
+        "keywords": []
+      }
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "RLK_505",
+        "dbf_id": 80822,
+        "name": "髓骨使御者",
+        "name_en": "Marrow Manipulator",
+        "text": "<b>战吼：</b>消耗最多5份<b>残骸</b>。每消耗一份残骸，随机对一个敌人造成2点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Spend up to 5\n<b>Corpses</b>. Deal 2 damage to\na random enemy for each.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1869,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 2,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1869,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anzka Nguyen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1d8dfb15ad20789087b6f9c8dc5abe9d3ad89918a8619f89ed7863a40e7fa717"
+    }
+  ],
+  "existing_dependencies": [],
+  "policies": {
+    "marrow": "Debit up to five once; actual debit fixes missile count; each missile queries fresh enemy characters after prior reactions.",
+    "merithra": "Printed cost >=8, one per distinct death card identity; existing resurrection producer samples the accepted pool.",
+    "flamebinder": "Current complete own HAND price quotations after commitment; all prices unique including non-minions; modify the captured physical cards only.",
+    "gnome": "At actual controller end, fresh lowest remaining-health enemy characters; existing random forced combat handles ties and taunt bypass.",
+    "infinitizer": "Set current local Attack/Health to8, then existing cannot_attack_heroes grant through this actual turn.",
+    "hourglass": "Original positive DAMAGE health result for this surviving board residence; swap current remaining health/Attack via ordinary stats.",
+    "stalker": "One ordinary current physical board copy, with original card summon cause; no replayed Battlecry.",
+    "stegodon": "At actual Deathrattle execution capture living enemy characters; existing distinct random simultaneous batch deals6 to at most3.",
+    "kodo": "Previous closed own interval Kindred relation, fresh current min/max enemy Attack, ordinary random tied destruction.",
+    "opu": "Three independent native entries: Battlecry, active Combo, Deathrattle each cast actual named Fan of Knives667 once.",
+    "nablya": "Capture eligible damaged active friendly minion board residences in the actual Battlecry window; each original copy executor accepts current material when reached and grants Rush to its successful delivery; a departed residence is skipped."
+  },
+  "retained_leyline_roots": [
+    "MEND_500",
+    "MEND_501",
+    "MEND_502",
+    "MEND_504",
+    "MEND_505"
+  ],
+  "baseline_candidates_are_formal_pool": false
+}

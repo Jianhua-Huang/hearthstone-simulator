@@ -1,4 +1,5 @@
 """Real ten-gift inventory, individual bodies and their shared lifetime boundary."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -363,7 +364,7 @@ class DarkGiftsCompleteTests(unittest.TestCase):
     def test_previous_snapshot_schema_is_rejected(self):
         g = self.game()
         saved = g.snapshot()
-        self.assertEqual(saved['schema_version'], 266)
+        self.assertEqual(saved['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         saved['schema_version'] = 265
         with self.assertRaises(SnapshotError):
             Game.from_snapshot(saved, registry())

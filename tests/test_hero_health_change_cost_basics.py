@@ -1,4 +1,5 @@
 """One real finite price consumer of original hero health-change facts."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -391,7 +392,7 @@ class HeroHealthChangeCostTests(unittest.TestCase):
     def test_current_protocol_requires_explicit_none_leaf_on_ordinary_cards(self):
         g = self.game(('card.1',)); self.assertIsNone(self.fact(g, 'card.1').intrinsic.hero_health_changes)
         self.play(g, 'card.1'); saved = self.portable(g)
-        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         bad = deepcopy(saved)
         del bad['state']['play_history'][-1]['submitted_cost']['quote']['intrinsic']['hero_health_changes']
         with self.assertRaises(SnapshotError): Game.from_snapshot(rehash(bad), registry())

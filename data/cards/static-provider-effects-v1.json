@@ -1,0 +1,677 @@
+{
+  "batch": "K26 ordinary static and live native providers",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CS3_038",
+        "dbf_id": 72250,
+        "name": "红鳃锋颚战士",
+        "name_en": "Redgill Razorjaw",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "e1084c210779c98239da8315d6ed9215cc5e60888cd2f554d08ab8d488f39acd",
+      "recipe": {
+        "profile": "rush",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "deck_identity": "CS3_038"
+      }
+    },
+    {
+      "record": {
+        "id": "END_031",
+        "dbf_id": 121194,
+        "name": "时光之末的阴影",
+        "name_en": "Shade of the End Time",
+        "text": "<b>潜行</b>。<b>法术伤害+1</b>",
+        "text_en": "<b>Stealth</b>\n<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "STEALTH": 1,
+          "SPELLPOWER": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 192,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "e304c60904685a9a3078200bcc448a6b94983a51554916a8ef3f2f0133279052",
+      "recipe": {
+        "profile": "stealth_spell_damage_1",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "deck_identity": "END_031"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_856",
+        "dbf_id": 119632,
+        "name": "艾杰斯亚导师",
+        "name_en": "Algeth'ar Instructor",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "db3414ac5981bdedc25a6a132db09060e1e5c94a383bfa86c323e9d0535cab1c",
+      "recipe": {
+        "profile": "spell_damage_2",
+        "cost": 5,
+        "attack": 4,
+        "health": 7,
+        "deck_identity": "TIME_856"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_414",
+        "dbf_id": 69643,
+        "name": "格罗玛什·地狱咆哮",
+        "name_en": "Grommash Hellscream",
+        "text": "<b>冲锋</b>\n受伤时拥有+6攻\n击力。",
+        "text_en": "<b>Charge</b>\nHas +6 Attack while damaged.",
+        "cost": 8,
+        "attack": 4,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 4,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CHARGE": 1,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "ENRAGED": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 338,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "338",
+              "type": "Int",
+              "value": "338"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "ae8dcd2f8f359bc0731a29faff45afa991400d92da196f954a1e4b2d9ab28e85",
+      "recipe": {
+        "profile": "charge_damaged_attack_6",
+        "cost": 8,
+        "attack": 4,
+        "health": 9,
+        "deck_identity": "CORE_EX1_414"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_OG_218",
+        "dbf_id": 76303,
+        "name": "血蹄勇士",
+        "name_en": "Bloodhoof Brave",
+        "text": "<b>嘲讽</b>\n受伤时拥有+3攻\n击力。",
+        "text_en": "<b>Taunt</b>\nHas +3 Attack while damaged.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "ENRAGED": 1,
+          "COLLECTIBLE": 1,
+          "858": 38738
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38738",
+              "type": "Int",
+              "value": "38738"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b41985669f01ca4ffdd55b55c17c89c6eeefdbe837fb0af6fcab02a079237729",
+      "recipe": {
+        "profile": "taunt_damaged_attack_3",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "deck_identity": "CORE_OG_218"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_WON_351",
+        "dbf_id": 127089,
+        "name": "蹩脚海盗",
+        "name_en": "Small-Time Buccaneer",
+        "text": "如果你装备着武器，本随从拥有\n+2攻击力。",
+        "text_en": "Has +2 Attack while you have a weapon equipped.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 40608,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 106467
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40608",
+              "type": "Int",
+              "value": "40608"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "49970bc61d4c72d5a3568158efd1a546d1ba16b427b0e32c0aeee15d965df959",
+      "recipe": {
+        "profile": "weapon_attack_2",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "deck_identity": "CORE_WON_351"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_507",
+        "dbf_id": 76270,
+        "name": "鱼人领军",
+        "name_en": "Murloc Warleader",
+        "text": "你的其他鱼人拥有+2攻击力。",
+        "text_en": "Your other Murlocs have +2 Attack.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "858": 1063
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tim McBurnie"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1063",
+              "type": "Int",
+              "value": "1063"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "c50b7db616132c159b1eb1e73bba94439dd3499f65177203034d40df5b855837",
+      "recipe": {
+        "profile": "murloc_attack_2",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "deck_identity": "CORE_EX1_507"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_NEW1_027",
+        "dbf_id": 69679,
+        "name": "南海船长",
+        "name_en": "Southsea Captain",
+        "text": "你的其他海盗拥有+1/+1。",
+        "text_en": "Your other Pirates have +1/+1.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "858": 680
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ken Steacy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "680",
+              "type": "Int",
+              "value": "680"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "e796e63c6c31962637fa075c7c3f266eef6f3d1533dae4ab6eba8fb59d4216ec",
+      "recipe": {
+        "profile": "pirate_stats_1",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "deck_identity": "CORE_NEW1_027"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SCH_605",
+        "dbf_id": 129176,
+        "name": "止水湖蛇颈龙",
+        "name_en": "Lake Thresher",
+        "text": "同时对其攻击目标相邻的随从造成伤害。",
+        "text_en": "Also damages the minions next to whomever\nthis attacks.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 59452,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 59452
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "59452",
+              "type": "Int",
+              "value": "59452"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8739add6327777f84dcbdef1a0641dd89aa48596dc40d1f1b0001f43251f9d98",
+      "recipe": {
+        "profile": "cleave",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "deck_identity": "CORE_SCH_605"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DAL_575",
+        "dbf_id": 126975,
+        "name": "卡德加",
+        "name_en": "Khadgar",
+        "text": "你的召唤随从的卡牌召唤数量翻倍。",
+        "text_en": "Your cards that summon minions summon twice_as_many.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 52502,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 52502,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Zagumennyy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "52502",
+              "type": "Int",
+              "value": "52502"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f0a050362dd7307f292486896b543f393791041bc7131d735ee620b165a9362a",
+      "recipe": {
+        "profile": "card_summons_double",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "deck_identity": "CORE_DAL_575"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_208",
+        "dbf_id": 123122,
+        "name": "无私的保卫者",
+        "name_en": "Selfless Protector",
+        "text": "<b>嘲讽</b>。受到的所有伤害提高一点。",
+        "text_en": "[x]<b>Taunt</b>\nTakes one extra damage\nfrom all sources.",
+        "cost": 2,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "854d80afb9755086e33d82fe2e7415061d01fa59c3f02dda0c48fb78fa94aa3f",
+      "recipe": {
+        "profile": "self_damage_plus_1",
+        "cost": 2,
+        "attack": 2,
+        "health": 6,
+        "deck_identity": "CATA_208"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Explicit full-card recipes use existing native declarations. Spell Damage+2 comes from complete reviewed text, not the boolean SPELLPOWER tag. CATA_208 takes one extra damage; it does not cap damage at one."
+}

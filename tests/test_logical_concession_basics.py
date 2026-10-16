@@ -1,4 +1,5 @@
 """Independent match concession at stable host and player boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from unittest.mock import patch
 import json
@@ -281,7 +282,7 @@ class ConcessionTests(unittest.TestCase):
         g = self.game()
         snap = g.snapshot()
         snap['schema_version'] = 219
-        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(snap, registry())
         snap = g.snapshot()
         snap['ruleset']['id'] = 'prototype-v249'

@@ -82,7 +82,11 @@ class FullHandReturnDeathTests(unittest.TestCase):
         self.assertEqual(raw,original);card=registry().card(NATIVE)
         self.assertEqual((card.cost,card.on_play),(2,'sap'));self.assertEqual(card.metadata,metadata_from_record(raw))
         self.assertNotIn('NEW1_004',registry().cards)
-        self.assertEqual(build_registry().fingerprint(),'751f1debadb3ed845e22f52efdc35c06dc5f4848db8673a44c2f5d78122e90d3')
+        # The committed Dark Gift expansion added five definitions after this
+        # test's original v64/306-definition foundation baseline.
+        default = build_registry()
+        self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
+        self.assertEqual(default.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
 
     def test_full_hand_sap_commits_original_death_and_deathrattle(self):
         g=self.game();target=self.target(g);before=g.state.entities[target];self.play(g,target=target)

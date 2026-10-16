@@ -1,0 +1,318 @@
+{
+  "batch": "K35",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "patch": "37.0",
+  "region": "CN",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "dependency_dbf_id": 41324,
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_UNG_952",
+        "dbf_id": 111369,
+        "name": "剑龙骑术",
+        "name_en": "Spikeridged Steed",
+        "text": "使一个随从获得+2/+6和<b>嘲讽</b>。当该随从死亡时，召唤一只剑龙。",
+        "text_en": "Give a minion +2/+6 and <b>Taunt</b>. When it dies, summon a Stegodon.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 41864,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 41324
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41864",
+              "type": "Int",
+              "value": "41864"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "955bfba22b3354dd7173878ec445bf2599a850622956f25ebbe5ac1b1c9903af",
+      "recipe": {
+        "role": "standard_root_candidate",
+        "deck_identity": "UNG_952",
+        "script": "steed",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "UNG_810",
+        "dbf_id": 41324,
+        "name": "剑龙",
+        "name_en": "Stegodon",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "84a8a7967a5135fdcec9592de3d27dad6fe8cced49797f4d9a7cf7cab5f1b0d0",
+      "recipe": {
+        "role": "required_cross_set_dependency",
+        "deck_identity": "UNG_810",
+        "script": "stegodon",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_429",
+        "dbf_id": 118651,
+        "name": "绵羊面具",
+        "name_en": "Sheep Mask",
+        "text": "将一个随从的属性值变为1/1并使其获得“<b>亡语：</b>对所有随从造成2点伤害。”",
+        "text_en": "Set a minion's stats to 1/1 and give it \"<b>Deathrattle:</b> Deal 2 damage to all minions.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "90eb6dca44d1f7c1c1eed255556150fe5042620aff9a4efee9107c699b7b6252",
+      "recipe": {
+        "role": "standard_root_candidate",
+        "deck_identity": "DINO_429",
+        "script": "sheep_mask",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_610",
+        "dbf_id": 123382,
+        "name": "洛戈什的奋战",
+        "name_en": "Lo'Gosh's Last Stand",
+        "text": "使一个随从获得\n“<b>亡语：</b>从你的手牌中随机召唤一个\n随从。”",
+        "text_en": "[x]Give a minion\n\"<b>Deathrattle:</b> Summon\na random minion from\nyour hand.\"",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0e5b8d6cdbca95e86eb146298bc43c3465b5604625730d80f101b9a991b7d714",
+      "recipe": {
+        "role": "standard_root_candidate",
+        "deck_identity": "CATA_610",
+        "script": "last_stand",
+        "keywords": []
+      }
+    }
+  ],
+  "evidence": {
+    "preaudit": "outputs/card-integration-20261014/k35-granted-deathrattle-preaudit.json",
+    "official_root_record": {
+      "id": 111369,
+      "collectible": 1,
+      "slug": "111369-spikeridged-steed",
+      "classId": 5,
+      "multiClassIds": [],
+      "cardTypeId": 5,
+      "cardSetId": 1637,
+      "rarityId": 3,
+      "artistName": "Jim Nelson",
+      "manaCost": 5,
+      "name": "Spikeridged Steed",
+      "text": "Give a minion +2/+6 and <b>Taunt</b>. When it dies, summon a Stegodon.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a58f6de21dda2a8475ae2180791964a00287977bfae661545ec8e48ed645ce8.png",
+      "imageGold": "",
+      "flavorText": "What beats cavalry? Dinosaur cavalry.",
+      "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1bbf19fbbc06c13a3f2aedbd9ebf31887d9fb906775ac78e9c97e5b33c5d00f.png",
+      "keywordIds": [
+        1,
+        12
+      ],
+      "copyOfCardId": [
+        41864
+      ],
+      "isZilliaxFunctionalModule": false,
+      "isZilliaxCosmeticModule": false
+    },
+    "known_patch_requirement": "https://hs.blizzard.cn/news/24301454/",
+    "limits": [
+      "Named DBF and complete sources do not certify exact CN execution timing.",
+      "Cross-set Stegodon remains collectible but is not a current Standard root."
+    ]
+  },
+  "followup_batch": "K36",
+  "followup_evidence": "outputs/card-integration-20261014/k36-deathrattle-effects-preaudit.json"
+}

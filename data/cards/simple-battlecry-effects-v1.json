@@ -1,0 +1,597 @@
+{
+  "format": "reviewed-simple-battlecry-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_NEW1_018",
+        "dbf_id": 69677,
+        "name": "血帆袭击者",
+        "name_en": "Bloodsail Raider",
+        "text": "<b>战吼：</b>\n获得等同于你的武器攻击力的攻击力。",
+        "text_en": "<b>Battlecry:</b> Gain Attack equal to the Attack\nof your weapon.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 999
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "999",
+              "type": "Int",
+              "value": "999"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0ffedc1a701c18701413a0b56f2f050f2b530eac5dc6e03b89e11888c4de4d7f",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "NEW1_018",
+        "script": "raider",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_OG_149",
+        "dbf_id": 120573,
+        "name": "暴虐食尸鬼",
+        "name_en": "Ravaging Ghoul",
+        "text": "<b>战吼：</b>对所有其他随从造成1点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to all other minions.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 38530,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 38530
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dany Orizio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38530",
+              "type": "Int",
+              "value": "38530"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8481a93ea26571b89721a3d4e26ffb0f257a27e9fbc57be6ea307bebde924713",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "OG_149",
+        "script": "ghoul",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TRL_240",
+        "dbf_id": 126889,
+        "name": "野蛮先锋",
+        "name_en": "Savage Striker",
+        "text": "<b>战吼：</b>对一个敌方随从造成等同于你的英雄攻击力的伤害。",
+        "text_en": "<b>Battlecry:</b> Deal damage to an enemy minion equal to your hero's Attack.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 49984,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 49984
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "49984",
+              "type": "Int",
+              "value": "49984"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0af25daf024c4304f4b0a6c13e0a1276a5ed1493f79e5565ecae4d804d30e1a3",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "TRL_240",
+        "script": "striker",
+        "target": "enemy_minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_205",
+        "dbf_id": 102227,
+        "name": "冰川裂片",
+        "name_en": "Glacial Shard",
+        "text": "<b>战吼：</b>\n<b>冻结</b>一个敌人。",
+        "text_en": "<b>Battlecry:</b> <b>Freeze</b> an_enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41111
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41111",
+              "type": "Int",
+              "value": "41111"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "300bf1410eb80fb33b47c395683f53c538c039516a83c94ffd6f509785e0859f",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "UNG_205",
+        "script": "shard",
+        "target": "enemy_character",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_623",
+        "dbf_id": 130791,
+        "name": "女巫森林灰熊",
+        "name_en": "Witchwood Grizzly",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>\n你的对手每有一张手牌，本随从便失去1点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Lose 1 Health\nfor each card in your\nopponent's hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 47346,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 47346
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "47346",
+              "type": "Int",
+              "value": "47346"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3c731fb51417a516f333339839c049eebc9aa9be9ebe0878fa9c446825a5164a",
+      "recipe": {
+        "cost": 5,
+        "attack": 3,
+        "health": 12,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "GIL_623",
+        "script": "grizzly",
+        "target": null,
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_226",
+        "dbf_id": 114018,
+        "name": "奇异训犬师",
+        "name_en": "Exotic Houndmaster",
+        "text": "<b>战吼：</b>\n抽一张野兽牌。<b>灌注</b>你的英雄技能。",
+        "text_en": "<b>Battlecry:</b> Draw a Beast. <b>Imbue</b> your Hero Power.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "84355cf11930d4a5cd2e08edd96d2046f33b06ae44b121d47dbda92d9db32a21",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_226",
+        "script": "hound",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_449",
+        "dbf_id": 114080,
+        "name": "月翼信使",
+        "name_en": "Lunarwing Messenger",
+        "text": "<b>吸血</b>。<b>战吼：</b><b>灌注</b>你的英雄技能。",
+        "text_en": "<b>Lifesteal</b>\n<b>Battlecry:</b> <b>Imbue</b> your Hero_Power.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d829692773396973b4a0943d3230e780a438be26b998021b55accee79cdb97e6",
+      "recipe": {
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_449",
+        "script": "moonwing",
+        "target": null,
+        "keywords": [
+          "lifesteal"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_800",
+        "dbf_id": 114006,
+        "name": "振翅守卫",
+        "name_en": "Flutterwing Guardian",
+        "text": "<b><b>嘲讽</b>。圣盾</b>\n<b>战吼：</b><b>灌注</b>你的英雄技能。",
+        "text_en": "<b><b>Taunt</b>, Divine Shield</b>\n<b>Battlecry:</b> <b>Imbue</b> your Hero_Power.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4a09c629ef1882711c3426b4ac7730aab8985818c267d4608e1b8264427b5f58",
+      "recipe": {
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_800",
+        "script": "guardian",
+        "target": null,
+        "keywords": [
+          "taunt",
+          "divine_shield"
+        ]
+      }
+    }
+  ]
+}

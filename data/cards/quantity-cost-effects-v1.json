@@ -1,0 +1,373 @@
+{
+  "batch_id": "K11",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "policy_notes": [
+    "Enemy hero current-turn pricing counts each settled positive damage packet once, including armor, independently of source ownership; zero, prevented and converted-to-healing packets do not count. CN packet/timing policy remains uncalibrated.",
+    "No-minion pricing captures both original boards; locations and inert interactables do not count, while dormant ordinary minions do.",
+    "Enemy-board pricing and own-all-hand pricing reuse existing complete zone operands; own-all-hand includes the physical submitted spell, or one additional hypothetical subject in a generated quote.",
+    "Spell damage and character attack prices reuse existing actual spell damage units and original attack declarations. CN source credit and interrupted attack policy remain uncalibrated.",
+    "All six roots and the one actual summoned Dragon dependency are implemented as complete effects; the registered subset is not a formal generation pool."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_452",
+        "dbf_id": 122454,
+        "name": "织法者的光辉",
+        "name_en": "Spellweaver's Brilliance",
+        "text": "召唤一条6/6的龙。在本回合中，你每用法术造成一点伤害，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]Summon a 6/6 Dragon.\nCosts (1) less for\neach damage you dealt\nwith spells this turn.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "da17a38df8144d46a2fdf2a8842b33afe75ef0ee113c94c27874375905ea57d5",
+      "recipe": {
+        "profile": "spell_damage",
+        "body": "dragon",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "CATA_452",
+        "cost": 10
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_452t",
+        "dbf_id": 122455,
+        "name": "碧蓝守卫",
+        "name_en": "Azure Warden",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "81734002a5347dd8a8d3c9af194358935ef74d00235ee5fa21a8e1b45ed1b547",
+      "recipe": {
+        "profile": null,
+        "body": null,
+        "keywords": [],
+        "root": false,
+        "deck_identity": "CATA_452t",
+        "cost": 6
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_568",
+        "dbf_id": 122999,
+        "name": "穆拉丁的奋战",
+        "name_en": "Muradin's Last Stand",
+        "text": "抽两张牌。在本局对战中，友方角色每攻击过一次，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Draw 2 cards. Costs (1) less for each time a friendly character attacked this game.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8d4bacd61c196da974b276c428ec8b113e722282a0197bbb61644ba04c60fcfa",
+      "recipe": {
+        "profile": "character_attacks",
+        "body": "draw_two",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "CATA_568",
+        "cost": 9
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_204",
+        "dbf_id": 127994,
+        "name": "单监囚犯",
+        "name_en": "Solitary Prisoner",
+        "text": "如果战场上没有随从，本牌的法力值消耗为（2）点。",
+        "text_en": "Costs (2) if there are no minions on the battlefield.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "5a03c73f2c4a494d430b716c9d2f806118dceafd3be0d931de6ff25b1b498aa0",
+      "recipe": {
+        "profile": "board_no_minions",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "JAIL_204",
+        "cost": 5
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_514",
+        "dbf_id": 126477,
+        "name": "秘密监控",
+        "name_en": "The Unseen Atlas",
+        "text": "抽三张牌。你每有一张手牌，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Draw 3 cards.\nCosts (1) less for each card in your hand.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "15efb8a75b86c3ea044bb7a8230ce0ff2f0e36442739ce862c36fb76b7eda7ba",
+      "recipe": {
+        "profile": "own_all_hand",
+        "body": "draw_three",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "JAIL_514",
+        "cost": 10
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_047",
+        "dbf_id": 120859,
+        "name": "狡诈的郊狼",
+        "name_en": "Devious Coyote",
+        "text": "<b>潜行</b>。在本回合中，敌方英雄每受到一次伤害，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Stealth</b>. Costs (1) less for\neach time the enemy hero\ntook damage this turn.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "c5fa7a2d975da013fa3df926d3b0d4bde8f63af35511fc068cd2e4f5b4749fb2",
+      "recipe": {
+        "profile": "enemy_hero_damage_count",
+        "keywords": [
+          "stealth"
+        ],
+        "root": true,
+        "deck_identity": "TIME_047",
+        "cost": 5
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_715",
+        "dbf_id": 120828,
+        "name": "为了荣耀！",
+        "name_en": "For Glory!",
+        "text": "抽两张牌。你的对手每控制一个随从，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Draw 2 cards. Costs\n(1) less for each minion your opponent controls.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "969b09c533ddade1654c5bc1cbb3ae2480eb4ab75167acd36562075752135352",
+      "recipe": {
+        "profile": "enemy_board",
+        "body": "draw_two",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "TIME_715",
+        "cost": 5
+      }
+    }
+  ]
+}

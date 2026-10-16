@@ -1,4 +1,5 @@
 """R-139: explicit trigger rounds, source repetitions and frozen continuation."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from dataclasses import replace
@@ -305,7 +306,7 @@ class FixedDeathrattleTests(unittest.TestCase):
 
     def test_native_fixed_repeat_and_starship_composition_restores_and_replays(self):
         from examples.fixed_deathrattles import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(self.armor(g),48)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(self.armor(g),48)
         self.assertEqual(len(self.records(g)),12);self.assertEqual(len(g.state.death_history),2)
 
 

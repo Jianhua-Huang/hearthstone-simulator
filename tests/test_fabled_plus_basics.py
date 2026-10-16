@@ -1,4 +1,5 @@
 """Fabled+ construction only; real combat bodies are explicitly unavailable."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from collections import Counter
 from copy import deepcopy
 from dataclasses import replace
@@ -257,7 +258,7 @@ class FabledPlusRuntimeTests(unittest.TestCase):
     def test_changed_declaration_and_previous_rules_are_rejected_without_new_layout(self):
         game = self.constructed(); saved = game.snapshot()
         self.assertEqual((game.ruleset.id, game.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         changed = registry(bundle=False); changed.register_fabled(FabledSpec(ROOT, MEMBERS[::-1]))
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, changed)
         old = deepcopy(saved); old['ruleset']['id'] = 'prototype-v179'

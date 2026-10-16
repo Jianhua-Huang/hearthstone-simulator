@@ -1,5 +1,7 @@
 # 原手牌期限契约
 
+翡翠厚赠的“暂时不能使用”另用有限HandPlayLock，按既有真实本人开始计数纯查询，不用本页移除/摧毁期限冒充出牌资格，也不提高费用。完整原驻留绑定和复制/重置政策见[抽牌保留契约](m3-draw-retention-limits.md)。
+
 `ScheduleHandRemoval(player_id, owner_ends, source_id=None, retirement='remove', cards=None)` 在 `cards=None` 时保存指定玩家在效果实际执行时的完整手牌；提供不可变 `CardReference` 元组时，只保存显式给出的原手牌引用。经过明确数量的该玩家自然回合结束后，退役仍满足原引用的牌。`retirement='remove'` 保留原非死亡移除，`'destroy'` 显式执行存储摧毁；未知值拒绝。`owner_ends` 必须是严格正整数，玩家只允许 1、2；未知来源和未知卡牌明确报错。
 
 这是一项独立的公共区域能力。回合、死亡、区域、选择和回放仍由已有内核负责。实际验证结果与下一项只在 [项目状态](project-status.md) 和 [机制清单](mechanism-backlog.md) 维护；可核查的本次结果见 [验证记录](../outputs/bound-hand-deadline-basics-20261011/verification.json)。

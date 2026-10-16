@@ -1,0 +1,270 @@
+{
+  "batch": "K50",
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_810",
+        "dbf_id": 114301,
+        "name": "丑恶的残躯",
+        "name_en": "Hideous Husk",
+        "text": "你的水蛭从其宿主处\n偷取的生命值增加1点。<b>战吼：</b>召唤两条0/2的水蛭。",
+        "text_en": "[x]Your Leeches steal 1 more\nHealth from their victims.\n<b>Battlecry:</b> Summon two\n0/2 Leeches.",
+        "cost": 6,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 6,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 114302,
+          "COST_BLOOD": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "cd795568e50abf0d316bb41362a0cfa0a88060b271ed2f925c7ab00086ddb448",
+      "recipe": {
+        "script": "husk",
+        "root": true,
+        "deck_identity": "EDR_810"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_240",
+        "dbf_id": 117949,
+        "name": "填鳃暴龙",
+        "name_en": "Tyrannogill",
+        "text": "<b>突袭</b>。<b>亡语：</b>召唤三个2/1的鱼人，使其各获得一项随机<b>额外效果</b>。",
+        "text_en": "[x]<b>Rush</b>\n<b>Deathrattle:</b> Summon three\n2/1 Murlocs. Give them each\na random <b>Bonus Effect</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 120586,
+          "2536": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2536",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2536"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8ce7cb1ad9edd6364fc84e3d1896d0fed85c15410447bb51842fb166550de552",
+      "recipe": {
+        "script": "tyrannogill",
+        "root": true,
+        "deck_identity": "TLC_240"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_240t",
+        "dbf_id": 120586,
+        "name": "恐龙鱼人",
+        "name_en": "Dinoloc",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "f673100912235965feff378b0fe1ebcfa34e180da3ef817cde3e521483f96b88",
+      "recipe": {
+        "script": "dinoloc",
+        "root": false,
+        "deck_identity": "TLC_240t"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_810t",
+        "dbf_id": 114302,
+        "name": "饱胀水蛭",
+        "name_en": "Bloated Leech",
+        "text": "在你的回合结束时，你的英雄会从生命值最低的敌人处偷取@点生命值。",
+        "text_en": "[x]At the end of your turn, your\nhero steals @ Health from\nthe lowest Health enemy.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "71c474a34d91e51385d91378884171b2c66ae8dc51b23b7a70809e708fbb99b4"
+    }
+  ],
+  "enchantment_evidence": [
+    {
+      "record": {
+        "id": "EDR_810e",
+        "dbf_id": 114969,
+        "name": "吸血宿主",
+        "name_en": "Blood Sucker",
+        "text": "生命值降低。",
+        "text_en": "Reduced Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "21d67c29ce8432fa3ddd0b33a15677f49139dfa55e384a40345be976e647ab0d"
+    }
+  ],
+  "policy": {
+    "husk": "Current living active unsilenced friendly EDR_810 providers each add one at actual Leech-body execution; ordinary lifecycle handles copies, silence and control.",
+    "tyrannogill": "Three ordered original entry requests, then one shared-policy random bonus per actual successful delivery in original order; stale original residences skip with no replacement or RNG.",
+    "cn_calibrated": false
+  }
+}

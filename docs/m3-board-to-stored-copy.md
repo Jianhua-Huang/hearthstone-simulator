@@ -1,5 +1,7 @@
 # 战场随从直接复制到手牌或牌库
 
+CopyCard可接原历史中的DeathRecord，但仅限BOARD随从印刷base复制，必须逐字段匹配对应原死亡行；不提供死亡current附魔继承。该新增操作数与劫持的两费洗入、core344/schema275边界见[原材料契约](m3-original-material-spells.md)。
+
 复用 `CopyCard`、`MinionReference`、原物理创建与复制附件、`SummonStats`、创建费用及手牌容量。实际进度、验收、下一项和差异仅维护在 [项目状态](project-status.md) 与 [机制清单](mechanism-backlog.md)。
 
 ```python

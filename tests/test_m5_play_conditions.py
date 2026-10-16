@@ -1,4 +1,5 @@
 """Frozen resource conditions and physical hand-entry provenance across layers."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -247,12 +248,12 @@ class PlayConditionTests(unittest.TestCase):
         g.apply(SelectChoice(1,g.state.pending_choice.id,('go',)));self.play(g,'WW_434',self.hero(g,2));self.assertTrue(g.state.play_history[-1].quickdraw);self.check(g)
 
     def test_previous_snapshot_schema_is_rejected(self):
-        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],266);data['schema_version']=30
+        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],SNAPSHOT_SCHEMA_VERSION);data['schema_version']=30
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_real_player_port_conditions_example(self):
         from examples.extra_play_conditions import run
-        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],266)
+        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
     def test_finale_choice_saves_original_conditions(self):
         self.r.register_behavior('resume',lambda c:[GainArmor(c.player_id,3 if c.play.finale else 1)])

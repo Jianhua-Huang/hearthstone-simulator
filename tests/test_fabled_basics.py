@@ -1,4 +1,5 @@
 """Independent complete Fabled construction, with one finite real family."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -341,7 +342,7 @@ class FabledRuntimeTests(unittest.TestCase):
 
     def test_complete_host_setup_round_trips_without_new_layout(self):
         g=self.constructed();s=g.snapshot()
-        self.assertEqual((g.ruleset.id,g.mechanics.version,s['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,s['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual(s['match_setup']['decks'][0]['cards'],list(physical()))
         self.assertNotIn('fabled',s['state']['players']['1'])
         self.portable(g)

@@ -1,4 +1,5 @@
 """Random forced combat retains its original pipeline and can select enemy heroes."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 from pathlib import Path
 import random
@@ -319,7 +320,7 @@ class RandomForcedHeroBasicsTests(unittest.TestCase):
     def test_rule_and_mechanics_versions_change_without_wire_schema_change(self):
         g=self.game();snap=g.snapshot()
         self.assertEqual((snap['ruleset']['id'],snap['mechanics_version']['version'],
-            snap['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+            snap['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         for field,key,old in (('ruleset','id','prototype-v200'),
                 ('mechanics_version','version','core-effects-v194')):
             bad=json.loads(json.dumps(snap));bad[field][key]=old

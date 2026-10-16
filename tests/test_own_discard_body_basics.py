@@ -1,4 +1,5 @@
 """Native own-discard body acceptance, using the original effects and frames."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -348,7 +349,7 @@ class OwnDiscardBodyTests(unittest.TestCase):
         view=json.dumps(g.observe(2));self.assertNotIn('"card_id": "own.fixture"',view);self.assertNotIn('discard_history',view);self.portable(g)
 
     def test_schema_195_rejects_all_older_suspended_protocols(self):
-        g=self.waiting_native();s=g.snapshot();self.assertEqual(s['schema_version'],266)
+        g=self.waiting_native();s=g.snapshot();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         for version in range(1,218):
             with self.subTest(version=version):bad=deepcopy(s);bad['schema_version']=version;self.reject(bad)
         self.portable(g)

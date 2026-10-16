@@ -190,7 +190,10 @@ class SpellCastTests(unittest.TestCase):
         self.r.register_behavior('watch',lambda c:[RequestChoice(1,(ChoiceOption('x','x'),),source_id=c.source_id)])
         self.r.register_card(CardDefinition('watch','watch',CardType.MINION,health=5,triggers=(TriggerSpec('spell_cast_started','watch'),)))
         g=self.game(board=('watch',));self.play(g,'driver');self.assertEqual(self.hero(g).armor,0);self.check(g)
-        c=g.state.pending_choice;g.apply(SelectChoice(1,c.id,('x',)));self.assertEqual(self.hero(g).armor,3);self.check(g)
+        c=g.state.pending_choice;g.apply(SelectChoice(1,c.id,('x',)))
+        self.assertIsNotNone(g.state.pending_choice);self.assertEqual(self.hero(g).armor,0);self.check(g)
+        nested=g.state.pending_choice;self.assertNotEqual(nested.id,c.id)
+        g.apply(SelectChoice(1,nested.id,('x',)));self.assertEqual(self.hero(g).armor,3);self.check(g)
 
     def test_hero_death_interrupts_unfinished_casts(self):
         self.spell('lethal',lambda c:[Damage(c.state.players[2].hero_id,40,c.source_id),GainArmor(1,10)])

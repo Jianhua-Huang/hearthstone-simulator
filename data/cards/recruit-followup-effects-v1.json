@@ -1,0 +1,481 @@
+{
+  "batch_id": "K08",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "policy_notes": [
+    "Physical recruit followups run once for each actual successful primary delivery after entry/Colossal reactions; dead, transformed, transferred or replaced lifetimes skip. Exact CN grant window remains open.",
+    "Followups keep original selected material, delivery identity and causing card; no last-board or last-history inference.",
+    "Extra quantity deliveries use independent body followups and finish before the next physical recruit query.",
+    "Kindred costs reuse the latest actual closed owner turn and original printed type metadata.",
+    "Retired hidden Core giant rows were investigated but excluded as Standard roots."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_131",
+        "dbf_id": 118494,
+        "name": "着魔的动物术师",
+        "name_en": "Possessed Animancer",
+        "text": "<b>亡语：</b>随机从你的牌库中召唤一只野兽。使其获得<b>吸血</b>。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\nrandom Beast from your\ndeck. Give it <b>Lifesteal</b>.",
+        "cost": 5,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3854542cee926fdce4cc051d93b5fb0c16a96882168db9e4ca742d73caa37534",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "deathrattle": "recruit_lifesteal"
+        },
+        "keywords": [],
+        "kindred": false,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "DINO_131"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_516",
+        "dbf_id": 127319,
+        "name": "血色招募者",
+        "name_en": "Scarlet Recruiter",
+        "text": "<b>战吼：</b>从你的牌库中召唤两个法力值消耗小于或等于（2）点的随从，并使其获得<b>突袭</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\nminions from your deck\nthat cost (2) or less.\nGive them <b>Rush</b>.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1330a254da55d6dc47a5e4b4ab2a4106b5487f7e4e0268cad63b484dde712c6f",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "battlecry": "recruit_rush"
+        },
+        "keywords": [],
+        "kindred": false,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "JAIL_516"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_906",
+        "dbf_id": 124073,
+        "name": "摩拉格",
+        "name_en": "Moragg",
+        "text": "<b>预备</b>。<b>亡语：</b>随机从你的牌库中召唤一个恶魔。使其获得“<b>亡语：</b>召唤摩拉格。”",
+        "text_en": "[x]<b>Prepare</b>. <b>Deathrattle:</b> Summon\na random Demon from your\ndeck. Give it \"<b>Deathrattle:</b>\nSummon Moragg.\"",
+        "cost": 9,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "e7b88e0af7f02ea066c2cc789ae8aa81e2fb3cf42b52ee814f1e92585b484974",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "deathrattle": "recruit_morag"
+        },
+        "keywords": [],
+        "kindred": false,
+        "prepare": true,
+        "target": null,
+        "deck_identity": "JAIL_906"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_870",
+        "dbf_id": 119778,
+        "name": "角斗开战",
+        "name_en": "Gladiatorial Combat",
+        "text": "从你的牌库中随机召唤一个随从。为你的对手召唤一只5/5并具有<b>潜行</b>的老虎。",
+        "text_en": "[x]Summon a random\nminion from your deck.\nSummon a 5/5 Tiger with\n<b>Stealth</b> for your opponent.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b1e7d2de5feb4e3fa0cca90c8c34a90aa1f2fb4b84e25141b8694c414706dc22",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "on_play": "duel"
+        },
+        "keywords": [],
+        "kindred": false,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "TIME_870"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_870t",
+        "dbf_id": 122348,
+        "name": "角斗场猛虎",
+        "name_en": "Coliseum Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "STEALTH": 1,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "a23c429730511cb49f891977fcb5fcdab2584d12956a9e9172faf061bc9fa2ad",
+      "recipe": {
+        "root": false,
+        "bodies": {},
+        "keywords": [
+          "stealth"
+        ],
+        "kindred": false,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "TIME_870t"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_366",
+        "dbf_id": 118269,
+        "name": "掠食飞翼龙",
+        "name_en": "Pterrorwing Ravager",
+        "text": "<b>突袭</b>。<b>延系：</b>法力值消耗减少（2）点。",
+        "text_en": "<b>Rush</b>\n<b>Kindred:</b> Costs (2) less.",
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "c327a52d012231eadfd0da6e9773380802a229f87afac5ccf6a0fb41d31f6eed",
+      "recipe": {
+        "root": true,
+        "bodies": {},
+        "keywords": [
+          "rush"
+        ],
+        "kindred": true,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "TLC_366"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_600",
+        "dbf_id": 117714,
+        "name": "乘风浮龙",
+        "name_en": "Windpeak Wyrm",
+        "text": "<b>战吼：</b>造成5点伤害，获得5点护甲值。<b>延系：</b>法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 5 damage\nand gain 5 Armor.\n<b>Kindred:</b> Costs (2) less.",
+        "cost": 8,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "e2bf0d0cd31ee82c1fdb6131b193344e4c67362e7044587b025f436d4daa773e",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "battlecry": "whelp"
+        },
+        "keywords": [],
+        "kindred": true,
+        "prepare": false,
+        "target": "character",
+        "deck_identity": "TLC_600"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_816",
+        "dbf_id": 117317,
+        "name": "墓晨太阳花",
+        "name_en": "Gravedawn Sunbloom",
+        "text": "抽两张牌。<b>延系：</b>本牌法力值消耗减少（2）点。",
+        "text_en": "Draw 2 cards. <b>Kindred:</b> This costs (2) less.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "38ffd4ccc337bdff5fa9a44be3a3e2c0df5ff889e2c518cb520d5cca69485ae4",
+      "recipe": {
+        "root": true,
+        "bodies": {
+          "on_play": "draw_two"
+        },
+        "keywords": [],
+        "kindred": true,
+        "prepare": false,
+        "target": null,
+        "deck_identity": "TLC_816"
+      }
+    }
+  ]
+}

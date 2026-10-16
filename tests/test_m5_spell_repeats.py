@@ -1,4 +1,5 @@
 """Repeated payloads, one paid play, live aura scope and resumable choices."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -433,7 +434,7 @@ class SpellRepeatTests(unittest.TestCase):
         from examples.sinestra_spell_repeat import run
         g, snapshot = run()
         self.assertEqual(len(g.history), 5)
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertIsNone(snapshot['state']['pending_choice'])
 
 

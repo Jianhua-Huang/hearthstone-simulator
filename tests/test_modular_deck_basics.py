@@ -1,4 +1,5 @@
 """Native modular construction; three necessary real templates, two faces."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -417,7 +418,7 @@ class ModularRuntimeTests(unittest.TestCase):
     def test_recipe_fingerprint_and_previous_rules_rejected_without_layout_change(self):
         g = self.constructed(); saved = self.portable(g)
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertNotIn('modular', saved['state']['players']['1'])
         r = registry(compile_faces=False); assemble_modular_card(r, selection(cosmetic='TOY_330t6'))
         with self.assertRaisesRegex(SnapshotError, 'fingerprint'): Game.from_snapshot(saved, r)

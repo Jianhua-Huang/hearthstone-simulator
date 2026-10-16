@@ -1,4 +1,5 @@
 """Native recipient selection reuses exact current card IDs, never names."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -272,7 +273,7 @@ class CardIdentityAuraBasicsTests(unittest.TestCase):
         self.assertEqual(g.snapshot(),before)
 
     def test_current_schema_rejects_previous_and_future_versions(self):
-        g=self.game();self.assertEqual(g.snapshot()['schema_version'],266)
+        g=self.game();self.assertEqual(g.snapshot()['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         for version in (190,217,True):
             snap=g.snapshot();snap['schema_version']=version
             with self.assertRaises(SnapshotError):Game.from_snapshot(snap,registry())

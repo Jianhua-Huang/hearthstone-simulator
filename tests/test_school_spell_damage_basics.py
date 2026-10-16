@@ -1,4 +1,5 @@
 """Native school Spell Damage feeds original numeric packets and split budgets."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -324,7 +325,7 @@ class SchoolSpellDamageBasicsTests(unittest.TestCase):
         self.assertEqual(g.state.split_damage_history[0].quote.contributions[0].ability.spell_damage_schools,NATURE)
 
     def test_current_versions_and_all_previous_schemas_are_strict(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(snap['ruleset']['id'],'prototype-v302');self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for schema in (*range(1,218),None,True,189.0,'189',217):
             bad=deepcopy(snap);bad['schema_version']=schema

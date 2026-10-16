@@ -1,0 +1,84 @@
+{
+  "format": "reviewed-full-board-dormancy-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "MEND_040",
+        "dbf_id": 123472,
+        "name": "灰烬虫",
+        "name_en": "Ash Worm",
+        "text": "起始<b>休眠</b>状态。当你的面板占满时唤醒。",
+        "text_en": "[x]Starts <b>Dormant</b>.\nWhen your board is\nfull, awaken.",
+        "cost": 1,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1652": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4ac95b33ae662a4dc135c391a893467ae813df3200dd4603e15a88803117fe2a",
+      "recipe": {
+        "dormant_turns": null,
+        "dormant_board_full": true
+      }
+    }
+  ],
+  "policy": [
+    "Native removable indefinite dormancy condition checks actual current controller board occupancy and configured max_board; locations/other resident slots count.",
+    "Capture a single original existing AwakenCapturedMinion per physical dormancy instance during ordinary normalization; no event-name matrix, RNG or private unsaved pending set.",
+    "Accepted awakening retains original physical/dormancy identity even if occupancy changes before execution. Initial Scenario with this printed condition normalizes through the same existing awaken executor. Exact checkpoint/reaction timing remains pending CN."
+  ],
+  "cn_calibrated": false
+}

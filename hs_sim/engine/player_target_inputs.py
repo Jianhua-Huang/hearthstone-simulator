@@ -34,6 +34,7 @@ SLOTS = (('hero', Zone.HERO, False), ('hero_power', Zone.HERO_POWER, False),
 PRIVATE_KEYS = frozenset('state entities enchantments abilities rng_state information source_json origin_hash original_state_hash registry_fingerprint body_target_profile_id tribe_changes'.split())
 
 ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interactable'}
+ENTITY |= {'base_damage'}
 
 
 def _interactable_view(row, controller, zone):
@@ -114,6 +115,8 @@ def decode(proof, *, require_active_player=True):
             raise ValueError('Player target entity view contains nonpublic or missing fields')
         if 'interactable' in row:
             _interactable_view(row, controller, zone)
+        if 'base_damage' in row and (row.get('kind')!=CardType.SPELL.value or type(row['base_damage'])is not int or row['base_damage']<0):
+            raise ValueError('Visible native spell base damage requires its exact nonnegative value')
         if 'invoke_progress' in row and (
                 zone != Zone.HERO and not (zone == Zone.HAND and controller == value['viewer']) or
                 type(row['invoke_progress']) is not int or not 0 <= row['invoke_progress'] <= 4):

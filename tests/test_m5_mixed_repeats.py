@@ -3,6 +3,7 @@
 Synthetic declarations test public composition, not official TIME_064 timing.
 Every callback depends only on its RuleContext; fresh registries are equivalent.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -935,15 +936,15 @@ class MixedRepeatTests(unittest.TestCase):
         with self.assertRaises(SnapshotError): Game.from_snapshot(snapshot,fixture_registry())
 
     def test_complete_mixed_acceptance_proofs_require_schema_100_and_reject_99_explicitly(self):
-        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],266)
+        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         snapshot['schema_version']=99
-        with self.assertRaisesRegex(SnapshotError,'1 through 265'):
+        with self.assertRaisesRegex(SnapshotError,f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(snapshot,fixture_registry())
 
         # Keep all original legacy-schema cases above; append the former current109.
         old_current = g.snapshot()
         old_current['schema_version'] = 109
-        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(old_current, fixture_registry())
         # Exact int schema110 rejects bool/string/float encodings.
         for bad_schema in (True, False, '110', 110.0):

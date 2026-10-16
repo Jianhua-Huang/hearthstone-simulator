@@ -1,4 +1,5 @@
 """Launch fees and real launch effects, including suspended death boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 from copy import deepcopy
 import json
@@ -385,9 +386,9 @@ class LaunchEffectsTests(unittest.TestCase):
         from examples.launch_starship import run
         game, snapshot = run()
         # One hand minion now has a counter-check and accepted-entry event.
-        self.assertEqual((len(game.history),len(game.events)),(6,67))
+        self.assertEqual((len(game.history),len(game.events)),(6,71))
         self.assertEqual(sum(e.kind == 'health_resolved' for e in game.events), 5)
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
     def test_launch_failure_rolls_back_fee_rng_and_all_state(self):
         self.r.register_behavior('bad',lambda c:[RandomDestroy(tuple(c.state.players[2].board),999999)])

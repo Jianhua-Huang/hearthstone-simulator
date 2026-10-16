@@ -1,4 +1,5 @@
 """Native continuous freeze prevention through original status/lifecycle paths."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -275,7 +276,7 @@ class FreezePreventionTests(unittest.TestCase):
         for fields in (dict(target='friendly_hero'),dict(target='friendly_hand_minions'),dict(target='friendly_minions',adjacent_only=True)):
             with self.subTest(fields=fields):
                 with self.assertRaises(ValueError):KeywordAuraSpec(FLAG,**fields)
-        g=self.game(board=(NATIVE,));saved=g.snapshot();self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        g=self.game(board=(NATIVE,));saved=g.snapshot();self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         saved['schema_version']=223
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry())
 

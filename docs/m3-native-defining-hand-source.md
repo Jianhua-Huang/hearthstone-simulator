@@ -1,5 +1,7 @@
 # M3：原生回合开始变形来源
 
+米尔雷斯使用独立[原生连续手牌镜像](m3-native-hand-mirrors.md)，按真实对手随从提交及入手通知同步。下方回合开始来源的当前复制/转手拒绝政策保持，不用扩大旧来源来替代连续镜像。历史[缺口前审](../outputs/card-integration-20261014/k55-mirrex-real-gap-audit.json)与[原始材料](../outputs/card-integration-20261014/k55-mirrex-origin-material.json)保留为当时证据。
+
 本契约只覆盖泽鲁斯、熔岩之刃和变形卷轴所需的基础表示：一个物理卡牌保有一个原生回合开始来源，当前卡面可以在原类型内反复变化。必要原卡与定义附魔的六条完整记录见[固定材料](../data/support/defining-source-binding-basics.json)。诊断使用固定目的卡面，不是这些真实卡的完整随机适配或最新正式卡池。
 
 ## 来源与卡面

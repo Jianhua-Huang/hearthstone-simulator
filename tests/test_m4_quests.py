@@ -1,4 +1,5 @@
 """Quest area, progression, rewards, opening, information and recovery contracts."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -325,7 +326,7 @@ class QuestTests(unittest.TestCase):
     def test_real_questline_example_uses_player_commands_restores_and_replays(self):
         from examples.complete_questline import run
         game,snapshot=run()
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(len(game.history),47)
         self.assertFalse(game.state.players[1].quests)
 

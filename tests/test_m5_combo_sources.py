@@ -1,4 +1,5 @@
 """Necessary real sources, independent candidate inventory and composition (R-130)."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from dataclasses import replace
@@ -272,7 +273,7 @@ class ComboSourceTests(unittest.TestCase):
 
     def test_native_source_example_restores_and_fills_board_without_overflow(self):
         from examples.combo_sources import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual((len(g.history),len(g.state.combo_history),len(g.state.battlecry_history)),(12,6,2))
 
 

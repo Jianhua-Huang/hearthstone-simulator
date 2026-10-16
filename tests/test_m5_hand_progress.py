@@ -1,4 +1,5 @@
 """Corrupt/Infuse witnesses, continuous stages, lifecycle and private recovery."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -378,7 +379,7 @@ class HandProgressTests(unittest.TestCase):
 
     def test_real_player_port_example_restores_and_replays(self):
         from examples.hand_progress import run
-        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],266)
+        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

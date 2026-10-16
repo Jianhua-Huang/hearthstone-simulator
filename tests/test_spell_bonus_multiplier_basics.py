@@ -1,4 +1,5 @@
 """Scale Spell Damage providers at the existing packet window, with one real card."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -356,7 +357,7 @@ class SpellBonusMultiplierBasicsTests(unittest.TestCase):
         g = self.game()
         old = g.snapshot()
         old['schema_version'] = 221
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(old, registry())
 
 

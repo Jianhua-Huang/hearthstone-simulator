@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 from .health_rules import PreparedHealth
 from .model import CardType, Keyword, Zone, validate_combat_relation
-from .attack_policies import has_action_remaining, attack_policy_error
+from .attack_policies import has_action_remaining, attack_policy_error,ignores_taunt
 
 
 def combat_relation_matches(attacker, defender, relation):
@@ -67,7 +67,7 @@ def attack_error(state, attacker_id, defender_id, player_id, *, ignore_frozen=Fa
     enemy = state.players[defender.controller]
     taunts = [i for i in enemy.board if state.entities[i].active and Keyword.TAUNT in state.entities[i].keywords
               and not is_immune(state, state.entities[i]) and Keyword.STEALTH not in state.entities[i].keywords]
-    if taunts and defender_id not in taunts:
+    if taunts and defender_id not in taunts and not ignores_taunt(state,attacker):
         return 'A taunt minion must be attacked first'
     return None
 

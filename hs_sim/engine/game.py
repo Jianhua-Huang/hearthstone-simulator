@@ -21,6 +21,7 @@ from .resources import mana_balance, refresh_mana
 from .registry import Registry
 from .resolver import BeginAttack, EndTurnPhase, Mechanics, PlayFromHand, Resolution, default_mechanics
 from .rules import Ruleset
+from .serialization import SNAPSHOT_SCHEMA_VERSION
 from .combat import attack_error
 from .targeting import legal_target_ids, target_choices, target_error
 from .hero_powers import ActivateHeroPower, use_error
@@ -220,6 +221,11 @@ class Game:
         game._information.sync(game)
         from .owner_turns import start_owner_turn
         start_owner_turn(game._state, len(game._events), origin='scenario')
+        from .dormancy import capture_board_full
+        initial_conditions = Resolution(game)
+        initial_awakenings = capture_board_full(initial_conditions)
+        if initial_awakenings:
+            initial_conditions.run(initial_awakenings)
         game._assert_stable()
         game._origin = game.snapshot()
         return game
@@ -335,7 +341,7 @@ class Game:
     def snapshot(self):
         self._require_boundary()
         events = [event_to_dict(event) for event in self._events]
-        return deepcopy({'schema_version': 266, **self._hash_payload(), 'events': events,
+        return deepcopy({'schema_version': SNAPSHOT_SCHEMA_VERSION, **self._hash_payload(), 'events': events,
                          'events_hash': canonical_hash(events), 'state_hash': self.state_hash()})
 
     @classmethod
@@ -345,8 +351,8 @@ class Game:
                         'state', 'rng_state', 'resolution_frame', 'rewind_session', 'match_setup', 'generation_context', 'information', 'events', 'events_hash', 'state_hash'}
             if not isinstance(snapshot, dict) or set(snapshot) != expected:
                 raise ValueError('Snapshot fields do not match schema')
-            if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != 266:
-                raise ValueError('Unsupported snapshot schema version; schemas 1 through 265 need their original engines')
+            if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != SNAPSHOT_SCHEMA_VERSION:
+                raise ValueError(f'Unsupported snapshot schema version; schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1} need their original engines')
             game = cls()
             game.registry = registry
             registry.freeze()
@@ -440,6 +446,8 @@ class Game:
                 tuple(deck.cards for deck in self._match_setup.decks)):
             raise ValueError('Generation context differs from the constructed match target/mode')
         validate_invariants(self._state, self.registry)
+        from .hand_mirrors import validate_game as validate_hand_mirrors
+        validate_hand_mirrors(self)
         from .mana_ranks import validate_state as validate_mana_rank_state
         validate_mana_rank_state(self._state, self.registry)
         from .unidentified import validate_state as validate_unidentified_state
@@ -450,6 +458,8 @@ class Game:
         validate_body_condition_boundary(self)
         from .owner_turns import validate_boundary as validate_owner_turn_boundary
         validate_owner_turn_boundary(self)
+        from .kindred import validate_boundary as validate_kindred_boundary
+        validate_kindred_boundary(self)
         from .paid_hand_acceptance import validate_boundary as validate_paid_hand_boundary
         validate_paid_hand_boundary(self)
         from .hero_powers import validate_boundary as validate_power_boundary
@@ -495,6 +505,8 @@ class Game:
         validate_hero_health_change_boundary(self)
         from .health_history import validate_boundary as validate_health_boundary
         validate_health_boundary(self)
+        from .deck_shuffles import validate_boundary as validate_shuffle_boundary
+        validate_shuffle_boundary(self)
         from .discard_history import validate_boundary as validate_discard_boundary
         validate_discard_boundary(self)
         from .successful_summons import validate_boundary as validate_successful_summon_boundary
@@ -575,6 +587,8 @@ class Game:
         self._information.validate(self)
         from .timed_keywords import validate_boundary as validate_timed_keywords
         validate_timed_keywords(self)
+        from .corpse_summon_rewards import validate_boundary as validate_corpse_summon_boundary
+        validate_corpse_summon_boundary(self)
         from .turn_scheduling import validate_boundary as validate_turn_schedule
         validate_turn_schedule(self)
         from .joust import validate_boundary as validate_joust_boundary
@@ -749,6 +763,9 @@ class Game:
                 raise IllegalAction('This card type cannot be played')
             if not definition.manual_playable:
                 raise IllegalAction('This card cannot be manually played from hand')
+            from .play_requirements import manual_requirement_error
+            if reason := manual_requirement_error(state, self.registry, entity):
+                raise IllegalAction(reason)
             from .player_effects import manual_play_allowed
             if not manual_play_allowed(state, self.registry, player.id, definition.kind):
                 raise IllegalAction('Current-turn rule prohibits manually playing this card type')

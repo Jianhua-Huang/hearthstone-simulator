@@ -1,0 +1,21 @@
+# 原生亡语的成长值与原抽牌关联
+
+本契约仅覆盖暮光龙卵、栉龙实际需要的两种原生附件材料。实际进度、验证证据、差异和下一项只在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)维护。
+
+[完整固定源](../data/cards/native-deathrattle-memory-v1.json)和[卡牌适配](../hs_sim/cards/native_deathrattle_memory_cards.py)保留两个根卡及完整速生雏龙。暮光龙卵的静态官方API省略了动态数字，初始2/1仍由固定源两个脚本值与真实2/1token共同约束，不能把漏值当作0/0。
+
+CardDefinition.native_deathrattle声明有限NativeDeathrattleSpec，kind只有summon_growth和draw_link。前者明确命名token及初始身材，后者不能混入召唤材料。印刷亡语安装DeathrattleMemory到原AbilityInstance，保存成长次数或完整有序RememberedDraw，二者不能混用。它是可复制、可被沉默移除的卡牌局部材料，不另建玩家计数或GameState历史副账本。
+
+龙卵在控制者实际回合开始时返回GrowDeathrattleSummon，绑定原MinionReference/亡语能力ID；死亡、离场或被移除的能力不重绑。该请求只更换原附件的不可变记忆，不给龙卵自身增加属性。真正亡语使用DeathrattleCapture.ability中已经接受的材料，计算初始身材加成长值，再交SummonByCard与原SummonCause；不读取后来活体的数值或重新捕获已经接受的亡语计划。当前复制保留材料并独立成长，基础复制/重置沿原生命周期恢复初值。
+
+栉龙的DrawForDeathrattle绑定原来源、实际抽牌者和原亡语能力ID，仍调用原draw_one。仅在原牌实际进入HAND且创建HandEntryRecord后、card_drawn通知前，将实际DrawRecord ID、实体ID、该次手牌获取ID和真实抽牌来源ID加入原附件。抽牌通知的捕获状态已含关联，故通知导致来源死亡或复制时可以取得正确材料；不靠稍后扫描source_id历史猜测是哪张牌。爆牌、疲劳、抽到时施放不产生这次HAND关联，原伤害/施法/补抽流程仍照常执行。
+
+RememberedDraw以原成功手牌驻留辨认物理牌，不以卡名或当前hand末尾辨认。该驻留内的卡面变化仍保留关联；离手再回来或转入另一手牌会创建新获取身份，旧链接不重新绑定。复制的亡语可继续引用原抽牌，复制载体再次实际抽牌时另记新来源，因此不能要求所有链接的来源ID等于复制后能力的归因ID。
+
+DiscardRememberedDraw必须对应实际已开始、未完成/中断的亡语记录，而且链接必须在该记录冻结的材料内。执行时验证原DrawRecord及HandEntryRecord，再核对实体仍处于同一原手牌驻留，使用当前卡面捕获CardReference并委托旧discard_card；普通弃牌事件、原生被弃主体、区域、死亡及选择仍由原管线负责。重复亡语不会将已经离手的牌又弃一次。多次实际战吼抽牌按原顺序保留、来源转控后处理原获取手牌等政策为内部实现，仍需对应国服证据核对。
+
+实际实体、冻结死亡材料、亡语捕获及两类冻结复制材料都验证记忆的打印声明与实际抽牌/获取引用。结构有效不等于已认证未签名存档的原始来源；未知抽牌ID、跨材料拼接及载荷形状必须明确拒绝。只授予行为ID而没有相应原生记忆的特殊亡语来源仍显式UnsupportedDefinitionError，不补白板或任意初值；按具体真实来源另行接通。
+
+玩家观察只为可见的召唤成长材料增加deathrattle_summons，内容仅为token card_id及当前attack/health。栉龙的draw ID、hand_entry_id、来源ID和完整记忆不输出给任一玩家；完整快照继续是宿主全知数据。公开观察协议为player-view-v86，命令12、replay1保持。
+
+核心359/schema284包含三个有限效果及严格类型载荷；没有新GameState字段。新增AbilityInstance.deathrattle_memory字段进入保存，旧1～283必须使用原引擎。定义native_deathrattle=None仅从旧指纹/PIN视图省略，非空声明始终签名；旧定义asdict多出的None不能宣称字节未变。默认311指纹保持也不能推导跨schema存档兼容或国服完整支持。

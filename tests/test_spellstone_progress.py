@@ -1,4 +1,5 @@
 """Jasper's own weighted progress and upgrade cost policy on the common engine."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -340,7 +341,7 @@ class SpellstoneProgressTests(unittest.TestCase):
             with self.subTest(kind=kind), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry(self.scripts))
 
     def test_new_schema_rejects_old_future_or_bool(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 158, 159, 160, 161, 162, 217, True):
             bad = g.snapshot(); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

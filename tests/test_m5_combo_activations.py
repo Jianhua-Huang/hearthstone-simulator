@@ -1,4 +1,5 @@
 """Independent Combo identity, accepted payloads and resumable progress (R-127)."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -394,7 +395,7 @@ class RepresentativeComboTests(unittest.TestCase):
 
     def test_real_combo_example_restores_and_replays(self):
         from examples.combo_activations import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual([b.card_id for b in g.state.combo_history],['EX1_134','EX1_613'])
         self.assertEqual(len(g.state.battlecry_history),1)
 

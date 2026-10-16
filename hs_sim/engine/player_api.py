@@ -67,6 +67,9 @@ def require_supported_source(game, entity_id, *, definition=None, check_use=Fals
     """
     source = game._state.entities[entity_id]
     definition = definition or game.registry.card(source.card_id)
+    if definition.id in game.registry.spell_value_profiles:
+        from .native_spell_values import public_value
+        if public_value(source)is None:raise UnsupportedPlayerRule('unsupported_rule')
     if source.zone == Zone.HAND and definition.choose_one is None and definition == game.registry.card(source.card_id):
         definition = play_definition(game._state, game.registry, source)
     if definition.choose_one is not None:

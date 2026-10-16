@@ -1,0 +1,391 @@
+{
+  "batch_id": "K77",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_469",
+        "dbf_id": 122771,
+        "name": "多彩龙巢母",
+        "name_en": "Chromatic Broodmother",
+        "text": "<b>突袭</b>。每当本随从攻击时，&复原等同于本随从攻击力的法力水晶。",
+        "text_en": "[x]<b>Rush</b>\n__Whenever this attacks,&\nrefresh Mana Crystals equal\n___to this minion's Attack.",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4975": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "163bbedf82c5c349648c98d3989df7f4980e7422eb3ed00e18793cb15f420ee3"
+    },
+    {
+      "record": {
+        "id": "EDR_430",
+        "dbf_id": 113700,
+        "name": "艾森娜",
+        "name_en": "Aessina",
+        "text": "<b>战吼：</b>\n如果在本局对战中已有20个友方随从死亡，造成20点伤害，随机分配到所有敌人身上。@<i>（还剩{0}个！）</i>@<i>（已经就绪！）</i>",
+        "text_en": "[x]<b>Battlecry:</b> If 20 friendly\nminions have died this game,\ndeal 20 damage split among\nall enemies.@ <i>({0} left!)</i>@ <i>(Ready!)</i>",
+        "cost": 8,
+        "attack": 6,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 6,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "PLAYER_TAG_THRESHOLD_TAG_ID": 412,
+          "PLAYER_TAG_THRESHOLD_VALUE": 20,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "c7985f2f00a45db6f4b767c112e8cbc4450a84ece21f7b2181964e7eceae81c2"
+    },
+    {
+      "record": {
+        "id": "TLC_432",
+        "dbf_id": 117423,
+        "name": "恐惧迅猛龙",
+        "name_en": "Dread Raptor",
+        "text": "<b>战吼：</b>抽一张法力值消耗小于或等于（3）点的<b>亡语</b>随从牌。<b>延系：</b>其法力值消耗变为（0）点。",
+        "text_en": "<b>Battlecry:</b> Draw a <b>Deathrattle</b> minion that costs (3) or less. <b>Kindred:</b> It costs (0).",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ee450f522fcf8e7c4a0e2a4357a43f7b90db55db4ea2ef63f91b3b9352276d9c"
+    },
+    {
+      "record": {
+        "id": "CATA_464",
+        "dbf_id": 122759,
+        "name": "黑翼实验品",
+        "name_en": "Blackwing Experiment",
+        "text": "<b>亡语：</b>&获取一张法力值消耗为（2）的法术，该法术可以造成等同于本随从攻击力的伤害。",
+        "text_en": "[x]<b>Deathrattle:</b>& Get a\n2-Cost spell that deals\nthis minion's Attack\ndamage.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122754,
+          "COST_FROST": 1,
+          "WHELP": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "81a7f437b9ff400f8ad30bac8b0220568982532fbadc78525318f06b127e30e0"
+    },
+    {
+      "record": {
+        "id": "TIME_617",
+        "dbf_id": 121017,
+        "name": "时空封冻者",
+        "name_en": "Chronochiller",
+        "text": "你不再会在你的回合开始时抽牌。",
+        "text_en": "You no longer draw a card at the start of your turn.",
+        "cost": 4,
+        "attack": 8,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 8,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "d33f7220aa0d6c1c76d410404306514a21308204a42113011c945e5b88072a0e"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_464t",
+        "dbf_id": 122754,
+        "name": "龙息",
+        "name_en": "Dragon Breath",
+        "text": "造成$@点伤害。",
+        "text_en": "Deal $@ damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "4edc7de1feda6da6bf17f7f9a7cef316ba20f07e6fa9206554db8b25313e73b4"
+    }
+  ],
+  "evidence_only": [],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k77-official-face-01/comparison.json",
+      "bytes": 2211,
+      "sha256": "7cb30585eb0086909b22130ba05a281be40ad5b561113a51cc447f58e645a039"
+    }
+  ],
+  "policies": [
+    "Chromatic Broodmother uses native Rush and own attack_declared notification, refreshing mana equal to the original behavior source Attack via existing RefreshMana; it neither grants max crystals nor substitutes damage dealt. Dragon and Undead retained.",
+    "Aessina uses genuine friendly MINION DeathRecord.controller history, at least20 this game, including deaths before acquisition and actual Reborn deaths. Bounce/transform/removal and enemy deaths do not count. Existing SplitDamage20 MINION_ABILITY resolves one current random enemy per packet.",
+    "Dread Raptor tutors one original physical DECK minion with a current Deathrattle and current stored cost<=3. Kindred prepares a zero-cost reward for the actual surviving original hand arrival; repeats duplicate the cost component, not the draw. Native current-source qualifier, original tutor/capacity/CWD/replacement and existing Kindred one-use sources remain shared.",
+    "Blackwing Experiment produces its actual fixed2-Mana Dragon Breath. Its immutable base value belongs to the actual original Deathrattle execution: natural death uses frozen DeathRecord Attack; effect/stored invocation uses the existing first-accepted/fresh-repeat body source view. The shared DeathrattleRecord saves that execution Attack once, not a new mutable minion counter. Value is installed before acquisition events, copied with physical card material and captured by actual CAST; direct spell-history recast preserves the original bound value. Zero is a real bound value. Raw SCRIPT_DATA1=1 and API missing number do not define a fallback1; unbound value explicitly errors.",
+    "Chronochiller is a removable native continuous provider at the actual normal turn-start draw window. It suppresses only that normal Draw request, not manual/draw-effect requests or the whole turn. Death/silence/transformation/control/dormancy follow existing active printed source lifecycle. Suppressed empty-deck draw does not cause fatigue.",
+    "Current official en_US/zh_CN faces agree after explicitly removing dynamic/layout placeholders. Precise attack operand, conditional tutor, generated parameter inheritance/recast and start-trigger/draw ordering remain local M6 policies pending CN calibration. No partial generation pool opened."
+  ]
+}

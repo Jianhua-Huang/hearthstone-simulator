@@ -1,0 +1,4311 @@
+{
+  "format": "reviewed-conditional-health-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_CS2_072",
+        "dbf_id": 69521,
+        "name": "背刺",
+        "name_en": "Backstab",
+        "text": "对一个未受伤的随从造成$2点\n伤害。",
+        "text_en": "Deal $2 damage to an undamaged minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 180
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michael Sutfin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "180",
+              "type": "Int",
+              "value": "180"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b1c865ebd95e75d7236a2bf60da592bd4d7bd7fa585c165822bd2790d789fe6f",
+      "recipe": {
+        "script": "backstab",
+        "cost": 0,
+        "target": "undamaged_minion",
+        "lifesteal": false,
+        "intrinsic": null,
+        "tradeable": false,
+        "deck_identity": "CS2_072"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_801",
+        "dbf_id": 69740,
+        "name": "眼棱",
+        "name_en": "Eye Beam",
+        "text": "<b>吸血</b>。\n对一个随从造成$3点伤害。<b>流放：</b>法力值消耗为（1）点。",
+        "text_en": "<b>Lifesteal</b>. Deal $3 damage to a minion.\n<b>Outcast:</b> This costs (1).",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 58183,
+          "OUTCAST": 1,
+          "SPELL_SCHOOL": 7
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "58183",
+              "type": "Int",
+              "value": "58183"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "a113f6f6f5f177bf7d2a018f86ccb6fa9fab6e5afdfdab293575c1f9887d0fae",
+      "recipe": {
+        "script": "eye_beam",
+        "cost": 3,
+        "target": "minion",
+        "lifesteal": true,
+        "intrinsic": "hand_edge",
+        "tradeable": false,
+        "deck_identity": "BT_801"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_311",
+        "dbf_id": 130582,
+        "name": "噬灵疫病",
+        "name_en": "Devouring Plague",
+        "text": "<b>吸血</b>\n造成$4点伤害，随机分配到所有敌方随从\n身上。",
+        "text_en": "[x]<b>Lifesteal</b>. Deal $4 damage\nrandomly split among\nall enemy minions.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "LIFESTEAL": 1,
+          "858": 62875,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62875,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62875",
+              "type": "Int",
+              "value": "62875"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "fb7fb719a1e750f2cb93fc4bd93d994ade7816f6cb7c171bf91194f361c8fa34",
+      "recipe": {
+        "script": "plague",
+        "cost": 3,
+        "target": null,
+        "lifesteal": true,
+        "intrinsic": null,
+        "tradeable": false,
+        "deck_identity": "BAR_311"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_203",
+        "dbf_id": 123077,
+        "name": "迦罗娜的奋战",
+        "name_en": "Garona's Last Stand",
+        "text": "<b>可交易</b>\n消灭一个<b>传说</b>\n随从。",
+        "text_en": "[x]<b>Tradeable</b>\nDestroy a <b>Legendary</b>\nminion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "45780f37073d79239d002ee826f6c56364dc002ed7105a072b0a1ef76c0c1ab8",
+      "recipe": {
+        "script": "garona",
+        "cost": 2,
+        "target": "legendary_minion",
+        "lifesteal": false,
+        "intrinsic": null,
+        "tradeable": true,
+        "deck_identity": "CATA_203"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_303",
+        "dbf_id": 122774,
+        "name": "净化吐息",
+        "name_en": "Purifying Breath",
+        "text": "对一个随从造成$5点伤害。如果该随从死亡，则为敌方英雄恢复#5点生命值。",
+        "text_en": "[x]Deal $5 damage\nto a minion. If it dies,\nrestore #5 Health to\nthe enemy hero.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "2ca7c5520142de399749cb27e5d762a562836062184176870c23bb4def6ee296",
+      "recipe": {
+        "script": "purifying_breath",
+        "cost": 2,
+        "target": "minion",
+        "lifesteal": false,
+        "intrinsic": null,
+        "tradeable": false,
+        "deck_identity": "CATA_303"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_308",
+        "dbf_id": 123570,
+        "name": "麦迪文的胜利",
+        "name_en": "Medivh's Triumph",
+        "text": "对所有随从造成$4点伤害。如果你控制着<b>传说</b>牌，本牌的法力值消耗为（1）点。",
+        "text_en": "Deal $4 damage\nto all minions.\nCosts (1) if you control\na <b>Legendary</b> card.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "4052c8afd8f036847b8b7828950ee4dd8f916c8819d240d9be97eedebdc359aa",
+      "recipe": {
+        "script": "medivh",
+        "cost": 5,
+        "target": null,
+        "lifesteal": false,
+        "intrinsic": "controlled_legendary",
+        "tradeable": false,
+        "deck_identity": "CATA_308"
+      }
+    }
+  ],
+  "known_unrarified_legacy": [
+    {
+      "record": {
+        "id": "EX1_131t",
+        "dbf_id": 488,
+        "name": "迪菲亚强盗",
+        "name_en": "Defias Bandit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "23afe8e4c473caca3e2f6492dda69467e03bfa0ec6b93b256389cb1d6b6f4e85"
+    },
+    {
+      "record": {
+        "id": "TSC_032t",
+        "dbf_id": 72001,
+        "name": "反制随从",
+        "name_en": "Minion Counter",
+        "text": "<b>反制</b>你的对手使用的下一张随从牌。",
+        "text_en": "[x]<b>Counter</b> the next minion\nyour opponent plays.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "340",
+              "name": "COUNTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a066273eb42e0bc81ff54aa700bdbac092a7374ee80d1c2638ace4e5080ce620"
+    },
+    {
+      "record": {
+        "id": "TSC_032t2",
+        "dbf_id": 72003,
+        "name": "反制法术",
+        "name_en": "Spell Counter",
+        "text": "<b>反制</b>你的对手使用的下一张法术牌。",
+        "text_en": "<b>Counter</b> the next spell your opponent plays.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "340",
+              "name": "COUNTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e673f06c4ebcdadf786c90cec0745a61f6c0246aa3aeca9f7ef6d4e0238c60d7"
+    },
+    {
+      "record": {
+        "id": "ULD_291p",
+        "dbf_id": 54370,
+        "name": "维尔纳尔之心",
+        "name_en": "Heart of Vir'naal",
+        "text": "在本回合中，你的<b>战吼</b>会触发两次。",
+        "text_en": "Your <b>Battlecries</b> trigger twice this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1158,
+          "CLASS": 8,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "218",
+              "name": "BATTLECRY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "49e57ed95a50dee4486e2988bbba7ca333b430b0f6bc2cad7bef95019d06e480"
+    },
+    {
+      "record": {
+        "id": "EX1_158t",
+        "dbf_id": 600,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "97488c888449248a30ae41353cf9d2e7956e9a6ba424bc0d95cb3d949056bfae"
+    },
+    {
+      "record": {
+        "id": "EDR_847p",
+        "dbf_id": 114905,
+        "name": "魔像的祝福",
+        "name_en": "Blessing of the Golem",
+        "text": "召唤一个<b>@</b>/<b>@</b>的植物魔像。",
+        "text_en": "Summon a <b>@</b>/<b>@</b> Plant_Golem.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cbd8d262287ab532b0fc83b72892aeaea1bd9128f411ecb941e079c94082764d"
+    },
+    {
+      "record": {
+        "id": "EDR_851p",
+        "dbf_id": 114056,
+        "name": "小精灵的祝福",
+        "name_en": "Blessing of the Wisp",
+        "text": "召唤<b>@个小精灵</b>。造成<b>$@</b>点伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]Summon |4(<b>@</b> Wisp,<b>@</b> Wisps).\nDeal <b>$@</b> damage\nrandomly split among\nall enemies.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 10,
+          "349": 1,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6958fe963c899281ece90d8859367e28bbd7fbdc88208beabdad56dea1ee764d"
+    },
+    {
+      "record": {
+        "id": "EDR_449p",
+        "dbf_id": 114069,
+        "name": "月亮的祝福",
+        "name_en": "Blessing of the Moon",
+        "text": "选择一张可用的牧师随从牌或法术牌置入你的手牌，其法力值消耗减少（<b>@</b>）点，但为<b>临时</b>牌。",
+        "text_en": "[x]Choose a playable Priest\nminion or spell to add to\nyour hand. It costs (<b>@</b>) less,\nbut is <b>Temporary</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 10,
+          "USE_DISCOVER_VISUALS": 1,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "be355eb910ef0ecd841d42127af27b63f8b9c190977a0b2a9b64b8e2df676a1a"
+    },
+    {
+      "record": {
+        "id": "EDR_445p",
+        "dbf_id": 114023,
+        "name": "巨龙的祝福",
+        "name_en": "Blessing of the Dragon",
+        "text": "将两张翡翠传送门洗入你的牌库。<i>（你的传送门会召唤法力值消耗为<b>@</b>的龙。）</i>",
+        "text_en": "[x]Shuffle two Emerald\nPortals into your deck.\n<i>(Your Portals summon\n<b>@</b>-Cost Dragons.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3da1d21fb1781afc1c3f6bba3494a84bfb6cd87780ced507352b7010b5345cc5"
+    },
+    {
+      "record": {
+        "id": "EDR_445pt3",
+        "dbf_id": 114070,
+        "name": "翡翠传送门",
+        "name_en": "Emerald Portal",
+        "text": "<b>抽到时施放</b>\n随机召唤一条法力值消耗为（@）的龙。",
+        "text_en": "<b>Casts When Drawn</b>\nSummon a random\n@-Cost Dragon.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "CASTS_WHEN_DRAWN": 1,
+          "2165": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & I. Campelo da Silva"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "54d34790d79a9aa11d49a86bbac220209d503102e8eced0674046de357fee758"
+    },
+    {
+      "record": {
+        "id": "EDR_850p",
+        "dbf_id": 114052,
+        "name": "巨狼的祝福",
+        "name_en": "Blessing of the Wolf",
+        "text": "随机使你手牌中的一张野兽牌获得+<b>@</b>攻击力，其法力值消耗减少（<b>@</b>）点。",
+        "text_en": "Give a random Beast\nin your hand +<b>@</b> Attack.\nIt costs (<b>@</b>) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6539102e021614a45fc819f6a0db27c90b436fa0f6601b2ab23d4c8f7b9951ff"
+    },
+    {
+      "record": {
+        "id": "EDR_448p",
+        "dbf_id": 114059,
+        "name": "轻风的祝福",
+        "name_en": "Blessing of the Wind",
+        "text": "将一个友方随从随机变形成为一个法力值消耗增加（<b>@</b>）点的随从。",
+        "text_en": "[x]Transform a friendly\nminion into a random\none that costs (<b>@</b>) more.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "4173": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4173",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4173"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7521d72942765b53aa1b20ed8092e824dd29266016de7d61e3ce4a2bf12570d7"
+    },
+    {
+      "record": {
+        "id": "END_003p",
+        "dbf_id": 121272,
+        "name": "永恒龙的祝福",
+        "name_en": "Blessing of the Infinite",
+        "text": "<b>被动</b>\n每回合中，你使用的第一张亡灵牌获得+<b>@</b>攻击力。",
+        "text_en": "<b>Passive</b>\nThe first Undead you\nplay each turn gains\n+<b>@</b> Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 10,
+          "HIDE_COST": 1,
+          "2165": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "e44da23d238e1715d8ea6efa5b99df5b044471356e0d74eda6005fd8d7a40d40"
+    },
+    {
+      "record": {
+        "id": "END_000p",
+        "dbf_id": 121243,
+        "name": "青铜龙的祝福",
+        "name_en": "Blessing of the Bronze",
+        "text": "<b>回溯</b>\n随机获取一张另一职业的随从牌，其法力值消耗减少（<b>@</b>）点。",
+        "text_en": "[x]<b>Rewind</b>\nGet a random minion\nfrom another class.\nIt costs (<b>@</b>) less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 7,
+          "CARDTYPE": 10,
+          "2165": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "381a7f9eb822703d0647e78fe14730a0115674291f0d676caa0c6eaf436ab977"
+    },
+    {
+      "record": {
+        "id": "EDR_847pt2",
+        "dbf_id": 117399,
+        "name": "植物魔像",
+        "name_en": "Plant Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "8c6bd7f218ab8ff4e2ebaa9b830339e5b1e4aac8a082b4c338e1b33e07b80ae7"
+    },
+    {
+      "record": {
+        "id": "EDR_851t",
+        "dbf_id": 116450,
+        "name": "小精灵",
+        "name_en": "Wisp",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "3881": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3881",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3881"
+          }
+        ]
+      },
+      "record_sha256": "3d3627ec4bd3e6037d8509d57448553a84c3ab747cdf86d3f848b712e5bcb5b7"
+    },
+    {
+      "record": {
+        "id": "CATA_190p",
+        "dbf_id": 125466,
+        "name": "无情",
+        "name_en": "Ruthless",
+        "text": "在本回合中\n+$a5攻击力。",
+        "text_en": "+$a5 Attack this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "012cdfd460ee358dabfb93846c5f2acd312ffc2917b369daa8a3e517b8c7f8f2"
+    },
+    {
+      "record": {
+        "id": "CATA_190t10",
+        "dbf_id": 127702,
+        "name": "统治",
+        "name_en": "Dragon's Reign",
+        "text": "召唤一条12/12的龙。",
+        "text_en": "Summon a 12/12 Dragon.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "6dbb45081f08577dee42c7bd249f1310e9243b058f316a1c3268cd69074f0905"
+    },
+    {
+      "record": {
+        "id": "CATA_190t11",
+        "dbf_id": 127699,
+        "name": "倾覆",
+        "name_en": "Topple",
+        "text": "消灭生命值最高的敌方随从。",
+        "text_en": "[x]Destroy the highest\n Health enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "68dc7423b526684606db1191e8ab826209c32a1b621f542662096fdb9879e5aa"
+    },
+    {
+      "record": {
+        "id": "CATA_190t12",
+        "dbf_id": 127700,
+        "name": "摧折",
+        "name_en": "Raze",
+        "text": "对所有敌方随从造成4点伤害。",
+        "text_en": "Deal 4 damage to all enemy minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "349": 1,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "de71d7b60fde50b158129c3cd9ee9776c369503dcd6ed5be7bd08fb3f966afe5"
+    },
+    {
+      "record": {
+        "id": "CATA_190t13",
+        "dbf_id": 127701,
+        "name": "奴役",
+        "name_en": "Enthrall",
+        "text": "随机将五张\n<b>传说</b>龙牌洗入你的牌库，其法力值消耗为（1）点。",
+        "text_en": "Shuffle five random <b>Legendary</b> Dragons into your deck. They cost (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "f193022f8216ab216d8fafac79c3228c659b8c34f79fe4e2bb214ce5975e9e00"
+    },
+    {
+      "record": {
+        "id": "CATA_190t14",
+        "dbf_id": 127703,
+        "name": "死亡之翼的后嗣",
+        "name_en": "Progeny of Deathwing",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 10,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "f4a9e3aef5b44b7e7677a65e2532f8ca40b67eca015465654c1f18aae2e4a7a3"
+    },
+    {
+      "record": {
+        "id": "CATA_725t",
+        "dbf_id": 127045,
+        "name": "古加尔的士兵",
+        "name_en": "Soldier of Cho'gall",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "26cb48befb0f8888d817db48bd301466daca60e0f45a54e4d5e12517fc3f2a9c"
+    },
+    {
+      "record": {
+        "id": "CATA_726t",
+        "dbf_id": 125433,
+        "name": "古的手臂",
+        "name_en": "Cho's Arm",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}. \n<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "faa10e9d87dce493b840df0925953af131ff7a566647e86c44ed87687917d63d"
+    },
+    {
+      "record": {
+        "id": "CATA_726t1",
+        "dbf_id": 125435,
+        "name": "加尔的手臂",
+        "name_en": "Gall's Arm",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "08a86b56cc15068d18b891f71aa87a3bcd625226365a2c5d67c22ad27ae4cc04"
+    },
+    {
+      "record": {
+        "id": "CATA_565t",
+        "dbf_id": 127071,
+        "name": "奥拉基尔的士兵",
+        "name_en": "Soldier of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "3480822aca6e996a5cd1d44187f43f3479bedce1cff9eaa08e75e564479f5ea9"
+    },
+    {
+      "record": {
+        "id": "CATA_153t",
+        "dbf_id": 125443,
+        "name": "奥拉基尔的灌能之手",
+        "name_en": "Charged Hand of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "d58f95d1890fe6997f6b399476ea60ffa5dddc0570a9347c3bf0c4cb0df988a5"
+    },
+    {
+      "record": {
+        "id": "CATA_153t1",
+        "dbf_id": 127053,
+        "name": "奥拉基尔的灌能之手",
+        "name_en": "Charged Hand of Al'Akir",
+        "text": "相邻的随从拥有+{0}攻击力。<i><b>兆示</b>两次后升级。</i>@相邻的随从拥有+{0}攻击力。<i><b>兆示</b>一次后升级。</i>@相邻的随从拥有+{0}攻击力。",
+        "text_en": "[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> twice to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.\n<i><b>Herald</b> once to upgrade.</i>@[x]Adjacent minions\nhave +{0} Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "017b28d4539eb4858b67966e6c8056f5a91f228b9e242ac50152e76d3e5f7527"
+    },
+    {
+      "record": {
+        "id": "CATA_158t",
+        "dbf_id": 127003,
+        "name": "希奈丝特拉的士兵",
+        "name_en": "Soldier of Sinestra",
+        "text": "被召唤时，获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>两次后升级。</i>@被召唤时，获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>一次后升级。</i>@被召唤时，获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。",
+        "text_en": "[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "1f9c4a6b62b842c40e71a52b46425596f01a05ae952e2de0a68a600aedd0809a"
+    },
+    {
+      "record": {
+        "id": "CATA_154t",
+        "dbf_id": 125451,
+        "name": "希奈丝特拉之翼",
+        "name_en": "Sinestra's Wing",
+        "text": "被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>两次后升级。</i>@被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>一次后升级。</i>@被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。",
+        "text_en": "[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "80251d6283adba81dc9a39eeadf3af49654909f4dd743893f4aa20aa7149254b"
+    },
+    {
+      "record": {
+        "id": "CATA_154t1",
+        "dbf_id": 125503,
+        "name": "希奈丝特拉之翼",
+        "name_en": "Sinestra's Wing",
+        "text": "被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>两次后升级。</i>@被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。<i><b>兆示</b>一次后升级。</i>@被召唤时，随机获取一张另一职业的法术牌，其法力值消耗减少（{0}）点。",
+        "text_en": "[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\nrandom spell from another\nclass. It costs ({0}) less.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "b467031bc1ee9411e5e75fa914498285e15fb88dac0cbe13c5aa104f586d8a2e"
+    },
+    {
+      "record": {
+        "id": "CATA_780t",
+        "dbf_id": 126983,
+        "name": "奥妮克希亚的士兵",
+        "name_en": "Soldier of Onyxia",
+        "text": "被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>两次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>一次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。",
+        "text_en": "[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x][x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "9155a42b17d35a9ff37f1ba0673c1bd445fab0a6ffd708ac494bbf2e3a73e072"
+    },
+    {
+      "record": {
+        "id": "CATA_155t",
+        "dbf_id": 124139,
+        "name": "奥妮克希亚之翼",
+        "name_en": "Onyxia's Wing",
+        "text": "被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>两次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>一次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。",
+        "text_en": "[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x][x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "0faa24ffd2d05b0e9e28f304acc63251bb6b03b2155e0d1d25434da3d8728e48"
+    },
+    {
+      "record": {
+        "id": "CATA_155t1",
+        "dbf_id": 125416,
+        "name": "奥妮克希亚之翼",
+        "name_en": "Onyxia's Wing",
+        "text": "被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>两次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。<i><b>兆示</b>一次后升级。</i>@被召唤时，随机获取一张消耗为（{0}）的随从牌，其在本回合中会消耗生命值。",
+        "text_en": "[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> twice to upgrade.</i>____@[x][x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.\n_____<i><b>Herald</b> once to upgrade.</i>____@[x]When summoned, get a\n random {0}-Cost minion.\n It costs Health this turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "5f2bc7c687c50b875a276dbc384170ec104f66156ce7170c17e5865341bcc63f"
+    },
+    {
+      "record": {
+        "id": "CATA_150t",
+        "dbf_id": 124113,
+        "name": "拉格纳罗斯之手",
+        "name_en": "Hand of Ragnaros",
+        "text": "<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>两次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>一次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> twice to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> once to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "336fd45a1bb7f58f6d71c988a261d781a3357b851ec364c9466d8aec01536e4d"
+    },
+    {
+      "record": {
+        "id": "CATA_150t1",
+        "dbf_id": 125412,
+        "name": "拉格纳罗斯之手",
+        "name_en": "Hand of Ragnaros",
+        "text": "<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>两次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>一次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> twice to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> once to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "f018c188b165e45bd778e8388adc250a94d419330da6444d959db2b9f26f7872"
+    },
+    {
+      "record": {
+        "id": "CATA_580t",
+        "dbf_id": 127082,
+        "name": "拉格纳罗斯的士兵",
+        "name_en": "Soldier of Ragnaros",
+        "text": "<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>两次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>一次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> twice to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> once to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0}\ndamage to a random\nenemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "b0e58e8e04c74bedb366847462ba79a9c6cfca15b8adff7f9627733bf93cb112"
+    },
+    {
+      "record": {
+        "id": "CATA_525t",
+        "dbf_id": 126995,
+        "name": "艾萨拉的士兵",
+        "name_en": "Soldier of Azshara",
+        "text": "被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>两次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>一次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。",
+        "text_en": "[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> twice to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> once to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Joseph Weston"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "1fde71308962ba2a12177137ea3f795c88fd0a7d9bb6f894b0779d938fe1a4a6"
+    },
+    {
+      "record": {
+        "id": "CATA_151t",
+        "dbf_id": 124108,
+        "name": "艾萨拉的触手",
+        "name_en": "Azshara's Tentacle",
+        "text": "被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>两次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>一次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。",
+        "text_en": "[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> twice to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> once to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "1a7847f9e691e5d4381be4ce8aa2ddac44ea03fe6371a0623231a56bf3c70090"
+    },
+    {
+      "record": {
+        "id": "CATA_151t1",
+        "dbf_id": 125413,
+        "name": "艾萨拉的触手",
+        "name_en": "Azshara's Tentacle",
+        "text": "被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>两次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。<i><b>兆示</b>一次后\n升级。</i>@被召唤时，使你的英雄在当回合获得+{0}攻击力。",
+        "text_en": "[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> twice to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.\n<i>_<b>Herald</b> once to upgrade.</i>@[x]When summoned, give your\nhero +{0} Attack this turn.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "1724": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "7e2e8eb67262f18b92383c6a49eb093f5a9aaf13a20a7d9a2ce6d9cb0966c7ec"
+    },
+    {
+      "record": {
+        "id": "TSC_216t",
+        "dbf_id": 72489,
+        "name": "巨鳗的诱饵",
+        "name_en": "Behemoth's Lure",
+        "text": "在你的回合结束时，随机迫使一个敌方随从攻击黑水巨鳗。",
+        "text_en": "[x]At the end of your turn,\nforce a random enemy\nminion to attack the\n__Blackwater Behemoth.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 6,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7fb8fa97c08bde2ace47034a1194cc30dd1d81fa77ad1be78bb5b0f5826f6073"
+    },
+    {
+      "record": {
+        "id": "TSC_639t",
+        "dbf_id": 72554,
+        "name": "格拉格的尾巴",
+        "name_en": "Glugg's Tail",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "78cf0574618a42e42e9f9caefb3c8daecda4085613fdcc453fb3474c0d02703e"
+    },
+    {
+      "record": {
+        "id": "TSC_639t2",
+        "dbf_id": 85860,
+        "name": "格拉格的尾巴",
+        "name_en": "Glugg's Tail",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f4172f3d63820daa1ef114d5190c7be942124ea0166f7c7a3eb220ac713078c5"
+    },
+    {
+      "record": {
+        "id": "TSC_639t3",
+        "dbf_id": 85861,
+        "name": "格拉格的尾巴",
+        "name_en": "Glugg's Tail",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9c0496ae5fcba320d532f65dc4ca4ea51fd39b503a5ac4e93a3d91076c4f1234"
+    },
+    {
+      "record": {
+        "id": "TID_711t",
+        "dbf_id": 75581,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f380170536614a1d6a4248d54dc326477d8c78737e5408253ea1576f6e0e58b5"
+    },
+    {
+      "record": {
+        "id": "TID_711t2",
+        "dbf_id": 85862,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c7396b148d8d25353587932a13e8a667edebade7440919bf4c9dfb91f4c0282a"
+    },
+    {
+      "record": {
+        "id": "TID_711t3",
+        "dbf_id": 85863,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ec7e39b7494c0b43df51a8a167587660481a858fc3d8c880187b3f5e8a8df4d1"
+    },
+    {
+      "record": {
+        "id": "TID_711t4",
+        "dbf_id": 85864,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d617dfd9b957f1a53d0e6debaabcaf8f59cc5d1b9e8efbca00441b6b1065cb26"
+    },
+    {
+      "record": {
+        "id": "TID_711t5",
+        "dbf_id": 85865,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "01cc0815b2da0214e2c210eb89b49f3787f451e906151d4720c834763941e57b"
+    },
+    {
+      "record": {
+        "id": "TID_711t6",
+        "dbf_id": 85866,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a68f634c23ea252b8248180dfbb11cf4025da9c83e88f2ec6fc177981a93bd39"
+    },
+    {
+      "record": {
+        "id": "EX1_130a",
+        "dbf_id": 102,
+        "name": "防御者",
+        "name_en": "Defender",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "5a5bcd7bba7bd88624bd7ac425bc78ca8ab10092427dc0fb52600ae1a3e55686"
+    },
+    {
+      "record": {
+        "id": "tt_010a",
+        "dbf_id": 1086,
+        "name": "扰咒师",
+        "name_en": "Spellbender",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "251": 2
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "330123e6107bfb4a4129fc69ed6d99c932dc4df2d71eb805c3451ab4479888cd"
+    },
+    {
+      "record": {
+        "id": "SW_450t4",
+        "dbf_id": 67550,
+        "name": "奥术师晨拥",
+        "name_en": "Arcanist Dawngrasp",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，你拥有<b>法术伤害+3</b>。",
+        "text_en": "[x]<b>Battlecry:</b> For the rest\nof the game, you have\n<b>Spell Damage +3</b>.",
+        "cost": 5,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1bc84a738210627c2bb8a2778a83fbd8ec61e4c70db9ab44846c3798601b7c9f"
+    },
+    {
+      "record": {
+        "id": "ULD_155p",
+        "dbf_id": 53925,
+        "name": "法老的面盔",
+        "name_en": "Pharaoh's Warmask",
+        "text": "使你的所有随从获得+2攻击力。",
+        "text_en": "Give your minions +2_Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1158,
+          "CLASS": 3,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kagi"
+          }
+        ]
+      },
+      "record_sha256": "f257a01e4f081ca6e31ed281cc148870d89dad4d56a6e9700c7620b0778ecd87"
+    },
+    {
+      "record": {
+        "id": "SW_428t4",
+        "dbf_id": 67884,
+        "name": "铁肤古夫",
+        "name_en": "Guff the Tough",
+        "text": "<b>嘲讽</b>，<b>战吼：</b>在本回合中使你的英雄获得+8攻击力。获得8点护甲值。",
+        "text_en": "[x]<b>Taunt</b>. <b>Battlecry:</b> Give your\nhero +8 Attack this turn.\nGain 8 Armor.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "a749d773f4da153fb2916bc5bbf6e59a728279f7923de7debe136f95ed6a1edc"
+    },
+    {
+      "record": {
+        "id": "TTN_903t",
+        "dbf_id": 96707,
+        "name": "自行生长",
+        "name_en": "Spontaneous Growth",
+        "text": "抽牌直到手牌数量达到上限。",
+        "text_en": "Draw cards until your hand is full.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Hayes"
+          }
+        ]
+      },
+      "record_sha256": "747c3fe04705f3583eb617983ae53a7af8a9799751c76112d8c8d9153c6c55a2"
+    },
+    {
+      "record": {
+        "id": "TTN_903t2",
+        "dbf_id": 96708,
+        "name": "丰饶收获",
+        "name_en": "Bountiful Harvest",
+        "text": "为你的英雄恢复所有生命值。",
+        "text_en": "Restore your hero\nto full Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "6188a65397c76287e60d78d787feef7ed713199b8580f7420e65efee42133cc6"
+    },
+    {
+      "record": {
+        "id": "TTN_903t3",
+        "dbf_id": 96709,
+        "name": "繁茂似锦",
+        "name_en": "Flourish",
+        "text": "复原你的法力水晶。",
+        "text_en": "Refresh your\nMana Crystals.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "334ab26c5ebd4261960f09d0827796911fa9b57b02935228105d994d85b050d1"
+    },
+    {
+      "record": {
+        "id": "TTN_903t4",
+        "dbf_id": 97457,
+        "name": "永恒古树",
+        "name_en": "Timeless Ancient",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2871": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2871",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2871"
+          }
+        ]
+      },
+      "record_sha256": "e9a333ab9d3b3d9ce5c55f47b172975a0b0d2fbd200d882e0088af0c9e1991e7"
+    },
+    {
+      "record": {
+        "id": "SC_400p",
+        "dbf_id": 112818,
+        "name": "强化剂",
+        "name_en": "Stimpack",
+        "text": "召唤一个2/2并具有\n<b>嘲讽</b>的陆战队员。使你的人族随从获得+2攻击力。",
+        "text_en": "[x]Summon a 2/2\nMarine with <b>Taunt</b>.\nGive your Terran\nminions +2_Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1935,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d2b078a5fdc6711703f86fc9f6cc71e26af234ef926cde2dace6336d83a69d37"
+    },
+    {
+      "record": {
+        "id": "GDB_100a",
+        "dbf_id": 110105,
+        "name": "紧急修复",
+        "name_en": "Emergency Repairs",
+        "text": "获得等同于\n<b>星舰</b>生命值的护甲值，触发两次。",
+        "text_en": "Gain Armor equal\nto the <b>Starship's</b> Health, twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b3abc30d84bf5ce6359d0b2334f5e0cd32f4c5a4572792b386d7ffc49c28786e"
+    },
+    {
+      "record": {
+        "id": "GDB_100b",
+        "dbf_id": 110106,
+        "name": "攻击队形",
+        "name_en": "Offensive Formation",
+        "text": "造成等同于<b>星舰</b>攻击力的伤害，\n随机分配到所有\n敌人身上。",
+        "text_en": "Deal damage equal to the <b>Starship's</b> Attack randomly split between all enemies.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e85b93185bb81b517ecc455f187e0d25ccc0764669cffd8b6f67f7d1e6dccd0d"
+    },
+    {
+      "record": {
+        "id": "GDB_100c",
+        "dbf_id": 110107,
+        "name": "乘务转运",
+        "name_en": "Crew Transport",
+        "text": "获取所有\n<b>星舰组件</b>的复制，\n并将其法力值消耗\n变为（1）点。",
+        "text_en": "Get copies of all of\nthe <b>Starship's Pieces</b>.\nSet their Costs to (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8083249170dbe8fa24e83f4256efd51176caaad845b62a8f8027fb675e1c6032"
+    },
+    {
+      "record": {
+        "id": "SC_403a",
+        "dbf_id": 113237,
+        "name": "维京战机",
+        "name_en": "Viking",
+        "text": "<b>星舰组件</b>\n当本随从被发射时，获得5点护甲值。",
+        "text_en": "<b>Starship Piece</b>\nWhen this is launched, gain 5 Armor.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1,
+          "3684": 1,
+          "STARSHIP_LAUNCH_TRIGGER": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "12d432d7305c9b6fdaec9f17bfeb5fd5cf19cb38ee981defcd1cf299241aa0e8"
+    },
+    {
+      "record": {
+        "id": "SC_403b",
+        "dbf_id": 113240,
+        "name": "解放者",
+        "name_en": "Liberator",
+        "text": "<b>星舰组件</b>\n当本随从被发射时，对所有敌方随从造成2点伤害。",
+        "text_en": "[x]<b>Starship Piece</b>\nWhen this is launched,\ndeal 2 damage to all\nenemy minions.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1,
+          "3684": 1,
+          "STARSHIP_LAUNCH_TRIGGER": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "187ea4775882de93f63a3f1a1d1168c2b0be53835af89ace6a79487bdcf5d9a0"
+    },
+    {
+      "record": {
+        "id": "SC_403c",
+        "dbf_id": 113242,
+        "name": "铁鸦",
+        "name_en": "Raven",
+        "text": "<b>星舰组件</b>\n当本随从被发射\n时，获得2项随机<b>额外效果</b>。",
+        "text_en": "[x]<b>Starship Piece</b>\nWhen this is launched, gain\n2 random <b>Bonus Effects</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1,
+          "3684": 1,
+          "STARSHIP_LAUNCH_TRIGGER": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "da8dce248b66e7b0904c4fb7ef7948f8e26ad38f4591177e0d2f6224bc65fdc9"
+    },
+    {
+      "record": {
+        "id": "SC_403d",
+        "dbf_id": 113244,
+        "name": "女妖",
+        "name_en": "Banshee",
+        "text": "<b>星舰组件</b>\n当本随从被发射时，随机对一个敌人造成3点伤害。",
+        "text_en": "<b>Starship Piece</b>\nWhen this is launched,\ndeal 3 damage to a random enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1,
+          "3684": 1,
+          "STARSHIP_LAUNCH_TRIGGER": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "da017cc6dcbd83d93289ce77c121b536f7b8fa2755a268a94cf8ceb84c512fc9"
+    },
+    {
+      "record": {
+        "id": "SC_403f",
+        "dbf_id": 113247,
+        "name": "医疗运输机",
+        "name_en": "Medivac",
+        "text": "<b>星舰组件</b>\n当本随从被发射时，召唤两个2/2并具有<b>嘲讽</b>的陆战队员。",
+        "text_en": "[x]<b>Starship Piece</b>\nWhen this is launched,\nsummon two 2/2 Marines\nwith <b>Taunt</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1,
+          "3684": 1,
+          "STARSHIP_LAUNCH_TRIGGER": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "04e656e9a21a354c28749d9bbb4d87115b733f99994e9faffe7ec5585e0ca86d"
+    },
+    {
+      "record": {
+        "id": "SC_403t",
+        "dbf_id": 112861,
+        "name": "陆战队员",
+        "name_en": "Marine",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1935,
+          "TAUNT": 1,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "TERRAN": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          }
+        ]
+      },
+      "record_sha256": "9e7104ab9173a034679f5c68bb602e9933cb1352959f2fa7efbea8be1f13b43c"
+    },
+    {
+      "record": {
+        "id": "GDB_100t2",
+        "dbf_id": 110094,
+        "name": "流亡者的希望",
+        "name_en": "The Exile's Hope",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "2c7c857e6e9d0dfb8825942e6b6e617587d74a1b97d28a8e20fd43e31a1c1a8b"
+    },
+    {
+      "record": {
+        "id": "GDB_100t4",
+        "dbf_id": 113706,
+        "name": "灵魂通途",
+        "name_en": "The Spirits' Passage",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "759d26b9d52909190a2e16781b3dbc6baf598056fdb023447cfa1753d483fa0e"
+    },
+    {
+      "record": {
+        "id": "GDB_100t5",
+        "dbf_id": 113707,
+        "name": "军团之灾",
+        "name_en": "The Legion's Bane",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          }
+        ]
+      },
+      "record_sha256": "e8bd4393e3b600d5906b4bbdeeafa5fcf609bf094c19a805a41e0d60078974a0"
+    },
+    {
+      "record": {
+        "id": "GDB_100t6",
+        "dbf_id": 113708,
+        "name": "宇宙档案馆",
+        "name_en": "The Celestial Archive",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "9f753e4507a2ce45ee0e86948f8d2a9d6e09fd9608aa52788df7933de4be5043"
+    },
+    {
+      "record": {
+        "id": "GDB_100t7",
+        "dbf_id": 113709,
+        "name": "星界罗盘",
+        "name_en": "The Astral Compass",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "28ee408bb45d3b25ff9f84eb4183662d5935c8efca5d0772ed368d17baea2815"
+    },
+    {
+      "record": {
+        "id": "GDB_100t8",
+        "dbf_id": 113710,
+        "name": "拾荒者之志",
+        "name_en": "The Scavenger's Will",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "4d896fe1381a032a8bcaecb0ce66d3ca5267f045aed6adc9753cceb7fc02421d"
+    },
+    {
+      "record": {
+        "id": "GDB_100t9",
+        "dbf_id": 113711,
+        "name": "虚无之眼",
+        "name_en": "The Nether's Eye",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "HIDE_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "cd33041c172c61f18d71b8da1a5cef9b1baca4111bbc25d34c6c2c08765332c0"
+    },
+    {
+      "record": {
+        "id": "SC_999t",
+        "dbf_id": 114363,
+        "name": "战列巡航舰",
+        "name_en": "Battlecruiser",
+        "text": "<b>星舰</b>\n<i>（消耗5点法力值即可发射。）</i>@<b>星舰</b>\n<i>（由{0}个组件构成。）</i>",
+        "text_en": "<b>Starship</b>\n<i>(Costs (5) Mana to launch.)</i>@<b>Starship</b>\n<i>(Made of {0} |4(piece, pieces).)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 656,
+          "HIDE_COST": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "TERRAN": 1,
+          "HIDE_HEALTH_NUMBER": 1,
+          "HIDE_ATTACK_NUMBER": 1,
+          "STARSHIP": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "948828ba1eff779656b7616e7e8b57991d5c71121e8ebaa48ac7f381353b4bb7"
+    },
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8"
+    },
+    {
+      "record": {
+        "id": "FP1_007t",
+        "dbf_id": 1787,
+        "name": "蛛魔",
+        "name_en": "Nerubian",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7e119f9b975ffdf413fd42446d419496587be7b3ead312926d4156e39da06350"
+    }
+  ],
+  "formal_pool_complete": false,
+  "policies": {
+    "controlled_legendary": "All friendly physical in-play slots: hero/power, board, weapon, secrets, quests. Quest/weapon/location are not restricted to minions. Not hand/deck/graveyard/pending cards or detached graveyard effect sources. Exact CN scope still open.",
+    "hand_edge": "Full ordered own physical hand, original source first or last. A hypothetical generated subject has no physical position and does not qualify.",
+    "no_printed_rarity": "Explicit noncollectible source records without RARITY map to Rarity.NONE. Unknown metadata/unknown rarity remains distinct and errors. Legacy default representative unchanged.",
+    "purifying_breath": "Read original HealthResult and actual death causal linkage before healing enemy hero, not later same-name bodies."
+  }
+}

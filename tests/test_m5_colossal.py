@@ -1,4 +1,5 @@
 """Independent appendages, source paths and resumable entry sequencing."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -321,7 +322,7 @@ class ColossalTests(unittest.TestCase):
 
     def test_real_player_port_example(self):
         from examples.colossal_appendages import run
-        game,snapshot=run();self.assertEqual(len(game.history),5);self.assertEqual(snapshot['schema_version'],266)
+        game,snapshot=run();self.assertEqual(len(game.history),5);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

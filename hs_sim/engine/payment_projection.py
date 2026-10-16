@@ -118,9 +118,15 @@ def consume_quoted_modifiers(state, quote, *, origin):
     receipt = CostUseReceipt(len(state.cost_use_history) + 1, player.id, source.id, source.card_id,
         state.turn, state.action_number, origin, quote.amount, quote.payment,
         quote.modifier_ids, applied, quote.consumable_ids, current_deck=quote.current_deck,
-        permanent_mana=quote.permanent_mana)
+        permanent_mana=quote.permanent_mana,kindred_sources=quote.kindred_sources)
     # Same formula and position as before. No event/checkpoint at this append.
     consume_modifiers(player, quote.consumable_ids)
+    if quote.kindred_sources:
+        actual=tuple(x for x in player.player_effects if x.id in{x.id for x in quote.kindred_sources})
+        if tuple(sorted(actual,key=lambda x:x.id))!=quote.kindred_sources:
+            raise ValueError('Payment lost its complete original Kindred source instances')
+        used={x.id for x in quote.kindred_sources}
+        player.player_effects=[x for x in player.player_effects if x.id not in used]
     state.cost_use_history.append(receipt)
     return receipt
 
@@ -181,6 +187,7 @@ def validate_cost_use_history(state, registry=None):
     catalogue = checked_live_attachments(state)
     expected, owners = {}, {}
     previous_turn = previous_action = 0
+    used_kindred=set()
     for index, receipt in enumerate(state.cost_use_history, 1):
         if type(receipt) is not CostUseReceipt: raise ValueError('Invalid cost use receipt')
         receipt.__post_init__()
@@ -189,6 +196,23 @@ def validate_cost_use_history(state, registry=None):
                 not previous_action <= receipt.action <= state.action_number):
             raise ValueError('Invalid cost use identity/order/source')
         if registry is not None: registry.card(receipt.source_card_id)
+        for instance in receipt.kindred_sources:
+            if(instance.id>=state.next_attachment_id or instance.id in used_kindred or
+                    instance.source_id not in state.entities or instance.created_turn>receipt.turn or
+                    any(x.id==instance.id for p in state.players.values()for x in p.player_effects)):
+                raise ValueError('Intrinsic Kindred payment borrowed a future, live or reused source')
+            used_kindred.add(instance.id)
+            if registry is not None:
+                from .kindred import validate_sources
+                validate_sources(registry,(instance,))
+                profile=registry.kindred_profiles.get(receipt.source_card_id)
+                if profile is None or profile.mode!='cost':raise ValueError('Kindred payment source has no native cost consumer')
+        if receipt.kindred_sources:
+            roots=[p for p in state.play_history if(p.source_id,p.player_id,p.turn,p.action)==
+                (receipt.source_id,receipt.player_id,receipt.turn,receipt.action)]
+            if roots and(len(roots)!=1 or roots[0].submitted_cost is None or
+                    roots[0].submitted_cost.quote.intrinsic.kindred_sources!=receipt.kindred_sources):
+                raise ValueError('Kindred use differs from the original submitted price sources')
         if any(i >= state.next_attachment_id for i in receipt.modifier_ids):
             raise ValueError('Cost use references a future attachment')
         for modifier in receipt.player_modifiers:

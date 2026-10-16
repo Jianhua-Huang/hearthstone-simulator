@@ -1,4 +1,5 @@
 """Current DECK conditional prices over the original intrinsic and payment pipeline."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, replace
 import json
@@ -387,7 +388,7 @@ class CurrentDeckCountCostTests(unittest.TestCase):
 
     def test_new_protocol_identity_rejects_previous_schema_and_handler(self):
         g=self.game();self.assertEqual((g.snapshot()['schema_version'],g.ruleset.id,g.mechanics.version),
-            (266,'prototype-v302',CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION,'prototype-v302',CORE_EFFECTS_VERSION))
         saved=g.snapshot();saved['schema_version']=216;self.reject(saved)
         saved=g.snapshot();saved['mechanics_version']['version']='core-effects-v239';self.reject(saved)
 

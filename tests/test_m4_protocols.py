@@ -1,4 +1,5 @@
 """Exodar protocols and the shared continuations they require."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -344,7 +345,7 @@ class ProtocolTests(unittest.TestCase):
     def test_real_example_restores_all_protocols_via_player_commands(self):
         from examples.exodar_protocols import run
         snapshot,branches=run()
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(set(branches),{'GDB_100a','GDB_100b','GDB_100c'})
         self.assertTrue(all(len(g.history)==4 for g in branches.values()))
 

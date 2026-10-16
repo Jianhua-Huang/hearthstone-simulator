@@ -1,0 +1,673 @@
+{
+  "format": "reviewed-basic-trigger-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_AT_052",
+        "dbf_id": 129849,
+        "name": "图腾魔像",
+        "name_en": "Totem Golem",
+        "text": "<b>过载：</b>（1）",
+        "text_en": "<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "858": 2610,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 2610
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2610",
+              "type": "Int",
+              "value": "2610"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2bdac0d0f5da7b408b9c40dc2684b5e94d2576e7aec387ddc4a082c17d302efd",
+      "recipe": {
+        "cost": 2,
+        "attack": 3,
+        "health": 4,
+        "root": true,
+        "script": "totem",
+        "deck_identity": "AT_052",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_313",
+        "dbf_id": 129172,
+        "name": "安瑟祭司",
+        "name_en": "Priest of An'she",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在本回合中恢复过生命值，&获得+3/+3。",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b> If you've restored Health this turn,& gain +3/+3.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 62877,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62877,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62877",
+              "type": "Int",
+              "value": "62877"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "aca35c48ae40c9ca05cf8d2f9e444e0e70d0a75972a18677c8cc47fb02261888",
+      "recipe": {
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "root": true,
+        "script": "anshe",
+        "deck_identity": "BAR_313",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_878",
+        "dbf_id": 130580,
+        "name": "战地医师老兵",
+        "name_en": "Veteran Warmedic",
+        "text": "在你施放一个神圣法术后，&召唤一个2/2并具有<b>吸血</b>的医师。",
+        "text_en": "[x]After you cast a Holy spell,&\n summon a 2/2 Medic\nwith <b>Lifesteal</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 62933,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62933,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 63321,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Wu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62933",
+              "type": "Int",
+              "value": "62933"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "85e9d8cfcd3df7f815a68724c94e9e22524ea456dd2be7de640ab0ef634d9756",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "root": true,
+        "script": "veteran",
+        "deck_identity": "BAR_878",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_351",
+        "dbf_id": 69586,
+        "name": "战斗邪犬",
+        "name_en": "Battlefiend",
+        "text": "在你的英雄攻击后，&获得+1攻击力。",
+        "text_en": "After your hero attacks,& gain +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 58487,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4932": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "58487",
+              "type": "Int",
+              "value": "58487"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "07953704412eed6297b00694fc066962b57fdf3ac0a6d51961dc3c34c58ae8c2",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "root": true,
+        "script": "battlefiend",
+        "deck_identity": "BT_351",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_510",
+        "dbf_id": 129168,
+        "name": "怒刺蛮兵",
+        "name_en": "Wrathspike Brute",
+        "text": "<b>嘲讽</b>。在本随从被攻击后，&对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Taunt</b>\nAfter this is attacked,&\n deal 1 damage to\nall enemies.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 59865,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 59865,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "59865",
+              "type": "Int",
+              "value": "59865"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f2feef0217b6c547ca262bbddeb8d783ee30d699d04671b67214d213638a56ca",
+      "recipe": {
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "root": true,
+        "script": "wrathspike",
+        "deck_identity": "BT_510",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_790",
+        "dbf_id": 102225,
+        "name": "卑劣的脏鼠",
+        "name_en": "Dirty Rat",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&使你的对手随机从手牌中召唤一个随从。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b>& Your opponent\nsummons a random minion\nfrom their hand.",
+        "cost": 2,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41567,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dany Orizio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41567",
+              "type": "Int",
+              "value": "41567"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          }
+        ]
+      },
+      "record_sha256": "f673a20d0df963b34a6b19573d90c8fd5dd83b125fe1a775248fb3426178dd49",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 6,
+        "root": true,
+        "script": "rat",
+        "deck_identity": "CFM_790",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DMF_067",
+        "dbf_id": 120429,
+        "name": "奖品商贩",
+        "name_en": "Prize Vendor",
+        "text": "<b>战吼，亡语：</b>&每个玩家抽一张牌。",
+        "text_en": "<b>Battlecry and Deathrattle:</b>& Each player draws a card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 61622,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 61622,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "61622",
+              "type": "Int",
+              "value": "61622"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "33d0df4425cc60bb74d0c522404cb2762c6b5e8c6ba2d27ffbf73e978bbfdc25",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "root": true,
+        "script": "vendor",
+        "deck_identity": "DMF_067",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_162",
+        "dbf_id": 69668,
+        "name": "恐狼前锋",
+        "name_en": "Dire Wolf Alpha",
+        "text": "相邻的随从拥有+1攻击力。",
+        "text_en": "Adjacent minions have +1_Attack.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "ADJACENT_BUFF": 1,
+          "AURA": 1,
+          "858": 985
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Dickenson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "985",
+              "type": "Int",
+              "value": "985"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "dad66d2d6f444c45c0ef3954b4e6380da5d2dd4d87a7012108f57bfe0a52f865",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "root": true,
+        "script": "wolf",
+        "deck_identity": "EX1_162",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "BAR_878t",
+        "dbf_id": 63321,
+        "name": "战地医师",
+        "name_en": "Battlefield Medic",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Agatha Zhou"
+          }
+        ]
+      },
+      "record_sha256": "ec7667c83d7f2f371dbb86305083628c671a4273a6d62800dead73282fe18b9e",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "root": false,
+        "script": null,
+        "deck_identity": "BAR_878t",
+        "keywords": [
+          "lifesteal"
+        ]
+      }
+    }
+  ],
+  "dependency_link": {
+    "source_id": "CORE_BAR_878",
+    "tag": "COLLECTION_RELATED_CARD_DATABASE_ID",
+    "dbf_id": 63321,
+    "card_id": "BAR_878t"
+  }
+}

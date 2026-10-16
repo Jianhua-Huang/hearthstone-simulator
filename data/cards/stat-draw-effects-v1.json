@@ -1,0 +1,417 @@
+{
+  "format": "reviewed-stat-draw-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_EX1_619",
+        "dbf_id": 69614,
+        "name": "生而平等",
+        "name_en": "Equality",
+        "text": "将所有随从的生命值变为1。",
+        "text_en": "Change the Health of ALL minions to 1.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 5,
+          "COLLECTIBLE": 1,
+          "858": 756,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michal Ivan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "5"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "756",
+              "type": "Int",
+              "value": "756"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "212e713e28bcc99ea057afbee6e5df37bd3b97de857016a5bd6b81087852918e",
+      "recipe": {
+        "script": "equality",
+        "cost": 2,
+        "deck_identity": "EX1_619",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_087",
+        "dbf_id": 111317,
+        "name": "窒息",
+        "name_en": "Asphyxiate",
+        "text": "消灭攻击力最高的敌方随从。",
+        "text_en": "Destroy the highest Attack enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 79503,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "79503",
+              "type": "Int",
+              "value": "79503"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "bab3527ce1cfa3f570b0953be7e38b6243fc50d16cd8dabea91ecab2fc327bc3",
+      "recipe": {
+        "script": "asphyxiate",
+        "cost": 3,
+        "deck_identity": "RLK_087",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_255",
+        "dbf_id": 114543,
+        "name": "复苏烈焰",
+        "name_en": "Renewing Flames",
+        "text": "<b>吸血</b>。对生命值最低的敌人造成$5点伤害，触发两次。",
+        "text_en": "<b>Lifesteal</b>. Deal $5 damage to the lowest Health enemy, twice.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & I. Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "cc7cdd0e93633eedd1571493c59e36bb7b1b22d135f571c0ae12e1db1fefc85b",
+      "recipe": {
+        "script": "flames",
+        "cost": 7,
+        "deck_identity": "EDR_255",
+        "keywords": [
+          "lifesteal"
+        ],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_447",
+        "dbf_id": 121005,
+        "name": "真言术：障",
+        "name_en": "Power Word: Barrier",
+        "text": "使一个角色获得<b>圣盾</b>。使你手牌中的随从牌获得+2生命值。",
+        "text_en": "Give a character <b>Divine Shield</b>. Give minions in your hand +2 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9d74430d53a1e0b10b162ff6c3e088299fa01c8cc08e962eccc8d4f425cc8140",
+      "recipe": {
+        "script": "barrier",
+        "cost": 1,
+        "deck_identity": "TIME_447",
+        "keywords": [],
+        "target": "character"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_449",
+        "dbf_id": 121024,
+        "name": "绵延传承",
+        "name_en": "Lasting Legacy",
+        "text": "在本回合中，使你的英雄获得+4攻击力。如果你的牌库中没有随从牌，使你手牌中的随从牌获得+4攻击力。",
+        "text_en": "[x]Give your hero\n+4 Attack this turn. If your\ndeck has no minions, give\nany in hand +4 Attack.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "edc189717e7341c757cdbad2066b2da1571cad2fe699e48a741261667e5f43a4",
+      "recipe": {
+        "script": "legacy",
+        "cost": 3,
+        "deck_identity": "TIME_449",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_377",
+        "dbf_id": 126652,
+        "name": "神圣石索",
+        "name_en": "Holy Bola!",
+        "text": "抽一张牌。如果该牌的法力值消耗小于或等于（2）点，再抽一张。",
+        "text_en": "Draw a card.\nIf it costs (2) or less, draw another.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "b4c4b5ee7e6497ee52f95aa03d8cd99c1806d735a73f76731b086132a9c4aed7",
+      "recipe": {
+        "script": "bola",
+        "cost": 2,
+        "deck_identity": "JAIL_377",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "END_003",
+        "dbf_id": 121271,
+        "name": "最终定局",
+        "name_en": "Finality",
+        "text": "抽一张亡灵牌。<b>灌注</b>你的英雄技能两次。",
+        "text_en": "Draw an Undead. <b>Imbue</b> your Hero\nPower twice.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jon Neimeister"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8934b4eb4793c4a91c2b38cd4e1d603562423e7b66bbfe09eed5beb9a097fb8d",
+      "recipe": {
+        "script": "finality",
+        "cost": 3,
+        "deck_identity": "END_003",
+        "keywords": [],
+        "target": null
+      }
+    }
+  ]
+}

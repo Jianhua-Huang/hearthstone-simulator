@@ -1,4 +1,5 @@
 """Titan action policy, finite ability lifecycle, effects and player boundary."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -354,7 +355,7 @@ class MinionAbilityTests(unittest.TestCase):
     def test_real_eonar_example_restores_and_replays_through_player_api(self):
         from examples.use_titan import run
         g, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(sum(e.kind == 'minion_ability_used' for e in g.events), 3)
 
     def test_explicit_summon_titan_has_all_abilities_available(self):

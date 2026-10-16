@@ -245,8 +245,10 @@ def return_hand(r, root):
         return_rng_before=before, return_rng_after=r.game._rng.getstate())
     r.state.temporary_hands[root.id - 1] = root
     r.emit('temporary_deck_hand_restored', source_id=root.request.source_id, player_id=player.id, **finish_data(root))
-    for eid in removed:
-        r.emit('card_moved_to_deck', source_id=root.request.source_id, target_id=eid, player_id=player.id)
+    from .deck_shuffles import group
+    with group(r,None,player.id,len(removed),root.request.source_id,profile='temporary_return'):
+        for eid in removed:
+            r.emit('card_moved_to_deck', source_id=root.request.source_id, target_id=eid, player_id=player.id,_deck_insertion_mode='random')
     if removed:
         r.emit('deck_shuffled', player_id=player.id)
     for eid in returned:

@@ -22,11 +22,14 @@ from .summon_quantities import (SummonByCard, SummonCause, SummonEntryMaterial,
 class SummonOrderedGroup(Effect):
     group: OrderedSummonGroupSpec
     producer_profile_id: str | None = None
+    bonus_effects: bool = False
 
     def __post_init__(self):
         if type(self.group) is not OrderedSummonGroupSpec:
             raise ValueError('A whole group requires its complete ordered request')
         self.group.__post_init__()
+        if type(self.bonus_effects) is not bool:
+            raise ValueError('Whole group bonus policy requires bool')
         if self.producer_profile_id is not None and (type(self.producer_profile_id) is not str or not self.producer_profile_id):
             raise ValueError('Whole group amount requires an explicit named logical profile')
 
@@ -59,6 +62,7 @@ class OrderedGroupRecord:
     producer_amount: AcceptedProducerAmount | None = None
     entry_root_ids: tuple[int, ...] = ()
     status: str = 'active'
+    bonus_receipts: tuple = ()
 
     def __post_init__(self):
         for name in ('id', 'turn'):
@@ -186,6 +190,11 @@ def finish(r, effect):
         raise ResolutionError('Whole group Finish omitted owed original occurrences')
     if any(next(c for c in r.state.card_summon_history if c.id == i).status == 'active' for i in root.entry_root_ids):
         raise ResolutionError('Whole group Finish preceded child completion')
+    if root.request.bonus_effects:
+        from .group_bonus import reward_next
+        reward = reward_next(r, root)
+        if reward is not None:
+            return reward
     emit(r, 'ordered_group_finished', update(r.state, root, status='completed'))
 
 
@@ -234,6 +243,8 @@ def validate_record(state, registry, root, *, closed=False, children=None):
         child = children.get(child_id)
         if child is None or child.request != child_request(root, index) or child.event_cursor <= root.event_cursor:
             raise ValueError('Whole group lost or changed an actual original child window')
+    from .group_bonus import validate as validate_bonus
+    validate_bonus(root, state, closed=closed, children=children)
 
 
 def validate_history(state, registry):
@@ -343,9 +354,9 @@ def validate_closed_events(game):
             child = child_from_dict(CardSummonRecord, json.loads(dict(event.data)['root']))
             children.setdefault(child.id, child)
     current = {root.id: root for root in state.ordered_group_history}
-    accepted, closed = {}, {}
+    accepted, closed, rewarded = {}, {}, {}
     for event in events:
-        if event.kind not in ('ordered_group_accepted', 'ordered_group_finished'):
+        if event.kind not in ('ordered_group_accepted', 'ordered_group_finished', 'ordered_group_rewarded'):
             continue
         data = dict(event.data)
         if set(data) != {'group_id', 'root'} or type(data['root']) is not str:
@@ -356,20 +367,33 @@ def validate_closed_events(game):
                 (event.source_id, event.player_id) != (root.request.group.cause.source.entity_id, root.request.group.player_id)):
             raise ValueError('Whole group event changed original producer and event window')
         if event.kind == 'ordered_group_accepted':
-            if (root.id in accepted or root.status != 'active' or root.entry_root_ids or
+            if (root.id in accepted or root.status != 'active' or root.entry_root_ids or root.bonus_receipts or
                     root.event_cursor != event.sequence - 1 or event.amount != len(root.selection.occurrences)):
                 raise ValueError('Duplicate or invalid original whole group acceptance')
             accepted[root.id] = root
+        elif event.kind == 'ordered_group_rewarded':
+            previous = rewarded.get(root.id)
+            prefix = () if previous is None else previous.bonus_receipts
+            if (root.status != 'active' or not root.request.bonus_effects or root.id in closed or
+                    len(root.entry_root_ids) != len(root.selection.occurrences) or
+                    len(root.bonus_receipts) != len(prefix) + 1 or root.bonus_receipts[:-1] != prefix or
+                    event.amount != len(root.entry_root_ids) or
+                    replace(root, entry_root_ids=(), bonus_receipts=(), status='active') != accepted.get(root.id) or
+                    previous is not None and root.entry_root_ids != previous.entry_root_ids):
+                raise ValueError('Whole group changed or duplicated its original bonus prefix')
+            rewarded[root.id] = root
         else:
             if (root.id in closed or root.status == 'active' or event.amount != len(root.entry_root_ids) or
-                    replace(root, entry_root_ids=(), status='active') != accepted.get(root.id)):
+                    replace(root, entry_root_ids=(), bonus_receipts=(), status='active') != accepted.get(root.id) or
+                    root.bonus_receipts != (() if root.id not in rewarded else rewarded[root.id].bonus_receipts)):
                 raise ValueError('Whole group close changed the original plan or selection')
             closed[root.id] = root
         if root.id not in current and not any(e.kind == 'timeline_rewound' and e.sequence > event.sequence and
                 type(dict(e.data).get('event_start')) is int and dict(e.data)['event_start'] <= root.event_cursor for e in events):
             raise ValueError('Whole group vanished without a later actual Retry')
     for root in current.values():
-        if (replace(root, entry_root_ids=(), status='active') != accepted.get(root.id) or
+        if (replace(root, entry_root_ids=(), bonus_receipts=(), status='active') != accepted.get(root.id) or
+                root.bonus_receipts != (() if root.id not in rewarded else rewarded[root.id].bonus_receipts) or
                 root.status != 'active' and closed.get(root.id) != root):
             raise ValueError('Current whole group differs from its original private event proof')
     parents = {**closed, **current}
@@ -394,6 +418,8 @@ def from_dict(cls, value):
         row['selection'] = value_from_dict(OrderedGroupSelection, row['selection'])
         row['producer_amount'] = None if row['producer_amount'] is None else amount_from_dict(row['producer_amount'])
         row['entry_root_ids'] = tuple(_list(row['entry_root_ids'], 'Whole group child prefix'))
+        from .group_bonus import from_dict as bonus_from_dict
+        row['bonus_receipts'] = tuple(bonus_from_dict(x) for x in _list(row['bonus_receipts'], 'Original group bonus prefix'))
     else:
         raise ValueError('Unknown whole group record codec type')
     return cls(**row)
@@ -406,6 +432,8 @@ def rows_from_dict(value):
 
 
 def register(mechanics):
+    from .group_bonus import GroupBonusFact
+    mechanics.register_payload_type(GroupBonusFact)
     for cls in (OrderedGroupMember, OrderedSummonGroupSpec, SelectedGroupOccurrence,
                 OrderedGroupSelection, GroupSummonEntryLink, OrderedGroupRecord):
         mechanics.register_payload_type(cls)

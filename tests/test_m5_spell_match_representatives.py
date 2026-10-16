@@ -3,6 +3,7 @@
 Synthetic cards expose a late acceptance window and a last-extra choice only.
 They are local fixtures, never new representative rows or automatic-cast rules.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import copy
 import json
 import unittest
@@ -196,8 +197,8 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         self.assertEqual(row['reachable_cards'], [])
         game = self.game()
         self.assertEqual((game.ruleset.id, game.mechanics.version, game.snapshot()['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
-        self.assertEqual(game.observe(1)['version'], 'player-view-v85')
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
+        self.assertEqual(game.observe(1)['version'], 'player-view-v86')
         self.assertEqual(game.for_player(1).observe()['version'], 'player-actions-v12')
         self.assertEqual(build_replay(game)['schema_version'], 1)
 

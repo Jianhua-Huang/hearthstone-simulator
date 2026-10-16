@@ -24,15 +24,17 @@ class CostQuote:
     consumable_ids: tuple[int, ...] = ()
     current_deck: CurrentDeckCountMatch | None = None
     permanent_mana: PermanentManaMatch | None = None
+    kindred_sources: tuple = ()
 
 
-def capture_cost_input(entity, *, minimum_cost=None):
+def capture_cost_input(entity, *, minimum_cost=None,hand_lifetime=...):
     # Caller of an accepted-hand profile supplies the original hand floor here.
     # No entity movement, synthetic history or live-zone fallback is performed.
     if minimum_cost is None:
         minimum_cost = entity.hand_lifetime.minimum_cost if entity.zone == Zone.HAND and entity.hand_lifetime is not None else 0
+    if hand_lifetime is ...:hand_lifetime=entity.hand_lifetime if entity.zone==Zone.HAND else None
     return CostQuoteInput(entity.id, entity.controller, entity.card_id, entity.kind,
-        entity.base_cost, tuple(entity.enchantments), tuple(entity.abilities), minimum_cost)
+        entity.base_cost, tuple(entity.enchantments), tuple(entity.abilities), minimum_cost,hand_lifetime)
 
 
 def local_cost_values(base_cost, enchantments, *, payment=PaymentType.MANA):
@@ -42,6 +44,15 @@ def local_cost_values(base_cost, enchantments, *, payment=PaymentType.MANA):
         if enchantment.payment is not None:
             payment = enchantment.payment
     return amount, payment
+
+
+def intrinsic_payment(definition,stage):
+    if definition.pay_health_if_hero_healed:
+        from .model import HeroHealedTurnMatch
+        if (len(stage.condition_facts)!=1 or type(stage.condition_facts[0])is not HeroHealedTurnMatch):
+            raise ValueError('Conditional health payment lost its original hero healing fact')
+        if stage.condition_facts[0].matched:return PaymentType.HEALTH
+    return definition.cost_payment
 
 
 def quote_input(state, registry, value, *, profile_id=None):
@@ -65,9 +76,10 @@ def quote_input(state, registry, value, *, profile_id=None):
     from .intrinsic_costs import capture_intrinsic_stage
     intrinsic = capture_intrinsic_stage(state, registry, value.player_id, value.card_id, value.base_cost, source_id=value.source_id)
     local_amount, local_payment = local_cost_values(intrinsic.amount, value.enchantments,
-        payment=definition.cost_payment)
+        payment=intrinsic_payment(definition,intrinsic))
     amount, payment, external = _external_quote(state, registry, value.player_id,
-        definition, local_amount, local_payment, has_battlecry(value.abilities), value.enchantments)
+        definition, local_amount, local_payment, has_battlecry(value.abilities), value.enchantments,
+        abilities=value.abilities,hand_lifetime=value.hand_lifetime,minimum_cost=value.minimum_cost)
     local = tuple(CostContribution('local_enchantment', value.player_id,
         value.source_id, enchantment=e) for e in value.enchantments)
     return CostQuoteFact(profile_id, value, local_amount, local_payment,
@@ -89,7 +101,8 @@ def cost_quote_from_fact(fact):
     return CostQuote(fact.quote_input.source_id, fact.quote_input.player_id,
                      fact.amount, fact.payment, fact.modifier_ids, fact.consumable_ids,
                      current_deck=fact.intrinsic.condition_facts[0] if fact.intrinsic.condition_facts and type(fact.intrinsic.condition_facts[0]) is CurrentDeckCountMatch else None,
-                     permanent_mana=fact.intrinsic.condition_facts[0] if fact.intrinsic.condition_facts and type(fact.intrinsic.condition_facts[0]) is PermanentManaMatch else None)
+                     permanent_mana=fact.intrinsic.condition_facts[0] if fact.intrinsic.condition_facts and type(fact.intrinsic.condition_facts[0]) is PermanentManaMatch else None,
+                     kindred_sources=fact.intrinsic.kindred_sources)
 
 
 def _accepted_spell_input(state, registry, play):
@@ -112,7 +125,8 @@ def _accepted_spell_input(state, registry, play):
     definition = registry.card(play.card_id)
     if definition.kind != CardType.SPELL or definition.cost != receipt.printed_cost:
         raise ValueError('Accepted Spell printed cost identity has changed')
-    return capture_cost_input(source, minimum_cost=receipt.quote.quote_input.minimum_cost)
+    return capture_cost_input(source, minimum_cost=receipt.quote.quote_input.minimum_cost,
+        hand_lifetime=receipt.quote.quote_input.hand_lifetime)
 
 
 def quote_accepted_hand(state, registry, play, profile_id='repeat.cost.accepted_hand'):
@@ -139,7 +153,7 @@ def capture_spell_cost_facts(state, registry, play, declarations):
     from .intrinsic_costs import capture_intrinsic_stage
     intrinsic = capture_intrinsic_stage(state, registry, value.player_id, value.card_id, value.base_cost, source_id=value.source_id)
     local_amount, local_payment = local_cost_values(intrinsic.amount, value.enchantments,
-        payment=registry.card(value.card_id).cost_payment)
+        payment=intrinsic_payment(registry.card(value.card_id),intrinsic))
     profiles = sorted({f.quote_profile_id for f in filters if f.basis == 'window_quote'})
     quotes = tuple(quote_input(state, registry, value, profile_id=profile) for profile in profiles)
     return SpellCostFacts(registry.card(play.card_id).cost, value,
@@ -176,7 +190,7 @@ def capture_generated_quote_fact(state, registry, player_id, card_id, *, cost=No
     definition=registry.card(card_id)
     if not definition.hand_playable:raise ValueError('Generated quote requires a physical hand card')
     intrinsic = capture_intrinsic_stage(state, registry, player_id, card_id, definition.cost)
-    amount, payment = intrinsic.amount, definition.cost_payment
+    amount, payment = intrinsic.amount, intrinsic_payment(definition,intrinsic)
     if cost is not None:
         if type(cost) is not CostSpec:raise ValueError('Generated quote requires CostSpec')
         cost.__post_init__()
@@ -184,7 +198,7 @@ def capture_generated_quote_fact(state, registry, player_id, card_id, *, cost=No
         amount=apply_cost(amount,cost.delta,cost.set_to,cost.minimum)
         if cost.payment is not None:payment=cost.payment
     local_amount, local_payment = amount, payment
-    amount, payment, external = _external_quote(state, registry, player_id, definition, amount, payment, None)
+    amount, payment, external = _external_quote(state, registry, player_id, definition, amount, payment, None,minimum_cost=minimum_cost)
     value = GeneratedCostQuoteInput(player_id, card_id, definition.kind, definition.cost, cost, minimum_cost)
     return GeneratedCostQuoteFact(value, intrinsic, local_amount, local_payment,
         max(amount, minimum_cost), payment, external, tuple(c.id for c in external),
@@ -210,6 +224,10 @@ def validate_cost_aura_carrier(registry, card_id, kind, abilities, components=()
     rows = tuple(a for a in abilities if a.kind == 'cost_aura')
     if not rows:
         return
+    native=registry.cards.get(card_id)
+    if native is not None and native.native_condition is not None or any(a.native_condition is not None for a in rows):
+        from .native_conditions import validate_carrier as validate_native_provider
+        validate_native_provider(registry,card_id,kind,abilities,components)
     for ability in rows:
         ability.__post_init__()
     card = registry.card(card_id)
@@ -260,7 +278,8 @@ def validated_cost_source_inventory(state, registry):
     return catalogue
 
 
-def _external_quote(state, registry, player_id, definition, amount, payment, current_battlecry, enchantments=()):
+def _external_quote(state, registry, player_id, definition, amount, payment, current_battlecry, enchantments=(),
+                    *,abilities=None,hand_lifetime=None,minimum_cost=0):
     validated_cost_source_inventory(state, registry)
     player = state.players[player_id]
     modifiers = [(m.id, m.spec, CostContribution('player_modifier', player.id,
@@ -268,6 +287,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
     sources = [i for owner in state.players.values()
                for i in (*owner.board, *([owner.weapon_id] if owner.weapon_id is not None else []))]
     first_rows = cast_rows = None
+    from .native_conditions import matches as native_provider_matches
     for source_id in sources:
         source = state.entities[source_id]
         if not source.active or source.doomed or (source.is_character and source.health <= 0) or (
@@ -278,6 +298,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
                     ability.cost_aura.relation == 'any' or
                     (source.controller == player_id) == (ability.cost_aura.relation == 'friendly'))):
                 continue
+            if not native_provider_matches(state,source,ability.native_condition):continue
             first = None
             if ability.cost_aura.first_per_turn or ability.cost_aura.every_nth_per_turn is not None:
                 # Unrelated types neither activate nor spend this qualification.
@@ -302,10 +323,18 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
             contribution = CostContribution('cost_aura', source.controller, source.id,
                                             ability=ability, first_play=first)
             modifiers.append((ability.id, ability.cost_aura.cost, contribution))
+    # A price-bounded account switch has no numeric operation. Compute the
+    # complete price once, then match the payment-only switches without cycles.
+    candidates=[];complete_amount=amount
+    for modifier_id,spec,contribution in sorted(modifiers,key=lambda row:row[0]):
+        if matches_cost_contribution(registry,contribution,definition,current_battlecry,enchantments,
+                abilities=abilities,hand_lifetime=hand_lifetime,ignore_maximum=True):
+            candidates.append((modifier_id,spec,contribution))
+            complete_amount=apply_cost(complete_amount,spec.delta,spec.set_to,spec.minimum)
+    complete_amount=max(complete_amount,minimum_cost)
     applied = []
-    for modifier_id, spec, contribution in sorted(modifiers, key=lambda row: row[0]):
-        if not matches_cost_contribution(registry, contribution, definition, current_battlecry, enchantments):
-            continue
+    for modifier_id,spec,contribution in candidates:
+        if contribution.modifier is not None and contribution.modifier.maximum_cost is not None and complete_amount>contribution.modifier.maximum_cost:continue
         amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None:
             payment = spec.payment
@@ -313,7 +342,8 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
     return amount, payment, tuple(applied)
 
 
-def matches_cost_contribution(registry, contribution, definition, current_battlecry, enchantments=()):
+def matches_cost_contribution(registry, contribution, definition, current_battlecry, enchantments=(),
+                              *,abilities=None,hand_lifetime=None,complete_amount=None,ignore_maximum=False):
     """Replay the same recipient predicate over complete original operands.
 
     Generated subjects have no enchantments and use their fresh printed face;
@@ -322,6 +352,21 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     spec = contribution.modifier.spec if contribution.modifier is not None else contribution.ability.cost_aura.cost
     if not matches_cost_values(spec, definition, current_battlecry):
         return False
+    modifier=contribution.modifier
+    if modifier is not None:
+        if modifier.combo_only and not (definition.combo is not None if abilities is None else
+                any(a.kind=='combo'and not a.consumed for a in abilities)):return False
+        if modifier.temporary_only and hand_lifetime is None:return False
+        if modifier.maximum_cost is not None and not ignore_maximum:
+            if type(complete_amount)is not int:raise ValueError('Qualified Health payment lost its complete current price')
+            if complete_amount>modifier.maximum_cost:return False
+    if contribution.modifier is not None and contribution.modifier.tribes_any:
+        from .tribes import tribe_state_for
+        current=tribe_state_for(registry,definition.id,tuple(e for e in enchantments if e.tribe_change is not None))
+        if current is None:
+            from .registry import UnsupportedDefinitionError
+            raise UnsupportedDefinitionError('Unknown current tribe set: '+definition.id)
+        if not current.matches_any(contribution.modifier.tribes_any):return False
     if contribution.first_play is not None:
         from .owner_turns import validate_face
         for row in contribution.first_play.rows:
@@ -386,7 +431,9 @@ def _quote_card(state, registry, player_id, card_id, amount, payment, entity_id,
     entity = state.entities[entity_id] if entity_id is not None else None
     current = None if entity is None else has_battlecry(entity.abilities)
     amount, payment, external = _external_quote(state, registry, player_id,
-        registry.card(card_id), amount, payment, current, () if entity is None else tuple(entity.enchantments))
+        registry.card(card_id), amount, payment, current, () if entity is None else tuple(entity.enchantments),
+        abilities=None if entity is None else tuple(entity.abilities),
+        hand_lifetime=entity.hand_lifetime if entity is not None and entity.zone==Zone.HAND else None,minimum_cost=minimum_cost)
     return CostQuote(entity_id, player_id, max(amount, minimum_cost), payment,
         tuple(c.id for c in external), tuple(c.id for c in external if
             c.kind == 'player_modifier' and c.modifier.uses_remaining is not None))
@@ -447,6 +494,37 @@ def consume_modifiers(player, ids):
     player.cost_modifiers = updated
 
 
+def install_paid_minion_keywords(r, play, entity):
+    """Install only bonuses belonging to this original paid price, before entry.
+
+    Finite usage is already consumed by the existing payment receipt. No second
+    next-minion counter or current-tribe query can choose a different recipient.
+    """
+    if play.submitted_cost is None:
+        raise ResolutionError('Paid minion entry lost its original cost receipt')
+    quote = play.submitted_cost.quote
+    bonuses = tuple(c.modifier for c in quote.contributions
+        if c.modifier is not None and c.modifier.minion_keyword is not None)
+    if not bonuses:
+        return
+    if play.kind != CardType.MINION or entity.id != play.source_id or entity.zone != Zone.PLAY:
+        raise ResolutionError('Cost keyword requires the original pending paid minion')
+    receipts = [row for row in r.state.cost_use_history if
+        (row.origin,row.source_id,row.player_id,row.source_card_id,row.turn,row.action,
+            row.amount,row.payment,row.modifier_ids,row.consumable_ids) ==
+        ('payment',play.source_id,play.player_id,play.card_id,play.turn,play.action,
+            quote.amount,quote.payment,quote.modifier_ids,quote.consumable_ids)]
+    if len(receipts) != 1 or any(m.id not in quote.consumable_ids or m not in receipts[0].player_modifiers
+            or m.source_id not in r.state.entities for m in bonuses):
+        raise ResolutionError('Next-minion keyword lost its exact consumed payment sources')
+    from .lifecycle import attachment_id, refresh_entity
+    for modifier in bonuses:
+        for _ in range(modifier.minion_keyword_repetitions):
+            entity.abilities.append(AbilityInstance(attachment_id(r.state),'keyword',
+                source_id=modifier.source_id,keyword=modifier.minion_keyword))
+    refresh_entity(entity)
+
+
 def validate_creation_cost(state, effect, definitions):
     """Validate every eligible result before generation consumes randomness."""
     validate_cost_targets(state, effect, ((definition, None) for definition in definitions))
@@ -481,7 +559,8 @@ def modify_cost(r, effect):
     if isinstance(effect, AddCostModifier):
         player = r.player(effect.player_id)
         modifier = CostModifier(attachment_id(r.state), spec, effect.source_id,
-                                effect.uses_remaining, effect.expires_turn, effect.scope)
+                                effect.uses_remaining, effect.expires_turn, effect.scope,effect.tribes_any,
+                                effect.combo_only,effect.temporary_only,effect.maximum_cost,effect.minion_keyword,effect.minion_keyword_repetitions)
         player.cost_modifiers.append(modifier)
         r.emit('cost_modifier_added', player_id=player.id, source_id=effect.source_id, modifier_id=modifier.id)
         return

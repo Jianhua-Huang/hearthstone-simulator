@@ -1,8 +1,16 @@
 # M2：伤害、治疗修正与替换
 
+真实原生伤害与攻击提供者仅扩展有限来源、嘲讽绕过和本体免疫条件，数值/目标/生命周期仍交原执行器。当前种族、占位和未实现克洛玛图斯来源边界见[契约](m3-native-health-attack-providers.md)，不能从登记数量认证正式标准支持。
+
+显式玩家健康来源保存原物理事实与受益方，普通玩家效果默认保持原语义；逻辑伤害委托原健康层，下一真实对手期间复用原实例/费用/时钟。严格捕获、解码、玩家隔离和统一格式常量见[玩家健康来源契约](m3-player-effect-health-source.md)，实际进度与验收仅在两台账。
+
 对应 M2-06。以下保留原阶段契约，其当时规则为 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包 `representative-m5-v38`。本页是内部可执行契约，尚未完成国服目标补丁的官方时序校准。总体进度见 [项目状态](project-status.md)，范围与阶段见 [长期计划](roadmap.md)。
 
 ## 数据与模块边界
+
+显式无限随从伤害另有[内部上限政策](m2-infinite-health.md)：只有typed无限请求设置同批临时numeric_limit，保留原防护/替换/吸血/历史；普通整数没有全局封顶。准确国服数值待校准，不能将客户端“∞”显示门槛当作伤害。
+
+真实过量给英雄另有[一次SPELL预算分流契约](m2-excess-damage.md)：来源数值只算一次，按原随从生命分配后两份复用本层TARGET及同批结算。它不同于下述逐点随机分配，不增加第二套伤害执行器。
 
 [health_rules.py](../hs_sim/engine/health_rules.py) 从批次开始时的状态准备不可变 `PreparedHealth`；[combat.py](../hs_sim/engine/combat.py) 计算圣盾、免疫、护甲和生命伤害结果；[resolver.py](../hs_sim/engine/resolver.py) 统一提交伤害、治疗、吸血及事件，并保留死亡检查和武器耐久责任。
 

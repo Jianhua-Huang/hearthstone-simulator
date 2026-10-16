@@ -1,4 +1,5 @@
 """Actual corpse units in the shared cost stage; necessary RLK_744 only."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, dataclass, FrozenInstanceError, replace
 import json
@@ -382,7 +383,7 @@ class PlayerCorpseSpendCostTests(unittest.TestCase):
 
     def test_schema210_new_leaf_and_old_current_hosts_are_rejected(self):
         g=self.five();saved=g.snapshot()
-        self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(266,'prototype-v302',CORE_EFFECTS_VERSION))
+        self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(SNAPSHOT_SCHEMA_VERSION,'prototype-v302',CORE_EFFECTS_VERSION))
         for version in (1,209,217,True,216.0):
             bad=deepcopy(saved);bad['schema_version']=version
             with self.subTest(version=version),self.assertRaises(SnapshotError):Game.from_snapshot(rehash(bad),registry())

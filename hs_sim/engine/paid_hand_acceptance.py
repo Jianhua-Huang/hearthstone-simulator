@@ -110,6 +110,21 @@ def bind_live(state, tail, registry):
     return _bind_validated_submission(state, tail, registry, submission)
 
 
+def original_target(r, play_id):
+    """Original selected allocation from an actual still-live hand payment proof."""
+    from .allocation_facts import SourceAllocationFact
+    from .effects import _integer
+    from .errors import ResolutionError
+    _integer(play_id,'original paid target play',1)
+    tails=tuple(work for work in r._work_queue if type(work) is FinishPaidHandAcceptance and work.play_id==play_id)
+    if len(tails)!=1:raise ResolutionError('Original paid target requires its one active hand acceptance proof')
+    tail=tails[0];record=bind_live(r.state,tail,r.registry)
+    original=tail.proof.payment_state
+    target=original.entities.get(record.target_id)
+    if target is None:raise ResolutionError('Original paid target is absent from the actual payment state')
+    return record,SourceAllocationFact.capture(original,target)
+
+
 def _bind_validated_submission(state, tail, registry, submission):
     from .play_history import play_record
     validate_history_prefix(submission, state, registry)

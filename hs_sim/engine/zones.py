@@ -13,11 +13,11 @@ from .construction import integer, name
 from .effects import AddToHand, ChoiceOption, Draw, Effect, RequestChoice, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import copy_attachments, reset_to_definition
-from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, SummonStats, Zone, validate_summon_stats
+from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, SummonStats, Zone, validate_summon_stats
 from .sacrifice import MinionReference, live_minion
 from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
-from .copy_materials import CopyEntryMaterial
+from .copy_materials import CopyEntryMaterial,CapturedCardCopyMaterial,validate_captured_card_copy
 from .allocation_facts import SourceAllocationFact, allocation_from_payload, validate_allocation
 
 
@@ -49,6 +49,29 @@ def insertion_index(r, position, size):
 def source_exists(r, source_id):
     if source_id is not None and source_id not in r.state.entities:
         raise ResolutionError('Zone operation source does not exist')
+
+
+@dataclass(frozen=True)
+class FillHandWithCard(Effect):
+    """Accept the current free slots once, then use ordinary card delivery."""
+    player_id: int
+    card_id: str
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); name(self.card_id,'hand fill card'); _source(self.source_id)
+
+
+def fill_hand_with_card(r, effect):
+    effect.__post_init__(); source_exists(r,effect.source_id)
+    definition=r.registry.card(effect.card_id)
+    if definition.kind not in HAND_TYPES or not definition.hand_playable:
+        raise ResolutionError('Hand refill requires a complete physical hand card')
+    player=r.player(effect.player_id)
+    count=max(0,hand_capacity(player,r.rules)-len(player.hand))
+    if count>r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Hand refill exceeds resolution budget')
+    return tuple(AddToHand(player.id,effect.card_id,effect.source_id)for _ in range(count))
 
 
 @dataclass(frozen=True)
@@ -124,13 +147,13 @@ class MoveCard(Effect):
             raise ValueError('Move flags must be boolean')
         if self.destination == Zone.HAND and self.position != 'bottom':
             raise ValueError('Move to hand appends; use ReorderZone for hand order')
-        if self.draw and (self.card.zone != Zone.DECK or self.destination != Zone.HAND or self.card.player_id != self.player_id):
-            raise ValueError('A draw moves a card from its own deck to hand')
+        if self.draw and (self.card.zone != Zone.DECK or self.destination != Zone.HAND):
+            raise ValueError('A physical draw moves an original deck card to the recipient hand')
 
 
 @dataclass(frozen=True)
 class CopyCard(Effect):
-    card: CardReference | CopyEntryMaterial | MinionReference
+    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord
     player_id: int
     destination: Zone = Zone.HAND
     mode: str = 'current'
@@ -141,7 +164,14 @@ class CopyCard(Effect):
     expires_turn: int | None = None
 
     def __post_init__(self):
-        if type(self.card)is CopyEntryMaterial:
+        if type(self.card)is DeathRecord:
+            self.card.__post_init__()
+            if self.mode!='base' or self.card.zone!=Zone.BOARD:raise ValueError('Death copies require their original printed board-minion recipe')
+        elif type(self.card)is CapturedCardCopyMaterial:
+            self.card.__post_init__()
+            if self.card.origin.zone==Zone.GRAVEYARD and self.mode!='base':
+                raise ValueError('Spent-card copies require the printed base recipe')
+        elif type(self.card)is CopyEntryMaterial:
             self.card.__post_init__()
             if (self.card.profile!='discard_copy' or self.player_id!=self.card.discard.player_id or
                     self.destination!=Zone.HAND or self.mode!='current' or self.position!='random' or
@@ -191,6 +221,25 @@ class DestroyDeckCard(Effect):
             raise ValueError('Deck destruction requires a deck reference and boolean reveal policy')
         if type(self.on_destroy) is not tuple or any(not isinstance(e, Effect) for e in self.on_destroy):
             raise ValueError('Destruction continuation must be an immutable tuple of effects')
+
+
+@dataclass(frozen=True)
+class DestroyDeckBatch(Effect):
+    """Remove all captured deck targets before publishing any destruction."""
+    cards: tuple[CardReference, ...]
+    source_id: int | None = None
+    reveal: bool = True
+
+    def __post_init__(self):
+        _source(self.source_id)
+        if type(self.cards) is not tuple or type(self.reveal) is not bool:
+            raise ValueError('Deck destruction batch requires an immutable list and boolean reveal policy')
+        for card in self.cards:
+            reference_value(card)
+            if card.zone != Zone.DECK:
+                raise ValueError('Deck destruction batch requires deck references')
+        if len({card.entity_id for card in self.cards}) != len(self.cards):
+            raise ValueError('A deck destruction batch cannot repeat a physical target')
 
 
 @dataclass(frozen=True)
@@ -340,14 +389,17 @@ def capture_destroyed_body(r, event):
     from .resolver import BehaviorCall
     row = destruction_result(event)
     entity = r.state.entities[row.card.entity_id]
+    if r.registry.card(entity.card_id).stored_deathrattle:
+        from .stored_deathrattles import capture_group
+        return capture_group(r,event)
     validate_destroyed_carrier(r.registry,entity.card_id,entity.kind,entity.abilities,entity.components)
     bodies = active_abilities(entity,'on_destroyed')
     if not bodies:
-        return None
+        return ()
     call = BehaviorCall(bodies[0].behavior_id,RuleContext(deepcopy(r.state),entity.id,entity.controller,
         event=deepcopy(event),trigger=deepcopy(bodies[0])))
     validate_destroyed_call(call,r.registry)
-    return call
+    return (call,)
 
 
 def validate_stored_destruction_events(state, registry, events):
@@ -394,11 +446,20 @@ class DiscardCard(Effect):
     card: CardReference
     source_id: int | None = None
     reveal: bool = True
+    on_success: tuple[Effect,...] = ()
 
     def __post_init__(self):
         reference_value(self.card); _source(self.source_id)
         if self.card.zone != Zone.HAND or type(self.reveal) is not bool:
             raise ValueError('Discard requires a hand card and boolean reveal policy')
+        success_value(self.on_success)
+
+
+def success_value(effects):
+    if type(effects)is not tuple or any(not isinstance(e,Effect)for e in effects):raise ValueError('Discard success requires immutable typed effects')
+    for effect in effects:
+        validate=getattr(effect,'__post_init__',None)
+        if validate is not None:validate()
 
 
 @dataclass(frozen=True)
@@ -423,6 +484,44 @@ class ReorderZone(Effect):
             integer(entity_id, 'ordered entity ID')
 
 
+@dataclass(frozen=True)
+class PutMatchingDeckMinionOnTop(Effect):
+    """One physical random recipient shares top placement and stored growth."""
+    player_id: int
+    card_ids: tuple[str, ...]
+    source_id: int
+    attack: int = 0
+    health: int = 0
+
+    def __post_init__(self):
+        from .pools import ids
+        _player(self.player_id); integer(self.source_id, 'deck placement source', 1)
+        ids(self.card_ids, 'positive top-deck identities', unique=True)
+        if not self.card_ids: raise ValueError('Top placement requires explicit matching identities')
+        integer(self.attack, 'top-deck attack growth', 0)
+        integer(self.health, 'top-deck health growth', 0)
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__()
+        if self.source_id not in state.entities:raise ValueError('Top placement has an unknown original source')
+        for cid in self.card_ids:
+            if registry.card(cid).kind!=CardType.MINION:
+                raise ValueError('Top placement identities must be complete minions')
+
+
+def put_matching_deck_minion_on_top(r, effect):
+    from .hand_upgrades import BuffStoredCard
+    effect.validate_in_state(r.state,r.registry)
+    deck=r.player(effect.player_id).deck
+    candidates=tuple(CardReference.capture(r.state.entities[i]) for i in deck
+        if r.state.entities[i].kind==CardType.MINION and r.state.entities[i].card_id in effect.card_ids)
+    if not candidates:return ()
+    selected=r.game._rng.choice(candidates)
+    order=(selected.entity_id, *(i for i in deck if i!=selected.entity_id))
+    return (ReorderZone(effect.player_id,Zone.DECK,order),
+        BuffStoredCard(selected,effect.attack,effect.health,effect.source_id))
+
+
 def filter_value(query):
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
@@ -437,12 +536,28 @@ class DrawMatching(Effect):
     count: int = 1
     selection: str = 'random'
     source_id: int | None = None
+    owner_id: int | None = None
+    card_ids: tuple[str, ...] = ()
 
     def __post_init__(self):
         _player(self.player_id); filter_value(self.query); _source(self.source_id)
         integer(self.count, 'draw count', 0)
-        if self.selection not in ('random', 'first') or self.empty_deck not in ('skip', 'fatigue'):
+        if self.owner_id is not None: _player(self.owner_id)
+        from .pools import ids
+        ids(self.card_ids, 'positive physical draw card IDs', unique=True)
+        if self.selection not in ('random', 'first', 'highest_cost', 'lowest_cost') or self.empty_deck not in ('skip', 'fatigue'):
             raise ValueError('Draw requires explicit empty-deck and selection policies')
+
+
+@dataclass(frozen=True)
+class DrawMinionWithAttack(Effect):
+    """Draw one physical minion matching its current stored Attack; empty skips."""
+    player_id: int
+    attack: int
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); integer(self.attack, 'draw minion Attack', 0); _source(self.source_id)
 
 
 @dataclass(frozen=True)
@@ -469,8 +584,10 @@ class DiscardMatching(Effect):
     selection: str = 'random'
     source_id: int | None = None
     reveal: bool = True
+    on_success: tuple[Effect,...] = ()
 
     def __post_init__(self):
+        success_value(self.on_success)
         _player(self.player_id); filter_value(self.query); _source(self.source_id)
         integer(self.count, 'discard count', 0)
         if self.selection not in ('random', 'first', 'highest_cost', 'lowest_cost') or type(self.reveal) is not bool:
@@ -506,6 +623,54 @@ class ChooseFromZone(Effect):
             raise ValueError('Reposition choice requires deck cards')
 
 
+@dataclass(frozen=True)
+class CopyMatching(Effect):
+    """Automatically copy a physical hand/deck candidate through CopyCard."""
+    player_id: int
+    owner_id: int
+    zone: Zone
+    query: PoolQuery = PoolQuery()
+    mode: str = 'current'
+    count: int = 1
+    selection: str = 'random'
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
+        filter_value(self.query); _source(self.source_id)
+        integer(self.count, 'copy count', 0)
+        if self.mode not in ('current', 'base') or self.selection not in ('random', 'lowest_cost'):
+            raise ValueError('Unreviewed automatic zone copy policy')
+        if self.selection == 'lowest_cost' and self.zone != Zone.HAND:
+            raise ValueError('Lowest current price copy requires a hand')
+
+
+@dataclass(frozen=True)
+class CopyLowestCostMinion(Effect):
+    """Copy an own physical hand minion by current tribes and current price."""
+    player_id: int
+    tribes_any: tuple[str, ...]
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id);_source(self.source_id)
+        PoolQuery(tribes_any=self.tribes_any).__post_init__()
+
+
+def copy_lowest_cost_minion(r, effect):
+    from .costs import quote_unselected_cost
+    from .tribes import has_any_tribe
+    effect.__post_init__();source_exists(r,effect.source_id)
+    candidates=tuple(r.state.entities[eid] for eid in r.player(effect.player_id).hand
+        if r.state.entities[eid].kind==CardType.MINION and
+        has_any_tribe(r.registry,r.state.entities[eid],effect.tribes_any))
+    if not candidates:return ()
+    prices=tuple(quote_unselected_cost(r.state,r.registry,e).amount for e in candidates)
+    lowest=min(prices);tied=tuple(e for e,price in zip(candidates,prices) if price==lowest)
+    selected=tied[0] if len(tied)==1 else r.game._rng.choice(tied)
+    return (CopyCard(CardReference.capture(selected),effect.player_id,mode='current',source_id=effect.source_id),)
+
+
 def add_to_deck(r, effect):
     player = r.player(effect.player_id); source_exists(r, effect.source_id)
     if not r.registry.card(effect.card_id).hand_playable:
@@ -520,7 +685,8 @@ def add_to_deck(r, effect):
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
     install(r.state, entity, effect)
     r.emit('card_created', target_id=entity.id, source_id=effect.source_id, player_id=player.id)
-    r.emit('card_added_to_deck', target_id=entity.id, source_id=effect.source_id, player_id=player.id, position=position)
+    r.emit('card_added_to_deck', target_id=entity.id, source_id=effect.source_id, player_id=player.id, position=position,
+        _deck_insertion_mode=effect.position if type(effect.position)is str else 'index')
 
 
 def move_card(r, effect):
@@ -530,7 +696,7 @@ def move_card(r, effect):
     return move_physical_card(r,effect)
 
 
-def move_physical_card(r, effect, *, draw_id=None):
+def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     source_exists(r, effect.source_id)
     entity = reference_entity(r, effect.card)
     if entity is None:
@@ -573,7 +739,13 @@ def move_physical_card(r, effect, *, draw_id=None):
     if destination == Zone.HAND:
         from .hand_history import enter_hand
         enter_hand(r.state, entity, previous_zone, 'draw' if effect.draw else 'move')
+        if deathrattle_memory is not None:
+            if not effect.draw or draw_id is None:raise ResolutionError('Deathrattle linkage requires an actual physical draw')
+            from .deathrattle_memory import remember_draw
+            remember_draw(r,deathrattle_memory,draw_id,entity)
     data = {'draw_id': draw_id} if draw_id is not None else {}
+    if destination == Zone.DECK:
+        data['_deck_insertion_mode']=('reorder' if previous_zone==Zone.DECK and previous_controller==player.id else effect.position if type(effect.position)is str else 'index')
     if destination==Zone.GRAVEYARD:
         emit_burn(r,entity,profile='stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
     else:
@@ -589,7 +761,16 @@ def copy_physical_card(r, effect):
     effect.__post_init__()
     source_exists(r, effect.source_id)
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
-    if material is not None:
+    if type(effect.card)is CapturedCardCopyMaterial:
+        validate_captured_card_copy(r.state,r.registry,effect.card)
+        source=effect.card.entity()
+    elif type(effect.card)is DeathRecord:
+        row=effect.card
+        if row.id>len(r.state.death_history)or r.state.death_history[row.id-1]!=row or r.registry.card(row.card_id).kind!=CardType.MINION:
+            raise ResolutionError('Stored death copy lost its original committed minion death')
+        source=Entity(row.entity_id,row.card_id,row.owner,row.controller,Zone.GRAVEYARD,kind=CardType.MINION,
+            components=row.components,jade_size=row.jade_size)
+    elif material is not None:
         effect.__post_init__()
         from .copy_materials import validate_scope,apply
         from .discard_history import validate_material as validate_discard
@@ -640,7 +821,8 @@ def copy_physical_card(r, effect):
     if destination==Zone.GRAVEYARD:
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,player_id=player.id)
     else:
-        r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id)
+        extra={'_deck_insertion_mode':effect.position if type(effect.position)is str else 'index'}if destination==Zone.DECK else{}
+        r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id,**extra)
     return entity
 
 
@@ -648,7 +830,7 @@ def copy_current_stored_state(state, source, entity):
     """Existing stored current-copy recipe, independent of recipient allocation."""
     entity.base_attack, entity.base_health, entity.base_cost = source.base_attack, source.base_health, source.base_cost
     entity.damage, entity.durability, entity.corpse_value = source.damage, source.durability, source.corpse_value
-    copy_attachments(state,source,entity)
+    copy_attachments(state,source,entity,rebind_printed=True)
     entity.galakrond_invocations = source.galakrond_invocations
 
 
@@ -666,22 +848,45 @@ def destroy_stored_card(r, effect):
     if entity is None:
         return ()
     r.move(entity, Zone.GRAVEYARD)
-    for viewer in ((1, 2) if effect.reveal else (entity.controller,)):
-        r.game._information.players[viewer].remember(entity)
-    # This is not a draw, discard, or board death: no death record, corpse,
-    # deathrattle, reborn or Starship contribution is created.
-    card = effect.card
-    event = r.emit('card_destroyed_in_' + card.zone.value, source_id=effect.source_id, target_id=entity.id,
-           player_id=entity.controller, card_id=entity.card_id,
-           original_card=(card.entity_id,card.player_id,card.zone.value,card.card_id,card.zone_epoch),
-           owner_id=entity.owner,card_kind=entity.kind.value,turn=r.state.turn,reveal=effect.reveal)
-    own_body = capture_destroyed_body(r,event)
-    if own_body is not None:
-        r._captured.append(own_body)
+    publish_stored_destruction(r, effect.card, entity, effect.source_id, effect.reveal)
     return effect.on_destroy
 
 
+def publish_stored_destruction(r, card, entity, source_id, reveal):
+    for viewer in ((1, 2) if reveal else (entity.controller,)):
+        r.game._information.players[viewer].remember(entity)
+    # This is not a draw, discard, or board death: no death record, corpse,
+    # deathrattle, reborn or Starship contribution is created.
+    event = r.emit('card_destroyed_in_' + card.zone.value, source_id=source_id, target_id=entity.id,
+           player_id=entity.controller, card_id=entity.card_id,
+           original_card=(card.entity_id,card.player_id,card.zone.value,card.card_id,card.zone_epoch),
+           owner_id=entity.owner,card_kind=entity.kind.value,turn=r.state.turn,reveal=reveal)
+    own_body = capture_destroyed_body(r,event)
+    r._captured.extend(own_body)
+
+
+def destroy_deck_batch(r, effect):
+    from .continuations import FrameCodec
+    effect.__post_init__(); source_exists(r, effect.source_id)
+    if len(effect.cards) > r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Deck destruction batch exceeds resolution budget')
+    codec = FrameCodec(r.game.mechanics, r.registry, origin_state=r.state)
+    codec.decode(codec.encode(effect))
+    targets = []
+    for card in effect.cards:
+        entity = reference_entity(r, card)
+        if entity is not None:
+            targets.append((card, entity))
+    # No reactions, native bodies or caller continuations execute between moves.
+    for card, entity in targets:
+        r.move(entity, Zone.GRAVEYARD)
+    for card, entity in targets:
+        publish_stored_destruction(r, card, entity, effect.source_id, effect.reveal)
+    return ()
+
+
 def discard_card(r, effect):
+    effect.__post_init__()
     source_exists(r, effect.source_id)
     entity = reference_entity(r, effect.card)
     if entity is None:
@@ -696,6 +901,7 @@ def discard_card(r, effect):
     # No death checkpoint record, corpse increment, battlecry or deathrattle.
     r.emit('card_discarded', source_id=effect.source_id, target_id=entity.id, player_id=entity.controller,
            _discard_commit=capture)
+    return effect.on_success
 
 
 def shuffle_deck(r, effect):
@@ -751,12 +957,28 @@ def matching_card(r, effect):
     drawing = type(effect) is DrawMatching
     destroying = type(effect) is DestroyDeckMatching
     zone = Zone.DECK if drawing or destroying else Zone.HAND
-    candidates = zone_candidates(r, effect.player_id, zone, effect.query, effect.player_id, effect.source_id)
+    owner = effect.owner_id if drawing and effect.owner_id is not None else effect.player_id
+    candidates = zone_candidates(r, owner, zone, effect.query, effect.player_id, effect.source_id)
+    if drawing and effect.card_ids:
+        for cid in effect.card_ids: r.registry.card(cid)
+        candidates = tuple(c for c in candidates if c.card_id in effect.card_ids)
     if not candidates:
-        if drawing and effect.empty_deck == 'fatigue' and not r.player(effect.player_id).deck:
+        if drawing and effect.empty_deck == 'fatigue' and not r.player(owner).deck:
+            if owner != effect.player_id:
+                from .draw_casts import draw_one
+                return (*draw_one(r, effect.player_id, source_id=effect.source_id, deck_owner_id=owner),
+                    replace(effect, count=effect.count - 1))
             return (Draw(effect.player_id), replace(effect, count=effect.count - 1))
         return ()
-    if type(effect) is DiscardMatching and effect.selection in ('highest_cost', 'lowest_cost'):
+    if drawing and effect.selection in ('highest_cost', 'lowest_cost'):
+        from .costs import local_cost
+        # The card is still in DECK. Prospective hand-only intrinsic/player
+        # discounts are not an actual stored deck cost or a payment quote.
+        prices = tuple(max(0, local_cost(r.state.entities[c.entity_id])[0]) for c in candidates)
+        extreme = (max if effect.selection == 'highest_cost' else min)(prices)
+        tied = tuple(c for c, price in zip(candidates, prices) if price == extreme)
+        card = tied[0] if len(tied) == 1 else r.game._rng.choice(tied)
+    elif type(effect) is DiscardMatching and effect.selection in ('highest_cost', 'lowest_cost'):
         from .costs import quote_unselected_cost
         # Comparison is a pure quote, independent of affordability or payment.
         prices = tuple(quote_unselected_cost(
@@ -768,9 +990,18 @@ def matching_card(r, effect):
         card = r.game._rng.choice(candidates) if effect.selection == 'random' else candidates[0]
     selected = (MoveCard(card, effect.player_id, Zone.HAND, draw=True, source_id=effect.source_id) if drawing
                 else DestroyDeckCard(card, effect.source_id, effect.reveal) if destroying
-                else DiscardCard(card, effect.source_id, effect.reveal))
+                else DiscardCard(card, effect.source_id, effect.reveal,effect.on_success))
     # Re-query after each actual move and its reactions, like repeated Draw(1).
     return (selected, replace(effect, count=effect.count - 1))
+
+
+def draw_minion_with_attack(r, effect):
+    effect.__post_init__(); source_exists(r, effect.source_id)
+    candidates=tuple(CardReference.capture(entity) for eid in r.player(effect.player_id).deck
+        for entity in (r.state.entities[eid],) if entity.kind==CardType.MINION and entity.attack==effect.attack)
+    if not candidates:return ()
+    selected=r.game._rng.choice(candidates)
+    return (MoveCard(selected,effect.player_id,Zone.HAND,draw=True,source_id=effect.source_id),)
 
 
 def choose_from_zone(r, effect):
@@ -812,11 +1043,61 @@ def choose_from_zone(r, effect):
     return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id, prompt=effect.prompt),)
 
 
+def copy_matching(r, effect):
+    effect.__post_init__()
+    if effect.count > r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Zone copy count exceeds resolution budget')
+    if effect.count == 0:
+        return ()
+    candidates=zone_candidates(r,effect.owner_id,effect.zone,effect.query,effect.player_id,effect.source_id)
+    if not candidates:
+        return ()
+    if effect.selection == 'lowest_cost':
+        from .costs import quote_unselected_cost
+        prices=tuple(quote_unselected_cost(r.state,r.registry,r.state.entities[c.entity_id]).amount for c in candidates)
+        lowest=min(prices)
+        candidates=tuple(c for c,price in zip(candidates,prices) if price==lowest)
+    # Each physical slot has one weight. Pure current-price ties use the same RNG;
+    # a unique cheapest card and an empty pool do not consume it.
+    card=candidates[0] if effect.selection=='lowest_cost' and len(candidates)==1 else r.game._rng.choice(candidates)
+    return (CopyCard(card,effect.player_id,mode=effect.mode,source_id=effect.source_id),
+            replace(effect,count=effect.count-1))
+
+
+@dataclass(frozen=True)
+class ModifyStoredCost(Effect):
+    card: CardReference
+    spec: object
+    source_id: int | None = None
+    expires_turn: int | None = None
+
+    def __post_init__(self):
+        from .model import CostSpec
+        reference_value(self.card);_source(self.source_id)
+        if type(self.spec)is not CostSpec:raise ValueError('Stored cost requires a typed CostSpec')
+        self.spec.__post_init__()
+        if self.expires_turn is not None:integer(self.expires_turn,'stored cost expiry')
+
+
+def modify_stored_cost(r,effect):
+    from .effects import ModifyCost
+    from .costs import modify_cost
+    effect.__post_init__();source_exists(r,effect.source_id)
+    entity=reference_entity(r,effect.card)
+    if entity is None:return ()
+    return modify_cost(r,ModifyCost(entity.id,effect.spec,effect.source_id,effect.expires_turn))
+
+
 def register_zones(mechanics):
+    mechanics.register_payload_type(CapturedCardCopyMaterial)
+    mechanics.register(ModifyStoredCost,modify_stored_cost)
     mechanics.register_payload_type(CardReference)
     mechanics.register_payload_type(CardDestructionRecord)
-    for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckMatching, matching_card),
-                          (AddToDeck, add_to_deck), (MoveCard, move_card), (CopyCard, copy_card),
+    mechanics.register(PutMatchingDeckMinionOnTop,put_matching_deck_minion_on_top)
+    for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckBatch, destroy_deck_batch), (DestroyDeckMatching, matching_card),
+                          (AddToDeck, add_to_deck), (FillHandWithCard, fill_hand_with_card), (MoveCard, move_card), (CopyCard, copy_card),
             (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
-            (DrawMatching, matching_card), (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone)):
+            (DrawMatching, matching_card), (DrawMinionWithAttack, draw_minion_with_attack),
+            (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone),
+            (CopyMatching, copy_matching), (CopyLowestCostMinion, copy_lowest_cost_minion)):
         mechanics.register(kind, handler)

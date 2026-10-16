@@ -1,0 +1,758 @@
+{
+  "batch": "K28 real trigger source cards",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_EX1_100",
+        "dbf_id": 120883,
+        "name": "游学者周卓",
+        "name_en": "Lorewalker Cho",
+        "text": "每当一个玩家施放一个法术，复制该法术，将其置入另一个玩家的手牌。",
+        "text_en": "Whenever a player casts a spell, put a copy into the other player’s hand.",
+        "cost": 2,
+        "attack": null,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 1135,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 1135
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mark Zug"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1135",
+              "type": "Int",
+              "value": "1135"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "75ed45107ec7cdb5307def0e545f05c802f813f14c39b68068bb86e8c917207e",
+      "recipe": {
+        "script": "cho",
+        "cost": 2,
+        "attack": 0,
+        "health": 4,
+        "root": true,
+        "deck_identity": "EX1_100",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_083",
+        "dbf_id": 117027,
+        "name": "死亡寒冰",
+        "name_en": "Deathchiller",
+        "text": "在你施放一个法术后，&随机对两个敌人造成1点伤害。",
+        "text_en": "[x]After you cast a spell,&\ndeal 1 damage to two\nrandom enemies.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 78649,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 78649,
+          "COST_FROST": 2,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78649",
+              "type": "Int",
+              "value": "78649"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "2d854d53974b1e395eabe15ae51a8654091490258c900e5e339be8f3f85ed12a",
+      "recipe": {
+        "script": "cold",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "root": true,
+        "deck_identity": "RLK_083",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SCH_717",
+        "dbf_id": 128337,
+        "name": "钥匙专家阿拉巴斯特",
+        "name_en": "Keymaster Alabaster",
+        "text": "每当你的对手抽一张牌时，将一张复制置入你的手牌，其法力值消耗变为（1）点。",
+        "text_en": "[x]Whenever your opponent\n_draws a card, add a copy to_\n_your hand that costs (1).",
+        "cost": 7,
+        "attack": 6,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 61174,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 61174
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "61174",
+              "type": "Int",
+              "value": "61174"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "51850537fc783232f3137948c8570d02414d99e6d6fb16044554238fce26aaba",
+      "recipe": {
+        "script": "alabaster",
+        "cost": 7,
+        "attack": 6,
+        "health": 8,
+        "root": true,
+        "deck_identity": "SCH_717",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SW_047",
+        "dbf_id": 129847,
+        "name": "大领主弗塔根",
+        "name_en": "Highlord Fordragon",
+        "text": "<b>圣盾</b>。在一个友方随从失去<b>圣盾</b>后，&使你手牌中的一张随从牌获得+5/+5。",
+        "text_en": "[x]<b>Divine Shield</b>\nAfter a friendly minion loses\n<b>Divine Shield</b>,& give a minion\n__in your hand +5/+5.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 64546,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 64546,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "64546",
+              "type": "Int",
+              "value": "64546"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2d0e6228104769bb27dae4d51aef356e04c4550a232978a087fdd9db5e8ce393",
+      "recipe": {
+        "script": "bolvar",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "root": true,
+        "deck_identity": "SW_047",
+        "keywords": [
+          "divine_shield"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TTN_843",
+        "dbf_id": 127589,
+        "name": "艾瑞达欺诈者",
+        "name_en": "Eredar Deceptor",
+        "text": "每当你抽一张牌，&召唤一个1/1并具有<b>突袭</b>的恶魔。",
+        "text_en": "Whenever you draw a card,& summon a 1/1 Demon with <b>Rush</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 97479,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 97479,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 101499,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "97479",
+              "type": "Int",
+              "value": "97479"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a1270541d29bd22658a0a6df6dbce25f524baf6e5002ce92cc0efd8766738b69",
+      "recipe": {
+        "script": "eredar",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "root": true,
+        "deck_identity": "TTN_843",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_254",
+        "dbf_id": 114533,
+        "name": "活化月亮井",
+        "name_en": "Animated Moonwell",
+        "text": "在你施放一个法术后，获得等同于其法力值消耗的攻击力。",
+        "text_en": "After you cast a spell, gain Attack equal to its Cost.",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "6f38f05adb043e9825d41d2e4b83015d7e1fd415564c7c87a847973ecee6e515",
+      "recipe": {
+        "script": "moonwell",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "root": true,
+        "deck_identity": "EDR_254",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TTN_843t1",
+        "dbf_id": 101499,
+        "name": "入侵的魔蝠",
+        "name_en": "Invading Felbat",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "ae849be0280c8a8703c19dc9e95a56886d27c88981a650ffc73ed59e83750a3d",
+      "recipe": {
+        "script": "felbat",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "root": false,
+        "deck_identity": "TTN_843t1",
+        "keywords": [
+          "rush"
+        ]
+      }
+    }
+  ],
+  "identity_evidence": [
+    {
+      "dbf": 1135,
+      "record": {
+        "id": "EX1_100",
+        "dbf_id": 1135,
+        "name": "游学者周卓",
+        "name_en": "Lorewalker Cho",
+        "text": "每当一个玩家施放一个法术，复制该法术，将其置入另一个玩家的手牌。",
+        "text_en": "Whenever a player casts a spell, put a copy into the other player’s hand.",
+        "cost": 2,
+        "attack": null,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mark Zug"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "4faf4b233f0fcbeef33672dc4c92d8437b3ad8b5aaf4f9c2b4e9966d98e844b1"
+    },
+    {
+      "dbf": 78649,
+      "record": {
+        "id": "RLK_083",
+        "dbf_id": 78649,
+        "name": "死亡寒冰",
+        "name_en": "Deathchiller",
+        "text": "在你施放一个法术后，&随机对两个敌人造成1点伤害。",
+        "text_en": "[x]After you cast a spell,&\ndeal 1 damage to two\nrandom enemies.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1869,
+          "CLASS": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 2,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1869,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "9af89623ce5acec6f75246e0e2768b736d69194cae9b41528942969a5878745a"
+    },
+    {
+      "dbf": 61174,
+      "record": {
+        "id": "SCH_717",
+        "dbf_id": 61174,
+        "name": "钥匙专家阿拉巴斯特",
+        "name_en": "Keymaster Alabaster",
+        "text": "每当你的对手抽一张牌时，将一张复制置入你的手牌，其法力值消耗变为（1）点。",
+        "text_en": "[x]Whenever your opponent\n_draws a card, add a copy to_\n_your hand that costs (1).",
+        "cost": 7,
+        "attack": 6,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "8a12e57c36b8282634db4265b1ed999e34825d5c92a3f30c501b434225b94e86"
+    },
+    {
+      "dbf": 64546,
+      "record": {
+        "id": "SW_047",
+        "dbf_id": 64546,
+        "name": "大领主弗塔根",
+        "name_en": "Highlord Fordragon",
+        "text": "<b>圣盾</b>。在一个友方随从失去<b>圣盾</b>后，&使你手牌中的一张随从牌获得+5/+5。",
+        "text_en": "[x]<b>Divine Shield</b>\nAfter a friendly minion loses\n<b>Divine Shield</b>,& give a minion\n__in your hand +5/+5.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "78d853a1ced3c337095b3a596cef931a6aa5e03c088c72ec58e0772141dc240b"
+    },
+    {
+      "dbf": 97479,
+      "record": {
+        "id": "TTN_843",
+        "dbf_id": 97479,
+        "name": "艾瑞达欺诈者",
+        "name_en": "Eredar Deceptor",
+        "text": "每当你抽一张牌，&召唤一个1/1并具有<b>突袭</b>的恶魔。",
+        "text_en": "Whenever you draw a card,& summon a 1/1 Demon with <b>Rush</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 101499,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1142176310855f1d6b76b1a155a65033c81b31026ac672e928d20978d3b7a7ef"
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Explicit real roots and DBF101499 Felbat. Event facts do not imply personal spell eligibility. Current hand draw copies retain local material; graveyard spell copies use base material; cost/timing still require CN calibration."
+}

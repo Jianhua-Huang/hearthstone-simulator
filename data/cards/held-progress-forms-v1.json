@@ -1,0 +1,521 @@
+{
+  "batch": "K46",
+  "target": "CN37.0 Standard candidates",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_843",
+        "dbf_id": 114848,
+        "name": "森林再生",
+        "name_en": "Reforestation",
+        "text": "<b>抉择：</b>抽一张法术牌；或者抽一张随从牌。<i>（本牌在你手中@回合即可同时拥有两种效果！）</i>",
+        "text_en": "[x]<b>Choose One -</b> Draw a\nspell; or Draw a minion.\n<i>(Hold this for @ |4(turn, turns)\nto do_both!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "5f45a53ce59cabbf20fa71c4823b78a33b85700684f2b52a20c90d0393c21a1e",
+      "recipe": {
+        "script": "forest",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "EDR_843"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_843a",
+        "dbf_id": 115932,
+        "name": "森林之援",
+        "name_en": "Aid of the Forest",
+        "text": "抽一张法术牌。",
+        "text_en": "Draw a spell.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "ee474f72c41ceb3bd362bb6f5bae466e3fd45860880f11a42bf329421a8a2aec",
+      "recipe": {
+        "script": "forest_spell",
+        "root": false,
+        "choice_only": true,
+        "deck_identity": "EDR_843a"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_843b",
+        "dbf_id": 115933,
+        "name": "施加肥料",
+        "name_en": "Fertilize",
+        "text": "抽一张随从牌。",
+        "text_en": "Draw a minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "cfe71c00a07bda818c4ada826068987833b4c07f10e6fbb99f31030c16b61faa",
+      "recipe": {
+        "script": "forest_minion",
+        "root": false,
+        "choice_only": true,
+        "deck_identity": "EDR_843b"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_843t1",
+        "dbf_id": 117402,
+        "name": "森林再生",
+        "name_en": "Reforestation",
+        "text": "抽一张法术牌和一张随从牌。",
+        "text_en": "Draw a spell and a minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "0d9a3e2072cbbe3895d15d3f0d6de0dcd22537e57cae33884822f058721657b1",
+      "recipe": {
+        "script": "forest_both",
+        "root": false,
+        "choice_only": false,
+        "deck_identity": "EDR_843"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_911",
+        "dbf_id": 115635,
+        "name": "焚火林地",
+        "name_en": "Smoldering Grove",
+        "text": "抽{0}张牌。\n<i>（每回合都会升级，但本牌会在{1}回合后弃掉！）</i>@抽{0}张牌。<i>（本牌会在本回合弃掉！）</i>",
+        "text_en": "Draw {0} |4(card, cards).\n<i>(Upgrades each turn,\nbut discards after {1}!)</i>@Draw {0} cards.\n<i>(Discards this turn!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1,
+          "IMMOLATING": 1,
+          "IMMOLATESTAGE": 3,
+          "2882": 1,
+          "SUPPRESS_IMMOLATE_VISUAL_FOR_OPPONENT": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2882",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2882"
+          }
+        ]
+      },
+      "record_sha256": "d4377e50c9cbff1e48c1e912746806f603b2e1d734b449eb943d2ccc4f70ec1e",
+      "recipe": {
+        "script": "grove",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "FIR_911"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_803",
+        "dbf_id": 126410,
+        "name": "寒霜冰爆",
+        "name_en": "Frostshatter",
+        "text": "<b>冻结</b>一个敌人。抽两张牌。<i>（施放@个法术以变为随从牌！）</i>",
+        "text_en": "[x]<b>Freeze</b> an enemy.\nDraw 2 cards.\n<i>(Cast @ |4(spell, spells) to turn\ninto a minion!)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126411,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126411,
+          "SPELL_SCHOOL": 3,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kleston Marques"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "aaafabd940d92159503c44c5e742a6c3ecf3a7e981d99074e235c2701d01d7a8",
+      "recipe": {
+        "script": "frost",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "JAIL_803"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_803t",
+        "dbf_id": 126411,
+        "name": "寒霜冰爆元素",
+        "name_en": "Frostshatter Elemental",
+        "text": "<b>战吼：</b><b>冻结</b>一个敌人。抽两张牌。",
+        "text_en": "<b>Battlecry:</b> <b>Freeze</b> an enemy. Draw two cards.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kleston Marques"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f05ad696c15f74dde22c03ae4f8bf9a6fa03d5ba906afbdaacc13fb94809c3ee",
+      "recipe": {
+        "script": "frost_elemental",
+        "root": false,
+        "choice_only": false,
+        "deck_identity": "JAIL_803"
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "root_id": "EDR_843",
+      "gallery_record": {
+        "id": 114848,
+        "collectible": 1,
+        "slug": "114848-reforestation",
+        "class_id": 2,
+        "multi_class_ids": [],
+        "minion_type_id": 0,
+        "card_type_id": 5,
+        "card_set_id": 1946,
+        "rarity_id": 4,
+        "artist_name": "Kevin Sidharta",
+        "health": 0,
+        "attack": null,
+        "mana_cost": 2,
+        "name": "森林再生",
+        "text": "<b>抉择：</b>抽一张法术牌；或者抽一张随从牌。<i>（本牌在你手中 回合即可同时拥有两种效果！）</i>",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/8bb3306817baac018d60a01591d28e58fd1e671fc62ee75f3206f87e760daf20.png",
+        "image_gold": "",
+        "flavor_text": "为什么要选？",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/54516d2d6d6347da8bb02bce0ac98f2c013e37d0b8708322b8cdfc8ac111a131.png",
+        "child_ids": [
+          117402,
+          115932,
+          115933
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": null,
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 4,
+        "set_priority": 5,
+        "class_priority": 2
+      }
+    },
+    {
+      "root_id": "FIR_911",
+      "gallery_record": {
+        "id": 115635,
+        "collectible": 1,
+        "slug": "115635-smoldering-grove",
+        "class_id": 4,
+        "multi_class_ids": [],
+        "minion_type_id": 0,
+        "card_type_id": 5,
+        "card_set_id": 1946,
+        "rarity_id": 3,
+        "artist_name": "Zoltan Boros",
+        "health": 0,
+        "attack": null,
+        "mana_cost": 2,
+        "name": "焚火林地",
+        "text": "抽 张牌。 <i>（每回合都会升级，但本牌会在 回合后弃掉！）</i> 抽 张牌。<i>（本牌会在本回合弃掉！）</i>",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/208ff68a1b9baaf7b521e3b977906f814ebae663051b1736da150b7f7f67b77e.png",
+        "image_gold": "",
+        "flavor_text": "事先声明：林地不应该着火。",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/6c4f314301392c624e5e90f4a6654ec253025f4fdc8eb9dbe6571ad00d2af8bb.png",
+        "child_ids": null,
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": null,
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 2,
+        "set_priority": 5,
+        "class_priority": 4
+      }
+    },
+    {
+      "root_id": "JAIL_803",
+      "gallery_record": {
+        "id": 126410,
+        "collectible": 1,
+        "slug": "126410-frostshatter",
+        "class_id": 8,
+        "multi_class_ids": [],
+        "minion_type_id": 0,
+        "card_type_id": 5,
+        "card_set_id": 1988,
+        "rarity_id": 3,
+        "artist_name": "Kleston Marques",
+        "health": 0,
+        "attack": null,
+        "mana_cost": 5,
+        "name": "寒霜冰爆",
+        "text": "<b>冻结</b>一个敌人。抽两张牌。<i>（施放 个法术以变为随从牌！）</i>",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/854bfa7954c299c8a9f713d1f364cd1ac3cddf1d8e94c5a4cf5a6f463c8dfaba.png",
+        "image_gold": "",
+        "flavor_text": "“我的超人服呢？”",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/7abb9b3be41c5e86db6753ac727838c20d9f5230d0dfb02cd906e557c5d3654e.png",
+        "child_ids": [
+          126411
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": [
+          10
+        ],
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 3,
+        "set_priority": 1,
+        "class_priority": 8
+      }
+    }
+  ],
+  "declared_policies": {
+    "held_turn_clock": "actual_owner_end",
+    "grove_growth": "1+completed_owner_ends",
+    "grove_self_discard_owner_ends": 3,
+    "reforestation_owner_ends": 3,
+    "frostshatter_accepted_own_casts": 3
+  },
+  "not_in_this_runtime_batch": [
+    "MEND_504"
+  ]
+}

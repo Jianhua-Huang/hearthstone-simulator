@@ -1,0 +1,339 @@
+{
+  "batch": "K33 native weapon turn attack and draw",
+  "source_version": "37.0.0.255026",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_BT_921",
+        "dbf_id": 69507,
+        "name": "奥达奇战刃",
+        "name_en": "Aldrachi Warblades",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 56583
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Axer"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56583",
+              "type": "Int",
+              "value": "56583"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d758d37d266110f4c39e47fdac5757fb0b1f2decea2b7ed8793059f49849fccb",
+      "recipe": {
+        "script": "lifesteal_weapon",
+        "deck_identity": "BT_921",
+        "keywords": [
+          "lifesteal"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_067",
+        "dbf_id": 78357,
+        "name": "堕落的灰烬使者",
+        "name_en": "Corrupted Ashbringer",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 6,
+        "attack": 5,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "COST_BLOOD": 2
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "fe28b502bd4f47e4f75ed65344f317b440de4a07b47c5d1829c070717f740331",
+      "recipe": {
+        "script": "lifesteal_weapon",
+        "deck_identity": "RLK_067",
+        "keywords": [
+          "lifesteal"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_928",
+        "dbf_id": 76319,
+        "name": "焦油爬行者",
+        "name_en": "Tar Creeper",
+        "text": "<b>嘲讽</b>\n在你对手的回合拥有+2攻击力。",
+        "text_en": "<b>Taunt</b>\nHas +2 Attack during your opponent's turn.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41418
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41418",
+              "type": "Int",
+              "value": "41418"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f8ccb57b67c660d5dcd43ee75b634a3e721134191fe3634950d63aff2fc33a2c",
+      "recipe": {
+        "script": "opponent_turn_attack",
+        "deck_identity": "UNG_928",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CS3_024",
+        "dbf_id": 66856,
+        "name": "泰兰·弗丁",
+        "name_en": "Taelan Fordring",
+        "text": "<b><b>嘲讽</b>。圣盾</b>。<b>亡语：</b>&抽取你的法力值消耗最高的随从牌。",
+        "text_en": "[x]<b><b>Taunt</b>, Divine Shield</b>\n<b>Deathrattle:</b>& Draw your\nhighest Cost minion.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steven Prescott"
+          }
+        ]
+      },
+      "record_sha256": "0ee707386708479c098ded18f1a5921fc70825f4af35929e9a43a5516cb884b7",
+      "recipe": {
+        "script": "highest_deck_minion",
+        "deck_identity": "CS3_024",
+        "keywords": [
+          "taunt",
+          "divine_shield"
+        ]
+      }
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "BT_921",
+        "dbf_id": 56583,
+        "name": "奥达奇战刃",
+        "name_en": "Aldrachi Warblades",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Axer"
+          }
+        ]
+      },
+      "record_sha256": "377c82c7fdfa21b7d0059369d819fdf419548efd7d79cfa501da0d0089cb3836"
+    },
+    {
+      "record": {
+        "id": "UNG_928",
+        "dbf_id": 41418,
+        "name": "焦油爬行者",
+        "name_en": "Tar Creeper",
+        "text": "<b>嘲讽</b>\n在你对手的回合拥有+2攻击力。",
+        "text_en": "<b>Taunt</b>\nHas +2 Attack during your opponent's turn.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "59574e691a1ade1a30e25412f20c8e0cc287f1d9c9dbb17ad9a516f4b9f7de64"
+    }
+  ],
+  "official_core_relation_sha256": "fec7b9aa4545a46a458fd6a443570b3c03f83570243a6815977534c0af2fdd16",
+  "reviewed_policy": {
+    "weapons": "Native weapon Lifesteal; source HEALTH is durability, not minion health.",
+    "opponent_turn": "Native ordinary battlefield minion adds two conditional Attack exactly while active_player differs from current controller; refresh before actual start captures.",
+    "draw": "Highest current stored local deck cost after physical filters, clamped at zero; exclude hypothetical hand intrinsic/external discounts. Unique maximum has no RNG, ties weight each physical card.",
+    "limit": "Internal policies informed by primary player observations, not precise fixed CN calibration."
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "batch_id": "K67",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_401",
+        "dbf_id": 127037,
+        "name": "腐败警员",
+        "name_en": "Corrupt Constable",
+        "text": "<b>战吼：</b>如果敌方牌库中有卧底小鬼，将其中一张移至敌方牌库顶并使其获得+2/+2。",
+        "text_en": "<b>Battlecry:</b> If the enemy deck has any Imp-formants, move one to the top and give it +2/+2.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127024,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "8438c366ee85dbec639aaabe0907c48cff4ea75ea6ba44a7c95f238c70e0a42e",
+      "recipe": {
+        "root": true,
+        "script": "constable",
+        "deck_identity": "CAP_401"
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_406",
+        "dbf_id": 127090,
+        "name": "暗金教主谋",
+        "name_en": "Kabal Mastermind",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>在本局对战中，每当你召唤一个卧底小鬼，使其获得+2/+2。",
+        "text_en": "[x]<b>Taunt</b>. <b>Battlecry:</b>\nWhenever you summon an\nImp-formant this game,\ngive it +2/+2.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127024,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "39d3d93fb4b297fecb0cbdf7f3a6199fa3ac97580c4f2c8328b466b4d0a997b4",
+      "recipe": {
+        "root": true,
+        "script": "mastermind",
+        "deck_identity": "CAP_406"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CAP_400t2t",
+        "dbf_id": 127024,
+        "name": "卧底小鬼",
+        "name_en": "Imp-formant",
+        "text": "<b>吸血</b>\n<b>抽到时召唤</b><i>（为你的对手召唤）</i>",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Summoned When Drawn</b>\n<i>(for your opponent)</i>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "IMP": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3128",
+              "name": "SUMMONED_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e8d8243292da526d4bfc25aac0bbda38336eaa72017cb272353d9b8b38a2444a",
+      "definition_sha256": "6eb5daf72870857b7a8c9b1ffef40b0b01e74224cb2bf0e65cfbf048a32fea14"
+    }
+  ],
+  "enchantment_evidence": [
+    {
+      "record": {
+        "id": "CAP_406e",
+        "dbf_id": 134445,
+        "name": "卧底大鬼",
+        "name_en": "Imp-roved Imp-formants",
+        "text": "在本局对战中，每当你召唤一个卧底小鬼，使其获得+2/+2。",
+        "text_en": "Whenever you summon an Imp-formant this game, give it +2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4b1beae495a084dc9cf58ece867e7c38311da3869919788d5c85c59e48560fb8"
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": 127037,
+      "collectible": 1,
+      "slug": "127037-corrupt-constable",
+      "class_id": 9,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 4,
+      "card_set_id": 1988,
+      "rarity_id": 1,
+      "artist_name": "Vika Yarova",
+      "health": 5,
+      "attack": 3,
+      "mana_cost": 4,
+      "name": "腐败警员",
+      "text": "<b>战吼：</b>如果敌方牌库中有卧底小鬼，将其中一张移至敌方牌库顶并使其获得+2/+2。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/ac8b5dbff12f0fd0f3d7c242f48c781925e318ff69e8421f5ad2e8284c3f2cbe.png",
+      "image_gold": "",
+      "flavor_text": "“目前虽然流言众多，但我们加基森值得骄傲的传统不会变：这里绝对不会有正常的司法系统。”——诺格弗格市长",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/18707f30643bd94a1e6033f83d2c82a4be109746708b9b4af009af0dc4d90832.png",
+      "child_ids": [
+        127024
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        8
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 1,
+      "class_priority": 9
+    },
+    {
+      "id": 127090,
+      "collectible": 1,
+      "slug": "127090-kabal-mastermind",
+      "class_id": 9,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 4,
+      "card_set_id": 1988,
+      "rarity_id": 4,
+      "artist_name": "Patrik Bjorkstrom",
+      "health": 5,
+      "attack": 5,
+      "mana_cost": 5,
+      "name": "暗金教主谋",
+      "text": "<b>嘲讽</b>。<b>战吼：</b>在本局对战中，每当你召唤一个卧底小鬼，使其获得+2/+2。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/bdd7479030edc759f421893db3d439aa26cff082014761ecee51611039c13bfe.png",
+      "image_gold": "",
+      "flavor_text": "我们不是你要找的那个帮派。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/5b3afc1ab743a353c96783a158a0056727565b3b650ff9eb37c0f6fd20da4724.png",
+      "child_ids": [
+        127024
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        1,
+        8
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 1,
+      "class_priority": 9
+    }
+  ],
+  "policies": [
+    "Constable selects each physical Imp-formant in the opponent current deck with one weight; empty pool has no RNG, a singleton ordinary random selection still consumes RNG. Reordering preserves other relative order, zone residence and attachments; then buffs only the original selected stored reference. This is placement, not a shuffle.",
+    "Mastermind installs independent persistent player instances. Each original successful friendly Imp-formant entry receives its2/2 via a bounded original summon ID and continuous board residence, not current name or reused entity ID. Same-residence face/control changes retain the accepted receiver; death/return/reentry do not rebind.",
+    "Source silence/death/control does not remove the player instance. New sources and genuine repeated Battlecries stack normally. Initial Scenario bodies and failed summons are not actual successful entries.",
+    "Both public additions reuse original deck reorder/stored buff and current board buff handlers; no new state fields, counters, schedulers or invented combinations. Exact CN random/top/buff/notification/transform/control windows remain uncalibrated."
+  ]
+}

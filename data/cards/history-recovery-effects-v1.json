@@ -1,0 +1,173 @@
+{
+  "batch": "K31 history recovery",
+  "source_version": "37.0.0.255026",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "official_core_relation_sha256": "fec7b9aa4545a46a458fd6a443570b3c03f83570243a6815977534c0af2fdd16",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_CATA_002",
+        "dbf_id": 126888,
+        "name": "佳莉娅·米奈希尔",
+        "name_en": "Calia Menethil",
+        "text": "<b>战吼：</b>复活你在本局对战中死亡的法力值消耗最高的随从。",
+        "text_en": "<b>Battlecry:</b> Resurrect\nyour highest-Cost minion\nthat died this game.",
+        "cost": 6,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "eacd26d786b6b652abe1d43a53eef188d52afc9c40fb598dd3b9b83521bd54ae",
+      "recipe": {
+        "script": "highest_death",
+        "deck_identity": "CORE_CATA_002"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TRL_345",
+        "dbf_id": 87920,
+        "name": "卡格瓦，青蛙之神",
+        "name_en": "Krag'wa, the Frog",
+        "text": "<b>战吼：</b>将你上回合使用的所有法术牌移回你的手牌。",
+        "text_en": "<b>Battlecry:</b> Return all spells you played last turn to_your hand.",
+        "cost": 6,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 50369
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "50369",
+              "type": "Int",
+              "value": "50369"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "60f0cae00cc83638ad1243dbf12e88f0890dcbaa159d208282a66e3fd3e9211c",
+      "recipe": {
+        "script": "previous_spells",
+        "deck_identity": "TRL_345"
+      }
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "TRL_345",
+        "dbf_id": 50369,
+        "name": "卡格瓦，青蛙之神",
+        "name_en": "Krag'wa, the Frog",
+        "text": "<b>战吼：</b>将你上回合使用的所有法术牌移回你的手牌。",
+        "text_en": "<b>Battlecry:</b> Return all spells you played last turn to_your hand.",
+        "cost": 6,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1129,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "fcd6306b0fa04f6264f3d31cf87ddb99327af835853e889c2482d9df94347580"
+    }
+  ],
+  "reviewed_policy": {
+    "resurrection": "Friendly controller-at-death, highest printed cost, one weight per death occurrence; attributed original resurrection.",
+    "previous_spells": "All frozen paid hand spell roots in latest genuinely closed own interval; duplicates/countered included, automatic casts excluded.",
+    "recovery": "New base hand entities in original play order, no inherited costs, enchants or preselected branch; original corpses/spells stay in place.",
+    "limit": "Reuses existing internal policies; precise CN cost, tie weighting, return order and turn exceptions remain uncalibrated."
+  }
+}

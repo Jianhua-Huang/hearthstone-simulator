@@ -128,7 +128,9 @@ class StoredDestructionTests(unittest.TestCase):
         self.assertEqual((card.cost,card.on_play,card.on_discard,card.on_destroyed),(3,'draw2','draw2','draw2'))
         self.assertEqual(card.metadata,metadata_from_record(raw))
         self.assertNotIn('SC_408',registry().cards);self.assertNotIn('WW_044t',registry().cards)
-        self.assertEqual(build_registry().fingerprint(),'751f1debadb3ed845e22f52efdc35c06dc5f4848db8673a44c2f5d78122e90d3')
+        default = build_registry()
+        self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
+        self.assertEqual(default.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
 
     def test_hand_destruction_preserves_identity_and_has_no_discard_or_death(self):
         g=self.game();old=g.state.entities[g.state.players[1].hand[0]];self.play(g,'hand')
@@ -276,7 +278,7 @@ class StoredDestructionTests(unittest.TestCase):
         self.assertEqual(len(fuel),3)
         abilities=[next(a for a in e.abilities if a.kind=='on_destroyed') for e in fuel]
         self.assertEqual(len({a.id for a in abilities}),3)
-        self.assertEqual([a.source_id for a in abilities],[fuel[0].id,fuel[0].id,fuel[2].id])
+        self.assertEqual([a.source_id for a in abilities],[entity.id for entity in fuel])
         self.play(g,'hand');self.play(g,'hand')
         self.assertEqual(len(self.events(g)),2);self.assertEqual(len(g.state.draw_history),4);self.portable(g)
 

@@ -41,6 +41,7 @@ class CardClass(StrEnum):
 
 
 class Rarity(StrEnum):
+    NONE = 'none'
     FREE = 'free'
     COMMON = 'common'
     RARE = 'rare'
@@ -273,9 +274,14 @@ class HealthRule:
         if self.operation == HealthOp.FLOOR and (self.flow != HealthFlow.DAMAGE or
                 self.layer != HealthLayer.TARGET or self.amount < 1):
             raise ValueError('Health FLOOR requires positive DAMAGE/TARGET operand')
-        for relation in (self.source_relation, self.target_relation):
-            if relation not in ('any', 'friendly', 'enemy', 'self'):
-                raise ValueError('Invalid health rule relation')
+        if self.source_relation not in ('any','friendly','enemy','self','friendly_elemental_minions','friendly_beast_minions') or self.target_relation not in ('any','friendly','enemy','self'):
+            raise ValueError('Invalid health rule relation')
+        if self.source_relation in ('friendly_elemental_minions','friendly_beast_minions'):
+            operation,amount=((HealthOp.ADD,1)if self.source_relation=='friendly_elemental_minions'else(HealthOp.SCALE,2))
+            if(self.flow!=HealthFlow.DAMAGE or self.layer!=HealthLayer.SOURCE or self.operation!=operation or self.amount!=amount
+                    or self.denominator!=1 or self.target_relation!='any' or self.target_kinds!=(CardType.HERO,CardType.MINION)
+                    or self.damage_kinds or self.healing_kinds or self.schools or self.redirect_to is not None):
+                raise ValueError('Native tribal damage requires its complete ordinary source profile')
         for name, enum in (('target_kinds', CardType), ('damage_kinds', DamageKind),
                            ('healing_kinds', HealingKind), ('schools', SpellSchool)):
             items = getattr(self, name)
@@ -312,6 +318,7 @@ class StatRelationOperand(StrEnum):
     OTHER_BATTLEFIELD_TRIBE_COUNT = "other_battlefield_tribe_count"
     CONTROLLER_OVERLOADED_MANA = "controller_overloaded_mana"
     CONTROLLER_HAS_SPELL_DAMAGE = "controller_has_spell_damage"
+    CONTROLLER_OPPONENT_TURN = "controller_opponent_turn"
 
 
 class StatRelationLayer(StrEnum):
@@ -371,6 +378,9 @@ class StatRelationSpec:
         elif self.operand == StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Spell Damage weapon Attack requires its conditional layer and positive amount')
+        elif self.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN:
+            if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
+                raise ValueError('Opponent-turn Attack requires its conditional layer and positive amount')
         else:
             raise ValueError('Unsupported continuous stat relation')
 
@@ -611,13 +621,41 @@ class CostModifier:
     uses_remaining: int | None = None
     expires_turn: int | None = None
     scope: CostScope = CostScope.CARD
+    tribes_any: tuple[str, ...] = ()
+    combo_only: bool = False
+    temporary_only: bool = False
+    maximum_cost: int | None = None
+    minion_keyword: Keyword | None = None
+    minion_keyword_repetitions: int = 1
 
     def __post_init__(self):
         _int(self.id, 'cost modifier ID', 1)
+        if type(self.minion_keyword_repetitions)is not int or self.minion_keyword_repetitions not in(1,2)or self.minion_keyword is None and self.minion_keyword_repetitions!=1:
+            raise ValueError('Paid keyword repetitions require the actual finite Kindred Shield reward')
         if not isinstance(self.spec, CostSpec):
             raise ValueError('Cost modifier requires CostSpec')
         self.spec.__post_init__()
         validate_cost_scope(self.scope, self.spec)
+        TribeChangeSpec('set',self.tribes_any).__post_init__()
+        _bool(self.combo_only,'Combo-only cost');_bool(self.temporary_only,'Temporary-only cost')
+        if sum((bool(self.tribes_any),self.combo_only,self.temporary_only))>1:
+            raise ValueError('Player cost modifiers require one independent recipient selector')
+        if (self.combo_only or self.temporary_only)and(self.scope!=CostScope.CARD or self.uses_remaining is None):
+            raise ValueError('Qualified next-card prices require finite ordinary card uses')
+        if self.maximum_cost is not None:
+            _int(self.maximum_cost,'complete current cost threshold',0)
+            if (not self.tribes_any or self.spec.payment!=PaymentType.HEALTH or self.spec.delta or
+                    self.spec.set_to is not None or self.spec.minimum or self.uses_remaining is None):
+                raise ValueError('Current price threshold requires a finite tribal payment-only Health modifier')
+        if self.tribes_any and (self.scope != CostScope.CARD or self.spec.card_types != (CardType.MINION,)or
+                not(self.spec.delta<0 and self.spec.payment is None or self.spec.set_to is not None and self.spec.payment is None or self.maximum_cost is not None)):
+            raise ValueError('Tribal player prices require a minion reduction, set-price or qualified Health payment')
+        if self.minion_keyword is not None and (
+                self.minion_keyword is not Keyword.DIVINE_SHIELD or self.scope != CostScope.CARD or
+                self.spec.card_types != (CardType.MINION,) or self.spec.delta >= 0 or
+                self.spec.set_to is not None or self.spec.payment is not None or
+                not self.tribes_any or self.uses_remaining != 1 or self.source_id is None):
+            raise ValueError('Next-minion keyword requires one sourced tribal reduction and Divine Shield')
         for name in ('source_id', 'uses_remaining', 'expires_turn'):
             _optional_id(getattr(self, name), name)
 
@@ -639,8 +677,15 @@ class CostUseReceipt:
     consumable_ids: tuple[int, ...]
     current_deck: CurrentDeckCountMatch | None = None
     permanent_mana: PermanentManaMatch | None = None
+    kindred_sources: tuple[PlayerEffect, ...] = ()
 
     def __post_init__(self):
+        if type(self.kindred_sources)is not tuple or any(type(x)is not PlayerEffect for x in self.kindred_sources):
+            raise ValueError('Kindred payment sources require complete immutable player instances')
+        if self.kindred_sources and self.origin!='payment':raise ValueError('Only an original payment consumes intrinsic Kindred sources')
+        for x in self.kindred_sources:x.__post_init__()
+        if any(a.id>=b.id for a,b in zip(self.kindred_sources,self.kindred_sources[1:])):
+            raise ValueError('Kindred payment sources require their complete unique order')
         for name in ('id', 'source_id', 'turn'): _int(getattr(self, name), 'cost use '+name, 1)
         _int(self.action, 'cost use action', 0)
         if type(self.player_id) is not int or self.player_id not in (1, 2): raise ValueError('Invalid cost use payer')
@@ -792,6 +837,18 @@ class CthunGrowthRecord:
 
 
 @dataclass(frozen=True)
+class HandPlayLock:
+    """A pure manual-play gate using an existing actual owner-start clock."""
+    deadline: OwnerTurnExpiry
+    owner_starts: int
+
+    def __post_init__(self):
+        if type(self.deadline) is not OwnerTurnExpiry: raise ValueError('Hand play lock requires its original owner clock')
+        self.deadline.__post_init__(); _int(self.owner_starts, 'hand play lock owner starts', 1)
+        if self.deadline.boundary != 'turn_started': raise ValueError('Hand play lock requires a genuine owner-start boundary')
+
+
+@dataclass(frozen=True)
 class Enchantment:
     """Ordered numeric operation or a separate pure current-tribe identity change."""
 
@@ -813,6 +870,8 @@ class Enchantment:
     cthun_ritual: CthunRitualStamp | None = None
     control_return_player_id: int | None = None
     owner_turn_expiry: OwnerTurnExpiry | None = None
+    hand_play_lock: HandPlayLock | None = None
+    control_return_expiry: OwnerTurnExpiry | None = None
 
     def __post_init__(self) -> None:
         _int(self.id, "enchantment ID", 1)
@@ -823,6 +882,16 @@ class Enchantment:
         _optional_id(self.expires_turn, "enchantment expires_turn")
         _bool(self.remove_on_silence, "enchantment remove_on_silence")
         _name(self.label, "enchantment label")
+        if self.hand_play_lock is not None:
+            if type(self.hand_play_lock) is not HandPlayLock: raise ValueError('Hand play lock requires its typed original clock')
+            self.hand_play_lock.__post_init__()
+            if (self.label != 'hand_play_lock' or self.source_id is None or not self.remove_on_silence or
+                    self.attack or self.health or self.cost or self.cost_minimum or self.payment is not None or
+                    self.expires_turn is not None or self.magnetic_id is not None or self.owner_turn_expiry is not None or
+                    self.tribe_change is not None or self.cthun_ritual is not None or self.control_return_player_id is not None or
+                    any(getattr(self,'set_'+name)is not None for name in ('attack','health','cost'))):
+                raise ValueError('Hand play lock requires a separate pure removable gate')
+        elif self.label == 'hand_play_lock': raise ValueError('Hand play lock label requires its complete clock')
         if self.owner_turn_expiry is not None:
             if type(self.owner_turn_expiry) is not OwnerTurnExpiry:
                 raise ValueError('Numeric owner expiry requires its typed original clock')
@@ -836,13 +905,20 @@ class Enchantment:
         if self.control_return_player_id is not None:
             _int(self.control_return_player_id, 'control return player', 1)
             if (self.control_return_player_id not in (1, 2) or self.label != 'temporary_control' or
-                    self.source_id is None or self.expires_turn is None or not self.remove_on_silence or
+                    self.source_id is None or (self.expires_turn is None) == (self.control_return_expiry is None) or not self.remove_on_silence or
                     self.attack or self.health or self.cost or self.cost_minimum or self.payment is not None or
                     self.magnetic_id is not None or self.tribe_change is not None or self.cthun_ritual is not None or
                     any(getattr(self, 'set_' + n) is not None for n in ('attack', 'health', 'cost'))):
                 raise ValueError('Temporary control requires a separate removable timed control enchantment')
         elif self.label == 'temporary_control':
             raise ValueError('Temporary control label requires its original return player')
+        if self.control_return_expiry is not None:
+            if type(self.control_return_expiry) is not OwnerTurnExpiry:
+                raise ValueError('Control return requires its typed original owner-end clock')
+            self.control_return_expiry.__post_init__()
+            if (self.control_return_player_id != self.control_return_expiry.player_id or
+                    self.control_return_expiry.boundary != 'turn_ended'):
+                raise ValueError('Control return clock must name the original return player and end boundary')
         if self.cthun_ritual is not None:
             if type(self.cthun_ritual) is not CthunRitualStamp:
                 raise ValueError('Cthun increment requires its typed original ritual stamp')
@@ -941,12 +1017,14 @@ class HandProgressSpec:
     health_to_durability: bool = False
     amount_basis: str = 'one'
     upgrade_cost_policy: str = 'preserve'
-    zone: Zone = Zone.HAND
+    zone: Zone | tuple[Zone, ...] = Zone.HAND
 
     def __post_init__(self):
-        if type(self.zone) is not Zone or self.zone not in (Zone.HAND, Zone.DECK):
-            raise ValueError('Stored progress listens only in hand or deck')
-        if self.zone == Zone.DECK and (
+        if not (type(self.zone) is Zone and self.zone in (Zone.HAND, Zone.DECK) or
+                type(self.zone) is tuple and all(type(z) is Zone for z in self.zone)
+                and self.zone == (Zone.HAND, Zone.DECK)):
+            raise ValueError('Stored progress listens only in hand or deck, or their explicit ordered pair')
+        if Zone.DECK in self.zones and (
                 self.kind != 'event' or self.goal != 1 or not self.repeat or
                 self.upgrade_card_id is not None or self.on_progress is not None or
                 self.on_complete is None or self.health_to_durability or self.amount_basis != 'one'):
@@ -981,6 +1059,10 @@ class HandProgressSpec:
                 raise ValueError('Held-spell facts cannot upgrade, repeat or invoke callbacks')
         elif self.upgrade_card_id is None and self.on_complete is None:
             raise ValueError('Hand progress requires a completion effect or form')
+
+    @property
+    def zones(self):
+        return (self.zone,) if type(self.zone) is Zone else self.zone
 
     @property
     def event_kind(self):
@@ -1084,21 +1166,24 @@ class KeywordAuraSpec:
             supported.add(Keyword.ECHO)
         if type(self.keyword) is not Keyword or self.keyword not in supported:
             raise ValueError('Keyword aura requires a supported continuous keyword')
-        if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'self'):
+        if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self'):
             raise ValueError('Unsupported keyword aura target')
         _bool(self.include_self, 'keyword aura include_self')
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _aura_card_ids(self.card_ids)
+        if self.target == 'enemy_minions' and (self.keyword != Keyword.TAUNT or self.include_self or
+                self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
+            raise ValueError('Native enemy keyword aura requires ordinary board Taunt')
         if self.card_ids and (self.target != 'friendly_minions' or self.condition != 'always' or
                 self.adjacent_only or self.tribes_any):
             raise ValueError('Card identity keyword auras require ordinary board scope and one selector')
         if self.tribes_any and (self.keyword != Keyword.CHARGE or
                 self.target != 'friendly_minions' or self.condition != 'always' or self.adjacent_only):
             raise ValueError('Tribal keyword aura currently requires ordinary board Charge')
-        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn'):
+        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions'):
             raise ValueError('Unsupported continuous keyword condition')
-        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon')):
+        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions')):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
                 self.keyword != Keyword.IMMUNE or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
@@ -1109,6 +1194,8 @@ class KeywordAuraSpec:
             raise ValueError('Self-damaged keyword currently supports the known Windfury profile')
         if self.condition == 'controller_has_weapon' and self.keyword != Keyword.CHARGE:
             raise ValueError('Weapon-presence keyword currently supports the known Charge profile')
+        if self.condition=='controller_no_other_minions' and self.keyword!=Keyword.IMMUNE:
+            raise ValueError('No-other-minion keyword requires the native self Immune profile')
         if hand and (self.include_self or self.adjacent_only or
                      self.target != 'friendly_hand_minions' and self.keyword != Keyword.ECHO):
             raise ValueError('Hand aura scope cannot use board positions or minion-only spell keywords')
@@ -2021,7 +2108,7 @@ class AttackPolicySpec:
 
     def __post_init__(self):
         if type(self.mode) is not str or self.mode not in (
-                'cannot_attack', 'cannot_attack_heroes', 'attacks_per_turn'):
+                'cannot_attack', 'cannot_attack_heroes', 'attacks_per_turn','friendly_ignore_taunt'):
             raise ValueError('Unsupported attack policy mode')
         if self.mode != 'attacks_per_turn' and self.attacks_per_turn is not None:
             raise ValueError('Only attack maximum policies specify a total')
@@ -2031,6 +2118,8 @@ class AttackPolicySpec:
             raise ValueError('Attack policy conditions require an immutable typed tuple')
         for condition in self.conditions:
             condition.__post_init__()
+        if self.mode=='friendly_ignore_taunt' and self.conditions:
+            raise ValueError('Friendly Taunt bypass requires an unconditional native provider')
 
 
 @dataclass(frozen=True)
@@ -2340,6 +2429,101 @@ class WeaponWearReceipt:
 
 
 @dataclass(frozen=True)
+class NativeSourceCondition:
+    kind: str
+    max_hand: int | None = None
+
+    def __post_init__(self):
+        if type(self.kind)is not str or self.kind not in('self_damaged','controller_hand_at_most'):
+            raise ValueError('Unsupported native provider condition')
+        if self.kind=='controller_hand_at_most':_int(self.max_hand,'native source hand limit',0)
+        elif self.max_hand is not None:raise ValueError('Only hand-size qualifications carry a threshold')
+
+
+@dataclass(frozen=True)
+class HandMirrorSpec:
+    attack: int = 3
+    health: int = 4
+
+    def __post_init__(self):
+        _int(self.attack,'hand mirror attack',0);_int(self.health,'hand mirror health',1)
+
+
+@dataclass(frozen=True)
+class HandMirrorBinding:
+    declaring_card_id: str
+    player_id: int
+    play_id: int | None = None
+
+    def __post_init__(self):
+        _name(self.declaring_card_id,'native hand mirror origin')
+        if type(self.player_id)is not int or self.player_id not in(1,2):raise ValueError('Hand mirror requires its original controller')
+        _optional_id(self.play_id,'hand mirror committed play')
+
+
+@dataclass(frozen=True)
+class NativeDeathrattleSpec:
+    kind: str
+    card_id: str | None = None
+    attack: int = 0
+    health: int = 0
+
+    def __post_init__(self):
+        if self.kind not in ('summon_growth', 'draw_link'):
+            raise ValueError('Unknown native Deathrattle memory profile')
+        _int(self.attack, 'native summon base Attack', 0)
+        _int(self.health, 'native summon base Health', 0)
+        if self.kind == 'summon_growth':
+            _name(self.card_id, 'native Deathrattle summon card')
+            if self.health < 1:raise ValueError('Native summon requires positive initial Health')
+        elif self.card_id is not None or self.attack or self.health:
+            raise ValueError('Draw linkage cannot carry summon material')
+
+
+@dataclass(frozen=True)
+class RememberedDraw:
+    draw_id: int
+    entity_id: int
+    hand_entry_id: int
+    source_id: int
+
+    def __post_init__(self):
+        for name in ('draw_id','entity_id','hand_entry_id','source_id'):
+            _int(getattr(self,name), 'remembered draw '+name, 1)
+
+
+@dataclass(frozen=True)
+class DeathrattleMemory:
+    spec: NativeDeathrattleSpec
+    growth_steps: int = 0
+    draws: tuple[RememberedDraw, ...] = ()
+
+    def __post_init__(self):
+        if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        self.spec.__post_init__();_int(self.growth_steps,'native summon growth steps',0)
+        if type(self.draws) is not tuple or any(type(x) is not RememberedDraw for x in self.draws):
+            raise ValueError('Native draw memory requires immutable physical draw links')
+        for item in self.draws:item.__post_init__()
+        if (self.spec.kind=='summon_growth'and self.draws or self.spec.kind=='draw_link'and self.growth_steps):
+            raise ValueError('Native Deathrattle memory mixed unrelated payloads')
+        ids=tuple(x.draw_id for x in self.draws)
+        if ids!=tuple(sorted(set(ids))):raise ValueError('Remembered draws must retain their original unique order')
+
+
+@dataclass(frozen=True)
+class SpellBaseDamageValue:
+    """A generated spell's native number, tied to its genuine death source."""
+    card_id: str
+    amount: int
+    deathrattle_id: int
+
+    def __post_init__(self):
+        _name(self.card_id,'native spell value face')
+        _int(self.amount,'native spell base damage',0)
+        _int(self.deathrattle_id,'native spell original Deathrattle',1)
+
+
+@dataclass(frozen=True)
 class AbilityInstance:
     """A printed or granted ability with serializable identity and usage state."""
 
@@ -2359,6 +2543,7 @@ class AbilityInstance:
     health: int = 0
     cost_aura: CostAuraSpec | None = None
     health_rule: HealthRule | None = None
+    health_rule_expiry: OwnerTurnExpiry | None = None
     activation: ActivatedAbilitySpec | None = None
     limited_trigger: LimitedTriggerSpec | None = None
     uses_remaining: int | None = None
@@ -2405,13 +2590,72 @@ class AbilityInstance:
     aura_card_ids: tuple[str, ...] = ()
     reborn_policy: str | None = None
     hero_power_use_aura: HeroPowerUseAuraSpec | None = None
+    hand_mirror: HandMirrorBinding | None = None
+    native_condition: NativeSourceCondition | None = None
+    deathrattle_memory: DeathrattleMemory | None = None
+    corpse_gain_card_id: str | None = None
+    turn_draw_card_id: str | None = None
+    spell_base_value: SpellBaseDamageValue | None = None
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.kind=='turn_draw_suppression':
+            _name(self.turn_draw_card_id,'native turn draw declaration')
+            from dataclasses import fields
+            allowed={'id','kind','source_id','origin','turn_draw_card_id'}
+            if self.origin!='printed'or self.source_id is None or any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed):
+                raise ValueError('Turn draw suppression requires one removable native printed source')
+        elif self.turn_draw_card_id is not None:raise ValueError('Only turn draw suppression carries its declaration')
+        if self.kind=='spell_base_value':
+            if type(self.spell_base_value)is not SpellBaseDamageValue:raise ValueError('Native spell requires its complete typed base value')
+            self.spell_base_value.__post_init__()
+            from dataclasses import fields
+            allowed={'id','kind','source_id','origin','spell_base_value'}
+            if self.origin!='granted'or self.source_id is None or any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed):
+                raise ValueError('Native spell value cannot mix unrelated ability material')
+        elif self.spell_base_value is not None:raise ValueError('Only native spell values carry base damage material')
+        if self.kind == 'corpse_gain':
+            _name(self.corpse_gain_card_id, 'native corpse gain card')
+            if self.origin != 'printed' or self.source_id is None or not self.remove_on_silence:
+                raise ValueError('Corpse gain requires a removable native physical source')
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'corpse_gain_card_id'}
+            if any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed):
+                raise ValueError('Corpse gain source cannot carry an unrelated ability profile')
+        elif self.corpse_gain_card_id is not None:
+            raise ValueError('Only corpse gain sources carry their native declaration')
+        if self.deathrattle_memory is not None:
+            if type(self.deathrattle_memory) is not DeathrattleMemory:
+                raise ValueError('Expected typed native Deathrattle memory')
+            self.deathrattle_memory.__post_init__()
+            if (self.kind!='deathrattle'or self.origin!='printed'or self.source_id is None or
+                    self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
+                raise ValueError('Native Deathrattle memory requires removable unconsumed printed provenance')
+        if self.kind == 'board_full_awaken':
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin'}
+            if (self.origin != 'printed' or self.source_id is None or
+                    any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Full-board awakening requires an unconsumed removable native declaration')
+        if self.native_condition is not None:
+            from .native_conditions import leaf
+            if (self.kind!=leaf(self.native_condition)or self.origin!='printed'or self.source_id is None or
+                    self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
+                raise ValueError('Conditional provider requires removable unconsumed native printed provenance')
+        if self.hand_mirror is not None:
+            from dataclasses import fields
+            if type(self.hand_mirror)is not HandMirrorBinding:raise ValueError('Hand mirror requires its complete native binding')
+            self.hand_mirror.__post_init__()
+            allowed={'id','kind','source_id','origin','hand_mirror'}
+            if (self.kind!='hand_mirror'or self.origin!='printed'or self.source_id is None or
+                    any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed)):
+                raise ValueError('Hand mirror requires a pure native source')
+        elif self.kind=='hand_mirror':raise ValueError('Hand mirror lost its native binding')
         validate_reborn_policy(self.reborn_policy, self.keyword)
-        if self.reborn_policy is not None and (self.kind != 'keyword' or self.origin != 'granted' or
-                self.remove_on_silence is not True or self.timed_keyword is not None):
-            raise ValueError('Full-health Reborn requires a removable keyword grant')
+        if self.reborn_policy is not None and (self.kind != 'keyword' or self.origin not in ('granted','printed') or
+                self.remove_on_silence is not True or self.timed_keyword is not None or
+                self.origin == 'printed' and (self.source_id is None or self.expires_turn is not None)):
+            raise ValueError('Full-health Reborn requires a removable keyword grant or native declaration')
         if self.kind == 'cleave':
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin'}
@@ -2440,6 +2684,9 @@ class AbilityInstance:
             if self.stat_relation.operand == StatRelationOperand.CONTROLLER_HAS_WEAPON and (
                     self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
                 raise ValueError('Weapon-presence attack requires an active native printed declaration')
+            if self.stat_relation.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN and (
+                    self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
+                raise ValueError('Opponent-turn Attack requires an active native printed declaration')
             if self.stat_relation.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT and (
                     self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
                 raise ValueError('Discard-count attack requires an active native printed declaration')
@@ -2526,8 +2773,8 @@ class AbilityInstance:
         _optional_id(self.magnetic_id, 'magnetic group')
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
-        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind != 'hero_power_use_aura':
+        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -2709,6 +2956,11 @@ class AbilityInstance:
             self.health_rule.__post_init__()
         elif self.health_rule is not None:
             raise ValueError('Only health_rule abilities may specify health_rule')
+        if self.health_rule_expiry is not None:
+            if type(self.health_rule_expiry)is not OwnerTurnExpiry or self.kind!='health_rule' or self.expires_turn is not None:
+                raise ValueError('Owner health expiry requires one independent health-rule clock')
+            self.health_rule_expiry.__post_init__()
+            if self.health_rule_expiry.boundary!='turn_started':raise ValueError('Health rule expiry requires an actual owner start')
         if self.kind == 'cost_aura':
             if type(self.cost_aura) is not CostAuraSpec:
                 raise ValueError('Cost aura requires CostAuraSpec')
@@ -2757,7 +3009,7 @@ class AbilityInstance:
             raise ValueError("only aura abilities may specify attack, health or include_self")
         if self.kind == 'aura':
             self.aura_spec.__post_init__()
-            if (self.aura_condition == 'self_damaged' or self.aura_tribes_any or self.aura_card_ids) and (
+            if (self.aura_condition != 'always' or self.aura_tribes_any or self.aura_card_ids) and (
                     self.origin != 'printed' or self.source_id is None or self.consumed or
                     self.expires_turn is not None or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Conditional weapon auras require removable unconsumed printed provenance')
@@ -2993,7 +3245,8 @@ class AuraSpec:
             _bool(self.adjacent_only, 'tribal stat aura adjacent_only')
         if (type(self.target) is not str or type(self.condition) is not str or
                 (self.target, self.condition) not in (
-                    ('friendly_minions', 'always'), ('friendly_weapon', 'self_damaged'))):
+                    ('friendly_minions', 'always'), ('friendly_weapon', 'self_damaged'),
+                    ('friendly_hero', 'controller_turn'))):
             raise ValueError('Unsupported stat aura target or condition')
         if self.condition == 'self_damaged':
             _int(self.attack, 'conditional weapon Attack', 1)
@@ -3002,6 +3255,10 @@ class AuraSpec:
             _bool(self.adjacent_only, 'conditional weapon adjacent_only')
             if self.health != 0 or self.include_self or self.adjacent_only:
                 raise ValueError('Conditional weapon auras only add Attack without positional flags')
+        if self.target=='friendly_hero':
+            _int(self.attack,'own-turn hero aura Attack',1)
+            if self.health!=0 or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids:
+                raise ValueError('Own-turn hero auras only add native Attack to the current friendly hero')
 
 
 @dataclass(frozen=True)
@@ -3226,8 +3483,8 @@ class BoardMinionCostSpec:
     profile_id: str = 'cost.board-minions-v1'
 
     def __post_init__(self):
-        if type(self.scope) is not str or self.scope not in ('friendly', 'all'):
-            raise ValueError('Board minion costs require friendly or all scope')
+        if type(self.scope) is not str or self.scope not in ('friendly', 'enemy', 'all'):
+            raise ValueError('Board minion costs require friendly, enemy or all scope')
         if type(self.profile_id) is not str or self.profile_id != 'cost.board-minions-v1':
             raise ValueError('Unsupported board minion cost policy')
 
@@ -3273,20 +3530,21 @@ class BoardMinionCostFact:
             raise ValueError('Board cost cannot count a physical entity twice')
         for name in ('quantity', 'before', 'after'):
             _int(getattr(self, name), 'board cost '+name, 0)
-        maximum = len(identities) if self.spec.scope == 'all' else len(self.boards[self.player_id - 1])
+        maximum = len(identities) if self.spec.scope == 'all' else len(self.boards[
+            self.player_id - 1 if self.spec.scope == 'friendly' else 2 - self.player_id])
         if self.quantity > maximum or self.after != max(0, self.before - self.quantity):
             raise ValueError('Board cost result differs from its complete count operation')
 
 
 @dataclass(frozen=True)
 class HandCountCostSpec:
-    """One mana less per own other card or per opponent card in hand."""
+    """One mana less per own other/all card or per opponent card in hand."""
     scope: str = 'friendly_other'
     profile_id: str = 'cost.hand-count-v1'
 
     def __post_init__(self):
-        if type(self.scope) is not str or self.scope not in ('friendly_other', 'enemy'):
-            raise ValueError('Hand count costs require own other cards or opponent cards')
+        if type(self.scope) is not str or self.scope not in ('friendly_other', 'friendly', 'enemy'):
+            raise ValueError('Hand count costs require own other/all cards or opponent cards')
         if type(self.profile_id) is not str or self.profile_id != 'cost.hand-count-v1':
             raise ValueError('Unsupported hand count cost policy')
 
@@ -3329,7 +3587,9 @@ class HandCountCostFact:
         for name in ('quantity', 'before', 'after'):
             _int(getattr(self, name), 'hand count ' + name, 0)
         quantity = (len(self.hands[self.player_id - 1]) - int(self.subject_id in self.hands[self.player_id - 1])
-            if self.spec.scope == 'friendly_other' else len(self.hands[2 - self.player_id]))
+            if self.spec.scope == 'friendly_other' else
+            len(self.hands[self.player_id - 1]) + int(self.subject_id not in self.hands[self.player_id - 1])
+            if self.spec.scope == 'friendly' else len(self.hands[2 - self.player_id]))
         if self.quantity != quantity or self.after != max(0, self.before - quantity):
             raise ValueError('Hand count result differs from its complete count operation')
 
@@ -4058,8 +4318,9 @@ class HeroDamageTakenCostSpec:
     profile_id: str = 'cost.hero-own-turns-damage-v1'
 
     def __post_init__(self):
-        if type(self.profile_id) is not str or self.profile_id != 'cost.hero-own-turns-damage-v1':
-            raise ValueError('Unsupported own-turns actual received damage price policy')
+        if type(self.profile_id) is not str or self.profile_id not in (
+                'cost.hero-own-turns-damage-v1', 'cost.enemy-hero-current-turn-damage-count-v1'):
+            raise ValueError('Unsupported actual received hero damage price policy')
 
 
 @dataclass(frozen=True)
@@ -4459,7 +4720,9 @@ class IntrinsicCostSpec:
         _int(self.minimum, 'intrinsic cost minimum', 0)
         if self.set_to is not None: _int(self.set_to, 'intrinsic cost set', 0)
         if type(self.condition) is not str or self.condition not in (
-                'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class'):
+                'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
+                'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
+                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
         if self.condition == 'current_deck_count':
             _int(self.card_count, 'intrinsic current deck threshold', 0)
@@ -4477,9 +4740,24 @@ class IntrinsicCostSpec:
             raise ValueError('Other intrinsic conditions cannot invent a mana threshold')
         if self.condition == 'hand_other_class' and (self.delta != 0 or self.set_to is None or self.minimum != 0):
             raise ValueError('Hand other-class price requires one fixed cost assignment')
-        history = ('deck.current-count-v1' if self.condition == 'current_deck_count' else
+        if self.condition in ('hand_other_dragon', 'board_dormant_minion') and (
+                self.delta >= 0 or self.set_to is not None or self.minimum != 0):
+            raise ValueError('Current presence price requires one flat discount')
+        if self.condition in ('turn_holy_and_shadow', 'board_no_minions', 'hand_edge', 'controlled_legendary') and (
+                self.delta != 0 or self.set_to is None or self.minimum != 0):
+            raise ValueError('Finite conditional price requires one fixed assignment')
+        if self.condition == 'own_deck_shuffle_count' and (self.delta != -1 or self.set_to is not None or self.minimum != 0):
+            raise ValueError('Shuffle count requires the finite one-per-operation discount')
+        history = ('deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
+                   'deck.current-count-v1' if self.condition == 'current_deck_count' else
                    'mana.permanent-crystals-v1' if self.condition == 'permanent_mana_at_least' else
                    'hand.current-other-class-v1' if self.condition == 'hand_other_class' else
+                   'hand.current-edge-v1' if self.condition == 'hand_edge' else
+                   'controlled.current-legendary-v1' if self.condition == 'controlled_legendary' else
+                   'hand.current-other-dragon-v1' if self.condition == 'hand_other_dragon' else
+                   'board.current-dormant-minion-v1' if self.condition == 'board_dormant_minion' else
+                   'board.current-no-minions-v1' if self.condition == 'board_no_minions' else
+                   'cast.current-turn-holy-shadow-v1' if self.condition == 'turn_holy_and_shadow' else
                    'healing.hero-this-turn-v1' if self.condition == 'hero_healed_this_turn' else 'owner-turn.latest-closed-v1')
         for name, value in (('history_profile_id', history),
                             ('profile_id', 'cost.intrinsic.before-local-v1')):
@@ -4764,6 +5042,128 @@ class HeroHealedTurnMatch:
             raise ValueError('Hero-healed aggregate differs from its complete actual target history')
 
 
+PRESENCE_COST_CONDITIONS = ('hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
+                            'hand_edge', 'controlled_legendary')
+CONTROLLED_PLAY_ZONES = (Zone.HERO, Zone.HERO_POWER, Zone.BOARD, Zone.WEAPON, Zone.SECRET, Zone.QUEST)
+
+
+@dataclass(frozen=True)
+class CostPresenceRow:
+    entity_id: int
+    card_id: str
+    controller: int
+    kind: CardType
+    zone: Zone
+    zone_epoch: int
+    entered_order: int
+    dormant: bool
+    tribe_changes: tuple[Enchantment, ...] = ()
+
+    def __post_init__(self):
+        _int(self.entity_id, 'presence physical entity', 1); _name(self.card_id, 'presence original face')
+        if type(self.controller) is not int or self.controller not in (1,2):
+            raise ValueError('Presence row requires its original controller')
+        if type(self.kind) is not CardType or type(self.zone) is not Zone or self.zone not in (Zone.HAND,*CONTROLLED_PLAY_ZONES):
+            raise ValueError('Presence row requires its original hand/board type')
+        if self.zone == Zone.BOARD and self.kind not in (CardType.MINION,CardType.LOCATION):
+            raise ValueError('Presence board row is not a resident minion or location')
+        if self.zone not in (Zone.HAND, Zone.BOARD) and self.kind != {
+                Zone.HERO: CardType.HERO, Zone.HERO_POWER: CardType.HERO_POWER, Zone.WEAPON: CardType.WEAPON,
+                Zone.SECRET: CardType.SPELL, Zone.QUEST: CardType.SPELL}[self.zone]:
+            raise ValueError('Controlled presence row lost its actual in-play type')
+        _int(self.zone_epoch, 'presence epoch', 0); _int(self.entered_order, 'presence entry', 0)
+        _bool(self.dormant, 'presence dormancy')
+        if self.dormant and (self.zone != Zone.BOARD or self.kind != CardType.MINION):
+            raise ValueError('Only a resident minion can be dormant')
+        if type(self.tribe_changes) is not tuple or any(type(x) is not Enchantment for x in self.tribe_changes):
+            raise ValueError('Presence row requires immutable original tribe attachments')
+        for item in self.tribe_changes:
+            item.__post_init__()
+            if item.tribe_change is None: raise ValueError('Presence row contains an unrelated attachment')
+        if len({x.id for x in self.tribe_changes}) != len(self.tribe_changes):
+            raise ValueError('Repeated original tribe attachment')
+
+
+@dataclass(frozen=True)
+class CostPresenceMatch:
+    player_id: int
+    condition: str
+    turn: int
+    action: int
+    next_entity_id: int
+    next_attachment_id: int
+    source_id: int | None
+    matched: bool
+    hand: tuple[CostPresenceRow, ...] = ()
+    boards: tuple[tuple[CostPresenceRow, ...], ...] = ((), ())
+    cast_rows: tuple[PlayerSpellCountCostRow, ...] = ()
+
+    def __post_init__(self):
+        if type(self.player_id) is not int or self.player_id not in (1,2) or self.condition not in PRESENCE_COST_CONDITIONS:
+            raise ValueError('Unsupported finite presence payer or condition')
+        for name in ('turn','next_entity_id','next_attachment_id'): _int(getattr(self,name),'presence '+name,1)
+        _int(self.action,'presence action',0); _optional_id(self.source_id,'presence physical subject')
+        _bool(self.matched,'presence aggregate')
+        if self.source_id is not None and self.source_id >= self.next_entity_id:
+            raise ValueError('Presence price borrowed a future physical subject')
+        if type(self.hand) is not tuple or type(self.boards) is not tuple or len(self.boards) != 2 or any(type(x) is not tuple for x in self.boards):
+            raise ValueError('Presence requires complete immutable zone inventories')
+        rows = (*self.hand,*self.boards[0],*self.boards[1])
+        if any(type(x) is not CostPresenceRow for x in rows): raise ValueError('Presence inventory contains an untyped row')
+        for x in rows:
+            x.__post_init__()
+            if x.entity_id >= self.next_entity_id or any(e.id >= self.next_attachment_id or (
+                    e.source_id is not None and e.source_id >= self.next_entity_id) for e in x.tribe_changes):
+                raise ValueError('Presence inventory borrowed a future allocation')
+        if len({x.entity_id for x in rows}) != len(rows): raise ValueError('Repeated physical presence identity')
+        if any((x.controller,x.zone)!=(self.player_id,Zone.HAND) for x in self.hand) or any(
+                x.controller != player or x.zone not in (CONTROLLED_PLAY_ZONES if self.condition == 'controlled_legendary'
+                    else (Zone.BOARD,)) for player,board in enumerate(self.boards,1) for x in board):
+            raise ValueError('Presence inventory borrowed another physical zone')
+        if type(self.cast_rows) is not tuple or any(type(x) is not PlayerSpellCountCostRow for x in self.cast_rows):
+            raise ValueError('Presence requires the complete original cast prefix')
+        last_turn,last_action=0,0
+        for index,row in enumerate(self.cast_rows,1):
+            row.__post_init__()
+            if row.id != index or not last_turn <= row.turn <= self.turn or not last_action <= row.action <= self.action or row.source_id >= self.next_entity_id:
+                raise ValueError('Presence changed the original cast chronology or allocator')
+            last_turn,last_action=row.turn,row.action
+        if self.condition in ('hand_other_dragon', 'hand_edge') and (self.boards != ((),()) or self.cast_rows) or (
+                self.condition in ('board_dormant_minion', 'board_no_minions') and (self.hand or self.cast_rows)) or (
+                self.condition == 'controlled_legendary' and (self.hand or self.cast_rows or self.boards[2-self.player_id])) or (
+                self.condition == 'turn_holy_and_shadow' and (self.hand or self.boards != ((),()))):
+            raise ValueError('Presence borrowed operands from another condition')
+
+        expected=None
+        if self.condition == 'hand_edge':
+            expected=bool(self.hand and self.source_id is not None and self.source_id in
+                          (self.hand[0].entity_id, self.hand[-1].entity_id))
+        if self.condition == 'board_dormant_minion':
+            expected=any(x.kind == CardType.MINION and x.dormant for board in self.boards for x in board)
+        elif self.condition == 'turn_holy_and_shadow':
+            schools={x.spell_school for x in self.cast_rows if x.player_id == self.player_id and x.turn == self.turn
+                     and x.payload_started and x.failure is None}
+            expected={SpellSchool.HOLY,SpellSchool.SHADOW} <= schools
+        if expected is not None and self.matched != expected:
+            raise ValueError('Presence aggregate differs from complete original operands')
+
+
+@dataclass(frozen=True)
+class DeckShuffleCostMatch:
+    player_id: int
+    turn: int
+    action: int
+    next_entity_id: int
+    records: tuple
+    selected_ids: tuple[int, ...]
+    quantity: int
+    matched: bool
+
+    def __post_init__(self):
+        from .deck_shuffles import validate_cost_match
+        validate_cost_match(self)
+
+
 @dataclass(frozen=True)
 class IntrinsicCostStageFact:
     profile_id: str
@@ -4775,7 +5175,7 @@ class IntrinsicCostStageFact:
     amount: int
     boundary: OwnerTurnQueryBoundaryFact
     rules: tuple[IntrinsicCostSpec, ...]
-    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch, ...]
+    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
     hand_cards: HandCountCostFact | None = None
@@ -4796,8 +5196,16 @@ class IntrinsicCostStageFact:
     hero_damage_taken: HeroDamageTakenCostFact | None = None
     player_spell_damage: PlayerSpellDamageCostFact | None = None
     player_character_attacks: PlayerCharacterAttackCostFact | None = None
+    kindred_sources: tuple[PlayerEffect, ...] = ()
 
     def __post_init__(self):
+        if type(self.kindred_sources)is not tuple or any(type(x)is not PlayerEffect for x in self.kindred_sources):
+            raise ValueError('Intrinsic Kindred sources require complete immutable instances')
+        for x in self.kindred_sources:x.__post_init__()
+        if any(a.id>=b.id for a,b in zip(self.kindred_sources,self.kindred_sources[1:])):
+            raise ValueError('Intrinsic Kindred sources lost original order')
+        if self.kindred_sources and(len(self.rules)!=1 or self.rules[0].condition!='previous_owner_turn_type'):
+            raise ValueError('Kindred repetition only applies to the native intrinsic type reduction')
         if type(self.profile_id) is not str or self.profile_id != 'cost.intrinsic.before-local-v1':
             raise ValueError('Unsupported intrinsic stage profile')
         if type(self.player_id) is not int or self.player_id not in (1, 2) or type(self.kind) is not CardType:
@@ -5038,10 +5446,12 @@ class IntrinsicCostStageFact:
                 raise ValueError('Multiple intrinsic formulas require a real reviewed source')
         if type(self.rules) is not tuple or any(type(rule) is not IntrinsicCostSpec for rule in self.rules):
             raise ValueError('Intrinsic stage requires complete immutable rules')
-        condition_cls = (CurrentDeckCountMatch if self.rules and self.rules[0].condition == 'current_deck_count' else
+        condition_cls = (DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
+                         CurrentDeckCountMatch if self.rules and self.rules[0].condition == 'current_deck_count' else
                          PermanentManaMatch if self.rules and self.rules[0].condition == 'permanent_mana_at_least' else
                          HandOtherClassMatch if self.rules and self.rules[0].condition == 'hand_other_class' else
-                         HeroHealedTurnMatch if self.rules and self.rules[0].condition == 'hero_healed_this_turn' else PreviousOwnerTurnMatch)
+                         HeroHealedTurnMatch if self.rules and self.rules[0].condition == 'hero_healed_this_turn' else
+                         CostPresenceMatch if self.rules and self.rules[0].condition in PRESENCE_COST_CONDITIONS else PreviousOwnerTurnMatch)
         for name, cls in (('rules', IntrinsicCostSpec), ('condition_facts', condition_cls),
                           ('operations', IntrinsicCostOperationFact)):
             values = getattr(self, name)
@@ -5052,6 +5462,17 @@ class IntrinsicCostStageFact:
             raise ValueError('Intrinsic stage lost a complete rule or unique condition')
         if len({r.condition for r in self.rules}) > 1:
             raise ValueError('Mixed intrinsic history conditions require a real reviewed source')
+        if self.rules and self.rules[0].condition in PRESENCE_COST_CONDITIONS:
+            match=self.condition_facts[0]
+            expected_kind = CardType.SPELL if self.rules[0].condition in ('hand_edge', 'controlled_legendary') else CardType.MINION
+            if self.kind != expected_kind or len(self.rules) != 1 or (match.player_id,match.condition,match.turn,match.action) != (
+                    self.player_id,self.rules[0].condition,self.boundary.turn,self.boundary.action):
+                raise ValueError('Presence price changed its ordinary subject, declaration or original window')
+            if any(getattr(self,n) is not None for n in ('board_minions','hand_cards','hero_missing_health','player_spells',
+                    'player_hero_powers','player_spell_mana','minion_deaths','player_overload','player_played_class',
+                    'hero_health_changes','player_draws','weapon_attack','player_armor','player_summons',
+                    'player_elemental_streak','player_corpses','hero_damage_taken','player_spell_damage','player_character_attacks')):
+                raise ValueError('Presence does not combine with another intrinsic quantity formula')
         if self.rules and self.rules[0].condition == 'hand_other_class':
             if self.kind != CardType.SPELL or len(self.rules) != 1:
                 raise ValueError('Hand class price requires one independent physical Spell rule')
@@ -5089,6 +5510,11 @@ class IntrinsicCostStageFact:
         if any(f.player_id != self.player_id for f in self.condition_facts):
             raise ValueError('Intrinsic stage borrowed another payer history')
         for condition in self.condition_facts:
+            if type(condition) is DeckShuffleCostMatch:
+                if self.kind != CardType.MINION or len(self.rules) != 1 or (condition.turn,condition.action) != (self.boundary.turn,self.boundary.action):
+                    raise ValueError('Shuffle pricing changed its original physical Minion window')
+                continue
+            if type(condition) is CostPresenceMatch: continue
             if type(condition) is HandOtherClassMatch:
                 continue
             if type(condition) is PermanentManaMatch:
@@ -5172,6 +5598,8 @@ class GeneratedCostQuoteFact:
             raise ValueError('Generated intrinsic stage differs from its hypothetical subject')
         if self.intrinsic.hand_cards is not None and self.intrinsic.hand_cards.subject_id is not None:
             raise ValueError('Generated hand count cannot borrow a physical subject')
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is CostPresenceMatch and self.intrinsic.condition_facts[0].source_id is not None:
+            raise ValueError('Generated presence cannot borrow a physical subject')
         for name in ('local_amount', 'amount'): _int(getattr(self, name), 'generated fact '+name, 0)
         if type(self.local_payment) is not PaymentType or type(self.payment) is not PaymentType:
             raise ValueError('Generated fact requires typed payment accounts')
@@ -5202,6 +5630,7 @@ class CostQuoteInput:
     enchantments: tuple[Enchantment, ...]
     abilities: tuple[AbilityInstance, ...]
     minimum_cost: int = 0
+    hand_lifetime: HandLifetime | None = None
 
     def __post_init__(self):
         _int(self.source_id, 'cost quote source', 1)
@@ -5212,6 +5641,10 @@ class CostQuoteInput:
         _name(self.card_id, 'cost quote face')
         _int(self.base_cost, 'cost quote base', 0)
         _int(self.minimum_cost, 'cost quote minimum', 0)
+        if self.hand_lifetime is not None:
+            if type(self.hand_lifetime)is not HandLifetime:raise ValueError('Temporary price qualifier requires complete HandLifetime')
+            self.hand_lifetime.__post_init__()
+            if self.minimum_cost<self.hand_lifetime.minimum_cost:raise ValueError('Temporary price lost its original hand floor')
         for items, cls in ((self.enchantments, Enchantment), (self.abilities, AbilityInstance)):
             if type(items) is not tuple or any(type(item) is not cls for item in items):
                 raise ValueError('Cost quote subject requires immutable complete attachments')
@@ -5372,6 +5805,8 @@ class CostQuoteFact:
                 self.quote_input.player_id, self.quote_input.card_id, self.quote_input.kind, self.quote_input.base_cost):
             raise ValueError('Physical intrinsic stage differs from its captured subject')
         board = self.intrinsic.board_minions
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is CostPresenceMatch and self.intrinsic.condition_facts[0].source_id != self.quote_input.source_id:
+            raise ValueError('Physical presence price differs from its captured subject')
         if board is not None and self.quote_input.source_id >= board.next_entity_id:
             raise ValueError('Physical board price subject is newer than its captured allocator')
         if self.intrinsic.hand_cards is not None and self.intrinsic.hand_cards.subject_id != self.quote_input.source_id:
@@ -6044,6 +6479,19 @@ class PaidBodyTargetReceipt:
 
 
 @dataclass(frozen=True)
+class HandNeighborFact:
+    entity_id: int
+    player_id: int
+    card_id: str
+    zone_epoch: int
+
+    def __post_init__(self):
+        _int(self.entity_id,'original hand neighbor',1)
+        if type(self.player_id)is not int or self.player_id not in (1,2):raise ValueError('Hand neighbor requires its original controller')
+        _name(self.card_id,'original hand neighbor face');_int(self.zone_epoch,'original hand neighbor epoch',0)
+
+
+@dataclass(frozen=True)
 class PlayRecord:
     """Facts frozen before payment/movement; completion never changes provenance."""
     id: int
@@ -6092,8 +6540,18 @@ class PlayRecord:
     paid_hand_interrupt: PaidHandInterruption | None = None
     body_targets: PaidBodyTargetReceipt | None = None
     board_player_id: int | None = None
+    hand_neighbors: tuple[HandNeighborFact, ...] | None = None
 
     def __post_init__(self):
+        if self.hand_neighbors is not None:
+            if type(self.hand_neighbors)is not tuple or any(type(x)is not HandNeighborFact for x in self.hand_neighbors):
+                raise ValueError('Hand play requires immutable original physical neighbors')
+            if len(self.hand_neighbors)!=int(self.hand_index>0)+int(self.hand_index<self.hand_size-1):
+                raise ValueError('Hand play lost an original adjacent slot')
+            for x in self.hand_neighbors:
+                x.__post_init__()
+                if x.player_id!=self.player_id or x.entity_id==self.source_id:raise ValueError('Hand play borrowed foreign/self neighbors')
+            if len({x.entity_id for x in self.hand_neighbors})!=len(self.hand_neighbors):raise ValueError('Duplicate original hand neighbor')
         if self.board_player_id is not None and (
                 type(self.board_player_id) is not int or self.board_player_id not in (1, 2) or
                 self.kind != CardType.MINION):
@@ -6526,8 +6984,24 @@ class SpellCastRecord:
     recorded_event: int = 0
     target_selection: object | None = None
     spell_damage_effects: tuple[PlayerEffect, ...] = ()
+    local_spell_damage: tuple[AbilityInstance, ...] = ()
+    native_spell_value: AbilityInstance | None = None
 
     def __post_init__(self):
+        from .stored_spell_damage import validate_local_ability
+        if self.native_spell_value is not None:
+            if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind!='spell_base_value':
+                raise ValueError('Native cast value requires its complete original physical ability')
+            self.native_spell_value.__post_init__()
+            if not self.payload_started or self.failure is not None or self.native_spell_value.spell_base_value.card_id!=self.card_id:
+                raise ValueError('Native cast value differs from its accepted original face')
+        if type(self.local_spell_damage) is not tuple:
+            raise ValueError('Local cast Spell Damage requires immutable complete abilities')
+        if self.local_spell_damage and (not self.payload_started or self.failure is not None):
+            raise ValueError('Failed or unaccepted casts cannot claim local Spell Damage')
+        for ability in self.local_spell_damage:validate_local_ability(ability)
+        if any(a.id >= b.id for a,b in zip(self.local_spell_damage,self.local_spell_damage[1:])):
+            raise ValueError('Local cast Spell Damage requires original unique attachment order')
         if type(self.spell_damage_effects) is not tuple or any(type(e) is not PlayerEffect for e in self.spell_damage_effects):
             raise ValueError('Scoped cast Spell Damage requires complete immutable player effects')
         if self.spell_damage_effects and (not self.payload_started or self.failure is not None):
@@ -7059,8 +7533,16 @@ class PlayerEffectSpec:
     keyword_auras: tuple[PlayerKeywordAuraSpec, ...] = ()
     target_policy: str | None = None
     allowed_card_types: tuple[CardType, ...] = ()
+    next_turn_end: bool = False
 
     def __post_init__(self):
+        if type(self.next_turn_end) is not bool:
+            raise ValueError('Next owner-end player effect requires a boolean clock policy')
+        if self.next_turn_end and (self.kind != 'objective' or self.duration != 2 or self.tick_event != 'turn_ended'):
+            raise ValueError('Next owner-end policy requires its two-boundary objective declaration')
+        if self.kind=='next_kindred'and any((self.duration,self.tick_event,self.on_expire,self.triggers,self.spell_damage,self.auras,
+                self.deathrattle_repeats,self.end_turn_repeats,self.producer_quantities,self.keyword_auras,self.target_policy,self.allowed_card_types)):
+            raise ValueError('Next-Kindred instances are one independent native repeat source')
         if self.kind == 'next_spell_damage':
             _int(self.spell_damage, 'next-spell damage amount', 1)
             if any((self.triggers,self.auras,self.deathrattle_repeats,self.end_turn_repeats,
@@ -7094,9 +7576,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'turn_rule', 'next_spell_damage'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'turn_rule', 'next_spell_damage','next_kindred'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:
@@ -7140,6 +7622,8 @@ class PlayerEffect:
     created_turn: int
     entered_order: int
     remaining_turns: int | None = None
+    source_allocation: tuple[tuple[str, int | str | CardType | Zone], ...] | None = None
+    source_player_id: int | None = None
 
     def __post_init__(self):
         for name in ('id', 'source_id', 'created_turn', 'entered_order'):
@@ -7148,6 +7632,15 @@ class PlayerEffect:
         _name(self.source_card_id, 'original source card ID')
         if self.remaining_turns is not None:
             _int(self.remaining_turns, 'remaining owner turns', 1)
+        if self.source_allocation is not None:
+            from .allocation_facts import allocation_from_payload
+            fact=allocation_from_payload(self.source_allocation)
+            if (fact.entity_id,fact.card_id,fact.next_order)!=(self.source_id,self.source_card_id,self.entered_order):
+                raise ValueError('Player effect source capture changed its original identity or creation order')
+            if type(self.source_player_id)is not int or self.source_player_id not in (1,2):
+                raise ValueError('Captured player effect source requires its original beneficiary')
+        elif self.source_player_id is not None:
+            raise ValueError('Player effect source player requires its complete allocation capture')
 
 
 @dataclass(frozen=True)
@@ -8221,6 +8714,8 @@ class CardDefinition:
     keep_hero_class: bool = False
     additional_power_policy: str = 'preserve'
     dormant_turns: int | None = 0
+    dormant_board_full: bool = False
+    native_deathrattle: NativeDeathrattleSpec | None = None
     on_awaken: str | None = None
     dormant_triggers: tuple[TriggerSpec, ...] = ()
     activated_abilities: tuple[ActivatedAbilitySpec, ...] = ()
@@ -8277,12 +8772,19 @@ class CardDefinition:
     cleave: bool = False
     on_discard: str | None = None
     cost_payment: PaymentType = PaymentType.MANA
+    pay_health_if_hero_healed: bool = False
     # Permanent portals share dormancy gates but cannot be awakened.
     permanent_dormancy: bool = False
     # A physical hand/deck card may exist without permission to play it manually.
     manual_playable: bool = True
+    # A manual hand play may require current equipment without selecting it.
+    requires_weapon: bool = False
     hero_power_use_aura: HeroPowerUseAuraSpec | None = None
     on_destroyed: str | None = None
+    stored_deathrattle: bool = False
+    reborn_policy: str | None = None
+    hand_mirror: HandMirrorSpec | None = None
+    native_condition: NativeSourceCondition | None = None
 
     @property
     def hand_playable(self) -> bool:
@@ -8341,6 +8843,9 @@ class Entity:
     abilities: list[AbilityInstance] = field(default_factory=list)
     silenced: bool = False
     origin_entity_id: int | None = None
+    # Explicit replacement transformations invalidate original-deck credit.
+    # This physical-recipient provenance is not copied from another entity.
+    face_replaced: bool = False
     aura_health: int = 0
     frozen_until_owner_turn: int | None = None
     durability: int = 0
@@ -8807,7 +9312,7 @@ class DeathrattleCapture:
         if type(self.ability) is not AbilityInstance: raise ValueError('Expected captured Deathrattle ability')
         self.ability.__post_init__()
         if self.ability.kind!='deathrattle' or self.ability.consumed: raise ValueError('Expected active Deathrattle ability')
-        if self.origin not in ('death','effect'): raise ValueError('Unknown Deathrattle origin')
+        if self.origin not in ('death','effect','stored'): raise ValueError('Unknown Deathrattle origin')
         _optional_id(self.death_id,'Deathrattle death')
         _optional_id(self.trigger_source_id,'Deathrattle trigger source')
         if (self.origin=='death') != (self.death_id is not None): raise ValueError('Deathrattle death/origin disagree')
@@ -8815,7 +9320,7 @@ class DeathrattleCapture:
         if self.trigger_source_card_id is not None: _name(self.trigger_source_card_id,'Deathrattle trigger card')
         if self.origin=='death' and self.trigger_source_id is not None: raise ValueError('Natural Deathrattle has no effect trigger source')
         if self.origin=='death' and self.trigger_index!=1: raise ValueError('Natural Deathrattle has one trigger round')
-        if self.origin=='effect' and self.kind!=CardType.MINION: raise ValueError('Current effect trigger requires a minion')
+        if self.origin in ('effect','stored') and self.kind!=CardType.MINION: raise ValueError('Current effect trigger requires a minion')
 
 
 @dataclass(frozen=True)
@@ -8824,6 +9329,7 @@ class DeathrattleRecord:
     execution_order: int | None = None
     completed: bool = False
     interrupted: bool = False
+    source_attack: int | None = None
 
     @property
     def id(self): return self.capture.id
@@ -8832,6 +9338,9 @@ class DeathrattleRecord:
         if type(self.capture) is not DeathrattleCapture: raise ValueError('Expected Deathrattle capture')
         self.capture.__post_init__()
         _optional_id(self.execution_order,'Deathrattle execution order')
+        if self.execution_order is None:
+            if self.source_attack is not None:raise ValueError('Unstarted Deathrattle cannot claim an execution Attack')
+        else:_int(self.source_attack,'Deathrattle actual execution Attack',0)
         if type(self.completed) is not bool or type(self.interrupted) is not bool: raise ValueError('Invalid Deathrattle status')
         if self.completed and (self.execution_order is None or self.interrupted): raise ValueError('Invalid Deathrattle completion')
 
@@ -9153,6 +9662,7 @@ class GameState:
     play_history: list[PlayRecord] = field(default_factory=list)
     owner_turn_history: list[OwnerTurnRecord] = field(default_factory=list)
     cost_use_history: list[CostUseReceipt] = field(default_factory=list)
+    kindred_history: list[KindredRecord] = field(default_factory=list)
     cast_history: list[SpellCastRecord] = field(default_factory=list)
     hero_power_history: list[HeroPowerRecord] = field(default_factory=list)
     hero_power_payload_batches: list[HeroPowerPayloadBatch] = field(default_factory=list)
@@ -9167,6 +9677,7 @@ class GameState:
     spell_policy_receipts: list[SpellPolicyReceipt] = field(default_factory=list)
     draw_history: list[DrawRecord] = field(default_factory=list)
     hand_entries: list[HandEntryRecord] = field(default_factory=list)
+    deck_shuffle_history: list = field(default_factory=list)
     discard_history: list = field(default_factory=list)
     next_discard_id: int = 1
     magnetic_history: list[MagneticRecord] = field(default_factory=list)
@@ -9282,6 +9793,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_healing_history(state, registry)
     from .damage_history import validate_state as validate_damage_history
     validate_damage_history(state, registry)
+    from .deck_shuffles import validate_state as validate_shuffle_state
+    validate_shuffle_state(state, registry)
     from .discard_history import validate_state as validate_discard_state
     validate_discard_state(state, registry)
     from .successful_summons import validate_state as validate_successful_summons
@@ -9595,6 +10108,10 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                     (spec.duration is None) != (effect.remaining_turns is None) or
                     (spec.duration is not None and effect.remaining_turns > spec.duration)):
                 raise ValueError('Invalid player effect source, order or countdown')
+            if effect.source_allocation is not None:
+                from .allocation_facts import allocation_from_payload,validate_allocation
+                validate_allocation(state,registry,allocation_from_payload(effect.source_allocation))
+                if effect.source_player_id!=player.id:raise ValueError('Captured player effect changed its original beneficiary')
             if effect.id in current_attachment_ids:
                 raise ValueError('Duplicate player effect instance ID')
             if effect.entered_order in occupied_orders:
@@ -9745,6 +10262,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 entity.frozen and Keyword.CANT_BE_FROZEN in entity.keywords):
             raise ValueError("Freeze-protected character cannot retain a frozen deadline")
         _optional_id(entity.origin_entity_id, f"entity {entity_id} origin_entity_id")
+        _bool(entity.face_replaced, f"entity {entity_id} face_replaced")
         if entity.origin_entity_id is not None and entity.origin_entity_id not in state.entities:
             raise ValueError(f"entity {entity_id} refers to a missing origin entity")
         for name, cls in (("abilities", AbilityInstance), ("enchantments", Enchantment)):
@@ -9778,8 +10296,20 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_conditional_stat_aura_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .costs import validate_cost_aura_carrier
                 validate_cost_aura_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
+                from .corpse_gains import validate_carrier as validate_corpse_gain_carrier
+                validate_corpse_gain_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
+                from .turn_start_draws import validate_carrier as validate_turn_draw_carrier
+                validate_turn_draw_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
+                from .native_spell_values import validate_carrier as validate_native_spell_carrier
+                validate_native_spell_carrier(state,registry,entity.card_id,entity.kind,attachments)
                 from .health_rules import validate_school_spell_damage_carrier
                 validate_school_spell_damage_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
+                from .native_conditions import validate_carrier as validate_native_condition_carrier
+                validate_native_condition_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
+                from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier
+                validate_deathrattle_memory_carrier(state,registry,entity.card_id,entity.kind,attachments,entity.components)
+                from .dormancy import validate_board_full_carrier
+                validate_board_full_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .cleave import validate_carrier as validate_cleave_carrier
                 validate_cleave_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .health_floors import validate_carrier as validate_floor_carrier
@@ -9788,15 +10318,25 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_loss_floor_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
             for attachment in attachments:
                 validate_attachment(attachment)
+                if type(attachment) is Enchantment and attachment.hand_play_lock is not None:
+                    from .hand_play_locks import validate_clock
+                    validate_clock(state, attachment.hand_play_lock)
                 if type(attachment) is Enchantment and attachment.tribe_change is not None and entity.kind != CardType.MINION:
                     raise ValueError('Current tribe change requires a minion carrier')
                 if type(attachment) is Enchantment and attachment.control_return_player_id is not None:
                     if (entity.kind != CardType.MINION or entity.zone not in (Zone.BOARD, Zone.GRAVEYARD) or
-                            attachment.expires_turn > state.turn):
+                            attachment.expires_turn is not None and attachment.expires_turn > state.turn):
                         raise ValueError('Temporary control requires a resident or dead current-turn minion carrier')
+                    if attachment.control_return_expiry is not None:
+                        from .timed_keywords import validate_deadline
+                        validate_deadline(state, attachment.control_return_expiry)
                 if isinstance(attachment, AbilityInstance):
                     from .timed_keywords import validate_instance
                     validate_instance(state, entity, attachment)
+                    if attachment.health_rule_expiry is not None:
+                        from .timed_keywords import validate_deadline
+                        if entity.kind!=CardType.HERO:raise ValueError('Owner health deadline requires a hero carrier')
+                        validate_deadline(state,attachment.health_rule_expiry)
                 elif attachment.owner_turn_expiry is not None:
                     from .timed_keywords import validate_deadline
                     if entity.kind not in (CardType.MINION, CardType.HERO):
@@ -9836,6 +10376,13 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                     raise ValueError('Counter policy requires a minion carrier')
                 if isinstance(attachment, AbilityInstance) and attachment.reborn_policy is not None and entity.kind != CardType.MINION:
                     raise ValueError('Full-health Reborn requires a minion carrier')
+                if isinstance(attachment, AbilityInstance) and attachment.reborn_policy is not None and attachment.origin == 'printed':
+                    if (registry.card(entity.card_id).reborn_policy != attachment.reborn_policy or attachment.source_id != entity.id or
+                            sum(a.kind=='keyword'and a.keyword==Keyword.REBORN and a.origin=='printed'and a.reborn_policy is not None for a in entity.abilities)>1):
+                        raise ValueError('Native Reborn differs from its complete printed declaration')
+                if isinstance(attachment, AbilityInstance) and entity.kind == CardType.SPELL and attachment.kind == 'spell_damage':
+                    from .stored_spell_damage import validate_local_ability
+                    validate_local_ability(attachment)
                 if attachment.id in current_attachment_ids:
                     raise ValueError("current attachment IDs must be globally unique")
                 current_attachment_ids.add(attachment.id)
@@ -9848,6 +10395,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError('Finite trigger budget differs from the actual current turn')
         if len(progress) > 1 or progress and entity.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON):
             raise ValueError('Invalid hand progress carrier or duplicate instance')
+        from .hand_mirrors import validate_entity as validate_hand_mirror_entity
+        validate_hand_mirror_entity(state,registry,entity)
         defining = [a for a in entity.abilities if a.kind == 'defining_hand_source']
         if len(defining) > 1:
             raise ValueError('Duplicate native defining source on a physical card')
@@ -9918,8 +10467,20 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_conditional_stat_aura_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .costs import validate_cost_aura_carrier
         validate_cost_aura_carrier(registry, record.card_id, kind, record.abilities, record.components)
+        from .corpse_gains import validate_carrier as validate_corpse_gain_carrier
+        validate_corpse_gain_carrier(registry, record.card_id, kind, record.abilities, record.components)
+        from .turn_start_draws import validate_carrier as validate_turn_draw_carrier
+        validate_turn_draw_carrier(registry,record.card_id,kind,record.abilities,record.components)
+        from .native_spell_values import validate_carrier as validate_native_spell_carrier
+        validate_native_spell_carrier(state,registry,record.card_id,kind,record.abilities)
         from .health_rules import validate_school_spell_damage_carrier
         validate_school_spell_damage_carrier(registry, record.card_id, kind, record.abilities, record.components)
+        from .native_conditions import validate_carrier as validate_native_condition_carrier
+        validate_native_condition_carrier(registry,record.card_id,kind,record.abilities,record.components)
+        from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier
+        validate_deathrattle_memory_carrier(state,registry,record.card_id,kind,record.abilities,record.components)
+        from .dormancy import validate_board_full_carrier
+        validate_board_full_carrier(registry,record.card_id,kind,record.abilities)
         from .cleave import validate_carrier as validate_cleave_carrier
         validate_cleave_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .health_floors import validate_carrier as validate_floor_carrier, validate_result
@@ -9931,6 +10492,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_result(state, registry, result_from_payload(record.cause.result))
         for attachment in (*record.abilities, *record.enchantments):
             validate_attachment(attachment)
+            if type(attachment) is Enchantment and attachment.hand_play_lock is not None:
+                from .hand_play_locks import validate_clock
+                if attachment.hand_play_lock.deadline.created_turn > record.turn:
+                    raise ValueError('Frozen hand play lock was created after this death')
+                validate_clock(state, attachment.hand_play_lock)
             if type(attachment) is Enchantment and attachment.owner_turn_expiry is not None:
                 from .timed_keywords import validate_deadline
                 if kind not in (CardType.MINION, CardType.HERO) or attachment.owner_turn_expiry.created_turn > record.turn:
@@ -9938,10 +10504,17 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_deadline(state, attachment.owner_turn_expiry)
             if isinstance(attachment, AbilityInstance) and attachment.reborn_policy is not None and kind != CardType.MINION:
                 raise ValueError('Frozen full-health Reborn requires a minion carrier')
+            if isinstance(attachment, AbilityInstance) and attachment.reborn_policy is not None and attachment.origin == 'printed':
+                if (registry.card(record.card_id).reborn_policy != attachment.reborn_policy or attachment.source_id != record.entity_id or
+                        sum(a.kind=='keyword'and a.keyword==Keyword.REBORN and a.origin=='printed'and a.reborn_policy is not None for a in record.abilities)>1):
+                    raise ValueError('Frozen native Reborn differs from its printed declaration')
             if type(attachment) is Enchantment and attachment.tribe_change is not None and kind != CardType.MINION:
                 raise ValueError('Frozen tribe change requires a minion carrier')
             if type(attachment) is Enchantment and attachment.control_return_player_id is not None and kind != CardType.MINION:
                 raise ValueError('Frozen temporary control requires a minion carrier')
+            if type(attachment) is Enchantment and attachment.control_return_expiry is not None:
+                from .timed_keywords import validate_deadline
+                validate_deadline(state, attachment.control_return_expiry)
             if (isinstance(attachment, AbilityInstance) and attachment.kind == 'deathrattle_repeat' and
                     kind != CardType.MINION):
                 raise ValueError('Frozen Deathrattle repeat source requires a minion carrier')
@@ -10075,4 +10648,96 @@ def validate_combo_payloads(values):
             len({b.ability_id for b in values}) != len(values)):
         raise ValueError('Expected unique immutable Combo payloads')
     for value in values: value.__post_init__()
+
+
+@dataclass(frozen=True)
+class KindredProfile:
+    card_id: str
+    mode: str
+    wrapper: str | None = None
+    active: str | None = None
+    prepare: str | None = None
+    inactive: str | None = None
+
+    def __post_init__(self):
+        _name(self.card_id,'Kindred definition')
+        if self.mode not in('body','cost'):raise ValueError('Unknown native Kindred role')
+        for name in('wrapper','active','prepare','inactive'):
+            if getattr(self,name)is not None:_name(getattr(self,name),'Kindred '+name)
+        if self.mode=='cost'and any((self.wrapper,self.active,self.prepare,self.inactive)):
+            raise ValueError('Intrinsic Kindred price has no duplicated ordinary body')
+        if self.mode=='body'and(self.wrapper is None or not(self.active or self.prepare)):
+            raise ValueError('Native Kindred body requires a real entry and component')
+
+
+@dataclass(frozen=True)
+class KindredActivation:
+    card_id: str
+    original: object
+    condition: PreviousOwnerTurnMatch
+    sources: tuple[PlayerEffect, ...]
+    repetitions: int
+    record_id: int
+
+    def __post_init__(self):
+        from .registry import RuleContext
+        _int(self.record_id,'Kindred acceptance ID',1)
+        _name(self.card_id,'Kindred acceptance definition')
+        if type(self.original)is not RuleContext or self.original.kindred is not None:
+            raise ValueError('Kindred acceptance requires its independent original caller')
+        if type(self.condition)is not PreviousOwnerTurnMatch:raise ValueError('Kindred acceptance lost its complete original relation')
+        self.condition.__post_init__()
+        if type(self.sources)is not tuple or any(type(x)is not PlayerEffect for x in self.sources):
+            raise ValueError('Kindred acceptance requires complete immutable source instances')
+        for x in self.sources:x.__post_init__()
+        if any(a.id>=b.id for a,b in zip(self.sources,self.sources[1:])):raise ValueError('Kindred acceptance sources lost original order')
+        if type(self.repetitions)is not int or self.repetitions!=(2 if self.sources else 1):
+            raise ValueError('Kindred count differs from its original max2 source plan')
+
+
+@dataclass(frozen=True)
+class KindredRecord:
+    id:int
+    card_id:str
+    source:object
+    player_id:int
+    turn:int
+    action:int
+    event_cursor:int
+    boundary:OwnerTurnQueryBoundaryFact
+    condition:PreviousOwnerTurnMatch
+    sources:tuple[PlayerEffect,...]
+    repetitions:int
+    plan:tuple[str,...]
+    started:tuple[str,...]=()
+    stack:tuple[int,...]=()
+    finished:tuple[int,...]=()
+    completed:bool=False
+    interruption:tuple[int,int]|None=None
+
+    def __post_init__(self):
+        from .allocation_facts import SourceAllocationFact
+        for name in('id','player_id','turn'):_int(getattr(self,name),'Kindred record '+name,1)
+        for name in('action','event_cursor'):_int(getattr(self,name),'Kindred record '+name,0)
+        if self.player_id not in(1,2)or type(self.source)is not SourceAllocationFact:raise ValueError('Kindred record requires its original player/source')
+        self.source.__post_init__();_name(self.card_id,'Kindred record definition')
+        if type(self.boundary)is not OwnerTurnQueryBoundaryFact or type(self.condition)is not PreviousOwnerTurnMatch:
+            raise ValueError('Kindred record requires its original complete condition window')
+        self.boundary.__post_init__();self.condition.__post_init__()
+        if(self.boundary.turn,self.boundary.action,self.condition.player_id)!=(self.turn,self.action,self.player_id):
+            raise ValueError('Kindred record changed its original condition window')
+        if type(self.sources)is not tuple or any(type(x)is not PlayerEffect for x in self.sources):raise ValueError('Kindred record requires complete original sources')
+        for x in self.sources:x.__post_init__()
+        if any(a.id>=b.id for a,b in zip(self.sources,self.sources[1:]))or type(self.repetitions)is not int or self.repetitions!=(2 if self.sources else 1):raise ValueError('Kindred record changed its max source plan')
+        for rows in(self.plan,self.started):
+            if type(rows)is not tuple or any(x not in('active','prepare','inactive')for x in rows):raise ValueError('Kindred record has unknown component roles')
+        if len(self.plan)>3 or self.started!=self.plan[:len(self.started)]:raise ValueError('Kindred record changed the accepted ordered plan')
+        for rows in(self.stack,self.finished):
+            if type(rows)is not tuple or len(set(rows))!=len(rows)or any(type(x)is not int or not 0<=x<len(self.started)for x in rows):raise ValueError('Kindred record has invalid execution identities')
+        if set(self.stack)&set(self.finished)or set(self.stack)|set(self.finished)!=set(range(len(self.started))):raise ValueError('Kindred record lost an accepted execution identity')
+        _bool(self.completed,'Kindred completion')
+        if self.completed and(self.started!=self.plan or self.stack or len(self.finished)!=len(self.plan)):raise ValueError('Kindred record completed before its full plan')
+        if self.interruption is not None:
+            if type(self.interruption)is not tuple or len(self.interruption)!=2 or any(type(x)is not int or x<1 for x in self.interruption):raise ValueError('Kindred interruption requires its actual terminal event/action')
+            if self.completed or self.interruption[1]<self.action:raise ValueError('Kindred interruption contradicts its accepted root')
 

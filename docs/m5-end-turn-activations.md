@@ -1,5 +1,7 @@
 # M5-13d-02l-05c：主动与异阶段结束能力公共入口
 
+原随从残骸门禁在执行时重核实际来源、空位/复生/召唤对象，再沿原完整支付分支；原目标伤害与三个真实选项保持引用和信息边界，见[残骸触发与选择契约](m3-corpse-trigger-choices.md)。
+
 2026-10-03。本增量已通过内部验收。运行时 `prototype-v101` / `core-effects-v101`、snapshot schema98；`representative-m5-v61`、302条完整原始代表记录、303定义、14个choice-only保持，无新增真实卡。观察51、命令7、外层replay1保持。R-146是内部候选契约，依赖已有[R-143主体](m5-end-turns.md)和[R-144次数计划](m5-end-turn-repeats.md)，尚未国服校准。
 
 ## 调用、主体与来源分别建模

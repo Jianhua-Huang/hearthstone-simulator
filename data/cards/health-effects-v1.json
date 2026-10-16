@@ -1,0 +1,3121 @@
+{
+  "schema_version": 1,
+  "batch_id": "K02",
+  "source": {
+    "client_version": "36.6.3.253932",
+    "cards_sha256": "5949a71f7cb6108221b5175fafd1f19a7e166a9fbcace4b9a95978313aef27c9",
+    "dbf_sha256": "6ccf2105851c7fbc5357e3831c5665a1332329a72d456879a3d0c36f137ba35c",
+    "assembly_sha256": "3f67779510122dbce79ec431e4e7494643083160ec9e7592f6ecb899b2b69728"
+  },
+  "target_patch": "37.0",
+  "region": "CN",
+  "formal_pool_complete": false,
+  "latest_patch_data_verified": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_304",
+        "dbf_id": 122881,
+        "name": "受伤的侍者",
+        "name_en": "Injured Attendant",
+        "text": "<b><b>吸血。</b>战吼：</b>对本随从造成4点伤害。",
+        "text_en": "<b><b>Lifesteal</b>\nBattlecry:</b> Deal 4 damage to this minion.",
+        "cost": 3,
+        "attack": 3,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "COLLECTIBLE": 1,
+          "HEALTH": 8,
+          "ATK": 3,
+          "BATTLECRY": 1,
+          "CARDRACE": 11,
+          "LIFESTEAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "b7213950f7b23053ce3ad5c11575a3748358dc27da3e85be997a63f42face128",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "lifesteal"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "self",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CATA_304"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_AT_055",
+        "dbf_id": 69707,
+        "name": "快速治疗",
+        "name_en": "Flash Heal",
+        "text": "恢复#5点生命值。",
+        "text_en": "Restore #5 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "SPELL_SCHOOL": 5,
+          "858": 2582
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "98c9dd8f87c6e882631a6d9b7e67ef03c1d517f484db3b3759b5a75786cc9342",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 5,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "AT_055"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_310",
+        "dbf_id": 120787,
+        "name": "光沐元素",
+        "name_en": "Lightshower Elemental",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>为所有友方角色恢复#8点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Restore #8 Health\nto all friendly characters.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 3,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "ATK": 6,
+          "HEALTH": 6,
+          "CARDRACE": 18,
+          "1413": 62874,
+          "858": 62874,
+          "TAUNT": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "a599ef725b8dcf96c336e789772a2b2da418fff3fbc46e9a7c309129256d7fa1",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "heal",
+              "scope": "friendly_characters",
+              "amount": 8,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "BAR_310"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_235",
+        "dbf_id": 69505,
+        "name": "混乱新星",
+        "name_en": "Chaos Nova",
+        "text": "对所有随从造成$4点伤害。",
+        "text_en": "Deal $4 damage to all_minions.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7,
+          "858": 57847
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "d86b222b766115699b089d1ce5b8285c5aebd4e19860f96be3e89e041ea18b69",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "all_minions",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "BT_235"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_120",
+        "dbf_id": 76315,
+        "name": "亡灵药剂师",
+        "name_en": "Mistress of Mixtures",
+        "text": "<b>亡语：</b>为每个英雄恢复#4点生命值。",
+        "text_en": "<b>Deathrattle:</b> Restore #4 Health to each hero.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 2,
+          "COLLECTIBLE": 1,
+          "858": 41566,
+          "DEATHRATTLE": 1,
+          "CARDRACE": 11
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "6784c0affc7b0feaa07f9fbf1366a27788b598aa3609e5c2ffdc700852438911",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "heal",
+              "scope": "both_heroes",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CFM_120"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_604",
+        "dbf_id": 120459,
+        "name": "强效治疗药水",
+        "name_en": "Greater Healing Potion",
+        "text": "为一个友方角色恢复#12点生命值。抽一张牌。",
+        "text_en": "Restore #12 Health to a friendly character. Draw a card.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 6,
+          "COST": 4,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 5,
+          "1413": 40375,
+          "858": 40375,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "09ca2fd082433189ca0b5106db03f340b4504ec071541d5776dbe5e769d72567",
+      "recipe": {
+        "target": "friendly_character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 12,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "draw",
+              "scope": "own_hero",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CFM_604"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_751",
+        "dbf_id": 76283,
+        "name": "渊狱惩击者",
+        "name_en": "Abyssal Enforcer",
+        "text": "<b>战吼：</b>对所有其他角色造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage to all other characters.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 7,
+          "ATK": 6,
+          "HEALTH": 6,
+          "CARDRACE": 15,
+          "COLLECTIBLE": 1,
+          "858": 40541,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "37b62efe4d2deeaa45a69500f4c71cd3ac38e365b0c78cc5b29a23362b8706ff",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "other_characters",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CFM_751"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS1_130",
+        "dbf_id": 69509,
+        "name": "神圣惩击",
+        "name_en": "Holy Smite",
+        "text": "对一个随从造成$3点伤害。",
+        "text_en": "Deal $3 damage\nto a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 5,
+          "SPELL_SCHOOL": 5,
+          "858": 279
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "3c097e9f27169ea27666ace5e05f098b68c22fa90a0022ee9d0858b29412a1f0",
+      "recipe": {
+        "target": "minion",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS1_130"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_029",
+        "dbf_id": 69501,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 4,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 3,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "SPELL_SCHOOL": 2,
+          "858": 315
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "70933a0ff5823c1d765b19110a554e6a88e9bd0c35902bf86bc73b98c786ed34",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 6,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_029"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_032",
+        "dbf_id": 69502,
+        "name": "烈焰风暴",
+        "name_en": "Flamestrike",
+        "text": "对所有敌方随从造成$5点伤害。",
+        "text_en": "Deal $5 damage to all enemy minions.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 4,
+          "CARDTYPE": 5,
+          "COST": 7,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "SPELL_SCHOOL": 2,
+          "858": 1004
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "303d03aae7e10774bdcb97db1e8f95313aa8f2bdfdfd7030c0644470c2087b64",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "enemy_minions",
+              "amount": 5,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_032"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_042",
+        "dbf_id": 69516,
+        "name": "火元素",
+        "name_en": "Fire Elemental",
+        "text": "<b>战吼：</b>造成4点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 4 damage.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 6,
+          "ATK": 6,
+          "HEALTH": 5,
+          "CARDRACE": 18,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 3,
+          "858": 189,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "c7c2a7b7c5810951155d6202a2d9971183a171c1dc6d62f8e96533fecc06d2d7",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_042"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_062",
+        "dbf_id": 69519,
+        "name": "地狱烈焰",
+        "name_en": "Hellfire",
+        "text": "对所有角色造成$3点伤害。",
+        "text_en": "Deal $3 damage to ALL_characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 3,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "SPELL_SCHOOL": 2,
+          "858": 950
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "6b054b08d359a07f5bd93852e246f0341da116956a015ef6078091f9c8e256af",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "all_characters",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_062"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_064",
+        "dbf_id": 69520,
+        "name": "恐惧地狱火",
+        "name_en": "Dread Infernal",
+        "text": "<b>战吼：</b>对所有其他角色造成1点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to ALL other characters.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 6,
+          "ATK": 6,
+          "HEALTH": 6,
+          "CARDRACE": 15,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 3,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 1019,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "c252e4efc79c4c99a131ce7415c3a5bb8eff0cc1b94163d324f076480f6dd86a",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "other_characters",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_064"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_075",
+        "dbf_id": 69524,
+        "name": "影袭",
+        "name_en": "Sinister Strike",
+        "text": "对敌方英雄造成$3点伤害。",
+        "text_en": "Deal $3 damage to the_enemy hero.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 6,
+          "268": 2,
+          "858": 710
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "45775fdc5c64eb2a8fe47841d9a84a4c1dc63fee4c826f67d011f7076b3176c2",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "enemy_hero",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_075"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_088",
+        "dbf_id": 69528,
+        "name": "列王守卫",
+        "name_en": "Guardian of Kings",
+        "text": "<b>嘲讽</b>，<b>战吼：</b>为你的英雄恢复#6点生命值。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> Restore #6 Health to your hero.",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 7,
+          "ATK": 5,
+          "HEALTH": 7,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 5,
+          "858": 1068,
+          "BATTLECRY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "ec6a7fe5ae77c1ef84c7b8f81e38f19acd1e24b5dc50b8b8f11889251556d9fc",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "heal",
+              "scope": "own_hero",
+              "amount": 6,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_088"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_089",
+        "dbf_id": 69529,
+        "name": "圣光术",
+        "name_en": "Holy Light",
+        "text": "为你的英雄恢复#8点生命值。",
+        "text_en": "Restore #8 Health to your hero.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "SPELL_SCHOOL": 5,
+          "858": 291
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "6015f7f933b4e23f00cb6852f4cbfdb7dcc769f6b47450531af0c14ad4645d09",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "heal",
+              "scope": "own_hero",
+              "amount": 8,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_089"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_093",
+        "dbf_id": 69532,
+        "name": "奉献",
+        "name_en": "Consecration",
+        "text": "对所有敌人造成$2点伤害。",
+        "text_en": "Deal $2 damage to all enemies.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 3,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "SPELL_SCHOOL": 5,
+          "858": 476
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "220b6564eef8c9300f7e9651c3b37e9dc974ff5a291c24829a137195bdd14d9a",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "all_enemies",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_093"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_094",
+        "dbf_id": 102790,
+        "name": "愤怒之锤",
+        "name_en": "Hammer of Wrath",
+        "text": "造成$3点伤害。抽一张牌。",
+        "text_en": "Deal $3 damage.\nDraw a card.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 3,
+          "FACTION": 3,
+          "SPELL_SCHOOL": 5,
+          "858": 250,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "6bc6229eeff86d44df55057b80fee2600252420106d7483503c7ee4d491e8b92",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "draw",
+              "scope": "own_hero",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_094"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_117",
+        "dbf_id": 69647,
+        "name": "大地之环先知",
+        "name_en": "Earthen Ring Farseer",
+        "text": "<b>战吼：</b>\n恢复#3点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore #3_Health.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 3,
+          "HEALTH": 3,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 1651,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "424afba7a4df38bfbf7f87390eb6fc9071971f6026eddece4b46f51fa5a10064",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_117"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_181",
+        "dbf_id": 69648,
+        "name": "负伤剑圣",
+        "name_en": "Injured Blademaster",
+        "text": "<b>战吼：</b>对自身造成4点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 4 damage to HIMSELF.",
+        "cost": 3,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 4,
+          "HEALTH": 7,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 1,
+          "251": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 1109,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "e7ca7436f43f87b83f87350831e0224a5a56e7f85581c76e82dbe820d2a2f701",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "self",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_181"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_189",
+        "dbf_id": 69565,
+        "name": "精灵弓箭手",
+        "name_en": "Elven Archer",
+        "text": "<b>战吼：</b>造成1点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 1,
+          "251": 1,
+          "858": 389,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "5084a9e28aa8a50da6d5552c156ba8b94353e25ec0e1839eb9a868e9af816764",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_189"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DRG_226",
+        "dbf_id": 86544,
+        "name": "琥珀看守者",
+        "name_en": "Amber Watcher",
+        "text": "<b>战吼：</b>\n恢复#8点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore #8_Health.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 4,
+          "HEALTH": 6,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "858": 55048,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "ce80adddaf65255c75871cbf03386ebc83712e31d9fd614b2b05716181f9c8f6",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 8,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "DRG_226"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DS1_185",
+        "dbf_id": 69546,
+        "name": "奥术射击",
+        "name_en": "Arcane Shot",
+        "text": "造成$2点伤害。",
+        "text_en": "Deal $2 damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 8,
+          "SPELL_SCHOOL": 1,
+          "858": 877
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "b31503602ea9d48bed13fb0f5dadb94e3dc11d4367f777b703d1f7a2e2728283",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "DS1_185"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_011",
+        "dbf_id": 69547,
+        "name": "巫医",
+        "name_en": "Voodoo Doctor",
+        "text": "<b>战吼：</b>\n恢复#2点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore #2_Health.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 1,
+          "251": 6,
+          "858": 132,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "d43f9678a79990196dcb172945f6fe2fab290d8542e0a6d4c71968ca88776d78",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_011"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_129",
+        "dbf_id": 102745,
+        "name": "刀扇",
+        "name_en": "Fan of Knives",
+        "text": "对所有敌方随从造成$1点伤害，抽一张牌。",
+        "text_en": "Deal $1 damage to all enemy minions. Draw_a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "FACTION": 3,
+          "251": 1,
+          "858": 667,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "cd25c66645b2df7e596cdd50d42aaa458533999d340b4b339d118953ee1f8331",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "enemy_minions",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "draw",
+              "scope": "own_hero",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_129"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_278",
+        "dbf_id": 126895,
+        "name": "毒刃",
+        "name_en": "Shiv",
+        "text": "造成$1点伤害。抽一张牌。",
+        "text_en": "Deal $1 damage.\nDraw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 7,
+          "COST": 2,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "1413": 573,
+          "858": 573,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "c614cb748d5b29fcb72b7e7abcc6a1678b3767cdce87a2e3fe89b12fb9caaec4",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "draw",
+              "scope": "own_hero",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_278"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_279",
+        "dbf_id": 76272,
+        "name": "炎爆术",
+        "name_en": "Pyroblast",
+        "text": "造成$10点伤害。",
+        "text_en": "Deal $10 damage.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 4,
+          "CARDTYPE": 5,
+          "COST": 10,
+          "251": 3,
+          "FACTION": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "858": 1087
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "8eb8634a03de45118e61c3e5c9219a586185d005427d946039f6fa318b7a374e",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 10,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_279"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_319",
+        "dbf_id": 69636,
+        "name": "烈焰小鬼",
+        "name_en": "Flame Imp",
+        "text": "<b>战吼：</b>对你的英雄造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage to your hero.",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 3,
+          "HEALTH": 2,
+          "CARDRACE": 15,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 1090,
+          "IMP": 1,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "ffd72f243b04bfa5ccc0999ae267264945d8ca493ab966677aa1decefe058167",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "own_hero",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_319"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_400",
+        "dbf_id": 69556,
+        "name": "旋风斩",
+        "name_en": "Whirlwind",
+        "text": "对所有随从造成$1点伤害。",
+        "text_en": "Deal $1 damage to ALL_minions.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 636
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f703e4e510bcd2166d3fb5c4e5a88fb4c4444fb92470141cbbd0bb7e772b1f2a",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "all_minions",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EX1_400"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_622",
+        "dbf_id": 76320,
+        "name": "吸血蚊",
+        "name_en": "Lifedrinker",
+        "text": "<b>战吼：</b>对敌方英雄造成3点伤害。为你的英雄恢复#3点生命值。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 3 damage to\nthe enemy hero. Restore\n#3 Health to your hero.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 3,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "858": 47343,
+          "BATTLECRY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f6269465317f2ec6b0442c9bb2316417fe116ae89582a39cc18a1a4933884cef",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "enemy_hero",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "heal",
+              "scope": "own_hero",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "GIL_622"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_667",
+        "dbf_id": 102229,
+        "name": "腐烂的苹果树",
+        "name_en": "Rotten Applebaum",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>为你的英雄恢复#6点生命值。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b> Restore #6 Health to your hero.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 4,
+          "HEALTH": 6,
+          "CARDRACE": 11,
+          "858": 47557,
+          "DEATHRATTLE": 1,
+          "TAUNT": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "804507108d484a9ade37c255b64100350ebb605f631104d8d339ae142cb48619",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "heal",
+              "scope": "own_hero",
+              "amount": 6,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "GIL_667"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GVG_076",
+        "dbf_id": 69717,
+        "name": "自爆绵羊",
+        "name_en": "Explosive Sheep",
+        "text": "<b>亡语：</b>对所有随从造成2点伤害。",
+        "text_en": "<b>Deathrattle:</b> Deal 2 damage to all minions.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 17,
+          "COLLECTIBLE": 1,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 2044,
+          "2542": 1,
+          "DEATHRATTLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "545f5ac380d8f5e92392acfb4c7e54bf0e010e15e4fdfb09e9d10643d0cafb29",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "all_minions",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "GVG_076"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_021",
+        "dbf_id": 95700,
+        "name": "自爆肿胀蝠",
+        "name_en": "Exploding Bloatbat",
+        "text": "<b>亡语：</b>对所有敌方随从造成2点伤害。",
+        "text_en": "<b>Deathrattle:</b>\nDeal 2 damage to all enemy minions.",
+        "cost": 4,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CARDRACE": 20,
+          "858": 42320,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "390c90a72d970facc9c5ccedc3de21962ab9018de4c1d3fcd3c36a6c20f5a568",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "enemy_minions",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "ICC_021"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_099",
+        "dbf_id": 95767,
+        "name": "自爆憎恶",
+        "name_en": "Ticking Abomination",
+        "text": "<b>亡语：</b>对你所有的随从造成5点伤害。",
+        "text_en": "<b>Deathrattle:</b> Deal 5 damage to your minions.",
+        "cost": 4,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 5,
+          "HEALTH": 6,
+          "858": 42782,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 11,
+          "DEATHRATTLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "c12d6d0c839a3d883bd2acdc2ff82e25d86430c8dae6caab01cc77dcfab63c0c",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "friendly_minions",
+              "amount": 5,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "ICC_099"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_013",
+        "dbf_id": 117060,
+        "name": "粗俗的矮劣魔",
+        "name_en": "Vulgar Homunculus",
+        "text": "<b>嘲讽，战吼：</b>对你的英雄造成2点伤害。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> Deal 2 damage to your hero.",
+        "cost": 2,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 9,
+          "COST": 2,
+          "HEALTH": 4,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "TECH_LEVEL": 1,
+          "IMP": 1,
+          "1413": 43121,
+          "858": 43121,
+          "BATTLECRY": 1,
+          "TAUNT": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "42c627e364d1f3190c622786777404a59f52886a92e4b711284b782b863f1ddf",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "own_hero",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "LOOT_013"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ONY_024",
+        "dbf_id": 108359,
+        "name": "奥妮克希亚幼龙",
+        "name_en": "Onyxian Drake",
+        "text": "<b>嘲讽</b>，<b>战吼：</b>对一个敌方随从造成等同于你的护甲值的伤害。",
+        "text_en": "[x]<b>Taunt</b>\n <b>Battlecry:</b> Deal damage\nequal to your Armor to\nan enemy minion.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 4,
+          "HEALTH": 5,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "858": 71250,
+          "BATTLECRY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "7dba83329da55fc819cb6d5f5488f2af86cfafe5e33f27bd6731ed864cc963a2",
+      "recipe": {
+        "target": "enemy_minion",
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 0,
+              "basis": "hero_armor",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "ONY_024"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TRL_307",
+        "dbf_id": 76306,
+        "name": "圣光闪现",
+        "name_en": "Flash of Light",
+        "text": "恢复#4点生命值。抽一张牌。",
+        "text_en": "Restore #4 Health.\nDraw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "858": 50028
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "15505dfa500d57b452b71ff534424aa8a43da6fb3a0dbf3b44c0c5d7d704a932",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 4,
+              "basis": "constant",
+              "opponent_amount": null
+            },
+            {
+              "operation": "draw",
+              "scope": "own_hero",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "TRL_307"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ULD_271",
+        "dbf_id": 86552,
+        "name": "受伤的托维尔人",
+        "name_en": "Injured Tol'vir",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>对本随从造成3点伤害。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> Deal 3 damage to this minion.",
+        "cost": 2,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 6,
+          "COLLECTIBLE": 1,
+          "858": 53970,
+          "BATTLECRY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "438ba00f72da082de68398bbf56ed37982aa28c33c2c1dac0f30e266a3a9391d",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "self",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "ULD_271"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_084",
+        "dbf_id": 120523,
+        "name": "火羽凤凰",
+        "name_en": "Fire Plume Phoenix",
+        "text": "<b>战吼：</b>造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage.",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COST": 4,
+          "HEALTH": 4,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 18,
+          "2542": 1,
+          "1413": 41260,
+          "858": 41260,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "a1da2491043b2733ad6c76f98dbbe53d9df5ddbb929a554045b34b95f4a15d3f",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "UNG_084"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_848",
+        "dbf_id": 76327,
+        "name": "始生幼龙",
+        "name_en": "Primordial Drake",
+        "text": "<b>嘲讽，战吼：</b>\n对所有其他随从造成2点伤害。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Deal 2 damage\nto all other minions.",
+        "cost": 8,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 4,
+          "HEALTH": 8,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "858": 41929,
+          "BATTLECRY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "2aadca0859455caf603a11b415f5af42ba7826f2807bdeb4456783133a9f1506",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "other_minions",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "UNG_848"
+      }
+    },
+    {
+      "record": {
+        "id": "Core_CS2_008",
+        "dbf_id": 112918,
+        "name": "月火术",
+        "name_en": "Moonfire",
+        "text": "造成$1点伤害。",
+        "text_en": "Deal $1 damage.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "RARITY": 2,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 2,
+          "SPELL_SCHOOL": 1,
+          "COLLECTIBLE": 1,
+          "858": 467
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "b9fec47ccb26ed1f3e866f6000492526ddbf01d8b58a62a324edb323a2501d62",
+      "recipe": {
+        "target": "character",
+        "keywords": [],
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 1,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "CS2_008"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_459",
+        "dbf_id": 114243,
+        "name": "受难的毁灭者",
+        "name_en": "Afflicted Devastator",
+        "text": "<b>战吼：</b>对所有其他友方随从造成3点伤害。<b>亡语：</b>对所有敌方随从造成3点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 3 damage\nto all other friendly minions.\n<b>Deathrattle:</b> Deal 3 damage\nto all enemy minions.",
+        "cost": 4,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 6,
+          "HEALTH": 6,
+          "CARDRACE": 24,
+          "BATTLECRY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "7f6ea91cac189cb6950e36aec8ffd36ae6fdbf337f6f321d206a489161ccec98",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "other_friendly_minions",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ],
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "enemy_minions",
+              "amount": 3,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "EDR_459"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_778",
+        "dbf_id": 117294,
+        "name": "毁灭化身",
+        "name_en": "Avatar of Destruction",
+        "text": "<b>嘲讽</b>\n<b>亡语：</b>对所有敌方随从造成9点伤害。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Deal 9 damage\nto all enemy minions.",
+        "cost": 9,
+        "attack": 9,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "COST": 9,
+          "ATK": 9,
+          "HEALTH": 9,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 18,
+          "MINI_SET": 1,
+          "DEATHRATTLE": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000353,
+          "craftingEvent": 10000353,
+          "goldenCraftingEvent": 10000353,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000354,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "b8c7484f90d4c7c79d759208101acf392eb9eb4eaa959eed07df2bb7c3d615a0",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "enemy_minions",
+              "amount": 9,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "FIR_778"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_958",
+        "dbf_id": 115759,
+        "name": "丁达尔·迅贤",
+        "name_en": "Tindral Sageswift",
+        "text": "<b>亡语：</b>对所有敌人造成1点伤害。如果此时是你对手的回合，改为造成4点。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal 1 damage\nto all enemies. If it's your\nopponent's turn, deal\n4 damage instead.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 5,
+          "CLASS": 12,
+          "ELITE": 1,
+          "COST": 4,
+          "HEALTH": 3,
+          "ATK": 4,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "DEATHRATTLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000353,
+          "craftingEvent": 10000353,
+          "goldenCraftingEvent": 10000353,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000354,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "162aa9c90187af516176c70242c14ee58a6321f34d23964cc02df03d7f029606",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "all_enemies",
+              "amount": 1,
+              "basis": "opponent_turn",
+              "opponent_amount": 4
+            }
+          ]
+        },
+        "deck_identity": "FIR_958"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_007",
+        "dbf_id": 123995,
+        "name": "下水道小鬼",
+        "name_en": "Sewer Imp",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>对所有敌人造成2点伤害。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Deal 2\n_damage to all enemies.",
+        "cost": 6,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "ATK": 4,
+          "HEALTH": 6,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 15,
+          "DEATHRATTLE": 1,
+          "TAUNT": 1,
+          "IMP": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "764e5dc0027ea0a284cfe027c69629e8fe2367afc45988811219c55569ac4a35",
+      "recipe": {
+        "target": null,
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "damage",
+              "scope": "all_enemies",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "JAIL_007"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_427",
+        "dbf_id": 120450,
+        "name": "净化的光耀之子",
+        "name_en": "Cleansing Lightspawn",
+        "text": "<b>吸血</b>。<b>战吼：</b>对一个敌方随从造成等同于本随从生命值的伤害。",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Battlecry:</b> Deal damage\nto an enemy minion equal\n___to this minion's Health.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "COST": 4,
+          "ATK": 2,
+          "HEALTH": 3,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "CARDRACE": 18,
+          "LIFESTEAL": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "af0ab62aadd85224dace8d5dea7a72947aa7f9ba30171cd18e3c522903b16cf7",
+      "recipe": {
+        "target": "enemy_minion",
+        "keywords": [
+          "lifesteal"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "damage",
+              "scope": "target",
+              "amount": 0,
+              "basis": "source_health",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "TIME_427"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_431",
+        "dbf_id": 120475,
+        "name": "琥珀女祭司",
+        "name_en": "Amber Priestess",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>为一个角色恢复等同于本随从生命值的生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Restore Health\nto a character equal to\nthis minion's Health.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 6,
+          "COST": 2,
+          "HEALTH": 4,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "BATTLECRY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "45a20fc25385ab957de8e57924ae5d656faf38741d4e32201d3018d1814cc2dd",
+      "recipe": {
+        "target": "character",
+        "keywords": [
+          "taunt"
+        ],
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "heal",
+              "scope": "target",
+              "amount": 0,
+              "basis": "source_health",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "TIME_431"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_249",
+        "dbf_id": 118222,
+        "name": "炽烈烬火",
+        "name_en": "Sizzling Cinder",
+        "text": "<b>亡语：</b>造成2点伤害，随机分配到所有敌人身上。",
+        "text_en": "<b>Deathrattle:</b> Deal 2 damage randomly split among all enemies.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CARDRACE": 18,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RARITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "bec7c8ef95b9002de9c5a99ed0e7f53510b8ffc789bb2386effd673695211c71",
+      "recipe": {
+        "target": null,
+        "keywords": [],
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "split_damage",
+              "scope": "all_enemies",
+              "amount": 2,
+              "basis": "constant",
+              "opponent_amount": null
+            }
+          ]
+        },
+        "deck_identity": "TLC_249"
+      }
+    }
+  ],
+  "limitations": [
+    "Finite reviewed recipes over local 36.6.3; formal 37.0 card data/legality remains a separate gap.",
+    "Core IDs include retired variants; CARD_SET_TIMING supplies conditions for later legality resolution.",
+    "Other damage/healing roots remain explicitly unimplemented, including unresolved generation/conditional shapes."
+  ]
+}

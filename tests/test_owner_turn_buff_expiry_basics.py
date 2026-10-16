@@ -40,11 +40,10 @@ def registry():
     raw=evidence()['records'][0]['data']
     def slither(c):
         if c.event.player_id!=c.player_id:return ()
-        if c.event.kind=='card_played' and (c.play is None or c.play.kind!=CardType.SPELL):return ()
         return (Buff(c.source_id,1,source_id=c.source_id,until_owner_turn_start=c.player_id),)
     r.register_behavior('slither',slither)
     r.register_card(CardDefinition(CARD,raw['name'],CardType.MINION,cost=raw['cost'],attack=raw['attack'],
-        health=raw['health'],triggers=tuple(TriggerSpec(event,'slither') for event in ('card_played','spell_cast_finished')),
+        health=raw['health'],triggers=(TriggerSpec('spell_cast_finished','slither'),),
         metadata=metadata_from_record(raw)))
     def actor(c):return c.state.players[c.player_id].board[0]
     def until(c,target,attack=0,health=0,player=None):

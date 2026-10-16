@@ -9,7 +9,8 @@ from dataclasses import dataclass,fields,is_dataclass,replace
 
 from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
 from .effects import _integer
-from .model import AbilityInstance,CardType,Enchantment,Entity,HandLifetime,SummonStats,Zone,ChooseBranchSelection,validate_summon_stats
+from .card_creation import CreatedMinionGrant,validate_minion_grant
+from .model import AbilityInstance,CardType,Enchantment,Entity,HandLifetime,HandPreparation,SummonStats,Zone,ChooseBranchSelection,validate_summon_stats
 
 
 @dataclass(frozen=True)
@@ -51,6 +52,91 @@ class CopyLocalState:
 
 
 @dataclass(frozen=True)
+class CapturedCardCopyMaterial:
+    """Original stored-card material; no live reference is reread after a wait."""
+    origin:SourceAllocationFact
+    local:CopyLocalState
+    components:tuple[str,...]
+    durability:int
+    galakrond_invocations:int|None
+    preparation:HandPreparation|None
+    jade_size:int|None
+    turn:int
+    action:int
+    next_attachment_id:int
+
+    def __post_init__(self):
+        if type(self.origin)is not SourceAllocationFact or type(self.local)is not CopyLocalState:
+            raise ValueError('Captured card copy requires typed original material')
+        self.origin.__post_init__();self.local.__post_init__()
+        if self.origin.zone not in(Zone.HAND,Zone.DECK,Zone.GRAVEYARD)or self.origin.kind not in(
+                CardType.MINION,CardType.SPELL,CardType.WEAPON,CardType.LOCATION,CardType.HERO):
+            raise ValueError('Captured card copy requires an original stored or spent card')
+        if type(self.components)is not tuple or any(type(cid)is not str or not cid for cid in self.components):
+            raise ValueError('Captured copy requires ordered component identities')
+        for name,floor in(('durability',0),('turn',1),('action',0),('next_attachment_id',1)):
+            _integer(getattr(self,name),'captured copy '+name,floor)
+        for name in('galakrond_invocations','jade_size'):
+            if getattr(self,name)is not None:_integer(getattr(self,name),'captured copy '+name,0)
+        if self.preparation is not None:
+            if type(self.preparation)is not HandPreparation:raise ValueError('Captured copy preparation must be typed')
+            self.preparation.__post_init__()
+            if self.preparation.cost_id not in{e.id for e in self.local.enchantments}:
+                raise ValueError('Captured preparation lost its original cost attachment')
+        for row in(*self.local.enchantments,*self.local.abilities):
+            if row.id>=self.next_attachment_id or row.source_id is not None and row.source_id>=self.origin.next_entity_id:
+                raise ValueError('Captured copy has a future attachment or source')
+
+    @classmethod
+    def capture(cls,state,entity):
+        return cls(SourceAllocationFact.capture(state,entity),CopyLocalState.capture(entity),entity.components,
+            entity.durability,entity.galakrond_invocations,entity.preparation,entity.jade_size,
+            state.turn,state.action_number,state.next_attachment_id)
+
+    def entity(self):
+        value=self.local;origin=self.origin
+        return Entity(origin.entity_id,origin.card_id,origin.owner,origin.controller,origin.zone,
+            kind=origin.kind,zone_epoch=origin.zone_epoch,entered_order=origin.entered_order,
+            base_attack=value.base_attack,base_health=value.base_health,base_cost=value.base_cost,
+            damage=value.damage,corpse_value=value.corpse_value,herald_rank=value.herald_rank,
+            silenced=value.silenced,hand_lifetime=value.hand_lifetime,choose_branch=value.choose_branch,
+            enchantments=list(value.enchantments),abilities=list(value.abilities),components=self.components,
+            durability=self.durability,galakrond_invocations=self.galakrond_invocations,
+            preparation=self.preparation,jade_size=self.jade_size)
+
+
+def validate_captured_card_copy(state,registry,material):
+    if type(material)is not CapturedCardCopyMaterial:raise ValueError('Expected captured card copy material')
+    material.__post_init__();validate_allocation(state,registry,material.origin)
+    if material.turn>state.turn or material.action>state.action_number or material.next_attachment_id>state.next_attachment_id:
+        raise ValueError('Captured copy has future acceptance bounds')
+    for cid in material.components:registry.card(cid)
+    if any(a.deathrattle_memory is not None for a in material.local.abilities):
+        from .deathrattle_memory import validate_carrier
+        validate_carrier(state,registry,material.origin.card_id,material.origin.kind,material.local.abilities,material.components)
+    if material.local.choose_branch is not None:
+        from .choose_branch_state import validate_selection
+        validate_selection(registry,material.local.choose_branch,card_id=material.origin.card_id)
+    from .cthun import validate_stamp
+    def references(value):
+        if is_dataclass(value):
+            for field in fields(value):
+                child=getattr(value,field.name)
+                if type(child)is str:
+                    if field.name=='behavior_id':registry.behavior(child)
+                    elif field.name=='card_id'or field.name.endswith('_card_id'):registry.card(child)
+                elif is_dataclass(child)or type(child)in(tuple,list):references(child)
+        elif type(value)in(tuple,list):
+            for child in value:references(child)
+    for row in(*material.local.enchantments,*material.local.abilities):
+        validate_stamp(state,registry,row)
+        if type(row)is Enchantment and row.hand_play_lock is not None:
+            from .hand_play_locks import validate_clock
+            validate_clock(state,row.hand_play_lock)
+    references(material.local.abilities)
+
+
+@dataclass(frozen=True)
 class CopyEntryMaterial:
     card_id:str
     origin:SourceAllocationFact
@@ -65,8 +151,22 @@ class CopyEntryMaterial:
     jade_size:int|None=None
     discard:object|None=None
     dormant_entry:bool=False
+    on_summon:str|None=None
+    minion_grant:CreatedMinionGrant|None=None
+    grant_source_id:int|None=None
 
     def __post_init__(self):
+        validate_minion_grant(self.minion_grant)
+        if self.minion_grant is None:
+            if self.grant_source_id is not None:raise ValueError('Copy grant source requires an actual entry grant')
+        else:
+            _integer(self.grant_source_id,'copy entry grant source',1)
+            if self.profile!='stored_copy' or self.grant_source_id>=self.origin.next_entity_id:
+                raise ValueError('Copy entry grant requires its accepted stored copy and original source')
+        if self.on_summon is not None:
+            from .effects import _behavior
+            _behavior(self.on_summon)
+            if self.profile != 'board_copy': raise ValueError('Copy followup requires original board-copy material')
         if type(self.dormant_entry) is not bool:
             raise ValueError('Copied dormancy entry requires bool')
         if self.dormant_entry and (self.profile != 'board_copy' or self.mode != 'current'):
@@ -106,7 +206,7 @@ class CopyEntryMaterial:
             if self.profile not in ('stored_copy','discard_copy')or self.mode!='current'or self.local.herald_rank is not None:raise ValueError('Deferred entry strength requires an uninitialized stored current copy')
 
     @classmethod
-    def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None):
+    def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None,on_summon=None,minion_grant=None,grant_source_id=None):
         if source.components:raise ValueError('Composite copy material is unsupported by this ordinary profile')
         if profile=='discard_copy':
             from .discard_history import validate_material as validate_discard
@@ -123,6 +223,8 @@ class CopyEntryMaterial:
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
             state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
             source.dormancy is not None and profile == 'board_copy' and mode == 'current')
+        if on_summon is not None:result=replace(result,on_summon=on_summon)
+        if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
         if profile=='discard_copy':validate_scope(state,registry,result,hand_copy=True)
         return result
 
@@ -130,6 +232,7 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__();validate_plain_material(registry,SummonEntryMaterial(material.card_id))
+    if material.on_summon is not None:registry.behavior(material.on_summon)
     if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
         raise ValueError('Dormant copy requires its printed entry dormancy')
     if material.profile=='discard_copy'and not hand_copy:
@@ -172,6 +275,9 @@ def validate_material(registry,material,*,hand_copy=False):
 def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
     validate_material(registry,material,hand_copy=hand_copy);validate_allocation(state,registry,material.origin,closed=closed)
     if material.local is not None:
+        if any(a.deathrattle_memory is not None for a in material.local.abilities):
+            from .deathrattle_memory import validate_carrier
+            validate_carrier(state,registry,material.card_id,material.origin.kind,material.local.abilities)
         from .cthun import validate_stamp
         for attachment in (*material.local.enchantments, *material.local.abilities):
             validate_stamp(state, registry, attachment)
@@ -182,8 +288,13 @@ def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
 def validate_effect_scope(state,registry,effect):
     from .summon_quantities import validate_cause
     validate_cause(state,registry,effect.cause)
+    if getattr(effect,'on_summon',None) is not None:registry.behavior(effect.on_summon)
     if hasattr(effect,'target_id'):
-        if effect.target_id>=state.next_entity_id:raise ValueError('Queued attributed copy has a future physical target')
+        from .model import BoardPresenceReference
+        target=effect.target_id
+        if type(target)is BoardPresenceReference:
+            effect.validate_in_state(state);target=target.entity_id
+        if target>=state.next_entity_id:raise ValueError('Queued attributed copy has a future physical target')
     else:
         effect.card.__post_init__();registry.card(effect.card.card_id)
         if effect.card.entity_id>=state.next_entity_id:raise ValueError('Queued stored copy has a future physical reference')
@@ -192,7 +303,9 @@ def validate_effect_scope(state,registry,effect):
 def accept_copy(r,effect,source,profile):
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect_scope(r.state,r.registry,effect)
-    material=CopyEntryMaterial.capture(r.state,source,profile,effect.mode,getattr(effect,'stats',None),registry=r.registry,player_id=effect.player_id)
+    grant=getattr(effect,'minion_grant',None)
+    material=CopyEntryMaterial.capture(r.state,source,profile,effect.mode,getattr(effect,'stats',None),registry=r.registry,player_id=effect.player_id,on_summon=getattr(effect,'on_summon',None),
+        minion_grant=grant,grant_source_id=effect.cause.source.entity_id if grant is not None else None)
     request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position)
     accept(r,request);root=r.state.card_summon_history[-1]
     # First actual body remains inside the original Copy effect checkpoint.
@@ -219,6 +332,10 @@ def apply(r,material,entity):
             initialize_instance(r.state,entity,r.registry.card(material.card_id),count=material.entry_herald_count)
     from .lifecycle import apply_summon_stats
     apply_summon_stats(r.state,entity,material.stats)
+    if material.minion_grant is not None:
+        from types import SimpleNamespace
+        from .card_creation import install
+        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.minion_grant,source_id=material.grant_source_id))
     r.refresh_auras()
     if material.mode=='current'and material.profile=='board_copy'and material.local.frozen:
         from .combat import can_be_frozen,freeze_deadline
@@ -245,6 +362,10 @@ def from_dict(cls,value):
         row['origin']=allocation_from_dict(row['origin'])
         row['local']=None if row['local']is None else from_dict(CopyLocalState,row['local'])
         row['stats']=None if row['stats']is None else SummonStats(**_row(row['stats'],SummonStats))
+        if row['minion_grant'] is not None:
+            from .model import Keyword
+            grant=dict(_row(row['minion_grant'],CreatedMinionGrant));grant['keywords']=tuple(Keyword(k)for k in grant['keywords'])
+            row['minion_grant']=CreatedMinionGrant(**grant)
         if row['discard'] is not None:
             from .discard_history import DiscardRecord
             row['discard']=dict(_row(row['discard'],DiscardRecord))

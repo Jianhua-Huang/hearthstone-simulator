@@ -1,5 +1,7 @@
 # M3 玩家观察与事件时点的信息记录
 
+原生亡语召唤成长在player-view-v86为可见实体提供deathrattle_summons，仅含token card_id/attack/health；抽牌链接与来源/获取ID不投影给玩家。私有记忆、通知窗口及严格保存见[契约](m3-native-deathrattle-memory.md)，原批次说明和历史版本记录仍保留。
+
 本页原批次运行时 `prototype-v75` / `core-effects-v75`，snapshot schema 74；玩家 DTO 为 `player-view-v44`。本页描述 M3-03a-01 观察与过滤日志契约，M3-03a-02 [受限玩家操作](m3-player-api.md) 已接入。静态实验池、区域选择与交易/锻造已接入，星舰发射与地标主动使用也已接入；完整正式池及具体来源边界继续维护，其他可选组合按真实卡需要处理。总进度见 [项目状态](project-status.md)。
 
 ## 1. 使用入口与信任边界

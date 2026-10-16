@@ -1,4 +1,5 @@
 """A real Reborn gift recipe and focused lifecycle diagnostics, not its full pool."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -163,7 +164,7 @@ class FullHealthRebornTests(unittest.TestCase):
         self.assertNotIn('EDR_100t9', registry().cards)
         g = self.game()
         self.assertEqual((g.ruleset.id, g.mechanics.version, g.snapshot()['schema_version']),
-                         ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+                         ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
 
     def test_board_gift_returns_full_health_frozen_buff_and_new_identities(self):
         g = self.game(('fr.gift', 'fr.buff', 'fr.ping', 'fr.kill', 'fr.kill'))
@@ -363,7 +364,7 @@ class FullHealthRebornTests(unittest.TestCase):
         bad = deepcopy(g.snapshot()); del bad['state']['entities'][str(self.body(g).id)]['abilities'][0]['reborn_policy']
         with self.assertRaises(SnapshotError): Game.from_snapshot(self.rehash(bad), registry())
         bad = g.snapshot(); bad['schema_version'] = 225
-        with self.assertRaisesRegex(SnapshotError, '1 through 265'): Game.from_snapshot(bad, registry())
+        with self.assertRaisesRegex(SnapshotError, f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'): Game.from_snapshot(bad, registry())
 
     def test_current_and_frozen_nonminion_carriers_rejected(self):
         g = self.game(('fr.gift', 'fr.kill')); old = self.body(g).id; self.play(g, 'fr.gift', old)

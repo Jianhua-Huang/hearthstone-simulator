@@ -1,4 +1,5 @@
 """R-099 provisional maximum-health operations through transactional actions."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -381,7 +382,7 @@ class SnakeRepresentativeTests(unittest.TestCase):
         from examples.excavate_health_transfer import run
         g,snapshot=run();self.assertEqual((g.state.status,g.state.winner),('finished',1))
         self.assertEqual(self.hero(g,2).armor,99)
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

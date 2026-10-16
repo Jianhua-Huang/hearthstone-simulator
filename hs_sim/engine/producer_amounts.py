@@ -223,11 +223,12 @@ def from_dict(value):
     row['profile'] = SummonProducerProfile(**profile)
     row['cause'] = cause_from_dict(SummonCause, row['cause'])
     row['source_kind'] = CardType(row['source_kind'])
-    row['inventory'] = tuple(PlayerEffect(**_row(e, PlayerEffect)) for e in _list(row['inventory'], 'producer inventory'))
+    from .serialization import player_effect_from_dict
+    row['inventory'] = tuple(player_effect_from_dict(e) for e in _list(row['inventory'], 'producer inventory'))
     rows = []
     for data in _list(row['decisions'], 'producer decisions'):
         decision = _row(data, ProducerAmountDecision)
-        decision['instance'] = PlayerEffect(**_row(decision['instance'], PlayerEffect))
+        decision['instance'] = player_effect_from_dict(decision['instance'])
         decision['declaration'] = ProducerQuantitySpec(**_row(decision['declaration'], ProducerQuantitySpec))
         rows.append(ProducerAmountDecision(**decision))
     row['decisions'] = tuple(rows)

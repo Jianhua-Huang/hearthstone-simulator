@@ -1,4 +1,5 @@
 """Independent turn slots and the clocks directly affected by real turn starts."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -469,9 +470,9 @@ class TurnSchedulerBasicsTests(unittest.TestCase):
                 s['state']['turn_schedule']['unknown'] = 1
             self.reject(s)
         s = g.snapshot()
-        self.assertEqual(s['schema_version'], 266)
+        self.assertEqual(s['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         s['schema_version'] = 151
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(s, registry(self.extras))
 
     def test_snapshot_clock_origin_uses_actual_record_and_not_turn_parity(self):

@@ -1,4 +1,5 @@
 """One temporary physical deck hand: leases, real start, return and privacy."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -353,7 +354,7 @@ class TemporaryDeckHandTests(unittest.TestCase):
 
     def test_schema165_rejects_previous_engine_and_malformed_union_record(self):
         g = self.game(); self.play(g); saved = g.snapshot()
-        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         for version in (1, 163, 164, 217, True):
             bad = json.loads(json.dumps(saved)); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

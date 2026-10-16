@@ -1,4 +1,5 @@
 """Current-price extrema reuse physical discard, quotes and continuations."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import fields
 import json
 from pathlib import Path
@@ -413,8 +414,13 @@ class ExtremeCostDiscardTests(unittest.TestCase):
                 DiscardMatching(1, selection=value)
         for selection in ('highest_cost', 'lowest_cost'):
             with self.subTest(selection=selection):
-                with self.assertRaises(ValueError):
-                    DrawMatching(1, PoolQuery(), 'skip', selection=selection)
+                # Highest stored-DECK cost is now an explicit draw policy;
+                # discard still compares a different, current held-card quote.
+                if selection == 'highest_cost':
+                    self.assertEqual(DrawMatching(1, PoolQuery(), 'skip', selection=selection).selection,selection)
+                else:
+                    with self.assertRaises(ValueError):
+                        DrawMatching(1, PoolQuery(), 'skip', selection=selection)
                 with self.assertRaises(ValueError):
                     DestroyDeckMatching(1, selection=selection)
         for values in ({'count': True}, {'count': -1}, {'reveal': 1}):
@@ -423,7 +429,7 @@ class ExtremeCostDiscardTests(unittest.TestCase):
 
     def test_current_schema_accepts_and_old_or_future_schemas_reject(self):
         g = self.game()
-        self.assertEqual(g.snapshot()['schema_version'], 266)
+        self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 197, 217, True):
             s = g.snapshot()
             s['schema_version'] = version

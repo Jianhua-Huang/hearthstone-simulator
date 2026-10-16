@@ -1,4 +1,5 @@
 """One independent removal operation and its own boundaries, no combo family."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from dataclasses import replace
@@ -399,7 +400,7 @@ class NondeathRemovalTests(unittest.TestCase):
         self.assertEqual(g.snapshot(), restored.snapshot()); self.portable(g)
 
     def test_new_schema_and_old_or_future_version_rejection(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 157, 158, 159, 160, 161, 162, 217, True):
             bad = g.snapshot(); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

@@ -6,7 +6,7 @@
 
 [国服官方介绍](https://hs.blizzard.cn/news/24276664/index.html)说明伪装随从可从手牌直接使用到任意一侧，并用伪装的看守说明效果按落位侧生效。HearthstoneTeam的[官方团队答疑](https://www.reddit.com/r/hearthstone/comments/1tux9zu/escape_from_violet_hold_how_does_this_work/)明确：打至对方场面的牌仍算自己使用；战吼重复来源看出牌者，各次主体作用于落位侧。这些介绍与答疑不是国服目标补丁全部时序的实测认证。
 
-静态入口为普通随从的`CardDefinition(disguised=True)`。本地完整原始记录中有五张带DISGUISED标签的可收集随从；本批只用JAIL_455伪装的看守与CAP_004伪装的特工验证必要行为，见[完整raw/pin证据](../data/support/disguised-basics.json)。它们在专项隔离注册表执行，没有加入生产代表包64，也不代表正式卡池适配完成。
+静态入口为普通随从的`CardDefinition(disguised=True)`。基础阶段调查的本地完整原始记录中有五张带DISGUISED标签的可收集随从；基础阶段只用JAIL_455伪装的看守与CAP_004伪装的特工验证必要行为，见[完整raw/pin证据](../data/support/disguised-basics.json)。当时它们在专项隔离注册表执行，没有加入生产代表包64，也不代表正式卡池适配完成。标准内容包的CAP_004适配复用本入口，其原生亡语及完整当前卡面契约另见[真实亡语卡](m3-death-followup-cards.md)；基础阶段历史证据和默认代表包不因此改写。
 
 ## 出牌者和落位方
 

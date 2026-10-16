@@ -1,4 +1,5 @@
 """Manual/effect power provenance, shared targets/choices, and durable nesting."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -407,7 +408,7 @@ class WispriderTests(unittest.TestCase):
         self.assertEqual(imbue_count(g.state,1,applied_only=True),0);self.check(g)
     def test_example_uses_manual_and_indirect_activation(self):
         from examples.hero_power_sources import run
-        g,snapshot=run();self.assertEqual(snapshot['schema_version'],266)
+        g,snapshot=run();self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual([p.origin for p in g.state.hero_power_history],['effect','manual'])
 
 

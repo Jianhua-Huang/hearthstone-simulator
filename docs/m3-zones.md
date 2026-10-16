@@ -1,5 +1,15 @@
 # M3 手牌、牌库与区域内选择
 
+真实条件消费者继续使用既有属性、攻击、施法和物理库存事实；跨冻结反应的原邻位组仅增加有限法术续接，冻结/死亡仍由公共执行器负责。保存、末次武器奖励及初始资格的边界见[契约](m3-conditional-consumers.md)，当前执行版本以原两份台账为准。
+
+真实卡牌应组合已有公共效果，敌方随从持续嘲讽仅增加有限声明范围；生命设值、连击复制、武器死亡、随机额外效果与牌库逆序继续共用原执行器。新增范围及待国服边界见[配方契约](m3-public-effect-consumers.md)，下文历史初始范围不覆盖此后新增形状。
+
+焚火林地第三次本人结束通过已有DiscardCard弃本物理HAND引用，当前复制和base复制仍走原进度/附件政策；不借存储摧毁、场上死亡或独立移除期限冒充弃牌。持牌消费者及待CN边界见[契约](m3-held-draw-forms.md)。
+
+黑暗贿赂通过原物理抽牌组保存本组手牌，再用既有MoveCard交给对手；满手走原移区溢出，保留拥有者。defining_hand_source的特殊转交仍明确拒绝，不以普通手牌验证覆盖该缺口；见[抽牌组契约](m3-physical-draw-groups.md)。
+
+真实同手卡面洗入由ShuffleSharedHandCard对完整敌手物理候选选一张，再交原MoveCard及CardReference。它不提供敌手选择或全知列表；同卡面依据和待CN政策见[私有手牌与复制契约](m3-copy-followups-hidden-pairs.md)。
+
 本页描述 M3-03b-02 区域操作契约，当前版本及完整验证结果见[项目状态](project-status.md)。v79 已扩展[能力条件筛选](m5-ability-filters.md)。它不表示国服全部区域相关卡牌或官方交互已经校准。
 
 代码集中在 [zones.py](../hs_sim/engine/zones.py)。区域内候选来自本局实际实体，和 [静态生成池](m3-generation.md) 分开：不查正式随机生成池，不因不可收藏或不可构筑而自动排除现存的牌，也不默认排除与来源同名的另一张牌。
@@ -40,6 +50,10 @@
 `ShuffleDeck(player_id)` 打乱整个牌库，使用本局 RNG；`ReorderZone(player_id, zone, entity_ids)` 要求当前区域完整、无重复的实体 ID 排列，不增删实体或改动附件。手牌重排保留可追踪句柄；牌库排列不进入玩家输出。
 
 ## 区域内选择
+
+自动区域复制使用`CopyMatching(player_id, owner_id, zone, query=PoolQuery(), mode='current', count=1, selection='random', source_id=None)`。当前只支持手牌/牌库来源及复制到手牌，复用原候选和CopyCard；每个物理槽一个权重，同名原牌仍是独立候选。`lowest_cost`只用于手牌，按来源当前控制者的原纯报价比较，唯一最低不消费RNG，并列使用原随机源；一般random选择及空池政策与既有匹配操作保持一致。
+
+每份复制及其入手反应完成后，下一份重新检索来源区域。来源原牌不移动，当前/基础材料和满手烧毁沿原CopyCard。未知定义/元数据继续明确报错，候选查询不接正式生成池。该入口不创建玩家选择或发布候选列表；内部RNG、物理来源、费用比较和完整帧不进入玩家DTO。原源保留、生命周期、失败回滚与挂起的新指令由共同解释器负责；精确复制政策及来源自己的可见性例外仍须逐卡国服校准。
 
 `ChooseFromZone(player_id, owner_id, zone, query=PoolQuery(), operation='copy_base', sample_size=3, distinct='card', source_id=None, prompt=...)` 将选项交给已有 `RequestChoice`，无需另建玩家输入通道。
 

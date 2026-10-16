@@ -5,6 +5,7 @@ from .effects import Effect, _integer, _source
 from .errors import ResolutionError
 from .lifecycle import active_abilities, attachment_id
 from .model import CardType, DormancyState, Zone
+from .sacrifice import MinionReference, reference_value, same_instance
 
 
 @dataclass(frozen=True)
@@ -27,6 +28,18 @@ class AwakenMinion(Effect):
 
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
+        _source(self.source_id)
+
+
+@dataclass(frozen=True)
+class AwakenCapturedMinion(Effect):
+    reference: MinionReference
+    dormancy_id: int
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.reference)
+        _integer(self.dormancy_id,'original dormancy instance',1)
         _source(self.source_id)
 
 
@@ -98,6 +111,16 @@ def awaken(r, effect):
             for a in active_abilities(entity, 'on_awaken')]
 
 
+def awaken_captured(r,effect):
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Captured awakening source does not exist')
+    entity=same_instance(r.state,effect.reference)
+    if entity is None or entity.dormancy is None or entity.dormancy.id!=effect.dormancy_id:
+        r.stale(effect,effect.reference.entity_id)
+        return ()
+    return awaken(r,AwakenMinion(entity.id,effect.source_id))
+
+
 def advance(r, effect):
     entity = _target(r, effect, dormant=True)
     if entity is None:
@@ -131,7 +154,46 @@ def turn_countdowns(r, player):
             r.state.entities[i].dormancy.remaining_turns is not None]
 
 
+def validate_board_full_carrier(registry, card_id, kind, abilities):
+    rows = tuple(a for a in abilities if a.kind == 'board_full_awaken')
+    if rows and (kind != CardType.MINION or not registry.card(card_id).dormant_board_full):
+        raise ValueError('Full-board awakening borrowed an undeclared printed carrier')
+    for ability in rows:
+        ability.__post_init__()
+
+
+def capture_board_full(r):
+    """Accept one existing awaken request per original physical dormancy.
+
+    Pending work already carries the receipt through choices and snapshots;
+    no extra unsaved set or event-name subscription matrix is required.
+    """
+    candidates = []
+    for player in r.state.players.values():
+        if len(player.board) < r.rules.max_board:
+            continue
+        for entity_id in player.board:
+            entity = r.state.entities[entity_id]
+            if (entity.kind != CardType.MINION or entity.dormancy is None or entity.dormancy.permanent or
+                    entity.health <= 0 or entity.doomed or not active_abilities(entity, 'board_full_awaken')):
+                continue
+            candidates.append(entity.id)
+    if not candidates:
+        return ()
+    pending = {(x.reference.entity_id, x.dormancy_id)
+        for x in (*r._captured, *getattr(r, '_work_queue', ())) if type(x) is AwakenCapturedMinion}
+    result = []
+    for entity_id in r.rules.entity_order(r.state, candidates):
+        entity = r.state.entities[entity_id]
+        key = (entity.id, entity.dormancy.id)
+        if key not in pending:
+            result.append(AwakenCapturedMinion(MinionReference.capture(entity), entity.dormancy.id, entity.id))
+            pending.add(key)
+    return tuple(result)
+
+
 def register_dormancy(mechanics):
     for kind, handler in ((MakeDormant, make_dormant), (AwakenMinion, awaken),
+                          (AwakenCapturedMinion, awaken_captured),
                           (AdvanceDormancy, advance), (TickDormancy, tick)):
         mechanics.register(kind, handler)

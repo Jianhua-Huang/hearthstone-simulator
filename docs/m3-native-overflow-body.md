@@ -1,5 +1,7 @@
 # 溢出卡牌的原生被摧毁主体
 
+原生亡语例外：真实卡面明确要求存储退役触发时，可声明`stored_deathrattle=True`并沿[存储亡语契约](m3-stored-deathrattles.md)使用原亡语接受、禁止和重复协议。它与本页普通`on_discard`/`on_destroyed`主体互斥，不创造场上死亡事实；未声明的旧路径保持本页原语义。
+
 本增量接通既有存储、创建和失败交付的溢出路径，复用[存储销毁的原生主体](m3-stored-card-destruction.md)。实际进度和下一项只在[项目状态](project-status.md)与[机制清单](mechanism-backlog.md)维护。
 
 原card_burned通知保持，内部新增不可变burn_destruction封套，保存原SourceAllocationFact、profile、实际接收者和turn。Event继续保存实际sequence/action/source。CardDestructionRecord.card可为原CardReference或SourceAllocationFact；player_id统一表示主体执行方，after_epoch表示本次完成退役后的修订。context.destruction仍是同一个纯查询，无新状态账本。

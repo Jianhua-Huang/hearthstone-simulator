@@ -1,0 +1,396 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "roots": [
+    "TLC_234",
+    "TIME_215"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_234t",
+        "dbf_id": 118003,
+        "name": "永生花芽",
+        "name_en": "Eternal Seedling",
+        "text": "<b>亡语：</b>召唤一个5/1的永生血瓣花。",
+        "text_en": "<b>Deathrattle:</b> Summon a 5/1 Eternal Bloodpetal.",
+        "cost": 4,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117653
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "357af9d79a7d2faa49d30f37fe73f66ff0e155f0c1c8faf3097836675506cbe3"
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_234",
+        "dbf_id": 117653,
+        "name": "永生血瓣花",
+        "name_en": "Eternal Bloodpetal",
+        "text": "<b>亡语：</b>召唤一个0/1的永生花芽。",
+        "text_en": "<b>Deathrattle:</b> Summon a 0/1 Eternal Seedling.",
+        "cost": 4,
+        "attack": 5,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 118003,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 118003
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "87edae06b69f9fe3e151dac42127a70dea13da9591f62cead999145cb7df20a6"
+    },
+    {
+      "record": {
+        "id": "TIME_215",
+        "dbf_id": 120176,
+        "name": "雷霆动地",
+        "name_en": "Thunderquake",
+        "text": "对所有随从造成$1点伤害。获取一张静电震击。",
+        "text_en": "[x]Deal $1 damage\nto all minions.\nGet a Static Shock.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 121020,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8da93fad2044b2ad8a91faa09ad330e5023442230d09d2a813092e4aee082809"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_218",
+        "dbf_id": 121020,
+        "name": "静电震击",
+        "name_en": "Static Shock",
+        "text": "对一个随从造成$1点伤害。在本回合中，使你的英雄获得+1攻击力。",
+        "text_en": "Deal $1 damage to a minion. Give your hero +1 Attack this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "e0a03256da322625b08f879583ffaa3b03da1af2275405153be2b587148c1918",
+      "definition_sha256": "07b84140e1a38d819f82713d3267532cbe9e5877ea00c26b62aad593b23e7eb0"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_733",
+        "dbf_id": 126663,
+        "name": "邪恶的虚鳞纳迦",
+        "name_en": "Vicious Voidscale",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&获取一张虚空灵魂。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b>& Get\na Void Soul.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126662,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4931": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          }
+        ]
+      },
+      "record_sha256": "e2ee8ef11d7d41a5431a8c04a526199f0377d487d33e39d892aea4e01a5910db"
+    },
+    {
+      "record": {
+        "id": "JAIL_730",
+        "dbf_id": 126660,
+        "name": "星尘之镰",
+        "name_en": "Stardust Scythe",
+        "text": "在你的英雄攻击后，&获取一张虚空灵魂。",
+        "text_en": "After your hero attacks,& get a Void Soul.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126662,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1,
+          "4931": 1,
+          "4932": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "5fb760fb362f8d824752a206e0d9bc0b8f8e6e4410304dce0103ba467a0faa0f"
+    },
+    {
+      "record": {
+        "id": "JAIL_732",
+        "dbf_id": 126662,
+        "name": "虚空灵魂",
+        "name_en": "Void Soul",
+        "text": "随机召唤一个法力值消耗为（@）的恶魔。提升你此后的虚空灵魂效果。",
+        "text_en": "[x]Summon a random\n@-Cost Demon. Improve\nyour future Void Souls.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "9f7f702abe043f88b069bb74bbadc954a32bf553bfc1d273baf6f5b05a022bdf"
+    }
+  ],
+  "zero_omission_normalization": {
+    "TLC_234t.attack": 0
+  },
+  "official_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k83-official-face-01/observations.json",
+      "bytes": 1205,
+      "sha256": "d7a10cf5d558e3c150e99bbeed010c929d7798c912f610cfb824b3cb3a8c7e71"
+    },
+    {
+      "path": "outputs/card-integration-20261014/k83-official-children-01/observations.json",
+      "bytes": 763,
+      "sha256": "8901577915320b3631241109d3501b6e91c8d8f1823c30318bbf6349becf9721"
+    }
+  ],
+  "constraints": [
+    "Only the three new complete faces are registered; Static Shock retains its existing complete definition.",
+    "Bloodpetal and Seedling summon fresh base named entities through the existing summon producer, not revival or transformation.",
+    "Thunderquake uses one ordinary spell damage batch then AddToHand; all damage/death/hand/choice work remains in the public interpreter.",
+    "Void Soul and its two named sources remain unregistered until real upgrade timing and complete eligible Demon pools are established."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

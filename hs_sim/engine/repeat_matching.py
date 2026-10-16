@@ -47,9 +47,10 @@ def validate_cost_quote_fact(registry, fact):
     definition = _validate_cost_input(registry, value)
     current_battlecry = has_battlecry(value.abilities)
     from .intrinsic_costs import validate_intrinsic_stage_fact
+    from .costs import intrinsic_payment
     validate_intrinsic_stage_fact(registry, fact.intrinsic)
     local = local_cost_values(fact.intrinsic.amount, value.enchantments,
-        payment=definition.cost_payment)
+        payment=intrinsic_payment(definition,fact.intrinsic))
     if local != (fact.local_amount, fact.local_payment):
         raise ValueError('Frozen local cost result differs from its complete operations')
     amount, payment = local
@@ -64,7 +65,8 @@ def validate_cost_quote_fact(registry, fact):
                     (contribution.player_id == value.player_id) != (aura.relation == 'friendly')):
                 raise ValueError('Frozen cost aura payer relation does not match')
             spec = aura.cost
-        if not matches_cost_contribution(registry, contribution, definition, current_battlecry, value.enchantments):
+        if not matches_cost_contribution(registry, contribution, definition, current_battlecry, value.enchantments,
+                abilities=value.abilities,hand_lifetime=value.hand_lifetime,complete_amount=fact.amount):
             raise ValueError('Frozen price contribution does not match its accepted input')
         amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None:
@@ -83,8 +85,9 @@ def validate_spell_cost_facts(registry, facts):
         raise ValueError('Spell cost facts differ from their registered accepted face')
     from .intrinsic_costs import validate_intrinsic_stage_fact
     validate_intrinsic_stage_fact(registry, facts.intrinsic)
+    from .costs import intrinsic_payment
     if local_cost_values(facts.intrinsic.amount, facts.cost_input.enchantments,
-            payment=definition.cost_payment) != (facts.local_amount, facts.local_payment):
+            payment=intrinsic_payment(definition,facts.intrinsic)) != (facts.local_amount, facts.local_payment):
         raise ValueError('Spell cost facts differ from their local operations')
     for quote in facts.window_quotes:
         validate_cost_quote_fact(registry, quote)

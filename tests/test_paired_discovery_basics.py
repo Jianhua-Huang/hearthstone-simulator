@@ -1,4 +1,5 @@
 """Real Dark Gift discovery foundation in explicitly incomplete test inventories."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -310,7 +311,7 @@ class PairedDiscoveryTests(unittest.TestCase):
 
     def test_new_payloads_roundtrip_and_old_schema_is_rejected(self):
         g=self.game();self.play(g);saved=self.portable(g)
-        self.assertEqual(saved['schema_version'],266)
+        self.assertEqual(saved['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         saved['schema_version']=227
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry())
 

@@ -26,7 +26,7 @@ def validate_definition(card):
         aura.__post_init__()
     if card.kind != CardType.MINION and card.auras:
         raise ValueError('Only minions support aura definitions')
-    conditional = tuple(s for s in card.auras if s.condition == 'self_damaged' or s.tribes_any or s.card_ids)
+    conditional = tuple(s for s in card.auras if s.condition != 'always' or s.tribes_any or s.card_ids)
     if conditional:
         from .stat_relations import validate_ordinary_face
         validate_ordinary_face(card)
@@ -39,8 +39,8 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
     if not rows:
         return
     card = registry.card(card_id)
-    native_conditional = any(s.condition == 'self_damaged' or s.tribes_any or s.card_ids for s in card.auras)
-    conditional = tuple(a for a in rows if a.aura_condition == 'self_damaged' or a.aura_tribes_any or a.aura_card_ids)
+    native_conditional = any(s.condition != 'always' or s.tribes_any or s.card_ids for s in card.auras)
+    conditional = tuple(a for a in rows if a.aura_condition != 'always' or a.aura_tribes_any or a.aura_card_ids)
     if not conditional and not native_conditional:
         return
     if kind != CardType.MINION or components:
@@ -110,3 +110,22 @@ wear, attack-use and prepared-combat policies remain with equipment/combat.
         weapon = state.entities.get(player.weapon_id)
         hero.weapon_attack = weapon.attack if weapon is not None and weapon.durability > 0 and not weapon.doomed else 0
         refresh_entity(hero)
+
+
+def hero_bonuses(state, *, include_dying=False):
+    bonuses={p.hero_id:0 for p in state.players.values()}
+    player=state.players[state.active_player]
+    for eid in player.board:
+        source=state.entities[eid]
+        if (source.kind!=CardType.MINION or not source.active or
+                not include_dying and(source.health<=0 or source.doomed)):continue
+        bonuses[player.hero_id]+=sum(a.attack for a in active_abilities(source,'aura')
+            if a.aura_target=='friendly_hero'and a.aura_condition=='controller_turn')
+    return bonuses
+
+
+def refresh_hero_auras(state, *, include_dying=False):
+    bonuses=hero_bonuses(state,include_dying=include_dying)
+    for entity in state.entities.values():
+        if entity.kind==CardType.HERO and entity.aura_attack!=bonuses.get(entity.id,0):
+            entity.aura_attack=bonuses.get(entity.id,0);refresh_entity(entity)

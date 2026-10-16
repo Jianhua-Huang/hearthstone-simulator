@@ -10,8 +10,8 @@ def validate_definition(definition):
     if type(spec) is not BoardMinionCostSpec:
         raise ValueError('Expected BoardMinionCostSpec')
     spec.__post_init__()
-    if definition.kind != CardType.MINION or not definition.hand_playable or definition.starship_for:
-        raise ValueError('Board minion cost belongs to an ordinary physical minion')
+    if definition.kind not in (CardType.MINION, CardType.SPELL) or not definition.hand_playable or definition.starship_for or definition.interactable:
+        raise ValueError('Board minion cost belongs to an ordinary physical minion or spell')
 
 
 def quantity(registry, boards, spec, player_id):
@@ -19,7 +19,8 @@ def quantity(registry, boards, spec, player_id):
     # objects. Zero cost and friendly scope cannot conceal an unknown row.
     eligible = tuple(tuple(registry.card(row.card_id).kind == CardType.MINION and
         registry.card(row.card_id).interactable is None for row in board) for board in boards)
-    selected = eligible if spec.scope == 'all' else (eligible[player_id - 1],)
+    selected = eligible if spec.scope == 'all' else (eligible[
+        player_id - 1 if spec.scope == 'friendly' else 2 - player_id],)
     return sum(sum(board) for board in selected)
 
 

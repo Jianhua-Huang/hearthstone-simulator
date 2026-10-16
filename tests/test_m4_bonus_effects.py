@@ -1,4 +1,5 @@
 """Elusive, bonus-effect eligibility and complete Terran token generation."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -300,7 +301,7 @@ class BonusEffectsTests(unittest.TestCase):
     def test_real_card_example_restores_and_replays(self):
         from examples.raven_and_lift_off import run
         game, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(len(game.history), 5)
 
 

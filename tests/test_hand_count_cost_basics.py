@@ -1,4 +1,5 @@
 """Pure hand-count prices with frozen real payments and private inventories."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -149,13 +150,13 @@ class HandCountCostTests(unittest.TestCase):
         self.assertIn("each card in your opponent's hand", rows[CLOCKWORK]['text_en'])
 
     def test_only_finite_scopes_and_ordinary_minion_declarations_are_accepted(self):
-        for scope in (True, None, 'all', 'friendly', 'formula'):
+        for scope in (True, None, 'all', 'formula'):
             with self.subTest(scope=scope), self.assertRaises(ValueError):
                 HandCountCostSpec(scope)
         with self.assertRaises(ValueError):
             HandCountCostSpec(profile_id='unknown')
         r = registry()
-        for changes in ({'kind': CardType.SPELL, 'health': 0}, {'hand_count_cost': 'expression'},
+        for changes in ({'kind': CardType.HERO, 'health': 0}, {'hand_count_cost': 'expression'},
                 {'interactable': InteractableSpec('hand.inert')}, {'board_minion_cost': BoardMinionCostSpec()}):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 r.register_card(replace(r.card(MOUNTAIN), id='bad.hand.count', **changes))
@@ -422,13 +423,13 @@ class HandCountCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = self.portable(g)
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v85', 'player-actions-v12'))
+            ('player-view-v86', 'player-actions-v12'))
         for version in (1, 170, 171, 217, True, '172'):
             bad = deepcopy(saved)
             bad['schema_version'] = version
-            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
                 Game.from_snapshot(bad, registry())
 
 

@@ -1,4 +1,5 @@
 """Independent native Deathrattle prohibition, original acceptance and lifecycle."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -254,7 +255,7 @@ class DeathrattleProhibitionTests(unittest.TestCase):
         with self.assertRaises(ValueError):KeywordAuraSpec(FLAG,target='friendly_minions')
         r=Registry('invalid-native-source')
         with self.assertRaises(ValueError):r.register_card(CardDefinition('wrong','Wrong',CardType.SPELL,keywords=(FLAG,),metadata=metadata()))
-        g=self.game(board=(NATIVE,));s=g.snapshot();self.assertEqual((g.ruleset.id,g.mechanics.version,s['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        g=self.game(board=(NATIVE,));s=g.snapshot();self.assertEqual((g.ruleset.id,g.mechanics.version,s['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         with self.assertRaises(ValueError):validate_prohibition_carrier(g.registry,'ds.body',CardType.MINION,g.state.entities[self.find(g,NATIVE)].abilities)
         s['schema_version']=224
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())

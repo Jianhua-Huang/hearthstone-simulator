@@ -1,0 +1,667 @@
+{
+  "format": "reviewed-native-followup-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "formal_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_BT_156",
+        "dbf_id": 127593,
+        "name": "被禁锢的邪犬",
+        "name_en": "Imprisoned Vilefiend",
+        "text": "<b>休眠</b>2回合。\n<b>突袭</b>",
+        "text_en": "<b>Dormant</b> for 2 turns.\n<b>Rush</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "858": 56820,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56820,
+          "1652": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56820",
+              "type": "Int",
+              "value": "56820"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "673b18b8d823607ffbed66b23b836088d3c3e2853af11652a3e401db5c3bf584",
+      "recipe": {
+        "alias": "BT_156",
+        "script": "dormant_rush",
+        "root": true,
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "deck_identity": "BT_156"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_122",
+        "dbf_id": 69537,
+        "name": "团队领袖",
+        "name_en": "Raid Leader",
+        "text": "你的其他随从拥有+1攻击力。",
+        "text_en": "Your other minions have +1 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "858": 1401
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phill Gonzales"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1401",
+              "type": "Int",
+              "value": "1401"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "ca67b0c99deddb0548220d720df41a04041f31d05a275f58cfb00ecf41bb6090",
+      "recipe": {
+        "alias": "CS2_122",
+        "script": "attack_aura",
+        "root": true,
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "deck_identity": "CS2_122"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_222",
+        "dbf_id": 69544,
+        "name": "暴风城勇士",
+        "name_en": "Stormwind Champion",
+        "text": "你的其他随从拥有+1/+1。",
+        "text_en": "Your other minions have +1/+1.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "858": 753
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Doug Alexander"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "753",
+              "type": "Int",
+              "value": "753"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9d556040b94f8ea8b7a49d62549397ba163f8ab20033603236fdd83bb6998e6b",
+      "recipe": {
+        "alias": "CS2_222",
+        "script": "stats_aura",
+        "root": true,
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "deck_identity": "CS2_222"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_059",
+        "dbf_id": 69661,
+        "name": "疯狂的炼金师",
+        "name_en": "Crazed Alchemist",
+        "text": "<b>战吼：</b>\n使一个随从的攻击力和生命值互换。",
+        "text_en": "<b>Battlecry:</b> Swap the Attack and Health of a minion.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "251": 2,
+          "COLLECTIBLE": 1,
+          "858": 801,
+          "TECH_LEVEL": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tom Fleming"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "801",
+              "type": "Int",
+              "value": "801"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5d380f76f1b79a3c344316a18efe9cc9ba646092e8ab67557570158ae62d0df0",
+      "recipe": {
+        "alias": "EX1_059",
+        "script": "alchemist",
+        "root": true,
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "deck_identity": "EX1_059"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_OG_044",
+        "dbf_id": 76287,
+        "name": "范达尔·鹿盔",
+        "name_en": "Fandral Staghelm",
+        "text": "你的<b>抉择</b>牌和英雄技能可以同时拥有两种效果。",
+        "text_en": "Your <b>Choose One</b> cards and powers have both effects combined.",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "858": 38318
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38318",
+              "type": "Int",
+              "value": "38318"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "443",
+              "name": "CHOOSE_ONE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77969874aba6526417614633713f3920e66a639cf6ccbae7f0d804622d378f4d",
+      "recipe": {
+        "alias": "OG_044",
+        "script": "choose_both",
+        "root": true,
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "deck_identity": "OG_044"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_476",
+        "dbf_id": 114627,
+        "name": "月亮井",
+        "name_en": "Moonwell",
+        "text": "对所有敌方\n角色造成$4点伤害。为所有友方角色恢复#4点生命值。",
+        "text_en": "Deal $4 damage to all enemy characters. Restore #4 Health to all friendly characters.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "bfe5746ec3471a0d471df26db30311f520df6c0dd6fa835f298aa4e10e6fe353",
+      "recipe": {
+        "alias": null,
+        "script": "moonwell",
+        "root": true,
+        "cost": 6,
+        "attack": 0,
+        "health": 0,
+        "deck_identity": "EDR_476"
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_102",
+        "dbf_id": 127014,
+        "name": "眺望陆地",
+        "name_en": "Land Ho!",
+        "text": "抽两张牌。\n召唤两个1/1的\n火炮手。",
+        "text_en": "[x]Draw 2 cards.\nSummon two 1/1\nCannoneers.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127012,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "ab32bac9172aa03d2f135916530234ef436c6241b113e8d7e6ad26b221902a9d",
+      "recipe": {
+        "alias": null,
+        "script": "land_ho",
+        "root": true,
+        "cost": 4,
+        "attack": 0,
+        "health": 0,
+        "deck_identity": "CAP_102"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_817",
+        "dbf_id": 114966,
+        "name": "血虫感染",
+        "name_en": "Sanguine Infestation",
+        "text": "抽两张牌。召唤两条0/2的水蛭。",
+        "text_en": "Draw 2 cards.\nSummon two 0/2 Leeches.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 114302,
+          "COST_BLOOD": 2,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "af45b459056af8b855a1cbe353cdb1e49c875efd00b7dcd5fb2b1d5da27c52eb",
+      "recipe": {
+        "alias": null,
+        "script": "infestation",
+        "root": true,
+        "cost": 5,
+        "attack": 0,
+        "health": 0,
+        "deck_identity": "EDR_817"
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_107t",
+        "dbf_id": 127012,
+        "name": "火炮手",
+        "name_en": "Cannoneer",
+        "text": "在你的回合结束时，随机对一个敌人造成1点伤害。",
+        "text_en": "[x]At the end of your turn,\ndeal 1 damage to a\nrandom enemy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "ccd467cb0e88628485075c962e83b0ef797981e556c2ed39a0b8ae8e59938894",
+      "recipe": {
+        "alias": null,
+        "script": "cannon",
+        "root": false,
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "deck_identity": "CAP_107t"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_810t",
+        "dbf_id": 114302,
+        "name": "饱胀水蛭",
+        "name_en": "Bloated Leech",
+        "text": "在你的回合结束时，你的英雄会从生命值最低的敌人处偷取@点生命值。",
+        "text_en": "[x]At the end of your turn, your\nhero steals @ Health from\nthe lowest Health enemy.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "71c474a34d91e51385d91378884171b2c66ae8dc51b23b7a70809e708fbb99b4",
+      "recipe": {
+        "alias": null,
+        "script": "leech",
+        "root": false,
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "deck_identity": "EDR_810t"
+      }
+    }
+  ],
+  "dependency_links": [
+    {
+      "root": "CAP_102",
+      "tag": "COLLECTION_RELATED_CARD_DATABASE_ID",
+      "dbf_id": 127012,
+      "dependency": "CAP_107t"
+    },
+    {
+      "root": "EDR_817",
+      "tag": "DISPLAY_CARD_ON_MOUSEOVER",
+      "dbf_id": 114302,
+      "dependency": "EDR_810t"
+    }
+  ],
+  "policies": {
+    "leech": "lowest current enemy character health; tied physical candidates random; steal max health to current friendly hero; ordinary minion debuff is silence-removable, hero max changes are permanent; exact CN calibration open",
+    "moonwell": "damage enemy characters, then after reactions heal current friendly characters; no printed spell-school tag is invented"
+  }
+}

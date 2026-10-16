@@ -1,0 +1,484 @@
+{
+  "format": "reviewed-spell-sequence-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_491",
+        "dbf_id": 122711,
+        "name": "怪异触手",
+        "name_en": "Eldritch Tentacles",
+        "text": "对所有随从造成$3点伤害。重复\n此效果，每次伤害减少1点。",
+        "text_en": "Deal $3 damage to all minions. Repeat this with 1 less damage.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "0dea78bb788af116aefcfa21c6d3dd9e25cf894513e8fecb68fba7cf1f5150b7",
+      "recipe": {
+        "script": "tentacles",
+        "cost": 6,
+        "deck_identity": "CATA_491",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_526",
+        "dbf_id": 122770,
+        "name": "布洛克斯加的奋战",
+        "name_en": "Broxigar's Last Stand",
+        "text": "对所有随从造成$1点伤害。每有一个随从死亡，抽一\n张牌。",
+        "text_en": "[x]Deal $1 damage to all\nminions. Draw a card\nfor each that died.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "fb975d6bfbe3793c05b7fe2e3f0d6c5b6d0435626afa0c9aae60d24f9e492f34",
+      "recipe": {
+        "script": "last_stand",
+        "cost": 2,
+        "deck_identity": "CATA_526",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_533",
+        "dbf_id": 122995,
+        "name": "涣漫洪流",
+        "name_en": "Flash Flood",
+        "text": "对你的对手最左边和最右边的随从造成$5点伤害。<b>流放：</b>重复一次。",
+        "text_en": "[x]Deal $5 damage to\nyour opponent's left\n_and right-most minions.\n<b>Outcast:</b> Do it again.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "OUTCAST": 1,
+          "SPELL_SCHOOL": 7
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "8bce1d793e3f66f11f8caf48643dfa565b33d0809ac643ef2f0aa52d10ede84a",
+      "recipe": {
+        "script": "flood",
+        "cost": 5,
+        "deck_identity": "CATA_533",
+        "keywords": [
+          "outcast"
+        ],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_053",
+        "dbf_id": 76293,
+        "name": "视界术",
+        "name_en": "Far Sight",
+        "text": "抽一张牌，该牌的法力值消耗减少（3）点。",
+        "text_en": "Draw a card. That card costs (3) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 3,
+          "COLLECTIBLE": 1,
+          "858": 818
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Lars Grant-West"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "818",
+              "type": "Int",
+              "value": "818"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d2ec4086fb228e2a9213423ce843ea2b10998fa763c69b43daafd30bd4387a55",
+      "recipe": {
+        "script": "far_sight",
+        "cost": 3,
+        "deck_identity": "CS2_053",
+        "keywords": [],
+        "target": null
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_231",
+        "dbf_id": 114367,
+        "name": "守护巨龙之拥",
+        "name_en": "Aspect's Embrace",
+        "text": "恢复#4点生命值。抽一张牌。<b>灌注</b>你的英雄技能。",
+        "text_en": "[x]Restore #4 Health.\nDraw a card.\n<b>Imbue</b> your Hero Power.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "81805c5716818c6745ab129964a7a2a18b85dca72a3e395bd3dc28dd3404ef9e",
+      "recipe": {
+        "script": "embrace",
+        "cost": 2,
+        "deck_identity": "EDR_231",
+        "keywords": [],
+        "target": "character"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_785",
+        "dbf_id": 123605,
+        "name": "暮光祭礼",
+        "name_en": "Rite of Twilight",
+        "text": "<b>兆示</b>{0}。<b>连击：</b>造成$3点伤害。",
+        "text_en": "<b>Herald</b> {0}.\n<b>Combo:</b> Deal $3 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          }
+        ]
+      },
+      "record_sha256": "16ad4123432824d60495f1721a37c7ec513decdae05d09342e64e1458a74618e",
+      "recipe": {
+        "script": "rite",
+        "cost": 2,
+        "deck_identity": "CATA_785",
+        "keywords": [
+          "combo",
+          "herald"
+        ],
+        "target": "combo_character"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_156",
+        "dbf_id": 123546,
+        "name": "试验演示",
+        "name_en": "Experimental Animation",
+        "text": "<b>兆示</b>{0}。对所有敌方随从造成$4点伤害。",
+        "text_en": "<b>Herald</b> {0}.\nDeal $4 damage to all enemy minions.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "COST_BLOOD": 2,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          }
+        ]
+      },
+      "record_sha256": "4cb29aacb2d0f289fb532220ab39a63f4a8de7aa731b30db1ff5a5ebf54aceb2",
+      "recipe": {
+        "script": "animation",
+        "cost": 6,
+        "deck_identity": "CATA_156",
+        "keywords": [
+          "herald"
+        ],
+        "target": null
+      }
+    }
+  ]
+}

@@ -249,7 +249,7 @@ class WeaponTransferTests(unittest.TestCase):
         snapshot=g.snapshot()
         for p in (1,2):
             view=g.for_player(p).observe()['observation']; events=g.player_events(p)
-            self.assertEqual(view['version'],'player-view-v85'); self.assertIsNone(view['players'][1]['weapon'])
+            self.assertEqual(view['version'],'player-view-v86'); self.assertIsNone(view['players'][1]['weapon'])
             self.assertEqual(view['players'][0]['weapon']['card_id'],'weapon')
             text=json.dumps(events)
             for private in ('new_zone_epoch','new_entered_order','owner_id','"weapon":'):

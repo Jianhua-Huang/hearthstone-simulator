@@ -187,7 +187,8 @@ def validate_spell_proof(proof, registry):
 
 def same_cast(current, accepted):
     return replace(current, payload_started=accepted.payload_started,
-        completed=accepted.completed, interrupted=accepted.interrupted) == accepted
+        completed=accepted.completed, interrupted=accepted.interrupted,
+        native_spell_value=accepted.native_spell_value) == accepted
 
 
 def accept(r, request):
@@ -241,6 +242,8 @@ def begin_spell(r, work):
     # Allocation returns the real carrier; never infer it from an entity cursor.
     entity = r.create_entity(root.player_id, child.card_id, Zone.GRAVEYARD)
     entity.origin_entity_id = root.caster.entity_id
+    from .native_spell_values import inherit_play
+    inherit_play(r,entity,work.proof.before_state,child.occurrence_id)
     from .choose_branch_state import history_selection
     entity.choose_branch = history_selection(work.proof.before_state, r.registry, child,
         work.proof.request.spell_branch_policy, origin='cast_effect')

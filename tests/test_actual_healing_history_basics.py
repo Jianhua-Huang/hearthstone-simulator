@@ -1,4 +1,5 @@
 """Original actual healing facts and one isolated Crystal Stag consumer."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import dataclass, FrozenInstanceError, replace
 import json
@@ -438,7 +439,7 @@ class ActualHealingTests(unittest.TestCase):
 
     def test_schema_and_required_persistent_fields_are_strict(self):
         g = self.game(); saved = g.snapshot()
-        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for value in (*range(1, 218), 217, True, 216.0):
             changed = deepcopy(saved); changed['schema_version'] = value
             with self.assertRaises(SnapshotError): Game.from_snapshot(changed, registry())

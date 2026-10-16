@@ -1,0 +1,17 @@
+# 定向战吼、物理引用与消灭后续接
+
+本页维护接入契约；进度、实际证据和下一项仅在[项目状态](project-status.md)和[机制清单](mechanism-backlog.md)登记。完整十二根及既有硬币原行/pin见[targeted-battlecry数据](../data/cards/targeted-battlecry-effects-v1.json)。
+
+残恶梦魇指定本方HAND/BOARD随从，使用原本体攻击材料，分别交BuffStoredCard或BuffCapturedMinion。古神的眼线对本方其他手牌沿原TransformStoredCard换为既有GAME_005，保持物理实体并执行原重置/句柄政策。当前通用Coin映射采用已有开局硬币；DBF1746证明依赖原行身份，不是CATA_200的显式DBF引用，精确国服/外观卡面仍待校准。完整0费临时法力主体沿原实现。
+
+娜塔莉与裂隙屠夫捕获原目标剩余生命，使用`sacrifice.DestroyCapturedMinion(victim, source_id, on_destroy)`。仅原live MinionReference可接受消灭，交原Destroy/死亡协调与已有延迟政策后续接；目标旧驻留失效则整个请求跳过。续接不以受益者仍存活作为消灭的前提：娜塔莉用BuffCapturedMinion保护原本体，裂隙对原执行方英雄交MINION_ABILITY伤害。原DestroyForBuff的双存活前提保持，不能借改旧牺牲语义实现新卡。
+
+希亚玛特用原RequestChoice要求四项中恰好两项、不可重复，各选项为原本体MinionReference的GrantCapturedKeyword。活体园林先Imbue，再ModifyStoredCost降低原HAND随从引用费用；原对象移动/换面后不重绑。神圣预言师捕获每张HAND随从当前数值，以原BuffStoredCard冻结差值增至两者高值；孵化辅助师捕获当前其他友方攻击至多2随从并沿原引用增益/嘲讽。瓦玛按当前卡面职业集合形成一次DestroyBatch，PALADIN成员保留，未知职业明确报错。
+
+龙裔护育师用`zones.CopyLowestCostMinion(player_id, tribes_any, source_id)`按当前物理HAND种族及原quote_unselected_cost筛选最低金额。每个物理槽一个权重；空或唯一最低不耗随机，并列沿原RNG。之后委托CopyCard(mode='current')，保留完整原材料并新建独立实体/附件/获取，不扩充正式生成池，也不改变旧CopyMatching的印刷筛选契约。
+
+伊特努丝的资格通过原PlayerTargetRuleSpec读取可见源/目标当前生命。`cross_zone.TakeCapturedMinion`用原驻留引用调用既有永久转控；旧永久ChangeControl仍保持无source参数的契约。普通手牌原生战吼使用请求的play_id，从现有唯一活跃FinishPaidHandAcceptance中验证并提取付款前原目标分配事实，绑定原source/player和BOARD/MINION，再检查原驻留。该路径修复目标回手再入场时误控同ID新体；不会以战吼时重新抓取的当前引用替代原手牌选择。已有body-target收据与间接来源沿各自接受路径；直接引用请求可在选择期间保存恢复。没有新增持久GameState字段或第二份保存状态，schema268/观察85/命令12/replay1保持，core325保护新指令及语义。
+
+护甲师的原Damage请求用on_result接续健康结果；InvokeHealthResult在原死亡/反应后核对原目标实际damage/poison死亡cause.result与完整payload相等才给原执行方5护甲。原死亡后复生不取消奖励，后续无关消灭不冒充原伤害击杀，转移到其他对象的伤害不算原目标死亡。
+
+`python -B -X utf8 -m examples.card_targeted_battlecries`经玩家命令展示全部十二根、既有硬币及真实两项选择，逐稳定位置独立恢复/clone/回放。混合职业40法力场景不认证正式套牌。材料读取窗口、普通手牌与间接来源、目标域、延迟死亡、原选中引用及精确国服时序仍待对应M0/M6证据，内部验证不等同正式版本完整支持。

@@ -1,4 +1,5 @@
 """Player policies own accepted roots, independently of payload repetitions."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -376,8 +377,8 @@ class PlayerChooseBothTests(unittest.TestCase):
     def test_previous_schema_and_host_labels_are_rejected(self):
         g = game(); saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, saved['mechanics_version']['version']),
-                         (266, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual(g.observe(1)['version'], 'player-view-v85')
+                         (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
+        self.assertEqual(g.observe(1)['version'], 'player-view-v86')
         saved['schema_version'] = 139; self.reject(saved, mode='normal')
         saved = g.snapshot(); saved['ruleset']['id'] = 'prototype-v144'; self.reject(saved, mode='normal')
         saved = g.snapshot(); saved['mechanics_version']['version'] = 'core-effects-v144'; self.reject(saved, mode='normal')

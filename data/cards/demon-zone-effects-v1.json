@@ -1,0 +1,362 @@
+{
+  "format": "reviewed-demon-zone-effects-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/k38b-void-soul-dependency-status.json",
+    "bytes": 7737,
+    "sha256": "1d393e9a770ddff2bdcc15a9839b20427dfdfbe3b91cc70967252168f09cfa7a"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_398",
+        "dbf_id": 125918,
+        "name": "小鬼地狱火！",
+        "name_en": "IMPFERNAL!",
+        "text": "<b>亡语：</b>对所有其他角色造成3点伤害。<i>（在手牌或牌库中也能触发。）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> Deal 3 damage\nto all other characters. <i>(Also\ntriggers in hand or deck.)</i>",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "335": 1,
+          "1724": 1,
+          "IMP": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "335",
+              "name": "InvisibleDeathrattle",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "335"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "8f8fed0b51265eaf39c028c4e54710f82073c34aca9ab1f27afaa353fee1cb9a",
+      "recipe": {
+        "script": "impfernal",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "JAIL_398"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_399",
+        "dbf_id": 125917,
+        "name": "小鬼马仔",
+        "name_en": "Imp Gang Stooge",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>\n将两张8/8并具有<b>嘲讽</b>和<b>吸血</b>的恶魔置于你的牌库底。",
+        "text_en": "[x]<b>Taunt</b>. <b>Deathrattle:</b>\nPut two 8/8 Demons with\n<b>Taunt</b> and <b>Lifesteal</b> on the\nbottom of your deck.",
+        "cost": 3,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127507,
+          "IMP": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "132c724927a79e33d3c43e70b8e8d17d7da38f8b2abf56d4d047f1ffdcafed72",
+      "recipe": {
+        "script": "stooge",
+        "keywords": [
+          "taunt"
+        ],
+        "root": true,
+        "deck_identity": "JAIL_399"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_463",
+        "dbf_id": 118210,
+        "name": "雷兹迪尔",
+        "name_en": "Razidir",
+        "text": "<b>战吼：</b>随机弃掉一张手牌。<b>延系：</b>改为对手的一张手牌。",
+        "text_en": "[x]<b>Battlecry:</b> Discard a random\ncard from your hand.\n<b>Kindred:</b> Your opponent's\nhand instead.",
+        "cost": 4,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "2542": 1,
+          "KINDRED": 1,
+          "4128": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "d3633cd03812f5e2966bb50a1f1e5ff128babe781f713d5b02034db3d0977019",
+      "recipe": {
+        "script": "razidir",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "TLC_463"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_399t1",
+        "dbf_id": 127507,
+        "name": "小鬼奶奶",
+        "name_en": "Grandmother Imp",
+        "text": "<b>嘲讽</b>。<b>吸血</b>",
+        "text_en": "<b>Taunt</b>\n<b>Lifesteal</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "IMP": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "2efb464c20788274523a7612266d8745a8f5f1f76e1d7f3181a68b030c417595",
+      "recipe": {
+        "script": null,
+        "keywords": [
+          "taunt",
+          "lifesteal"
+        ],
+        "root": false,
+        "deck_identity": "JAIL_399t1"
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_138",
+        "dbf_id": 118507,
+        "name": "魔神暴龙",
+        "name_en": "Diabolus Rex",
+        "text": "<b>延系：</b>&对你的对手最左边和最右边的随从造成6点伤害。",
+        "text_en": "<b>Kindred:</b>& Deal 6 damage to your opponent's left and right-most minions.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "2537": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "26d258b51f05405340fafeda7f3be012838e0f6e451f3046d816843153994294",
+      "recipe": {
+        "script": "diabolus",
+        "keywords": [],
+        "root": true,
+        "deck_identity": "DINO_138"
+      }
+    }
+  ],
+  "dependency_links": [
+    {
+      "root_id": "JAIL_399",
+      "card_id": "JAIL_399t1",
+      "dbf_id": 127507
+    }
+  ]
+}

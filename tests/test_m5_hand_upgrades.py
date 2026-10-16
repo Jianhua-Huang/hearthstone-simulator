@@ -1,4 +1,5 @@
 """Upgrade foundations: physical references, hidden stats and printed forms."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import dataclass, replace
 import json
 import unittest
@@ -271,7 +272,7 @@ class HandUpgradeTests(unittest.TestCase):
             with self.assertRaises(ValueError):call()
 
     def test_old_schema_28_is_rejected(self):
-        g=self.game(hand=('base',));data=g.snapshot();self.assertEqual(data['schema_version'],266);data['schema_version']=28
+        g=self.game(hand=('base',));data=g.snapshot();self.assertEqual(data['schema_version'],SNAPSHOT_SCHEMA_VERSION);data['schema_version']=28
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r,self.m)
 
 

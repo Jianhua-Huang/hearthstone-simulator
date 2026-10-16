@@ -156,6 +156,43 @@ class TransformCapturedMinion(Effect):
 
 
 @dataclass(frozen=True)
+class TakeCapturedMinion(Effect):
+    target: MinionReference | None
+    player_id: int
+    source_id: int | None = None
+    play_id: int | None = None
+
+    def __post_init__(self):
+        if self.target is None:
+            if self.play_id is None or self.source_id is None:raise ValueError('Paid target control requires its actual play and source')
+        else:
+            if type(self.target) is not MinionReference:raise ValueError('Captured control requires a board minion reference')
+            self.target.__post_init__()
+            if self.play_id is not None:raise ValueError('Captured and original paid target are independent reference producers')
+        _player(self.player_id);_source(self.source_id)
+        if self.play_id is not None:integer(self.play_id,'original control play',1)
+
+
+def take_captured_minion(r,effect):
+    from .effects import ChangeControl
+    from .resolver import change_control
+    effect.__post_init__();source_exists(r,effect.source_id)
+    reference=effect.target
+    if effect.play_id is not None:
+        from .paid_hand_acceptance import original_target
+        record,fact=original_target(r,effect.play_id)
+        if (record.source_id,record.player_id)!=(effect.source_id,effect.player_id) or fact.zone!=Zone.BOARD or fact.kind!=CardType.MINION:
+            raise ResolutionError('Original control target differs from its actual source/player/board minion')
+        reference=MinionReference(fact.entity_id,fact.controller,fact.card_id,fact.zone_epoch,fact.entered_order)
+    if r.registry.card(reference.card_id).kind!=CardType.MINION:
+        raise ResolutionError('Captured control requires an original minion')
+    entity=live_minion(r.state,reference)
+    if entity is None:
+        r.stale(effect,reference.entity_id);return ()
+    return change_control(r,ChangeControl(entity.id,effect.player_id))
+
+
+@dataclass(frozen=True)
 class TransformStoredCard(Effect):
     """Reset a captured physical hand/deck card to a new printed definition."""
     target: CardReference
@@ -455,6 +492,7 @@ def transform_stored_entity(r, entity, definition, *, source_id=None, retained_c
 
 def reset_stored_entity(r, entity, definition):
     from .lifecycle import reset_to_definition
+    entity.face_replaced=True
     entity.zone_epoch+=1
     reset_to_definition(r.state,entity,definition,r.registry,components=())
 
@@ -673,6 +711,7 @@ def register(mechanics):
     mechanics.register(BuffMinionsInZones,buff_minions)
     mechanics.register(RandomBuffStoredMinion,random_buff_stored)
     mechanics.register(TransformCapturedMinion,transform_captured)
+    mechanics.register(TakeCapturedMinion,take_captured_minion)
     mechanics.register(TransformStoredCard,transform_stored_card)
     mechanics.register(TransformStoredIntoCopy,transform_stored_into_copy)
     mechanics.register(TransformMinionIntoCopy,transform_minion_into_copy)

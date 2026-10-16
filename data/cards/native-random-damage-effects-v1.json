@@ -1,0 +1,479 @@
+{
+  "batch": "K32 native random damage",
+  "source_version": "37.0.0.255026",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_EX1_082",
+        "dbf_id": 69662,
+        "name": "疯狂投弹者",
+        "name_en": "Mad Bomber",
+        "text": "<b>战吼：</b>造成3点伤害，随机分配到所有其他角色身上。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage randomly split between all other characters.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 762
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "762",
+              "type": "Int",
+              "value": "762"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8e2c10c003300a98ad4dfd4dbeb9dbdec7a30b90888e7968c8c0492f1133d3cd",
+      "recipe": {
+        "script": "bomber",
+        "deck_identity": "EX1_082",
+        "keywords": [],
+        "entries": [
+          "battlecry"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_493",
+        "dbf_id": 120878,
+        "name": "愤怒的女祭司",
+        "name_en": "Priestess of Fury",
+        "text": "在你的回合结束时，&造成6点伤害，随机分配到所有敌人身上。",
+        "text_en": "At the end of your turn,& deal 6 damage randomly split among all enemies.",
+        "cost": 7,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 58455,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 58455,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bayard Wu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "58455",
+              "type": "Int",
+              "value": "58455"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "3a4284b540fbc3fe1866c58483ad037f00f194fa78c2472530b2e11412582d58",
+      "recipe": {
+        "script": "priestess",
+        "deck_identity": "BT_493",
+        "keywords": [],
+        "entries": [
+          "controller_end"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_YOP_034",
+        "dbf_id": 121240,
+        "name": "窜逃的黑翼龙",
+        "name_en": "Runaway Blackwing",
+        "text": "在你的回合结束时，&随机对一个敌方随从造成10点伤害。",
+        "text_en": "[x]At the end of your turn,&\ndeal 10 damage to a\nrandom enemy minion.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 61972,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 61972,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "61972",
+              "type": "Int",
+              "value": "61972"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "7eb969864cb4334ee8d24cae028f6588f9a12516bba8e464246ecfbf81cb99b7",
+      "recipe": {
+        "script": "blackwing",
+        "deck_identity": "YOP_034",
+        "keywords": [],
+        "entries": [
+          "controller_end"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_223",
+        "dbf_id": 86731,
+        "name": "萨萨里安",
+        "name_en": "Thassarian",
+        "text": "<b>复生</b>。<b>战吼，亡语：</b>&随机对一个敌人造成2点伤害。",
+        "text_en": "<b>Reborn</b>\n<b>Battlecry and Deathrattle:</b>& Deal 2 damage to a random enemy.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "REBORN": 1,
+          "COST_FROST": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Valeria Styajkina"
+          }
+        ]
+      },
+      "record_sha256": "c4935598d294f0017ed9319d089be3522a2bbbebe1ba1090508515ab3b52a911",
+      "recipe": {
+        "script": "thassarian",
+        "deck_identity": "RLK_223",
+        "keywords": [
+          "reborn"
+        ],
+        "entries": [
+          "battlecry",
+          "deathrattle"
+        ]
+      }
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "EX1_082",
+        "dbf_id": 762,
+        "name": "疯狂投弹者",
+        "name_en": "Mad Bomber",
+        "text": "<b>战吼：</b>造成3点伤害，随机分配到所有其他角色身上。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage randomly split between all other characters.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "5d342bc38514a48bc25160ef4a032edbdccb1fc2c46611ee5700b10ee6e46a9d"
+    },
+    {
+      "record": {
+        "id": "BT_493",
+        "dbf_id": 58455,
+        "name": "愤怒的女祭司",
+        "name_en": "Priestess of Fury",
+        "text": "在你的回合结束时，&造成6点伤害，随机分配到所有敌人身上。",
+        "text_en": "At the end of your turn,& deal 6 damage randomly split among all enemies.",
+        "cost": 7,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1414,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bayard Wu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "cdd98ff37eb95beeb2b5942dda631bc8c37611cf9e47545b43aad58e24bf67dd"
+    },
+    {
+      "record": {
+        "id": "YOP_034",
+        "dbf_id": 61972,
+        "name": "窜逃的黑翼龙",
+        "name_en": "Runaway Blackwing",
+        "text": "在你的回合结束时，&随机对一个敌方随从造成10点伤害。",
+        "text_en": "[x]At the end of your turn,&\ndeal 10 damage to a\nrandom enemy minion.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "f8562686d7480fbdc508994427eee7bea84a489b0f72277c59c491acc1c3261a"
+    }
+  ],
+  "official_core_relation_sha256": "fec7b9aa4545a46a458fd6a443570b3c03f83570243a6815977534c0af2fdd16",
+  "reviewed_policy": {
+    "bomber": "Three named one-point MINION_ABILITY requests; rebuild all other current characters for each hit.",
+    "priestess": "Original controller end-turn declaration; existing six one-point SplitDamage requests into current enemies.",
+    "blackwing": "Original controller end-turn declaration; select one current enemy minion for a single ten-point hit.",
+    "thassarian": "Native Reborn and the same one random enemy two-point body on battlecry/deathrattle; no battlecry on Reborn.",
+    "limit": "Public internal timing/target policy; precise CN acceptance, random weighting and reaction exceptions remain uncalibrated."
+  }
+}

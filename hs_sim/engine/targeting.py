@@ -12,8 +12,15 @@ def target_spec(definition):
     return TargetSpec() if definition.requires_target else None
 
 
+def effective_target_spec(state,registry,source,definition):
+    from .spell_target_conditions import effective_spec
+    from .hero_health_targets import effective_spec as health_spec
+    return health_spec(state,registry,source,definition,
+                       effective_spec(state,registry,source,definition,target_spec(definition)))
+
+
 def accepts_target(state, registry, source, definition, target_id, *, context_factory=None, automatic=False):
-    spec = target_spec(definition)
+    spec = effective_target_spec(state,registry,source,definition)
     target = state.entities.get(target_id)
     if spec is None or target is None or not target.active or target.zone not in spec.zones:
         return False
@@ -59,7 +66,7 @@ def legal_target_ids(state, registry, source, definition, *, context_factory=Non
 
 
 def target_choices(state, registry, source, definition, *, context_factory=None):
-    spec = target_spec(definition)
+    spec = effective_target_spec(state,registry,source,definition)
     if spec is None:
         return (None,)
     targets = legal_target_ids(state, registry, source, definition, context_factory=context_factory)
@@ -69,7 +76,7 @@ def target_choices(state, registry, source, definition, *, context_factory=None)
 
 
 def target_error(state, registry, source, definition, target_id, *, context_factory=None):
-    spec = target_spec(definition)
+    spec = effective_target_spec(state,registry,source,definition)
     if target_id is not None:
         if not accepts_target(state, registry, source, definition, target_id, context_factory=context_factory):
             return 'Target rejected by the target rule or domain'
@@ -117,7 +124,7 @@ def effect_target_context(r, entity):
 
 def select_effect_target(r, source, definition, targeting, target_id, *, excluded_ids=()):
     """Automatic activation domains, separate from manual selectable protection."""
-    spec = target_spec(definition)
+    spec = effective_target_spec(r.state,r.registry,source,definition)
     context = effect_target_context(r,source)
     targets = tuple(i for i in sorted(r.state.entities) if i not in excluded_ids and accepts_target(r.state,r.registry,
         source,definition,i,context_factory=context,automatic=True)) if spec else ()

@@ -1,0 +1,2189 @@
+{
+  "format": "reviewed-basic-hero-roles-v1",
+  "source": {
+    "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "HERO_07",
+        "dbf_id": 893,
+        "name": "古尔丹",
+        "name_en": "Gul'dan",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 300,
+          "EMOTECHARACTER": 22,
+          "EMOTECLASS": 7
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 300,
+            "card_id": "HERO_07bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e6a717bf200932759bc6b5a3aa620754f15965e657222e6443f52814c6054547",
+      "recipe": {
+        "script": "starting_hero",
+        "initial_power": "HERO_07bp"
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_10",
+        "dbf_id": 56550,
+        "name": "伊利丹·怒风",
+        "name_en": "Illidan Stormrage",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 14,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 60224,
+          "EMOTECHARACTER": 35,
+          "EMOTECLASS": 10
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 60224,
+            "card_id": "HERO_10bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "6ab51a5887e0ef8c980a2267286481c63744df5fc76a15fc0abc92f367661252",
+      "recipe": {
+        "script": "starting_hero",
+        "initial_power": "HERO_10bp"
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_02bp",
+        "dbf_id": 687,
+        "name": "图腾召唤",
+        "name_en": "Totemic Call",
+        "text": "<b>英雄技能</b>\n随机召唤一个基础图腾。",
+        "text_en": "<b>Hero Power</b>\nSummon a random basic Totem.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2742
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "34cea5dafd89b3a56fe78d232503c947789fcba34249b108a999f385124f51ac",
+      "recipe": {
+        "script": "totemic_call"
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_05bp",
+        "dbf_id": 229,
+        "name": "稳固射击",
+        "name_en": "Steady Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$2点伤害。@<b>英雄技能</b>\n造成$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $2 damage to the enemy hero.@<b>Hero Power</b>\nDeal $2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2738
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b8799a64c55c2a528dad18ed018665ddbeccaac9216f7687480cc20ad563bc5e",
+      "recipe": {
+        "script": "steady_shot",
+        "amount": 2
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_09bp",
+        "dbf_id": 479,
+        "name": "次级治疗术",
+        "name_en": "Lesser Heal",
+        "text": "<b>英雄技能</b>\n恢复#2点生命值。",
+        "text_en": "<b>Hero Power</b>\nRestore #2 Health.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2741
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "f2ad180874d6bff22e4813d68e0014ef6c193ab27993e990dd1232b8bd229f9a",
+      "recipe": {
+        "script": "lesser_heal",
+        "amount": 2
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_10bp",
+        "dbf_id": 60224,
+        "name": "恶魔之爪",
+        "name_en": "Demon Claws",
+        "text": "<b>英雄技能</b>\n在本回合中+$a1\n攻击力。",
+        "text_en": "[x]<b>Hero Power</b>\n+$a1 Attack this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 14,
+          "CARDTYPE": 10,
+          "UPGRADED_HERO_POWER": 60483
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Virtuos"
+          }
+        ]
+      },
+      "record_sha256": "7f110b01f2446121c77d5580716c63f24338471852fd103391b3c99a692fd0fe",
+      "recipe": {
+        "script": "demon_claws",
+        "attack": 1
+      }
+    },
+    {
+      "record": {
+        "id": "HERO_11bp",
+        "dbf_id": 78162,
+        "name": "食尸鬼冲锋",
+        "name_en": "Ghoul Charge",
+        "text": "<b>英雄技能</b>\n召唤一个1/1并具有<b>冲锋</b>的食尸鬼。它会在回合结束时死亡。",
+        "text_en": "[x]<b>Hero Power</b>\nSummon a 1/1 Ghoul\nwith <b>Charge</b>. It dies at\nend of turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 2,
+          "CLASS": 1,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "UPGRADED_HERO_POWER": 79943
+        },
+        "card_set_id": 2,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2f5e4947580e2c99b16c9a6998cca276e1126a725934c3a507a1e2b7979e12a4",
+      "recipe": {
+        "script": "ghoul_charge",
+        "token": "HERO_11bpt"
+      }
+    },
+    {
+      "record": {
+        "id": "CS2_050",
+        "dbf_id": 537,
+        "name": "灼热图腾",
+        "name_en": "Searing Totem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 3,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "80bba0ff37c33336349535ae77cd0c2a5c53f097fc544053737fa42e7d3c16da",
+      "recipe": {
+        "script": "plain_totem"
+      }
+    },
+    {
+      "record": {
+        "id": "CS2_051",
+        "dbf_id": 850,
+        "name": "石爪图腾",
+        "name_en": "Stoneclaw Totem",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 3,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2bc862b09134ed7f65d4b10db39ab411d5d7d7ec6d72851fb2feab99e4c7cd2f",
+      "recipe": {
+        "script": "taunt_totem"
+      }
+    },
+    {
+      "record": {
+        "id": "CS2_052",
+        "dbf_id": 458,
+        "name": "空气之怒图腾",
+        "name_en": "Wrath of Air Totem",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 3,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "053d09556fc8f119a14bd6108e4cef6b88e0440e630f0b88cd7904c0a3c4d857",
+      "recipe": {
+        "script": "spell_damage_totem",
+        "amount": 1
+      }
+    },
+    {
+      "record": {
+        "id": "NEW1_009",
+        "dbf_id": 764,
+        "name": "治疗图腾",
+        "name_en": "Healing Totem",
+        "text": "在你的回合结束时，为所有友方随从恢复#1点生命值。",
+        "text_en": "At the end of your turn, restore #1 Health to all friendly minions.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2e91a05edeef98392c86068a841984a7bcc3750b2804d16b73016230a9c4f0ca",
+      "recipe": {
+        "script": "healing_totem",
+        "amount": 1
+      }
+    }
+  ],
+  "binding_updates": [
+    {
+      "hero_record": {
+        "id": "HERO_02",
+        "dbf_id": 1066,
+        "name": "萨尔",
+        "name_en": "Thrall",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 687,
+          "EMOTECHARACTER": 6,
+          "EMOTECLASS": 2
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 687,
+            "card_id": "HERO_02bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "hero_record_sha256": "0558ad8ba6eeeebc561c7ae548ca12d50b8361dcc88265a83c0eb98fda3c9dd5",
+      "power_id": "HERO_02bp",
+      "power_record_sha256": "34cea5dafd89b3a56fe78d232503c947789fcba34249b108a999f385124f51ac",
+      "before_definition_sha256": "bee3c61c64ec0a66f674bf364a379ea48168e7bd2d96fee6131143a4570a92ea",
+      "after_definition_sha256": "30baf4f364b8c9314f661af4a04aec59c1c630ce71d1670270978eacf86e8e28"
+    },
+    {
+      "hero_record": {
+        "id": "HERO_05",
+        "dbf_id": 31,
+        "name": "雷克萨",
+        "name_en": "Rexxar",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 229,
+          "EMOTECHARACTER": 39,
+          "EMOTECLASS": 5
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 229,
+            "card_id": "HERO_05bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "hero_record_sha256": "ee4f59e72eed909d3c21ee59846d4da3178815dab829b6e18d02ca479a0bb9db",
+      "power_id": "HERO_05bp",
+      "power_record_sha256": "b8799a64c55c2a528dad18ed018665ddbeccaac9216f7687480cc20ad563bc5e",
+      "before_definition_sha256": "33780c5e3e4fa888a8fe8ecc26a9f1f7c055eedc37631d283977c7b82fc5ae7e",
+      "after_definition_sha256": "871764a1c1393807bf53c3c0fa1fb4298c77e2650d32f9202df5a08b27a912d6"
+    },
+    {
+      "hero_record": {
+        "id": "HERO_09",
+        "dbf_id": 813,
+        "name": "安度因·乌瑞恩",
+        "name_en": "Anduin Wrynn",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 479,
+          "EMOTECHARACTER": 31,
+          "EMOTECLASS": 9
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 479,
+            "card_id": "HERO_09bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "hero_record_sha256": "a26855fb636f6909c1551ec3d854dccbf31122539a81e05a76c10261d1351973",
+      "power_id": "HERO_09bp",
+      "power_record_sha256": "f2ad180874d6bff22e4813d68e0014ef6c193ab27993e990dd1232b8bd229f9a",
+      "before_definition_sha256": "2d2b646b1a6991ac7f6c4426c8f7bb702cfe049545481968340b8324d191b148",
+      "after_definition_sha256": "fb69497f1e979c8e19e5d81f3e39eda8379821994ad365da249cd8eab0c7ce97"
+    },
+    {
+      "hero_record": {
+        "id": "HERO_11",
+        "dbf_id": 78065,
+        "name": "巫妖王",
+        "name_en": "The Lich King",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 1,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 78162,
+          "EMOTECHARACTER": 38,
+          "EMOTECLASS": 11
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 78162,
+            "card_id": "HERO_11bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "hero_record_sha256": "5f6fb325df2ac6fa77537d17e12dc502130f76cec0324f9e71a0dcff1b2de593",
+      "power_id": "HERO_11bp",
+      "power_record_sha256": "2f5e4947580e2c99b16c9a6998cca276e1126a725934c3a507a1e2b7979e12a4",
+      "before_definition_sha256": "ae06549be831d2dded60052c49f659a3d90bfbb8997a661ac092fefdcde8459f",
+      "after_definition_sha256": "57ab0156689cec5e2127dd7dd16afc82d889ee8ab6f53773994562b0388e83a3"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "HERO_07bp",
+        "dbf_id": 300,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2744
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "77fb8dc92e66b55dce52ec831c0eac460c0cc43a982db43b9f8b5ab2a4d227e3",
+      "definition_sha256": "9c21677f17029077f875a9148cd257ef09ccb6c7f52250633ba65dfe6f2e7bf5"
+    },
+    {
+      "record": {
+        "id": "HERO_11bpt",
+        "dbf_id": 78164,
+        "name": "脆弱的食尸鬼",
+        "name_en": "Frail Ghoul",
+        "text": "<b>冲锋</b>。在你的回合结束时死亡。",
+        "text_en": "[x]<b>Charge</b>\nAt the end of your turn,\nthis minion dies.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 2,
+          "CHARGE": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 2,
+          "ENCHANTMENT_IDLE_VISUAL": 2,
+          "333": 1
+        },
+        "card_set_id": 2,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "333",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "333"
+          }
+        ]
+      },
+      "record_sha256": "01e402e99454f39372bb356aac8c202ea312fea74491abd0c32b242983b1f105",
+      "definition_sha256": "3fb696518973466520d38c73aaecfda9481c60bf0b44b29ead5ae1a06bf81c6a"
+    }
+  ],
+  "canonical_roles": [
+    {
+      "hero_record": {
+        "id": "HERO_01",
+        "dbf_id": 7,
+        "name": "加尔鲁什·地狱咆哮",
+        "name_en": "Garrosh Hellscream",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 725,
+          "EMOTECHARACTER": 1,
+          "EMOTECLASS": 1
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 725,
+            "card_id": "HERO_01bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_01bp",
+        "dbf_id": 725,
+        "name": "全副武装！",
+        "name_en": "Armor Up!",
+        "text": "<b>英雄技能</b>\n获得$d2点护甲值。",
+        "text_en": "<b>Hero Power</b>\nGain $d2 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2745
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_02",
+        "dbf_id": 1066,
+        "name": "萨尔",
+        "name_en": "Thrall",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 687,
+          "EMOTECHARACTER": 6,
+          "EMOTECLASS": 2
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 687,
+            "card_id": "HERO_02bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_02bp",
+        "dbf_id": 687,
+        "name": "图腾召唤",
+        "name_en": "Totemic Call",
+        "text": "<b>英雄技能</b>\n随机召唤一个基础图腾。",
+        "text_en": "<b>Hero Power</b>\nSummon a random basic Totem.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2742
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_03",
+        "dbf_id": 930,
+        "name": "瓦莉拉·萨古纳尔",
+        "name_en": "Valeera Sanguinar",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 730,
+          "EMOTECHARACTER": 10,
+          "EMOTECLASS": 3
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 730,
+            "card_id": "HERO_03bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_03bp",
+        "dbf_id": 730,
+        "name": "匕首精通",
+        "name_en": "Dagger Mastery",
+        "text": "<b>英雄技能</b>\n装备一把1/2的\n匕首。",
+        "text_en": "<b>Hero Power</b>\nEquip a 1/2 Dagger.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2743
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_04",
+        "dbf_id": 671,
+        "name": "乌瑟尔·光明使者",
+        "name_en": "Uther Lightbringer",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 472,
+          "EMOTECHARACTER": 13,
+          "EMOTECLASS": 4
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 472,
+            "card_id": "HERO_04bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_04bp",
+        "dbf_id": 472,
+        "name": "援军",
+        "name_en": "Reinforce",
+        "text": "<b>英雄技能</b>\n召唤一个{0}的白银之手新兵。",
+        "text_en": "<b>Hero Power</b>\nSummon a {0} Silver Hand Recruit.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2740
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_05",
+        "dbf_id": 31,
+        "name": "雷克萨",
+        "name_en": "Rexxar",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 229,
+          "EMOTECHARACTER": 39,
+          "EMOTECLASS": 5
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 229,
+            "card_id": "HERO_05bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_05bp",
+        "dbf_id": 229,
+        "name": "稳固射击",
+        "name_en": "Steady Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$2点伤害。@<b>英雄技能</b>\n造成$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $2 damage to the enemy hero.@<b>Hero Power</b>\nDeal $2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2738
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_06",
+        "dbf_id": 274,
+        "name": "玛法里奥·怒风",
+        "name_en": "Malfurion Stormrage",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 1123,
+          "EMOTECHARACTER": 18,
+          "EMOTECLASS": 6
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 1123,
+            "card_id": "HERO_06bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_06bp",
+        "dbf_id": 1123,
+        "name": "变形",
+        "name_en": "Shapeshift",
+        "text": "<b>英雄技能</b>\n本回合+$a1攻击力。+$d1护甲值。",
+        "text_en": "<b>Hero Power</b>\n+$a1 Attack this turn.\n+$d1 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2737
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_07",
+        "dbf_id": 893,
+        "name": "古尔丹",
+        "name_en": "Gul'dan",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 300,
+          "EMOTECHARACTER": 22,
+          "EMOTECLASS": 7
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 300,
+            "card_id": "HERO_07bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_07bp",
+        "dbf_id": 300,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2744
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_08",
+        "dbf_id": 637,
+        "name": "吉安娜·普罗德摩尔",
+        "name_en": "Jaina Proudmoore",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 807,
+          "EMOTECHARACTER": 26,
+          "EMOTECLASS": 8
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 807,
+            "card_id": "HERO_08bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_08bp",
+        "dbf_id": 807,
+        "name": "火焰冲击",
+        "name_en": "Fireblast",
+        "text": "<b>英雄技能</b>\n造成$1点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $1 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2739
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_09",
+        "dbf_id": 813,
+        "name": "安度因·乌瑞恩",
+        "name_en": "Anduin Wrynn",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 479,
+          "EMOTECHARACTER": 31,
+          "EMOTECLASS": 9
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 479,
+            "card_id": "HERO_09bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_09bp",
+        "dbf_id": 479,
+        "name": "次级治疗术",
+        "name_en": "Lesser Heal",
+        "text": "<b>英雄技能</b>\n恢复#2点生命值。",
+        "text_en": "<b>Hero Power</b>\nRestore #2 Health.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2741
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_10",
+        "dbf_id": 56550,
+        "name": "伊利丹·怒风",
+        "name_en": "Illidan Stormrage",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 14,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 60224,
+          "EMOTECHARACTER": 35,
+          "EMOTECLASS": 10
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 60224,
+            "card_id": "HERO_10bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_10bp",
+        "dbf_id": 60224,
+        "name": "恶魔之爪",
+        "name_en": "Demon Claws",
+        "text": "<b>英雄技能</b>\n在本回合中+$a1\n攻击力。",
+        "text_en": "[x]<b>Hero Power</b>\n+$a1 Attack this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 14,
+          "CARDTYPE": 10,
+          "UPGRADED_HERO_POWER": 60483
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Virtuos"
+          }
+        ]
+      }
+    },
+    {
+      "hero_record": {
+        "id": "HERO_11",
+        "dbf_id": 78065,
+        "name": "巫妖王",
+        "name_en": "The Lich King",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "CARD_SET": 17,
+          "CLASS": 1,
+          "CARDTYPE": 3,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 78162,
+          "EMOTECHARACTER": 38,
+          "EMOTECLASS": 11
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 78162,
+            "card_id": "HERO_11bp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "power_record": {
+        "id": "HERO_11bp",
+        "dbf_id": 78162,
+        "name": "食尸鬼冲锋",
+        "name_en": "Ghoul Charge",
+        "text": "<b>英雄技能</b>\n召唤一个1/1并具有<b>冲锋</b>的食尸鬼。它会在回合结束时死亡。",
+        "text_en": "[x]<b>Hero Power</b>\nSummon a 1/1 Ghoul\nwith <b>Charge</b>. It dies at\nend of turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 2,
+          "CLASS": 1,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "UPGRADED_HERO_POWER": 79943
+        },
+        "card_set_id": 2,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "basic_totem_ids": [
+    "CS2_050",
+    "CS2_051",
+    "CS2_052",
+    "NEW1_009"
+  ],
+  "historical_excluded_totem": {
+    "record": {
+      "id": "CS2_058",
+      "dbf_id": 62320,
+      "name": "力量图腾",
+      "name_en": "Strength Totem",
+      "text": "在你的回合结束时，使另一个友方随从获得+1攻击力。",
+      "text_en": "At the end of your turn, give another friendly minion +1 Attack.",
+      "cost": 1,
+      "attack": null,
+      "health": 2,
+      "type": "MINION",
+      "collectible": false,
+      "tags": {
+        "TRIGGER_VISUAL": 1,
+        "HEALTH": 2,
+        "COST": 1,
+        "CARD_SET": 1635,
+        "CLASS": 8,
+        "CARDRACE": 21,
+        "CARDTYPE": 4,
+        "RARITY": 2,
+        "HIDE_WATERMARK": 1
+      },
+      "card_set_id": 1635,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": [
+        {
+          "tag": "Tag",
+          "attributes": {
+            "enumID": "342",
+            "name": "ARTISTNAME",
+            "type": "String"
+          },
+          "text": "BOSi Studio"
+        }
+      ]
+    },
+    "record_sha256": "b16087c7e04be2327799727998a5419baa436954cfb5401d0d7b05933934dfd9",
+    "reason": "Official29.0 reverted the Hero Power pool from Strength to Wrath of Air; retain the complete old row as evidence, not a default member."
+  },
+  "primary_evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/news/24064735/29-0-patch-notes",
+      "supports": "Wrath of Air replaces Strength in the Shaman Hero Power pool."
+    },
+    {
+      "url": "https://news.blizzard.com/en-gb/article/23852696/death-knight-deep-dive",
+      "supports": "2-mana Ghoul Charge,1/1Charge and end-of-turn death; printed Ghoul row and existing adapter remain independent."
+    }
+  ],
+  "policy": {
+    "scope": "Default canonical roles only; cosmetic variants, upgraded powers and qualified alternate targeting remain separately reviewed actual dependencies.",
+    "totems": "Four complete current basic identities; exclude those already on the actor current physical board. Owning all four disables manual use. Query uses only the actor public board; resolve through existing attributed random SummonByCard.",
+    "ghoul": "Reuse the complete existing charged Ghoul with its native controller-end self-destruction; no fake temporary marker.",
+    "bindings": "Only fill the four currently-unbound representative starting hero definitions in the constructed compilation. Default representative remains unchanged."
+  },
+  "cn_calibrated": false
+}

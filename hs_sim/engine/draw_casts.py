@@ -70,15 +70,21 @@ def require_phase(r, draw_id, phase):
     return record
 
 
-def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=False):
+def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=False, deck_owner_id=None, deathrattle_memory=None):
     player = r.player(player_id); source_exists(r, source_id)
+    if deathrattle_memory is not None:
+        from .deathrattle_memory import validate_draw_request
+        validate_draw_request(r,deathrattle_memory)
+        if (player_id,source_id)!=(deathrattle_memory.player_id,deathrattle_memory.reference.entity_id):
+            raise ResolutionError('Remembered draw substituted its actual player or source')
+    deck_owner = player if deck_owner_id is None else r.player(deck_owner_id)
     if card is not None:
         entity = reference_entity(r, card)
         if entity is None: return ()
-        if entity.controller != player_id or entity.zone != Zone.DECK:
-            raise ResolutionError('A draw must select from the drawing player\'s deck')
+        if entity.zone != Zone.DECK or deck_owner_id is not None and entity.controller != deck_owner.id:
+            raise ResolutionError('A physical draw must select an original deck card')
     else:
-        entity = r.state.entities[player.deck[0]] if player.deck else None
+        entity = r.state.entities[deck_owner.deck[0]] if deck_owner.deck else None
     spec = None
     if entity is None: outcome = 'fatigue'
     elif len(player.hand) >= hand_capacity(player, r.rules): outcome = 'burned'
@@ -103,12 +109,15 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
     if spec is None:
         from .zones import move_physical_card
         move_physical_card(r,MoveCard(CardReference.capture(entity),player_id,Zone.HAND,
-            draw=True,reset=reset,source_id=source_id),draw_id=record.id)
+            draw=True,reset=reset,source_id=source_id),draw_id=record.id,deathrattle_memory=deathrattle_memory)
         return (FinishDraw(record.id),)
     if reset:
         from .lifecycle import reset_to_definition
         reset_to_definition(r.state,entity,r.registry.card(entity.card_id),r.registry)
-    r.move(entity,Zone.GRAVEYARD)
+    if entity.controller == player_id:
+        r.move(entity,Zone.GRAVEYARD)
+    else:
+        r.move(entity,Zone.GRAVEYARD,controller_id=player_id,draw_id=record.id)
     # A drawn spell is a draw, but never a successful hand acquisition.
     r.emit('card_drawn',source_id=source_id,target_id=entity.id,player_id=player_id,
            draw_id=record.id,casts_when_drawn=True)

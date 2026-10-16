@@ -1,4 +1,5 @@
 """One attack scope, two native carriers, and the original combat lifecycle."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -389,7 +390,7 @@ class AttackScopedImmunityBasicsTests(unittest.TestCase):
     def test_previous_schema_requires_its_original_engine(self):
         saved = self.game().snapshot()
         saved['schema_version'] = 222
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(saved, registry())
 
 

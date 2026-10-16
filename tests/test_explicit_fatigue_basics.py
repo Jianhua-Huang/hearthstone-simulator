@@ -1,4 +1,5 @@
 """One actual fatigue tick and one pinned native representative, without combos."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from pathlib import Path
 import json
@@ -294,5 +295,5 @@ class ExplicitFatigueTests(unittest.TestCase):
         source = g.state.players[1].graveyard[0]
         with self.assertRaises(ValueError): codec.encode(TakeFatigue(1, source, 'ft.missing.callback'))
         old = deepcopy(g.snapshot()); old['schema_version'] = 220
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'): Game.from_snapshot(old, registry())
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'): Game.from_snapshot(old, registry())
         self.assertIn(TakeFatigue, g.mechanics.effect_types)

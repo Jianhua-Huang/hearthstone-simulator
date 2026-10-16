@@ -11,6 +11,7 @@ from .model import CardClass, CardType, Zone, _name
 from .pools import PoolQuery, PoolMember, GenerationPolicy, validate_policy, generation_candidates, matches_metadata, sample_candidates, resolve_candidates
 from .spell_casts import CAST_ORIGINS, CastSpell, automatic, cast_record, policies
 from .zones import filter_value, source_exists
+from .automatic_targets import validate_preferred_source
 
 
 def spell_query(query):
@@ -156,6 +157,7 @@ class RecastSpell(Effect):
 
     def __post_init__(self):
         _player(self.player_id); _integer(self.cast_id,'historical cast',1); _source(self.source_id)
+        validate_preferred_source(self.target_preference, self.source_id)
         if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit'):
             raise ValueError('Unknown historical branch policy')
         if self.targeting == 'original':
@@ -172,6 +174,9 @@ def recast(r, effect):
         raise ResolutionError('Historical cast requires a physical spell')
     entity = r.create_entity(effect.player_id,card.id,Zone.GRAVEYARD)
     entity.origin_entity_id = original.source_id
+    if original.native_spell_value is not None:
+        from .native_spell_values import install
+        install(r.state,r.registry,entity,original.native_spell_value.spell_base_value)
     if effect.branch_policy == 'inherit' and card.choose_one is not None:
         from .choose_branch_state import validate_selection
         from .model import ChooseBranchSelection
@@ -196,9 +201,11 @@ class RecastFromHistory(Effect):
     targeting: str = 'random'
     choices: str = 'random'
     branch_policy: str = 'current'
+    target_preference: object | None = None
 
     def __post_init__(self):
-        RecastSpell(self.player_id,1,self.source_id,self.target_id,self.targeting,self.choices,branch_policy=self.branch_policy)
+        RecastSpell(self.player_id,1,self.source_id,self.target_id,self.targeting,self.choices,
+            target_preference=self.target_preference,branch_policy=self.branch_policy)
         if type(self.query) is not SpellHistoryQuery: raise ValueError('Expected SpellHistoryQuery')
         self.query.__post_init__(); distinct_policy(self.distinct)
         if self.count is not None: _integer(self.count,'history cast count',0)
@@ -226,6 +233,7 @@ class ContinueHistoryCasts(Effect):
 
 def history_batch(r, effect):
     effect.__post_init__(); source_exists(r,effect.source_id)
+    validate_preferred_source(effect.target_preference,effect.source_id,r.state)
     records = spell_history_candidates(r.state,r.registry,effect.player_id,effect.query,effect.source_id)
     count = len(historical_groups(r.registry,records,effect.distinct)) if effect.count is None else effect.count
     if count > r.rules.max_resolution_steps: raise ResolutionLimitExceeded('Historical casts exceed resolution budget')
@@ -246,7 +254,8 @@ def continue_history(r, effect):
         group = groups[0]; selected = group[0]
     remove = {c.id for c in group} if not spec.replacement else set()
     remaining_ids = tuple(i for i in effect.cast_ids if i not in remove)
-    return (RecastSpell(spec.player_id,selected.id,spec.source_id,spec.target_id,spec.targeting,spec.choices,branch_policy=spec.branch_policy),
+    return (RecastSpell(spec.player_id,selected.id,spec.source_id,spec.target_id,spec.targeting,spec.choices,
+                target_preference=spec.target_preference,branch_policy=spec.branch_policy),
             ContinueHistoryCasts(spec,remaining_ids,effect.remaining-1,effect.before_id))
 
 

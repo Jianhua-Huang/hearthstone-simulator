@@ -1,5 +1,7 @@
 # 历史发现、重施与池内批量施法
 
+真实原生法术参数绑定原亡语执行与物理材料，当前费用/亡语抽取连接原手牌奖励；首回合和后续正常抽牌共用可移除来源门禁。有限字段、公共执行及未覆盖继承边界见[亡灵资源契约](m3-undead-resource-native.md)。
+
 M5-10d 公共子集，`prototype-v75` / `core-effects-v75`，snapshot schema 74。玩家视图 v32、动作 v6、外层回放 1、代表包 `representative-m5-v38` 不变；未增加真实卡牌。实现见 [spell_history.py](../hs_sim/engine/spell_history.py)，验证见 [68 项专项](../tests/test_m5_spell_history.py)。概率、计数、来源和窗口政策登记 **R-090**，尚未获得国服校准。
 
 ## 历史候选与发现复制

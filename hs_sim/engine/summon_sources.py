@@ -34,8 +34,12 @@ class SummonFromZone(Effect):
     source_id: int | None = None
     stats: SummonStats | None = None
     cause: object = None
+    on_summon: str | None = None
 
     def __post_init__(self):
+        if self.on_summon is not None:
+            _behavior(self.on_summon)
+            if self.cause is None: raise ValueError('Recruit followup requires original card attribution')
         if self.cause is not None:
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed physical recruit cause required')
@@ -145,8 +149,11 @@ class DeathQuery:
     exclude_entity_ids: tuple[int, ...] = ()
     cost_extreme: str | None = None
     cost_basis: str = 'printed'
+    deathrattle_basis: str = 'at_death'
 
     def __post_init__(self):
+        if self.deathrattle_basis not in ('at_death', 'printed'):
+            raise ValueError('Unknown deathrattle qualification basis')
         if self.cost_extreme not in (None, 'highest', 'lowest'):
             raise ValueError('Unknown death cost extreme')
         if self.cost_basis not in ('printed', 'local_at_death'):
@@ -201,7 +208,8 @@ def death_query_candidates(registry,player_id,query,records,current_class,source
                 query.min_turn is not None and record.turn < query.min_turn or
                 query.max_turn is not None and record.turn > query.max_turn):
             continue
-        deathrattle = any(a.kind == 'deathrattle' and not a.consumed for a in record.abilities)
+        deathrattle = (definition.deathrattle is not None if query.deathrattle_basis == 'printed' else
+                      any(a.kind == 'deathrattle' and not a.consumed for a in record.abilities))
         if query.has_deathrattle is not None and deathrattle != query.has_deathrattle: continue
         cost = definition.cost if query.cost_basis == 'printed' else local_cost(record)[0]
         if matches_metadata(card_query, card_id=record.card_id, kind=definition.kind,
@@ -426,8 +434,12 @@ class CopyStoredMinion(Effect):
     mode: str = 'current'
     stats: SummonStats | None = None
     cause: object = None
+    minion_grant: object = None
 
     def __post_init__(self):
+        from .card_creation import validate_minion_grant
+        validate_minion_grant(self.minion_grant)
+        if self.minion_grant is not None and self.cause is None:raise ValueError('Copy entry grant requires its original attributed summon')
         if self.cause is not None:
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed stored copy cause required')

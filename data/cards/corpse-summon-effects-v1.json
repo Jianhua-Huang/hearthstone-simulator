@@ -1,0 +1,573 @@
+{
+  "batch_id": "K71",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_465",
+        "dbf_id": 122760,
+        "name": "投喂加餐",
+        "name_en": "Chow Down",
+        "text": "召唤五条5/4的亡灵幼龙。消耗8份<b>残骸</b>，使其获得<b>突袭</b>。",
+        "text_en": "[x]Summon five 5/4 Undead\nDrakes. Spend 8 <b>Corpses</b>\nto give them <b>Rush</b>.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_UNHOLY": 2,
+          "CORPSE_SPENDER": 1,
+          "4128": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c73ca3e2cedcdfa2289ffabb578590095df278ef0ba4c0664277181dd3538fa0",
+      "recipe": {
+        "mode": "grant",
+        "token_id": "CATA_465t",
+        "count": 5,
+        "corpse_cost": 8,
+        "keyword": "rush",
+        "deck_identity": "CATA_465"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_118",
+        "dbf_id": 117028,
+        "name": "坟墓守卫",
+        "name_en": "Tomb Guardians",
+        "text": "召唤两个2/2并具有<b>嘲讽</b>的僵尸。消耗4份<b>残骸</b>，使其获得<b>复生</b>。",
+        "text_en": "Summon two 2/2 Zombies with <b>Taunt</b>. Spend 4 <b>Corpses</b> to\ngive them <b>Reborn</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 80085,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 80085,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 91712,
+          "SPELL_SCHOOL": 6,
+          "COST_UNHOLY": 2,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80085",
+              "type": "Int",
+              "value": "80085"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "33c21015df4781b8eb92359e7b93d2be2081fe4888dd2afb7ba53f3f6ca9bed9",
+      "recipe": {
+        "mode": "grant",
+        "token_id": "RLK_118t3",
+        "count": 2,
+        "corpse_cost": 4,
+        "keyword": "reborn",
+        "deck_identity": "RLK_118"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_506",
+        "dbf_id": 128334,
+        "name": "白骨卫士指挥官",
+        "name_en": "Boneguard Commander",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>将最多6份<b>残骸</b>复活为1/3并具有<b>嘲讽</b>的复活的步兵。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> Raise up to\n6 <b>Corpses</b> as 1/3 Risen Footmen with <b>Taunt</b>.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80830,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 80830,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 78570,
+          "COST_BLOOD": 1,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80830",
+              "type": "Int",
+              "value": "80830"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "676cb92e6090ed133109049fcdac3646dec147400661186141783db47886369f",
+      "recipe": {
+        "mode": "raise",
+        "token_id": "RLK_061t",
+        "count": 6,
+        "corpse_cost": 0,
+        "keyword": null,
+        "deck_identity": "RLK_506"
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_060",
+        "dbf_id": 78352,
+        "name": "亡者大军",
+        "name_en": "Army of the Dead",
+        "text": "将最多5份<b>残骸</b>复活为2/2并具有<b>突袭</b>的复活的食尸鬼。",
+        "text_en": "Raise up to 5 <b>Corpses</b> as 2/2 Risen Ghouls with <b>Rush</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 79278,
+          "SPELL_SCHOOL": 6,
+          "COST_UNHOLY": 1,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "448df62a9e52f1690c77e1bae87f889a0230b0b470e5b2a65a629989f871203b",
+      "recipe": {
+        "mode": "raise",
+        "token_id": "RLK_008t",
+        "count": 5,
+        "corpse_cost": 0,
+        "keyword": null,
+        "deck_identity": "RLK_060"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_465t",
+        "dbf_id": 125516,
+        "name": "饥饿的幼龙",
+        "name_en": "Hungry Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "2534": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "46d3cf92bdfd05876e0c0c28feb74262acf90da0b322efbc8b80266e2a0c7156"
+    },
+    {
+      "record": {
+        "id": "RLK_118t3",
+        "dbf_id": 91712,
+        "name": "凶恶僵尸",
+        "name_en": "Menacing Zombie",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1869,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1869,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "e35251f9f928c22635096940fb836859a667ad79ea8e6a9ec70ead4e9ca6db64"
+    },
+    {
+      "record": {
+        "id": "RLK_061t",
+        "dbf_id": 78570,
+        "name": "复活的步兵",
+        "name_en": "Risen Footman",
+        "text": "<b>嘲讽</b>。<i>不会留下<b>残骸</b>。</i>",
+        "text_en": "<b>Taunt</b>\n<i>Doesn't leave a <b>Corpse</b>.</i>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "2217": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2217",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2217"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2104b99112933159dc46aed756a1a8bf6a11cbdd5552b3f21e063d357524510d"
+    },
+    {
+      "record": {
+        "id": "RLK_008t",
+        "dbf_id": 79278,
+        "name": "复活的食尸鬼",
+        "name_en": "Risen Ghoul",
+        "text": "<b>突袭</b>。<i>不会留下<b>残骸</b>。</i>",
+        "text_en": "<b>Rush</b>\n<i>Doesn't leave a <b>Corpse</b>.</i>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "2217": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2217",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2217"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5a16bcfa3b9bb5b7e1363594b42e8c4170d3b7180d8bb7a2876d1b4690891161"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k71-official-face-01/comparison.json",
+      "bytes": 1941,
+      "sha256": "861035b218a4b0fc94d90133cf628a307f671b4e18b8d2531ed8d558ce3be3c8"
+    }
+  ],
+  "policies": [
+    "Four actual roots and four exact fixed tokens. The Drake is both Dragon and Undead. Risen Footman and Risen Ghoul have native corpse_value=0; they must not replenish the spent account on death, silence, copy or Reborn resets.",
+    "Chow Down and Tomb Guardians complete all original attributed fixed summon requests, then accept the current corpse bank and exact original successful deliveries including quantity extras. Insufficient bank pays nothing; sufficient bank spends the full fixed threshold through the existing attributed capped resource operation. The original debit grants Rush/Reborn only to continuous original recipients; same-residence transform/control follows, departure/reentry or later same-name deliveries cannot steal the reward.",
+    "Army and Commander use a finite raise profile: cap is bounded by the original max count and actual physical free board space at debit acceptance. Debit freezes the amount before resource reactions, and that exact amount requests fixed summons afterwards. Later capacity changes may fail deliveries but never rewrite/refund the original debit. Extra summon quantities do not cost extra corpses. Exact capacity/payment/manual play and event windows remain explicit local policies pending M6.",
+    "Commander uses native Battlecry and Taunt/Undead. Each genuine repeat accepts its own current account and capacity; ordinary summon never fabricates a Battlecry. Current Core aliases retain original deck identity. No random pool is required.",
+    "The official old non-Core Commander page has a mismatched related-card Risen Groom label. The fixed37 Core raw DBF78570 and full text expressly identify 1/3 Risen Footmen; do not choose RLK_506t by ID prefix. The historical official25.2.2 patch confirms the 1/3 Footman update but is not a CN37 calibration.",
+    "All remaining Standard roots/reachable content, official pool/hotfix/Core closure, CN calibration, control overlap and phase/release validation remain required."
+  ]
+}

@@ -1,4 +1,5 @@
 """One current-turn personal play-count policy, using full Frostwolf evidence."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -445,7 +446,7 @@ class PlayerPlayedTurnCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-                         ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+                         ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for mode in ('old-schema', 'future-schema', 'bool-schema', 'old-rules', 'old-effects'):
             bad = deepcopy(saved)
             if mode == 'old-schema': bad['schema_version'] = 207

@@ -1,4 +1,5 @@
 """Permanent Mana-Crystal conditions use the original quote and payment window."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import asdict,replace
 import json
 from pathlib import Path
@@ -143,7 +144,7 @@ class PermanentManaCostTests(unittest.TestCase):
         missing=deepcopy(wire);missing['rules'][0].pop('mana_crystals')
         with self.assertRaises(ValueError):_intrinsic_stage_from_dict(missing)
     def test_new_wire_rejects_prior_schema_without_migrating_resource_facts(self):
-        g=self.game(7);saved=g.snapshot();self.assertEqual(saved['schema_version'],266)
+        g=self.game(7);saved=g.snapshot();self.assertEqual(saved['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         for old in (*range(1, saved['schema_version']), saved['schema_version'] + 1, True):
             changed=deepcopy(saved);changed['schema_version']=old
             with self.assertRaises(SnapshotError):Game.from_snapshot(changed,registry())

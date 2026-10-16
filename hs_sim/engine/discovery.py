@@ -121,11 +121,16 @@ def options_for(registry, batch, offered, hero_class, source_card, gifts=()):
 
 def sample_gifts(r, spec, offered):
     if spec.gift_pool is None:return ()
-    members=tuple(sorted(spec.gift_pool.members,key=lambda g:g.id))
+    return sample_eligible_gifts(r, spec.gift_pool.members, tuple(r.registry.card(cid) for cid in offered))
+
+
+def sample_eligible_gifts(r, members, faces):
+    """Share the original feasible-binding sampler with physical stored faces."""
+    members=tuple(sorted(members,key=lambda g:g.id))
     # Uniform over feasible ordered bindings. Conditional gifts cannot silently
     # remove a minion, and a greedy assignment cannot lose a valid binding.
-    possible=tuple(gs for gs in permutations(members,len(offered))
-        if all(g.eligible(r.registry.card(cid)) for cid,g in zip(offered,gs)))
+    possible=tuple(gs for gs in permutations(members,len(faces))
+        if all(g.eligible(face) for face,g in zip(faces,gs)))
     if not possible:raise ResolutionError('No distinct eligible gift binding for the offered minions')
     return r.game._rng.choice(possible)
 

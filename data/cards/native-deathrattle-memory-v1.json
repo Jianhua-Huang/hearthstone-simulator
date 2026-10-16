@@ -1,0 +1,163 @@
+{
+  "format": "reviewed-native-deathrattle-memory-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_210",
+        "dbf_id": 123126,
+        "name": "暮光龙卵",
+        "name_en": "Twilight Egg",
+        "text": "<b>亡语：</b>召唤一条{0}/{1}的雏龙。<i>（在你的回合开始时获得+1/+1！）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\n{0}/{1} Whelp. <i>(Gains +1/+1\n__at the start of your turns!)__</i>",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "50093ef8eec01fc9cf048fb3d7988c581099e71be35b2d74be93b1f09c252688",
+      "recipe": {
+        "script": "summon_growth"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_603",
+        "dbf_id": 117719,
+        "name": "栉龙",
+        "name_en": "Platysaur",
+        "text": "<b>战吼：</b>抽一张牌。<b>亡语：</b>弃掉该牌。",
+        "text_en": "<b>Battlecry:</b> Draw a card. <b>Deathrattle:</b> Discard it.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          }
+        ]
+      },
+      "record_sha256": "90d472f79f5a38575bdffa6e269082c7e4b49878a09bef52b39b20457a2584b0",
+      "recipe": {
+        "script": "draw_link"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_210t",
+        "dbf_id": 123127,
+        "name": "速生雏龙",
+        "name_en": "Accelerated Whelp",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "WHELP": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "5db38cde1ca561e9625ec744ca41cf66734d4cde89bbe42bf997b58a98244708",
+      "recipe": {
+        "script": "plain"
+      }
+    }
+  ],
+  "policy": [
+    "Native removable Deathrattle memory is copied/frozen with the original ability; no GameState shadow ledger or source-ID history scan.",
+    "Egg starts with a complete2/1 Whelp, adds1/1 at actual controller starts while on board, and summons from captured Deathrattle memory.",
+    "Platysaur records each actual successful hand draw before the original card_drawn publication. Links bind original draw ID and successful hand-entry ID, survive in-hand face changes and copies, and expire when that hand stay ends. Cast/burn/fatigue do not create a hand link.",
+    "Each remembered link discards through the original discard pipeline if the same original hand stay still exists, including after source copying/control transfer. Multiple actual battlecry draws are retained in order as an internal policy pending CN.",
+    "Unproven granted body transfer without the typed native memory must fail explicitly. No speculative combination expansion or certification of all grant sources."
+  ],
+  "cn_calibrated": false
+}

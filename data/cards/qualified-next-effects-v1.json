@@ -1,0 +1,328 @@
+{
+  "batch": "K25C",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_DMF_511",
+        "dbf_id": 120460,
+        "name": "狐人老千",
+        "name_en": "Foxy Fraud",
+        "text": "<b>战吼：</b>\n在本回合中，你的下一张<b>连击</b>牌法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b> Your next\n<b>Combo</b> card this turn costs_(2) less.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 61151,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 61151
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "61151",
+              "type": "Int",
+              "value": "61151"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "220",
+              "name": "COMBO",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e5a2b9cec824962cacbe4a11a3fe7a2ab8ab5150d415ee99fce24d8a4bc2c99f",
+      "recipe": {
+        "script": "next_combo",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "DMF_511"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_450",
+        "dbf_id": 117890,
+        "name": "洞穴专家",
+        "name_en": "Spelunker",
+        "text": "<b>战吼：</b>&你的下一张<b>临时</b>牌的法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b>& Your next <b>Temporary</b> card costs\n(2) less.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6b4e44432a2b52946aceed0ecc0f13798de3adc83c53e900435abada43eaf34a",
+      "recipe": {
+        "script": "next_temporary",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "TLC_450"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CATA_001",
+        "dbf_id": 126887,
+        "name": "提克迪奥斯",
+        "name_en": "Tichondrius",
+        "text": "你的英雄<b>免疫</b>。<b>战吼：</b>&在本回合中，你的下一张恶魔牌的法力值消耗为（0）。",
+        "text_en": "Your hero is <b>Immune</b>. <b>Battlecry:</b>& Your next Demon this turn costs (0).",
+        "cost": 9,
+        "attack": 9,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 9,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f96b581c49cf4bd141b4044302065f70cb1e4291b28359de16244a836b0db2e3",
+      "recipe": {
+        "script": "next_demon_zero",
+        "cost": 9,
+        "attack": 9,
+        "health": 8,
+        "keywords": [],
+        "deck_identity": "CORE_CATA_001"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_180",
+        "dbf_id": 123675,
+        "name": "速逝鱼人",
+        "name_en": "War'loc",
+        "text": "<b>战吼：</b>你的下一张法力值消耗小于或等于（3）点的鱼人牌会消耗生命值，而非法力值。",
+        "text_en": "[x]<b>Battlecry:</b> Your next Murloc\nthat costs (3) or less costs\n_Health instead of Mana.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "0dd3c78d38b374029f1d60e3f2e56911cde122ae617871b3586b097fcc077d6b",
+      "recipe": {
+        "script": "small_murloc_health",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "keywords": [],
+        "deck_identity": "CATA_180"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_250",
+        "dbf_id": 118247,
+        "name": "环形山鳄鱼",
+        "name_en": "Crater Gator",
+        "text": "<b>战吼：</b>直到你的下个回合开始，敌方英雄无法被治疗。",
+        "text_en": "[x]<b>Battlecry:</b> Until the start of\nyour next turn, the enemy\nhero can't be healed.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "3da179ed846dbbf43e395d3d4bf5652599aff40bd0302d54f59facbb0c9ca031",
+      "recipe": {
+        "script": "no_enemy_healing",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "keywords": [],
+        "deck_identity": "TLC_250"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Five full roots, finite physical cost qualification and the existing true owner expiry for hero healing prevention."
+}

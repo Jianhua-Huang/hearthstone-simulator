@@ -1,4 +1,5 @@
 """M5-13d-02l-05c: explicit effect/phase roots without natural clocks."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -1081,7 +1082,7 @@ class EndTurnActivationTests(unittest.TestCase):
     def test_schema_97_snapshot_is_explicitly_rejected_by_new_schema(self):
         game = self.waiting()
         snapshot = game.snapshot()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         snapshot['schema_version'] = 97
         with self.assertRaises(SnapshotError):
             Game.from_snapshot(snapshot, self.r)

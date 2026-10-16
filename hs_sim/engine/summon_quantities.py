@@ -45,9 +45,14 @@ class SummonCause:
     @classmethod
     def capture(cls,context):
         cast=context.cast
+        if cast is not None and (cast.source_id,cast.player_id)!=(context.source_id,context.player_id):
+            cast=None
+        power=context.power
+        if power is not None and (power.source_id,power.player_id)!=(context.source_id,context.player_id):
+            power=None
         return cls(SourceAllocationFact.capture(context.state,context.source),context.player_id,
             context.state.turn,context.state.action_number,
-            'spell_cast' if cast is not None else 'hero_power' if context.power is not None else 'card_effect',
+            'spell_cast' if cast is not None else 'hero_power' if power is not None else 'card_effect',
             cast.id if cast is not None else None,cast.card_id if cast is not None else None)
 
 
@@ -161,10 +166,19 @@ def validate_material(registry,material):
     for s in material.deathrattles: registry.behavior(s)
 
 
-def validate_cause(state,registry,cause,*,closed=False):
+def validate_cause(state,registry,cause,*,closed=False,original_cast_event=None):
     cause.__post_init__(); validate_allocation(state,registry,cause.source,closed=closed)
     if cause.turn>state.turn or cause.action>state.action_number: raise ValueError('Future summon cause')
     if cause.cast_id is not None:
+        if original_cast_event is not None:
+            from .spell_casts import accepted_fact_id
+            event=original_cast_event
+            if (not closed or accepted_fact_id(event)!=cause.cast_id or
+                    (event.source_id,event.player_id)!=(cause.source.entity_id,cause.player_id) or
+                    event.action>cause.action or
+                    registry.card(cause.cast_card_id).kind!=CardType.SPELL):
+                raise ValueError('Summon cause differs from its original accepted cast event')
+            return
         cast=next((c for c in state.cast_history if c.id==cause.cast_id),None)
         if cast is None and closed:
             if cause.cast_id>=state.next_cast_id or registry.card(cause.cast_card_id).kind!=CardType.SPELL:
@@ -273,12 +287,15 @@ class CardSummonDelivery:
     index: int
     outcome: str
     entity: SourceAllocationFact | None = None
+    followup_started: bool = False
 
     def __post_init__(self):
+        if type(self.followup_started)is not bool:raise ValueError('Recruit followup acceptance requires bool')
         _integer(self.index,'summon delivery index',0)
         if self.outcome not in ('delivered','board_full'):raise ValueError('Unknown summon delivery outcome')
         if (self.outcome=='delivered')!=(self.entity is not None):raise ValueError('Incomplete actual summon delivery identity')
         if self.entity is not None:self.entity.__post_init__()
+        if self.followup_started and self.entity is None:raise ValueError('Unsuccessful delivery cannot accept a followup')
 
 
 @dataclass(frozen=True)
@@ -308,8 +325,15 @@ class CardSummonRecord:
         for x in self.deliveries:x.__post_init__()
         if [x.index for x in self.deliveries]!=list(range(len(self.deliveries))) or len(self.deliveries)>self.plan.total:raise ValueError('Cropped/reordered summon delivery prefix')
         if self.selected is None and self.deliveries:raise ValueError('Unselected summon cannot deliver')
+        material=None if self.selected is None else self.request.materials[self.selected]
+        has_followup=type(material)in(RecruitEntryMaterial,CopyEntryMaterial) and material.on_summon is not None
+        if not has_followup and any(d.followup_started for d in self.deliveries):raise ValueError('Non-recruit delivery borrowed a followup acceptance')
+        if has_followup and any(d.outcome=='delivered' and not d.followup_started for d in self.deliveries[:-1]):
+            raise ValueError('Recruit advanced before the previous physical followup')
         if self.status not in ('active','completed','skipped','interrupted'):raise ValueError('Unknown summon root status')
         if self.status=='completed' and (self.selected is None or len(self.deliveries)!=self.plan.total):raise ValueError('Incomplete completed summon root')
+        if self.status=='completed' and has_followup and any(d.outcome=='delivered' and not d.followup_started for d in self.deliveries):
+            raise ValueError('Completed recruit lost a physical followup')
         if self.status=='skipped' and self.selected is not None:raise ValueError('Selected summon cannot skip')
         from .model import validate_end_turn_rng
         validate_end_turn_rng(self.rng_before);validate_end_turn_rng(self.rng_after)
@@ -349,8 +373,8 @@ def select_material(rng,request):
     return 0
 
 
-def validate_request(state,registry,request,*,closed=False):
-    validate_cause(state,registry,request.cause,closed=closed)
+def validate_request(state,registry,request,*,closed=False,original_cast_event=None):
+    validate_cause(state,registry,request.cause,closed=closed,original_cast_event=original_cast_event)
     for material in request.materials:
         if type(material) is PhysicalReplayEntryMaterial:
             from .replay_entry_material import validate_scope
@@ -359,6 +383,8 @@ def validate_request(state,registry,request,*,closed=False):
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)
+            if material.minion_grant is not None and material.grant_source_id!=request.cause.source.entity_id:
+                raise ValueError('Copy entry grant source differs from the original summon cause')
         elif type(material)is RecruitEntryMaterial:
             from .recruit_summons import validate_material as validate_recruit_material
             validate_recruit_material(state,registry,material,closed=closed)
@@ -387,6 +413,7 @@ def accept(r,effect):
 def deliver(r,effect):
     root=record(r.state,effect.root_id)
     if root.status!='active' or effect.index!=len(root.deliveries):raise ResolutionError('Out-of-order card summon delivery')
+    if pending_followup(root):raise ResolutionError('Extra delivery preceded original physical followup')
     if root.selected is None:
         if effect.index:raise ResolutionError('Skipped root has no extra deliveries')
         if root.request.materials and type(root.request.materials[0])is ResurrectionEntryMaterial:
@@ -446,9 +473,19 @@ def deliver(r,effect):
         elif type(material)is RecruitEntryMaterial:
             from .colossal import enter_minion
             continuation=tuple(enter_minion(r,entity,'stored'))
+            if material.on_summon is not None:
+                from .recruit_summons import ContinueRecruitedMinion
+                from .copy_followups import ContinueCopiedMinion
+                from .sacrifice import MinionReference
+                continuation=(*continuation,ContinueRecruitedMinion(root.id,effect.index,
+                    MinionReference.capture(entity),material.on_summon))
         elif type(material)is CopyEntryMaterial:
             from .copy_materials import enter as enter_copy
             continuation=tuple(enter_copy(r,material,entity))
+            if material.on_summon is not None:
+                from .copy_followups import ContinueCopiedMinion
+                from .sacrifice import MinionReference
+                continuation=(*continuation,ContinueCopiedMinion(root.id,effect.index,MinionReference.capture(entity),material.on_summon))
         else:
             from .colossal import enter_minion
             continuation=tuple(enter_minion(r,entity,'summon'))
@@ -459,6 +496,7 @@ def deliver(r,effect):
 def finish(r,effect):
     root=record(r.state,effect.root_id)
     if root.status!='active' or root.selected is not None and len(root.deliveries)!=root.plan.total:raise ResolutionError('Incomplete card summon Finish')
+    if pending_followup(root):raise ResolutionError('Recruit Finish preceded physical followup')
     closed=replace(root,status='skipped' if root.selected is None else 'completed')
     update(r.state,root,status=closed.status)
     emit_closed(r,closed)
@@ -480,13 +518,30 @@ def emit_closed(r,root):
         source_id=root.request.cause.source.entity_id,player_id=root.request.player_id,root=root_json(root),_capture=False)
 
 
+def _has_quantity_source(state):
+    return any(a.kind=='summon_quantity' and not a.consumed for e in state.entities.values() for a in e.abilities if e.active)
+
+
+def card_summon(context,player_id,card_id,position=None,stats=None):
+    """Explicit old card producer adapter, preserving its no-quantity path.
+
+    The caller supplies the actual behavior context; never infer a causing
+    card from the recipient, the current player or an observed trigger event.
+    When legacy Summon would be ambiguous, use the existing attributed root.
+    """
+    from .effects import Summon
+    ordinary=Summon(player_id,card_id,position,stats)
+    if not _has_quantity_source(context.state):return ordinary
+    return SummonByCard(player_id,(SummonEntryMaterial(card_id,stats),),SummonCause.capture(context),position=position)
+
+
 def reject_ambiguous(r):
-    if any(a.kind=='summon_quantity' and not a.consumed for e in r.state.entities.values() for a in e.abilities if e.active):
+    if _has_quantity_source(r.state):
         raise ResolutionError('Unattributed summon with a quantity source is unsupported; use typed SummonByCard')
 
 
-def validate_record(state,registry,root,*,closed=False):
-    root.__post_init__();validate_request(state,registry,root.request,closed=closed)
+def validate_record(state,registry,root,*,closed=False,original_cast_event=None):
+    root.__post_init__();validate_request(state,registry,root.request,closed=closed,original_cast_event=original_cast_event)
     from .entry_strength import validate as validate_entry_strength
     validate_entry_strength(state,registry,root,closed=closed)
     if root.request.producer_link is not None:
@@ -567,7 +622,9 @@ def walk_work(value):
 
 
 def reject_choice_control(options):
-    if any(type(x) in (DeliverCardSummon,FinishCardSummon) for x in walk_work(options)):
+    from .recruit_summons import ContinueRecruitedMinion
+    from .copy_followups import ContinueCopiedMinion
+    if any(type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion) for x in walk_work(options)):
         raise ValueError('Choice branches cannot inject summon control work')
 
 
@@ -587,6 +644,12 @@ def validate_frame_references(state,registry,value):
             validate_effect_scope(scope,registry,item);return
         if type(item) is GrantSummonQuantity:
             validate_grant(scope,registry,item);return
+        from .recruit_summons import ContinueRecruitedMinion,followup_record
+        from .copy_followups import ContinueCopiedMinion
+        if type(item)is ContinueRecruitedMinion:
+            child,delivery=followup_record(scope,registry,item)
+            if child.status!='active' or delivery.followup_started:raise ValueError('Stale original physical followup')
+            return
         if type(item) in (DeliverCardSummon,FinishCardSummon):
             if record(scope,item.root_id).status!='active':raise ValueError('Stale/injected summon control work')
             return
@@ -605,28 +668,53 @@ def validate_frame_references(state,registry,value):
     visit(value,state,0)
 
 
+def pending_followup(root):
+    if root.selected is None or not root.deliveries:return False
+    material=root.request.materials[root.selected];delivery=root.deliveries[-1]
+    return type(material)in(RecruitEntryMaterial,CopyEntryMaterial) and material.on_summon is not None and (
+        delivery.outcome=='delivered' and not delivery.followup_started)
+
+
 def validate_queue(current,registry,queue):
+    from .recruit_summons import ContinueRecruitedMinion,followup_record
+    from .copy_followups import ContinueCopiedMinion
+    control_types=(DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion)
     work=list(walk_work(queue))
     for item in work:
         if type(item) is SummonByCard:
             validate_request(current,registry,item)
         if type(item) is GrantSummonQuantity:validate_grant(current,registry,item)
-        if type(item) in (DeliverCardSummon,FinishCardSummon):
+        if type(item) in control_types:
             if record(current,item.root_id).status!='active':raise ValueError('Stale/injected summon control work')
     for root in current.card_summon_history:
-        controls=[x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon) and x.root_id==root.id]
+        controls=[x for x in work if type(x) in control_types and x.root_id==root.id]
         if root.status!='active':
             if controls:raise ValueError('Completed summon retains control work')
             continue
         tail=[type(x) for x in controls]
-        expected=[] if root.selected is None or len(root.deliveries)==root.plan.total else [DeliverCardSummon]
+        expected=[]
+        if pending_followup(root):
+            material=root.request.materials[root.selected]
+            expected=[ContinueCopiedMinion if type(material)is CopyEntryMaterial else ContinueRecruitedMinion]
+        if root.selected is not None and len(root.deliveries)<root.plan.total:expected.append(DeliverCardSummon)
         expected.append(FinishCardSummon)
         if tail!=expected:raise ValueError('Incomplete/duplicated accepted summon continuation')
         for item in controls:
             if type(item) is DeliverCardSummon and item.index!=len(root.deliveries):raise ValueError('Wrong accepted summon continuation index')
+            if type(item)is ContinueRecruitedMinion:
+                child,delivery=followup_record(current,registry,item)
+                if delivery.index!=len(root.deliveries)-1 or delivery.followup_started:raise ValueError('Wrong original followup continuation index')
+            if type(item)is ContinueCopiedMinion:
+                from .copy_followups import followup_record as copy_followup_record
+                child,delivery=copy_followup_record(current,registry,item)
+                if delivery.index!=len(root.deliveries)-1 or delivery.followup_started:raise ValueError('Wrong original copy followup continuation index')
 
 
 def validate_boundary(game):
+    from .copy_followups import validate_followup_events
+    validate_followup_events(game)
+    from .recruit_summons import ContinueRecruitedMinion
+    from .copy_followups import ContinueCopiedMinion
     current=game._state;frame=game._frame
     queue=(*frame.prefix,*frame.continuation) if frame is not None else ()
     validate_queue(current,game.registry,queue)
@@ -636,7 +724,7 @@ def validate_boundary(game):
         original=frame.paid_hand_choice_boundary
         if current.card_summon_history!=original.state.card_summon_history:
             raise ValueError('Summon roots differ from their complete original choice boundary')
-        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon))
+        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion))
         if controls(queue)!=controls(original.work):
             raise ValueError('Summon continuation differs from complete original owed work')
 
@@ -649,14 +737,23 @@ def validate_closed_events(game):
     deleted by a genuine later Retry.
     """
     state,registry,events=game._state,game.registry,game._events
-    current={r.id:r for r in state.card_summon_history};accepted={};closed={}
+    current={r.id:r for r in state.card_summon_history};accepted={};closed={};cast_events={}
     for event in events:
+        if event.kind=='spell_cast_accepted':
+            from .spell_casts import accepted_fact_id
+            cast_events[(accepted_fact_id(event),event.source_id,event.player_id)]=event
         if event.kind not in ('card_summon_accepted','card_summon_finished'):continue
         data=dict(event.data)
         if set(data)!= {'root','root_id'} or type(data['root']) is not str:
             raise ValueError('Summon event requires a complete original compact receipt')
         root=from_dict(CardSummonRecord,json.loads(data['root']))
-        validate_record(state,registry,root,closed=True)
+        cause=root.request.cause
+        original_cast=cast_events.get((cause.cast_id,cause.source.entity_id,cause.player_id))if cause.cast_id is not None else None
+        if cause.cast_id is not None and original_cast is None:
+            raise ValueError('Summon receipt lost its original accepted cast event')
+        if original_cast is not None and original_cast.sequence>root.event_cursor:
+            raise ValueError('Summon borrowed a cast accepted after its original window')
+        validate_record(state,registry,root,closed=True,original_cast_event=original_cast)
         if (data['root_id']!=root.id or root.id>=state.next_card_summon_id or
             (event.source_id,event.player_id)!=(root.request.cause.source.entity_id,root.request.player_id) or
             root.plan.action>event.action or root.event_cursor>=event.sequence):

@@ -1,4 +1,5 @@
 """Dormancy contracts at effect, action, lifecycle and persistence boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -343,7 +344,7 @@ class DormancyTests(unittest.TestCase):
     def test_real_example_uses_player_commands_restore_and_replay(self):
         from examples.awaken_minions import run
         g, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(sum(e.kind == 'minion_awakened' for e in g.events), 3)
 
 

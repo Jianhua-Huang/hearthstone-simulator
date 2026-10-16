@@ -7,7 +7,8 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, GrantKeyword, _integer, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardType, Keyword, Zone
+from .model import AbilityInstance, CardType, Keyword, Zone
+from .zones import CardReference, reference_entity
 
 
 BONUS_EFFECTS = (
@@ -62,3 +63,43 @@ def grant_random_bonus_effects(r, effect):
 
 def register_bonus_effects(mechanics):
     mechanics.register(GrantRandomBonusEffects, grant_random_bonus_effects)
+    mechanics.register(RotatePrintedHandBonuses, rotate_printed_hand_bonuses)
+
+
+@dataclass(frozen=True)
+class RotatePrintedHandBonuses(Effect):
+    """Replace the native pair, preserving independently granted hand keywords."""
+    card: CardReference
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.card) is not CardReference or self.card.zone != Zone.HAND:raise ValueError('Native bonus rotation requires its original hand card')
+        self.card.__post_init__();_source(self.source_id)
+
+    def validate_in_state(self,state):
+        self.__post_init__();entity=state.entities.get(self.card.entity_id)
+        if entity is None or self.card.zone_epoch>entity.zone_epoch or self.source_id is not None and self.source_id not in state.entities:
+            raise ValueError('Hand bonus rotation borrowed an unknown or future physical card')
+
+
+def rotate_printed_hand_bonuses(r,effect):
+    from .lifecycle import attachment_id,refresh_entity
+    effect.validate_in_state(r.state);card=r.registry.card(effect.card.card_id)
+    if card.kind!=CardType.MINION or len(card.keywords)!=2 or any(k not in BONUS_EFFECTS for k in card.keywords):
+        raise ResolutionError('Native bonus rotation requires its declared pair of printed Bonus Effects')
+    entity=reference_entity(r,effect.card)
+    if entity is None:r.stale(effect,effect.card.entity_id);return ()
+    originals=tuple(a for a in entity.abilities if a.kind=='keyword'and a.origin=='printed')
+    if len(originals)!=2 or any(a.keyword not in BONUS_EFFECTS for a in originals):
+        raise ResolutionError('Native bonus rotation lost its complete two printed keyword slots')
+    # Hand slots always use the full constructed pool, including Rush. Board
+    # readiness filtering belongs only to the existing board grant operation.
+    pool=list(BONUS_EFFECTS);chosen=[]
+    for _ in range(2):
+        selected=r.game._rng.choice(pool);pool.remove(selected);chosen.append(selected)
+    entity.abilities=[a for a in entity.abilities if a not in originals]
+    entity.abilities.extend(AbilityInstance(attachment_id(r.state),'keyword',source_id=entity.id,
+        origin='printed',keyword=keyword)for keyword in chosen)
+    refresh_entity(entity)
+    r.emit('hand_bonus_rotated',source_id=effect.source_id,target_id=entity.id,player_id=entity.controller)
+    return ()

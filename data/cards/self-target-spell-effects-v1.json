@@ -1,0 +1,111 @@
+{
+  "format": "reviewed-self-target-spells-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_438",
+        "dbf_id": 117562,
+        "name": "紫色珍鳃鱼人",
+        "name_en": "Violet Treasuregill",
+        "text": "<b>战吼：</b>从你的牌库中随机施放一个法力值消耗小于或等于（2）点的法术<i>（尽可能以本随从为目标）</i>。",
+        "text_en": "[x]<b>Battlecry:</b> Cast a random\nspell from your deck that\ncosts (2) or less <i>(targets\nthis if possible)</i>.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "23d481e3ff8e3041c2fa99f5482ef33983f3db56e3d371c63c31daeb5192a6df",
+      "recipe": {
+        "deck_identity": "TLC_438"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_430",
+        "dbf_id": 117384,
+        "name": "圣窟生物",
+        "name_en": "Creature of the Sacred Cave",
+        "text": "在你的回合结束时，再次施放本回合中你施放过的一个随机神圣法术<i>（尽可能以本随从为目标）</i>。",
+        "text_en": "[x]At the end of your turn,\nrecast a random Holy spell\nyou cast this turn <i>(targets\nthis if possible)</i>.",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "13306decc49d45106eb1371090828f39efc87c19db480f298d7bde52f8611dec",
+      "recipe": {
+        "deck_identity": "TLC_430"
+      }
+    }
+  ],
+  "limits": [
+    "Physical deck casts use stored local cost; hand-only quotations do not decide deck eligibility.",
+    "Preferred target binds the causing minion original uninterrupted board residence, with ordinary automatic fallback.",
+    "The end-turn Holy history query uses this turn successful friendly casts, preserving actual occurrence weighting; exact server timing remains uncalibrated."
+  ]
+}

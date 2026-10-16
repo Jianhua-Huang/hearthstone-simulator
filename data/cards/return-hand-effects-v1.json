@@ -1,0 +1,375 @@
+{
+  "batch_id": "K12",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "policy_notes": [
+    "Return planners capture ordered original live ordinary minion references. Lost, transformed, transferred or replaced board incarnations do not redirect to a later target.",
+    "Twilight Matriarch returns eligible enemy minions to original owners. Waggle Pick returns one random eligible friendly minion to its current controller hand, with the existing successful-return cost operation.",
+    "Web of Deception summons its actual 4/4 Stealth Spider only after successful physical return. Stale or full-hand failed return gives no success continuation under explicit local policy awaiting CN calibration.",
+    "Random return has one weight per original live physical candidate, uses the common RNG once, and preserves the selected reference through return; empty candidates consume no RNG.",
+    "Dimensional Weaponsmith gives captured original own hand minions and weapons +2 Attack; weapon Health/durability is unchanged. Hourglass Attendant buffs captured original own hand minions +1/+1 at its normal own-turn-end trigger.",
+    "No formal legal or generation pool is inferred from this registered subset; exact current CN return timing and full-hand behavior remain uncalibrated."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_201",
+        "dbf_id": 123072,
+        "name": "暮光主母",
+        "name_en": "Twilight Mistress",
+        "text": "<b>战吼：</b>将所有敌方随从移回其拥有者的\n手牌。",
+        "text_en": "<b>Battlecry:</b> Return all\nenemy minions to their owner's hand.",
+        "cost": 9,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 9,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          }
+        ]
+      },
+      "record_sha256": "814c349115b88b5589247e17481b612f1443519c7359b250464bb510bcc0c562",
+      "recipe": {
+        "script": "enemy_owner_return",
+        "entry": "battlecry",
+        "keywords": [],
+        "target": null,
+        "root": true,
+        "cost": 9,
+        "deck_identity": "CATA_201"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DAL_720",
+        "dbf_id": 120462,
+        "name": "摇摆矿锄",
+        "name_en": "Waggle Pick",
+        "text": "<b>亡语：</b>随机将一个友方随从移回你的手牌。它的法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Deathrattle:</b> Return\na random friendly\nminion to your hand.\nIt costs (2) less.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 52617,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 52617
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "52617",
+              "type": "Int",
+              "value": "52617"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3782035d9e3e1483397704226bd65e95c9bfb17b9f1a41f81b8079ba636e380d",
+      "recipe": {
+        "script": "random_return_discount",
+        "entry": "deathrattle",
+        "keywords": [],
+        "target": null,
+        "root": true,
+        "cost": 4,
+        "deck_identity": "DAL_720"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_523",
+        "dbf_id": 114510,
+        "name": "欺诈之网",
+        "name_en": "Web of Deception",
+        "text": "将一个友方随从移回你的手牌以召唤一只4/4并具有<b>潜行</b>的蜘蛛。",
+        "text_en": "Return a friendly minion to your hand to summon a 4/4 Spider with <b>Stealth</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a582a679be2390fcec5ba1ecba2008399a3689b29fd45a7912071f36b30e6ef2",
+      "recipe": {
+        "script": "return_spider",
+        "entry": "on_play",
+        "keywords": [],
+        "target": "friendly_minion",
+        "root": true,
+        "cost": 2,
+        "deck_identity": "EDR_523"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_523t",
+        "dbf_id": 114512,
+        "name": "迅捷小蜘蛛",
+        "name_en": "Skittering Spiderling",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "faae3f0409c72a85d6de3f900aba5cf345bab11e86c65a39f820652a2b7658b6",
+      "recipe": {
+        "script": null,
+        "entry": null,
+        "keywords": [
+          "stealth"
+        ],
+        "target": null,
+        "root": false,
+        "cost": 4,
+        "deck_identity": "EDR_523t"
+      }
+    },
+    {
+      "record": {
+        "id": "END_021",
+        "dbf_id": 121171,
+        "name": "次元武器匠",
+        "name_en": "Dimensional Weaponsmith",
+        "text": "<b>战吼：</b>&使你手牌中所有随从牌和武器牌获得+2攻击力。",
+        "text_en": "<b>Battlecry:</b>& Give all minions and weapons in your hand +2 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "bb6523ce6635a17c15ea53054e41afd3063bc78b66f5ee6985fd6be131ba8764",
+      "recipe": {
+        "script": "hand_attack_buff",
+        "entry": "battlecry",
+        "keywords": [],
+        "target": null,
+        "root": true,
+        "cost": 3,
+        "deck_identity": "END_021"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_100",
+        "dbf_id": 121051,
+        "name": "沙漏侍者",
+        "name_en": "Hourglass Attendant",
+        "text": "<b>圣盾</b>。在你的回合结束时，&使你手牌中的所有随从牌获得+1/+1。",
+        "text_en": "[x]<b>Divine Shield</b>\nAt the end of your turn,&\ngive all minions in your\nhand +1/+1.",
+        "cost": 4,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "141988d3f51e79cc85950824123b0a4016100026b5654f22b54da90a2db64b98",
+      "recipe": {
+        "script": "end_hand_buff",
+        "entry": "own_turn_end",
+        "keywords": [
+          "divine_shield"
+        ],
+        "target": null,
+        "root": true,
+        "cost": 4,
+        "deck_identity": "TIME_100"
+      }
+    }
+  ]
+}

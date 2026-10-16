@@ -1,4 +1,5 @@
 """Hero Power checkpoints and cumulative outcomes; provisional R-102."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -365,7 +366,7 @@ class BronzeRepresentativeTests(unittest.TestCase):
 
     def test_real_example_restores_and_replays_player_actions(self):
         from examples.hero_power_rewind import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(len(g.state.hero_power_history),2)
         self.assertEqual(g.state.rewind_outcomes[0].completed,2)
 

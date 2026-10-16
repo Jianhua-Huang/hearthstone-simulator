@@ -4,6 +4,7 @@ StoreLedgerFixture is an explicit trusted data-layer test adapter. It settles
 the immutable component ledger without executing any historical card body;
 these tests cannot prove the pending replay interpreter or Finish obligations.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import dataclass, FrozenInstanceError
 import json
@@ -130,7 +131,7 @@ class WholeCardStateFoundationTests(unittest.TestCase):
         game = self.game()
         self.assertIs(type(game.state.whole_card_replay_ledger), WholeCardReplayLedger)
         self.assertEqual(game.state.whole_card_replay_ledger, WholeCardReplayLedger())
-        self.assertEqual(game.snapshot()['schema_version'], 266)
+        self.assertEqual(game.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(game.ruleset.id, 'prototype-v302')
         self.portable(game, 'empty')
 

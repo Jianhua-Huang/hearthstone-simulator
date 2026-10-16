@@ -1,0 +1,321 @@
+{
+  "format": "reviewed-one-cost-basic-effects-v1",
+  "source": {
+    "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_130",
+        "dbf_id": 122966,
+        "name": "炫晶小熊",
+        "name_en": "Crystalspine Cub",
+        "text": "每当你消耗掉最后一个法力水晶，&获得+1/+1。",
+        "text_en": "Whenever you spend your last Mana Crystal,&\ngain +1/+1.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "70bdaa171bb7479f4edac9631e9db8e0b07f5bfa643c89a5e9c7ba8f78b5572a",
+      "recipe": {
+        "script": "last_crystal",
+        "keywords": [],
+        "deck_identity": null
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_908",
+        "dbf_id": 115632,
+        "name": "火炭变色龙",
+        "name_en": "Charred Chameleon",
+        "text": "<b>战吼：</b>如果你在本回合中使用过英雄技能，使一个友方随从获得+1/+2和<b>突袭</b>。",
+        "text_en": "<b>Battlecry:</b> If you've used\nyour Hero Power this turn,\ngive a friendly minion\n+1/+2 and <b>Rush</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "90f99513b39f0c7c5ef7a1ec5a2013d28f5580d65205ca63e9f1f3ecae5a3192",
+      "recipe": {
+        "script": "chameleon",
+        "keywords": [],
+        "deck_identity": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_452",
+        "dbf_id": 126627,
+        "name": "伪装的侦探",
+        "name_en": "Disguised Detective",
+        "text": "可以使用在对战面板的任意一侧。使对应玩家<b>过载</b>（2）。",
+        "text_en": "Can be played on either side. <b>Overload</b> that\nplayer for (2).",
+        "cost": 1,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "DISGUISED": 1,
+          "4706": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4706",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4706"
+          }
+        ]
+      },
+      "record_sha256": "484ae6c64e265532193e1d797f58ef00cb6903e5b78b437e7674fee947b29ef6",
+      "recipe": {
+        "script": "detective",
+        "keywords": [],
+        "deck_identity": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_820",
+        "dbf_id": 117565,
+        "name": "林地生态学者",
+        "name_en": "Glade Ecologist",
+        "text": "<b>亡语：</b>获取一张法力值消耗为（1）的神圣法术牌，该牌可以使一个随从获得+2或-2生命值。",
+        "text_en": "[x]<b>Deathrattle:</b> Get a 1-Cost\nHoly spell that gives a\nminion +2 or -2 Health.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117310,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 117310
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "3b55c9b96cf81de599153a23e93b16756d22702bd79ff575c178868d1e56bbc8",
+      "recipe": {
+        "script": "ecologist",
+        "keywords": [],
+        "deck_identity": null
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_813",
+        "dbf_id": 117310,
+        "name": "纯净藤蔓",
+        "name_en": "Purifying Vines",
+        "text": "选择一个随从。如果是友方随从，使其获得+2生命值；如果是敌方随从，使其获得-2生命值。",
+        "text_en": "Choose a minion.\nIf it's friendly, give it +2 Health. If it's an enemy, give it -2 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "8842346635084d5adac2b61416a2a865f89c5c28fea49cbabba7117eb155ad1a",
+      "recipe": {
+        "script": "vines",
+        "keywords": [],
+        "deck_identity": null
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": "CATA_130",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/122966"
+    },
+    {
+      "id": "FIR_908",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/115632"
+    },
+    {
+      "id": "JAIL_452",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/126627"
+    },
+    {
+      "id": "TLC_820",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/117565"
+    },
+    {
+      "id": "TLC_813",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/117310"
+    }
+  ],
+  "policy": {
+    "scope": "Four actual missing1-cost roots and the complete named Holy spell; not a partial END_013 generator.",
+    "cub": "Positive real mana_spent or mana_consumed reducing the owner to0; no gain on zero debit or before the Cub is on board.",
+    "chameleon": "Current-turn accepted Hero Power usage, public player predicate for friendly target and captured minion buff/Rush.",
+    "detective": "Ordinary disguised hand destination; one intrinsic on_play Overload for the original selected board player, not a Battlecry.",
+    "vines": "Friendly minion +2Health or enemy minion -2Health as permanent stat changes, not damage; death produces exact named spell."
+  },
+  "cn_calibrated": false
+}

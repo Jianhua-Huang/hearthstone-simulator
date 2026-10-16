@@ -1,0 +1,1098 @@
+{
+  "batch": "K27 current native summon/cast/damage/death/power/start triggers",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_EX1_509",
+        "dbf_id": 69675,
+        "name": "鱼人招潮者",
+        "name_en": "Murloc Tidecaller",
+        "text": "每当你召唤一个鱼人，便获得\n+1攻击力。",
+        "text_en": "Whenever you summon a Murloc, gain +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 475
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "475",
+              "type": "Int",
+              "value": "475"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "19fa660e53d40ac41a771112bc8cb6f0062c3e3498184e196ad8f48d7923be9d",
+      "recipe": {
+        "script": "tidecaller",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "CORE_EX1_509"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_559",
+        "dbf_id": 120426,
+        "name": "大法师安东尼达斯",
+        "name_en": "Archmage Antonidas",
+        "text": "每当你施放一个法术，&将一张“火球术”法术牌置入你的手牌。",
+        "text_en": "Whenever you cast a spell,& add a 'Fireball' spell to_your hand.",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 3,
+          "COLLECTIBLE": 1,
+          "858": 1080,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 1080,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 315,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1080",
+              "type": "Int",
+              "value": "1080"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "07f6ca7c2f96202540727aa4d7348c42cad3a9626389961424b59e19249a323e",
+      "recipe": {
+        "script": "antonidas",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "keywords": [],
+        "deck_identity": "EX1_559"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_604",
+        "dbf_id": 69645,
+        "name": "暴乱狂战士",
+        "name_en": "Frothing Berserker",
+        "text": "每当一个随从\n受到伤害，便获得+1攻击力。",
+        "text_en": "Whenever a minion takes damage, gain +1 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 654
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Simon Bisley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "654",
+              "type": "Int",
+              "value": "654"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "91b0a7ca2500ad232186b2a2a038e3043e7413777643eea7c172a529645ebe8c",
+      "recipe": {
+        "script": "frothing",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "keywords": [],
+        "deck_identity": "CORE_EX1_604"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GVG_103",
+        "dbf_id": 130823,
+        "name": "微型战斗机甲",
+        "name_en": "Micro Machine",
+        "text": "在每个回合开始时，获得+1攻击力。",
+        "text_en": "At the start of each turn, gain +1 Attack.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2071,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 2071
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2071",
+              "type": "Int",
+              "value": "2071"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "7af893d35712bb2750a7ebfe25c7155a6a5826c55c1660670b0dcb1dc1a8592b",
+      "recipe": {
+        "script": "micro",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "GVG_103"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_NEW1_020",
+        "dbf_id": 76321,
+        "name": "狂野炎术师",
+        "name_en": "Wild Pyromancer",
+        "text": "在你施放一个法术后，&对所有随从造成1点伤害。",
+        "text_en": "After you cast a spell,& deal 1 damage to ALL minions.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 1014,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1014",
+              "type": "Int",
+              "value": "1014"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "96339aa8b18a5d86e803dc887c66da2142647ae0e938998c9e01175087072b10",
+      "recipe": {
+        "script": "pyromancer",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "CORE_NEW1_020"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_121",
+        "dbf_id": 111318,
+        "name": "死亡侍僧",
+        "name_en": "Acolyte of Death",
+        "text": "在一个友方亡灵死亡后，&抽一张牌。",
+        "text_en": "After a friendly Undead dies,& draw a card.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80089,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80089",
+              "type": "Int",
+              "value": "80089"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f32ac062c05e4656471f1c26bcb480e23249a14279a0c128a9342d3d0312c805",
+      "recipe": {
+        "script": "acolyte",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "keywords": [],
+        "deck_identity": "CORE_RLK_121"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_WC_042",
+        "dbf_id": 120881,
+        "name": "哀嚎蒸汽",
+        "name_en": "Wailing Vapor",
+        "text": "在你使用一张元素牌后，获得+1攻击力。",
+        "text_en": "[x]After you play an Elemental,\ngain +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 63073,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 63073,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Samche Chen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "63073",
+              "type": "Int",
+              "value": "63073"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "81087159de55b31c449cb8c6bc11c3c03cdd7ca346acc67915b48548eb54f077",
+      "recipe": {
+        "script": "vapor",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "WC_042"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_470",
+        "dbf_id": 114346,
+        "name": "树皮盾哨兵",
+        "name_en": "Barkshield Sentinel",
+        "text": "<b>嘲讽</b>。在你使用你的英雄技能后，&获得+2生命值。",
+        "text_en": "[x]<b>Taunt</b>\nAfter you use your Hero\nPower,& gain +2 Health.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kleston Marques"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "d033dc67e1eb5078cc99e6219f54185bee0161f9c79aa79b73b47005c7391e3b",
+      "recipe": {
+        "script": "barkshield",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "keywords": [
+          "taunt"
+        ],
+        "deck_identity": "EDR_470"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_471",
+        "dbf_id": 114353,
+        "name": "托尔托拉",
+        "name_en": "Tortolla",
+        "text": "<b>嘲讽</b>。<b>扰魔</b>。在本随从受到伤害后，&获得1点护甲值并使本随从获得+1攻击力。",
+        "text_en": "[x]<b>Taunt</b>, <b>Elusive</b>\nAfter this takes damage,&\ngain 1 Armor and give\nthis minion +1 Attack.",
+        "cost": 10,
+        "attack": 1,
+        "health": 30,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 30,
+          "ATK": 1,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1,
+          "4128": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "de6d36250195b16d2631e9f5c2b35c2eed9fa89c451c0caf92cd3b68c727e2f0",
+      "recipe": {
+        "script": "tortolla",
+        "cost": 10,
+        "attack": 1,
+        "health": 30,
+        "keywords": [
+          "taunt",
+          "elusive"
+        ],
+        "deck_identity": "EDR_471"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_484",
+        "dbf_id": 115037,
+        "name": "食腐捕蝇草",
+        "name_en": "Scavenging Flytrap",
+        "text": "在一个随从死亡后，获得其攻击力。",
+        "text_en": "After a minion dies,\ngain its Attack.",
+        "cost": 7,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 7,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "6badada19945259fdc62ee51afdf8af72cc2b1248afc1a20bd83ddc6eb1559ba",
+      "recipe": {
+        "script": "carnivorous",
+        "cost": 7,
+        "attack": 2,
+        "health": 7,
+        "keywords": [],
+        "deck_identity": "EDR_484"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DRG_256",
+        "dbf_id": 102191,
+        "name": "灭龙弩炮",
+        "name_en": "Dragonbane",
+        "text": "在你使用你的英雄技能后，&随机对一个敌人造成5点伤害。",
+        "text_en": "After you use your Hero Power,& deal 5 damage to a random enemy.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 55303,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "55303",
+              "type": "Int",
+              "value": "55303"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5ef8488c7b293178fc58d40e636f6edef9cfacfa6583c2922412ec00e5a59d59",
+      "recipe": {
+        "script": "dragonbane",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "keywords": [],
+        "deck_identity": "CORE_DRG_256"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_469",
+        "dbf_id": 114344,
+        "name": "沉睡的林精",
+        "name_en": "Slumbering Sprite",
+        "text": "起始<b>休眠</b>状态。在你使用你的英雄技能后唤醒。",
+        "text_en": "[x]Starts <b>Dormant</b>.\nAfter you use your Hero\nPower, this awakens.",
+        "cost": 1,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1652": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "784b88738c39eb259207965b110ca0e4c243865d001c799ec31ef0185ab5272f",
+      "recipe": {
+        "script": "dryad",
+        "cost": 1,
+        "attack": 3,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "EDR_469"
+      }
+    }
+  ],
+  "reused_dependencies": [
+    {
+      "record": {
+        "id": "CS2_029",
+        "dbf_id": 315,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e5d6003a35de8d5a7cc21d1744d22d3aa569b62ef5085f523727966459d54996",
+      "source_root": "CORE_EX1_559",
+      "named_reference": "COLLECTION_RELATED_CARD_DATABASE_ID",
+      "dbf": 315
+    }
+  ],
+  "identity_evidence": [
+    {
+      "record": {
+        "id": "EX1_559",
+        "dbf_id": 1080,
+        "name": "大法师安东尼达斯",
+        "name_en": "Archmage Antonidas",
+        "text": "每当你施放一个法术，&将一张“火球术”法术牌置入你的手牌。",
+        "text_en": "Whenever you cast a spell,& add a 'Fireball' spell to_your hand.",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 315,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "90ff2dbb8a5a2c78376e287745a8cdde5f9809efa80a53a1d3e6cc076c8a0941",
+      "dbf": 1080
+    },
+    {
+      "record": {
+        "id": "GVG_103",
+        "dbf_id": 2071,
+        "name": "微型战斗机甲",
+        "name_en": "Micro Machine",
+        "text": "在每个回合开始时，获得+1攻击力。",
+        "text_en": "At the start of each turn, gain +1 Attack.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          }
+        ]
+      },
+      "record_sha256": "78bfe77932ce35c4efb59b5fb19b554722b5d4712cb8d56b5c78cea994691319",
+      "dbf": 2071
+    },
+    {
+      "record": {
+        "id": "WC_042",
+        "dbf_id": 63073,
+        "name": "哀嚎蒸汽",
+        "name_en": "Wailing Vapor",
+        "text": "在你使用一张元素牌后，获得+1攻击力。",
+        "text_en": "[x]After you play an Elemental,\ngain +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Samche Chen"
+          }
+        ]
+      },
+      "record_sha256": "3e11696e670f46bae4a4873bb6b4ffc97daa21594d30d20d7e9a5fad9d91e4ae",
+      "dbf": 63073
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Complete explicit real trigger recipes. Fireball is named DBF315, not a guessed Core alias. Only explicitly named copy rules map deck identity; unrecognized numeric858 is not inferred."
+}

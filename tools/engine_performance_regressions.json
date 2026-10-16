@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "baseline_modules": [
+    "test_m3_choices",
+    "test_h2_choice_boundary",
+    "test_h2_paid_hand_acceptance",
+    "test_m3_information"
+  ],
+  "additional_modules_by_changed_path": {
+    "payment_projection / paid_hand_acceptance validation reuse": [
+      "test_payment_validation_reuse",
+      "test_native_cost_payment_basics",
+      "test_m5_spell_cost_acceptance",
+      "test_m5_spell_cost_account_boundaries"
+    ],
+    "intrinsic_costs history reconstruction": [
+      "test_h2_intrinsic_boundaries",
+      "test_h2_intrinsic_stage",
+      "test_generated_intrinsic_retention",
+      "test_generated_intrinsic_retention_boundaries",
+      "test_generated_intrinsic_schema_boundary"
+    ],
+    "targeting / context copies / legal action enumeration": [
+      "test_targeting",
+      "test_player_target_inputs",
+      "test_target_predicates",
+      "test_paid_body_target_preflight",
+      "test_automatic_target_runtime"
+    ]
+  },
+  "requirements": [
+    "Rerun the baseline modules after shared codec, snapshot, or validation changes.",
+    "Select additional modules using the actual implementation diff; this is not an exhaustive future acceptance list.",
+    "Keep post-selection exception rollback, RNG replay, clone independence, payment-once, and rehashed tampered-proof rejection.",
+    "Keep hidden card identity, choice options, internal IDs, RNG, and proof frames outside player observations.",
+    "Do not inherit results when a dependency changed. Stage-wide full suite remains separately required.",
+    "This manifest contains planned coverage, not a claim that all modules have been run."
+  ]
+}

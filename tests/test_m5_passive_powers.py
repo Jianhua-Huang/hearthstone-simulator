@@ -1,4 +1,5 @@
 """Skill listeners, passive activation boundaries and first matching plays."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from dataclasses import replace
@@ -371,7 +372,7 @@ class InfiniteRepresentativeTests(unittest.TestCase):
 
     def test_real_example_restores_midturn_first_play_history(self):
         from examples.passive_hero_power import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertFalse(g.state.hero_power_history)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertFalse(g.state.hero_power_history)
 
 
 if __name__=='__main__':unittest.main()

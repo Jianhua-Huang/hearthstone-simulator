@@ -1,4 +1,5 @@
 """Classic numeric ritual foundation, with only two necessary real cultists."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -345,7 +346,7 @@ class CthunBasicsTests(unittest.TestCase):
             decode(replace(proof, observation_json=canonical(value)))
 
     def test_snapshot_rejects_old_future_schema_and_bool(self):
-        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], 266)
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 154, 155, 156, 157, 158, 159, 160, 161, 162, 217, True):
             s = g.snapshot(); s['schema_version'] = version
             with self.assertRaises(SnapshotError):

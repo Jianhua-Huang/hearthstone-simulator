@@ -1,5 +1,7 @@
 # M5-10b：自动施法与独立施法历史
 
+真实TLC_438/TLC_430的原随从优先策略、物理牌库施放和历史批次偏好转交已增加有限表达，仍复用本页原CAST、目标与历史。扩展的请求/分区保存采用core360/schema285；具体范围、回退和国服待校准政策见[契约](m3-original-minion-spell-targets.md)。下文版本号保留原阶段历史。
+
 当前 `prototype-v75` / `core-effects-v75`，snapshot schema 74 拒绝旧 1～71；玩家观察 `player-view-v44`、命令 v6、外层 replay 1。代表包 `representative-m5-v38` 将条件读取接到共同上下文；当前有 269 条真实样本/270 个注册定义。本批不批量增加卡牌。
 
 ## 出牌与施法的区别

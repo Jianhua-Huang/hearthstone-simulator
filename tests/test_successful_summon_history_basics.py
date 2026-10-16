@@ -2,6 +2,7 @@
 
 No combination mechanism or card-specific summon executor is introduced.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -419,7 +420,7 @@ class SuccessfulSummonHistoryTests(unittest.TestCase):
     def test_schema_rejects_old_future_bool_and_old_mechanics(self):
         g = self.game(('totem',)); self.play(g, 'totem')
         self.assertEqual((g.ruleset.id, g.mechanics.version, g.snapshot()['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for value in (1, 204, 217, True, 205.0):
             self.reject(g, lambda s, value=value: s.update(schema_version=value))
         self.reject(g, lambda s: s['ruleset'].update(id='prototype-v219'))

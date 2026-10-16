@@ -5,9 +5,11 @@ tags/text never create behavior automatically. Pinned record hashes reject a
 changed data version until this adapter is deliberately reviewed and versioned.
 """
 from __future__ import annotations
+from .summon_quantities import card_summon, SummonCause
 
 from .model import CardAbilityCondition, CostAuraSpec
 from types import MappingProxyType
+from dataclasses import replace
 from pathlib import Path
 import json
 
@@ -659,9 +661,9 @@ def _enemy_minion(ctx: PlayerRuleContext) -> bool:
 
 def _egg_hatch(ctx: RuleContext):
     if ctx.death is not None:
-        return [Summon(ctx.death.controller, "FP1_007t", ctx.death.position)]
+        return [card_summon(ctx,ctx.death.controller, "FP1_007t", ctx.death.position)]
     # Forced deathrattles have a captured living source, not a fabricated death.
-    return [Summon(ctx.player_id, "FP1_007t", ctx.state.players[ctx.player_id].board.index(ctx.source_id)+1)]
+    return [card_summon(ctx,ctx.player_id, "FP1_007t", ctx.state.players[ctx.player_id].board.index(ctx.source_id)+1)]
 
 
 def _biopod(c):
@@ -676,7 +678,7 @@ def _launch_discount(c):
 
 
 def _marines(c):
-    return [Summon(c.player_id, 'SC_403t'), Summon(c.player_id, 'SC_403t')]
+    return [card_summon(c,c.player_id, 'SC_403t'), card_summon(c,c.player_id, 'SC_403t')]
 
 
 def _supercapacitor(c):
@@ -741,7 +743,7 @@ def secret_hero_attack(c):
 
 def blessing_of_the_golem(c):
     n=imbue_value(c.state,c.player_id)
-    return [Summon(c.player_id,'EDR_847pt2',stats=SummonStats(n,n))]
+    return [card_summon(c,c.player_id,'EDR_847pt2',stats=SummonStats(n,n))]
 
 
 def blessing_of_the_wisp(c):
@@ -749,7 +751,7 @@ def blessing_of_the_wisp(c):
     # Yield a bounded interpreter expansion rather than materializing arbitrary
     # amounts before the resolution budget can be checked.
     for _ in range(n):
-        yield Summon(c.player_id,'EDR_851t')
+        yield card_summon(c,c.player_id,'EDR_851t')
     yield SplitDamage(3-c.player_id,n,c.source_id,kind=DamageKind.HERO_POWER)
 
 
@@ -782,7 +784,7 @@ def emerald_portal(c):
     cost=imbue_value(c.state,c.player_id)
     return [SummonFromPool(c.player_id,PORTAL_POOL_ID,
         PoolQuery(kinds=(CardType.MINION,),collectible=True,tribes_any=('dragon',),min_cost=cost,max_cost=cost),
-        c.source_id)]
+        c.source_id,cause=SummonCause.capture(c))]
 
 
 def blessing_of_the_moon(c):
@@ -818,7 +820,7 @@ def _shudderwock(c):
         policy=BattlecrySequencePolicy('same_incarnation','current',exclude_source_target=True))]
 
 
-def register_combo_pool(registry, baseline):
+def register_combo_pool(registry, baseline, metadata_decoder=metadata_from_record):
     """Use a frozen raw inventory, never derive discovery membership from adapters."""
     path=Path(__file__).resolve().parents[2]/'data/support/combo-source-inventory.json'
     inventory=json.loads(path.read_text(encoding='utf-8'))
@@ -832,7 +834,7 @@ def register_combo_pool(registry, baseline):
         # These reviewed rows use only COMBO or STEALTH flags. Reference tags
         # (Shark mentions Combo) are not printed keyword declarations.
         keywords=tuple(k for k in (Keyword.COMBO,Keyword.STEALTH) if raw['tags'].get(k.name)==1)
-        row=PoolCard(cid,CardType(raw['type'].lower()),raw['cost'],metadata_from_record(raw),
+        row=PoolCard(cid,CardType(raw['type'].lower()),raw['cost'],metadata_decoder(raw),
             keywords=keywords,battlecry=raw['tags'].get('BATTLECRY')==1)
         if cid in registry.pool_cards:
             if registry.pool_card(cid)!=row:
@@ -842,7 +844,26 @@ def register_combo_pool(registry, baseline):
         sample['mode'],tuple(PoolMember(i) for i in sample['members']),complete=sample['complete']))
 
 
-def build_registry() -> Registry:
+def build_registry(*, version: str = "representative-m5-v65", known_unrarified_ids: tuple[str, ...] = (),
+                   initial_hero_power_bindings: tuple[tuple[str, str], ...] = (), defer_validation: bool = False) -> Registry:
+    """Compile fixtures; an outer content assembler can defer final reference linking."""
+    if type(defer_validation)is not bool:raise ValueError('Deferred content validation must be explicit boolean')
+    if (type(initial_hero_power_bindings)is not tuple or any(type(row)is not tuple or len(row)!=2 or
+            any(type(value)is not str or not value.strip()for value in row)for row in initial_hero_power_bindings)):
+        raise ValueError('Initial hero bindings require immutable explicit hero/power pairs')
+    initial_powers=dict(initial_hero_power_bindings)
+    if len(initial_powers)!=len(initial_hero_power_bindings):raise ValueError('Duplicate initial hero binding')
+    if type(known_unrarified_ids) is not tuple or len(set(known_unrarified_ids)) != len(known_unrarified_ids) or any(
+            type(cid) is not str for cid in known_unrarified_ids):
+        raise ValueError('Known unrarified faces require unique explicit card IDs')
+    known_unrarified_ids = frozenset(known_unrarified_ids)
+    def decode_metadata(raw):
+        meta = metadata_from_record(raw)
+        if raw['id'] in known_unrarified_ids:
+            if meta.collectible or meta.rarity is not None or 'RARITY' in raw['tags']:
+                raise TargetValidationError('Known unrarified override conflicts with the original complete face')
+            meta = replace(meta, rarity=Rarity.NONE)
+        return meta
     baseline = load_baseline()
     snapshots = {row["id"]: row for row in baseline.support["cards"]}
     for card_id, expected in EXPECTED_CARD_HASHES.items():
@@ -856,7 +877,7 @@ def build_registry() -> Registry:
 
     starship_ids = ('GDB_100t2', 'GDB_100t4', 'GDB_100t5', 'GDB_100t6',
                     'GDB_100t7', 'GDB_100t8', 'GDB_100t9', 'SC_999t')
-    registry = Registry("representative-m5-v65")
+    registry = Registry(version)
     registry.register_end_turn_candidate_profile(EndTurnCandidateProfile('CATA_472.end_turn_candidates'))
     registry.register_behavior('m5.inspiring_maul', lambda c: [TriggerRandomEndTurnEffects(
         c.player_id, EndTurnProducerRequest(EndTurnSelector('owner', (c.player_id,), ('minion',)),
@@ -874,7 +895,7 @@ def build_registry() -> Registry:
     registry.register_behavior('m5.lucky_comet', lambda c: [DiscoverFromPool(c.player_id,COMBO_POOL_ID,
         PoolQuery(kinds=(CardType.MINION,),collectible=True,keywords_all=(Keyword.COMBO,)),source_id=c.source_id),
         AddComboRepeatModifier(c.player_id,source_id=c.source_id,uses=1,trigger='play')])
-    registry.register_behavior('m5.defias_ringleader',lambda c:[Summon(c.player_id,'EX1_131t')])
+    registry.register_behavior('m5.defias_ringleader',lambda c:[card_summon(c,c.player_id,'EX1_131t')])
     registry.register_behavior('m5.electra',lambda c:[AddSpellRepeatModifier(c.player_id,source_id=c.source_id,uses=1,expires_turn=c.state.turn)])
     registry.register_behavior('m5.tyrande',lambda c:[AddSpellRepeatModifier(c.player_id,source_id=c.source_id,uses=3)])
     registry.register_behavior('m5.twinbow',lambda c:[AddSpellRepeatModifier(c.player_id,source_id=c.source_id,uses=1)]
@@ -931,7 +952,7 @@ def build_registry() -> Registry:
 
     from .death_causes import was_honorably_killed
     registry.register_behavior('m5.korrak',lambda c:[] if was_honorably_killed(c.death) else
-        [Summon(c.player_id,'AV_143',position=c.death.position if c.death else None)])
+        [card_summon(c,c.player_id,'AV_143',position=c.death.position if c.death else None)])
 
     from .health_outcomes import is_overkill, is_honorable_kill, is_overheal
     registry.register_behavior('m5.gurubashi_chicken',lambda c:[Buff(c.source_id,attack=5,source_id=c.source_id)]
@@ -949,9 +970,10 @@ def build_registry() -> Registry:
     registry.register_behavior('m5.blessing_infinite',lambda c:blessing_of_the_infinite(c,registry))
     registry.register_behavior('m5.blessing_wolf',blessing_of_the_wolf)
     registry.register_behavior('m5.blessing_wind',blessing_of_the_wind)
-    registry.register_behavior('m5.blessing_dragon',lambda c:[
+    from .deck_shuffles import shuffled
+    registry.register_behavior('m5.blessing_dragon',lambda c:shuffled(c,(
         AddToDeck(c.player_id,'EDR_445pt3',source_id=c.source_id),
-        AddToDeck(c.player_id,'EDR_445pt3',source_id=c.source_id)])
+        AddToDeck(c.player_id,'EDR_445pt3',source_id=c.source_id))))
     registry.register_behavior('m5.blessing_moon',blessing_of_the_moon)
     registry.register_behavior('m5.emerald_portal',emerald_portal)
     registry.register_behavior('m5.twilight_whelp',lambda c:twilight_whelp(c,registry))
@@ -1105,7 +1127,7 @@ def build_registry() -> Registry:
         'm5.ultraxion': ultraxion,
         'm5.ruthless': lambda c: [Buff(c.state.players[c.player_id].hero_id, 5, 0,
                                       c.source_id, expires_turn=c.state.turn)],
-        'm5.reign': lambda c: [Summon(c.player_id, 'CATA_190t14')],
+        'm5.reign': lambda c: [card_summon(c,c.player_id, 'CATA_190t14')],
         'm5.topple': topple,
         'm5.raze': lambda c: [DamageBatch(tuple(Damage(e.id, 4, c.source_id) for e in enemy_minions(c)))],
         'm5.enthrall': lambda c: [GenerateFromPool(c.player_id, DEATHWING_POOL_ID,
@@ -1121,7 +1143,7 @@ def build_registry() -> Registry:
         'm5.ravager':lambda c:[Herald(c.player_id,c.source_id,(Keyword.RUSH,))],
         'm5.soul_forest':lambda c:[GrantDeathrattle(i,'m5.treant',c.source_id) for i in c.state.players[c.player_id].board
             if c.state.entities[i].kind==CardType.MINION and c.state.entities[i].active],
-        'm5.treant':lambda c:[Summon(c.player_id,'EX1_158t',c.death.position if c.death else None)],
+        'm5.treant':lambda c:[card_summon(c,c.player_id,'EX1_158t',c.death.position if c.death else None)],
         'm5.yodeler':lambda c:[TriggerDeathrattles(c.target_id,c.source_id,times=2)] if c.target_id is not None else [],
         'm5.ragnaros_hand':ragnaros_hand,
         'm5.ragnaros_end':ragnaros_end,
@@ -1144,7 +1166,7 @@ def build_registry() -> Registry:
         'm5.touch': lambda c: [Damage(c.target_id,3,c.source_id,DamageKind.SPELL)],
         'm5.touch_infused': lambda c: [Damage(c.target_id,3,c.source_id,DamageKind.SPELL),AddToHand(c.player_id,'REV_601')],
         'm5.initiate': lambda c: [Buff(c.source_id,attack=2)],
-        'm5.gibberling': lambda c: [Summon(c.player_id,'SCH_242')],
+        'm5.gibberling': lambda c: [card_summon(c,c.player_id,'SCH_242')],
         'm5.flinger_play': lambda c: [Damage(c.target_id,1,c.source_id)] if c.target_id is not None else [],
         'm5.flinger_burst': lambda c: [ReturnToHand(c.source_id)],
         'm5.gidra': lambda c: [Buff(c.source_id,attack=c.play.cost,health=c.play.cost)] if c.play.cost else [],
@@ -1192,14 +1214,14 @@ def build_registry() -> Registry:
         'm4.eonar_harvest': lambda c: [Heal(c.state.players[c.player_id].hero_id,
             c.state.entities[c.state.players[c.player_id].hero_id].max_health, c.source_id)],
         'm4.eonar_flourish': lambda c: [RefreshMana(c.player_id, c.state.players[c.player_id].mana_cap)],
-        'm4.eonar_ancient': lambda c: [Summon(c.player_id, 'TTN_903t4')]
+        'm4.eonar_ancient': lambda c: [card_summon(c,c.player_id, 'TTN_903t4')]
             if c.event.source_id == c.source_id else [],
         'm4.maiev': lambda c: [MakeDormant(c.target_id, 2, c.source_id)] if c.target_id is not None else [],
         'm4.observer': lambda c: [DamageBatch(tuple(Damage(i, 2, c.source_id)
             for i in c.state.players[3-c.player_id].board
             if c.state.entities[i].kind == CardType.MINION and c.state.entities[i].active))],
         'm4.raynor': lambda c: [RelaunchStarships(c.player_id)],
-        'm4.stimpack': lambda c: [Summon(c.player_id, 'SC_403t'),
+        'm4.stimpack': lambda c: [card_summon(c,c.player_id, 'SC_403t'),
             InvokeBehavior('m4.stimpack_buff', c.source_id, c.player_id)],
         'm4.stimpack_buff': lambda c: [Buff(i, attack=2, source_id=c.source_id)
             for i in c.state.players[c.player_id].board
@@ -1233,8 +1255,8 @@ def build_registry() -> Registry:
         'm3.giant_reforge': lambda c: [ModifyCost(c.source_id, CostSpec(delta=-2), source_id=c.source_id)],
         'm3.shadow_visions': lambda c: [ChooseFromZone(c.player_id, c.player_id, Zone.DECK,
             PoolQuery(kinds=(CardType.SPELL,)), operation='copy_current', source_id=c.source_id, prompt='暗影视界：发现法术的复制')],
-        'm3.dead_mans_hand': lambda c: [CopyCard(CardReference.capture(c.state.entities[i]), c.player_id,
-            destination=Zone.DECK, source_id=c.source_id) for i in c.state.players[c.player_id].hand],
+        'm3.dead_mans_hand': lambda c: shuffled(c,(CopyCard(CardReference.capture(c.state.entities[i]), c.player_id,
+            destination=Zone.DECK, source_id=c.source_id) for i in c.state.players[c.player_id].hand)),
         'm3.soulfire': lambda c: [Damage(c.target_id, 4, c.source_id, DamageKind.SPELL),
             DiscardMatching(c.player_id, source_id=c.source_id)],
         'm3.jeweled_scarab': lambda c: [DiscoverFromPool(c.player_id, GENERATION_POOL_ID,
@@ -1275,7 +1297,7 @@ def build_registry() -> Registry:
         "m2.fireblast": lambda c: [Damage(c.target_id, 1, c.source_id, DamageKind.HERO_POWER)],
         "m2.dagger": lambda c: [EquipWeapon(c.player_id, 'CS2_082')],
         "m2.armor_up": lambda c: [GainArmor(c.player_id, 2)],
-        "m2.reinforce": lambda c: [Summon(c.player_id, 'CS2_101t')],
+        "m2.reinforce": lambda c: [card_summon(c,c.player_id, 'CS2_101t')],
         "m2.shapeshift": lambda c: [Buff(c.state.players[c.player_id].hero_id, attack=1,
                                          source_id=c.source_id, expires_turn=c.state.turn), GainArmor(c.player_id, 1)],
     }
@@ -1317,9 +1339,10 @@ def build_registry() -> Registry:
         school_tag = raw['tags'].get('SPELL_SCHOOL')
         if school_tag is not None and (type(school_tag) is not int or school_tag not in schools):
             raise TargetValidationError(f'Unsupported spell school tag: {card_id}')
+        meta = decode_metadata(raw)
         return CardDefinition(card_id, raw["name"], kind, cost=cost, attack=attack, health=health,
                               durability=durability, spell_school=schools[school_tag] if school_tag is not None else None,
-                              metadata=metadata_from_record(raw),
+                              metadata=meta,
                               **behavior)
 
     minion, spell = CardType.MINION, CardType.SPELL
@@ -1688,12 +1711,19 @@ def build_registry() -> Registry:
         definition("EX1_019", minion, battlecry="m1.cleric", targeting=battlecry_target, target_rule="m1.friendly_minion"),
     )
     for card in cards:
+        if card.id in initial_powers:
+            if card.kind!=CardType.HERO or card.hero_card or card.initial_hero_power is not None:
+                raise TargetValidationError('Only an unbound ordinary starting hero accepts a content binding')
+            card=replace(card,initial_hero_power=initial_powers[card.id])
         registry.register_card(card)
+    if any(cid not in registry.cards for cid in initial_powers):raise TargetValidationError('Unknown starting hero content binding')
+    if any(cid not in registry.cards or registry.card(cid).metadata.rarity != Rarity.NONE for cid in known_unrarified_ids):
+        raise TargetValidationError('Known unrarified faces were not completely installed')
     for card_id in dict.fromkeys((*GENERATION_SAMPLE_IDS, *HERALD_POOL_IDS, *DEATHWING_POOL_IDS, *ATTACK_COST_POOL_IDS, *REWIND_SAMPLE_IDS,
                                 *EXCAVATE_TITAN_SAMPLE_IDS,*EXCAVATE_EIGHT_SAMPLE_IDS,*EXCAVATE_TRANSFORM_SAMPLE_IDS,*BRONZE_SAMPLE_IDS,*WIND_SAMPLE_IDS,*PORTAL_SAMPLE_IDS,*MOON_SAMPLE_IDS)):
         registry.register_pool_card(PoolCard.from_definition(registry.card(card_id)))
-    register_combo_pool(registry, baseline)
-    register_card_spell_pool(registry, baseline, metadata_from_record)
+    register_combo_pool(registry, baseline, decode_metadata)
+    register_card_spell_pool(registry, baseline, decode_metadata)
     registry.register_pool(PoolDefinition(MOON_POOL_ID,'representative-moon-cards-v1',
         baseline.target['target_id'],'experimental',tuple(PoolMember(i) for i in MOON_SAMPLE_IDS)))
     registry.register_pool(PoolDefinition(WIND_POOL_ID,'representative-wind-minions-v1',
@@ -1725,7 +1755,7 @@ def build_registry() -> Registry:
             registry.register_pool_card(PoolCard.from_definition(registry.card(card_id)))
         else:
             raw=inventory['records'][card_id]
-            registry.register_pool_card(PoolCard(card_id,CardType(raw['type'].lower()),raw['cost'],metadata_from_record(raw)))
+            registry.register_pool_card(PoolCard(card_id,CardType(raw['type'].lower()),raw['cost'],decode_metadata(raw)))
     for tier,card_id in enumerate(EXCAVATE_SHARED_SAMPLE_IDS,1):
         registry.register_pool(PoolDefinition(f'excavate.tier{tier}','representative-excavate-v1',baseline.target['target_id'],
             'experimental',(PoolMember(card_id),)))
@@ -1738,6 +1768,6 @@ def build_registry() -> Registry:
             for cls in sorted(PLAYABLE_CLASSES))))
     from .dark_gift_cards import register_representatives as register_dark_gift_cards
     register_dark_gift_cards(registry, baseline.target['target_id'])
-    registry.validate()
+    if not defer_validation:registry.validate()
     return registry
 

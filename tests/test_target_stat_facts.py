@@ -1,4 +1,5 @@
 """Real target stat acceptance, live changes, compact origins and recovery."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -236,9 +237,9 @@ class TargetStatFactTests(unittest.TestCase):
         self.assertEqual(g.snapshot(), snapshot); self.assertEqual(g.history, history)
 
     def test_old131_schema_is_rejected_before_any_missing_fact_interpretation(self):
-        g = game(); snapshot = g.snapshot(); self.assertEqual(snapshot['schema_version'], 266)
+        g = game(); snapshot = g.snapshot(); self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         snapshot['schema_version'] = 131
-        with self.assertRaisesRegex(SnapshotError, '1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(snapshot, registry())
 
     def test_all_tribes_matches_any_requested_printed_tribe(self):

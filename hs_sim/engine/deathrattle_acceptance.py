@@ -67,6 +67,7 @@ def _bind_prefix(state, original):
         raise ValueError('Deathrattle proof truncated its original capture prefix')
     for old, new in zip(original.deathrattle_history, rows):
         if (new.capture != old.capture or old.execution_order is not None and new.execution_order != old.execution_order or
+                old.source_attack is not None and new.source_attack!=old.source_attack or
                 old.completed and not new.completed or old.interrupted and not new.interrupted):
             raise ValueError('Deathrattle proof rewrote its accepted prefix or execution progress')
 

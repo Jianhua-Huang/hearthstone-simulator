@@ -1,4 +1,5 @@
 """One actual equipped weapon Attack price input, no second combat system."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, FrozenInstanceError, replace
 import json
@@ -389,7 +390,7 @@ class PlayerWeaponAttackCostTests(unittest.TestCase):
 
     def test_new_schema_rule_and_effect_versions_explicitly_reject_all_old_and_future_layouts(self):
         g=self.game(weapon='w.two');saved=self.portable(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         for version in (*range(1,218),217,True):
             bad=deepcopy(saved);bad['schema_version']=version
             with self.subTest(version=version),self.assertRaises(SnapshotError):Game.from_snapshot(rehash(bad),registry())

@@ -1,0 +1,1201 @@
+{
+  "batch_id": "K68",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_251",
+        "dbf_id": 118251,
+        "name": "蛮鱼挑战者",
+        "name_en": "Primalfin Challenger",
+        "text": "<b>战吼：</b>你的下一个<b>延系</b>效果会触发两次。",
+        "text_en": "<b>Battlecry:</b> Your next <b>Kindred</b> triggers twice.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4028",
+              "name": "KINDRED",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "316a32c7eab74ef67de46ae4c626a4e9550fd5080043736886d689355a819683",
+      "recipe": {
+        "root": true,
+        "deck_identity": "TLC_251"
+      }
+    }
+  ],
+  "reviewed_consumers": [
+    {
+      "record": {
+        "id": "DINO_138",
+        "dbf_id": 118507,
+        "name": "魔神暴龙",
+        "name_en": "Diabolus Rex",
+        "text": "<b>延系：</b>&对你的对手最左边和最右边的随从造成6点伤害。",
+        "text_en": "<b>Kindred:</b>& Deal 6 damage to your opponent's left and right-most minions.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "2537": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "26d258b51f05405340fafeda7f3be012838e0f6e451f3046d816843153994294",
+      "profile": {
+        "card_id": "DINO_138",
+        "mode": "body",
+        "wrapper": "cards.demon_zones.diabolus",
+        "active": "cards.kindred_components.DINO_138.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_404",
+        "dbf_id": 118410,
+        "name": "火鳃鱼人",
+        "name_en": "Firegill",
+        "text": "<b>延系：</b>&使你的其他随从获得<b>突袭</b>。",
+        "text_en": "<b>Kindred:</b>& Give your other minions <b>Rush</b>.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "2540": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e56ac08871e2a8588325c990c0ecfcb945401e292d007f19cb49d14f500b4ab",
+      "profile": {
+        "card_id": "DINO_404",
+        "mode": "body",
+        "wrapper": "cards.kindred_murlocs.DINO_404",
+        "active": "cards.kindred_components.DINO_404.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_435",
+        "dbf_id": 119695,
+        "name": "环形山实验体",
+        "name_en": "Crater Experiment",
+        "text": "<b>延系：</b>召唤一个本随从的复制。",
+        "text_en": "<b>Kindred:</b> Summon a\ncopy of this.",
+        "cost": 5,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 26,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "KINDRED": 1,
+          "4548": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "4e8b581eec0b4a01eb9d4e79e975e96940ef60906b5964273ef0826a11c923f2",
+      "profile": {
+        "card_id": "DINO_435",
+        "mode": "body",
+        "wrapper": "cards.zones.kindred_copy",
+        "active": "cards.kindred_components.DINO_435.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_223",
+        "dbf_id": 117533,
+        "name": "火山长尾蜥",
+        "name_en": "Volcanic Thrasher",
+        "text": "<b>战吼：</b>抽一张火焰法术牌。<b>延系：</b>使其获得<b>法术伤害+2</b>。",
+        "text_en": "<b>Battlecry:</b> Draw a Fire spell. <b>Kindred:</b> Give it <b>Spell Damage +2</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "929516a237fdeff7dec290899ca6b3d7559615e86a6a3961f9c18efc91b7a072",
+      "profile": {
+        "card_id": "TLC_223",
+        "mode": "body",
+        "wrapper": "cards.native_reborn_fire.thrasher",
+        "active": null,
+        "prepare": "cards.kindred_components.TLC_223.prepare",
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_226",
+        "dbf_id": 117535,
+        "name": "咒术图书管理员",
+        "name_en": "Conjured Bookkeeper",
+        "text": "<b>亡语：</b>抽一张法术牌。<b>延系：</b>&召唤一个本随从的复制。",
+        "text_en": "<b>Deathrattle:</b> Draw a spell. <b>Kindred:</b>& Summon a copy of this.",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4930": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "0876235dedae6c8986ea910b79d4a842e582f144ff5c158ffa0a0b75897cad7d",
+      "profile": {
+        "card_id": "TLC_226",
+        "mode": "body",
+        "wrapper": "cards.kindred_murlocs.TLC_226",
+        "active": "cards.kindred_components.TLC_226.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_236",
+        "dbf_id": 117656,
+        "name": "杂交育种",
+        "name_en": "Hybridization",
+        "text": "抽取法力值消耗为（1），（2），（3），（4）的随从牌各一张。<b>延系：</b>其法力值消耗减少（1）点。",
+        "text_en": "Draw a 1, 2, 3, and 4-Cost minion. <b>Kindred:</b> They cost (1) less.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "a105189264d0f474208b2d7b600dec7d118bca9ff7031863a8ca89775902fee8",
+      "profile": {
+        "card_id": "TLC_236",
+        "mode": "body",
+        "wrapper": "cards.physical_draw.hybrid",
+        "active": null,
+        "prepare": "cards.kindred_components.TLC_236.prepare",
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_243",
+        "dbf_id": 118221,
+        "name": "涡流风暴幼龙",
+        "name_en": "Whirling Stormdrake",
+        "text": "<b>突袭</b>。<b>风怒</b>\n<b>延系：</b>在本回合中获得<b>免疫</b>。",
+        "text_en": "<b>Rush</b>, <b>Windfury</b>\n<b>Kindred:</b> Gain <b>Immune</b>\nthis turn.",
+        "cost": 9,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 9,
+          "CARD_SET": 1952,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "2523": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2523",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2523"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6f0add5b5a6420996893e7f24a7acc51b5a40d93d8acf3fa7f13ab23ae3b6351",
+      "profile": {
+        "card_id": "TLC_243",
+        "mode": "body",
+        "wrapper": "cards.kindred_murlocs.TLC_243",
+        "active": "cards.kindred_components.TLC_243.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_366",
+        "dbf_id": 118269,
+        "name": "掠食飞翼龙",
+        "name_en": "Pterrorwing Ravager",
+        "text": "<b>突袭</b>。<b>延系：</b>法力值消耗减少（2）点。",
+        "text_en": "<b>Rush</b>\n<b>Kindred:</b> Costs (2) less.",
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "c327a52d012231eadfd0da6e9773380802a229f87afac5ccf6a0fb41d31f6eed",
+      "profile": {
+        "card_id": "TLC_366",
+        "mode": "cost",
+        "wrapper": null,
+        "active": null,
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_428",
+        "dbf_id": 117382,
+        "name": "温泉踏浪鱼人",
+        "name_en": "Hot Spring Glider",
+        "text": "<b>战吼：</b>你的下一张鱼人牌的法力值消耗减少（1）点。<b>延系：</b>且会获得<b>圣盾</b>。",
+        "text_en": "<b>Battlecry:</b> Your next\nMurloc costs (1) less.\n<b>Kindred:</b> And gains <b>Divine Shield</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "97b1513d5d6551055ed60bac7b033e4317c55993acea803f9e03f8f09ac1e4b4",
+      "profile": {
+        "card_id": "TLC_428",
+        "mode": "body",
+        "wrapper": "cards.next_play_prices.glider",
+        "active": null,
+        "prepare": "cards.kindred_components.TLC_428.prepare",
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_429",
+        "dbf_id": 117383,
+        "name": "蒸鳍偷蛋贼",
+        "name_en": "Steamfin Thief",
+        "text": "<b>延系：</b>&召唤两个1/1并具有<b>突袭</b>的鱼人。",
+        "text_en": "<b>Kindred:</b>& Summon two\n1/1 Murlocs with <b>Rush</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 118184,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ec44db5c352d8af3c0f8e7b4dd6e22f0fbda9bd9f20a5e30f3bf89d89da51cb6",
+      "profile": {
+        "card_id": "TLC_429",
+        "mode": "body",
+        "wrapper": "cards.kindred_murlocs.TLC_429",
+        "active": "cards.kindred_components.TLC_429.active",
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_440",
+        "dbf_id": 117622,
+        "name": "封冻沉眠",
+        "name_en": "Cryosleep",
+        "text": "造成$4点伤害并抽一张牌。<b>延系：</b>再抽一张。",
+        "text_en": "Deal $4 damage\nand draw a card.\n<b>Kindred: </b>Draw another.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 2,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "1fb335e1b9491b28ad60491cd2ffbe597941d5cbf15c33c771913982f65792af",
+      "profile": {
+        "card_id": "TLC_440",
+        "mode": "body",
+        "wrapper": "cards.health_sequence.cryo",
+        "active": null,
+        "prepare": "cards.kindred_components.TLC_440.prepare",
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_447",
+        "dbf_id": 117830,
+        "name": "烧蚀毒雾",
+        "name_en": "Caustic Fumes",
+        "text": "消灭一个敌方随从。<b>延系：</b>对所有随从造成$2点伤害。",
+        "text_en": "Destroy an enemy minion. <b>Kindred:</b> Deal $2 damage to all minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "a5eea4d16623cdbaf8dcc260682e63fdf58270570f1ba2e3ed1b638553954d31",
+      "profile": {
+        "card_id": "TLC_447",
+        "mode": "body",
+        "wrapper": "cards.health_resource.ablating",
+        "active": "cards.kindred_components.TLC_447.active",
+        "prepare": "cards.kindred_components.TLC_447.prepare",
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_454",
+        "dbf_id": 118182,
+        "name": "鳞皮科多兽",
+        "name_en": "Scalehide Kodo",
+        "text": "<b>战吼：</b>消灭攻击力最低的敌方随从。<b>延系：</b>改为消灭攻击力最高的敌方随从。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy the\nlowest Attack enemy minion.\n<b>Kindred:</b> The highest\nAttack instead.",
+        "cost": 6,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "13cde3a23d5287686bbe5b3c54d05e99d909485feee2941ee8cd8553f1bc3edd",
+      "profile": {
+        "card_id": "TLC_454",
+        "mode": "body",
+        "wrapper": "cards.six_cost_native.kodo",
+        "active": "cards.kindred_components.TLC_454.active",
+        "prepare": null,
+        "inactive": "cards.kindred_components.TLC_454.inactive"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_463",
+        "dbf_id": 118210,
+        "name": "雷兹迪尔",
+        "name_en": "Razidir",
+        "text": "<b>战吼：</b>随机弃掉一张手牌。<b>延系：</b>改为对手的一张手牌。",
+        "text_en": "[x]<b>Battlecry:</b> Discard a random\ncard from your hand.\n<b>Kindred:</b> Your opponent's\nhand instead.",
+        "cost": 4,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "2542": 1,
+          "KINDRED": 1,
+          "4128": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "d3633cd03812f5e2966bb50a1f1e5ff128babe781f713d5b02034db3d0977019",
+      "profile": {
+        "card_id": "TLC_463",
+        "mode": "body",
+        "wrapper": "cards.demon_zones.razidir",
+        "active": "cards.kindred_components.TLC_463.active",
+        "prepare": null,
+        "inactive": "cards.kindred_components.TLC_463.inactive"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_600",
+        "dbf_id": 117714,
+        "name": "乘风浮龙",
+        "name_en": "Windpeak Wyrm",
+        "text": "<b>战吼：</b>造成5点伤害，获得5点护甲值。<b>延系：</b>法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 5 damage\nand gain 5 Armor.\n<b>Kindred:</b> Costs (2) less.",
+        "cost": 8,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "e2bf0d0cd31ee82c1fdb6131b193344e4c67362e7044587b025f436d4daa773e",
+      "profile": {
+        "card_id": "TLC_600",
+        "mode": "cost",
+        "wrapper": null,
+        "active": null,
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_816",
+        "dbf_id": 117317,
+        "name": "墓晨太阳花",
+        "name_en": "Gravedawn Sunbloom",
+        "text": "抽两张牌。<b>延系：</b>本牌法力值消耗减少（2）点。",
+        "text_en": "Draw 2 cards. <b>Kindred:</b> This costs (2) less.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "38ffd4ccc337bdff5fa9a44be3a3e2c0df5ff889e2c518cb520d5cca69485ae4",
+      "profile": {
+        "card_id": "TLC_816",
+        "mode": "cost",
+        "wrapper": null,
+        "active": null,
+        "prepare": null,
+        "inactive": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_903",
+        "dbf_id": 117687,
+        "name": "异种虫女王",
+        "name_en": "Silithid Queen",
+        "text": "<b>突袭</b>。<b>延系：</b>&在本回合中，使你的英雄获得+5攻击力。",
+        "text_en": "<b>Rush</b>\n<b>Kindred</b>:& Give your hero\n+5 Attack this turn.",
+        "cost": 5,
+        "attack": 5,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "445b00bdeb46cf4efffff97880d7e485f32356e33b6b34a60bb24f6e8b482f58",
+      "profile": {
+        "card_id": "TLC_903",
+        "mode": "body",
+        "wrapper": "cards.kindred_murlocs.TLC_903",
+        "active": "cards.kindred_components.TLC_903.active",
+        "prepare": null,
+        "inactive": null
+      }
+    }
+  ],
+  "policies": [
+    "Only actual native Kindred components repeat. Ordinary base text, draws, payment and Battlecry quantities are not duplicated merely because their card has Kindred.",
+    "A dedicated one-use next_kindred PlayerEffectSpec owns the source. Actual component acceptance captures all source instances, complete prior-owner-turn relation and max2 plan; consumption includes an unsuccessful Kindred condition under explicit local policy pending CN calibration.",
+    "Three actual intrinsic Kindred reductions quote complete original source instances, apply the intrinsic operation twice when matched, and consume them once as part of the original payment projection/use receipt. Preview and nonpayment static prices do not consume sources.",
+    "Prepared draws/rewards keep their original receiver; triggered sources and additional native bodies accept independently. Same-residence identity, payment, waiting, replay and private boundaries stay public-kernel responsibilities.",
+    "Historical community/official-forum user reports are observations only, not CN37 certification. Exact failed-condition consumption, stacked sources, static pricing, repeated Battlecries and alternate-source windows remain M6 policies until calibrated."
+  ]
+}

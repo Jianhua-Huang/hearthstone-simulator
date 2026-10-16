@@ -102,6 +102,15 @@ def attack_policy_error(state, attacker, defender, registry=None):
     return None
 
 
+def ignores_taunt(state,attacker):
+    """A current native provider contributes no permanent attacker attachment."""
+    for entity_id in state.players[attacker.controller].board:
+        source=state.entities[entity_id]
+        if source.kind!=CardType.MINION or not source.active or source.health<=0 or source.doomed:continue
+        if any(a.attack_policy.mode=='friendly_ignore_taunt'for a in active_abilities(source,'attack_policy')):return True
+    return False
+
+
 @dataclass(frozen=True)
 class GrantAttackPolicy(Effect):
     target_id: int
@@ -115,6 +124,7 @@ class GrantAttackPolicy(Effect):
         if type(self.spec) is not AttackPolicySpec:
             raise ValueError('GrantAttackPolicy requires AttackPolicySpec')
         self.spec.__post_init__()
+        if self.spec.mode=='friendly_ignore_taunt':raise ValueError('Friendly Taunt bypass currently requires its native minion provider')
         if self.source_binding is not None:
             if type(self.source_binding) is not AttackSourceBinding:
                 raise ValueError('GrantAttackPolicy requires typed source binding')

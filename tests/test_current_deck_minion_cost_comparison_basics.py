@@ -1,4 +1,5 @@
 """Current-deck strict minion cost comparisons and one isolated DrekThar source."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -467,7 +468,7 @@ class CurrentDeckMinionCostComparisonTests(unittest.TestCase):
 
     def test_persistent_schema_stays_and_previous_handler_is_rejected(self):
         g = self.game()
-        self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version), (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+        self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v232'
         self.reject(saved)

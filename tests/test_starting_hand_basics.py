@@ -1,4 +1,5 @@
 """Real constructed starting-hand capture and one necessary temporary source."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -481,7 +482,7 @@ class StartingHandTests(unittest.TestCase):
         g = self.ready(self.game())
         self.play(g)
         saved = g.snapshot()
-        self.assertEqual(saved['schema_version'], 266)
+        self.assertEqual(saved['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 164, 165, 217, True, '166'):
             bad = json.loads(json.dumps(saved))
             bad['schema_version'] = version

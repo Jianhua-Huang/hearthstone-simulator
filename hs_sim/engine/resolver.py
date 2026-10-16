@@ -10,9 +10,9 @@ from enum import Enum
 
 from .actions import Attack, PlayCard
 from .colossal import enter_minion, ColossalBattlecry
-from .effects import (Buff, Damage, DamageBatch, Destroy, Draw, Effect, GainArmor, LoseArmor, Heal, RandomDamage, RandomDestroy, Summon,
+from .effects import (Buff, Damage, DamageBatch, Destroy, DestroyBatch, Draw, Effect, GainArmor, LoseArmor, Heal, RandomDamage, RandomDamageBatch, RandomDestroy, RandomReturnToHand, Summon,
                       Silence, GrantKeyword, GrantDeathrattle, GrantTrigger, GrantAura, RemoveEnchantment,
-                      ReturnToHand, Transform, CopyMinion, ChangeControl, ShuffleIntoDeck, GrantSpellDamage, Freeze, Unfreeze,
+                      ReturnToHand, Transform, CopyMinion, FillBoardWithCopies, ChangeControl, ShuffleIntoDeck, GrantSpellDamage, Freeze, Unfreeze,
                       SetStats, SwapStats, DoubleStats, CombatExchange, EquipWeapon, TransferWeapon, ModifyWeapon,
                       ReplaceHeroPower, RefreshHeroPower, SetHeroPowerUses, ReplaceHero,
                       ModifyCost, AddCostModifier, GrantCostAura, GainTemporaryMana, SpendMana, RefreshMana,
@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v306'
+CORE_EFFECTS_VERSION = 'core-effects-v378'
 
 
 class Mechanics:
@@ -241,10 +241,11 @@ class Resolution:
             result.append(item)
         return result
 
-    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _hero_health_before=None, _corpse_spend_record=None, **data):
+    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, **data):
         if kind == 'card_burned':
             entity = self.state.entities.get(target_id)
-            if entity is not None and active_abilities(entity, 'on_destroyed') and 'burn_destruction' not in data:
+            if entity is not None and (active_abilities(entity, 'on_destroyed') or
+                    self.registry.card(entity.card_id).stored_deathrattle) and 'burn_destruction' not in data:
                 raise ResolutionError('Native destroyed-card burn requires its original supported overflow profile')
         actual_corpse_debit = kind == 'corpses_spent' or kind == 'resource_spent'
         if actual_corpse_debit and kind == 'resource_spent' and data.get('resource') != Resource.CORPSES.value:
@@ -284,6 +285,11 @@ class Resolution:
         synchronize_mana_ranks(self)
         from .unidentified import synchronize as synchronize_unidentified
         synchronize_unidentified(self)
+        from .deck_shuffles import INSERT_EVENTS,publication as shuffle_publication
+        if (kind in INSERT_EVENTS) != (_deck_insertion_mode is not None) or 'deck_insertion' in data:
+            raise ResolutionError('Deck insertion requires its actual original placement publication')
+        if _deck_insertion_mode is not None:
+            data['deck_insertion']=shuffle_publication(self,kind,target_id,player_id,source_id,_deck_insertion_mode)
         event = Event(sequence=len(self.game._events) + 1, action=self.state.action_number,
                       kind=kind, source_id=source_id, target_id=target_id,
                       player_id=player_id, amount=amount, data=tuple(sorted(deepcopy(data).items())))
@@ -330,6 +336,8 @@ class Resolution:
             pass_guard(self.state,_end_turn_guard,event)
         if self.game._information is not None:
             self.game._information.record(self.game, event)
+        from .hand_mirrors import synchronize as synchronize_hand_mirrors
+        synchronize_hand_mirrors(self,event)
         if not _capture:
             return event
         from .end_turns import listeners, prepare, schedule
@@ -405,16 +413,14 @@ class Resolution:
         if _discard_commit is not None:
             from .discard_history import capture_body
             own_body = capture_body(self, event)
-            if own_body is not None:
-                self._captured.append(own_body)
+            self._captured.extend(own_body)
         if kind=='card_burned' and 'burn_destruction' in data:
             from .zones import capture_destroyed_body
             own_body=capture_destroyed_body(self,event)
-            if own_body is not None:
-                self._captured.append(own_body)
+            self._captured.extend(own_body)
         return event
 
-    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None):
+    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None):
         if discard is not None:
             if target_id is not None or any(value is not None for value in
                     (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical)):
@@ -471,7 +477,7 @@ class Resolution:
                 and physical.active_battlecry_id == battlecry.id and source_id == battlecry.source_id)
             if not own_physical_result: attempt = 0
         return BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id,
-                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical))
+                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred))
 
     def player(self, player_id):
         if type(player_id) is not int or player_id not in self.state.players:
@@ -545,14 +551,26 @@ class Resolution:
             enter_hand(self.state, entity, reason=hand_entry_reason)
         return entity
 
-    def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None):
+    def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
         previous_zone = entity.zone
+        drawn_spell_transfer = False
+        if draw_id is not None:
+            from .draw_casts import draw_record
+            drawn = draw_record(self.state, draw_id)
+            drawn_spell_transfer = (previous_zone == Zone.DECK and zone == Zone.GRAVEYARD
+                and entity.kind == CardType.SPELL and not drawn.interrupted
+                and drawn.id == len(self.state.draw_history)
+                and (drawn.entity_id,drawn.card_id,drawn.player_id,drawn.outcome,drawn.phase) ==
+                    (entity.id,entity.card_id,controller_id,'cast','pending_cast')
+                and drawn.spec == self.registry.card(entity.card_id).cast_when_drawn)
+            if not drawn_spell_transfer:
+                raise ResolutionError('Drawn spell transfer lost its original pending physical draw')
         if controller_id is not None:
             initial_minion=previous_zone==Zone.PLAY and zone==Zone.BOARD and entity.kind==CardType.MINION
             weapon_transfer=(previous_zone==zone==Zone.WEAPON and entity.kind==CardType.WEAPON
                 and controller_id!=entity.controller and self.player(entity.controller).weapon_id==entity.id)
-            if type(controller_id) is not int or controller_id not in (1,2) or not (initial_minion or weapon_transfer):
-                raise ResolutionError('Controller movement requires pending minion entry or an equipped weapon transfer')
+            if type(controller_id) is not int or controller_id not in (1,2) or not (initial_minion or weapon_transfer or drawn_spell_transfer):
+                raise ResolutionError('Controller movement requires its exact pending minion, weapon or drawn spell transfer')
         if zone == Zone.DECK:
             from .prepare import enter_deck
             enter_deck(entity)
@@ -626,7 +644,7 @@ class Resolution:
                 if not source.active or (not include_dying and (source.health <= 0 or source.doomed)):
                     continue
                 for aura in active_abilities(source, 'aura'):
-                    if aura.aura_target == 'friendly_weapon':
+                    if aura.aura_target != 'friendly_minions':
                         continue
                     targets = player.board
                     if aura.adjacent_only:
@@ -649,10 +667,11 @@ class Resolution:
             if entity.aura_health < old_aura[entity_id]:
                 entity.damage = max(0, entity.max_health - old_health[entity_id])
         from .keyword_auras import refresh_keyword_auras
-        from .stat_auras import refresh_weapon_auras
+        from .stat_auras import refresh_weapon_auras,refresh_hero_auras
         from .stat_relations import refresh_conditional_attacks
         # Weapon conditions read health after the existing health-aura clamp.
         refresh_weapon_auras(self.state, include_dying=include_dying)
+        refresh_hero_auras(self.state, include_dying=include_dying)
         refresh_keyword_auras(self.state, self.registry, include_dying=include_dying)
         refresh_conditional_attacks(self.state, self.registry)
         refresh_equipment(self.state)
@@ -675,6 +694,8 @@ class Resolution:
                 self.emit("unfrozen", target_id=entity.id, reason="cannot_be_frozen")
         from .death_causes import sync
         sync(self, getattr(self, '_cause_reason', 'aura_change'))
+        from .dormancy import capture_board_full
+        self._captured.extend(capture_board_full(self))
 
     def pay_cost(self, player, source):
         pay_cost(self, player, source)
@@ -744,14 +765,17 @@ class Resolution:
             # Credit the complete batch before any death/ordinary trigger
             # captures a view; weapons and no-corpse minions contribute zero.
             records = {i: capture_prohibition(self, d) for i, d in records.items()}
+            from .corpse_gains import gain_amount
+            credits = {i: gain_amount(self.state, self.registry, d.controller, d.corpse_value)
+                       for i, d in records.items()}
             for record in records.values():
-                self.player(record.controller).resources[Resource.CORPSES] += record.corpse_value
+                self.player(record.controller).resources[Resource.CORPSES] += credits[record.entity_id]
             from .starships import contribute
             contribute(self, records.values())
             for record in records.values():
                 if record.corpse_value:
                     self.emit('resource_gained', source_id=record.entity_id, player_id=record.controller,
-                              amount=record.corpse_value, resource=Resource.CORPSES.value, death_id=record.id)
+                              amount=credits[record.entity_id], resource=Resource.CORPSES.value, death_id=record.id)
             for entity_id in dead:
                 entity = self.state.entities[entity_id]
                 event = self.emit('location_destroyed' if entity.kind == CardType.LOCATION else
@@ -804,10 +828,11 @@ class Resolution:
             from .discovery_summons import CONTROL as DISCOVERY_SUMMON_CONTROL
             from .hand_choice_followups import CONTROL as HAND_FOLLOWUP_CONTROL
             from .summon_quantities import SummonByCard,FinishCardSummon
+            from .source_stat_summons import SummonBySourceStats
             from .whole_card_replays import DIAGNOSTIC_CONTROL as WHOLE_CARD_CONTROL
             from .indirect_body_targets import CONTROL as INDIRECT_BODY_CONTROL
             from .historical_body_targets import CONTROL as HISTORICAL_BODY_CONTROL
-            if type(work) in (*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
+            if type(work) in (*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
                               InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
@@ -888,6 +913,8 @@ class Resolution:
             raise ResolutionError('Resolution ended with an unclosed death deferral boundary')
         self.death_deferrals = 0
         if self.state.status != 'playing':
+            from .kindred import interrupt as interrupt_kindred
+            interrupt_kindred(self,queue)
             from .choose_policies import interrupt as interrupt_choose_policies
             interrupt_choose_policies(self, queue)
             from .spell_casts import validate_target_queue
@@ -986,7 +1013,7 @@ def nonnegative(value, name='amount'):
         raise ResolutionError(f'{name} must be a nonnegative integer')
 
 
-def settle_health_batch(r, instructions, combat=None, *, split_link=None):
+def settle_health_batch(r, instructions, combat=None, *, split_link=None, partition_request=None, numeric_limit=None, apply_spell_bonus=True,player_effect=None,player_effect_owner=None):
     from .health_loss import replacement_for, commit_loss
     from .model import HealthLossKind
     from .health_outcomes import capture_result
@@ -995,9 +1022,25 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None):
     # consume in packet order without an intervening death checkpoint.
     state = deepcopy(r.state)
     rules = rule_sources(state)
+    if player_effect is not None and (combat is not None or len(instructions)!=1 or partition_request is not None):
+        raise ResolutionError('Logical player damage requires one independent non-combat packet')
+    if numeric_limit is not None and (combat is not None or split_link is not None or
+            partition_request is not None or len(instructions) != 1):
+        raise ResolutionError('Infinite damage requires its single original non-combat health request')
     if split_link is not None and (combat is not None or len(instructions) != 1):
         raise ResolutionError('An internal split packet requires exactly one non-combat instruction')
-    packets = [prepare_health(state, r.registry, instruction, rules=rules, split_link=split_link) for instruction in instructions]
+    if partition_request is not None:
+        from .excess_damage import prepare_partition
+        if instructions or combat is not None or split_link is not None:
+            raise ResolutionError('Partition batch cannot borrow unrelated instructions or combat/split controls')
+        instructions, packets = prepare_partition(state, r.registry, partition_request, rules)
+        if not instructions:
+            r.stale(partition_request, partition_request.minion.entity_id)
+            return ()
+    else:
+        packets = [prepare_health(state, r.registry, instruction, rules=rules, split_link=split_link,
+                                  numeric_limit=numeric_limit, apply_spell_bonus=apply_spell_bonus,
+                                  player_effect=player_effect,player_effect_owner=player_effect_owner) for instruction in instructions]
     for instruction in instructions:
         instruction.__post_init__()
         if instruction.on_result is not None:
@@ -1148,8 +1191,12 @@ def grant_health_rule(r, effect):
         raise ResolutionError('Location health-rule holders are not supported by this contract')
     if entity.zone == Zone.WEAPON and effect.rule.redirect_to == 'self':
         raise ResolutionError('A weapon cannot receive redirected health effects')
+    if effect.until_owner_turn_start is not None and entity.kind!=CardType.HERO:
+        raise ResolutionError('Owner health expiry requires a hero carrier')
+    from .timed_keywords import owner_deadline
+    expiry=owner_deadline(r.state,effect.until_owner_turn_start)if effect.until_owner_turn_start is not None else None
     ability = AbilityInstance(attachment_id(r.state), 'health_rule', source_id=effect.source_id,
-                             health_rule=effect.rule, expires_turn=effect.expires_turn)
+                             health_rule=effect.rule, expires_turn=effect.expires_turn,health_rule_expiry=expiry)
     entity.abilities.append(ability)
     r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
            ability_id=ability.id, ability_kind='health_rule')
@@ -1233,6 +1280,34 @@ def destroy(r, effect):
         r.emit('destroyed', target_id=entity.id)
 
 
+def destroy_batch(r, effect):
+    effect.__post_init__()
+    validate_attachment_source(r, effect.source_id, None)
+    from .locations import DestroyLocation, modify_location
+    # Dispatch the existing mark operations inside one handler. Reactions and
+    # the shared death coordinator run only after every original target is marked.
+    for target_id in effect.target_ids:
+        entity = r.state.entities.get(target_id)
+        if entity is None or entity.zone != Zone.BOARD or not entity.active:
+            r.stale(effect, target_id)
+        elif entity.kind == CardType.LOCATION:
+            modify_location(r, DestroyLocation(target_id, effect.source_id))
+        elif entity.kind == CardType.MINION:
+            destroy(r, Destroy(target_id, effect.source_id))
+        else:
+            r.stale(effect, target_id)
+
+
+def fill_board_with_copies(r, effect):
+    effect.__post_init__()
+    player=r.player(effect.player_id)
+    target=r.live_character(effect.target_id)
+    if target is None or target.kind!=CardType.MINION or target.zone!=Zone.BOARD or target.health<=0 or target.doomed:
+        r.stale(effect,effect.target_id)
+        return
+    return tuple(CopyMinion(target.id,player.id) for _ in range(max(0,r.rules.max_board-len(player.board))))
+
+
 def set_stats(r, effect):
     entity = r.live_character(effect.target_id)
     if entity is None:
@@ -1291,6 +1366,19 @@ def random_destroy(r, effect):
     return [Destroy(target, effect.source_id)]
 
 
+def random_return_to_hand(r, effect):
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Random return source does not exist')
+    candidates = sorted(i for i in effect.candidate_ids if (e := r.live_character(i)) is not None
+        and e.kind == CardType.MINION and e.zone == Zone.BOARD and e.health > 0 and not e.doomed)
+    if not candidates:
+        r.emit('random_choice_skipped', source_id=effect.source_id, reason='no_candidates')
+        return
+    target = r.game._rng.choice(candidates)
+    r.emit('random_choice', source_id=effect.source_id, target_id=target, candidates=tuple(candidates))
+    return [ReturnToHand(target, to_owner=True)]
+
+
 def invoke_behavior(r, effect):
     r.player(effect.player_id)
     r.registry.behavior(effect.behavior_id)
@@ -1323,6 +1411,20 @@ def split_damage(r, effect):
     return [Damage(target, 1, effect.source_id, effect.kind), replace(effect, amount=effect.amount - 1)]
 
 
+def random_buff(r,effect):
+    from .effects import Buff
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Random buff source does not exist')
+    candidates=tuple(sorted(i for i in effect.candidate_ids if(e:=r.live_character(i))is not None
+        and e.kind==CardType.MINION and e.zone==Zone.BOARD and e.health>0 and not e.doomed))
+    if not candidates:
+        r.emit('random_choice_skipped',source_id=effect.source_id,reason='no_candidates');return()
+    target=r.game._rng.choice(candidates)
+    r.emit('random_choice',source_id=effect.source_id,target_id=target,candidates=candidates)
+    return(Buff(target,effect.attack,effect.health,effect.source_id),)
+
+
 def random_damage(r, effect):
     effect.__post_init__()
     if effect.on_result is not None: r.registry.behavior(effect.on_result)
@@ -1341,12 +1443,27 @@ def random_damage(r, effect):
     return [Damage(target, effect.amount, effect.source_id, effect.kind, effect.on_result)]
 
 
+def random_damage_batch(r,effect):
+    effect.__post_init__()
+    candidates=tuple(sorted(i for i in effect.candidate_ids if(e:=r.live_character(i))is not None
+        and e.health>0 and not e.doomed))
+    if not candidates:
+        r.emit('random_choice_skipped',source_id=effect.source_id,reason='no_candidates')
+        return ()
+    selected=tuple(r.game._rng.sample(candidates,effect.count))if len(candidates)>effect.count else candidates
+    for target in selected:r.emit('random_choice',source_id=effect.source_id,target_id=target,candidates=candidates)
+    return (DamageBatch(tuple(Damage(i,effect.amount,effect.source_id,effect.kind)for i in selected)),)
+
+
 def play_from_hand(r, effect):
     action = effect.action
     player, entity = r.player(action.player_id), r.state.entities[action.entity_id]
     definition = r.registry.card(entity.card_id)
     if not definition.hand_playable or not definition.manual_playable:
         raise ResolutionError('This card cannot be manually played from hand')
+    from .play_requirements import manual_requirement_error
+    if reason := manual_requirement_error(r.state, r.registry, entity):
+        raise ResolutionError(reason)
     from .player_effects import manual_play_allowed
     if not manual_play_allowed(r.state, r.registry, player.id, definition.kind):
         raise ResolutionError('Current-turn rule prohibits manually playing this card type')
@@ -1472,11 +1589,17 @@ def begin_attack(r, effect):
 
 def force_attack(r, effect):
     from .combat import combat_relation_matches
-    attacker, defender = r.live_character(effect.attacker_id), r.live_character(effect.defender_id)
+    from .model import BoardPresenceReference
+    from .board_presence import resolve_board_presence
+    effect.validate_in_state(r.state)
+    def original(value):
+        return resolve_board_presence(r.state, value) if type(value) is BoardPresenceReference else r.live_character(value)
+    attacker, defender = original(effect.attacker_id), original(effect.defender_id)
+    defender_id = effect.defender_id.entity_id if type(effect.defender_id) is BoardPresenceReference else effect.defender_id
     if (attacker is None or defender is None or attacker.doomed or defender.doomed or
-            attacker.health <= 0 or defender.health <= 0 or
+            not attacker.active or not defender.active or attacker.health <= 0 or defender.health <= 0 or
             not combat_relation_matches(attacker, defender, effect.combat_relation)):
-        r.stale(effect, effect.defender_id)
+        r.stale(effect, defender_id)
         return
     if attacker.kind != CardType.MINION:
         raise ResolutionError('ForceAttack currently requires a minion attacker')
@@ -1611,6 +1734,8 @@ def start_next_turn(r, effect):
     r.state.turn += 1
     from .keyword_auras import refresh_turn_keywords
     refresh_turn_keywords(r.state, r.registry)
+    from .stat_relations import refresh_turn_attacks
+    refresh_turn_attacks(r.state, r.registry)
     from .limited_triggers import refresh_turn_budgets
     refresh_turn_budgets(r.state)
     player = r.player(r.state.active_player)
@@ -1644,7 +1769,8 @@ def begin_turn_events(r, effect):
     event = r.emit('turn_started', player_id=player.id, turn=r.state.turn)
     from .owner_turns import publish_owner_start
     publish_owner_start(r.state, event)
-    return [*countdowns, Draw(player.id)]
+    from .turn_start_draws import DrawAtTurnStart
+    return [*countdowns, DrawAtTurnStart(player.id)]
 
 
 def validate_attachment_source(r, source_id, expires_turn):
@@ -1668,6 +1794,7 @@ def silence(r, effect):
     entity = board_minion(r, effect)
     if entity is None:
         return
+    had_shield=Keyword.DIVINE_SHIELD in entity.keywords
     removed = tuple(e for e in entity.enchantments if e.remove_on_silence)
     remove_attachments(entity, enchantment_predicate=lambda e: e.remove_on_silence,
                        ability_predicate=lambda a: a.remove_on_silence)
@@ -1675,6 +1802,8 @@ def silence(r, effect):
     entity.frozen_until_owner_turn = None
     restore_removed_control(r, entity, removed)
     r.refresh_auras()
+    if had_shield and Keyword.DIVINE_SHIELD not in entity.keywords:
+        r.emit('shield_lost',target_id=entity.id)
     r.emit('silenced', target_id=entity.id, player_id=entity.controller)
 
 
@@ -1750,6 +1879,7 @@ def remove_enchantment(r, effect):
 
 
 def expire_turn(r, effect):
+    from .owner_turns import owner_turn_index
     from .temporary_hands import due as temporary_hands_due,ReturnTemporaryHand
     due=temporary_hands_due(r.state,effect.turn)
     if due:return [ReturnTemporaryHand(due[-1]),ExpireTurn(effect.turn)]
@@ -1779,7 +1909,10 @@ def expire_turn(r, effect):
             expired_modifiers.append((player.id, tuple(expired)))
     for entity in list(r.state.entities.values()):
         expired = [a.id for a in [*entity.enchantments, *entity.abilities]
-                   if a.expires_turn is not None and a.expires_turn <= effect.turn]
+                   if a.expires_turn is not None and a.expires_turn <= effect.turn or
+                   isinstance(a, Enchantment) and a.control_return_expiry is not None and
+                   a.control_return_expiry.player_id == r.state.active_player and
+                   a.control_return_expiry.owner_turn_index <= owner_turn_index(r.state, r.state.active_player)]
         if expired:
             from .hero_health_history import commit as commit_hero_health, snapshot as hero_health_snapshot
             health_before = hero_health_snapshot(entity)
@@ -1803,6 +1936,9 @@ def expire_turn(r, effect):
 
 
 def return_to_hand(r, effect):
+    effect.__post_init__()
+    if effect.lock_next_owner_turn:
+        validate_attachment_source(r, effect.source_id, None)
     if effect.discard is not None:
         from .discard_history import return_material
         return return_material(r, effect)
@@ -1830,6 +1966,12 @@ def return_to_hand(r, effect):
     reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry, preserve_jade=True, preserve_cthun=True)
     if effect.cost is not None:
         modify_cost(r, ModifyCost(entity.id, effect.cost))
+    if effect.lock_next_owner_turn:
+        from .hand_play_locks import LockHandCard, lock_hand_card
+        from .zones import CardReference
+        # Bind the actual successful arrival before return reactions. No later
+        # name lookup, retry after a full hand, or post-reaction reacquisition.
+        lock_hand_card(r, LockHandCard(CardReference.capture(entity), 2, effect.source_id))
     r.refresh_auras()
     r.emit('card_returned', target_id=entity.id, player_id=player.id)
 
@@ -1849,6 +1991,7 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
     from .game_boards import resolve_card_id
     definition = r.registry.card(resolve_card_id(r.state, r.registry, definition.id))
     old_card = entity.card_id
+    entity.face_replaced = True
     attacks, summoned = entity.attacks_this_turn, entity.summoned_turn
     entity.zone_epoch += 1
     reset_to_definition(r.state, entity, definition, r.registry,
@@ -1881,7 +2024,16 @@ def copy_minion(r, effect):
     else:
         from .copy_materials import validate_effect_scope
         validate_effect_scope(r.state,r.registry,effect)
-    if effect.allow_dormant:
+    from .model import BoardPresenceReference
+    if type(effect.target_id) is BoardPresenceReference:
+        from .board_presence import resolve_board_presence
+        effect.validate_in_state(r.state)
+        source = resolve_board_presence(r.state, effect.target_id)
+        if (source is None or not (source.active or effect.allow_dormant and source.dormancy is not None)
+                or source.health <= 0 or source.doomed):
+            r.stale(effect, effect.target_id.entity_id)
+            return
+    elif effect.allow_dormant:
         source = r.state.entities.get(effect.target_id)
         if (source is None or source.zone != Zone.BOARD or source.kind != CardType.MINION or
                 not (source.active or source.dormancy is not None)):
@@ -1922,20 +2074,28 @@ def copy_minion(r, effect):
 
 def change_control(r, effect):
     effect.__post_init__()
-    if effect.until_end_of_turn:
+    temporary = effect.until_end_of_turn or effect.until_previous_controller_turn_end
+    if temporary:
         validate_attachment_source(r, effect.source_id, None)
     entity = board_minion(r, effect)
     if entity is None or entity.controller == effect.player_id:
         return
-    if effect.until_end_of_turn and any(e.control_return_player_id is not None for e in entity.enchantments):
+    if temporary and any(e.control_return_player_id is not None for e in entity.enchantments):
         raise ResolutionError('Overlapping temporary control sources require a separate supported contract')
     previous = entity.controller
     if not transfer_control(r, entity, effect.player_id):
         return
-    if effect.until_end_of_turn:
+    if temporary:
+        from .timed_keywords import owner_deadline
         entity.enchantments.append(Enchantment(attachment_id(r.state), source_id=effect.source_id,
-            expires_turn=r.state.turn, label='temporary_control', control_return_player_id=previous))
+            expires_turn=r.state.turn if effect.until_end_of_turn else None, label='temporary_control',
+            control_return_player_id=previous, control_return_expiry=owner_deadline(r.state, previous, 'turn_ended')
+                if effect.until_previous_controller_turn_end else None))
     r.refresh_auras(rebind_frozen_ids=(entity.id,))
+    if effect.cannot_attack_this_turn:
+        from .attack_policies import GrantAttackPolicy, grant
+        from .model import AttackPolicySpec
+        grant(r, GrantAttackPolicy(entity.id, AttackPolicySpec('cannot_attack'), effect.source_id, r.state.turn))
     r.emit('control_changed', target_id=entity.id, player_id=effect.player_id, previous_controller=previous)
 
 
@@ -2008,7 +2168,7 @@ def shuffle_into_deck(r, effect):
     position = r.game._rng.randrange(len(player.deck) + 1)
     player.deck.insert(position, entity.id)
     r.refresh_auras()
-    r.emit('card_shuffled', target_id=entity.id, player_id=player.id, position=position)
+    r.emit('card_shuffled', target_id=entity.id, player_id=player.id, position=position, _deck_insertion_mode='random')
 
 
 def reborn_minion(r, effect):
@@ -2181,13 +2341,13 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
         (Damage, damage_single), (DamageBatch, damage_batch), (Heal, heal), (HealBatch, heal_batch),
         (GrantHealthRule, grant_health_rule),
         (Freeze, freeze_character), (Unfreeze, unfreeze_character), (ThawCharacters, thaw_characters),
-        (Summon, summon), (Draw, draw), (Buff, buff), (Destroy, destroy),
+        (Summon, summon), (Draw, draw), (Buff, buff), (Destroy, destroy), (DestroyBatch, destroy_batch),
         (SetStats, set_stats), (SwapStats, set_stats), (DoubleStats, double_stats),
         (EquipWeapon, equip_weapon), (TransferWeapon, transfer_weapon), (ModifyWeapon, modify_weapon),
         (ReplaceHeroPower, replace_hero_power), (RefreshHeroPower, refresh_hero_power),
         (SetHeroPowerUses, set_hero_power_uses), (ReplaceHero, replace_hero),
         (ActivateHeroPower, activate_hero_power), (FinishHeroPower, finish_hero_power),
-        (GainArmor, armor), (LoseArmor, lose_armor), (RandomDamage, random_damage), (RandomDestroy, random_destroy),
+        (GainArmor, armor), (LoseArmor, lose_armor), (RandomDamage, random_damage), (RandomDamageBatch, random_damage_batch), (RandomDestroy, random_destroy), (RandomReturnToHand, random_return_to_hand),
         (SplitDamage, split_damage), (InvokeBehavior, invoke_behavior), (PlayFromHand, play_from_hand),
         (BeginAttack, begin_attack), (CombatDamage, combat_damage),
         (ForceAttack, force_attack),
@@ -2195,13 +2355,17 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
         (Silence, silence), (GrantKeyword, grant_ability), (GrantDeathrattle, grant_ability),
         (GrantSpellDamage, grant_ability),
         (GrantTrigger, grant_ability), (GrantAura, grant_ability), (RemoveEnchantment, remove_enchantment),
-        (ReturnToHand, return_to_hand), (Transform, transform), (CopyMinion, copy_minion),
+        (ReturnToHand, return_to_hand), (Transform, transform), (CopyMinion, copy_minion), (FillBoardWithCopies, fill_board_with_copies),
         (ChangeControl, change_control), (ShuffleIntoDeck, shuffle_into_deck),
         (ExpireTurn, expire_turn), (RebornMinion, reborn_minion),
     ):
         mechanics.register(kind, handler)
     from .effects import RandomForceAttack
     mechanics.register(RandomForceAttack,random_force_attack)
+    from .forced_attack_sequences import register as register_forced_attack_sequences
+    register_forced_attack_sequences(mechanics)
+    from .stored_spell_damage import register as register_stored_spell_damage
+    register_stored_spell_damage(mechanics)
     from .attack_policies import register as register_attack_policies
     register_attack_policies(mechanics)
     from .colossal import register as register_colossal
@@ -2249,6 +2413,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics.register_payload_type(CreatedMinionGrant)
     from .dark_gifts import register as register_dark_gifts
     register_dark_gifts(mechanics)
+    from .stored_gift_discovery import register as register_stored_gift_discovery
+    register_stored_gift_discovery(mechanics)
     from .health_loss import register as register_health_loss
     register_health_loss(mechanics)
     from .health_loss_floors import register as register_loss_floors
@@ -2272,12 +2438,28 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics.register(CheckHeroPowerTrigger,check_power_trigger)
     from .spell_history import register as register_spell_history
     register_spell_history(mechanics)
+    from .deck_spell_casts import register as register_deck_spell_casts
+    register_deck_spell_casts(mechanics)
     from .draw_casts import register as register_draw_casts
     register_draw_casts(mechanics)
+    from .deathrattle_memory import register as register_deathrattle_memory
+    register_deathrattle_memory(mechanics)
     from .discard_history import DiscardRecord
     mechanics.register_payload_type(DiscardRecord)
-    from .successful_summons import SuccessfulSummonRecord
+    from .successful_summons import SuccessfulSummonRecord, BuffSummonedMinion, buff_summoned_minion, GrantSummonedKeyword, grant_summoned_keyword
     mechanics.register_payload_type(SuccessfulSummonRecord)
+    mechanics.register(BuffSummonedMinion,buff_summoned_minion)
+    mechanics.register(GrantSummonedKeyword,grant_summoned_keyword)
+    from .successful_summons import DamageSummonedMinion,damage_summoned_minion
+    mechanics.register(DamageSummonedMinion,damage_summoned_minion)
+    from .guarded_corpse_spends import register as register_guarded_corpse_spends
+    register_guarded_corpse_spends(mechanics)
+    from .corpse_summon_rewards import register as register_corpse_summon_rewards
+    register_corpse_summon_rewards(mechanics)
+    from .kindred import register as register_kindred
+    register_kindred(mechanics)
+    from .mana_summon_rewards import register as register_mana_summon_rewards
+    register_mana_summon_rewards(mechanics)
     from .rewind import register as register_rewind
     register_rewind(mechanics)
     from .rewind_outcomes import register as register_rewind_outcomes
@@ -2306,6 +2488,14 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_assembly(mechanics)
     from .copy_materials import register as register_copy_materials
     register_copy_materials(mechanics)
+    from .copy_followups import register as register_copy_followups
+    register_copy_followups(mechanics)
+    from .hand_identity_shuffle import register as register_hand_identity_shuffle
+    register_hand_identity_shuffle(mechanics)
+    from .deck_shuffles import register as register_deck_shuffles
+    register_deck_shuffles(mechanics)
+    from .hidden_damage_pairs import register as register_hidden_damage_pairs
+    register_hidden_damage_pairs(mechanics)
     from .recruit_summons import register as register_recruit_summons
     register_recruit_summons(mechanics)
     from .resurrection_summons import register as register_resurrection_summons
@@ -2328,5 +2518,41 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_temporary_deck_hands(mechanics)
     from .hand_capacity import register as register_hand_capacity
     register_hand_capacity(mechanics)
+    from .return_followups import register as register_return_followups
+    register_return_followups(mechanics)
+    from .excess_damage import register as register_excess_damage
+    register_excess_damage(mechanics)
+    from .infinite_damage import register as register_infinite_damage
+    register_infinite_damage(mechanics)
+    from .health_theft import register as register_health_theft
+    register_health_theft(mechanics)
+    from .health_followups import register as register_health_followups
+    register_health_followups(mechanics)
+    from .spell_sequences import register as register_spell_sequences
+    register_spell_sequences(mechanics)
+    from .spell_target_sequences import register as register_spell_target_sequences
+    register_spell_target_sequences(mechanics)
+    from .draw_beneficiaries import register as register_draw_beneficiaries
+    register_draw_beneficiaries(mechanics)
+    from .physical_draw_groups import register as register_physical_draw_groups
+    register_physical_draw_groups(mechanics)
+    from .destruction_resources import register as register_destruction_resources
+    register_destruction_resources(mechanics)
+    from .hand_play_locks import register as register_hand_play_locks
+    register_hand_play_locks(mechanics)
+    from .spent_spells import register as register_spent_spells
+    register_spent_spells(mechanics)
+    from .spell_targets import register as register_spell_targets
+    register_spell_targets(mechanics)
+    from .source_stat_summons import register as register_source_stat_summons
+    register_source_stat_summons(mechanics)
+    from .summon_attack_groups import register as register_summon_attack_groups
+    register_summon_attack_groups(mechanics)
+    from .effects import RandomBuff
+    mechanics.register(RandomBuff,random_buff)
+    from .turn_start_draws import register as register_turn_start_draws
+    register_turn_start_draws(mechanics)
+    from .native_spell_values import register as register_native_spell_values
+    register_native_spell_values(mechanics)
     return mechanics
 

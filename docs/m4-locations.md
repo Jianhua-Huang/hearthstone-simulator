@@ -1,5 +1,7 @@
 # M4：地标实体与主动使用
 
+原生残骸获得倍率保留可移除来源和固有死亡基数；物理消费者检索、原目标支付及真实任务/地标/第二技能依赖见[残骸消费者契约](m3-corpse-consumer-native.md)。已有第二技能槽安装仍明确未支持，不能以首次安装认证整卡。
+
 本批为 M4-01b-03b，运行时 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包 `representative-m5-v38`。玩家观察升级为 `player-view-v44`，命令为 `player-actions-v7`。目标地区保持国服，完整官方校准仍在 M6；英雄牌流程与雷诺发射历史已另内部验收，一般休眠与唤醒已内部验收，下一项是泰坦等有限次主动能力。整体范围见 [长期计划](roadmap.md) 与 [项目状态](project-status.md)。
 
 ## 规则依据及暂定范围

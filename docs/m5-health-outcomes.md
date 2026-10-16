@@ -1,5 +1,7 @@
 # M5-13a-01：伤害与治疗结果条件
 
+灵魂联结和协作火花只按原健康结果直接damage/poison归因确认原目标死亡；炽火缠身以原damage_dealt计划具名召唤数，超量伤害不擅自截断为原剩余生命。新场面、等待与真实依赖见[受益契约](m3-health-draw-beneficiaries.md)。
+
 当前 `prototype-v75` / `core-effects-v75`，snapshot schema 74 拒绝旧 1～71 快照。代表包 `representative-m5-v38` 有 269 条真实内容记录、270 个定义；观察 v42、玩家命令 v6、replay 1 保持。49 项[专项测试](../tests/test_m5_health_outcomes.py)内部通过，全量回归结果见[项目状态](project-status.md)。
 
 ## 在结算点保存事实

@@ -9,7 +9,7 @@ from types import MappingProxyType
 from typing import Callable, Mapping, Sequence, TypeAlias
 
 from .effects import Effect
-from .model import HeroPowerRecord, BattlecryRecord, ComboRecord, DeathrattleCapture, HeroPowerPayloadCapture, EndTurnCapture
+from .model import HeroPowerRecord, BattlecryRecord, ComboRecord, DeathrattleCapture, HeroPowerPayloadCapture, EndTurnCapture, KindredActivation, KindredProfile
 from .model import SummonProducerProfile
 from .model import EndTurnActivationProfile, EndTurnCandidateProfile, RepeatWitnessProfile, CostQueryProfile
 from .model import AppendageSpec, SecretSpec, ActionWindow, PlayRecord, AbilityInstance, LimitedTriggerSpec, HandProgressSpec, DeckSacrificeSpec, SpellCastRecord, DrawRecord, CastWhenDrawnSpec
@@ -47,6 +47,7 @@ class RuleContext:
     end_turn: EndTurnCapture | None = None
     physical: object | None = None
     discard: object | None = None
+    kindred: KindredActivation | None = None
 
     @property
     def destruction(self):
@@ -146,8 +147,17 @@ class Registry:
         _name(version, "version")
         self._version = version
         self._cards: dict[str, CardDefinition] = {}
+        self._hand_mirror_ids = frozenset()
         self._assemble_templates = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
+        self._kindred_profiles: dict[str, KindredProfile] = {}
+        self._spell_target_profiles = {}
+        self._turn_draw_profiles = {}
+        self._spell_value_profiles = {}
+        self._hero_health_target_profiles = {}
+        self._corpse_summon_profiles = {}
+        self._corpse_gain_profiles = {}
+        self._summon_attack_profiles = {}
         self._summon_producer_profiles: dict[str, SummonProducerProfile] = {}
         self._end_turn_profiles: dict[str, EndTurnActivationProfile] = {
             'end_turn.effect': EndTurnActivationProfile('end_turn.effect'),
@@ -242,6 +252,92 @@ class Registry:
     @property
     def player_effects(self) -> Mapping[str, PlayerEffectSpec]:
         return MappingProxyType(self._player_effects)
+
+    @property
+    def kindred_profiles(self):return MappingProxyType(self._kindred_profiles)
+
+    @property
+    def spell_target_profiles(self):return MappingProxyType(self._spell_target_profiles)
+
+    @property
+    def turn_draw_profiles(self):return MappingProxyType(self._turn_draw_profiles)
+
+    @property
+    def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
+
+    @property
+    def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
+
+    @property
+    def corpse_summon_profiles(self):return MappingProxyType(self._corpse_summon_profiles)
+
+    @property
+    def corpse_gain_profiles(self):return MappingProxyType(self._corpse_gain_profiles)
+
+    @property
+    def summon_attack_profiles(self):return MappingProxyType(self._summon_attack_profiles)
+
+    def register_summon_attack_profile(self,profile):
+        self._require_mutable()
+        from .summon_attack_groups import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._summon_attack_profiles:raise ValueError('Duplicate native summon attack profile')
+        self._summon_attack_profiles[profile.card_id]=profile
+
+    def register_corpse_gain_profile(self, profile):
+        self._require_mutable()
+        from .corpse_gains import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._corpse_gain_profiles:
+            raise ValueError('Duplicate native corpse gain profile')
+        self._corpse_gain_profiles[profile.card_id] = profile
+
+    def register_corpse_summon_profile(self,profile):
+        self._require_mutable()
+        from .corpse_summon_rewards import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._corpse_summon_profiles:raise ValueError('Duplicate native corpse summon profile')
+        self._corpse_summon_profiles[profile.card_id]=profile
+
+    def register_spell_target_profile(self,profile):
+        self._require_mutable()
+        from .spell_target_conditions import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._spell_target_profiles:raise ValueError('Duplicate native spell target profile')
+        self._spell_target_profiles[profile.card_id]=profile
+
+    def register_turn_draw_profile(self,profile):
+        self._require_mutable()
+        from .turn_start_draws import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._turn_draw_profiles:raise ValueError('Duplicate native turn draw profile')
+        self._turn_draw_profiles[profile.card_id]=profile
+
+    def register_spell_value_profile(self,profile):
+        self._require_mutable()
+        from .native_spell_values import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._spell_value_profiles:raise ValueError('Duplicate native spell value profile')
+        self._spell_value_profiles[profile.card_id]=profile
+
+    def register_hero_health_target_profile(self,profile):
+        self._require_mutable()
+        from .hero_health_targets import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._hero_health_target_profiles:raise ValueError('Duplicate native hero-health target profile')
+        self._hero_health_target_profiles[profile.card_id]=profile
+
+    def register_kindred_profile(self,profile):
+        self._require_mutable()
+        from .kindred import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._kindred_profiles:raise ValueError('Duplicate native Kindred profile')
+        if profile.mode=='body':
+            users=[c.id for c in self._cards.values()if profile.wrapper in(c.on_play,c.battlecry)]
+            if users!=[profile.card_id]:raise ValueError('A native Kindred wrapper must identify one reviewed definition')
+            from .kindred import request
+            self._behaviors[profile.wrapper]=lambda c,card_id=profile.card_id:request(c,card_id)
+        self._kindred_profiles[profile.card_id]=profile
 
     def register_player_effect(self, spec: PlayerEffectSpec) -> None:
         self._require_mutable()
@@ -749,6 +845,11 @@ class Registry:
         for spec in definition.spell_repeats:
             validate_repeat_cost_declaration(self, spec)
         self._cards[definition.id] = definition
+        if definition.hand_mirror is not None:self._hand_mirror_ids=self._hand_mirror_ids|{definition.id}
+
+    @property
+    def hand_mirror_ids(self):
+        return self._hand_mirror_ids
 
     @property
     def modular_profiles(self):
@@ -830,7 +931,7 @@ class Registry:
         if type(spec) is not HandProgressSpec:
             raise ValueError('Expected HandProgressSpec')
         spec.__post_init__()
-        if spec.zone == Zone.DECK and source_kind is not None and source_kind != CardType.MINION:
+        if Zone.DECK in spec.zones and source_kind is not None and source_kind != CardType.MINION:
             raise ValueError('Native deck event listeners require an ordinary minion')
         self.trigger_condition(spec.condition_id)
         for behavior in (spec.on_progress, spec.on_complete):
@@ -840,7 +941,8 @@ class Registry:
             target = self.card(spec.upgrade_card_id)
             if not target.hand_playable or target.starship_for or target.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON):
                 raise ValueError('Progress upgrade requires an ordinary playable form')
-            if source_kind is not None and ((source_kind != target.kind and not spec.health_to_durability) or
+            spell_minion=(source_kind,target.kind)==(CardType.SPELL,CardType.MINION)and spec.kind=='event'and spec.event=='spell_cast_accepted'
+            if source_kind is not None and ((source_kind != target.kind and not spec.health_to_durability and not spell_minion) or
                     spec.health_to_durability and (source_kind, target.kind) != (CardType.MINION, CardType.WEAPON)):
                 raise ValueError('Invalid hand progress type conversion')
 
@@ -959,10 +1061,34 @@ class Registry:
         validate_definition_intrinsics(card)
         _name(card.id, "card ID")
         _name(card.name, "card name")
+        from .native_conditions import validate_definition as validate_native_conditions
+        validate_native_conditions(card)
+        if card.native_deathrattle is not None:
+            from .model import NativeDeathrattleSpec
+            if (type(card.native_deathrattle)is not NativeDeathrattleSpec or card.kind!=CardType.MINION or
+                    not card.deathrattle or not card.hand_playable or card.choice_only or card.starship_for):
+                raise ValueError('Native Deathrattle memory requires an ordinary printed minion body')
+            card.native_deathrattle.__post_init__()
+            if card.native_deathrattle.kind=='draw_link'and not card.battlecry:
+                raise ValueError('Native draw linkage requires its actual Battlecry')
+        if card.hand_mirror is not None:
+            from .model import HandMirrorSpec
+            if type(card.hand_mirror)is not HandMirrorSpec or card.kind!=CardType.MINION or not card.hand_playable or card.starship_for:
+                raise ValueError('Native hand mirror requires a physical minion declaration')
+            card.hand_mirror.__post_init__()
+        from .model import validate_reborn_policy
+        validate_reborn_policy(card.reborn_policy, Keyword.REBORN if Keyword.REBORN in card.keywords else None)
+        if card.reborn_policy is not None and (card.kind != CardType.MINION or card.choice_only or
+                card.starship_for or any(s.keyword == Keyword.REBORN for s in card.timed_keywords)):
+            raise ValueError('Native full-health Reborn requires an ordinary removable minion keyword')
         if not isinstance(card.kind, CardType):
             raise ValueError(f"card {card.id} kind must be a CardType")
         if type(card.manual_playable) is not bool:
             raise ValueError('manual_playable must be boolean')
+        if type(card.requires_weapon) is not bool:
+            raise ValueError('requires_weapon must be boolean')
+        if card.requires_weapon and not card.hand_playable:
+            raise ValueError('Weapon play prerequisite requires a physical hand card')
         if not card.manual_playable and not card.hand_playable:
             raise ValueError('Manual play prohibition requires a physical hand/deck card')
         if type(card.cost_payment) is not PaymentType:
@@ -1117,6 +1243,11 @@ class Registry:
                 raise ValueError('Ongoing activation requires an untargeted physical spell without quest')
         if card.dormant_turns is not None:
             _number(card.dormant_turns, 'dormant_turns', 0)
+        if type(card.dormant_board_full) is not bool:
+            raise ValueError('dormant_board_full must be boolean')
+        if card.dormant_board_full and (card.kind != CardType.MINION or card.dormant_turns is not None or
+                card.permanent_dormancy or card.starship_for or card.choice_only):
+            raise ValueError('Full-board awakening requires an indefinite ordinary dormant minion')
         if type(card.permanent_dormancy) is not bool:
             raise ValueError('permanent_dormancy must be boolean')
         if card.permanent_dormancy and (card.kind != CardType.MINION or
@@ -1199,6 +1330,8 @@ class Registry:
             raise ValueError('Attack policies require a physical character or weapon')
         for spec in card.attack_policies:
             spec.__post_init__()
+            if spec.mode=='friendly_ignore_taunt' and card.kind!=CardType.MINION:
+                raise ValueError('Friendly Taunt bypass requires a native minion source')
         from .keyword_auras import validate_definition as validate_keyword_aura_definition
         validate_keyword_aura_definition(card)
         from .model import DeathrattleRepeatSpec
@@ -1345,6 +1478,11 @@ class Registry:
             value = getattr(card, field)
             if value is not None:
                 _name(value, f"card {card.id} {field}")
+        if type(card.stored_deathrattle) is not bool:
+            raise ValueError('Stored Deathrattle permission requires bool')
+        if card.stored_deathrattle and (card.kind != CardType.MINION or not card.hand_playable or
+                card.deathrattle is None or card.on_discard is not None or card.on_destroyed is not None or card.starship_for):
+            raise ValueError('Stored Deathrattle requires an independent physical native minion declaration')
         if not isinstance(card.triggers, tuple):
             raise ValueError(f"card {card.id} triggers must be a tuple")
         for trigger in (*card.triggers, *card.dormant_triggers):
@@ -1365,6 +1503,22 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .turn_start_draws import validate_profile as validate_turn_draw_profile
+        for profile in self._turn_draw_profiles.values():validate_turn_draw_profile(self,profile)
+        from .native_spell_values import validate_profile as validate_spell_value_profile
+        for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .hero_health_targets import validate_profile as validate_hero_health_target_profile
+        for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
+        from .summon_attack_groups import validate_profile as validate_summon_attack_profile
+        for profile in self._summon_attack_profiles.values():validate_summon_attack_profile(self,profile)
+        from .corpse_gains import validate_profile as validate_corpse_gain_profile
+        for profile in self._corpse_gain_profiles.values():validate_corpse_gain_profile(self, profile)
+        from .corpse_summon_rewards import validate_profile as validate_corpse_summon_profile
+        for profile in self._corpse_summon_profiles.values():validate_corpse_summon_profile(self,profile)
+        from .spell_target_conditions import validate_profile as validate_spell_target_profile
+        for profile in self._spell_target_profiles.values():validate_spell_target_profile(self,profile)
+        if self._hand_mirror_ids!=frozenset(cid for cid,c in self._cards.items()if c.hand_mirror is not None):
+            raise ValueError('Compiled native mirror declarations differ from registered faces')
         from .assemble_faces import validate_templates
         validate_templates(self)
         from .modular_decks import validate_profiles as validate_modular_profiles
@@ -1550,6 +1704,10 @@ class Registry:
                 self.use_rule(card.use_rule)
             if card.initial_hero_power is not None and self.card(card.initial_hero_power).kind != CardType.HERO_POWER:
                 raise ValueError('Initial hero power must identify a hero power definition')
+            if card.native_deathrattle is not None and card.native_deathrattle.kind=='summon_growth':
+                token=self.card(card.native_deathrattle.card_id)
+                if token.kind!=CardType.MINION or token.choice_only:
+                    raise ValueError('Native Deathrattle summon requires its complete physical minion dependency')
 
     def validate_activation(self, spec):
         spec.__post_init__()
@@ -1568,12 +1726,26 @@ class Registry:
         self.validate()
         def definition_data(card):
             data = asdict(card)
+            if data['reborn_policy'] is None:
+                data.pop('reborn_policy')
+            if data['hand_mirror'] is None:
+                data.pop('hand_mirror')
+            if data['native_condition'] is None:
+                data.pop('native_condition')
+            if data['dormant_board_full'] is False:
+                data.pop('dormant_board_full')
+            if data['native_deathrattle'] is None:
+                data.pop('native_deathrattle')
             if data['cost_payment'] == PaymentType.MANA:
                 data.pop('cost_payment')
             if not data['permanent_dormancy']:
                 data.pop('permanent_dormancy')
             if data['manual_playable']:
                 data.pop('manual_playable')
+            if not data['requires_weapon']:
+                data.pop('requires_weapon')
+            if not data['pay_health_if_hero_healed']:
+                data.pop('pay_health_if_hero_healed')
             if data['hero_power_use_aura'] is None:
                 data.pop('hero_power_use_aura')
             if data['defining_hand_source'] is None:
@@ -1593,12 +1765,15 @@ class Registry:
                 data.pop('on_discard')
             if data['on_destroyed'] is None:
                 data.pop('on_destroyed')
+            if not data['stored_deathrattle']:
+                data.pop('stored_deathrattle')
             data["keywords"] = sorted(data["keywords"])
             definitions.append(data)
         payload = {"version": self.version, "cards": definitions,
                    "player_effects": [{k:v for k,v in asdict(self._player_effects[i]).items()
                                        if (k != 'target_policy' or v is not None) and
-                                          (k != 'allowed_card_types' or v)} for i in sorted(self._player_effects)],
+                                          (k != 'allowed_card_types' or v) and
+                                          (k != 'next_turn_end' or v)} for i in sorted(self._player_effects)],
                    "summon_producer_profiles": [asdict(self._summon_producer_profiles[i]) for i in sorted(self._summon_producer_profiles)],
                    "end_turn_profiles": [asdict(self._end_turn_profiles[i]) for i in sorted(self._end_turn_profiles)],
                    "end_turn_candidate_profiles": [asdict(self._end_turn_candidate_profiles[i]) for i in sorted(self._end_turn_candidate_profiles)],
@@ -1614,6 +1789,22 @@ class Registry:
                    "use_rules": sorted(self._use_rules),
                    "target_visibility": self._target_visibility, "use_visibility": self._use_visibility}
         # Preserve old registry fingerprints when this additive API is unused.
+        if self._kindred_profiles:
+            payload['kindred_profiles']=[asdict(self._kindred_profiles[k])for k in sorted(self._kindred_profiles)]
+        if self._spell_target_profiles:
+            payload['spell_target_profiles']=[asdict(self._spell_target_profiles[k])for k in sorted(self._spell_target_profiles)]
+        if self._turn_draw_profiles:
+            payload['turn_draw_profiles']=[asdict(self._turn_draw_profiles[k])for k in sorted(self._turn_draw_profiles)]
+        if self._spell_value_profiles:
+            payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._hero_health_target_profiles:
+            payload['hero_health_target_profiles']=[asdict(self._hero_health_target_profiles[k])for k in sorted(self._hero_health_target_profiles)]
+        if self._corpse_summon_profiles:
+            payload['corpse_summon_profiles']=[asdict(self._corpse_summon_profiles[k])for k in sorted(self._corpse_summon_profiles)]
+        if self._corpse_gain_profiles:
+            payload['corpse_gain_profiles']=[asdict(self._corpse_gain_profiles[k])for k in sorted(self._corpse_gain_profiles)]
+        if self._summon_attack_profiles:
+            payload['summon_attack_profiles']=[asdict(self._summon_attack_profiles[k])for k in sorted(self._summon_attack_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
         if self._invoke_profile is not None:
@@ -1653,7 +1844,8 @@ class Registry:
         if self._generated_whole_target_bindings:
             payload['generated_whole_target_bindings'] = [asdict(self._generated_whole_target_bindings[k]) for k in sorted(self._generated_whole_target_bindings)]
         if self._target_predicates:
-            payload['target_predicates'] = [asdict(self._target_predicates[i]) for i in sorted(self._target_predicates)]
+            payload['target_predicates'] = [{k:v for k,v in asdict(self._target_predicates[i]).items()
+                if k != 'printed_rarities' or v} for i in sorted(self._target_predicates)]
         if self._player_target_rules:
             payload['player_target_rules'] = [asdict(self._player_target_rules[i]) for i in sorted(self._player_target_rules)]
         serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))

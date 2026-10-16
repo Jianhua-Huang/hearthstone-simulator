@@ -1,4 +1,5 @@
 """Grouped offers, payment eligibility, frozen selection and temporary delivery."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from hs_sim.engine.model import CostAuraSpec
 from dataclasses import replace
 import json
@@ -355,7 +356,7 @@ class PriestOfferTests(OfferFixtures,unittest.TestCase):
         self.assertTrue(all(o.preview.cost<=2 for o in g.state.pending_choice.options));self.choose(g);self.check(g)
     def test_real_player_port_example(self):
         from examples.imbue_moon import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(len(g.state.hero_power_history),2)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(len(g.state.hero_power_history),2)
 
 
 if __name__=='__main__':unittest.main()

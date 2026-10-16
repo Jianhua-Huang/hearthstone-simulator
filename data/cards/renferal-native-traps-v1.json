@@ -1,0 +1,137 @@
+{
+  "batch": "K55",
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_526",
+        "dbf_id": 114518,
+        "name": "雷弗拉尔，恶念巨蛛",
+        "name_en": "Renferal, the Malignant",
+        "text": "<b>战吼：</b>随机使你对手手牌中的@张牌困住一回合。\n<i>（你每使用过一次本随从都会提升。）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Trap @ random |4(card, cards)\nin your opponent's hand for a\nturn. <i>(Improved for each time\nyou've played this.)</i>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "PLAYER_TAG_THRESHOLD_TAG_ID": 412,
+          "PLAYER_TAG_THRESHOLD_VALUE": 2,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "683fe84a2f82e76881a14683fccfd0d0c5921a6d44e337f9f74c519733d2c9cc",
+      "recipe": {
+        "root": true,
+        "script": "renferal",
+        "deck_identity": "EDR_526"
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": 114518,
+      "collectible": 1,
+      "slug": "114518-renferal-the-malignant",
+      "class_id": 7,
+      "multi_class_ids": [],
+      "minion_type_id": 20,
+      "card_type_id": 4,
+      "card_set_id": 1946,
+      "rarity_id": 5,
+      "artist_name": "Grafit Studio",
+      "health": 3,
+      "attack": 3,
+      "mana_cost": 3,
+      "name": "雷弗拉尔，恶念巨蛛",
+      "text": "<b>战吼：</b>随机使你对手手牌中的 张牌困住一回合。 <i>（你每使用过一次本随从都会提升。）</i>",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/8d59e48dd9b935797f77b77d30b22ce66f147c1579039e3184f9c60cc31469d7.png",
+      "image_gold": "",
+      "flavor_text": "去吧，蛛丝！",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/50bcd01302e5eccc847db547dad0c5df4da09ec17fe06cd0a2a64cdda23160e9.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        8
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 5,
+      "class_priority": 7
+    }
+  ],
+  "enchantment_evidence": [
+    {
+      "record": {
+        "id": "EDR_526e",
+        "dbf_id": 120480,
+        "name": "被网缠住！",
+        "name_en": "Webbed!",
+        "text": "在一回合内无法使用。",
+        "text_en": "Can't be played for a turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "67c396aad35d2f2c193546392e1c8c7c7739f137791f745b437cb0026d5dc7ab"
+    }
+  ],
+  "policy": {
+    "scaling": "Base1 plus completed native-face own Renferal hand plays, excluding the accepted current native play. Each paid play counts once; repeated Battlecries do not create plays. No mutable card-specific counter.",
+    "trap": "Select distinct physical current opponent hand cards, including already trapped cards. Sample only when count is below pool size; otherwise all cards in physical order, with no unnecessary RNG. Delegate all marks to the existing LockHandCard owner clock.",
+    "duration": "One actual target turn: owner_starts2 when the target is not currently active, otherwise1. Skip/extra turns use the existing actual owner clock; no new global-turn arithmetic.",
+    "cn_calibrated": false
+  }
+}

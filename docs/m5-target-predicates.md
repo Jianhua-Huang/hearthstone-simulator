@@ -16,6 +16,7 @@
 | `durability_min` / `durability_max` | 候选实体当前耐久，包含端点 |
 | `printed_tribes_any` | 候选当前卡面对应静态定义的印刷种族，非动态种族；`all`匹配任一要求种族；元数据未知明确报错，已知空集合正常排除 |
 | `current_tribes_any` | 候选当前种族，按有序种族附魔修改印刷集合，尊重全集的指定排除；未知完整集合报错，见[动态种族契约](m5-dynamic-tribes.md) |
+| `printed_rarities` | 当前卡面定义的已知印刷稀有度；Rarity.NONE为已证无标签，未知仍报错，见[条件法术](m3-conditional-health-spells.md) |
 | `keywords_all` / `keywords_none` | 候选实体当前有效关键词，分别全部具备/全部不具备 |
 
 目标域、友敌关系、是否排除来源、必选/可选/有目标时必选，以及潜行、免疫和魔免的可选中保护继续由公共 `TargetSpec` / `targeting.py` 检查。筛选条件不替代这些限制。

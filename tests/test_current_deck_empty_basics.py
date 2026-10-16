@@ -1,4 +1,5 @@
 """Current physical-deck emptiness and one necessary native Battlecry."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -456,7 +457,7 @@ class CurrentDeckEmptyTests(unittest.TestCase):
     def test_wire_layout_unchanged_and_old_rule_handler_signatures_rejected(self):
         g = self.game()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v228'
         self.reject(saved)

@@ -1,0 +1,458 @@
+{
+  "batch": "K52",
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_400",
+        "dbf_id": 118403,
+        "name": "怒袭甲龙",
+        "name_en": "Barricade Basher",
+        "text": "每当你获得护甲值，获得+2/+2并随机攻击一个敌方随从。",
+        "text_en": "[x]Whenever you gain Armor,\n gain +2/+2 and attack a\nrandom enemy minion.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "d78e4a065aa7e3a43dc21626380f33f0de163dec6d3b1a8f8b5e7dd26c8824e0",
+      "recipe": {
+        "script": "basher",
+        "root": true,
+        "deck_identity": "DINO_400",
+        "keywords": [],
+        "dormant_turns": null
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_046",
+        "dbf_id": 120857,
+        "name": "赛博格族长",
+        "name_en": "Cyborg Patriarch",
+        "text": "<b>休眠</b>3回合。<b>嘲讽</b>",
+        "text_en": "<b>Dormant</b> for 3 turns.\n<b>Taunt</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1652": 1,
+          "2539": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2075e3a406781f94e44e892643adb0eeb37d709c9a87dfd6103ddf29d47e0c47",
+      "recipe": {
+        "script": "patriarch",
+        "root": true,
+        "deck_identity": "TIME_046",
+        "keywords": [
+          "taunt"
+        ],
+        "dormant_turns": 3
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_256",
+        "dbf_id": 118260,
+        "name": "沼地蛇颈龙",
+        "name_en": "Marshland Thresher",
+        "text": "在你施放一个法术后，&获得<b>圣盾</b>。",
+        "text_en": "After you cast a spell,&\ngain <b>Divine Shield</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4930": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f859c40eb25a87e1639087d94d7d9da14d522fcdbe23f275eaf15d295c2684af",
+      "recipe": {
+        "script": "thresher",
+        "root": true,
+        "deck_identity": "TLC_256",
+        "keywords": [],
+        "dormant_turns": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_840",
+        "dbf_id": 119754,
+        "name": "格里什掘洞虫",
+        "name_en": "Gorishi Tunneler",
+        "text": "<b>潜行</b>。在本随从攻击后，&对敌方英雄造成2点伤害。",
+        "text_en": "<b>Stealth</b>\nAfter this attacks,&\ndeal 2 damage to the\nenemy hero.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4975": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "74fd601c1915d7f3860bb58ccf98d2d186e9a0ce41e77079181a30529122de27",
+      "recipe": {
+        "script": "tunneler",
+        "root": true,
+        "deck_identity": "TLC_840",
+        "keywords": [
+          "stealth"
+        ],
+        "dormant_turns": null
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": 118403,
+      "collectible": 1,
+      "slug": "118403-barricade-basher",
+      "class_id": 10,
+      "multi_class_ids": [],
+      "minion_type_id": 20,
+      "card_type_id": 4,
+      "card_set_id": 1952,
+      "rarity_id": 3,
+      "artist_name": "Bima Kusuma",
+      "health": 3,
+      "attack": 4,
+      "mana_cost": 3,
+      "name": "怒袭甲龙",
+      "text": "每当你获得护甲值，获得+2/+2并随机攻击一个敌方随从。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/3efa25551d76ba20702e53ca2b6eca3274ed91e03651d9796c15da4d363a19b3.png",
+      "image_gold": "",
+      "flavor_text": "这个就叫做反应装甲。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/aeb2ea078878b17624234c4e347ccc2557f118f396c904966b861e1b3f593436.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": null,
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 4,
+      "class_priority": 10
+    },
+    {
+      "id": 120857,
+      "collectible": 1,
+      "slug": "120857-cyborg-patriarch",
+      "class_id": 12,
+      "multi_class_ids": [],
+      "minion_type_id": 20,
+      "card_type_id": 4,
+      "card_set_id": 1957,
+      "rarity_id": 1,
+      "artist_name": "Mike Sass",
+      "health": 12,
+      "attack": 3,
+      "mana_cost": 3,
+      "name": "赛博格族长",
+      "text": "<b>休眠</b>3回合。<b>嘲讽</b>",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/15e37d473f8be2b1e2b383da4680232b24fd1262ce0722965d4b7385e9238d50.png",
+      "image_gold": "",
+      "flavor_text": "我们有技术，也有香蕉，当然可以重造他的身体。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/ce9862ad2e3b2c6811810fbf20a689c2b4fd68627535753c832f0845c5866826.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        1
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 3,
+      "class_priority": 11
+    },
+    {
+      "id": 118260,
+      "collectible": 1,
+      "slug": "118260-marshland-thresher",
+      "class_id": 12,
+      "multi_class_ids": [],
+      "minion_type_id": 20,
+      "card_type_id": 4,
+      "card_set_id": 1952,
+      "rarity_id": 1,
+      "artist_name": "James Ryman",
+      "health": 3,
+      "attack": 3,
+      "mana_cost": 3,
+      "name": "沼地蛇颈龙",
+      "text": "在你施放一个法术后，&获得<b>圣盾</b>。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/c703a7fb06e63e24ae205d0386295bc30a0a6e67a5de790f2196d507f7ec2f61.png",
+      "image_gold": "",
+      "flavor_text": "“记好了，被拍到的时候，一定要注意光影和虚化感。”",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/63fdafa18cb50f22e5463fd0850eb6a2e86a94589d035a2422c3bd24773f60ab.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        3
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 4,
+      "class_priority": 11
+    },
+    {
+      "id": 119754,
+      "collectible": 1,
+      "slug": "119754-gorishi-tunneler",
+      "class_id": 14,
+      "multi_class_ids": [],
+      "minion_type_id": 20,
+      "card_type_id": 4,
+      "card_set_id": 1952,
+      "rarity_id": 1,
+      "artist_name": "Juan Calle",
+      "health": 4,
+      "attack": 2,
+      "mana_cost": 3,
+      "name": "格里什掘洞虫",
+      "text": "<b>潜行</b>。在本随从攻击后，&对敌方英雄造成2点伤害。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/bfc2637ae7507563593cf32c301f68404f8da2d5dbb96a0eb633d64b067fd9f5.png",
+      "image_gold": "",
+      "flavor_text": "“这张牌好无聊啊。”“不，我掘得很好。”",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/4e52c7020b012879bb8105b6af1650ddd67cdf637c9283855c04605201114c0f.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        6
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 4,
+      "class_priority": 1
+    }
+  ],
+  "policy": {
+    "basher": "Each original positive own armor notification produces one +2/+2 on original minion, then a current-enemy-minion random attack bound to original board residence through both buff and random-choice reactions.",
+    "thresher": "One completed own manual physical spell PlayRecord, not each automatic/effect/repeat cast; original source receives shared Divine Shield.",
+    "tunneler": "Actual completed own-source character attack with living original source; minion-ability damage2 to opponent hero; exact fatal/completion policy CN-pending.",
+    "patriarch": "Existing three actual owner starts and native Taunt; original hybrid Beast/Mech metadata.",
+    "cn_calibrated": false
+  }
+}

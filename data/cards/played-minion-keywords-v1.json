@@ -1,0 +1,138 @@
+{
+  "format": "reviewed-played-minion-keywords-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_880",
+        "dbf_id": 126422,
+        "name": "黑市监管者",
+        "name_en": "Black Market Overseer",
+        "text": "每当你使用一张\n<b>亡语</b>随从牌，使其获得<b>突袭</b>。",
+        "text_en": "Whenever you play a <b>Deathrattle</b> minion,\ngive it <b>Rush</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0a82d87094d96f5976be63ebd73c556d108db8ee94d9d419cb45996e3eeb23db",
+      "recipe": {
+        "script": "deathrattle_rush"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_849",
+        "dbf_id": 114933,
+        "name": "梦缚迅猛龙",
+        "name_en": "Dreambound Raptor",
+        "text": "在你使用一张随从牌后，随机使其获得一项<b>额外效果</b>。",
+        "text_en": "After you play a minion, give it a random\n<b>Bonus Effect</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2d12fd02432a3e5a429a923a17842b4bbcfc07ea601fdade8b00615e70bf0cdf",
+      "recipe": {
+        "script": "minion_bonus"
+      }
+    }
+  ],
+  "policy": [
+    "Use original completed paid-minion facts and original submitted abilities for Deathrattle qualification; no summon/spell/hero-power credit.",
+    "Use actual current original physical minion result; do not rebind a later hand or board incarnation. Magnetic merges and other unsupported recipient forms must fail explicitly when relevant.",
+    "These native listeners explicitly exclude their own played root; no general interpreter listener policy is changed. Exact entrance/reaction timing and special replacement windows remain pending CN.",
+    "Grant existing Rush or one existing constructed Bonus Effect; no new keyword executor/state/RNG policy."
+  ],
+  "cn_calibrated": false
+}

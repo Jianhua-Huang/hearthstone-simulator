@@ -1,4 +1,5 @@
 """Actual single/BC-only generated identities without borrowed repeat policies."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 import unittest
@@ -219,7 +220,7 @@ class GeneratedSingleFamilyTests(unittest.TestCase):
 
     def test_current_format_rejects_previous_single_unrecorded_semantics(self):
         g = self.settled(); saved = g.snapshot()
-        self.assertEqual(saved['schema_version'], 266)
+        self.assertEqual(saved['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         saved['schema_version'] = 136
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, fixture.registry(variant='legacy'))
 

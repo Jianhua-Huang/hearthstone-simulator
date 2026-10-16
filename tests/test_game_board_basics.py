@@ -1,4 +1,5 @@
 """Fixed public boards and only two necessary experimental Transfer Student forms."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -358,7 +359,7 @@ class GameBoardTests(unittest.TestCase):
                 Game.from_snapshot(snap, registry())
         snap = deepcopy(g.snapshot())
         snap['schema_version'] = 167
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(snap, registry())
 
     def test_constructed_opening_keeps_original_deck_identity_and_selected_physical_cards(self):

@@ -1,0 +1,374 @@
+{
+  "batch_id": "K69",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_138",
+        "dbf_id": 122988,
+        "name": "森林赠礼",
+        "name_en": "Forest's Gift",
+        "text": "你每控制一个随从，使一个友方随从获得+1/+1。",
+        "text_en": "Give a friendly minion +1/+1 for each minion you control.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          }
+        ]
+      },
+      "record_sha256": "317204a09aeb22216386353f9a8a3ef3f15a4f36efe496d18fabe31e88f48fda",
+      "recipe": {
+        "script": "forest",
+        "target": "friendly_minion",
+        "spell_school": "nature"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_252",
+        "dbf_id": 114630,
+        "name": "乌索尔印记",
+        "name_en": "Mark of Ursol",
+        "text": "选择一个随从。如果是敌方随从，将其属性值变为1/1；如果是友方随从，改为将其属性值变为3/3。",
+        "text_en": "[x]Choose a minion. If it's\nan enemy, set its stats\nto 1/1. If it's friendly, set\nits stats to 3/3 instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "2e0aa71ad823affaf748e8d4d7b3ea66b393a9ca3698065ea4e66ee6b46b39f5",
+      "recipe": {
+        "script": "ursol",
+        "target": "minion",
+        "spell_school": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_557",
+        "dbf_id": 122932,
+        "name": "希尔瓦娜斯的胜利",
+        "name_en": "Sylvanas's Triumph",
+        "text": "造成$3点伤害。如果你使用过本牌的其他复制，改为对所有敌人造成伤害。",
+        "text_en": "[x]Deal $3 damage.\nIf you've played\nanother copy of this,\n hit all enemies instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "2433": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2433",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2433"
+          }
+        ]
+      },
+      "record_sha256": "080356325f75ec7ac3f8d49ff2715c1a5050fe3e54b67b700c826925e7a084ce",
+      "recipe": {
+        "script": "triumph",
+        "target": "no_prior_copy_character",
+        "spell_school": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_402",
+        "dbf_id": 126097,
+        "name": "致命贿赂",
+        "name_en": "Deadly Bribe",
+        "text": "消灭一个随从并使你的对手获得一张幸运币。<b>连击：</b>你也会获取一张。",
+        "text_en": "[x]Destroy a minion and give\nyour opponent a Coin.\n<b>Combo:</b> You get one too.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1941,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "4705": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4705",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4705"
+          }
+        ]
+      },
+      "record_sha256": "6993df2deacc8c0660bb758b3780dbd0265e78f05239c5d6394e550b52628db1",
+      "recipe": {
+        "script": "bribe",
+        "target": "minion",
+        "spell_school": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_135",
+        "dbf_id": 123023,
+        "name": "苔缚术",
+        "name_en": "Mossbinding",
+        "text": "召唤两个1/2的魔像。消耗你的所有法力值，每消耗一点法力值，使其获得+1/+1。",
+        "text_en": "[x]Summon two 1/2 Golems.\nSpend all your Mana to\ngive them +1/+1 for\neach Mana spent.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "81ead965c67150b5160cae6069d3a45e5d9f7ff4e8853caaca7ccdbc2acd5488",
+      "recipe": {
+        "script": "moss",
+        "target": null,
+        "spell_school": "nature"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_135t",
+        "dbf_id": 122974,
+        "name": "苔藓魔像",
+        "name_en": "Moss Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "7b67b7d740ac5b61efe4f58be071a223e2b0e4994c0047f75fa3de326c216013"
+    }
+  ],
+  "reused_dependencies": [
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8",
+      "definition_digest": "5b05f02f3a2254615b67000bd0fe9e6c2db332c4e5cfb2386000008faa03aa30"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k69-official-face-pilot-01/observation.json",
+      "bytes": 2282,
+      "sha256": "ba8f8fe6eee8bc815d03ae1d56616ad9e8ed042d2b9d9c8d672f73e10b94f6d1"
+    },
+    {
+      "path": "outputs/card-integration-20261014/k69-official-face-pilot-01/dependency-observation.json",
+      "bytes": 721,
+      "sha256": "ca9e502d93a1e672a1f6a60271ea5d012a59f079eed08a41666f8cba7b6d69d1"
+    }
+  ],
+  "policies": [
+    "Five actual roots, one fixed Golem, existing Coin; no complete global generation pool is needed.",
+    "Forest counts physical friendly Minions including dormant but excluding interactables. Ursol uses current friendly/enemy relation and shared stat setting, with normal aura and damage-reset semantics.",
+    "Triumph requires a character target only without an earlier actual played copy. A finite engine-owned history target predicate uses existing played-card facts, excludes its own active paid root, and leaves the shared IF_AVAILABLE/automatic target machinery in charge. Exact alternate-origin and history acceptance windows remain M6.",
+    "Bribe ordinary destroy/opponent Coin and conditional own Coin use the existing frozen spell Combo condition; minion/weapon/hero Combo declarations are not spell declarations. Ordinary text runs once.",
+    "Moss summons two fixed Golems before an actual all-available Mana debit. Reward joins original attributed summon deliveries to original successful entry records of the same actual cast; source payment outcome drives BuffSummonedMinion, never current-name matching. Extra original summon deliveries share the reward, failed or departed entries do not rebind.",
+    "CATA_581 remains pending: the official renderer omits its raw dynamic placeholder and raw script integer alone does not prove the formula. No guessed implementation."
+  ]
+}

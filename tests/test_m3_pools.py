@@ -402,6 +402,9 @@ class GenerationPoolTests(unittest.TestCase):
         card_spell_inventory = json.loads((Path(__file__).resolve().parents[1] /
             'data/support/card-spell-source-inventory.json').read_text(encoding='utf-8'))
         card_spell_members = set(card_spell_inventory['experimental_pool']['members'])
+        from hs_sim.engine.dark_gift_cards import MINION_POOL_ID as DARK_GIFT_MINION_POOL_ID
+        dark_gift_members = {member.card_id for member in r.pool(DARK_GIFT_MINION_POOL_ID,
+            GenerationContext('local-2026-09-23', 'experimental')).members}
         g = Game.from_scenario(Scenario((PlayerSetup('HERO_08', hand=('LOE_029',), max_mana=10, mana=10),
             PlayerSetup('HERO_01')), generation_context=GenerationContext('local-2026-09-23', 'experimental')), r)
         self.cast(g)
@@ -409,7 +412,7 @@ class GenerationPoolTests(unittest.TestCase):
         self.assertEqual(set(r.pool_cards), set(GENERATION_SAMPLE_IDS) | set(HERALD_POOL_IDS) |
                          set(DEATHWING_POOL_IDS) | set(ATTACK_COST_POOL_IDS) | set(REWIND_SAMPLE_IDS) |
                          set(EXCAVATE_SHARED_SAMPLE_IDS) | set(EXCAVATE_CLASS_REWARDS.values()) |
-                         set(EXCAVATE_TITAN_SAMPLE_IDS) | set(EXCAVATE_EIGHT_SAMPLE_IDS) | set(EXCAVATE_TRANSFORM_SAMPLE_IDS) | set(BRONZE_SAMPLE_IDS) | set(WIND_SAMPLE_IDS) | set(PORTAL_SAMPLE_IDS) | set(MOON_SAMPLE_IDS) | combo_members | card_spell_members)
+                         set(EXCAVATE_TITAN_SAMPLE_IDS) | set(EXCAVATE_EIGHT_SAMPLE_IDS) | set(EXCAVATE_TRANSFORM_SAMPLE_IDS) | set(BRONZE_SAMPLE_IDS) | set(WIND_SAMPLE_IDS) | set(PORTAL_SAMPLE_IDS) | set(MOON_SAMPLE_IDS) | combo_members | card_spell_members | dark_gift_members)
         self.assertEqual({m.card_id for m in r.pool(CARD_SPELL_POOL_ID,
             GenerationContext('local-2026-09-23','experimental')).members}, card_spell_members)
         self.assertEqual({m.card_id for m in r.pool(COMBO_POOL_ID,

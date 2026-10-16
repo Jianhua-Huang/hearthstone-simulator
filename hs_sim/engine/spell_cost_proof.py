@@ -99,6 +99,9 @@ def _validate_hand_cost_proof(proof, registry, *, submission_state=None, proof_t
     if any(not registry.card(e.card_id).hand_playable or
             not registry.card(e.card_id).manual_playable for e in (source, quoted)):
         raise ValueError('Hand cost proof lost original manual play permission')
+    from .play_requirements import manual_requirement_error
+    if manual_requirement_error(before, registry, source):
+        raise ValueError('Hand cost proof lost its original manual play prerequisite')
     from .player_effects import manual_play_allowed
     if not manual_play_allowed(before, registry, play.player_id, source.kind):
         raise ValueError('Hand cost proof lost original current-turn type permission')

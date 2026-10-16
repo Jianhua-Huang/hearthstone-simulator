@@ -5,7 +5,7 @@ an interpreter; the engine must reject types without a registered interpreter.
 """
 
 from __future__ import annotations
-from .model import ChooseBranchSelection, EquippedWeaponReference
+from .model import BoardPresenceReference, ChooseBranchSelection, EquippedWeaponReference
 
 from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, validate_declaration,
     validate_branch_declaration, validate_branch_transfer, validate_minion_grant)
@@ -22,14 +22,25 @@ class Effect:
 
 @dataclass(frozen=True)
 class ForceAttack(Effect):
-    attacker_id: int
-    defender_id: int
+    attacker_id: int | BoardPresenceReference
+    defender_id: int | BoardPresenceReference
     combat_relation: str = 'opponent'
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
-        _integer(self.attacker_id, 'attacker_id', 1)
-        _integer(self.defender_id, 'defender_id', 1)
+        for label, value in (('attacker_id', self.attacker_id), ('defender_id', self.defender_id)):
+            if type(value) is BoardPresenceReference:
+                value.__post_init__()
+            else:
+                _integer(value, label, 1)
+
+    def validate_in_state(self, state):
+        """Old residence may be stale; unknown or future residence is invalid."""
+        self.__post_init__()
+        for value in (self.attacker_id, self.defender_id):
+            if type(value) is BoardPresenceReference and (
+                    value.entity_id not in state.entities or value.presence_id >= state.next_order):
+                raise ValueError('Forced attack borrowed an unknown or future board residence')
 
 
 @dataclass(frozen=True)
@@ -230,11 +241,20 @@ class AddCostModifier(Effect):
     source_id: int | None = None
     expires_turn: int | None = None
     scope: CostScope = CostScope.CARD
+    tribes_any: tuple[str, ...] = ()
+    combo_only: bool = False
+    temporary_only: bool = False
+    maximum_cost: int | None = None
+    minion_keyword: Keyword | None = None
+    minion_keyword_repetitions: int = 1
 
     def __post_init__(self):
         _player(self.player_id)
         _cost_attachment(self)
         validate_cost_scope(self.scope, self.spec)
+        from .model import CostModifier
+        CostModifier(1,self.spec,self.source_id,self.uses_remaining,self.expires_turn,self.scope,self.tribes_any,
+            self.combo_only,self.temporary_only,self.maximum_cost,self.minion_keyword,self.minion_keyword_repetitions)
         if self.uses_remaining is not None:
             _integer(self.uses_remaining, 'uses_remaining', 1)
 
@@ -487,12 +507,16 @@ class GrantHealthRule(Effect):
     rule: HealthRule
     source_id: int | None = None
     expires_turn: int | None = None
+    until_owner_turn_start: int | None = None
 
     def __post_init__(self):
         _grant(self.target_id, self.source_id, self.expires_turn)
         if not isinstance(self.rule, HealthRule):
             raise ValueError('GrantHealthRule requires HealthRule')
         self.rule.__post_init__()
+        if self.until_owner_turn_start is not None:
+            _player(self.until_owner_turn_start)
+            if self.expires_turn is not None:raise ValueError('Health rule cannot combine global and owner deadlines')
 
 
 @dataclass(frozen=True)
@@ -572,6 +596,21 @@ class Buff(Effect):
 
 
 @dataclass(frozen=True)
+class RandomBuff(Effect):
+    """Choose one live board minion once, then use the ordinary stat layer."""
+    candidate_ids: tuple[int, ...]
+    attack: int = 0
+    health: int = 0
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.candidate_ids)is not tuple:raise ValueError('Random buff candidates require an immutable tuple')
+        for identity in self.candidate_ids:_integer(identity,'random buff minion',1)
+        if len(set(self.candidate_ids))!=len(self.candidate_ids):raise ValueError('Random buff candidates must be unique')
+        _integer(self.attack,'random buff attack');_integer(self.health,'random buff health');_source(self.source_id)
+
+
+@dataclass(frozen=True)
 class SetStats(Effect):
     """Set either local stat; setting health also clears accumulated damage.
 
@@ -629,6 +668,22 @@ class Destroy(Effect):
 
     def __post_init__(self) -> None:
         _integer(self.target_id, "target_id", 1)
+        _source(self.source_id)
+
+
+@dataclass(frozen=True)
+class DestroyBatch(Effect):
+    """Mark captured board minions/locations before one ordinary death checkpoint."""
+    target_ids: tuple[int, ...]
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.target_ids) is not tuple:
+            raise ValueError('Batch destruction requires unique immutable target IDs')
+        for target_id in self.target_ids:
+            _integer(target_id, 'batch destruction target', 1)
+        if len(set(self.target_ids)) != len(self.target_ids):
+            raise ValueError('Batch destruction requires unique immutable target IDs')
         _source(self.source_id)
 
 
@@ -791,6 +846,15 @@ class RandomDestroy(Effect):
 
 
 @dataclass(frozen=True)
+class RandomReturnToHand(Effect):
+    candidate_ids: tuple[int, ...]
+    source_id: int | None = None
+
+    def __post_init__(self):
+        RandomDestroy(self.candidate_ids, self.source_id)
+
+
+@dataclass(frozen=True)
 class RandomDamage(Effect):
     candidate_ids: tuple[int, ...]
     amount: int
@@ -809,6 +873,19 @@ class RandomDamage(Effect):
         _source(self.source_id)
         _damage_kind(self.kind, self.source_id)
         _health_callback(self.on_result, self.source_id)
+
+
+@dataclass(frozen=True)
+class RandomDamageBatch(Effect):
+    candidate_ids: tuple[int, ...]
+    count: int
+    amount: int
+    source_id: int | None = None
+    kind: DamageKind = DamageKind.EFFECT
+
+    def __post_init__(self):
+        RandomDamage(self.candidate_ids,self.amount,self.source_id,self.kind).__post_init__()
+        _integer(self.count,'distinct random damage targets',1)
 
 
 def _damage_kind(kind, source_id):
@@ -948,11 +1025,22 @@ class ReturnToHand(Effect):
     to_owner: bool = False
     cost: CostSpec | None = None
     discard: object | None = None
+    lock_next_owner_turn: bool = False
+    source_id: int | None = None
 
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
         if type(self.to_owner) is not bool:
             raise ValueError('to_owner must be boolean')
+        if type(self.lock_next_owner_turn) is not bool:
+            raise ValueError('Returned-card play restriction requires a boolean')
+        _source(self.source_id)
+        if self.lock_next_owner_turn:
+            _integer(self.source_id, 'returned-card lock source', 1)
+            if self.discard is not None:
+                raise ValueError('Returned-card lock requires an actual board-to-hand arrival')
+        elif self.source_id is not None:
+            raise ValueError('Ordinary return keeps its original source-free request')
         if self.cost is not None:
             if type(self.cost) is not CostSpec:
                 raise ValueError('Return cost requires CostSpec')
@@ -976,14 +1064,18 @@ class Transform(Effect):
 
 @dataclass(frozen=True)
 class CopyMinion(Effect):
-    target_id: int
+    target_id: int | BoardPresenceReference
     player_id: int
     position: int | None = None
     mode: str = 'current'
     cause: object = None
     stats: SummonStats | None = None
     allow_dormant: bool = False
+    on_summon: str | None = None
     def __post_init__(self):
+        if self.on_summon is not None:
+            _behavior(self.on_summon)
+            if self.cause is None: raise ValueError('Copy followup requires original card attribution')
         if type(self.allow_dormant) is not bool:
             raise ValueError('Dormant copy permission requires bool')
         validate_summon_stats(self.stats)
@@ -991,12 +1083,32 @@ class CopyMinion(Effect):
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed card copy cause required')
             self.cause.__post_init__()
-        _integer(self.target_id, 'target_id', 1)
+        if type(self.target_id) is BoardPresenceReference:
+            self.target_id.__post_init__()
+        else:
+            _integer(self.target_id, 'target_id', 1)
         _player(self.player_id)
         if self.position is not None:
             _integer(self.position, 'position', 0)
         if self.mode not in ('current', 'base'):
             raise ValueError('copy mode must be current or base')
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if type(self.target_id) is BoardPresenceReference and (
+                self.target_id.entity_id not in state.entities or self.target_id.presence_id >= state.next_order):
+            raise ValueError('Copy borrowed an unknown or future board residence')
+
+
+@dataclass(frozen=True)
+class FillBoardWithCopies(Effect):
+    """Request current copies for the actual remaining board capacity."""
+    target_id: int
+    player_id: int
+
+    def __post_init__(self):
+        _integer(self.target_id, 'target_id', 1)
+        _player(self.player_id)
 
 
 @dataclass(frozen=True)
@@ -1005,15 +1117,21 @@ class ChangeControl(Effect):
     player_id: int
     until_end_of_turn: bool = False
     source_id: int | None = None
+    until_previous_controller_turn_end: bool = False
+    cannot_attack_this_turn: bool = False
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
         _player(self.player_id)
         if type(self.until_end_of_turn) is not bool:
             raise ValueError('Temporary control requires a boolean duration flag')
+        if type(self.until_previous_controller_turn_end) is not bool or type(self.cannot_attack_this_turn) is not bool:
+            raise ValueError('Owner-end control and attack restriction require boolean flags')
+        if self.until_end_of_turn and self.until_previous_controller_turn_end:
+            raise ValueError('Temporary control requires one original deadline policy')
         _source(self.source_id)
-        if self.until_end_of_turn:
+        if self.until_end_of_turn or self.until_previous_controller_turn_end:
             _integer(self.source_id, 'temporary control source', 1)
-        elif self.source_id is not None:
+        elif self.source_id is not None or self.cannot_attack_this_turn:
             raise ValueError('Permanent control keeps its original source-free operation')
 
 

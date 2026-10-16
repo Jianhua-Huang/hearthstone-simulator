@@ -1,0 +1,2538 @@
+{
+  "batch_id": "K03",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_xml_sha256": "d55d66eee4cd97a5114ef7c7db0e486601f92154f9415fa901e5a714d9445e62",
+  "formal_standard_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_AT_064",
+        "dbf_id": 76304,
+        "name": "怒袭",
+        "name_en": "Bash",
+        "text": "造成$3点伤害。获得3点\n护甲值。",
+        "text_en": "Deal $3 damage.\nGain 3 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2729
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dany Orizio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2729",
+              "type": "Int",
+              "value": "2729"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3d3a81e2fd005c8f69eee3e534f5e2da61d4d82d7ad81d3070c6cb538e9997c6",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "AT_064",
+        "cost": 2,
+        "target": "character",
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "amount": 3,
+              "scope": "target"
+            },
+            {
+              "operation": "armor",
+              "amount": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_035",
+        "dbf_id": 69558,
+        "name": "混乱打击",
+        "name_en": "Chaos Strike",
+        "text": "在本回合中，使你的英雄获得+2攻击力。抽一张牌。",
+        "text_en": "Give your hero +2_Attack this turn. Draw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 56791,
+          "SPELL_SCHOOL": 7
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56791",
+              "type": "Int",
+              "value": "56791"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "41e7fd55062203dda58bec7bb4172af159cc5a96c1061ef40c46fd9a090f65a2",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "BT_035",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "buff",
+              "amount": 0,
+              "attack": 2,
+              "scope": "own_hero",
+              "temporary": true
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_292",
+        "dbf_id": 102197,
+        "name": "阿达尔之手",
+        "name_en": "Hand of A'dal",
+        "text": "使一个随从获得+2/+1。\n抽一张牌。",
+        "text_en": "Give a minion +2/+1.\nDraw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 57546,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "57546",
+              "type": "Int",
+              "value": "57546"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "54fa3dbf56600dabba82e43ca9fe34cd4d5aa6a9d9b418c82f35d8946a9f4592",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "BT_292",
+        "cost": 2,
+        "target": "minion",
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "buff",
+              "amount": 0,
+              "attack": 2,
+              "health": 1,
+              "scope": "target"
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_480",
+        "dbf_id": 69683,
+        "name": "火色魔印奔行者",
+        "name_en": "Crimson Sigil Runner",
+        "text": "<b>流放：</b>&抽一张牌。",
+        "text_en": "<b>Outcast:</b>& Draw a card.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 58170,
+          "OUTCAST": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "58170",
+              "type": "Int",
+              "value": "58170"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "be71ad66a9fd5df8d0a67daabdac6274ff7e0d308a73602fcf1b9811697ebbeb",
+      "recipe": {
+        "keywords": [
+          "outcast"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "BT_480",
+        "cost": 1,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "draw",
+              "amount": 1,
+              "condition": "outcast"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_491",
+        "dbf_id": 69684,
+        "name": "幽灵视觉",
+        "name_en": "Spectral Sight",
+        "text": "抽一张牌。<b>流放：</b>再抽一张。",
+        "text_en": "[x]Draw a card.\n<b>Outcast:</b> Draw another.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 58453,
+          "OUTCAST": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "58453",
+              "type": "Int",
+              "value": "58453"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "06bbef7384f0025ce6058334bf50b734b3f7eb62bf84d878726cb220fdcffdac",
+      "recipe": {
+        "keywords": [
+          "outcast"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "BT_491",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "draw",
+              "amount": 1
+            },
+            {
+              "operation": "draw",
+              "amount": 1,
+              "condition": "outcast"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_004",
+        "dbf_id": 120786,
+        "name": "真言术：盾",
+        "name_en": "Power Word: Shield",
+        "text": "使一个随从获得+2生命值。\n抽一张牌。",
+        "text_en": "Give a minion +2_Health.\nDraw a card.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 613,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 613,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jessica Jung"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "613",
+              "type": "Int",
+              "value": "613"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "93209053e1191eb0478c8d0f75304ef66735b2f2e3f6a7b04fb1123a6f6e6291",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "CS2_004",
+        "cost": 1,
+        "target": "minion",
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "buff",
+              "amount": 0,
+              "health": 2,
+              "scope": "target"
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_023",
+        "dbf_id": 69500,
+        "name": "奥术智慧",
+        "name_en": "Arcane Intellect",
+        "text": "抽两张牌。",
+        "text_en": "Draw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 555,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Berggren"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "555",
+              "type": "Int",
+              "value": "555"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d69cb350635a921248e09a7d5aa82c9b7b1a929b43a40433c8f325e83b371179",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "CS2_023",
+        "cost": 3,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "draw",
+              "amount": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_007",
+        "dbf_id": 76316,
+        "name": "苦痛侍僧",
+        "name_en": "Acolyte of Pain",
+        "text": "每当本随从受到伤害，&抽一张牌。",
+        "text_en": "Whenever this minion takes damage,& draw a_card.",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 1659,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Kendall"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1659",
+              "type": "Int",
+              "value": "1659"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2a7fd1344963e7c6e4f7701dee2c0e13a86606e15c74b259f41e1b44e25b2686",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_007",
+        "cost": 3,
+        "target": null,
+        "trigger": "self_damaged",
+        "bodies": {
+          "on_trigger": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_012",
+        "dbf_id": 69655,
+        "name": "血法师萨尔诺斯",
+        "name_en": "Bloodmage Thalnos",
+        "text": "<b>法术伤害+1</b>，<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 4,
+          "COLLECTIBLE": 1,
+          "858": 749,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "4"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "749",
+              "type": "Int",
+              "value": "749"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "aed4f1527ed37c317a863a90699edd7a2d32a7afae2308946233ff21a18f7801",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 1,
+        "deck_identity": "EX1_012",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_096",
+        "dbf_id": 69665,
+        "name": "战利品贮藏者",
+        "name_en": "Loot Hoarder",
+        "text": "<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 251
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "251",
+              "type": "Int",
+              "value": "251"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "11ab56aa6736f0316cb6c9dd4b8badf5e8b5be4fc97d257232f0799e7ebb1de0",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_096",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_169",
+        "dbf_id": 69550,
+        "name": "激活",
+        "name_en": "Innervate",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 254,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Doug Alexander"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "254",
+              "type": "Int",
+              "value": "254"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "74538a6de20e30c80cbbbf02dab7beb32d8aa7477f5d9f34004343f52cfae18d",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_169",
+        "cost": 0,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "temporary_mana",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_238",
+        "dbf_id": 69625,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 505,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "505",
+              "type": "Int",
+              "value": "505"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "743e700eca3b0739da5862c632297415b47e950c65b91cb3490113b6ba4175c4",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_238",
+        "cost": 1,
+        "target": "character",
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "overload",
+              "amount": 1
+            },
+            {
+              "operation": "damage",
+              "amount": 3,
+              "scope": "target"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_250",
+        "dbf_id": 69627,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b>Overload</b>: (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 1141
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1141",
+              "type": "Int",
+              "value": "1141"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5037b0082b05a13d1411227301cd9098ab86ba63b373d32054d00f6092bed888",
+      "recipe": {
+        "keywords": [
+          "taunt"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "EX1_250",
+        "cost": 5,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "overload",
+              "amount": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_259",
+        "dbf_id": 69629,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage to all_enemy minions. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 629,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "629",
+              "type": "Int",
+              "value": "629"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "d02294472e2880db2c01e78acb14c6cff122c41d86d567d47b876e60d079a76b",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_259",
+        "cost": 3,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "overload",
+              "amount": 1
+            },
+            {
+              "operation": "damage",
+              "amount": 3,
+              "scope": "enemy_minions"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_606",
+        "dbf_id": 76302,
+        "name": "盾牌格挡",
+        "name_en": "Shield Block",
+        "text": "获得5点护甲值。抽一张牌。",
+        "text_en": "Gain 5 Armor.\nDraw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 1023,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michael Komarck"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1023",
+              "type": "Int",
+              "value": "1023"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1f3f2179b120200f2584f63a9a467b453ebe40590e4052282a8263884dfd8720",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EX1_606",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "armor",
+              "amount": 5
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_061",
+        "dbf_id": 120180,
+        "name": "馆长",
+        "name_en": "The Curator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 39225,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 39225,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39225",
+              "type": "Int",
+              "value": "39225"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d78c83fcb86ee7a5aed12696662cfa7ff6dd053d5569475961420a17f65d1af7",
+      "recipe": {
+        "keywords": [
+          "taunt"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "KAR_061",
+        "cost": 5,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "minion"
+                ],
+                "tribes_any": [
+                  "beast"
+                ]
+              }
+            },
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "minion"
+                ],
+                "tribes_any": [
+                  "dragon"
+                ]
+              }
+            },
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "minion"
+                ],
+                "tribes_any": [
+                  "murloc"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_413",
+        "dbf_id": 76323,
+        "name": "硬壳甲虫",
+        "name_en": "Plated Beetle",
+        "text": "<b>亡语：</b>&获得3点护甲值。",
+        "text_en": "<b>Deathrattle:</b>& Gain 3 Armor.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 45930,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "45930",
+              "type": "Int",
+              "value": "45930"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1149315c7b563d35bcaa2a1b6b3a1e095af2797fd1c8726ad6314bd59966b244",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "LOOT_413",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "armor",
+              "amount": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_NX2_028",
+        "dbf_id": 120574,
+        "name": "钩拳-3000型",
+        "name_en": "Hookfist-3000",
+        "text": "在你的英雄攻击后，&获得4点护甲值并抽一张牌。",
+        "text_en": "After your hero attacks,& gain 4 Armor and\ndraw a card.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 86692,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 86692,
+          "MINI_SET": 1,
+          "2539": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4932": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "86692",
+              "type": "Int",
+              "value": "86692"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "5340ee7236fd3a060f105d6cae76f0139686229441a41a7795628fca0de5b71c",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "NX2_028",
+        "cost": 3,
+        "target": null,
+        "trigger": "friendly_hero_attack",
+        "bodies": {
+          "on_trigger": [
+            {
+              "operation": "armor",
+              "amount": 4
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_657",
+        "dbf_id": 129171,
+        "name": "地底虫王",
+        "name_en": "Underking",
+        "text": "<b>突袭</b>。<b>战吼，亡语：</b>&获得6点护甲值。",
+        "text_en": "[x]<b>Rush</b>\n<b>Battlecry and Deathrattle:</b>&\nGain 6 Armor.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "858": 85052,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 85052,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "85052",
+              "type": "Int",
+              "value": "85052"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8c2cd84235a18faa959003e79908ed5d16f3f8f92cbc8fd118c4b9b9c55c670d",
+      "recipe": {
+        "keywords": [
+          "rush"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "RLK_657",
+        "cost": 7,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "armor",
+              "amount": 6
+            }
+          ],
+          "deathrattle": [
+            {
+              "operation": "armor",
+              "amount": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SW_068",
+        "dbf_id": 120577,
+        "name": "莫尔葛熔魔",
+        "name_en": "Mo'arg Forgefiend",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>获得8点护甲值。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b> Gain 8 Armor.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 64716,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 64716,
+          "2539": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "64716",
+              "type": "Int",
+              "value": "64716"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "682b625b9bc9f876352c9936e40b042a0d6a8280f85fe5cc0192479942221789",
+      "recipe": {
+        "keywords": [
+          "taunt"
+        ],
+        "spell_damage": 0,
+        "deck_identity": "SW_068",
+        "cost": 8,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "armor",
+              "amount": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "CS3_007",
+        "dbf_id": 62442,
+        "name": "电击学徒",
+        "name_en": "Novice Zapper",
+        "text": "<b>法术伤害+1</b>\n<b>过载：</b>（1）",
+        "text_en": "<b>Spell Damage +1</b> <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Braddock"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "1516832d1bea37a52c31f590117424354a681edc948414eafe4e6e5bb5c6c7d9",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 1,
+        "deck_identity": "CS3_007",
+        "cost": 1,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "overload",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_253",
+        "dbf_id": 114632,
+        "name": "巨熊之槌",
+        "name_en": "Ursine Maul",
+        "text": "在你的英雄攻击后，&抽一张牌。",
+        "text_en": "After your hero attacks,& draw a card.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1,
+          "4932": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "656f35c9fc1ab65b4953e2b1743f224a92eca0ee040771eb9b4e91887ea9bd55",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EDR_253",
+        "cost": 4,
+        "target": null,
+        "trigger": "friendly_hero_attack",
+        "bodies": {
+          "on_trigger": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_485",
+        "dbf_id": 115039,
+        "name": "腐心树妖",
+        "name_en": "Rotheart Dryad",
+        "text": "<b>亡语：</b>&抽一张法力值消耗大于或等于（7）点的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Draw a minion that costs (7) or more.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "56fb895e40032aa8c531dc138b296d67147fab44afde1949c172f546d0465412",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EDR_485",
+        "cost": 1,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "minion"
+                ],
+                "min_cost": 7
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_571",
+        "dbf_id": 116672,
+        "name": "法夜欺诈者",
+        "name_en": "Fae Trickster",
+        "text": "<b>亡语：</b>抽一张法力值消耗大于或等于（5）点的法术牌。",
+        "text_en": "<b>Deathrattle:</b> Draw a spell that costs (5) or more.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "c36f6d18f8d8b2e30ed98e06d0a75b50f1c2ac4b2d29666eb0eb4476240bc39d",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "EDR_571",
+        "cost": 3,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "spell"
+                ],
+                "min_cost": 5
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_929",
+        "dbf_id": 115655,
+        "name": "活体烈焰",
+        "name_en": "Living Flame",
+        "text": "<b>亡语：</b>抽一张火焰法术牌。",
+        "text_en": "<b>Deathrattle:</b> Draw a\nFire spell.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "dcd424b81ba6fabb6b4459659d7ae83a330f0a598ca1ff6b46e17f8685ab7e92",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "FIR_929",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "spell"
+                ],
+                "spell_schools": [
+                  "fire"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_872",
+        "dbf_id": 126225,
+        "name": "蜘蛛骑手",
+        "name_en": "Spider Rider",
+        "text": "在你的英雄攻击后，&抽一张牌。",
+        "text_en": "After your hero attacks,& draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4932": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "fae2b1263830fe805e7ecd42b0fbd38573c7beca9e78ed5f4a0cbd966205aa9e",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "JAIL_872",
+        "cost": 2,
+        "target": null,
+        "trigger": "friendly_hero_attack",
+        "bodies": {
+          "on_trigger": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_503",
+        "dbf_id": 80818,
+        "name": "扛包收尸人",
+        "name_en": "Body Bagger",
+        "text": "<b>战吼：</b>获得一份<b>残骸</b>。",
+        "text_en": "<b>Battlecry</b>: Gain a <b>Corpse</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "MAR Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e9792aac96b7084388573c32afbd92f81518520750a2221c4293a10d147e8b04",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "RLK_503",
+        "cost": 1,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "corpses",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_511",
+        "dbf_id": 81972,
+        "name": "寒冬先锋",
+        "name_en": "Harbinger of Winter",
+        "text": "<b>亡语：</b>&抽一张冰霜法术牌。",
+        "text_en": "<b>Deathrattle:</b>& Draw a\nFrost spell.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Angelina Chernyak"
+          }
+        ]
+      },
+      "record_sha256": "905d420da5c6204f7c47fb7fdcfa5c0d9c921f895c63b3d4f69c5d1b60e02078",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "RLK_511",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "deathrattle": [
+            {
+              "operation": "tutor",
+              "amount": 1,
+              "query": {
+                "kinds": [
+                  "spell"
+                ],
+                "spell_schools": [
+                  "frost"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_708",
+        "dbf_id": 80647,
+        "name": "堕寒男爵",
+        "name_en": "Chillfallen Baron",
+        "text": "<b>战吼，亡语：</b>&抽一张牌。",
+        "text_en": "<b>Battlecry and Deathrattle:</b>& Draw a card.",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2525": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Greg Staples"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2525",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2525"
+          }
+        ]
+      },
+      "record_sha256": "46f34a09f71104aa7b388ae58c81aed1362039db5587de1dd2a4bb7bfae7c707",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "RLK_708",
+        "cost": 3,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ],
+          "deathrattle": [
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_709",
+        "dbf_id": 80648,
+        "name": "冷酷严冬",
+        "name_en": "Remorseless Winter",
+        "text": "对所有敌人造成$2点伤害。抽一张牌。",
+        "text_en": "Deal $2 damage to all enemies. Draw a card.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "ec9ee4e9c0333fe13f1b0292ff9e5ea5b22573bc2bfc693fb57774b8c045b28b",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "RLK_709",
+        "cost": 4,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "damage",
+              "amount": 2,
+              "scope": "all_enemies"
+            },
+            {
+              "operation": "draw",
+              "amount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_023",
+        "dbf_id": 120208,
+        "name": "后备预案",
+        "name_en": "Contingency",
+        "text": "抽取你牌库底的两张牌。",
+        "text_en": "Draw the bottom two cards from your deck.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "4de1efb369348ad32e24092ecb2a8026b922fc1b6133624f1a090e9a5c82990d",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "TIME_023",
+        "cost": 3,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "on_play": [
+            {
+              "operation": "draw_bottom",
+              "amount": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_601",
+        "dbf_id": 120788,
+        "name": "拾箭龙鹰",
+        "name_en": "Arrow Retriever",
+        "text": "<b>战吼：</b>&抽牌，直到你拥有三张手牌。",
+        "text_en": "<b>Battlecry:</b>& Draw until you have 3 cards.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "31f77730bf281439747fa4c82f0e5093870f5499165aed54cb8f6abb5f9190ea",
+      "recipe": {
+        "keywords": [],
+        "spell_damage": 0,
+        "deck_identity": "TIME_601",
+        "cost": 2,
+        "target": null,
+        "trigger": null,
+        "bodies": {
+          "battlecry": [
+            {
+              "operation": "draw_until",
+              "amount": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

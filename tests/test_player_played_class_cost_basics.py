@@ -1,4 +1,5 @@
 """Original printed-class card plays, using one isolated Lightray adapter."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -326,7 +327,7 @@ class PlayerPlayedClassCostTests(unittest.TestCase):
     def test_current_wire_has_explicit_default_leaf_and_rejects_previous_schema(self):
         g = self.game(('card.1',)); self.assertIsNone(self.fact(g, cid='card.1').intrinsic.player_played_class)
         self.play(g, 'card.1'); saved = self.portable(g)
-        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+        self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']), ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for mode in ('schema', 'leaf'):
             bad = deepcopy(saved)
             if mode == 'schema': bad['schema_version'] = 178

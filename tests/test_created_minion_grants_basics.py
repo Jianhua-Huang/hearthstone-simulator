@@ -1,4 +1,5 @@
 """Real gift recipes installed before acquisition; complete paired discovery is open."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError
 import json
@@ -283,10 +284,10 @@ class CreatedMinionGrantTests(unittest.TestCase):
 
     def test_payload_registration_and_previous_schema_rejection(self):
         g=self.game();saved=g.snapshot()
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         self.assertIn('hs_sim.engine.card_creation.CreatedMinionGrant',g.mechanics.signature['payload_types'])
         saved['schema_version']=226
-        with self.assertRaisesRegex(SnapshotError,'1 through 265'):Game.from_snapshot(saved,registry())
+        with self.assertRaisesRegex(SnapshotError,f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):Game.from_snapshot(saved,registry())
 
     def test_player_command_and_private_views_keep_internal_grant_and_enemy_hand_hidden(self):
         g=self.game(('cg.make.taunt',),enemy_hand=('cg.hidden',));port=g.for_player(1);public=port.legal_actions()

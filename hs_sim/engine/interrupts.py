@@ -207,13 +207,14 @@ def redirect(r, effect):
 
 
 def redirect_spell(r, effect):
-    from .targeting import target_spec
+    from .targeting import effective_target_spec
     window = find_window(r.state, effect.window_id)
     target = r.state.entities.get(effect.target_id)
     if window is None or window.kind != 'spell' or window.countered or not window.target_phase or window.target_id is None:
         return
     from .play_history import play_record, play_definition
-    spec = target_spec(play_definition(r.state,r.registry,r.state.entities[window.source_id],play_record(r.state,window.play_id)))
+    source=r.state.entities[window.source_id]
+    spec = effective_target_spec(r.state,r.registry,source,play_definition(r.state,r.registry,source,play_record(r.state,window.play_id)))
     if (spec is None or target is None or not target.active or target.zone not in spec.zones or
             target.kind not in spec.kinds or not target.is_character or target.health <= 0 or target.doomed):
         return

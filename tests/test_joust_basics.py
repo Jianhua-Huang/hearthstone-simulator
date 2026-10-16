@@ -1,4 +1,5 @@
 """Independent actual minion/spell deck comparisons and private physical results."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -398,9 +399,9 @@ class JoustBasicsTests(unittest.TestCase):
         e['data']['result'][3][0] = 99999
         self.reject(s)
         s = g.snapshot()
-        self.assertEqual(s['schema_version'], 266)
+        self.assertEqual(s['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         s['schema_version'] = 152
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
             Game.from_snapshot(s, registry(self.extras))
 
 

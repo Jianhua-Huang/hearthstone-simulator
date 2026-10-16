@@ -49,6 +49,7 @@ class FrameCodec:
         from .resolver import BehaviorCall, ResolutionFrame
         self.registry = registry
         self.origin_events = origin_events
+        self.origin_state = origin_state
         self.deck_origin = deck_origin(origin_state) if origin_state is not None else None
         kinds = [RuleContext, BehaviorCall, ResolutionFrame, *mechanics.effect_types, *mechanics.payload_types]
         for module in (model, actions, effects):
@@ -68,10 +69,87 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .spell_target_sequences import FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup,validate_frozen_group
+        if type(value)in(FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup)and self.origin_state is not None:
+            validate_frozen_group(self.origin_state,self.registry,value)
+        from .summon_attack_groups import AttackSummonedGroup,validate_request as validate_summon_attack_request
+        if type(value)is AttackSummonedGroup:validate_summon_attack_request(self.registry,value,self.origin_state)
+        from .spell_targets import DamageResidentSpellTarget
+        if type(value) is DamageResidentSpellTarget and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        if type(value) is model.AbilityInstance and value.kind == 'corpse_gain':
+            from .corpse_gains import validate_ability as validate_corpse_gain_ability
+            validate_corpse_gain_ability(self.registry, value)
+        from .guarded_corpse_spends import SpendCorpsesForMinion,validate_request as validate_guarded_corpse_request
+        if type(value)is SpendCorpsesForMinion and self.origin_state is not None:validate_guarded_corpse_request(self.origin_state,self.registry,value)
+        from .successful_summons import DamageSummonedMinion
+        if type(value)is DamageSummonedMinion and self.origin_state is not None:value.validate_in_state(self.origin_state)
+        from .corpse_summon_rewards import ResolveCorpseSummons,FinishCorpseSummons,validate_request as validate_corpse_summon_request,validate_finish as validate_corpse_summon_finish
+        if type(value)is ResolveCorpseSummons:validate_corpse_summon_request(self.registry,value)
+        if type(value)is FinishCorpseSummons:validate_corpse_summon_finish(self.registry,value,self.origin_state)
+        from .successful_summons import GrantSummonedKeyword
+        if type(value)is GrantSummonedKeyword and self.origin_state is not None:value.validate_in_state(self.origin_state)
+        from .mana_summon_rewards import SpendManaForSummonedPair,BuffManaSummonedPair,validate_request as validate_mana_pair_request,validate_reward as validate_mana_pair_reward
+        if type(value)is SpendManaForSummonedPair:validate_mana_pair_request(self.registry,value)
+        if type(value)is BuffManaSummonedPair:validate_mana_pair_reward(self.registry,value,self.origin_state)
+        from .kindred import ResolveKindred,RunKindredComponent,FinishKindred,validate_activation,validate_component,validate_request as validate_kindred_request
+        if type(value)is model.KindredActivation:validate_activation(value,self.registry)
+        if type(value)is ResolveKindred:
+            validate_kindred_request(value,self.registry)
+        if type(value)is RunKindredComponent:validate_component(value,self.registry)
+        if type(value)is FinishKindred:validate_activation(value.activation,self.registry)
+        if type(value)is RuleContext and value.kindred is not None:
+            validate_activation(value.kindred,self.registry)
+            old=value.kindred.original
+            if(value.source_id,value.player_id,value.target_id)!=(old.source_id,old.player_id,old.target_id):
+                raise ValueError('Saved Kindred body changed its original caller')
+            from .owner_turns import validate_accepted_prefix
+            validate_accepted_prefix(old.state,value.state,self.registry)
+        from .successful_summons import BuffSummonedMinion
+        if type(value)is BuffSummonedMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .zones import PutMatchingDeckMinionOnTop
+        if type(value)is PutMatchingDeckMinionOnTop and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+        from .hand_play_locks import LockHandCard, validate_request as validate_hand_lock
+        if type(value) is LockHandCard and self.origin_state is not None:
+            validate_hand_lock(self.origin_state,self.registry,value)
+        from .hand_play_locks import TrapRandomHandCards,validate_random_request
+        if type(value) is TrapRandomHandCards and self.origin_state is not None:
+            validate_random_request(self.origin_state,value)
+        from .physical_draw_groups import ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup, validate_material as validate_draw_group
+        if type(value) in (ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup) and self.origin_state is not None:
+            validate_draw_group(self.origin_state, self.registry, value)
+        from .bonus_effects import RotatePrintedHandBonuses
+        if type(value) is RotatePrintedHandBonuses and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .destruction_resources import DestroyMinionsForResources, CompleteDestroyedResources, validate_material as validate_destruction_resources
+        if type(value) in (DestroyMinionsForResources, CompleteDestroyedResources) and self.origin_state is not None:
+            validate_destruction_resources(self.origin_state, self.registry, value)
+        if type(value) in (effects.ForceAttack, effects.CopyMinion) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .forced_attack_sequences import AttackRandomEnemyMinion
+        if type(value) is AttackRandomEnemyMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .sacrifice import SetCapturedMinionStats
+        if type(value) is SetCapturedMinionStats and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .stored_spell_damage import GrantStoredSpellDamage,DrawMatchingSpellDamage
+        if type(value) in (GrantStoredSpellDamage,DrawMatchingSpellDamage) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        from .copy_materials import CapturedCardCopyMaterial,validate_captured_card_copy
+        if type(value)is CapturedCardCopyMaterial and self.origin_state is not None:
+            validate_captured_card_copy(self.origin_state,self.registry,value)
         from .resolver import BehaviorCall
+        from .player_effects import PlayerEffectDamage,health_source
+        if type(value)is PlayerEffectDamage and self.origin_state is not None:
+            health_source(self.origin_state,self.registry,value.instance,value.player_id)
         if type(value) is model.HandOtherClassMatch:
             from .hand_conditions import validate_hand_other_class_match
             validate_hand_other_class_match(value,self.registry)
+        if type(value) is model.CostPresenceMatch:
+            from .cost_presence import validate_match
+            validate_match(value,self.registry)
         if type(value) is BehaviorCall:
             from .discard_history import validate_call as validate_discard_call
             validate_discard_call(value, self.registry)
@@ -121,6 +199,9 @@ class FrameCodec:
         from .pools import SummonFromCandidates, validate_summon_candidates
         if isinstance(value, SummonFromCandidates):
             validate_summon_candidates(self.registry, value.card_ids)
+        from .zones import DrawMatching
+        if type(value) is DrawMatching:
+            for card_id in value.card_ids: self.registry.card(card_id)
         from .producer_amounts import AcceptedProducerAmount,validate as validate_producer_amount
         if type(value)is AcceptedProducerAmount:validate_producer_amount(self.registry,value)
         from .ordered_summon_groups import OrderedGroupSelection,validate_selection as validate_group_selection
@@ -145,7 +226,6 @@ class FrameCodec:
         from .whole_card_physical import PhysicalBodyProof, PhysicalReplayProgress, validate_body_proof
         if type(value) is PhysicalBodyProof:
             validate_body_proof(value, self.registry)
-        from .registry import RuleContext
         if type(value) is RuleContext and value.physical is not None:
             if type(value.physical) is not PhysicalReplayProgress:
                 raise ValueError('Physical callback requires its concrete activation context')
@@ -176,6 +256,12 @@ class FrameCodec:
                 # This target identifies a versioned rules inventory, not an entity.
                 if type(value) is GenerationContext and field.name == 'target_id':
                     value.__post_init__()
+                elif (type(value) is effects.ForceAttack and field.name in ('attacker_id', 'defender_id')
+                      and type(item) is model.BoardPresenceReference):
+                    item.__post_init__()
+                elif (type(value) is effects.CopyMinion and field.name == 'target_id'
+                      and type(item) is model.BoardPresenceReference):
+                    item.__post_init__()
                 elif item is not None and (type(item) is not int or item <= 0):
                     raise ValueError('Invalid frame entity/record ID')
         if hasattr(value, '__post_init__'):
@@ -369,6 +455,11 @@ class FrameCodec:
                 raise ValueError('Captured trigger instance is absent from its source')
             if value.player_effect is not None:
                 effect = value.player_effect
+                effect.__post_init__()
+                if effect.source_allocation is not None:
+                    from .allocation_facts import allocation_from_payload,validate_allocation
+                    validate_allocation(value.state,self.registry,allocation_from_payload(effect.source_allocation))
+                    if effect.source_player_id!=value.player_id:raise ValueError('Captured player health source changed beneficiary')
                 spec = self.registry.player_effect(effect.spec_id)
                 self.registry.card(effect.source_card_id)
                 if (effect.source_id != value.source_id or effect.id >= value.state.next_attachment_id or
@@ -522,6 +613,8 @@ def validate_frame(game):
         raise ValueError('Choice branches and offered metadata differ')
     from .dredge import validate_choice as validate_dredge_choice
     validate_dredge_choice(game)
+    from .stored_gift_discovery import validate_choice as validate_stored_gift_choice
+    validate_stored_gift_choice(game)
     if len(frame.prefix) + len(frame.continuation) > game.ruleset.max_resolution_steps:
         raise ValueError('Suspended work queue exceeds resolution budget')
     from .starships import FinishStarshipLaunch

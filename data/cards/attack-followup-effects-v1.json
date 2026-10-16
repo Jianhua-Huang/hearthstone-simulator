@@ -1,0 +1,339 @@
+{
+  "batch": "K29 native attack followups",
+  "source_version": "37.0.0.255026",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_CATA_004",
+        "dbf_id": 127407,
+        "name": "雷加尔·大地之怒",
+        "name_en": "Rehgar Earthfury",
+        "text": "在本随从或相邻的随从攻击后，&获取一张闪电箭。",
+        "text_en": "After this or an adjacent minion attacks,& get a Lightning Bolt.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 69625,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4975": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Kenji"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "c96bfcf0ceeb818109cb654cd9d9478bb9667f525ae83a41ae4c98d146ed40dd",
+      "recipe": {
+        "root": true,
+        "script": "rehgar",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "keywords": [],
+        "deck_identity": "CORE_CATA_004"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_344",
+        "dbf_id": 120428,
+        "name": "飞火流星·芬杰",
+        "name_en": "Finja, the Flying Star",
+        "text": "<b>潜行</b>\n每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "text_en": "[x]<b>Stealth</b>\n   Whenever this attacks and   \nkills a minion, summon 2\n_Murlocs from your deck.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 40803,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 40803
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40803",
+              "type": "Int",
+              "value": "40803"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "14d40949d705f3c619925c838c4e22cb61353cf13bd83cc0447b0c8d3d1aa8b6",
+      "recipe": {
+        "root": true,
+        "script": "finja",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "CFM_344"
+      }
+    },
+    {
+      "record": {
+        "id": "CS3_020",
+        "dbf_id": 66176,
+        "name": "伊利达雷审判官",
+        "name_en": "Illidari Inquisitor",
+        "text": "<b>突袭</b>\n在你的英雄攻击一个敌人后，本随从也会攻击该敌人。",
+        "text_en": "<b>Rush</b>. After your hero attacks an enemy, this attacks it too.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "27472bc106d7c2cac3c4798d7709eaaa8b24003b6f70dabb21e084c86d1c93ab",
+      "recipe": {
+        "root": true,
+        "script": "inquisitor",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "keywords": [
+          "rush"
+        ],
+        "deck_identity": "CS3_020"
+      }
+    }
+  ],
+  "reused_dependencies": [
+    {
+      "record": {
+        "id": "CORE_EX1_238",
+        "dbf_id": 69625,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 505,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "505",
+              "type": "Int",
+              "value": "505"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "743e700eca3b0739da5862c632297415b47e950c65b91cb3490113b6ba4175c4"
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "CFM_344",
+        "dbf_id": 40803,
+        "name": "飞火流星·芬杰",
+        "name_en": "Finja, the Flying Star",
+        "text": "<b>潜行</b>\n每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "text_en": "[x]<b>Stealth</b>\n   Whenever this attacks and   \nkills a minion, summon 2\n_Murlocs from your deck.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 25,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "0482c8048018db16ad0a0b9f41e4b22c4dc142fff13f9be58a859a30f17ce149"
+    }
+  ],
+  "reviewed_policy": {
+    "event": "attack_finished",
+    "qualification": "Original completed CharacterAttackRecord, not bare combat damage.",
+    "source": "Active living original source at acceptance; already accepted work survives later removal.",
+    "rehgar": "Self or adjacent same-controller minion in original attack-finished snapshot, before death cleanup/reactions.",
+    "finja": "Own attack, final defender minion killed by the same original COMBAT fatal damage/poison packet; source survives.",
+    "inquisitor": "Own hero completed attack against a living final enemy; original board residences retained through waits.",
+    "force": "Reuse original forced-combat policy; transformation/control do not create a new board residence.",
+    "limits": "Internal timing/lifecycle policies, not CN calibration or a full formal-pool certificate."
+  }
+}

@@ -1,4 +1,5 @@
 """Original physical starting decks and the necessary Mana Giant price profile."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, dataclass, FrozenInstanceError, replace
 import json
@@ -475,7 +476,7 @@ class PlayerNonstarterPlayCostTests(unittest.TestCase):
 
     def test_schema211_layout_and_old_current_rules_or_mechanics_are_rejected(self):
         g = self.game(); saved = g.snapshot()
-        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+        self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         for version in (1, 210, 217, True, 216.0):
             bad = deepcopy(saved); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(rehash(bad), registry())

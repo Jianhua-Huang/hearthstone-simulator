@@ -1,0 +1,357 @@
+{
+  "format": "reviewed-health-sequence-spells-v1",
+  "source_preaudit": "outputs/card-integration-20261014/k39-health-sequence-preaudit.json",
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_909",
+        "dbf_id": 115633,
+        "name": "爆裂射击",
+        "name_en": "Bursting Shot",
+        "text": "随机对三个敌人造成$2点伤害。",
+        "text_en": "Deal $2 damage to\nthree random enemies.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "3e04ed047860d6a8d38b699eaf178617a55a6efc9bf0eb8384a8516e1d286bee",
+      "recipe": {
+        "script": "burst",
+        "target": null,
+        "deck_identity": "FIR_909"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_954",
+        "dbf_id": 115753,
+        "name": "焚烧",
+        "name_en": "Conflagrate",
+        "text": "对一个随从造成$5点伤害，其拥有者抽一张牌。",
+        "text_en": "Deal $5 damage to a minion. Its owner draws a card.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "0503aa6d89372d81be1446c93c5ca2fd4947b2e97c04564a8a58b968cdb7a4c8",
+      "recipe": {
+        "script": "scorch",
+        "target": "minion",
+        "deck_identity": "FIR_954"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_440",
+        "dbf_id": 117622,
+        "name": "封冻沉眠",
+        "name_en": "Cryosleep",
+        "text": "造成$4点伤害并抽一张牌。<b>延系：</b>再抽一张。",
+        "text_en": "Deal $4 damage\nand draw a card.\n<b>Kindred: </b>Draw another.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 2,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "1fb335e1b9491b28ad60491cd2ffbe597941d5cbf15c33c771913982f65792af",
+      "recipe": {
+        "script": "cryo",
+        "target": "character",
+        "deck_identity": "TLC_440"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_901",
+        "dbf_id": 117685,
+        "name": "烟雾熏蒸",
+        "name_en": "Fumigate",
+        "text": "对一个随从及所有相同类型的其他随从造成$3点伤害。",
+        "text_en": "Deal $3 damage to a minion and all others of the same minion type.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "8acbf614cd1e6f3b5768f432032c8a8bab0b447a4b09a1a64aa46f17fc281f85",
+      "recipe": {
+        "script": "fumes",
+        "target": "minion",
+        "deck_identity": "TLC_901"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_216",
+        "dbf_id": 120448,
+        "name": "新生闪电",
+        "name_en": "Nascent Bolt",
+        "text": "对一个随从造成$5点伤害。如果该随从依然存活，抽两张牌。",
+        "text_en": "Deal $5 damage to a minion. If it survives, draw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Diego Gil"
+          }
+        ]
+      },
+      "record_sha256": "ac5820ae77b196c75c55884a550dfa644b9f8c42afaa762dd91f413041d77a4d",
+      "recipe": {
+        "script": "electric",
+        "target": "minion",
+        "deck_identity": "TIME_216"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_814",
+        "dbf_id": 114305,
+        "name": "感染吐息",
+        "name_en": "Infested Breath",
+        "text": "造成$2点伤害。召唤一条0/2的水蛭。",
+        "text_en": "Deal $2 damage. Summon a 0/2 Leech.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 114302,
+          "COST_BLOOD": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "721d7037b816abcb62305468e09a597765fdf7acd6e6d085b1edfbcc600b528f",
+      "recipe": {
+        "script": "infest",
+        "target": "character",
+        "deck_identity": "EDR_814"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_810t",
+        "dbf_id": 114302,
+        "name": "饱胀水蛭",
+        "name_en": "Bloated Leech",
+        "text": "在你的回合结束时，你的英雄会从生命值最低的敌人处偷取@点生命值。",
+        "text_en": "[x]At the end of your turn, your\nhero steals @ Health from\nthe lowest Health enemy.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "71c474a34d91e51385d91378884171b2c66ae8dc51b23b7a70809e708fbb99b4",
+      "recipe": {
+        "alias": null,
+        "script": "leech",
+        "root": false,
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "deck_identity": "EDR_810t"
+      }
+    }
+  ],
+  "dependency_links": [
+    {
+      "root_id": "EDR_814",
+      "card_id": "EDR_810t",
+      "source": "current CN gallery child IDs and frozen complete native token"
+    }
+  ]
+}

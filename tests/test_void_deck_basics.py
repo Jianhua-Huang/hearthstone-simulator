@@ -1,4 +1,5 @@
 """The independent private Void pile and one complete current Irida source."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -365,7 +366,7 @@ class VoidDeckBasicsTests(unittest.TestCase):
     def test_current_strict_layout_and_previous_versions_are_explicit(self):
         g=self.game();saved=g.snapshot()
         self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),
-            (266,'prototype-v302',CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION,'prototype-v302',CORE_EFFECTS_VERSION))
         self.assertEqual(saved['state']['players']['1']['void_cards'],[])
         for version in (1,169,217,True):
             with self.subTest(version=version):self.reject(g,lambda s:s.update(schema_version=version))

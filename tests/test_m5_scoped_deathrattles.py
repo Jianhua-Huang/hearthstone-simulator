@@ -1,4 +1,5 @@
 """R-140: carrier-local policies, payload origins and nonuniform repeat plans."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 import test_m5_fixed_deathrattles as base
@@ -267,7 +268,7 @@ class ScopedDeathrattleTests(unittest.TestCase):
 
     def test_native_scourge_forest_capacity_and_neighbor_composition(self):
         from examples.scoped_deathrattles import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(len(self.records(g)),8);self.assertEqual(len(g.state.death_history),2)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(len(self.records(g)),8);self.assertEqual(len(g.state.death_history),2)
 
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,515 @@
+{
+  "batch": "K48",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "END_010",
+        "dbf_id": 121144,
+        "name": "暮光时空撕裂者",
+        "name_en": "Twilight Timereaver",
+        "text": "<b>抉择：</b>将所有其他随从的攻击力变为1；或者生命值变为1。",
+        "text_en": "<b>Choose One -</b> Set the Attack of all other minions to 1; or Health to 1.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MULTIPLE_CLASSES": 18,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "0f7a427faf40e43f581b894325e8f79237292d3ff79480c9a16138946caf1614",
+      "recipe": {
+        "script": "twilight",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "END_010"
+      }
+    },
+    {
+      "record": {
+        "id": "END_010a",
+        "dbf_id": 121145,
+        "name": "斗志有限",
+        "name_en": "Finite Will",
+        "text": "将所有其他随从的攻击力变为1。",
+        "text_en": "Set the Attack of all other minions to 1.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "MULTIPLE_CLASSES": 18
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "a665a577f0cff22396388a1babc38dfe007212e482890d9fec405293d03a9eb8",
+      "recipe": {
+        "script": "attack",
+        "root": false,
+        "choice_only": true,
+        "deck_identity": "END_010a"
+      }
+    },
+    {
+      "record": {
+        "id": "END_010b",
+        "dbf_id": 121147,
+        "name": "决心有限",
+        "name_en": "Finite Resolve",
+        "text": "将所有其他随从的生命值变为1。",
+        "text_en": "Set the Health of all other minions to 1.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "MULTIPLE_CLASSES": 18
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "1d9c1c23da9c4f08a4f64b06918dd77278b8bfec960b55210f8eee4ae2d9a688",
+      "recipe": {
+        "script": "health",
+        "root": false,
+        "choice_only": true,
+        "deck_identity": "END_010b"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_032",
+        "dbf_id": 120491,
+        "name": "克洛诺戈尔",
+        "name_en": "Chronogor",
+        "text": "<b>战吼：</b>你抽取你法力值消耗最高的两张牌，你的对手抽取你法力值消耗最低的两张牌。",
+        "text_en": "[x]<b>Battlecry:</b> You draw your\n2 highest Cost cards.\nYour opponent draws your\n2 lowest Cost cards.",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "511dbf75fccdad4e92c7e11fe0e2d2595201dddb6ed7f8212968cf685d4f10ff",
+      "recipe": {
+        "script": "chronogor",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "TIME_032"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_103",
+        "dbf_id": 121672,
+        "name": "克罗米",
+        "name_en": "Chromie",
+        "text": "<b>亡语：</b>抽取你在本局对战中使用过的每张牌的另一张复制。@<i>（抽@张牌）</i>",
+        "text_en": "<b>Deathrattle:</b> Draw another copy of cards you've played this game.@ <i>(@ |4(card,cards))</i>",
+        "cost": 6,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "74f8602a729d2ebca9aedf8b7c8b0f0b8635d7d8d6b6354183d48fdfdaeebc82",
+      "recipe": {
+        "script": "chromie",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "TIME_103"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_714",
+        "dbf_id": 120817,
+        "name": "时光领主埃博克",
+        "name_en": "Chrono-Lord Epoch",
+        "text": "<b>战吼：</b>消灭你的对手上回合使用的\n所有随从。",
+        "text_en": "<b>Battlecry:</b> Destroy all minions that your opponent played last turn.",
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "6dcd098e316b4856daef6c05601c929478349441a71d7b22396a96929b3f2ed5",
+      "recipe": {
+        "script": "epoch",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "TIME_714"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_110",
+        "dbf_id": 121026,
+        "name": "城市首脑埃舒",
+        "name_en": "City Chief Esho",
+        "text": "<b>战吼：</b>如果你牌库中的随从牌均属于同一随从类型，使你的其他随从获得+2/+2<i>（无论它们在哪）</i>。",
+        "text_en": "[x]<b>Battlecry:</b> If every minion in\nyour deck shares a minion type,\ngive your other minions +2/+2\n<i>(wherever they are)</i>.",
+        "cost": 6,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "4aa5079a1e4976996f3251b3edb858c9aeb5cf6ef3f139b6017cceb97ff93d3e",
+      "recipe": {
+        "script": "esho",
+        "root": true,
+        "choice_only": false,
+        "deck_identity": "TLC_110"
+      }
+    }
+  ],
+  "enchantment_evidence": [
+    {
+      "record": {
+        "id": "END_010ae",
+        "dbf_id": 121146,
+        "name": "斗志有限",
+        "name_en": "Finite Will",
+        "text": "攻击力变为1。",
+        "text_en": "Attack set to 1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e6b260ed3cbb441e5106ed45a76a4082241e630623d8f9d4763a7ea6248cd29a"
+    },
+    {
+      "record": {
+        "id": "END_010be",
+        "dbf_id": 121148,
+        "name": "决心有限",
+        "name_en": "Finite Resolve",
+        "text": "生命值变为1。",
+        "text_en": "Health set to 1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8eed8582cdba3a628352c894b688ad046da66a7a5c80057b70d513a8d5601def"
+    },
+    {
+      "record": {
+        "id": "END_010e",
+        "dbf_id": 121149,
+        "name": "心志有限",
+        "name_en": "Finite Existence",
+        "text": "攻击力和生命值变为1。",
+        "text_en": "Attack and Health set to 1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "292d53b37390e957746332fb7e4c26b84b97ae6d5ab65bca61fa109354011ebd"
+    }
+  ],
+  "policies": {
+    "twilight": "Real pre-activation branches set other active minions Attack or Health; existing Choose Both uses one combined stat-set body. Options remain nonphysical zero-cost descriptors with full raw6 retained.",
+    "chronogor": "Draw two highest current stored Cost cards from own deck, then the opponent draws two lowest from that same deck, fresh per draw. Tie selection is uniform; an empty matching pool skips. Actual cross-deck draws preserve physical cards, recipient draw events, overflow and drawn-spell replacement from the recipient own deck.",
+    "chromie": "At actual Deathrattle execution, freeze distinct submitted card IDs from all own hand-play records in first-play order. Draw one random matching physical card per ID; repeated plays do not increase that identity budget. No creation and no automatic-cast credit. Identity, order, multiplicity and counter remain CN-pending.",
+    "epoch": "Latest closed opponent owner interval; successful ordinary paid minion entry only. Join immutable hand-play and successful-summon records to original board residence; exclude copies, summons and countered/magnetized entries. Destroy the surviving original residences as one normal batch.",
+    "esho": "Current deck Minion tribes have a common member, using the existing complete TribeState and all-tribe exclusions; empty Minion collection is vacuously true. Buff other existing active board/HAND/DECK minions once using the public cross-zone scope, not future entities."
+  },
+  "deferred_real_dependency": {
+    "record": {
+      "id": "TLC_520",
+      "dbf_id": 117702,
+      "name": "灌林追踪者",
+      "name_en": "Underbrush Tracker",
+      "text": "<b>突袭</b>\n你每将牌洗入你的牌库一次，本牌的法力值消耗便减少（1）点。",
+      "text_en": "[x]<b>Rush</b>\nCosts (1) less for each\ntime you've shuffled cards\ninto your deck.",
+      "cost": 6,
+      "attack": 5,
+      "health": 5,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "HEALTH": 5,
+        "ATK": 5,
+        "COST": 6,
+        "CARD_SET": 1952,
+        "CLASS": 7,
+        "CARDTYPE": 4,
+        "RARITY": 4,
+        "COLLECTIBLE": 1,
+        "RUSH": 1
+      },
+      "card_set_id": 1952,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": [
+        {
+          "tag": "Tag",
+          "attributes": {
+            "enumID": "342",
+            "name": "ARTISTNAME",
+            "type": "String"
+          },
+          "text": "Luca Zontini"
+        }
+      ]
+    },
+    "record_sha256": "43c5e2f97f5e94ed8922f06b2b31a53aa8d63180855eb6c9f2134e6d44233297",
+    "reason": "No complete prior shuffle-insertion ledger is exposed in current GameState. A hand-only trigger or invented per-card counter would miss prior and generated-card history; preserve source and audit actual random insertion/movement/batch entry sites before adding the intrinsic cost."
+  },
+  "official_card_urls": [
+    "https://hearthstone.blizzard.com/en-us/cards/121144",
+    "https://hearthstone.blizzard.com/en-us/cards/120491",
+    "https://hearthstone.blizzard.com/en-us/cards/121672",
+    "https://hearthstone.blizzard.com/en-us/cards/120817",
+    "https://hearthstone.blizzard.com/en-us/cards/121026"
+  ]
+}

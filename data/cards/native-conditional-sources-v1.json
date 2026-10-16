@@ -1,0 +1,260 @@
+{
+  "format": "reviewed-native-conditional-sources-v1",
+  "source": {
+    "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "END_022",
+        "dbf_id": 121174,
+        "name": "时光扭曲先知",
+        "name_en": "Time-Twisted Seer",
+        "text": "受伤时拥有\n<b>法术伤害+2</b>。",
+        "text_en": "Has <b>Spell Damage +2</b> while damaged.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 520,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3c64544114e3b21982c4f81126a3b1442e1cc470de1eeba791c8f34652dbef27",
+      "recipe": {
+        "script": "damaged_spell_damage",
+        "amount": 2,
+        "keywords": [],
+        "deck_identity": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_202",
+        "dbf_id": 127946,
+        "name": "小蜘蛛",
+        "name_en": "Spiderling",
+        "text": "你的英雄在你的回合拥有+1攻击力。",
+        "text_en": "Your hero has +1 Attack\non your turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "455a28db3b459a2a1db2e5d1673cea21fcf1eaab4aa1b447bf05b0dd4b509a49",
+      "recipe": {
+        "script": "own_turn_hero_attack",
+        "amount": 1,
+        "keywords": [],
+        "deck_identity": null
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_606",
+        "dbf_id": 119704,
+        "name": "奎尔多雷造箭师",
+        "name_en": "Quel'dorei Fletcher",
+        "text": "当你的手牌少于或等于三张时，你的英雄技能的法力值消耗为（0）点。",
+        "text_en": "Your Hero Power costs\n(0) while your hand has\n3 or less cards.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "bb5b6b927340029a12ea3efbd554937dc9bb9f7b1e1a2ab4bc38c839d40e700f",
+      "recipe": {
+        "script": "small_hand_power_cost",
+        "max_hand": 3,
+        "set_to": 0,
+        "keywords": [],
+        "deck_identity": null
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": "END_022",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/121174"
+    },
+    {
+      "id": "JAIL_202",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/127946"
+    },
+    {
+      "id": "TIME_606",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/119704"
+    },
+    {
+      "id": "HERO_07bp",
+      "url": "https://hearthstone.blizzard.com/en-us/cards/300"
+    }
+  ],
+  "policy": {
+    "scope": "Three real native continuous sources only; no dynamic conditional grants or generic expression graphs.",
+    "spell_damage": "The existing printed Spell Damage provider is active only while its physical holder is damaged.",
+    "hero_attack": "The existing aura and hero attack composition use the current controller and actual active player.",
+    "cost": "The existing friendly Hero Power set0 cost aura tests the source controller hand size at the authoritative quote boundary.",
+    "life_tap": "One real base Warlock Hero Power dependency: draw first, then invoke the original Hero Power body to damage the current friendly hero for2. Skin/upgraded identities and remaining base powers stay separate."
+  },
+  "cn_calibrated": false,
+  "dependencies": [
+    {
+      "record": {
+        "id": "HERO_07bp",
+        "dbf_id": 300,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2744
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "77fb8dc92e66b55dce52ec831c0eac460c0cc43a982db43b9f8b5ab2a4d227e3",
+      "recipe": {
+        "script": "life_tap",
+        "draw": 1,
+        "self_damage": 2
+      }
+    }
+  ]
+}

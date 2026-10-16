@@ -1,0 +1,326 @@
+{
+  "batch_id": "K66",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_404",
+        "dbf_id": 127058,
+        "name": "强力裁决",
+        "name_en": "Harsh Sentence",
+        "text": "下个回合，敌方随从牌的法力值消耗增加（2）点。将两张3/3的卧底小鬼置入敌方牌库。",
+        "text_en": "[x]Enemy minions cost\n(2) more next turn. Put\ntwo 3/3 Imp-formants\ninto the enemy deck.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127024,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "46792dd889a5137760dc5442fbf884ef530c29440cc5376fe0577584a1f4ff46",
+      "recipe": {
+        "root": true,
+        "script": "harsh",
+        "deck_identity": "CAP_404"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_518",
+        "dbf_id": 117700,
+        "name": "审讯",
+        "name_en": "Interrogation",
+        "text": "将三张3/3并具有<b>潜行</b>和<b>抽到时召唤</b>的忍者洗入你的牌库。",
+        "text_en": "Shuffle three 3/3 Ninjas with <b>Stealth</b> into your deck that are <b>Summoned When Drawn</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3128",
+              "name": "SUMMONED_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2dbe34318fd9120c90fe76a4d4fc38dae12191b08e76e129624aaac418189150",
+      "recipe": {
+        "root": true,
+        "script": "interrogation",
+        "deck_identity": "TLC_518"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_513t2",
+        "dbf_id": 119563,
+        "name": "忍者始祖龟",
+        "name_en": "Tortollan Ninja",
+        "text": "<b>抽到时召唤</b>\n<b>潜行</b>",
+        "text_en": "<b>Summoned When Drawn</b>\n<b>Stealth</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3128",
+              "name": "SUMMONED_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "627372ebf2cab9849a7d74f5900dfafda286bcf01c3b7e92a7d54627801570bf",
+      "recipe": {
+        "root": false,
+        "script": "drawn_ninja",
+        "deck_identity": "TLC_513t2"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CAP_400t2t",
+        "dbf_id": 127024,
+        "name": "卧底小鬼",
+        "name_en": "Imp-formant",
+        "text": "<b>吸血</b>\n<b>抽到时召唤</b><i>（为你的对手召唤）</i>",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Summoned When Drawn</b>\n<i>(for your opponent)</i>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "IMP": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3128",
+              "name": "SUMMONED_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e8d8243292da526d4bfc25aac0bbda38336eaa72017cb272353d9b8b38a2444a",
+      "definition_sha256": "6eb5daf72870857b7a8c9b1ffef40b0b01e74224cb2bf0e65cfbf048a32fea14"
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": 127058,
+      "collectible": 1,
+      "slug": "127058-harsh-sentence",
+      "class_id": 9,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 5,
+      "card_set_id": 1988,
+      "rarity_id": 3,
+      "artist_name": "Patrik Bjorkstrom",
+      "health": 0,
+      "attack": null,
+      "mana_cost": 2,
+      "name": "强力裁决",
+      "text": "下个回合，敌方随从牌的法力值消耗增加（2）点。将两张3/3的卧底小鬼置入敌方牌库。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/75259a4f9e59f48eab1048f1467b0542eb9788bf0ed578e844d43a0faefb3929.png",
+      "image_gold": "",
+      "flavor_text": "“你能把‘假释’写进判词吗？”“好吧。本庭宣判：判处你徒刑76年，押入紫罗兰监狱，不得假释！”",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/7f6b773a0f068d3fcf6f5594777d85eda31b90819466a904984cc40a52542f0a.png",
+      "child_ids": [
+        127024
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": null,
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 1,
+      "class_priority": 9
+    },
+    {
+      "id": 117700,
+      "collectible": 1,
+      "slug": "117700-interrogation",
+      "class_id": 7,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 5,
+      "card_set_id": 1952,
+      "rarity_id": 1,
+      "artist_name": "Ramzy Kamen",
+      "health": 0,
+      "attack": null,
+      "mana_cost": 2,
+      "name": "审讯",
+      "text": "将三张3/3并具有<b>潜行</b>和<b>抽到时召唤</b>的忍者洗入你的牌库。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/4a7bb4fa66bb40a430692fe1e340940936d39e66e186a1c62554d283de59ed66.png",
+      "image_gold": "",
+      "flavor_text": "“招了吧，不然我就让你身败名裂。”",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/e3f455f8cbee59a18a59ab1f5e25686e78e2550ca1a466c30b87891b77abde68.png",
+      "child_ids": [
+        119563
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        6,
+        291
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 4,
+      "class_priority": 7
+    }
+  ],
+  "policies": [
+    "Harsh Sentence arms an independent persistent instance on the opponent, activates at their actual next turn start and adds ordinary MINION+2 until that real turn end, then shuffles two original reviewed Imp-formants into that opponent deck.",
+    "Interrogation performs one semantic shuffle operation containing three exact Tortollan Ninja definitions; not three player shuffle operations.",
+    "Ninjas reuse the existing actual physical successful-hand-draw condition and drawer summon/replacement behavior. Stealth, board capacity, burn and ordinary hand play remain common machinery.",
+    "No unknown body, arbitrary random minion pool, new native effect, clock, state ledger or engine handler. Exact CN callback/start/expiry/full-board draw windows remain uncalibrated."
+  ]
+}

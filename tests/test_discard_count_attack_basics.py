@@ -1,4 +1,5 @@
 """One native discard-count self relation, using the existing stats/history."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -328,7 +329,7 @@ class DiscardCountAttackTests(unittest.TestCase):
         bad['state']['entities'][str(source)]['abilities'].append(row);self.reject(bad)
 
     def test_current_protocol_and_all_old_schema_rejection(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(snap['ruleset']['id'],'prototype-v302');self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (*range(1,218),True,194.0,217):
             bad=deepcopy(snap);bad['schema_version']=value

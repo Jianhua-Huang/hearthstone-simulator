@@ -1,0 +1,583 @@
+{
+  "batch_id": "K72",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "RLK_061",
+        "dbf_id": 78353,
+        "name": "战场通灵师",
+        "name_en": "Battlefield Necromancer",
+        "text": "在你的回合结束时，&将一份<b>残骸</b>复活为1/3并具有<b>嘲讽</b>的复活的步兵。",
+        "text_en": "[x]At the end of your turn,&\nraise a <b>Corpse</b> as a 1/3\n__Risen Footman with <b>Taunt</b>.__",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 78570,
+          "COST_UNHOLY": 2,
+          "CORPSE_SPENDER": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Kendall"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a32750b833d388d8f00aedfa304044a1a218fbb367bf39cd3475b65e1915f6fb",
+      "recipe": {
+        "script": "necromancer",
+        "entry": "owner_end"
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_416",
+        "dbf_id": 118558,
+        "name": "空角恐角龙",
+        "name_en": "Hollow Direhorn",
+        "text": "<b>突袭</b>。在一个友方随从死亡后，&消耗3份<b>残骸</b>以获得<b>复生</b>。",
+        "text_en": "<b>Rush</b>\nAfter a friendly minion dies,& spend 3 <b>Corpses</b> to gain <b>Reborn</b>.",
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "2534": 1,
+          "CORPSE_SPENDER": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e1c790ca60eeee9a85082e6112ddce83f54079cc29d4496ed387b3db3c2c256b",
+      "recipe": {
+        "script": "direhorn",
+        "entry": "friendly_death"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_815",
+        "dbf_id": 114306,
+        "name": "尸魔花",
+        "name_en": "Corpse Flower",
+        "text": "在你的对手召唤一个随从后，消耗2份<b>残骸</b>以对其造成3点伤害。",
+        "text_en": "After your opponent summons a minion,\nspend 2 <b>Corpses</b> to deal 3 damage to it.",
+        "cost": 3,
+        "attack": null,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_UNHOLY": 2,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a22c01c17dc4656574e8423eaecc2beb04e0f7c6b3d09abac537a8c805efa981",
+      "recipe": {
+        "script": "flower",
+        "entry": "enemy_summon"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_951",
+        "dbf_id": 115748,
+        "name": "沃尔科罗斯",
+        "name_en": "Volcoross",
+        "text": "<b>突袭。嘲讽</b>。<b>战吼：</b>选择消耗10份，20份或30份<b>残骸</b>以获得等量属性值。",
+        "text_en": "[x]<b>Rush, Taunt</b>\n<b>Battlecry:</b> Choose to spend\n10, 20, or 30 <b>Corpses</b> to\ngain that many stats.",
+        "cost": 8,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "COST_UNHOLY": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "698479636c68c0b32feb1d41ddc14a1c99041c2b32a06695a30b10fa253ac093",
+      "recipe": {
+        "script": "volcoross",
+        "entry": "battlecry"
+      }
+    }
+  ],
+  "choices": [
+    {
+      "record": {
+        "id": "FIR_951t2",
+        "dbf_id": 115891,
+        "name": "举尾重压",
+        "name_en": "Tail Smash",
+        "text": "消耗10份<b>残骸</b>以获得+10/+10。",
+        "text_en": "Spend 10 <b>Corpses</b> to gain +10/+10.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "52f40c7a8a4183134ac894a18ccb3fd078c01404132d4de539d7de4dccf964ac",
+      "amount": 10
+    },
+    {
+      "record": {
+        "id": "FIR_951t3",
+        "dbf_id": 115892,
+        "name": "炽热噬咬",
+        "name_en": "Fiery Chomp",
+        "text": "消耗20份<b>残骸</b>以获得+20/+20。",
+        "text_en": "Spend 20 <b>Corpses</b> to gain +20/+20.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6a59c9968bd0dda097bb46b9d3058c614d1d13272018353916ebe2d39ef8a776",
+      "amount": 20
+    },
+    {
+      "record": {
+        "id": "FIR_951t4",
+        "dbf_id": 115893,
+        "name": "熔岩巨浪",
+        "name_en": "Lava Wave",
+        "text": "消耗30份<b>残骸</b>以获得+30/+30。",
+        "text_en": "Spend 30 <b>Corpses</b> to gain +30/+30.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "49431e28074ad04a0c100f475eb80b66f1c23ae89071c310a1df6818e9821785",
+      "amount": 30
+    }
+  ],
+  "reused_dependencies": [
+    {
+      "record": {
+        "id": "RLK_061t",
+        "dbf_id": 78570,
+        "name": "复活的步兵",
+        "name_en": "Risen Footman",
+        "text": "<b>嘲讽</b>。<i>不会留下<b>残骸</b>。</i>",
+        "text_en": "<b>Taunt</b>\n<i>Doesn't leave a <b>Corpse</b>.</i>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "2217": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2217",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2217"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2104b99112933159dc46aed756a1a8bf6a11cbdd5552b3f21e063d357524510d",
+      "definition_digest": "1faee1d2ad587e417d76c705109110ae8a3c9ab5967c7a7eb7f70d7b950f9325"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "FIR_951e",
+        "dbf_id": 115889,
+        "name": "饫沃之欲",
+        "name_en": "Voracious Appetite",
+        "text": "属性值提高。",
+        "text_en": "Increased Stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e72ce1a4c38a501785dcf961d4b44a4ac7046a99720288246426af033b7f114b"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k72-official-face-01/comparison.json",
+      "bytes": 1192,
+      "sha256": "e08ad6164a90bee7fc329e3167c484136bd58f027f0634510ba8027347397e46"
+    }
+  ],
+  "policies": [
+    "Four actual minion roots, three real nonphysical choice descriptors and the unchanged Risen Footman. Volcoross is Elemental/Beast; Hollow Direhorn is Beast/Undead. Flower has explicit official0 attack.",
+    "Necromancer is a native controller-end subject. Resolve the original live minion and physical board space immediately before a full one-corpse debit; no full-board spend. Accepted fixed summon follows existing attribution/quantity machinery even if source leaves during resource reactions.",
+    "Direhorn listens to genuine other friendly minion deaths. Recheck the original live source and absence of Reborn at execution before spending a full3. Multiple accepted death triggers do not spend after Reborn is already present. Grant uses the existing strict original MinionReference; exact nested resource-reaction and source lifecycle windows remain M6.",
+    "Flower captures the exact successful opponent summon record. Recheck original live source and original active target before full2 payment, then damage the continuous original target for3 via MINION_ABILITY. Same-residence transform/control follows; departure/reentry or a dead target cannot be rebound by name. After-payment departure skips damage without refund. These source/target/notification policies remain M6.",
+    "Volcoross offers only currently affordable real10/20/30 descriptors; no affordable choice skips the payload. Choice and amount are frozen, original source/actual balance are rechecked at full payment, and the original same minion gains that exact amount in both stats. Insufficient later balance skips, without partial debit or changing the selected option. Exact single-option/no-choice/late lifecycle windows remain M6.",
+    "Guarded corpse spending reuses SpendResource fixed all-or-none branching and existing original references. The legacy fixed debit fact remains source-free under its existing contract; this change does not fabricate an attributed resource result.",
+    "M0-Core-01 already compared the official289-card API with the fixed source. New Core/Standard web text reads yielded only11-line shells, not membership evidence for CORE_REV_023; do not claim absence, completeness, or close its annual roster discrepancy. All temporal gaps and remaining M0/M6/phase/release obligations remain."
+  ]
+}

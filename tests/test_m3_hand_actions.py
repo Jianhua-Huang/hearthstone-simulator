@@ -1,4 +1,5 @@
 """Hand operations across legality, payment, lifecycle, information and replay."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import dataclass, replace
 import json
 import random
@@ -384,7 +385,7 @@ class HandActionTests(unittest.TestCase):
         self.assertEqual(len(g.state.players[1].deck),1); self.replay(g)
 
     def test_latest_snapshot_rejects_previous_schema(self):
-        g=self.game(); row=g.snapshot(); self.assertEqual(row['schema_version'],266)
+        g=self.game(); row=g.snapshot(); self.assertEqual(row['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         row['schema_version']=19
         with self.assertRaises(SnapshotError): Game.from_snapshot(row,self.registry,self.mechanics)
 

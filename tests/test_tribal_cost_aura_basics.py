@@ -1,4 +1,5 @@
 """Native tribal reduction uses current physical operands in shared cost quotes."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -366,7 +367,7 @@ class TribalCostAuraBasicsTests(unittest.TestCase):
         self.assertEqual((self.cost(g),self.cost(g,'plain')),(1,2));self.roundtrip(g)
 
     def test_schema_strictly_rejects_every_old_and_nonstrict_version(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(s['ruleset']['id'],'prototype-v302');self.assertEqual(s['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (*range(1,218),True,187.0,217):
             bad=deepcopy(s);bad['schema_version']=value

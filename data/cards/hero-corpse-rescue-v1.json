@@ -1,0 +1,222 @@
+{
+  "batch_id": "K74",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_618",
+        "dbf_id": 121000,
+        "name": "永时收割者哈斯克",
+        "name_en": "Husk, Eternal Reaper",
+        "text": "<b>战吼：</b>使你的英雄获得“<b>亡语：</b>消耗最多20份<b>残骸</b>，复活你的英雄并使其具有等量生命值。”",
+        "text_en": "[x]<b>Battlecry:</b> Give your hero\n\"<b>Deathrattle:</b> Spend up to\n20 <b>Corpses</b> to resurrect with\nthat much Health.\"",
+        "cost": 4,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "752c3f59ae3f3e698084de5439339e942cf042c57e1c60b520c414d711f51186"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_618t",
+        "dbf_id": 123094,
+        "name": "永时命数",
+        "name_en": "Eternal Life",
+        "text": "<b>亡语：</b>消耗最多20份<b>残骸</b>，复活你的英雄并使其具有等量生命值。",
+        "text_en": "<b>Deathrattle:</b> Spend up to 20 <b>Corpses</b> to resurrect with that much Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "DEATHRATTLE": 1,
+          "HIDE_COST": 1,
+          "VISIBLE_PLAYER_ENCHANTMENT_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5a8c8b4ab8b378afce3531e1960dc5667181c309b430cec800d54a8c44139126"
+    },
+    {
+      "record": {
+        "id": "TIME_618e",
+        "dbf_id": 126656,
+        "name": "永时命数玩家附加效果",
+        "name_en": "Eternal Life Player Enchant",
+        "text": "<b>亡语：</b>消耗最多20份<b>残骸</b>，复活你的英雄并使其具有等量生命值。",
+        "text_en": "<b>Deathrattle:</b> Spend up to 20 <b>Corpses</b> to resurrect with that much Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6,
+          "DEATHRATTLE": 1,
+          "HIDE_COST": 1,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d973fb05317f7d790eeacc43c1e5cfc28b879851e339bb8b7f4083ef0fdd3f5b"
+    },
+    {
+      "record": {
+        "id": "TIME_618e2",
+        "dbf_id": 121002,
+        "name": "第二次机会",
+        "name_en": "A Second Chance",
+        "text": "你的英雄复活了。",
+        "text_en": "Your hero has been resurrected.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b064c25bbade3e1c8e24663c175d86167b7c3b5649afa173e26df549433ce8fb"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k74-official-face-01/comparison.json",
+      "bytes": 630,
+      "sha256": "c95ea26da57f9e20df5e642bcdab49286d5d3a8aa8d42607088b775c2803d8a0"
+    },
+    {
+      "path": "outputs/card-integration-20261014/k74-official-hotfix-01/rule-evidence.json",
+      "bytes": 2374,
+      "sha256": "32d62ce343cfcde36b004b82ed6a6ccb3aec6ad992e7747536d0222140efa280"
+    }
+  ],
+  "policies": [
+    "Actual four-mana5/3 Undead root grants the current friendly Hero the existing source-attributed Deathrattle and a source-independent visible player marker. The real Eternal Life child is explicitly flagged VISIBLE_PLAYER_ENCHANTMENT_CARD/HIDE_COST, not an independently playable spell; all three visual/enchantment rows remain complete evidence rather than fake physical casts.",
+    "Use existing GrantDeathrattle, AddPlayerEffect and PlayerEffectSpec. The visible marker uses the known physical Husk source face, not a fake physical tooltip spell. The genuine accepted natural Hero death body removes exactly original matching marker instances before its actual debit; source IDs and the original hero_died SourceAllocationFact.next_order bound the consumed set. No hidden behavior/attachment IDs are exposed.",
+    "Natural fatal execution uses the actual HeroLethalReference and SpendUpToResource20 with hero_lethal_at_debit. Actual positive committed result recovers only the original episode Hero to that actual health; zero does not recover. All existing fatal barriers, full simultaneous consumption, parked reactions, one-shot grants and terminal/concession rules remain authoritative local interpreter policy.",
+    "Source-independent Hero grants persist through source departure/silence. The existing Hero replacement copier already preserves granted attachments, including consumed state, while preserving the visible player effect; no new replacement mechanism is needed. Multiple genuine grants each enter the existing complete natural acceptance/consumption and capped-debit ordering; exact stacking/replacement timing remains M6.",
+    "Marker removal is part of the genuine natural Hero Deathrattle body before capped debit, including zero-corpses consumption. Ordinary player-effect hero_died reactions are parked by the existing fatal barrier and can be dropped on terminal, so they cannot own one-shot marker retirement. Opponent-only death cannot consume the friendly effect; post-acceptance new markers are outside the original next_order cutoff. Prohibition and concession retain their existing terminal policies.",
+    "No forced nonlethal Hero activation or recovery above the original current max health is approximated; reuse existing strict RecoverHero profile/error. All standard actual sources, formal legality and CN calibration remain open until evidenced.",
+    "Two primary historical hotfixes separately support zero-corpse destruction and single-owner response to hero destruction; they do not certify the complete current CN37 timing or replace explicit rule calibration."
+  ]
+}

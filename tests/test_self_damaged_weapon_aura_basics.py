@@ -1,4 +1,5 @@
 """One real Smith, continuous current-weapon Attack and existing kernel paths."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -469,7 +470,7 @@ class SelfDamagedWeaponAuraBasicsTests(unittest.TestCase):
 
     def test_protocol_versions_reject_all_old_and_noninteger_schemas(self):
         g = self.game(); snap = g.snapshot()
-        self.assertEqual(snap['schema_version'], 266)
+        self.assertEqual(snap['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(snap['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         self.assertEqual(snap['ruleset']['id'], 'prototype-v302')
         for value in (*range(1, 218), True, 182.0, 217):

@@ -1,4 +1,5 @@
 """M5-13d-02l-02: one root activation and durable on_use ability facts."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from dataclasses import dataclass
@@ -743,7 +744,7 @@ class PowerPayloadTests(unittest.TestCase):
         self.reject(s)
 
     def test_recovery_rejects_previous_snapshot_schema(self):
-        g = self.waiting(); s = g.snapshot(); self.assertEqual(s['schema_version'], 266)
+        g = self.waiting(); s = g.snapshot(); self.assertEqual(s['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         s['schema_version'] = 93; self.reject(s)
 
 
@@ -751,7 +752,7 @@ class PowerPayloadRepresentativeTests(unittest.TestCase):
     def test_native_player_example_restores_and_replays_existing_cards(self):
         from examples.power_payloads import run
         game, snapshot = run()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual([p.origin for p in game.state.hero_power_history], ['effect', 'manual'])
         self.assertEqual(len(game.state.hero_power_payload_history), 2)
         self.assertTrue(all(p.completed for p in game.state.hero_power_payload_history))

@@ -1,0 +1,296 @@
+{
+  "format": "reviewed-conditional-health-resource-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_923",
+        "dbf_id": 115650,
+        "name": "炎魔之火",
+        "name_en": "Flames of the Firelord",
+        "text": "随机对一个\n敌方随从造成$4点伤害。如果你的手牌中有法力值消耗大于或等于（8）点的牌，改为造成$8点。",
+        "text_en": "[x]Deal $4 damage to a random\nenemy minion. If you're\nholding a card that costs\n(8) or more, deal $8 instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "418c082fec53760b2801917956831d637f26df14238976dfab421d0e12875601",
+      "recipe": {
+        "script": "ragnaros_fire",
+        "target": null,
+        "deck_identity": "FIR_923"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_750",
+        "dbf_id": 120975,
+        "name": "先行打击",
+        "name_en": "Precursory Strike",
+        "text": "造成$3点伤害。如果你的手牌中有法力值消耗大于或等于（5）点的随从牌，抽一张随从牌。",
+        "text_en": "Deal $3 damage.\nIf you're holding a minion that costs (5) or more, draw a minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "ba72e12db75cbd8c3cc327ac68400bf7663344ba05048aa60103e0e160ee6c13",
+      "recipe": {
+        "script": "advance",
+        "target": "character",
+        "deck_identity": "TIME_750"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_620",
+        "dbf_id": 117835,
+        "name": "强固",
+        "name_en": "Fortify",
+        "text": "获得3点护甲值。对一个敌方随从造成等同于你护甲值的伤害。",
+        "text_en": "[x]Gain 3 Armor.\nDeal damage equal\nto your Armor to an\nenemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "d7d370262365ae5fd0ef989a1e7e644657526c476646ad51f245cc63b6728601",
+      "recipe": {
+        "script": "fortify",
+        "target": "enemy_minion",
+        "deck_identity": "TLC_620"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_447",
+        "dbf_id": 117830,
+        "name": "烧蚀毒雾",
+        "name_en": "Caustic Fumes",
+        "text": "消灭一个敌方随从。<b>延系：</b>对所有随从造成$2点伤害。",
+        "text_en": "Destroy an enemy minion. <b>Kindred:</b> Deal $2 damage to all minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "a5eea4d16623cdbaf8dcc260682e63fdf58270570f1ba2e3ed1b638553954d31",
+      "recipe": {
+        "script": "ablating",
+        "target": "enemy_minion",
+        "deck_identity": "TLC_447"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_441",
+        "dbf_id": 126254,
+        "name": "饮血术",
+        "name_en": "Drink Blood",
+        "text": "<b>吸血</b>。对一个随从造成$3点伤害。复原你的英雄技能。",
+        "text_en": "<b>Lifesteal</b>\nDeal $3 damage to a minion. Refresh your Hero Power.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 6,
+          "COST_BLOOD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "a0eeef5a86d0656fa73646ee8d6209499141439dfdba268c972c9f24c4549b5c",
+      "recipe": {
+        "script": "blood",
+        "target": "minion",
+        "deck_identity": "JAIL_441"
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_024",
+        "dbf_id": 78324,
+        "name": "灵界打击",
+        "name_en": "Death Strike",
+        "text": "<b>吸血</b>\n对一个随从造成$6点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal $6 damage\nto a minion.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "COST_BLOOD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          }
+        ]
+      },
+      "record_sha256": "47207518662ca8355d8ada33f400bdf4c5f99fc47962aa64215e2d335833c387",
+      "recipe": {
+        "script": "death_strike",
+        "target": "minion",
+        "deck_identity": "RLK_024"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

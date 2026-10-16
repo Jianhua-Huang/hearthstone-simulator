@@ -1,7 +1,7 @@
 """Resumable entry expansion; bodies and appendages remain independent minions."""
 from dataclasses import dataclass, replace
 
-from .effects import Effect, _integer, _player
+from .effects import Effect, _behavior, _integer, _player
 from .errors import ResolutionError
 from .model import CardType, ColossalRecord, Keyword, SummonStats, Zone, validate_summon_stats
 from .zones import CardReference, reference_entity, reference_value
@@ -15,8 +15,12 @@ class SummonStoredCard(Effect):
     stats: SummonStats | None = None
     cause: object = None
     producer_link: object = None
+    on_summon: str | None = None
 
     def __post_init__(self):
+        if self.on_summon is not None:
+            _behavior(self.on_summon)
+            if self.cause is None: raise ValueError('Stored recruit followup requires original card attribution')
         if self.cause is not None:
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed stored movement cause required')

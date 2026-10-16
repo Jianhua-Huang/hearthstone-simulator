@@ -3,6 +3,7 @@
 BOT_238 is an isolated battlecry seam. Its changing five hero powers are not
 adapted here: the existing fixture power makes that limitation explicit.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -235,7 +236,7 @@ class PlayerKeywordAuraTests(unittest.TestCase):
         self.assertEqual(PlayerEffectSpec('plain','mech').keyword_auras,())
 
     def test_current_protocol_and_previous_schema_explicitly_rejected(self):
-        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],266)
+        g=self.game();s=g.snapshot();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(g.ruleset.id,'prototype-v302');self.assertEqual(g.mechanics.signature['version'],CORE_EFFECTS_VERSION)
         s['schema_version']=191
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry())

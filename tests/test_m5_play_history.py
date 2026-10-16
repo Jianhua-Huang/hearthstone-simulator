@@ -1,4 +1,5 @@
 """Pre-play provenance, conditional targets, history and interrupted resolution."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import FrozenInstanceError, replace
 import json
 import unittest
@@ -286,14 +287,14 @@ class PlayHistoryTests(unittest.TestCase):
         self.assertEqual(g.snapshot(),before)
 
     def test_old_snapshot_schema_is_rejected(self):
-        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],266);data['schema_version']=26
+        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],SNAPSHOT_SCHEMA_VERSION);data['schema_version']=26
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_real_player_example_restores_and_replays(self):
         from examples.play_conditions import run
         game,snapshot=run()
         self.assertEqual(len(game.history),5);self.assertEqual(len(game.state.play_history),5)
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

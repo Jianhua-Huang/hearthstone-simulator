@@ -1,0 +1,310 @@
+{
+  "batch_id": "K10",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "policy_notes": [
+    "Hand neighbors are the original prepayment physical left/right references; lost or changed lifetimes skip rather than selecting replacement positions.",
+    "A replayed battlecry with no actual hand submission has no hand neighbors under explicit local policy awaiting CN calibration.",
+    "Tribal player discounts reuse the current minion tribe evaluator, one actual matching paid hand play consumes each finite modifier.",
+    "Conditional health payment reads the original complete hero-healed quote fact before local/external payment operations; it does not mutate cached payment.",
+    "Preparation has no COST main tag; the explicit reviewed recipe is zero, never an inferred default for missing prices."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_BT_416",
+        "dbf_id": 69588,
+        "name": "暴怒邪吼者",
+        "name_en": "Raging Felscreamer",
+        "text": "<b>战吼：</b>&你的下一张恶魔牌的法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b>& The next Demon you play costs (2) less.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 56765,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56765",
+              "type": "Int",
+              "value": "56765"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "819d3c8330f7ea4063b7786c6f97e1bdc0e822fe46c45f0ff20606b75de9e041",
+      "recipe": {
+        "script": "next_demon",
+        "entry": "battlecry",
+        "keywords": [],
+        "cost": 4,
+        "root": true,
+        "deck_identity": "BT_416"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ETC_523",
+        "dbf_id": 117395,
+        "name": "死亡金属骑士",
+        "name_en": "Death Metal Knight",
+        "text": "<b>嘲讽</b>。在本回合中，如果你的英雄受到治疗，本牌改为消耗生命值而非法力值。",
+        "text_en": "[x]<b>Taunt</b>\nCosts Health instead\nof Mana if your hero was\nhealed this turn.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_BLOOD": 2
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "fce01b616d58e6c7066f0ebe01121bbbb58e24bbcbad56afdebdabc82f01f5bf",
+      "recipe": {
+        "script": "healed_health",
+        "entry": null,
+        "keywords": [
+          "taunt"
+        ],
+        "cost": 3,
+        "root": true,
+        "deck_identity": "ETC_523"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_145",
+        "dbf_id": 69623,
+        "name": "伺机待发",
+        "name_en": "Preparation",
+        "text": "在本回合中，你所施放的下一个法术的法力值消耗减少（2）点。",
+        "text_en": "The next spell you cast this turn costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 1158,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1158",
+              "type": "Int",
+              "value": "1158"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1a6430cc8dab288cbdc7731e7ffdecb167a567a4b48a4eef5d7a64998d0c23d0",
+      "recipe": {
+        "script": "preparation",
+        "entry": "on_play",
+        "keywords": [],
+        "cost": 0,
+        "root": true,
+        "deck_identity": "EX1_145"
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_137",
+        "dbf_id": 118505,
+        "name": "灵敏的厨师",
+        "name_en": "Skittish Saucier",
+        "text": "<b>战吼：</b>\n使相邻手牌的法力值消耗减少（1）点。",
+        "text_en": "<b>Battlecry:</b> Reduce the Cost of adjacent cards in\nyour hand by (1).",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "28061c0f6e0299f9c81fb75bd1bf11f8ce7906b1fb65b336c9d9aaa70b9f3632",
+      "recipe": {
+        "script": "neighbors",
+        "entry": "battlecry",
+        "keywords": [],
+        "cost": 3,
+        "root": true,
+        "deck_identity": "DINO_137"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_823",
+        "dbf_id": 117580,
+        "name": "恐惧畏缩",
+        "name_en": "Cower in Fear",
+        "text": "对一个随从造成$3点伤害。在本回合中，你使用的下一张野兽牌法力值消耗减少（2）点。",
+        "text_en": "Deal $3 damage\nto a minion. The next\nBeast you play this\nturn costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "d845b6d6649af6b3ea5362aace1cd3018fbf16d25c1685e34b9338370a68d80d",
+      "recipe": {
+        "script": "damage_next_beast",
+        "entry": "on_play",
+        "keywords": [],
+        "cost": 2,
+        "root": true,
+        "deck_identity": "TLC_823"
+      }
+    }
+  ]
+}

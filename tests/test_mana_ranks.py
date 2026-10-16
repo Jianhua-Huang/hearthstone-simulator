@@ -277,8 +277,10 @@ class ManaRankTests(unittest.TestCase):
     def test_empty_profile_preserves_existing_registry_fingerprints(self):
         from hs_sim.engine.representative import build_registry
         # The 2026-10-10 historical baseline remains archived; assert current unchanged fixtures.
-        self.assertEqual(opening_registry().fingerprint(), 'e5cb05e2308f7febbbac20829c54e28e40dc3a1a3a1c2b67a65e88b938530e06')
-        self.assertEqual(build_registry().fingerprint(), '751f1debadb3ed845e22f52efdc35c06dc5f4848db8673a44c2f5d78122e90d3')
+        self.assertEqual(opening_registry().fingerprint(), 'e2a56b63d48cf1e07a587ade4a9d7bc67cedfdecd1d692ca82a0040113b2f7e5')
+        default = build_registry()
+        self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
+        self.assertEqual(default.fingerprint(), 'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
         self.assertEqual(default_mechanics().version, CORE_EFFECTS_VERSION)
 
     def test_opt_in_profile_changes_fingerprint_and_is_frozen(self):

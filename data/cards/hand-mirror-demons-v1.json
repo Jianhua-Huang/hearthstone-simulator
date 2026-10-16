@@ -1,0 +1,174 @@
+{
+  "format": "reviewed-hand-mirror-demons-v1",
+  "source_preaudit": "outputs/card-integration-20261014/k38d-demon-dependencies-preaudit.json",
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_524",
+        "dbf_id": 114514,
+        "name": "影蔽袭击者",
+        "name_en": "Shadowcloaked Assailant",
+        "text": "<b>战吼：</b>如果你的手牌中有一张与对手相同的牌，将对手的该牌洗入其牌库。",
+        "text_en": "[x]<b>Battlecry:</b> If you're holding\none of the same cards as\nyour opponent, shuffle\ntheirs into their deck.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Caroline Gariba"
+          }
+        ]
+      },
+      "record_sha256": "5f9bcbbb77e48cbc594a98a3b9abfc4cf7127097fac165edf1305a60dca145e9",
+      "recipe": {
+        "script": "EDR_524",
+        "deck_identity": "EDR_524"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_780",
+        "dbf_id": 115174,
+        "name": "血蓟幻术师",
+        "name_en": "Bloodthistle Illusionist",
+        "text": "<b>战吼：</b>&召唤一个本随从的复制。本体和复制中会秘密区分出一个，在受到伤害时死亡。",
+        "text_en": "[x]<b>Battlecry:</b>& Summon a copy\nof this. One secretly dies\nwhen it takes damage.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "b868720dfc17fb9be051e08974cb1cfa46e44a07a24ce1567275678e08399ba3",
+      "recipe": {
+        "script": "EDR_780",
+        "deck_identity": "EDR_780"
+      }
+    }
+  ],
+  "raw_only_enchantment_evidence": [
+    {
+      "record": {
+        "id": "EDR_780e",
+        "dbf_id": 115175,
+        "name": "幻象？",
+        "name_en": "Illusion?",
+        "text": "本随从可能是一个会在受到伤害时死亡的幻象。@{0}",
+        "text_en": "This might be an illusion that dies when it takes damage.@{0}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e979c12f35ddc41340c8a3f87d189a501f3928bfa77634195d421bf16a560928"
+    },
+    {
+      "record": {
+        "id": "EDR_780e1",
+        "dbf_id": 117301,
+        "name": "幻象？",
+        "name_en": "Illusion?",
+        "text": "本随从可能是一个会在受到伤害时死亡的幻象。@{0}",
+        "text_en": "This might be an illusion that dies when it takes damage.@{0}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "958794d9b400521cc73a59e4e38082d97461fbf700163bfd5ba17f011e45047c"
+    }
+  ]
+}

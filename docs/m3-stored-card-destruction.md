@@ -1,5 +1,7 @@
 # 独立存储卡销毁与本牌主体
 
+原生亡语例外：真实卡面明确要求存储退役触发时，可声明`stored_deathrattle=True`并沿[存储亡语契约](m3-stored-deathrattles.md)使用原亡语接受、禁止和重复协议。它与本页普通`on_discard`/`on_destroyed`主体互斥，不创造场上死亡事实；未声明的旧路径保持本页原语义。
+
 本增量补上真实手牌销毁及已离区卡牌的原生“被摧毁时”主体，复用区域与解释器，不增加第二套触发、死亡或施法执行器。实际执行和下一项只在[项目状态](project-status.md)与[机制清单](mechanism-backlog.md)维护。
 
 ```python

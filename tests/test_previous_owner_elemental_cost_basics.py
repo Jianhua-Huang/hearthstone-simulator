@@ -1,4 +1,5 @@
 """Finite Scorch history condition through the original intrinsic/paid stage."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, replace
 import json
@@ -302,7 +303,7 @@ class PreviousOwnerElementalCostTests(unittest.TestCase):
 
     def test_existing_wire_roundtrip_and_old_engine_ids_reject_without_schema_migration(self):
         g=self.closed();self.typed(g,self.fact(g).intrinsic);saved=self.check(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
         for key,subkey,value in (('ruleset','id','prototype-v222'),('mechanics_version','version','core-effects-v216')):
             bad=deepcopy(saved);bad[key][subkey]=value
             with self.assertRaises(SnapshotError):Game.from_snapshot(bad,self.fresh_registry())

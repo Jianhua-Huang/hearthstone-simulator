@@ -1,4 +1,5 @@
 """Finite Thing from Below price using the original success and payment paths."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, FrozenInstanceError, replace
 import json
@@ -418,7 +419,7 @@ class PlayerSummonCountCostTests(unittest.TestCase):
     def test_current_schema_explicitly_rejects_all_old_future_and_boolean_versions(self):
         g = self.game(); saved = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for value in (*range(1, 218), True, 206.0, 217):
             bad = deepcopy(saved); bad['schema_version'] = value
             with self.subTest(value=value), self.assertRaises(SnapshotError): Game.from_snapshot(bad, registry())

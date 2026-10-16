@@ -1,0 +1,1560 @@
+{
+  "format": "reviewed-death-followup-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_AT_123",
+        "dbf_id": 120524,
+        "name": "冰喉",
+        "name_en": "Chillmaw",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>\n如果你的手牌中有龙牌，则对所有随从造成3点伤害。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> If you're holding\na Dragon, deal 3 damage\nto all minions.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 2682,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 2682,
+          "2534": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2682",
+              "type": "Int",
+              "value": "2682"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "4605d9b7695c86b3bb4f0eaf0aef517a7b48dd5e3374b1214d849fe9c9464f89",
+      "recipe": {
+        "cost": 7,
+        "attack": 6,
+        "source_health": 6,
+        "collectible": true,
+        "script": "chillmaw",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "AT_123",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_201",
+        "dbf_id": 130286,
+        "name": "强能箭猪",
+        "name_en": "Augmented Porcupine",
+        "text": "<b>亡语：</b>\n造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Deathrattle</b>: Deal this\nminion's Attack damage\nrandomly split among\nall enemies.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 56398,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56398,
+          "2539": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Charlene Le Scanff"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56398",
+              "type": "Int",
+              "value": "56398"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "01d4e5400e38c64a5bc2431201e75683a9c0fab2911750398e51a6b524942f05",
+      "recipe": {
+        "cost": 3,
+        "attack": 2,
+        "source_health": 4,
+        "collectible": true,
+        "script": "porcupine",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "BT_201",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DRG_107",
+        "dbf_id": 120971,
+        "name": "紫罗兰魔翼鸦",
+        "name_en": "Violet Spellwing",
+        "text": "<b>亡语：</b>将一张“奥术飞弹”法术牌置入你的\n手牌。",
+        "text_en": "<b>Deathrattle:</b> Add an 'Arcane Missiles' spell to_your hand.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 54907,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 54907,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 564,
+          "2542": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "54907",
+              "type": "Int",
+              "value": "54907"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "67bdec8bcacfbf9227212153f757f1158f22b22309b9cc7f83892ed3bd06fcba",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "source_health": 1,
+        "collectible": true,
+        "script": "spellwing",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "DRG_107",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_383",
+        "dbf_id": 69613,
+        "name": "提里奥·弗丁",
+        "name_en": "Tirion Fordring",
+        "text": "<b>圣盾</b>。<b>嘲讽</b>。<b>亡语：</b>&装备一把5/3的灰烬使者。",
+        "text_en": "<b>Divine Shield</b>, <b>Taunt</b> <b>Deathrattle:</b>& Equip a 5/3_Ashbringer.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 890,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1730,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "890",
+              "type": "Int",
+              "value": "890"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "25fb381fb2493b72a24072bd2b7167d76a867f1779ea992f1b748ed8ad4de069",
+      "recipe": {
+        "cost": 8,
+        "attack": 8,
+        "source_health": 8,
+        "collectible": true,
+        "script": "tirion",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EX1_383",
+        "keywords": [
+          "taunt",
+          "divine_shield"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_WC_701",
+        "dbf_id": 117030,
+        "name": "邪能响尾蛇",
+        "name_en": "Felrattler",
+        "text": "<b>突袭</b>。<b>亡语：</b>&对所有敌方随从造成1点伤害。",
+        "text_en": "[x]<b>Rush</b>\n<b>Deathrattle:</b>& Deal 1 damage\nto all enemy minions.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "858": 63407,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 63407,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "63407",
+              "type": "Int",
+              "value": "63407"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0d7d9e680c48057d334c89ef799faad272434bb42db489b2790941c2057ba754",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "source_health": 2,
+        "collectible": true,
+        "script": "rattler",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "WC_701",
+        "keywords": [
+          "rush"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_227",
+        "dbf_id": 114020,
+        "name": "幽爪熊",
+        "name_en": "Umbraclaw",
+        "text": "<b>突袭</b>。<b>亡语：</b><b>灌注</b>你的英雄技能。",
+        "text_en": "<b>Rush</b>\n<b>Deathrattle:</b> <b>Imbue</b> your Hero Power.",
+        "cost": 4,
+        "attack": 5,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fdac83f4fbaa47b31be743d3fa5cc2471d3a6ceadd86e31a4e8b39ce3d00fbb0",
+      "recipe": {
+        "cost": 4,
+        "attack": 5,
+        "source_health": 2,
+        "collectible": true,
+        "script": "bear",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_227",
+        "keywords": [
+          "rush"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_890",
+        "dbf_id": 114496,
+        "name": "梦魇龙裔",
+        "name_en": "Nightmare Dragonkin",
+        "text": "<b>亡语：</b>&使你最右边的手牌法力值消耗减少（2）点。",
+        "text_en": "<b>Deathrattle:</b>& Reduce the\nCost of the right-most card in your hand by (2).",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          }
+        ]
+      },
+      "record_sha256": "835df6b9a4a6f7b86bb8938c1856db015fe5efad3ff7453caaa8c749224f894d",
+      "recipe": {
+        "cost": 3,
+        "attack": 4,
+        "source_health": 2,
+        "collectible": true,
+        "script": "whelp",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_890",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_978",
+        "dbf_id": 117511,
+        "name": "踏青驼鹿",
+        "name_en": "Meadowstrider",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>将一张踏青驼鹿置于你的牌库底，其法力值消耗为（1）点。",
+        "text_en": "<b>Taunt</b>. <b>Deathrattle:</b> Put\na Meadowstrider on the bottom of your deck. It costs (1).",
+        "cost": 8,
+        "attack": 6,
+        "health": 11,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 11,
+          "ATK": 6,
+          "COST": 8,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "eb57872a5a0012bda22b186d619c8e2e825ee818d547efb877a7387dbea1b370",
+      "recipe": {
+        "cost": 8,
+        "attack": 6,
+        "source_health": 11,
+        "collectible": true,
+        "script": "meadow",
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_978",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EX1_383t",
+        "dbf_id": 1730,
+        "name": "灰烬使者",
+        "name_en": "Ashbringer",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 5,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "714bfc5baf263a6f3bc455200b4631ac0458db37acec600f654ccc84099cbdcd",
+      "recipe": {
+        "cost": 5,
+        "attack": 5,
+        "source_health": 3,
+        "collectible": false,
+        "script": null,
+        "scope_role": "reachable_dependency",
+        "deck_identity": "EX1_383t",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_YOD_026",
+        "dbf_id": 117061,
+        "name": "邪魔仆从",
+        "name_en": "Fiendish Servant",
+        "text": "<b>亡语：</b>&随机使一个友方随从获得本随从的攻击力。",
+        "text_en": "[x]<b>Deathrattle:</b>& Give this\nminion's Attack to a random\nfriendly minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 56112,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56112,
+          "TECH_LEVEL": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56112",
+              "type": "Int",
+              "value": "56112"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "59a269ef902e8faebf1c5cf4132c29236093cd250adc4c01ad3cac62cf00aeb8",
+      "recipe": {
+        "collectible": true,
+        "cost": 1,
+        "attack": 2,
+        "source_health": 1,
+        "keywords": [],
+        "script": "servant",
+        "deck_identity": "YOD_026",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_004",
+        "dbf_id": 127055,
+        "name": "伪装的特工",
+        "name_en": "Disguised Operator",
+        "text": "可以使用在对战面板的任意一侧。<b>突袭</b>。<b>亡语：</b>你的对手抽两张牌。",
+        "text_en": "[x] Can be played on either side.\n<b>Rush</b>. <b>Deathrattle:</b> Your\nopponent draws 2 cards.",
+        "cost": 1,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "DISGUISED": 1,
+          "4706": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4706",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4706"
+          }
+        ]
+      },
+      "record_sha256": "6b15137b40b8f7c3e5e48201637626c974d85d54be40fa66ad36b21c0f192a2f",
+      "recipe": {
+        "collectible": true,
+        "cost": 1,
+        "attack": 4,
+        "source_health": 2,
+        "keywords": [
+          "rush"
+        ],
+        "script": "operator",
+        "deck_identity": "CAP_004",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_110",
+        "dbf_id": 115652,
+        "name": "孢子尖牙怪",
+        "name_en": "Sporegnasher",
+        "text": "<b>剧毒</b>。<b>亡语：</b>随机对一个敌方随从造成1点伤害。",
+        "text_en": "<b>Poisonous</b>\n<b>Deathrattle:</b> Deal 1\ndamage to a random\nenemy minion.",
+        "cost": 5,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "POISONOUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "a7ae8bdd774c2d1f472341c2addd9d5b09cfb46fb7b5ae68b58dda840c223630",
+      "recipe": {
+        "collectible": true,
+        "cost": 5,
+        "attack": 1,
+        "source_health": 5,
+        "keywords": [
+          "poisonous"
+        ],
+        "script": "spore",
+        "deck_identity": "EDR_110",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_495",
+        "dbf_id": 115027,
+        "name": "扭曲的树人",
+        "name_en": "Twisted Treant",
+        "text": "<b>亡语：</b>使每个玩家手牌中的随机一张随从牌获得-2攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random minion in each player's hand -2 Attack.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2831": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "f09d0d93a61a1afa3e89ecc4e2a79f07277c148256a2827956f694465c8f87e4",
+      "recipe": {
+        "collectible": true,
+        "cost": 2,
+        "attack": 2,
+        "source_health": 2,
+        "keywords": [],
+        "script": "twisted",
+        "deck_identity": "EDR_495",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "END_002",
+        "dbf_id": 121057,
+        "name": "邪恶荒裔怪",
+        "name_en": "Wicked Blightspawn",
+        "text": "<b>复生</b>。<b>亡语：</b>装备一把1/2的匕首。如果你已经装备了武器，改为使其获得+2攻击力。",
+        "text_en": "[x]<b>Reborn</b>. <b>Deathrattle:</b> Equip a\n1/2 Dagger. If you already\nhave a weapon equipped, give\nit +2 Attack instead.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 65,
+          "REBORN": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "006e0cca61e1ab53753c77b2a0ef7215b2ac58ef1e68e88b697d7cd73795f352",
+      "recipe": {
+        "collectible": true,
+        "cost": 4,
+        "attack": 4,
+        "source_health": 3,
+        "keywords": [
+          "reborn"
+        ],
+        "script": "blightspawn",
+        "deck_identity": "END_002",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "CS2_082_H1",
+        "dbf_id": 46054,
+        "name": "邪恶短刀",
+        "name_en": "Wicked Knife",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 17,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 2,
+          "251": 6
+        },
+        "card_set_id": 17,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "e77fbda95238247ae31701d3b8087408916e63baecf0db2eca35c64d51537f87",
+      "recipe": {
+        "collectible": false,
+        "cost": 1,
+        "attack": 1,
+        "source_health": 2,
+        "keywords": [],
+        "script": null,
+        "deck_identity": "CS2_082_H1",
+        "scope_role": "reachable_dependency"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_572",
+        "dbf_id": 116673,
+        "name": "受难的恐翼巨龙",
+        "name_en": "Tormented Dreadwing",
+        "text": "<b>亡语：</b>抽两张龙牌，其法力值消耗减少（1）点。",
+        "text_en": "<b>Deathrattle:</b> Draw 2 Dragons. Reduce their Costs by (1).",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "242eae96bebcb1a7ccbdb70bde917b26278f96eb8e04ec0df9e21a1e737fba1f",
+      "recipe": {
+        "collectible": true,
+        "cost": 5,
+        "attack": 5,
+        "source_health": 5,
+        "keywords": [],
+        "script": "dreadwing",
+        "deck_identity": "EDR_572",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_621",
+        "dbf_id": 117916,
+        "name": "固执的守护者",
+        "name_en": "Willful Watcher",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>摧毁你牌库顶的三张牌。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Destroy the\n_top 3 cards of your deck.",
+        "cost": 4,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "0c9b906c4ee0148a762f00a67e96715d664af0e727b7d01c728ee3f018e8e297",
+      "recipe": {
+        "collectible": true,
+        "cost": 4,
+        "attack": 4,
+        "source_health": 7,
+        "keywords": [
+          "taunt"
+        ],
+        "script": "watcher",
+        "deck_identity": "TLC_621",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_244",
+        "dbf_id": 118223,
+        "name": "好奇的探险者",
+        "name_en": "Curious Explorer",
+        "text": "<b>亡语：</b>使你对手的手牌中一张随从牌的\n法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Deathrattle:</b> Reduce the\nCost of a minion in your\n_opponent's hand by (2).",
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "5d4b01498bcaae356d8e87e838b08e51206339b71aaf3dcd0b6865678532ce5f",
+      "recipe": {
+        "collectible": true,
+        "cost": 2,
+        "attack": 3,
+        "source_health": 5,
+        "keywords": [],
+        "script": "explorer",
+        "deck_identity": "TLC_244",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_891",
+        "dbf_id": 114497,
+        "name": "贪婪的地狱猎犬",
+        "name_en": "Ravenous Felhunter",
+        "text": "<b>亡语：</b>复活一个法力值消耗小于或等于（4）点的友方<b>亡语</b>随从，并召唤一个它的复制。",
+        "text_en": "<b>Deathrattle:</b> Resurrect a friendly <b>Deathrattle</b> minion that costs (4) or less. Summon a copy of it.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "3169": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3169",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3169"
+          }
+        ]
+      },
+      "record_sha256": "23034a70bf4c0d316dc534fae81f5f153e6b55aa6b0c2f145e1055aa4b087318",
+      "recipe": {
+        "collectible": true,
+        "cost": 5,
+        "attack": 5,
+        "source_health": 3,
+        "keywords": [],
+        "script": "felhunter",
+        "deck_identity": "EDR_891",
+        "scope_role": "standard_root_candidate"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_892",
+        "dbf_id": 114498,
+        "name": "残暴的魔蝠",
+        "name_en": "Ferocious Felbat",
+        "text": "<b>亡语：</b>复活一个不同的法力值消耗大于或等于（5）点的友方<b>亡语</b>随从，并召唤一个它的复制。",
+        "text_en": "[x]<b>Deathrattle:</b> Resurrect a\ndifferent friendly <b>Deathrattle</b>\nminion that costs (5) or more.\nSummon a copy of it.",
+        "cost": 7,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "3169": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3169",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3169"
+          }
+        ]
+      },
+      "record_sha256": "6591c5558f187c501251ce11a67a213d58d7581b022120476a4cd8e17bbbd1b5",
+      "recipe": {
+        "collectible": true,
+        "cost": 7,
+        "attack": 7,
+        "source_health": 5,
+        "keywords": [],
+        "script": "felbat",
+        "deck_identity": "EDR_892",
+        "scope_role": "standard_root_candidate"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EX1_277",
+        "dbf_id": 564,
+        "name": "奥术飞弹",
+        "name_en": "Arcane Missiles",
+        "text": "造成$3点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal $3 damage randomly split among all enemies.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Warren Mahy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "8b2a6bb75692263b8a7e49457293d341a034edb8535f8b8a1fc36c9a31a82112",
+      "scope_role": "reachable_dependency"
+    },
+    {
+      "record": {
+        "id": "CS2_082",
+        "dbf_id": 485,
+        "name": "邪恶短刀",
+        "name_en": "Wicked Knife",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 2,
+          "251": 6
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "8b870a0f632d3ceef8beb107001f6fc563cd2b2f6af5af8c87cb478431b01b56",
+      "scope_role": "reachable_dependency"
+    }
+  ],
+  "dependency_links": [
+    {
+      "source_id": "CORE_DRG_107",
+      "card_id": "EX1_277",
+      "dbf_id": 564
+    },
+    {
+      "source_id": "CORE_EX1_383",
+      "card_id": "EX1_383t",
+      "dbf_id": 1730
+    }
+  ],
+  "followup_batch": "K38b",
+  "followup_evidence": "outputs/card-integration-20261014/k38b-demon-dependencies-preaudit.json",
+  "gallery_dependency_links": [
+    {
+      "source_id": "END_002",
+      "card_id": "CS2_082",
+      "dbf_id": 485,
+      "source_gallery_record": {
+        "id": 121057,
+        "collectible": 1,
+        "slug": "121057-wicked-blightspawn",
+        "class_id": 0,
+        "multi_class_ids": [
+          1,
+          7
+        ],
+        "minion_type_id": 11,
+        "card_type_id": 4,
+        "card_set_id": 1957,
+        "rarity_id": 3,
+        "artist_name": "Slawomir Maniak",
+        "health": 3,
+        "attack": 4,
+        "mana_cost": 4,
+        "name": "邪恶荒裔怪",
+        "text": "<b>复生</b>。<b>亡语：</b>装备一把1/2的匕首。如果你已经装备了武器，改为使其获得+2攻击力。",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/35aff323b9f2004989c33361cb40d3613714c7c6bec9333d874116912e093948.png",
+        "image_gold": "",
+        "flavor_text": "我们不得不把这个随从的<b>亡语</b>分裂成两部分。",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/ef0ebdc1cd2ecdd250d288499e98f0d22b719dd58dda1f6cb0beddfe966d54d9.png",
+        "child_ids": [
+          485,
+          46054
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": [
+          12,
+          78
+        ],
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 0,
+        "set_priority": 3,
+        "class_priority": 999
+      },
+      "source_gallery_record_sha256": "ee1e383d7a771ea302054368a132f11985bef8c85c26fc9384d96e16bb2f1b64"
+    },
+    {
+      "source_id": "END_002",
+      "card_id": "CS2_082_H1",
+      "dbf_id": 46054,
+      "source_gallery_record": {
+        "id": 121057,
+        "collectible": 1,
+        "slug": "121057-wicked-blightspawn",
+        "class_id": 0,
+        "multi_class_ids": [
+          1,
+          7
+        ],
+        "minion_type_id": 11,
+        "card_type_id": 4,
+        "card_set_id": 1957,
+        "rarity_id": 3,
+        "artist_name": "Slawomir Maniak",
+        "health": 3,
+        "attack": 4,
+        "mana_cost": 4,
+        "name": "邪恶荒裔怪",
+        "text": "<b>复生</b>。<b>亡语：</b>装备一把1/2的匕首。如果你已经装备了武器，改为使其获得+2攻击力。",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/35aff323b9f2004989c33361cb40d3613714c7c6bec9333d874116912e093948.png",
+        "image_gold": "",
+        "flavor_text": "我们不得不把这个随从的<b>亡语</b>分裂成两部分。",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/ef0ebdc1cd2ecdd250d288499e98f0d22b719dd58dda1f6cb0beddfe966d54d9.png",
+        "child_ids": [
+          485,
+          46054
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": [
+          12,
+          78
+        ],
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 0,
+        "set_priority": 3,
+        "class_priority": 999
+      },
+      "source_gallery_record_sha256": "ee1e383d7a771ea302054368a132f11985bef8c85c26fc9384d96e16bb2f1b64"
+    }
+  ]
+}

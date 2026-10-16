@@ -1,0 +1,78 @@
+{
+  "mode": "STANDARD",
+  "region": "CN",
+  "patch": "37.0",
+  "checked_on": "2026-10-15",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "candidate_set_ids": [
+    1637,
+    1941,
+    1946,
+    1952,
+    1957,
+    1980,
+    1988
+  ],
+  "early_available_ids": [
+    "BE_036"
+  ],
+  "series_notes": {
+    "1637": "Current Core in the source; hidden retired Core set 1810 is excluded as a root candidate.",
+    "1941": "Twenty-one current Event catalog members have CN acquisition announcements preceding the target cutoff. BE_EVENT_103 is preloaded for a future event and is explicitly excluded as a root candidate. Per-card Standard tenure, bans and server availability still need final legality review.",
+    "1946": "Into the Emerald Dream and associated mini-set candidates.",
+    "1952": "The Lost City of Un'Goro and associated mini-set candidates.",
+    "1957": "Across the Timeways and associated mini-set candidates.",
+    "1980": "Cataclysm and associated mini-set candidates.",
+    "1988": "Escape from the Violet Hold and associated mini-set candidates."
+  },
+  "evidence": [
+    {
+      "url": "https://hs.blizzard.cn/news/24267727/index.html",
+      "supports": "The March 18 Beetle rotation removes Whizbang, Perils and Great Dark Beyond and changes Core/Event. Also confirms EDR_253 changed to ordinary draw."
+    },
+    {
+      "url": "https://hs.blizzard.cn/news/24243444/",
+      "supports": "Annual Core changes; exact card membership additionally needs the current source and timing review."
+    },
+    {
+      "url": "https://hs.blizzard.cn/news/24294373/",
+      "supports": "M.O.T.H.E.R. is available early. Ancient Gods Descend, Titans Descend and Fracturing Darkness are early event rewards; all three are already within source Event set 1941."
+    },
+    {
+      "url": "https://hs.blizzard.cn/news/24301454/",
+      "supports": "Fresh full announcement frozen on October 15 confirms the October 14 patch, October 21 expansion launch and November 11 Treasure Fiend event/bundle schedule. Prior failed reopen remains in the preserved old policy."
+    },
+    {
+      "url": "https://hs.blizzard.cn/cards/?set=standard",
+      "supports": "Public CN gallery API exposes 1322 Standard catalog rows including 135 Black Empire previews, and 21 Event rows. Exact IDs match the English gallery. Catalog inclusion alone is not live Standard legality."
+    }
+  ],
+  "limits": [
+    "This is a candidate selection policy, not an M0 legal pool certificate.",
+    "Collection flags, series IDs and preview data do not prove every card is currently deck legal.",
+    "Other Black Empire cards are preloaded; only explicit early exceptions enter root candidates.",
+    "Cross-set content reachable from Standard remains required; no Wild-only root expansion in this goal."
+  ],
+  "availability_checked_on": "2026-10-15",
+  "previous_policy": {
+    "path": "data/cards/standard-candidate-policy-cn37.json",
+    "sha256": "0f35eab9d53879c0ceacdb8de856865d2ef8361cdbdcee177b238b2194ef54aa"
+  },
+  "excluded_ids": [
+    "BE_EVENT_103"
+  ],
+  "candidate_exclusion_evidence": {
+    "BE_EVENT_103": {
+      "dbf_id": 129818,
+      "name": "盗宝邪魔",
+      "scheduled_reward_window": "2026-11-11/2026-12-02",
+      "announcement": "https://hs.blizzard.cn/news/24301454/",
+      "current_cn_gallery_observation": "outputs/card-integration-20261014/m0-core-02-01/cn-gallery-event.json",
+      "current_english_gallery_observation": "outputs/card-integration-20261014/m0-core-02-01/en-current-event-api.json",
+      "basis": "Future CN event and bundle schedule, corroborated by absence from both current Event/Standard galleries. Explicit candidate exclusion, not a complete formal legality certificate.",
+      "preserve_source_and_reachability_review": true
+    }
+  },
+  "source_review_evidence": "outputs/card-integration-20261014/m0-core-02-01/event-and-hotfix-audit.json"
+}

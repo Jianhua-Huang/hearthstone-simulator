@@ -1,0 +1,231 @@
+{
+  "batch_id": "K75",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_812",
+        "dbf_id": 114304,
+        "name": "畸怪符文剑",
+        "name_en": "Grotesque Runeblade",
+        "text": "<b>战吼：</b>如果你使用的上一张牌拥有邪恶符文，则获得+1攻击力。依此法检定鲜血符文以获得+1耐久度。",
+        "text_en": "[x]<b>Battlecry:</b> If the last card you\nplayed had an Unholy rune,\ngain +1 Attack. Repeat for\n____Blood and +1 Durability.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COST_BLOOD": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "46dd21fad448f2a0ea604e7bddf17b3d41901cf60e1f6d49e072ab13a40ce13c"
+    },
+    {
+      "record": {
+        "id": "JAIL_454",
+        "dbf_id": 126911,
+        "name": "紧急手术",
+        "name_en": "Emergency Surgery",
+        "text": "选择一个敌方随从。召唤四个3/1并具有<b>吸血</b>的亡灵攻击该随从。",
+        "text_en": "[x]Choose an enemy minion.\n Summon four 3/1\nUndead with <b>Lifesteal</b>\nthat attack it.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COST_BLOOD": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leroy Steinmann"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e02f8e36e26ad86ebea60434ab8f14cc10651fa05fffdd9eeb18a1f44c94fdf8"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_454t",
+        "dbf_id": 126319,
+        "name": "通灵护士",
+        "name_en": "Necronurse",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leroy Steinmann"
+          }
+        ]
+      },
+      "record_sha256": "54b528890a9be09d428498ee61b0c790898a15ae983fdda1aa899ae4de8579d1"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_812e",
+        "dbf_id": 120207,
+        "name": "邪恶腐化",
+        "name_en": "Unholy Corruption",
+        "text": "+1攻击力。",
+        "text_en": "+1 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1cdeb71fce76192a349adc913e9a6ddd0febbebf4575ee6296014e76853809c9"
+    },
+    {
+      "record": {
+        "id": "EDR_812e1",
+        "dbf_id": 120092,
+        "name": "鲜血腐化",
+        "name_en": "Bloody Corruption",
+        "text": "+1耐久度。",
+        "text_en": "+1 Durability.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e05fa1491a851779927eb5071cb8dd6722ae5a41357689adf5a9df6291c4156f"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k75-official-face-01/comparison.json",
+      "bytes": 716,
+      "sha256": "916f3aeceae86834efd2904b74b35e97402bbacec0f936bf70c5d83cb149b39d"
+    }
+  ],
+  "policies": [
+    "Runeblade queries genuine committed hand-play history, bounding before its own actual hand Battlecry play_id, never its own printed dual runes. Countered plays count; powers/summons/effect casts do not become hand plays. FrozenPlayedFaceFact metadata is the original printed rune basis, independent of later physical transformations. No previous play gives no bonus; Unholy>=1 and Blood>=1 independently add1Attack/durability. Native replays without a new hand play query the actual latest history.",
+    "Emergency Surgery has a real current four3/1Lifesteal Undead recipe and the official fixed child126319. It chooses an enemy board minion. At the native spell body window capture its continuous BoardPresence, issue four original attributed fixed summon requests, then derive the complete original successful group and submit ordinary ForceAttack for those original residents against the original target.",
+    "All four summon requests (and their ordinary reactions/quantity deliveries) precede the group attack acceptance. Board-full attempts use ordinary failure rules; freed spaces during later attacks do not retroactively create failed bodies. Quantity extras belonging to those original requests participate; pre-existing or nested same-name minions are not inferred by name. These summon/attack order and quantity policies remain M6.",
+    "Attackers and target use original continuous residence references. Transformation/control follow existing ForceAttack current relation checks; departure/reentry cannot borrow the old target or attacker. A dead target skips remaining attacks without retargeting; already summoned nurses remain. Actual Lifesteal and combat run through the normal health/attack interpreter, not SPELL damage or synthetic healing.",
+    "The finite original summon-group followup stores only its native original RuleContext and target reference, uses complete original fixed-request delivery facts, and emits existing ForceAttack work. It introduces no mutable group account, resource payment or alternative combat controller. Existing frame/choice proofs and target validation own suspension and replay.",
+    "Current official en_US/zh_CN faces agree with the frozen source. The primary36.0.3 note changed Surgery fromthree nurses tofour, matching37.0. Exact CN timing, formal generation inventories and remaining source exclusions stay open; community bug posts are not treated as rules."
+  ]
+}

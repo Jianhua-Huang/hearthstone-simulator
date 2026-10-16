@@ -82,7 +82,7 @@ def activated_deathrattles(state, player_id, *, completed=None, origin=None, tur
     """Trusted-host query, in actual execution order; queued work is excluded."""
     _player(player_id)
     if completed is not None and type(completed) is not bool: raise ValueError('Invalid completion filter')
-    if origin is not None and origin not in ('death','effect'): raise ValueError('Invalid Deathrattle origin')
+    if origin is not None and origin not in ('death','effect','stored'): raise ValueError('Invalid Deathrattle origin')
     if turn is not None: _integer(turn,'Deathrattle turn',1)
     return tuple(sorted((d for d in state.deathrattle_history if d.execution_order is not None
         and d.capture.player_id==player_id and (completed is None or d.completed==completed)
@@ -92,6 +92,8 @@ def activated_deathrattles(state, player_id, *, completed=None, origin=None, tur
 
 def validate_ability(state, registry, ability):
     if ability.kind!='deathrattle': return
+    from .deathrattle_memory import validate_ability as validate_memory_ability
+    validate_memory_ability(state,registry,ability)
     registry.behavior(ability.behavior_id)
     if ability.id>=state.next_attachment_id:
         raise ValueError('Deathrattle ID exceeds the current/historical attachment counter')
@@ -150,6 +152,12 @@ def validate_context(context, registry):
             raise ValueError('Effect Deathrattle batch differs from its accepted ability set')
         if capture.trigger_source_id is not None and context.state.entities[capture.trigger_source_id].card_id!=capture.trigger_source_card_id:
             raise ValueError('Effect Deathrattle trigger identity changed in its capture')
+    if capture.origin=='stored' and saved.execution_order is None:
+        from .stored_deathrattles import validate_context as validate_stored_context
+        validate_stored_context(context,registry)
+        from .lifecycle import active_abilities
+        if batch.abilities!=tuple(active_abilities(context.source,'deathrattle')):
+            raise ValueError('Stored Deathrattle batch differs from its accepted complete ability set')
 
 
 def validate_acceptance(work,registry=None):
@@ -189,10 +197,12 @@ Later callback views never replace this proof with an extra execution view.
             raise ValueError('Deathrattle batch proof differs from its complete death abilities')
 
 
-def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=None, trigger_source_id=None, trigger_count=1):
+def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=None, trigger_source_id=None, trigger_count=1, origin='effect'):
     from .deathrattle_repeats import capture_plan
     from .errors import ResolutionLimitExceeded
     entity=r.state.entities[carrier_id]
+    if origin not in ('effect','stored') or death is not None and origin!='effect':
+        raise ValueError('Unknown active/stored Deathrattle acceptance origin')
     _integer(trigger_count,'Deathrattle trigger count',1)
     if death is not None and trigger_count!=1: raise ValueError('Natural death has one trigger round')
     if trigger_source_id is not None and trigger_source_id not in r.state.entities:
@@ -212,7 +222,7 @@ def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=Non
     for index in range(batch.total):
         ability,trigger_index,repeat_index=batch.position(index)
         capture=DeathrattleCapture(batch.id+len(captures),batch.id,carrier_id,player_id,
-            death.card_id if death else entity.card_id,entity.kind,ability,'death' if death else 'effect',
+            death.card_id if death else entity.card_id,entity.kind,ability,'death' if death else origin,
             death.id if death else None,trigger_source_id,
             r.state.entities[trigger_source_id].card_id if trigger_source_id else None,
             r.state.turn,r.state.action_number,repeat_index,trigger_index)
@@ -236,7 +246,10 @@ def begin(r, work):
     if saved.capture!=capture or saved.execution_order is not None or saved.completed or saved.interrupted:
         raise ValueError('Deathrattle invocation is already started or mismatched')
     order=1+sum(d.execution_order is not None for d in r.state.deathrattle_history)
-    r.state.deathrattle_history[capture.id-1]=replace(saved,execution_order=order)
+    fresh=capture.repeat_index>1 or capture.trigger_index>1
+    source=r.state.entities[capture.carrier_id]if fresh else work.context.source
+    attack=max(0,work.context.death.attack if work.context.death is not None else source.attack)
+    r.state.deathrattle_history[capture.id-1]=replace(saved,execution_order=order,source_attack=attack)
     from .resolver import BehaviorCall
     call=BehaviorCall(capture.ability.behavior_id,work.context)
     if capture.repeat_index>1 or capture.trigger_index>1:
@@ -279,6 +292,9 @@ def validate_history(state, registry):
     for index,saved in enumerate(state.deathrattle_history,1):
         if type(saved) is not DeathrattleRecord: raise ValueError('Expected Deathrattle record')
         saved.__post_init__();c=saved.capture;validate_capture(state,registry,c)
+        if c.death_id is not None and saved.execution_order is not None:
+            death=next(d for d in state.death_history if d.id==c.death_id)
+            if saved.source_attack!=max(0,death.attack):raise ValueError('Deathrattle execution changed its original death Attack')
         if c.id!=index or not previous<=(c.turn,c.action)<=(state.turn,state.action_number):
             raise ValueError('Invalid Deathrattle capture chronology')
         previous=(c.turn,c.action)

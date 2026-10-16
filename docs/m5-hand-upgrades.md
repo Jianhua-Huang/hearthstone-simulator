@@ -1,5 +1,7 @@
 # M5-03a：区域引用、存储卡增益与手牌升级
 
+原upgrade_face新增内部显式spell_to_minion参数，仅供generic accepted-cast进度的真实SPELL到MINION配对。普通UpgradeHandCard不自动拥有该转换；原费用/数值附魔保留，额外授予能力明确拒绝，原目标卡面和普通随从出牌/战吼复用，详见[契约](m3-held-draw-forms.md)。
+
 本页原批次为 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包为 `representative-m5-v38`，信息版本为 `player-view-v44`。本页记录 M5-03a 的基础契约；M5-03b 已在此基础上接入 [手牌进度、腐蚀和注能](m5-hand-progress.md)。M5 整体仍未完成。
 
 ## 为什么先建立公共升级操作

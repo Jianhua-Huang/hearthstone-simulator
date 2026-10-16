@@ -1,4 +1,5 @@
 """Pre-activation branch identity, legality and composition; provisional R-112."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from dataclasses import replace
@@ -310,9 +311,9 @@ class ChooseOneTests(unittest.TestCase):
 
     def test_prior_composite_snapshot_schema_requires_original_engine(self):
         snapshot = self.game().snapshot()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         snapshot['schema_version'] = 148
-        with self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265 need their original engines'):
+        with self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1} need their original engines'):
             Game.from_snapshot(snapshot, self.r)
 
     def test_unregistered_branch_behavior_is_explicitly_rejected(self):

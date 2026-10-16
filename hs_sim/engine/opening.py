@@ -187,14 +187,15 @@ def start_first_turn(r, effect):
     event = r.emit('turn_started', player_id=player.id, turn=1)
     from .owner_turns import publish_owner_start
     publish_owner_start(r.state, event)
-    return [*countdowns, Draw(player.id)]
+    from .turn_start_draws import DrawAtTurnStart
+    return [*countdowns, DrawAtTurnStart(player.id)]
 
 
 def add_to_hand(r, effect):
     create_hand_card(r, effect)
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None):
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None):
     """Shared generated materialization; public AddToHand still returns no work."""
     player = r.player(effect.player_id)
     definition = r.registry.card(effect.card_id)
@@ -218,6 +219,9 @@ def create_hand_card(r, effect, *, origin_entity_id=None):
         from .costs import attach_cost
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
     install(r.state, entity, effect)
+    if native_spell_value is not None:
+        from .native_spell_values import install as install_native_spell_value
+        install_native_spell_value(r.state,r.registry,entity,native_spell_value)
     for viewer in effect.revealed_to:
         r.game._information.players[viewer].remember(entity)
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id)

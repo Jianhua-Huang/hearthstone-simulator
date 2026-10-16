@@ -3,6 +3,14 @@ from .damage_history import damage_records, hero_damage_taken, validate_state
 from .model import CardType, DamageRecord, HeroDamageTakenCostFact, HeroDamageTakenCostSpec
 
 
+def contribution(result, spec, player_id, turn):
+    if result.target_kind != CardType.HERO.value:
+        return 0
+    if spec.profile_id == 'cost.enemy-hero-current-turn-damage-count-v1':
+        return int(result.target_controller == 3 - player_id and result.turn == turn and result.damage_dealt > 0)
+    return result.damage_dealt if result.target_controller == player_id and result.active_player == player_id else 0
+
+
 def validate_definition(definition):
     spec = definition.hero_damage_taken_cost
     if spec is None: return
@@ -39,12 +47,10 @@ def validate_operand(fact):
         orders = (result.target_entered_order, result.source_entered_order, result.weapon_entered_order)
         if any(identity >= fact.next_entity_id for identity in ids) or any(order is not None and order >= fact.next_order for order in orders):
             raise ValueError('Received-damage price borrowed a future physical allocation')
-        if (result.target_kind == CardType.HERO.value and result.target_controller == fact.player_id
-                and result.active_player == fact.player_id):
-            quantity += result.damage_dealt
+        quantity += contribution(result, fact.spec, fact.player_id, fact.turn)
         last_turn, last_action, last_packet = result.turn, row.action, packet
     if fact.quantity != quantity or fact.after != max(0, fact.before - quantity):
-        raise ValueError('Received-damage price differs from actual own-turn units')
+        raise ValueError('Received-damage price differs from its complete actual hero quantity')
 
 
 def capture(state, registry, player_id, definition, base_cost):
@@ -52,7 +58,8 @@ def capture(state, registry, player_id, definition, base_cost):
     if definition.hero_damage_taken_cost is None: return None
     validate_state(state, registry)
     records = damage_records(state)
-    quantity = hero_damage_taken(state, player_id, own_turn_only=True)
+    quantity = sum(contribution(row.health_result, definition.hero_damage_taken_cost, player_id, state.turn)
+                   for row in records)
     fact = HeroDamageTakenCostFact(definition.hero_damage_taken_cost, player_id, state.turn,
         state.action_number, state.next_entity_id, state.next_order, state.next_damage_id,
         records, quantity, base_cost, max(0, base_cost - quantity))

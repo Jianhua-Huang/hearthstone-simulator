@@ -1,4 +1,5 @@
 """Physical random modifications and directed transforms, including power use."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -356,7 +357,7 @@ class DirectedRepresentativeTests(unittest.TestCase):
 
     def test_player_port_example_restores_and_replays(self):
         from examples.imbue_directed_modification import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(len(g.state.hero_power_history),2)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(len(g.state.hero_power_history),2)
 
 
 if __name__=='__main__':unittest.main()

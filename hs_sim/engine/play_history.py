@@ -164,6 +164,10 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     destination(registry.card(source.card_id), player.id, board_player_id)
     previous=played_cards(state,player.id)
     entry=hand_entry(state,source.hand_entry_id)
+    from .model import HandNeighborFact
+    index=player.hand.index(source.id)
+    neighbors=tuple(HandNeighborFact(e.id,e.controller,e.card_id,e.zone_epoch)
+        for i in (index-1,index+1) if 0<=i<len(player.hand) for e in (state.entities[player.hand[i]],))
     return PlayRecord(len(state.play_history)+1,source.id,player.id,source.card_id,
         registry.card(source.card_id).kind,state.turn,state.action_number,target_id,
         player.hand.index(source.id),len(player.hand),sum(p.turn==state.turn for p in previous),
@@ -174,6 +178,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         card_spell_repeats=capture_card_spell_repeats(source),
         position=position,magnetic_target_id=magnetic_target_id,body_targets=body_targets,
         board_player_id=board_player_id,
+        hand_neighbors=neighbors,
         hand_derivatives=capture(source,registry.card(source.card_id)),branch_id=branch_id,
         battlecries=capture_battlecries(source),combos=capture_combos(source),
         played_face=freeze_played_face(state,registry,source,len(state.play_history)+1))
@@ -242,6 +247,12 @@ def validate_history(state, registry):
         raise ValueError('Play history must be a list')
     totals={1:0,2:0};turns={};last_turn=last_action=0
     for index,record in enumerate(state.play_history,1):
+        if record.hand_neighbors is None:
+            raise ValueError('Physical hand history lost its original neighbors')
+        for neighbor in record.hand_neighbors:
+            registry.card(neighbor.card_id)
+            if neighbor.entity_id not in state.entities or neighbor.entity_id>=state.next_entity_id:
+                raise ValueError('Hand history borrowed a missing/future neighbor')
         if type(record) is not PlayRecord:
             raise ValueError('History requires immutable play records')
         record.__post_init__()

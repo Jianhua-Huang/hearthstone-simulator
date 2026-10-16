@@ -12,8 +12,8 @@ from types import SimpleNamespace
 from enum import Enum
 
 from hs_sim.engine.errors import ResolutionError
-from hs_sim.engine.model import CardDefinition, Entity, TargetMode
-from hs_sim.engine.targeting import accepts_target, effect_target_context, target_spec
+from hs_sim.engine.model import BoardPresenceReference, CardDefinition, Entity, TargetMode
+from hs_sim.engine.targeting import accepts_target, effect_target_context, target_spec, effective_target_spec
 from hs_sim.engine.model import GameState
 from hs_sim.engine.rules import Ruleset
 
@@ -24,16 +24,39 @@ class AutomaticTargetPreference(str, Enum):
 
 
 @dataclass(frozen=True)
+class PreferredMinionTarget:
+    """Prefer the causing minion's original uninterrupted board residence."""
+    reference: BoardPresenceReference
+
+    def __post_init__(self):
+        if type(self.reference) is not BoardPresenceReference:
+            raise ValueError('Preferred minion requires its original board residence')
+        self.reference.__post_init__()
+
+
+def validate_preferred_source(preference, source_id, state=None):
+    if type(preference) is not PreferredMinionTarget:
+        return
+    preference.__post_init__()
+    ref = preference.reference
+    if source_id != ref.entity_id:
+        raise ValueError('Preferred original minion differs from the actual causing source')
+    if state is not None and (ref.entity_id not in state.entities or ref.presence_id >= state.next_order):
+        raise ValueError('Preferred minion borrowed an unknown or future board residence')
+
+
+@dataclass(frozen=True)
 class AutomaticTargetPartition:
     source_id: int
     source_controller: int
     definition_id: str
-    preference: AutomaticTargetPreference
+    preference: AutomaticTargetPreference | PreferredMinionTarget
     mode: TargetMode | None
     excluded_ids: tuple[int, ...]
     legal_ids: tuple[int, ...]
     enemy_ids: tuple[int, ...]
     selection_ids: tuple[int, ...]
+    preferred_id: int | None = None
 
     def __post_init__(self):
         if type(self.source_id) is not int or self.source_id < 1:
@@ -42,8 +65,15 @@ class AutomaticTargetPartition:
             raise ValueError('Target preference needs the actual source controller')
         if type(self.definition_id) is not str or not self.definition_id:
             raise ValueError('Target preference needs the effective registered definition')
-        if type(self.preference) is not AutomaticTargetPreference:
+        if type(self.preference) not in (AutomaticTargetPreference, PreferredMinionTarget):
             raise ValueError('Target preference must be an explicit typed policy')
+        if type(self.preference) is PreferredMinionTarget:
+            self.preference.__post_init__()
+        if self.preferred_id is not None and (type(self.preferred_id) is not int or
+                type(self.preference) is not PreferredMinionTarget or
+                self.preferred_id != self.preference.reference.entity_id or
+                self.preferred_id not in self.legal_ids):
+            raise ValueError('Preferred target must belong to its original legal minion domain')
         if self.mode is not None and type(self.mode) is not TargetMode:
             raise ValueError('Target preference has an unknown target mode')
         for label in ('excluded_ids', 'legal_ids', 'enemy_ids', 'selection_ids'):
@@ -56,7 +86,8 @@ class AutomaticTargetPartition:
             raise ValueError('Excluded target entered the legal partition')
         if not set(self.enemy_ids).issubset(self.legal_ids):
             raise ValueError('Enemy target entered from outside the legal partition')
-        expected = (self.enemy_ids if self.preference is AutomaticTargetPreference.ENEMY_IF_AVAILABLE
+        expected = ((self.preferred_id,) if self.preferred_id is not None else
+                    self.enemy_ids if self.preference is AutomaticTargetPreference.ENEMY_IF_AVAILABLE
                     and self.enemy_ids else self.legal_ids)
         if self.selection_ids != expected:
             raise ValueError('Target preference changed its complete selection domain')
@@ -77,8 +108,10 @@ def automatic_target_partition(r, source, definition, *,
     if type(definition) is not CardDefinition:
         raise ValueError('Target preference requires an effective CardDefinition')
     r.registry.card(definition.id)
-    if type(preference) is not AutomaticTargetPreference:
+    if type(preference) not in (AutomaticTargetPreference, PreferredMinionTarget):
         raise ValueError('Target preference must be an explicit typed policy')
+    if type(preference) is PreferredMinionTarget:
+        validate_preferred_source(preference, preference.reference.entity_id, r.state)
     if type(excluded_ids) is not tuple or any(type(i) is not int or i < 1 for i in excluded_ids):
         raise ValueError('Target exclusions must be an immutable tuple of identities')
     if len(set(excluded_ids)) != len(excluded_ids):
@@ -86,7 +119,7 @@ def automatic_target_partition(r, source, definition, *,
     if any(i not in r.state.entities for i in excluded_ids):
         raise ValueError('Target exclusions contain an unknown physical identity')
     excluded = tuple(sorted(excluded_ids))
-    spec = target_spec(definition)
+    spec = effective_target_spec(r.state,r.registry,source,definition)
     context = context_factory or effect_target_context(r, source)
     legal = (tuple(i for i in sorted(r.state.entities) if i not in excluded
                    and accepts_target(r.state, r.registry, source, definition, i,
@@ -94,9 +127,16 @@ def automatic_target_partition(r, source, definition, *,
              if spec is not None else ())
     enemies = tuple(i for i in legal if r.state.entities[i].controller != source.controller)
     selected = enemies if preference is AutomaticTargetPreference.ENEMY_IF_AVAILABLE and enemies else legal
+    preferred_id = None
+    if type(preference) is PreferredMinionTarget:
+        from .board_presence import resolve_board_presence
+        preferred = resolve_board_presence(r.state, preference.reference)
+        if preferred is not None and preferred.id in legal:
+            preferred_id = preferred.id
+            selected = (preferred_id,)
     return AutomaticTargetPartition(source.id, source.controller, definition.id, preference,
                                     spec.mode if spec is not None else None, excluded,
-                                    legal, enemies, selected)
+                                    legal, enemies, selected, preferred_id)
 
 
 def select_automatic_target(r, source, definition, *,
@@ -104,12 +144,14 @@ def select_automatic_target(r, source, definition, *,
                             excluded_ids=()):
     """Accept one choice at the caller's current activation window.
 
-    There is one RNG owner and one choice, including a singleton domain, matching
-    existing random activation. Empty domains consume no RNG; only REQUIRED
+    Ordinary random activation owns one choice, including a singleton domain.
+    A legal preferred minion is deterministic. Empty domains consume no RNG; only REQUIRED
     returns no_target. An accepted ID must not be silently reselected after wait.
     """
     partition = automatic_target_partition(r, source, definition, preference=preference,
                                            excluded_ids=excluded_ids)
+    if partition.preferred_id is not None:
+        return partition.preferred_id, None, partition
     if partition.selection_ids:
         return r.game._rng.choice(partition.selection_ids), None, partition
     failure = 'no_target' if partition.mode is TargetMode.REQUIRED else None
@@ -132,7 +174,8 @@ class AutomaticTargetSelection:
         if self.target_id is not None and (type(self.target_id) is not int or self.target_id < 1):
             raise ValueError('Automatic target identity must be a positive integer')
         rng = Random(0); rng.setstate(self.rng_before)
-        target = rng.choice(self.partition.selection_ids) if self.partition.selection_ids else None
+        target = (self.partition.preferred_id if self.partition.preferred_id is not None else
+                  rng.choice(self.partition.selection_ids) if self.partition.selection_ids else None)
         failure = ('no_target' if not self.partition.selection_ids and self.partition.mode is TargetMode.REQUIRED else None)
         if (self.target_id, self.failure, self.rng_after) != (target, failure, rng.getstate()):
             raise ValueError('Automatic target or RNG differs from its one original selection')
@@ -199,6 +242,7 @@ def validate_proof(proof, registry):
 
 def validate_cast_proof(proof, cast, registry):
     validate_proof(proof, registry)
+    validate_preferred_source(proof.selection.partition.preference, cast.caster_id, proof.before_state)
     from .spell_casts import CONDITIONS, effective_definition
     from .choose_one import effective as branch_definition
     from .play_history import played_cards
@@ -227,7 +271,13 @@ def selection_from_dict(value):
             raise ValueError('Automatic target wire fields differ from their declared type')
         return dict(data)
     data = row(value, AutomaticTargetSelection); part = row(data['partition'], AutomaticTargetPartition)
-    part['preference'] = AutomaticTargetPreference(part['preference'])
+    preference = part['preference']
+    if type(preference) is dict:
+        if set(preference) != {'reference'} or type(preference['reference']) is not dict or set(preference['reference']) != {'entity_id','presence_id'}:
+            raise ValueError('Preferred minion target wire fields are invalid')
+        part['preference'] = PreferredMinionTarget(BoardPresenceReference(**preference['reference']))
+    else:
+        part['preference'] = AutomaticTargetPreference(preference)
     if part['mode'] is not None: part['mode'] = TargetMode(part['mode'])
     for name in ('excluded_ids', 'legal_ids', 'enemy_ids', 'selection_ids'):
         if type(part[name]) is not list: raise ValueError('Automatic target wire domain requires an array')
@@ -242,6 +292,7 @@ def selection_from_dict(value):
 
 
 def register_payloads(mechanics):
-    for kind in (AutomaticTargetPreference, AutomaticTargetPartition, AutomaticTargetSelection, AutomaticTargetProof, Ruleset):
+    for kind in (AutomaticTargetPreference, PreferredMinionTarget, BoardPresenceReference,
+            AutomaticTargetPartition, AutomaticTargetSelection, AutomaticTargetProof, Ruleset):
         if kind not in mechanics.payload_types: mechanics.register_payload_type(kind)
 

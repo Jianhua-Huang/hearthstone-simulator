@@ -1,0 +1,153 @@
+{
+  "batch": "K25B",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_RLK_706",
+        "dbf_id": 127536,
+        "name": "亚历山德罗斯·莫格莱尼",
+        "name_en": "Alexandros Mograine",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，在你的回合结束时，对你的对手造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> For the rest of the game, deal 3 damage to your opponent at the end of your turns.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80644,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 80644,
+          "COST_BLOOD": 3,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80644",
+              "type": "Int",
+              "value": "80644"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "c6f6a39cf1ae755633be39ddd93d659d2f0a543044de31ab2504ae2a6b982858",
+      "recipe": {
+        "script": "mograine",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "keywords": [],
+        "deck_identity": "RLK_706"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SCH_713",
+        "dbf_id": 102224,
+        "name": "异教低阶牧师",
+        "name_en": "Cult Neophyte",
+        "text": "<b>战吼：</b>&下个回合你的对手法术的法力值消耗增加（1）点。",
+        "text_en": "<b>Battlecry:</b>& Your opponent's spells cost (1) more next_turn.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 60043,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "60043",
+              "type": "Int",
+              "value": "60043"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "731bfa3c358b8d1b0c9ced7a75337dbd8cc07a552c252a15db59b42b0b0b302c",
+      "recipe": {
+        "script": "neophyte",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "CORE_SCH_713"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Complete two persistent owner effects. Five original K25 roots remain required."
+}

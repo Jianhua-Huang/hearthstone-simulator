@@ -1,0 +1,711 @@
+{
+  "batch_id": "K78",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_048",
+        "dbf_id": 120860,
+        "name": "钟表发条暴怒者",
+        "name_en": "Clockwork Rager",
+        "text": "<b>战吼：</b>在本局对战中，你每进行过一个回合，便获得+1生命值。@<i>（已进行过@个回合）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Gain +1 Health\nfor each turn you've taken\nthis game.@ <i>(@ |4(turn, turns))</i>",
+        "cost": 5,
+        "attack": 5,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "9d469e08a9a75c0fd9361a2516683643aeb96fd5e3337a5813a94ded62e947d6"
+    },
+    {
+      "record": {
+        "id": "TIME_051",
+        "dbf_id": 120949,
+        "name": "永恒龙士兵",
+        "name_en": "Soldier of the Infinite",
+        "text": "<b>突袭</b>。<b>战吼：</b>&本随从的攻击力翻倍。",
+        "text_en": "<b>Rush</b>\n<b>Battlecry:</b>& Double this minion's Attack.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "b14110374cd33b3289a6279f5e95842cb35de0301f71d9f667f1012c56af62ef"
+    },
+    {
+      "record": {
+        "id": "FIR_901",
+        "dbf_id": 115625,
+        "name": "霜灼巢母",
+        "name_en": "Frostburn Matriarch",
+        "text": "<b>战吼：</b>如果你的手牌中有具有<b>黑暗之赐</b>的随从牌，&召唤两条4/4并具有<b>嘲讽</b>的龙。",
+        "text_en": "<b>Battlecry:</b> If you're holding\na minion with a <b>Dark Gift</b>,& summon two 4/4 Dragons with <b>Taunt</b>.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2d120f9212051a209877b3608296cd1751afe64c073db8b94c3d83d9e40d2868"
+    },
+    {
+      "record": {
+        "id": "EDR_979",
+        "dbf_id": 117302,
+        "name": "昔时古树",
+        "name_en": "Ancient of Yore",
+        "text": "<b>休眠</b>2回合。<b>休眠</b>状态下，在你的回合结束时，获得3点护甲值并抽一张牌。",
+        "text_en": "[x]<b>Dormant</b> for 2 turns.\nWhile <b>Dormant</b>, gain 3\nArmor and draw a card at\nthe end of your turn.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1652": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7cc647cebceda0baf1dde0fbb7b9745a945c7f74d369259b3045c2b10dc90dc6"
+    },
+    {
+      "record": {
+        "id": "JAIL_453",
+        "dbf_id": 126666,
+        "name": "狱中老鸟",
+        "name_en": "Jailbird",
+        "text": "<b>嘲讽</b>。当你在本牌在你手中时<b>预备</b>，本牌的法力值消耗也会等量减少。",
+        "text_en": "[x]<b>Taunt</b>. When you\n_<b>Prepare</b> while holding this,\nreduce this card's Cost by\n_the same amount.",
+        "cost": 5,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3e881ea3eb3ac8725fad9e880c33eec8bf0a8d8f602ea653498625ae05096e9b"
+    },
+    {
+      "record": {
+        "id": "JAIL_462",
+        "dbf_id": 128053,
+        "name": "跑路狂猪",
+        "name_en": "Getaway Hogdriver",
+        "text": "<b>战吼：</b>抽两张牌。如果两张都是随从牌，&获得<b>冲锋</b>。",
+        "text_en": "<b>Battlecry:</b> Draw 2 cards.\nIf they're both minions,& gain <b>Charge</b>.",
+        "cost": 5,
+        "attack": 5,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDRACE": 43,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "07c686a8e247a85df5aade69e14934ad12203b461cbde438e5d1e466cfa43ff9"
+    },
+    {
+      "record": {
+        "id": "JAIL_444",
+        "dbf_id": 126260,
+        "name": "锯骨巨魔",
+        "name_en": "Sawbones",
+        "text": "<b>预备</b>。<b>战吼：</b>消灭你的所有其他随从。每消灭一个，抽一张牌并复原一个法力水晶。",
+        "text_en": "[x]<b>Prepare</b>. <b>Battlecry:</b> Destroy\nall your other minions. Draw\na card and refresh a Mana\n___for each one destroyed.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "AJ Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "e3b4ded22fe8a441e8c50049d3c00e81d40fb7fcca5d4f079d27384eb5e673fd"
+    },
+    {
+      "record": {
+        "id": "TLC_107",
+        "dbf_id": 117885,
+        "name": "聚积旋风",
+        "name_en": "Stormbrewer",
+        "text": "每当本随从攻击时，先对目标造成3点伤害。<b>延系：</b>获得<b>突袭</b>。",
+        "text_en": "Whenever this attacks,\ndeal 3 damage to\nthe target first.\n<b>Kindred:</b> Gain <b>Rush</b>.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1cea5f7e82fdd5f8d96423ac2ef526e46c63816e47c1f2ed0cdb75ba1ed6edfe"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "FIR_901t",
+        "dbf_id": 117286,
+        "name": "霜灼龙裔",
+        "name_en": "Frostburn Broodling",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "c294242ba133781da2c3efd2efe113ae7973542236327301bdd5c53c7b57ba84"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_979e",
+        "dbf_id": 117303,
+        "name": "古树之眠",
+        "name_en": "Ancient Slumber",
+        "text": "<b>休眠</b>。@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 2,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "08f9e789f2f53e3a22774c4e9930a4e01e1a9e4d833b494509a95942c0cebf3a"
+    },
+    {
+      "record": {
+        "id": "EDR_979e2",
+        "dbf_id": 125970,
+        "name": "",
+        "name_en": "Ancient Draw",
+        "text": "",
+        "text_en": "Draw card and gain Armor while dormant",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_INVISIBLE": 1,
+          "4390": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4390",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4390"
+          }
+        ]
+      },
+      "record_sha256": "81950b052747e22875112bcd13bb6ede265f8b45af1a755b2fba7e906042362c"
+    },
+    {
+      "record": {
+        "id": "JAIL_453e",
+        "dbf_id": 134480,
+        "name": "锁牢",
+        "name_en": "Locked Down",
+        "text": "法力值消耗已变更。",
+        "text_en": "Cost changed.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d47968efc0b77d86810b3e87c0377e28a432ff815a587e8bcc4d4e7404c5f3a6"
+    },
+    {
+      "record": {
+        "id": "TIME_048e",
+        "dbf_id": 120861,
+        "name": "发条暴怒",
+        "name_en": "Clockwork Rage",
+        "text": "生命值提高。",
+        "text_en": "Increased Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8fd27200b3b5b318c051b3e451d6bdefdc52958c8d9e8eac58afd5ac81b8cd12"
+    },
+    {
+      "record": {
+        "id": "TIME_051e",
+        "dbf_id": 121745,
+        "name": "永恒之鳞",
+        "name_en": "Infinite Scales",
+        "text": "攻击力翻倍。",
+        "text_en": "Doubled Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f3a65b66b733a4b8e40f14d3546d86929a225457e567f1c51923ef36fda1cffb"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k78-official-face-01/comparison.json",
+      "bytes": 2738,
+      "sha256": "4a8574b79016ae5038d7354fda5d66af543aa11f284bfdea4cd74ff295c36d75"
+    }
+  ],
+  "policies": [
+    "Clockwork Rager reads the existing genuine owner-turn index, including the current genuinely started turn. Soldier of the Infinite uses current Attack DoubleStats, not its printed3 or a fixed +3.",
+    "Frostburn Matriarch checks actual Dark Gift identity attachments on a friendly physical HAND MINION and issues two attributed ordinary summons of the complete fixed FIR_901t. Ordinary buffs/keywords and gifts on board do not satisfy it. Capacity/replacements remain shared.",
+    "Ancient of Yore uses the existing two-owner-start Dormancy lifecycle and classified controller-end dormant trigger. Armor then Draw are ordinary effects. Awakening removes eligibility without replacing the physical minion.",
+    "Jailbird is a native repeated HAND progress listener for the original friendly card_prepared fact. Its stored reduction is the actual invested mana event.amount, excluding the prepared card extra1 discount. It does not itself acquire Prepare, and deck/board copies do not listen.",
+    "Getaway Hogdriver uses exactly two ordinary original physical draw roots. Both roots must name MINION cards; burns still name actual drawn minions, fatigue is not a card, a cast-when-drawn spell root cannot be replaced by a later minion to satisfy the condition. Nested unrelated draws are not members. Charge is granted only to the same original continuous board residence, following existing face/control policy. Exact CWD/replacement and transformed-source windows remain local M6 policies.",
+    "Sawbones marks all captured live other friendly minions through the shared DestroyBatch handler in one window. A typed continuation joins each original physical victim/cause to actual destruction, excluding nested unrelated deaths, extra Reborn bodies and later reincarnations. DrawN then RefreshManaN reuse ordinary draw/payment/death semantics; accepted deferred original destruction follows existing sacrifice policy. Original payer retains resource reward if the source subsequently leaves. Ordering and rare deferred/redirected windows remain local M6 policies.",
+    "Stormbrewer own original attack_declared event deals ordinary MINION_ABILITY3 to the original declared target before existing ResolveAttack, with native Kindred on_play Rush and no invented Battlecry. Original character window validates source/target/cursor; forced attacks remain ordinary windows. Secrets, redirection and precise trigger order remain under existing local attack policy pending CN calibration.",
+    "All nine effective card faces and complete enchantment source rows retained. Enchantments are represented by existing typed attachments, not standalone playable cards. No partial generation pool opened; current official faces are not official CN timing evidence."
+  ]
+}

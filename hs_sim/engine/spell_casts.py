@@ -11,7 +11,8 @@ from .errors import ResolutionError
 from .lifecycle import active_abilities
 from .model import CardType, Keyword, SpellCastRecord, TargetMode, Zone, _name
 from .zones import CardReference, reference_entity, reference_value, source_exists
-from .automatic_targets import AutomaticTargetPreference, AutomaticTargetProof
+from .automatic_targets import (AutomaticTargetPreference, AutomaticTargetProof,
+    PreferredMinionTarget, validate_preferred_source)
 
 
 CONDITIONS = ('combo', 'outcast', 'finale', 'quickdraw', 'manathirst')
@@ -89,6 +90,10 @@ def note_payload(r, record):
     """One acceptance path for hand, repeat, effect, draw and history casts."""
     if not record.payload_started or record.failure is not None:
         return record
+    from .stored_spell_damage import capture
+    record = capture(r,record)
+    from .native_spell_values import capture as capture_native_value
+    record = capture_native_value(r,record)
     from .player_effects import claim_next_spell_damage
     record = claim_next_spell_damage(r,record)
     from .held_spells import note_cast
@@ -106,6 +111,10 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False):
         failure='countered' if countered else None,branch_id=play.branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events))
     r.state.cast_history.append(record)
+    # Match automatic casts: a real attempted physical cast has a start even
+    # when countered; successful payload acceptance remains a separate fact.
+    r.emit('spell_cast_started',source_id=record.source_id,target_id=record.target_id,
+        player_id=record.player_id,cast_id=record.id)
     record = note_payload(r, record)
     return record
 
@@ -127,18 +136,17 @@ def finish(r, effect):
     if record.completed or record.interrupted or not record.payload_started:
         raise ResolutionError('Spell cast is already settled')
     r.state.cast_history[record.id - 1] = replace(record, completed=True)
-    # Existing hand-play reactions retain their explicit card_played window.
-    # Effect casts have a separate public event, without a hand-play ID.
-    if record.origin in AUTOMATIC_ORIGINS:
-        r.emit('spell_cast_finished', source_id=record.source_id, target_id=record.target_id,
-               player_id=record.player_id, cast_id=record.id)
+    # Each actual payload has one completion, including every hand repetition.
+    # The separate card_played window still closes the whole physical play.
+    r.emit('spell_cast_finished', source_id=record.source_id, target_id=record.target_id,
+           player_id=record.player_id, cast_id=record.id)
 
 
 def policies(targeting, target_id, choices, target_preference=None):
     from .targeting import effect_policies
     effect_policies(targeting,target_id,choices)
     if target_preference is not None:
-        if type(target_preference) is not AutomaticTargetPreference or targeting != 'random':
+        if type(target_preference) not in (AutomaticTargetPreference, PreferredMinionTarget) or targeting != 'random':
             raise ValueError('Automatic target preference requires a typed random activation policy')
 
 
@@ -152,12 +160,13 @@ class CastSpell(Effect):
     choices: str = 'random'
 
     branch_id: str | None = None
-    target_preference: AutomaticTargetPreference | None = None
+    target_preference: AutomaticTargetPreference | PreferredMinionTarget | None = None
 
     def __post_init__(self):
         if self.branch_id is not None: _name(self.branch_id, 'branch')
         _player(self.player_id); _name(self.card_id, 'cast spell'); _source(self.source_id)
         policies(self.targeting, self.target_id, self.choices, self.target_preference)
+        validate_preferred_source(self.target_preference, self.source_id)
 
 
 @dataclass(frozen=True)
@@ -170,12 +179,13 @@ class CastStoredSpell(Effect):
     choices: str = 'random'
 
     branch_id: str | None = None
-    target_preference: AutomaticTargetPreference | None = None
+    target_preference: AutomaticTargetPreference | PreferredMinionTarget | None = None
 
     def __post_init__(self):
         if self.branch_id is not None: _name(self.branch_id, 'branch')
         reference_value(self.card); _player(self.player_id); _source(self.source_id)
         policies(self.targeting, self.target_id, self.choices, self.target_preference)
+        validate_preferred_source(self.target_preference, self.source_id)
 
 
 @dataclass(frozen=True)
@@ -210,6 +220,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     from .play_history import played_cards
     from .targeting import accepts_target, target_spec
     definition = r.registry.card(entity.card_id)
+    validate_preferred_source(getattr(effect, 'target_preference', None), effect.source_id, r.state)
     if definition.kind != CardType.SPELL:
         raise ResolutionError('Casting requires a spell')
     # Hand-only positional/payment conditions do not acquire a fabricated play.
@@ -358,11 +369,18 @@ def validate_history(state, registry):
     from .repeat_provenance import checked_live_attachments
     live = checked_live_attachments(state)
     claimed_ids = set()
+    local_owners = {}
     last_turn = last_action = 0
     iterations = {}
     for index, record in enumerate(state.cast_history, 1):
         if type(record) is not SpellCastRecord: raise ValueError('Invalid spell cast record')
         record.__post_init__()
+        if record.target_selection is not None:
+            validate_preferred_source(record.target_selection.partition.preference, record.caster_id, state)
+        from .stored_spell_damage import validate_record
+        validate_record(state,record,live,local_owners)
+        from .native_spell_values import validate_record as validate_native_value
+        validate_native_value(state,registry,record,live,local_owners)
         for effect in record.spell_damage_effects:
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()

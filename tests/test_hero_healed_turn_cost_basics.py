@@ -1,4 +1,5 @@
 """One finite hero-healed intrinsic bool over the original healing/price pipeline."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import asdict, dataclass, replace
 import json
@@ -259,7 +260,7 @@ class HeroHealedCostTests(unittest.TestCase):
             for private in ('HeroHealedTurnMatch','healing_history','condition_facts','history_profile_id'):self.assertNotIn(private,view)
         self.check(g)
     def test_current_protocol_and_old_schema_refusal(self):
-        g=self.game();s=g.snapshot();self.assertEqual((s['schema_version'],g.ruleset.id,g.mechanics.version),(266,'prototype-v302',CORE_EFFECTS_VERSION))
+        g=self.game();s=g.snapshot();self.assertEqual((s['schema_version'],g.ruleset.id,g.mechanics.version),(SNAPSHOT_SCHEMA_VERSION,'prototype-v302',CORE_EFFECTS_VERSION))
         for value in (1,212,217,True,216.0):
             bad=deepcopy(s);bad['schema_version']=value
             with self.assertRaises(SnapshotError):Game.from_snapshot(bad,registry())

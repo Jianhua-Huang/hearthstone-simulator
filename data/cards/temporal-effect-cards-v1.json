@@ -1,0 +1,326 @@
+{
+  "batch_id": "K70",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_version": "37.0.0.255026",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_215",
+        "dbf_id": 123315,
+        "name": "眩晕",
+        "name_en": "Daze",
+        "text": "将一个敌方随从移回其拥有者的手牌，并使其无法在下回合中使用。",
+        "text_en": "[x]Return an enemy\n minion to its owner's\nhand. They can't play\nit next turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "7493f1f7a989e3fa3eb273ac25c2d429b78f38c6e5c1e311526ec4f91f9e0323",
+      "recipe": {
+        "script": "daze",
+        "spell_school": "shadow",
+        "target": "enemy_minion"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_496",
+        "dbf_id": 122720,
+        "name": "诅咒之链",
+        "name_en": "Cursed Chains",
+        "text": "直到敌方回合结束，夺取一个敌方随从的控制权。在本回合中，该随从无法攻击。",
+        "text_en": "[x]Take control of an\nenemy minion until\nthe end of their turn.\n It can't attack this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "70d1d473c6e2928df4cfebae215e35603387d2c6f8d32212a2c3a8a60bf46ef3",
+      "recipe": {
+        "script": "chains",
+        "spell_school": "shadow",
+        "target": "enemy_minion"
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_405",
+        "dbf_id": 118413,
+        "name": "孵化仪典",
+        "name_en": "Hatching Ceremony",
+        "text": "在你的下个回合结束时，使你的随从获得+2/+2。",
+        "text_en": "At the end of your next turn, give your minions +2/+2.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "1724": 1,
+          "MINI_SET": 1,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "75bb5cf369d3ecdbb0ce9f8a277b45077f5b40a7c4b62f7e5112834183bb0c00",
+      "recipe": {
+        "ongoing": "ceremony",
+        "spell_school": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_528",
+        "dbf_id": 122773,
+        "name": "海洋咒符",
+        "name_en": "Sigil of the Seas",
+        "text": "在你的下个回合开始时，&召唤一个3/3并具有<b>嘲讽</b>的纳迦。~GAMEPLAY_ASPROXY_CATA_528",
+        "text_en": "At the start of your\nnext turn,& summon a 3/3 Naga with <b>Taunt</b>.~GAMEPLAY_ASPROXY_CATA_528",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7,
+          "SIGIL": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4df6b3751705a3d2c9d1755545a788b41ac37aa3aa2812b56b698d74c34641ef",
+      "recipe": {
+        "ongoing": "seas",
+        "spell_school": "fel"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_528t",
+        "dbf_id": 127933,
+        "name": "纳迦畸体",
+        "name_en": "Naga Monstrosity",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "f6058c42a713173496424c4c0c74553210768fd95578ac1d777d775e120e5114"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DINO_405e",
+        "dbf_id": 118415,
+        "name": "孵化完毕",
+        "name_en": "Hatched",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1fcb6074c100c79eb1b1029bcafe35f01c3cb95f04fa6372e4776869685ec8eb"
+    }
+  ],
+  "source_observations": [
+    {
+      "path": "outputs/card-integration-20261014/k70-official-face-01/comparison.json",
+      "bytes": 1597,
+      "sha256": "3757025fb89ff3696aed787c13d35a2b268bad9170f964fc6c644591c6019f23"
+    }
+  ],
+  "policies": [
+    "Daze returns the actual enemy minion to its original owner through the ordinary physical return/death path. Only a successful arrival receives the existing hand lock before any return reaction. Its immediately active lock spans the next genuine owner start and expires on the following owner start (two starts); extra turns count, skipped slots do not. Returning a stolen original caster-owned minion and the current-turn reach of the marker remain M6 policy.",
+    "Cursed Chains binds the previous controller and that original player's genuine turn-ended deadline, separately from its current-global-turn attack prohibition. Transfer, return marker and attack policy are installed before reactions. Existing silence, transform, reset, death, copy and failed full-board return policies remain; overlapping temporary control sources still explicitly reject and remain a real incomplete card interaction, not complete CN support.",
+    "Hatching Ceremony installs the public objective and buffs the then-current active friendly minions through existing captured batch recipients. Next-owner-turn-end duration counts the current owner end only if installation precedes its captured end boundary; off-turn and end-reaction installations therefore start at one remaining end, ordinary owner main-phase installations at two. Source lifecycle, duplicate instances, slot capacity, choice restoration and group notification policies remain shared.",
+    "Sigil of the Seas installs the existing one-owner-start sigil and requests the exact officially linked 3/3 Taunt Naga through attributed card summoning. No extra executable proxy or enchantment card is invented.",
+    "Root registration and internal validation are separate from complete Standard membership, hotfix and CN timing evidence. CATA_581 formula, full generators and all remaining roots/reachable content stay open."
+  ]
+}

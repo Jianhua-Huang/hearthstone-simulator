@@ -1,4 +1,5 @@
 """Exercise the actual module entry point using temporary replay output paths."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 
 import json
 from pathlib import Path
@@ -24,7 +25,7 @@ class EngineCliTests(unittest.TestCase):
             self.assertEqual(state['opening_stage'], 'mulligan')
             self.assertEqual(state['actions'], 0)
             self.assertEqual(state['pending_choice']['purpose'], 'mulligan')
-            self.assertEqual(json.loads(snapshot.read_text(encoding='utf-8'))['schema_version'], 266)
+            self.assertEqual(json.loads(snapshot.read_text(encoding='utf-8'))['schema_version'], SNAPSHOT_SCHEMA_VERSION)
             restored = self.run_cli('replay', replay, '--card-set', 'representative')
             self.assertEqual(self.summary(restored), state)
 

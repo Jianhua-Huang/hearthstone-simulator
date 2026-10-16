@@ -1,4 +1,5 @@
 """One real Deckhand and the existing Charge rules with current weapon state."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -410,7 +411,7 @@ class WeaponPresenceKeywordBasicsTests(unittest.TestCase):
         self.portable(g)
 
     def test_schema_protocol_and_all_old_versions(self):
-        g = self.game(); snap = g.snapshot(); self.assertEqual(snap['schema_version'], 266)
+        g = self.game(); snap = g.snapshot(); self.assertEqual(snap['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(snap['ruleset']['id'], 'prototype-v302')
         self.assertEqual(snap['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         for value in (*range(1, 218), True, 183.0, 217):

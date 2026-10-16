@@ -7,16 +7,24 @@ from copy import deepcopy
 from dataclasses import replace
 
 from .model import (CardType, IntrinsicCostOperationFact, IntrinsicCostSpec,
-                    IntrinsicCostStageFact, OwnerTurnQueryBoundaryFact, PlayedTypeQuery, HeroHealedTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch)
+                    IntrinsicCostStageFact, OwnerTurnQueryBoundaryFact, PlayedTypeQuery, HeroHealedTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch,
+                    CostPresenceMatch, PRESENCE_COST_CONDITIONS, DeckShuffleCostMatch)
 from .owner_turns import (query_for_definition, query_previous_owner_turn,
                           share_tribes, validate_accepted_prefix, validate_face,
                           validate_history)
 
 
+from .deck_shuffles import intrinsic_amount
+
 PROFILE = 'cost.intrinsic.before-local-v1'
 
 
 def validate_definition_intrinsics(definition):
+    if type(definition.pay_health_if_hero_healed)is not bool:raise ValueError('Conditional health payment requires bool')
+    if definition.pay_health_if_hero_healed:
+        if definition.cost_payment.value!='mana' or definition.intrinsic_costs!=(IntrinsicCostSpec(
+                condition='hero_healed_this_turn',history_profile_id='healing.hero-this-turn-v1'),):
+            raise ValueError('Conditional health payment requires the sole original hero-healed fact without amount changes')
     from .board_minion_costs import validate_definition as validate_board_cost
     from .hand_count_costs import validate_definition as validate_hand_cost
     from .hero_missing_health_costs import validate_definition as validate_hero_cost
@@ -55,6 +63,10 @@ def validate_definition_intrinsics(definition):
     validate_spell_damage_cost(definition)
     from .character_attack_costs import validate_definition as validate_character_cost
     validate_character_cost(definition)
+    if definition.intrinsic_costs and definition.intrinsic_costs[0].condition == 'own_deck_shuffle_count':
+        from dataclasses import fields
+        if definition.kind != CardType.MINION or len(definition.intrinsic_costs) != 1 or any(getattr(definition,f.name) is not None for f in fields(definition) if f.name.endswith('_cost')):
+            raise ValueError('Shuffle pricing requires one independent ordinary Minion formula')
     rules = definition.intrinsic_costs
     if type(rules) is not tuple or any(type(r) is not IntrinsicCostSpec for r in rules):
         raise ValueError('Intrinsic costs require complete immutable declarations')
@@ -71,6 +83,12 @@ def validate_definition_intrinsics(definition):
             raise ValueError('Current deck price requires one physical Spell discount without other intrinsic formulas')
     if rules and rules[0].condition == 'hero_healed_this_turn' and definition.kind != CardType.MINION:
         raise ValueError('Hero-healed intrinsic condition requires an ordinary physical Minion')
+    if rules and rules[0].condition in PRESENCE_COST_CONDITIONS:
+        from .stat_relations import validate_ordinary_face
+        expected_kind = CardType.SPELL if rules[0].condition in ('hand_edge', 'controlled_legendary') else CardType.MINION
+        if definition.kind != expected_kind or len(rules) != 1:
+            raise ValueError('Presence condition requires one ordinary physical Minion rule')
+        if expected_kind == CardType.MINION: validate_ordinary_face(definition)
     if rules and rules[0].condition == 'hero_healed_this_turn':
         from .stat_relations import validate_ordinary_face
         validate_ordinary_face(definition)
@@ -152,11 +170,11 @@ def capture_intrinsic_stage(state, registry, player_id, card_id, base_cost, *, s
     from .character_attack_costs import capture as capture_character_attacks
     character_attacks = capture_character_attacks(state, registry, player_id, definition, base_cost)
     return _capture_stage(state, registry, player_id, card_id, base_cost, board, hand, hero, personal,
-                          powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks)
+                          powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, source_id=source_id)
 
 
 def _capture_stage(state, registry, player_id, card_id, base_cost, board, hand, hero, personal,
-                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None):
+                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None, current_presence=None, current_shuffle=None, source_id=None, current_kindred=None):
     """Retained replay passes frozen original quantity/zone operands, never today's zones.
 
 Original payment/window proof uses capture_intrinsic_stage to requery the
@@ -174,7 +192,13 @@ complete actual zone inventories. Compact history cannot authenticate an unsigne
     # Query validates every relevant row before returning the aggregate.
     from .healing_history import capture_hero_healed_turn
     from .hand_conditions import capture_hand_other_class
+    from .cost_presence import capture as capture_presence
+    from .deck_shuffles import capture_cost as capture_shuffles
     conditions = (() if not definition.intrinsic_costs else
+        (current_shuffle if current_shuffle is not None else capture_shuffles(state,player_id),) if definition.intrinsic_costs[0].condition == 'own_deck_shuffle_count' else
+        (current_presence if current_presence is not None else capture_presence(state,registry,player_id,
+            definition.intrinsic_costs[0].condition,source_id),)
+            if definition.intrinsic_costs[0].condition in PRESENCE_COST_CONDITIONS else
         (current_hand_class if current_hand_class is not None else capture_hand_other_class(state,registry,player_id),)
             if definition.intrinsic_costs[0].condition == 'hand_other_class' else
         (permanent_mana if permanent_mana is not None else PermanentManaMatch(player_id,state.turn,
@@ -193,15 +217,20 @@ complete actual zone inventories. Compact history cannot authenticate an unsigne
              streak if streak is not None else corpses if corpses is not None else
              damage if damage is not None else spell_damage if spell_damage is not None else character_attacks)
     amount, operations = base_cost if count is None else count.after, []
+    from .kindred import sources as kindred_sources
+    profile=registry.kindred_profiles.get(card_id)
+    kindreds=(kindred_sources(state,registry,player_id)if current_kindred is None else current_kindred)if profile is not None and profile.mode=='cost'else()
     for index, rule in enumerate(definition.intrinsic_costs):
         matched = conditions[0].matched
-        after = apply_cost(amount, rule.delta, rule.set_to, rule.minimum) if matched else amount
+        after=amount
+        if matched:
+            for _ in range(2 if kindreds else 1):after=intrinsic_amount(after,rule,conditions[0])
         operations.append(IntrinsicCostOperationFact(index, rule, 0, matched, amount, after))
         amount = after
     return IntrinsicCostStageFact(PROFILE, player_id, card_id, definition.kind,
         definition.cost, base_cost, amount, boundary, definition.intrinsic_costs,
         conditions, tuple(operations), board, hand, hero, personal, powers, mana, deaths, overload,
-        played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks)
+        played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks,kindreds)
 
 
 def validate_intrinsic_stage_fact(registry, fact):
@@ -212,6 +241,11 @@ def validate_intrinsic_stage_fact(registry, fact):
     fact.__post_init__()
     definition = registry.card(fact.card_id)
     validate_definition_intrinsics(definition)
+    from .kindred import validate_sources
+    validate_sources(registry,fact.kindred_sources)
+    profile=registry.kindred_profiles.get(fact.card_id)
+    if fact.kindred_sources and(profile is None or profile.mode!='cost'):
+        raise ValueError('Intrinsic repeat sources have no native Kindred cost declaration')
     from .board_minion_costs import validate_fact as validate_board_fact
     validate_board_fact(registry, definition, fact.board_minions)
     from .hand_count_costs import validate_fact as validate_hand_fact
@@ -252,7 +286,12 @@ def validate_intrinsic_stage_fact(registry, fact):
     validate_character_fact(registry, definition, fact.player_character_attacks)
     if (fact.kind, fact.printed_cost, fact.rules) != (definition.kind, definition.cost, definition.intrinsic_costs):
         raise ValueError('Frozen intrinsic stage differs from its pinned declaration')
-    if fact.rules and fact.rules[0].condition == 'current_deck_count':
+    if fact.rules and fact.rules[0].condition == 'own_deck_shuffle_count':
+        fact.condition_facts[0].__post_init__()
+    elif fact.rules and fact.rules[0].condition in PRESENCE_COST_CONDITIONS:
+        from .cost_presence import validate_match
+        validate_match(fact.condition_facts[0],registry)
+    elif fact.rules and fact.rules[0].condition == 'current_deck_count':
         condition = fact.condition_facts[0]
         if (condition.card_count, condition.comparison) != (definition.intrinsic_costs[0].card_count, definition.intrinsic_costs[0].comparison):
             raise ValueError('Frozen current deck condition changed its printed threshold')
@@ -307,7 +346,9 @@ def validate_intrinsic_stage_fact(registry, fact):
     for index, operation in enumerate(fact.operations):
         rule = fact.rules[index]
         matched = fact.condition_facts[operation.condition_index].matched
-        after = apply_cost(amount, rule.delta, rule.set_to, rule.minimum) if matched else amount
+        after=amount
+        if matched:
+            for _ in range(2 if fact.kindred_sources else 1):after=intrinsic_amount(after,rule,fact.condition_facts[operation.condition_index])
         if (operation.before, operation.after, operation.applied) != (amount, after, matched):
             raise ValueError('Frozen intrinsic operation differs from its complete condition or order')
         amount = after
@@ -318,6 +359,8 @@ def validate_intrinsic_stage_fact(registry, fact):
 def validate_intrinsic_origin(fact, state, registry):
     validate_intrinsic_stage_fact(registry, fact)
     source_id = None if fact.hand_cards is None else fact.hand_cards.subject_id
+    if fact.condition_facts and type(fact.condition_facts[0]) is CostPresenceMatch:
+        source_id = fact.condition_facts[0].source_id
     if capture_intrinsic_stage(state, registry, fact.player_id, fact.card_id, fact.base_cost, source_id=source_id) != fact:
         raise ValueError('Intrinsic stage changed its complete original quotation window')
 
@@ -333,7 +376,8 @@ def validate_generated_quote_fact(registry, fact):
     definition = registry.card(value.card_id)
     if not definition.hand_playable or (definition.kind, definition.cost) != (value.kind, value.base_cost):
         raise ValueError('Generated quote changed its pinned printed base')
-    amount, payment = fact.intrinsic.amount, definition.cost_payment
+    from .costs import intrinsic_payment
+    amount, payment = fact.intrinsic.amount, intrinsic_payment(definition,fact.intrinsic)
     if value.initial_cost is not None:
         spec = value.initial_cost
         if not matches_cost(spec, definition):
@@ -351,7 +395,7 @@ def validate_generated_quote_fact(registry, fact):
                     (contribution.player_id == value.player_id) != (aura.relation == 'friendly')):
                 raise ValueError('Generated aura relation changed its hypothetical payer')
             spec = aura.cost
-        if not matches_cost_contribution(registry, contribution, definition, None):
+        if not matches_cost_contribution(registry, contribution, definition, None,complete_amount=fact.amount):
             raise ValueError('Generated external operation does not match its printed subject')
         amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None: payment = spec.payment
@@ -367,6 +411,10 @@ def validate_intrinsic_history_prefix(fact, state, registry):
     """
     validate_intrinsic_stage_fact(registry, fact)
     boundary = fact.boundary
+    for source in fact.kindred_sources:
+        if(source.id>=state.next_attachment_id or source.entered_order>=state.next_order or
+                source.created_turn>boundary.turn or source.source_id not in state.entities):
+            raise ValueError('Intrinsic Kindred source changed its original physical allocation prefix')
     if fact.board_minions is not None and (fact.board_minions.next_entity_id > state.next_entity_id or
             any(row.entity_id not in state.entities for board in fact.board_minions.boards for row in board)):
         raise ValueError('Board cost lost its original physical allocation prefix')
@@ -445,7 +493,14 @@ def validate_intrinsic_history_prefix(fact, state, registry):
     if fact.condition_facts and type(fact.condition_facts[0]) is HandOtherClassMatch:
         from .hand_conditions import validate_hand_other_class_prefix
         validate_hand_other_class_prefix(fact.condition_facts[0],state,registry)
+    if fact.condition_facts and type(fact.condition_facts[0]) is CostPresenceMatch:
+        from .cost_presence import validate_prefix
+        validate_prefix(fact.condition_facts[0],state,registry)
     before = deepcopy(state)
+    if fact.condition_facts and type(fact.condition_facts[0]) is DeckShuffleCostMatch:
+        from .deck_shuffles import validate_cost_prefix
+        condition=fact.condition_facts[0];validate_cost_prefix(condition,state,registry)
+        before.deck_shuffle_history=list(condition.records)
     if fact.condition_facts and type(fact.condition_facts[0]) is HeroHealedTurnMatch:
         from .healing_history import validate_hero_healed_prefix
         condition = fact.condition_facts[0]
@@ -474,11 +529,14 @@ def validate_intrinsic_history_prefix(fact, state, registry):
                               fact.player_draws, fact.weapon_attack, fact.player_armor, fact.player_summons, fact.player_elemental_streak, fact.player_corpses, fact.hero_damage_taken, fact.player_spell_damage, fact.player_character_attacks,
                               current_deck=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is CurrentDeckCountMatch else None,
                               permanent_mana=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is PermanentManaMatch else None,
-                              current_hand_class=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is HandOtherClassMatch else None)
+                              current_hand_class=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is HandOtherClassMatch else None,
+                              current_presence=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is CostPresenceMatch else None,
+                              current_shuffle=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is DeckShuffleCostMatch else None,
+                              current_kindred=fact.kindred_sources)
     if expected != fact:
         raise ValueError('Intrinsic relation differs from its complete captured history prefix')
     # A closed selected interval cannot receive additional later hand submissions.
-    if fact.condition_facts and type(fact.condition_facts[0]) not in (HeroHealedTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch) and fact.condition_facts[0].owner_turn is not None:
+    if fact.condition_facts and type(fact.condition_facts[0]) not in (HeroHealedTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch, CostPresenceMatch, DeckShuffleCostMatch) and fact.condition_facts[0].owner_turn is not None:
         selected = fact.condition_facts[0]
         current_faces = tuple(play.played_face for play in state.play_history
             if (play.played_face.owner_turn_id, play.player_id, play.kind) ==

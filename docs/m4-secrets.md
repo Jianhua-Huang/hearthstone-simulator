@@ -1,5 +1,7 @@
 # 奥秘、隐藏区域与打断窗口
 
+当前核心内容适配见[核心奥秘契约](m4-core-secrets.md)，旧代表身份保留。下文为原M4历史契约；冰冻陷阱满手失败的当前行为已由[普通回手死亡](m2-full-hand-return-death.md)修正为正常死亡/适用亡语，不再采用下文旧“无死亡/亡语”表述。准确国服时序和正式完整池仍未认证。
+
 原M4批次记录为 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包 `representative-m5-v38`，玩家观察 `player-view-v44`，命令仍为 `player-actions-v7`。这是 M4-04 内部机制契约；国服精确时序尚待 M6，正式完整卡池尚待 M0/M7。进度见 [项目状态](project-status.md)，顺序见 [长期计划](roadmap.md)。
 
 ## 定义、实例与区域

@@ -32,6 +32,7 @@ class AddPlayerEffect(Effect):
     player_id: int
     spec_id: str
     source_id: int
+    capture_health_source: bool = False
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
@@ -39,6 +40,8 @@ class AddPlayerEffect(Effect):
             raise ValueError('Invalid player')
         _name(self.spec_id, 'player effect specification')
         _int(self.source_id, 'player effect source', 1)
+        if type(self.capture_health_source) is not bool:
+            raise ValueError('Player effect health source capture must be boolean')
 
 
 @dataclass(frozen=True)
@@ -73,8 +76,16 @@ def add(r, effect):
         r.emit('player_effect_failed', source_id=effect.source_id, player_id=effect.player_id,
                reason='ongoing_area_full', effect_key=spec.id)
         return
+    from .allocation_facts import SourceAllocationFact
+    allocation=SourceAllocationFact.capture(r.state,source).payload() if effect.capture_health_source else None
+    remaining = spec.duration
+    if spec.next_turn_end:
+        # The end event captures countdowns before its reactions. An instance
+        # installed by those reactions cannot consume that already captured end.
+        remaining = 2 if player.id == r.state.active_player and not r.ending_turn else 1
     instance = PlayerEffect(attachment_id(r.state), spec.id, source.id, source.card_id,
-                            r.state.turn, r.state.next_order, spec.duration)
+                            r.state.turn, r.state.next_order, remaining,allocation,
+                            effect.player_id if allocation is not None else None)
     r.state.next_order += 1
     player.player_effects.append(instance)
     r.refresh_auras()
@@ -200,6 +211,49 @@ def tick(r, effect):
             return [r.call(spec.on_expire, instance.source_id, player.id, event=event, player_effect=instance)]
 
 
+@dataclass(frozen=True)
+class PlayerEffectDamage(Effect):
+    """An accepted logical player source, independent of its old physical carrier."""
+    player_id: int
+    instance: PlayerEffect
+    target_id: int
+    amount: int
+
+    def __post_init__(self):
+        from .effects import _player
+        _player(self.player_id);_int(self.target_id,'player damage target',1);_int(self.amount,'player damage amount',0)
+        if type(self.instance) is not PlayerEffect or self.instance.source_allocation is None:
+            raise ValueError('Player damage requires the complete captured player effect source')
+        self.instance.__post_init__()
+
+
+def health_source(state,registry,instance,player_id):
+    from .effects import _player
+    from .allocation_facts import allocation_from_payload,validate_allocation
+    _player(player_id)
+    if type(instance) is not PlayerEffect or instance.source_allocation is None:
+        raise ValueError('Player health request lost its original source capture')
+    instance.__post_init__();registry.player_effect(instance.spec_id)
+    if instance.source_player_id!=player_id:raise ValueError('Player health source changed its original beneficiary')
+    fact=allocation_from_payload(instance.source_allocation);validate_allocation(state,registry,fact)
+    if instance.id>=state.next_attachment_id or instance.created_turn>state.turn:
+        raise ValueError('Player health source has a future effect identity')
+    for player in state.players.values():
+        current=next((e for e in player.player_effects if e.id==instance.id),None)
+        if current is not None and (player.id!=player_id or current!=instance):
+            raise ValueError('Player health source differs from the original accepted instance')
+    return fact
+
+
+def player_damage(r,effect):
+    from .effects import Damage
+    from .resolver import settle_health_batch
+    health_source(r.state,r.registry,effect.instance,effect.player_id)
+    return settle_health_batch(r,(Damage(effect.target_id,effect.amount,effect.instance.source_id),),
+        player_effect=effect.instance,player_effect_owner=effect.player_id)
+
+
 def register_player_effects(mechanics):
     for effect, handler in ((AddPlayerEffect, add), (RemovePlayerEffect, remove), (TickPlayerEffect, tick)):
         mechanics.register(effect, handler)
+    mechanics.register(PlayerEffectDamage,player_damage)

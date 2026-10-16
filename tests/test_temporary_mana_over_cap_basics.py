@@ -1,4 +1,5 @@
 """Independent temporary mana account, exercised through original public paths."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 import unittest
@@ -252,7 +253,7 @@ class TemporaryManaOverCapTests(unittest.TestCase):
     def test_old_account_semantics_are_rejected_without_new_wire_fields(self):
         g = self.game(temporary_mana=1, mana=11); current = g.snapshot()
         self.assertEqual((g.ruleset.id, g.mechanics.version, current['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         for key in ('ruleset', 'mechanics_version'):
             old = deepcopy(current)
             if key == 'ruleset': old[key]['id'] = 'prototype-v247'

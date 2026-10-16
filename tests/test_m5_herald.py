@@ -1,4 +1,5 @@
 """Herald effect sources, frozen ranks and shared lifecycle/replay contracts."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -358,7 +359,7 @@ class HeraldTests(unittest.TestCase):
 
     def test_real_example_through_fixed_seat_player_commands(self):
         from examples.herald_colossal import run
-        g,snapshot=run();self.assertEqual(len(g.history),6);self.assertEqual(snapshot['schema_version'],266)
+        g,snapshot=run();self.assertEqual(len(g.history),6);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

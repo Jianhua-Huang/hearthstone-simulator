@@ -99,6 +99,10 @@ class TurnFactTests(unittest.TestCase):
         actor = f.unit(g).id
         f.cast(g, 'driver')
         queries = [spell_query(p, ('effect',)) for p in ('attempt', 'payload_accepted', 'completed')]
+        # The outer paid spell has its own real start before creating the effect cast.
+        self.assertIsNotNone(g.state.pending_choice)
+        self.assertEqual([self.count(g, q) for q in queries], [0, 0, 0])
+        f.check(g); self.choose(g)
         self.assertEqual([self.count(g, q) for q in queries], [1, 0, 0])
         self.assertEqual(attack_error(g.state, actor, f.hero(g), 1, registry=f.r), 'Current policy prevents attacking')
         f.check(g); self.choose(g)

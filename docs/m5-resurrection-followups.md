@@ -4,6 +4,10 @@ M5-12b-02a 公共子集；`prototype-v75` / `core-effects-v75`、snapshot schema
 
 ## 费用筛选
 
+`DeathQuery.deathrattle_basis='at_death' | 'printed'`分别使用死亡记录中未消费的亡语能力和死亡卡面经`printed_definition`重建的原生deathrattle声明。默认`at_death`保留旧查询；只有显式选择printed才忽略沉默/临时授予对资格的影响。变形后以死亡时的新卡面为准，不按原owner或最早入场卡面猜身份。`has_deathrattle=None`仍不筛选这一维，费用、控制者、种族及不同卡牌排除继续沿原查询组合。
+
+这个选择来自真实EDR_891/EDR_892需要：[国服32.0已知问题](https://hs.blizzard.cn/news/143315/)将无法复活沉默亡语随从列为问题；[32.0.2官方热修](https://us.forums.blizzard.com/en/hearthstone/t/3202-hotfix-patch/143615/1)公布修正，随后[官方社区经理说明](https://us.forums.blizzard.com/en/hearthstone/t/320-known-issues/143315/131)明确原生亡语牌被沉默仍具有复活资格。完整HTTP原输入及身份/日期可在[冻结来源](../outputs/card-integration-20261014/k38b-official-sources-01/receipt.json)复核；这些历史来源不证明固定37.0国服全部边界已校准。此字段进入原查询和复活根的保存材料，core339/schema272严格拒旧1～271，不能默认补字段认证旧存档。
+
 `DeathQuery(cost_extreme='highest' | 'lowest', cost_basis='printed' | 'local_at_death')` 先应用职业、种族、回合、来源、费用区间等原有过滤，再留下费用最高或最低的全部并列记录。默认 `cost_extreme=None` 保持原查询范围；默认费用依据为印刷费用。
 
 `printed` 读取死亡时卡牌身份的注册定义，变形后的身份按新定义计算。`local_at_death` 使用不可变死亡记录中的基础费用和有序费用附魔，复用 `local_cost` 的设值、加减与下限规则；费用区间过滤和极值比较使用同一依据。它不代表当初支付金额、死亡时手牌光环报价或当前墓地实体费用。后续墓地实体变化不能改写既有候选成本。
@@ -19,6 +23,8 @@ M5-12b-02a 公共子集；`prototype-v75` / `core-effects-v75`、snapshot schema
 来源离场不撤销已安排的续接。主体死亡、回手、再次入场、变形、转控或进入休眠时跳过；转控后转回也属于新入场身份。单纯沉默不改变物理入场，续接仍可按当前状态继续。终局停止剩余工作。
 
 行为可读取当前主体和死亡记录，返回普通公共效果。跨多个效果保持“仍是该实例”语义时，应使用 `MinionReference.capture(...)`、`BuffCapturedMinion` 及新增 `GrantCapturedKeyword`。后者复用普通关键词授予、独立能力实例、来源、到期、沉默和复制语义，每次执行前重新检查引用；不能借此裸授予泰坦等需要专用实例的复杂能力。
+
+有原`SummonCause`归因的成功复活续接可以调用`resurrection_summons.primary_resurrected_body(ctx)`。它沿原实体的ResurrectionBodyBinding核对原死亡、实际接收者和来源，只在该独立复活根的index=0返回True；没有真实原绑定时明确报错，不读最后战场位置。额外数量交付各保留生命周期与一般续接，但“复活一个，再召唤它的复制”只为原首主体安排一次CopyMinion，复制请求仍交原数量层。原首主体在召唤反应中失效时，已有身份检查跳过续接，不能把额外体或变形后的另一卡面当作原来的“它”。该数量组合与时序是内部契约，待对应国服校准。
 
 ```python
 Resurrect(player_id, query=DeathQuery(cost_extreme='highest'),

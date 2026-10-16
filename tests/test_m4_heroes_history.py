@@ -1,4 +1,5 @@
 """Hero cards and immutable Starship launch history across all public boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -354,9 +355,9 @@ class HeroHistoryTests(unittest.TestCase):
 
     def test_real_raynor_example_uses_players_restores_and_replays(self):
         from examples.relaunch_with_raynor import run
-        g,snapshot=run();self.assertEqual((len(g.history),len(g.events)),(7,56))
+        g,snapshot=run();self.assertEqual((len(g.history),len(g.events)),(7,58))
         self.assertEqual(sum(e.kind == 'health_resolved' for e in g.events), 2)
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':

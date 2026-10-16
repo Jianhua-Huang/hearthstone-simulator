@@ -1,0 +1,673 @@
+{
+  "format": "reviewed-health-followup-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "formal_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_CS1_112",
+        "dbf_id": 69508,
+        "name": "神圣新星",
+        "name_en": "Holy Nova",
+        "text": "对所有敌方随从造成$2点伤害，为所有友方角色恢复#2点\n生命值。",
+        "text_en": "Deal $2 damage to all enemy minions. Restore #2 Health to all friendly characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 5,
+          "COLLECTIBLE": 1,
+          "858": 841,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "5"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "841",
+              "type": "Int",
+              "value": "841"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "62b33d3dfb6db3283807ca885a017c6eabb6a18a48831abe0e57985399e8b380",
+      "recipe": {
+        "script": "holy_nova",
+        "alias": "CS1_112",
+        "target": null,
+        "cost": 3,
+        "deck_identity": "CS1_112"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_024",
+        "dbf_id": 111365,
+        "name": "寒冰箭",
+        "name_en": "Frostbolt",
+        "text": "对一个角色造成$3点伤害，并使其<b>冻结</b>。",
+        "text_en": "Deal $3 damage to a_character and <b>Freeze</b> it.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "FREEZE": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 662,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Ellis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "662",
+              "type": "Int",
+              "value": "662"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f945083e33716cdcbccbe6615fd14aafe37c4db2247492b7064102f2ffefd317",
+      "recipe": {
+        "script": "frostbolt",
+        "alias": "CS2_024",
+        "target": null,
+        "cost": 2,
+        "deck_identity": "CS2_024"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_028",
+        "dbf_id": 76273,
+        "name": "暴风雪",
+        "name_en": "Blizzard",
+        "text": "对所有敌方随从造成$2点伤害，并使其<b>冻结</b>。",
+        "text_en": "Deal $2 damage to all enemy minions and <b>Freeze</b> them.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "FREEZE": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 457,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chris Seaman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "457",
+              "type": "Int",
+              "value": "457"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8618bf79c328fedd48050a0d0f894f6636f2d0a799a470302cb425be3f20c5c3",
+      "recipe": {
+        "script": "blizzard",
+        "alias": "CS2_028",
+        "target": null,
+        "cost": 6,
+        "deck_identity": "CS2_028"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_134",
+        "dbf_id": 69621,
+        "name": "军情七处特工",
+        "name_en": "SI:7 Agent",
+        "text": "<b>连击：</b>造成3点伤害。",
+        "text_en": "<b>Combo:</b> Deal 3 damage.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COMBO": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 1117,
+          "SI_7": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chris Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1117",
+              "type": "Int",
+              "value": "1117"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "81dda97c3154b888df7c782a45c65e8f5a8d576d90b1d3c78a27bfe2a0b36448",
+      "recipe": {
+        "script": "si7",
+        "alias": "EX1_134",
+        "target": null,
+        "cost": 3,
+        "deck_identity": "EX1_134"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BOT_222",
+        "dbf_id": 102212,
+        "name": "灵魂炸弹",
+        "name_en": "Spirit Bomb",
+        "text": "对一个随从和你的英雄各造成$4点伤害。",
+        "text_en": "Deal $4 damage to a minion and your hero.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 48113,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "48113",
+              "type": "Int",
+              "value": "48113"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "7600681a26a5b834ff870366f7557a808021293ab475d0bb213003ab7534a889",
+      "recipe": {
+        "script": "soul_bomb",
+        "alias": null,
+        "target": "minion",
+        "cost": 1,
+        "deck_identity": "BOT_222"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_055",
+        "dbf_id": 69735,
+        "name": "吸取灵魂",
+        "name_en": "Drain Soul",
+        "text": "<b>吸血</b>\n对一个随从造成\n$3点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal $3 damage\nto a minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 42658,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kerem Beyit"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42658",
+              "type": "Int",
+              "value": "42658"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0b06672405213559e531a2740b1e7cbd6d20e9bcb1674a7b6e42ad3388586802",
+      "recipe": {
+        "script": "drain_soul",
+        "alias": null,
+        "target": "minion",
+        "cost": 2,
+        "deck_identity": "ICC_055"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SW_442",
+        "dbf_id": 111373,
+        "name": "虚空碎片",
+        "name_en": "Void Shard",
+        "text": "<b>吸血</b>\n造成$4点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal $4 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 64392,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "64392",
+              "type": "Int",
+              "value": "64392"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "6b8def5b5da11fdae2d85ea5edde2be65fa839a7f1039e97f1c2586a7fcae60d",
+      "recipe": {
+        "script": "void_shard",
+        "alias": null,
+        "target": "character",
+        "cost": 4,
+        "deck_identity": "SW_442"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_302",
+        "dbf_id": 122779,
+        "name": "愈合",
+        "name_en": "Mend",
+        "text": "为一个随从恢复所有生命值。抽一张牌。",
+        "text_en": "[x]Restore a minion\nto full Health.\nDraw a card.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "8d5b5d9e2b21bf8995ca37240e8366f72a2683718be3796dc4131647d1766a4a",
+      "recipe": {
+        "script": "mend",
+        "alias": null,
+        "target": "minion",
+        "cost": 1,
+        "deck_identity": "CATA_302"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_485",
+        "dbf_id": 123410,
+        "name": "激寒急流",
+        "name_en": "Sleet Storm",
+        "text": "造成$2点伤害。随机对一个敌方随从造成$1点伤害。",
+        "text_en": "[x]Deal $2 damage.\n_Deal $1 damage to a\n_random enemy minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "d3f0aef731927c65574fafba2a892d59e0672d3cea3637b652cd6a6055f9444b",
+      "recipe": {
+        "script": "torrent",
+        "alias": null,
+        "target": "character",
+        "cost": 1,
+        "deck_identity": "CATA_485"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_582",
+        "dbf_id": 123157,
+        "name": "灼热裂隙",
+        "name_en": "Searing Fissure",
+        "text": "对所有随从造成$1点伤害。在本回合中，使你的英雄获得+3攻击力。",
+        "text_en": "Deal $1 damage to all minions. Give your hero +3 Attack this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "7532c863ea0113d2f723c4ae014045adef2211292f35891cd580f9f4cc8d0713",
+      "recipe": {
+        "script": "rift",
+        "alias": null,
+        "target": null,
+        "cost": 2,
+        "deck_identity": "CATA_582"
+      }
+    }
+  ],
+  "policies": {
+    "full_heal_amount": "original target current max_health, then shared SPELL healing and Draw(1); preserves overheal and conversion; pending exact CN calibration",
+    "followup_capture": "query current eligible targets or current hero when named followup executes after reactions",
+    "aliases": "current full metadata and printed face, existing complete executable entry retained"
+  }
+}

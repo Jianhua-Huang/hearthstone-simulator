@@ -1,5 +1,7 @@
 # 保留原本体的战场复制变形
 
+原CopyMinion现在可显式接受[实际成功复制体续接](m3-copy-followups-hidden-pairs.md)，仍使用既有冻结本地材料和物理交付。这不改变本页TransformMinionIntoCopy的接收者重置、驻留及复制政策。
+
 `TransformMinionIntoCopy(target, card, source_id=None, stats=None)` 以两个既有 `MinionReference` 指明战场接收者和材料来源。二者实际执行时都须保持原卡面、控制者、区域修订、入场身份及活跃存活资格；已离场、转控、换形、休眠或死亡则跳过。未知卡面、错误类型和不支持的材料仍明确报错。
 
 原接收者保留实体 ID、owner/controller、战场位置、原 presence/入场序号、召唤回合和已用攻击次数；区域修订递增以使旧引用失效。它不分配新实体、不死亡、不触发被复制者的战吼，不将复制来源转控。自我复制先捕获本地材料，再重置原实体。

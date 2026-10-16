@@ -49,9 +49,13 @@ def conditional_keywords(state, entity):
     from .equipment import equipped_weapon
     specs = tuple(a.keyword_aura for a in active_abilities(entity, 'keyword_aura')
                   if a.keyword_aura.condition == 'controller_has_weapon')
-    if specs and equipped_weapon(state, state.players[entity.controller]) is not None:
-        return {spec.keyword for spec in specs}
-    return set()
+    result={spec.keyword for spec in specs}if specs and equipped_weapon(state,state.players[entity.controller])is not None else set()
+    alone=tuple(a.keyword_aura for a in active_abilities(entity,'keyword_aura')if a.keyword_aura.condition=='controller_no_other_minions')
+    if alone and entity.kind==CardType.MINION and entity.zone==Zone.BOARD and entity.active:
+        others=any(i!=entity.id and(e:=state.entities[i]).kind==CardType.MINION and not e.starship_building and not e.interactable_object
+            for i in state.players[entity.controller].board)
+        if not others:result.update(spec.keyword for spec in alone)
+    return result
 
 
 def refresh_conditional_keywords(state):
@@ -112,6 +116,8 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                 if spec.target.startswith('friendly_hand'):
                     continue
                 targets = (player.hero_id,) if spec.target == 'friendly_hero' else player.board
+                if spec.target == 'enemy_minions':
+                    targets = state.players[3-source.controller].board
                 if spec.adjacent_only:
                     targets = player.board[max(0, index - 1):index] + player.board[index + 1:index + 2]
                 for target_id in targets:

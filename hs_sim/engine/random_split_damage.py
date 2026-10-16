@@ -500,7 +500,13 @@ def validate_compact_facts(state,registry,root):
         c.__post_init__()
         if c.allocation is not None:
             allocation(c.allocation);c.ability.__post_init__()
-            if (c.allocation.controller!=root.request.player_id or
+            if c.allocation.kind==CardType.SPELL:
+                from .spell_casts import cast_record
+                actual=cast_record(state,root.quote.cast.id)
+                if (c.allocation!=root.quote.source or c.ability not in root.quote.cast.local_spell_damage or
+                        actual.local_spell_damage!=root.quote.cast.local_spell_damage):
+                    raise ValueError('Split bonus differs from its original local CAST ability')
+            elif (c.allocation.controller!=root.request.player_id or
                     c.allocation.kind not in (CardType.HERO,CardType.MINION) or
                     c.allocation.zone!=(Zone.HERO if c.allocation.kind==CardType.HERO else Zone.BOARD)):
                 raise ValueError('Split bonus borrowed another original carrier scope')
@@ -553,7 +559,9 @@ def rows_from_dict(value):
             if c['ability'] is not None:
                 from .serialization import _ability_from_dict
                 c['ability']=_ability_from_dict(c['ability'])
-            if c['player_effect'] is not None:c['player_effect']=PlayerEffect(**_row(c['player_effect'],PlayerEffect))
+            if c['player_effect'] is not None:
+                from .serialization import player_effect_from_dict
+                c['player_effect']=player_effect_from_dict(c['player_effect'])
             contributions.append(SplitBonusContribution(**c))
         quote['contributions']=tuple(contributions);row['quote']=SplitBudgetQuote(**quote);packets=[]
         for v in row['packets']:

@@ -7,8 +7,105 @@ occurrences. Queries never scan the host log or maintain a player counter.
 from dataclasses import dataclass
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .model import CardType, Event, TribeChangeSpec, Zone, _int
+from .model import CardType, Event, Keyword, TribeChangeSpec, Zone, _int
 from .tribes import TribeState, apply_change, tribe_changes, tribe_state_for
+from .effects import Effect
+
+
+@dataclass(frozen=True)
+class BuffSummonedMinion(Effect):
+    """Reward the original successful entry, never a later reused entity ID."""
+    player_id: int
+    summon_id: int
+    source_id: int
+    attack: int = 0
+    health: int = 0
+
+    def __post_init__(self):
+        for name in ('player_id','summon_id','source_id'):_int(getattr(self,name),'summon reward '+name,1)
+        if self.player_id not in(1,2):raise ValueError('Invalid original summon reward player')
+        _int(self.attack,'summon reward attack',0);_int(self.health,'summon reward health',0)
+
+    def validate_in_state(self,state):
+        self.__post_init__()
+        if self.source_id not in state.entities:raise ValueError('Summon reward has an unknown original source')
+        if self.summon_id>len(state.successful_summon_history):raise ValueError('Summon reward has an unknown original entry')
+        row=state.successful_summon_history[self.summon_id-1];row.__post_init__()
+        if(row.id,row.player_id)!=(self.summon_id,self.player_id)or row.turn>state.turn or row.action>state.action_number:
+            raise ValueError('Summon reward changed its original entry or player')
+
+
+def buff_summoned_minion(r,effect):
+    from .effects import Buff
+    from .resolver import buff
+    target=original_recipient(r,effect)
+    if target is None:
+        r.stale(effect,r.state.successful_summon_history[effect.summon_id-1].entity_id);return ()
+    buff(r,Buff(target.id,effect.attack,effect.health,effect.source_id))
+    return ()
+
+
+def original_recipient(r,effect):
+    from .board_presence import resolve_board_presence
+    from .model import BoardPresenceReference
+    effect.validate_in_state(r.state)
+    row=r.state.successful_summon_history[effect.summon_id-1]
+    validate_allocation(r.state,r.registry,row.minion)
+    target=resolve_board_presence(r.state,BoardPresenceReference(row.entity_id,row.minion.entered_order))
+    if target is None or not target.active or target.health<=0 or target.doomed:
+        return None
+    return target
+
+
+@dataclass(frozen=True)
+class GrantSummonedKeyword(Effect):
+    player_id:int
+    summon_id:int
+    source_id:int
+    keyword:Keyword
+
+    def __post_init__(self):
+        BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).__post_init__()
+        if type(self.keyword)is not Keyword or self.keyword not in(Keyword.RUSH,Keyword.REBORN):
+            raise ValueError('Original summon keyword reward supports Rush or Reborn')
+
+    def validate_in_state(self,state):
+        self.__post_init__();BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).validate_in_state(state)
+
+
+def grant_summoned_keyword(r,effect):
+    from .effects import GrantKeyword
+    from .resolver import grant_ability
+    target=original_recipient(r,effect)
+    if target is None:
+        r.stale(effect,r.state.successful_summon_history[effect.summon_id-1].entity_id);return ()
+    grant_ability(r,GrantKeyword(target.id,effect.keyword,effect.source_id))
+    return ()
+
+
+@dataclass(frozen=True)
+class DamageSummonedMinion(Effect):
+    player_id:int
+    summon_id:int
+    source_id:int
+    amount:int
+
+    def __post_init__(self):
+        BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).__post_init__()
+        _int(self.amount,'original summon damage amount',0)
+
+    def validate_in_state(self,state):
+        self.__post_init__();BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).validate_in_state(state)
+        if state.entities[self.source_id].kind!=CardType.MINION:raise ValueError('Original summon damage requires a minion ability source')
+
+
+def damage_summoned_minion(r,effect):
+    from .effects import Damage
+    from .model import DamageKind
+    target=original_recipient(r,effect)
+    if target is None:
+        r.stale(effect,r.state.successful_summon_history[effect.summon_id-1].entity_id);return()
+    return(Damage(target.id,effect.amount,effect.source_id,DamageKind.MINION_ABILITY),)
 
 
 @dataclass(frozen=True)

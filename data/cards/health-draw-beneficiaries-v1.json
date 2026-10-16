@@ -1,0 +1,504 @@
+{
+  "format": "reviewed-health-draw-beneficiaries-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_262",
+        "dbf_id": 115055,
+        "name": "灵魂联结",
+        "name_en": "Spirit Bond",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，召唤一只3/2并具有<b>突袭</b>的狼。",
+        "text_en": "[x]Deal $3 damage\n_to a minion. If it dies,\nsummon a 3/2 Wolf\nwith <b>Rush</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & T. Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "12286022df4c2b2c68ee1d380834e53621a287f469f7ba457ffc613aa4fb43f6",
+      "recipe": {
+        "script": "bond",
+        "target": "minion",
+        "root": true,
+        "deck_identity": "EDR_262"
+      }
+    },
+    {
+      "record": {
+        "id": "END_014",
+        "dbf_id": 121154,
+        "name": "协作火花",
+        "name_en": "Synchronized Spark",
+        "text": "对一个敌人造成$3点伤害。如果该角色死亡，随机使一个友方随从获得+3/+3。",
+        "text_en": "[x]Deal $3 damage to\nan enemy. If it dies,\ngive a random friendly\nminion +3/+3.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 20,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "44f6e597a2fda1a9a3f71a8c71f39c95d10bcc3a815f616c47c530f2f828ee1c",
+      "recipe": {
+        "script": "spark",
+        "target": "enemy",
+        "root": true,
+        "deck_identity": "END_014"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_212",
+        "dbf_id": 120173,
+        "name": "引雷针",
+        "name_en": "Lightning Rod",
+        "text": "对一个友方随从造成$2点伤害，以随机对一个敌方随从造成$4点伤害。",
+        "text_en": "Deal $2 damage to a friendly minion to deal $4 damage to a random enemy minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "9613e0e6753f089ace2ff3194cb82210a244be1cc93a6aa5187ffd3dbda8a480",
+      "recipe": {
+        "script": "rod",
+        "target": "friendly_minion",
+        "root": true,
+        "deck_identity": "TIME_212"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_221",
+        "dbf_id": 117532,
+        "name": "炽火缠身",
+        "name_en": "Sizzling Swarm",
+        "text": "造成$3点伤害，召唤相同数量的2/1的炽烈烬火。",
+        "text_en": "Deal $3 damage.\nSummon that many 2/1 Sizzling Cinders.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 118222,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "e4deb812fa2d5576f2fe13d397c945f69f775cebb0727017f66840b2d1eea7dd",
+      "recipe": {
+        "script": "swarm",
+        "target": "character",
+        "root": true,
+        "deck_identity": "TLC_221"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_231",
+        "dbf_id": 117648,
+        "name": "班纳布斯的故事",
+        "name_en": "Story of Barnabus",
+        "text": "抽一张随从牌。如果其攻击力大于或等于5点，使其获得+5生命值并获得5点护甲值。",
+        "text_en": "Draw a minion.\nIf it has 5 or more Attack, give it +5 Health and gain_5 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "2ec280f92d1c21a76de5459ec6154c0918241c2648718b60093fa638705d7f3f",
+      "recipe": {
+        "script": "story",
+        "target": null,
+        "root": true,
+        "deck_identity": "TLC_231"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_866",
+        "dbf_id": 126205,
+        "name": "致命配方",
+        "name_en": "Lethal Recipe",
+        "text": "抽两张随从牌。如果你拥有至少10点法力值，使其获得+3/+3。",
+        "text_en": "[x]Draw 2 minions.\nIf you have 10 or more\nMana, give them +3/+3.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "e2c2245df87d6d2db0cf679e1f223abd9e051bd31f1b7f85f6069b34008faeee",
+      "recipe": {
+        "script": "recipe",
+        "target": null,
+        "root": true,
+        "deck_identity": "JAIL_866"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_850pe",
+        "dbf_id": 114053,
+        "name": "顽皮的狼崽",
+        "name_en": "Playful Pup",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "be4a247567c4d915bf93378678a60df8f3b921d7f35e9350d5dc0ba36c4be4f5",
+      "recipe": {
+        "script": "wolf",
+        "target": null,
+        "root": false,
+        "deck_identity": null
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_249",
+        "dbf_id": 118222,
+        "name": "炽烈烬火",
+        "name_en": "Sizzling Cinder",
+        "text": "<b>亡语：</b>&造成2点伤害，随机分配到所有敌人身上。",
+        "text_en": "<b>Deathrattle:</b>& Deal 2 damage randomly split among all enemies.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "5450a2b4a17dc546801694558c9444291d20aa703f78876a3d974cf2ac77ff87",
+      "definition_sha256": "e86b8ce46dc517bc315726b443b5ae282b148f78d6d5c40cad397efe96e10782"
+    }
+  ],
+  "gallery_links": [
+    {
+      "root_id": "EDR_262",
+      "gallery_record": {
+        "id": 115055,
+        "collectible": 1,
+        "slug": "115055-spirit-bond",
+        "class_id": 3,
+        "multi_class_ids": [],
+        "minion_type_id": 0,
+        "card_type_id": 5,
+        "card_set_id": 1946,
+        "rarity_id": 3,
+        "artist_name": "L. Lullabi & T. Shevtsov",
+        "health": 0,
+        "attack": null,
+        "mana_cost": 3,
+        "name": "灵魂联结",
+        "text": "对一个随从造成 3点伤害。如果该随从死亡，召唤一只3/2并具有<b>突袭</b>的狼。",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/d2c057285169cf22b95a157b5b5b09e076cd50e71dac83d1f99d8e7948bb2797.png",
+        "image_gold": "",
+        "flavor_text": "我是绑的。灵魂·绑的。",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/be79690b55c0f5524cb9f0c0bfb53440e52aacc1465ec0f48ff2c3e1b6a5557c.png",
+        "child_ids": [
+          114053
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": [
+          53
+        ],
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 4,
+        "set_priority": 5,
+        "class_priority": 3
+      }
+    },
+    {
+      "root_id": "TLC_221",
+      "gallery_record": {
+        "id": 117532,
+        "collectible": 1,
+        "slug": "117532-sizzling-swarm",
+        "class_id": 8,
+        "multi_class_ids": [],
+        "minion_type_id": 0,
+        "card_type_id": 5,
+        "card_set_id": 1952,
+        "rarity_id": 3,
+        "artist_name": "Alex Stone",
+        "health": 0,
+        "attack": null,
+        "mana_cost": 6,
+        "name": "炽火缠身",
+        "text": "造成 3点伤害，召唤相同数量的2/1的炽烈烬火。",
+        "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/b5a78ad4c95ead06dc5f4c80763a8fc00466c44ddb08703155425376e0302ad0.png",
+        "image_gold": "",
+        "flavor_text": "能帮我开个窗吗？我有点上火。",
+        "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/da1a08e9792084d2b113eae1c9ada90f7d23992ff8c20b73c5fe4ef5c60a4256.png",
+        "child_ids": [
+          118222
+        ],
+        "bundledCardIds": null,
+        "is_zilliax_functional_module": false,
+        "is_zilliax_cosmetic_module": false,
+        "keyword_ids": null,
+        "parent_id": 0,
+        "tourist_class_id": 0,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "factionId": null,
+        "spellSchoolId": 2,
+        "set_priority": 4,
+        "class_priority": 8
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

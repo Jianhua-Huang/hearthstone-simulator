@@ -1,4 +1,5 @@
 """Original MINION printed-cost sum: one basic query, no partial real adapter."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import hashlib
 import json
@@ -421,7 +422,7 @@ class StartingDeckMinionCostSumTests(unittest.TestCase):
     def test_current_versions_reject_old_engine_and_old_schema(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         for key, value in (('schema_version', 215), ('mechanics_version', {'version': 'core-effects-v235'})):
             saved = g.snapshot()
             if key == 'mechanics_version':

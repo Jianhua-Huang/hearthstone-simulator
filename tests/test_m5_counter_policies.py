@@ -1,4 +1,5 @@
 """Private carrier counters, finite competition and incarnation boundaries (R-117)."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -337,7 +338,7 @@ class CounterPolicyTests(unittest.TestCase):
 
     def test_real_private_choices_compete_with_objection(self):
         from examples.private_counter_choices import run
-        g,s=run();self.assertEqual(s['schema_version'],266);self.assertEqual(sum(p.countered for p in g.state.play_history),3)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(sum(p.countered for p in g.state.play_history),3)
 
 
 if __name__=='__main__':unittest.main()

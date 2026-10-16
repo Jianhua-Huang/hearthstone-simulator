@@ -1,5 +1,7 @@
 # 英雄生命实际变化事实与次数
 
+
+真实英雄本回合生命变化目标读取原提交账本，随机随从增益仅抽选后交给原属性层；受伤召唤、不能攻击和实际过量治疗继续组合公共执行器，表达与待校准边界见[亡灵原生效果契约](m3-undead-native.md)。
 原英雄当前赋值也进入本页共同事实：hero_health_set保存实际剩余量变化，最大量保持；不变不追加次数，原本人区间/付款消费者与恢复沿原历史。见[赋值契约](m2-remaining-hero-health.md)，没有新生命历史或计数缓存。
 
 血肉巨人SCH_140要求本人回合中英雄生命变化的次数，且获取本牌前的变化也有效。已有当前缺失生命报价、单包HealthResult和尸体资源历史均不能代替这个数量。必要[完整本地raw/pin](../data/support/hero-health-change-basics.json)为10费8/8；官方[卡库检索](https://hearthstone.blizzard.com/en-us/cards/59585-flesh-giant)支持卡文，打开仅导航，不证明精确国服提交窗口。实际执行与下一项只在[项目状态](project-status.md)和[机制清单](mechanism-backlog.md)维护。

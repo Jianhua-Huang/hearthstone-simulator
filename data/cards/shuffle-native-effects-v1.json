@@ -1,0 +1,61 @@
+{
+  "batch": "K49",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_520",
+        "dbf_id": 117702,
+        "name": "灌林追踪者",
+        "name_en": "Underbrush Tracker",
+        "text": "<b>突袭</b>\n你每将牌洗入你的牌库一次，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Rush</b>\nCosts (1) less for each\ntime you've shuffled cards\ninto your deck.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "43c5e2f97f5e94ed8922f06b2b31a53aa8d63180855eb6c9f2134e6d44233297",
+      "recipe": {
+        "script": "tracker",
+        "deck_identity": "TLC_520"
+      }
+    }
+  ],
+  "policies": {
+    "count": "One successful semantic shuffle operation, not one per physical card. Named batch producers retain their original actor and owner; unknown direct insertion actor is an explicit unsupported price operand, never assumed zero.",
+    "history": "Record first actual insertion as the immutable operation witness, and bind all member insertion publications to it. Synchronous primitive delegation finishes before ordinary choice/reaction processing; no second scheduler or saved unfinished batch.",
+    "eligibility": "Actor must equal quoted player and recipient deck owner. Positional top/bottom moves, unchanged-deck shuffles, opening deal/mulligan and Prepare are not random insertion instances.",
+    "timing": "One credit at the first successful insertion publication; exact CN batch/reaction, opening-card and temporary-return policies remain uncalibrated."
+  }
+}

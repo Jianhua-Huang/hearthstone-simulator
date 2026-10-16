@@ -1,0 +1,162 @@
+{
+  "format": "reviewed-next-play-prices-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_428",
+        "dbf_id": 117382,
+        "name": "温泉踏浪鱼人",
+        "name_en": "Hot Spring Glider",
+        "text": "<b>战吼：</b>你的下一张鱼人牌的法力值消耗减少（1）点。<b>延系：</b>且会获得<b>圣盾</b>。",
+        "text_en": "<b>Battlecry:</b> Your next\nMurloc costs (1) less.\n<b>Kindred:</b> And gains <b>Divine Shield</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "97b1513d5d6551055ed60bac7b033e4317c55993acea803f9e03f8f09ac1e4b4",
+      "recipe": {
+        "deck_identity": "TLC_428"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_716",
+        "dbf_id": 120829,
+        "name": "慢动作",
+        "name_en": "Slow Motion",
+        "text": "下个回合，你的对手卡牌的法力值消耗增加（1）点。",
+        "text_en": "Your opponent's cards cost (1) more next turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "a06c71bfc34985a36391da7bbdb04385f171193e1f1f2c45dc733f74989a66dc",
+      "recipe": {
+        "deck_identity": "TIME_716"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_439",
+        "dbf_id": 117604,
+        "name": "焦油狂潮",
+        "name_en": "Wave of Tar",
+        "text": "对所有敌方随从造成$2点伤害。下个回合，敌方随从牌的法力值消耗增加（2）点。",
+        "text_en": "Deal $2 damage to all enemy minions. Enemy minions cost\n(2) more next turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "49ff993c96fdd66f4906eb8730d4d2c7b7bea88ca1fdabfd6e5e4a5242878e4f",
+      "recipe": {
+        "deck_identity": "TLC_439"
+      }
+    }
+  ],
+  "limits": [
+    "Glider price/Divine Shield share the original actual paid matching minion and finite cost-use receipt.",
+    "Future taxes arm on the recipient next actual owner start, use existing current-turn cost expiry, and do not occupy Secret/timed-objective capacity.",
+    "Alternate automatic whole-card cost-use semantics retain their existing explicit framework scope; formal M0/M6 and remaining real sources are not certified by these recipes."
+  ]
+}

@@ -1,5 +1,11 @@
 # 持续目标、咒符与玩家长期效果契约
 
+真实回手禁止须绑定成功到达的原物理对象；控制归还和“下个本人回合结束”按实际原玩家区间计时，普通/对方/结束反应安装分别接受。有限入口和仍未支持的控制层叠边界见[时间效果契约](m3-temporal-spell-effects.md)。
+
+古神降临与泰坦降临使用既有turn_rule/allowed_card_types，抽牌及其反应完成后复原水晶，再安装仅随从/仅法术的当前回合资格。手动根与原付款证明共享现有门禁，自动施法不受该手动权限拦截，细节见[契约](m3-draw-retention-limits.md)。
+
+显式玩家健康来源保存原物理事实与受益方，普通玩家效果默认保持原语义；逻辑伤害委托原健康层，下一真实对手期间复用原实例/费用/时钟。严格捕获、解码、玩家隔离和统一格式常量见[玩家健康来源契约](m3-player-effect-health-source.md)，实际进度与验收仅在两台账。
+
 当前运行时 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包 `representative-m5-v38`，观察 `player-view-v44`、命令 `player-actions-v7`。本页是 M4-03b 内部原型契约；国服目标补丁的精确交互仍待 M6。总体进度见 [项目状态](project-status.md)，阶段顺序见 [长期计划](roadmap.md)。
 
 ## 状态与定义

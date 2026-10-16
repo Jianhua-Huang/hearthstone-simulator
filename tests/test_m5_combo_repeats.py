@@ -1,4 +1,5 @@
 """Combo repetition and distinct commitment/activation policies, provisional R-128."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -396,7 +397,7 @@ class ComboRepeatTests(unittest.TestCase):
 
     def test_example_mixes_real_cards_with_explicit_mechanism_fixtures(self):
         from examples.combo_repetition import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(len(g.state.combo_history),5);self.assertEqual(len(g.state.battlecry_history),2)
         self.assertEqual(sum(bool(r.modifiers) for r in g.state.combo_policy_receipts),1)
 

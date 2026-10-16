@@ -1,4 +1,5 @@
 """R-135: source composition and explicitly bounded, independently audited pools."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from pathlib import Path
@@ -276,7 +277,7 @@ class CardSpellSourceTests(unittest.TestCase):
 
     def test_native_representative_example_restores_and_finishes(self):
         from examples.card_spell_sources import run
-        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(g.state.winner,1);self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

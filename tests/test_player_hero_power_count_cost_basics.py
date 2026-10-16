@@ -1,4 +1,5 @@
 """All-game manual power uses priced from existing physical activation roots."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -501,13 +502,13 @@ class PlayerHeroPowerCountCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = self.portable(g)
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v85', 'player-actions-v12'))
+            ('player-view-v86', 'player-actions-v12'))
         for version in (1, 173, 174, 217, True, '175'):
             bad = deepcopy(saved)
             bad['schema_version'] = version
-            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
                 Game.from_snapshot(bad, registry())
 
 if __name__ == '__main__':

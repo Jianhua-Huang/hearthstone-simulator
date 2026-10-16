@@ -259,8 +259,10 @@ def mana_effect(r, effect):
 def resource_effect(r, effect):
     player = r.player(effect.player_id)
     if isinstance(effect, GainResource):
-        player.resources[effect.resource] += effect.amount
-        r.emit('resource_gained', player_id=player.id, amount=effect.amount, resource=effect.resource.value)
+        from .corpse_gains import gain_amount
+        amount = gain_amount(r.state, r.registry, player.id, effect.amount)
+        player.resources[effect.resource] += amount
+        r.emit('resource_gained', player_id=player.id, amount=amount, resource=effect.resource.value)
         return
     if player.resources[effect.resource] < effect.amount:
         if effect.required:

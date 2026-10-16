@@ -1,4 +1,5 @@
 """Independent Jade growth with real templates and only Spirit/Swarmer sources."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -444,7 +445,7 @@ class JadeBasicsTests(unittest.TestCase):
         self.rejected(g, lambda s: s['state']['entities'][str(entity)].update(jade_size=2))
 
     def test_old_schema_is_rejected(self):
-        g = self.game(); s = g.snapshot(); self.assertEqual(s['schema_version'], 266)
+        g = self.game(); s = g.snapshot(); self.assertEqual(s['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 154):
             with self.subTest(version=version):
                 with self.assertRaises(SnapshotError):

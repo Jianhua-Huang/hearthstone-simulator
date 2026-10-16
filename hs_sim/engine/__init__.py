@@ -226,6 +226,8 @@ __all__ += ['Excavate','ExcavationProfile','ExcavationClass','ExcavationRecord',
 
 from .cross_zone import MinionScope, minion_references, BuffMinionsInZones, TransformCapturedMinion, TransformMinionsInZones, TransformStoredCard, TransformStoredIntoCopy, TransformMinionIntoCopy, TransformDefiningHandCard, TransformDefiningHandCardFromPool
 __all__ += ['MinionScope','minion_references','BuffMinionsInZones','TransformCapturedMinion','TransformMinionsInZones','TransformStoredCard','TransformStoredIntoCopy','TransformMinionIntoCopy','TransformDefiningHandCard','TransformDefiningHandCardFromPool']
+from .model import HandMirrorSpec
+__all__ += ['HandMirrorSpec']
 
 from .health_loss import ChangeHeroMaxHealth, StealHeroHealth
 __all__ += ['ChangeHeroMaxHealth','StealHeroHealth']
@@ -552,3 +554,6 @@ __all__ += ['SetHeroHealth']
 from .effects import TransferWeapon
 from .model import EquippedWeaponReference
 __all__ += ['TransferWeapon','EquippedWeaponReference']
+
+from .model import NativeSourceCondition
+__all__ += ['NativeSourceCondition']

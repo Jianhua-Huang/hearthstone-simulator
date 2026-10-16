@@ -1,5 +1,7 @@
 # 特殊生成资格与连续发现后的交付
 
+从本人牌库发现并授予黑暗之赐须保留原实体和当前材料，不能套用生成副本。有限原牌发现、共享配对、原授予/区域交付及恢复边界见[契约](m3-stored-dark-gift-discovery.md)；这不认证外部随从生成池。
+
 M5-12b-02b 公共子集；`prototype-v75` / `core-effects-v75`、snapshot schema 74、representative-m5-v38、player-view-v44。旧 1～71 快照明确拒绝；玩家命令 v6、外层 replay 1 保持。实现见 [pools.py](../hs_sim/engine/pools.py) 与 [discovery.py](../hs_sim/engine/discovery.py)，[48 项专项](../tests/test_m5_discovery_delivery.py)已通过；全量结果由[项目状态](project-status.md)统一登记。
 
 ## 按效果声明生成例外

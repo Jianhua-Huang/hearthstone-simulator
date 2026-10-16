@@ -1,5 +1,7 @@
 # 复生：满血并保留附魔
 
+原生罪孽战马新增可空CardDefinition.reborn_policy，安装为可沉默的印刷复生行，当前实体与冻结死亡材料核对本体来源和政策；动态授予仍沿下方原入口。死亡/保留附魔/消费共用本页原执行器，印刷与动态重置差异见[后续契约](m3-native-reborn-fire-draw.md)。
+
 这是原复生流程的一种真实返回规则。国服资料片说明列出满血并保留附加效果的复生赐福；本地 `EDR_100t9` 描述和 `EDR_100t9e` 附魔原行也表达这一差异。[国服说明](https://hs.blizzard.cn/news/24179067/)。32.4修复说明另确认：带此赐福的休眠随从，唤醒本身不应触发复生。[国服32.4说明](https://hs.blizzard.cn/news/24205006/index.html)。这些资料不代替当前完整结果池或精确国服校准。
 
 实际执行、验证结果和下一项仅在 [项目状态](project-status.md) 与 [机制清单](mechanism-backlog.md) 维护。
@@ -8,7 +10,7 @@
 
 原 [GrantKeyword](../hs_sim/engine/effects.py) 和 [GrantStoredKeyword](../hs_sim/engine/hand_keywords.py) 增加末尾可选参数 `reborn_policy`。默认 `None` 是普通复生；唯一特殊值为 `full_health_enchantments`，只允许与 `Keyword.REBORN` 一同声明。
 
-同名字段存于原 [AbilityInstance](../hs_sim/engine/model.py)。它必须是可沉默、非印刷的关键词附件，载体必须为随从；不能赋予英雄、武器、法术，不能作为其他能力的隐藏数据或未经支持的计时关键词。原来源、到期回合、消费和附件身份管理沿用。场上与存储效果、当前实体和冻结死亡材料均检查载体及字段类型，未知值明确报错。
+同名字段存于原 [AbilityInstance](../hs_sim/engine/model.py)。动态授予必须是可沉默的非印刷关键词附件；原生声明则由印刷行承载，两者载体均须为随从；不能赋予英雄、武器、法术，不能作为其他能力的隐藏数据或未经支持的计时关键词。原来源、到期回合、消费和附件身份管理沿用。场上与存储效果、当前实体和冻结死亡材料均检查载体及字段类型，未知值明确报错。
 
 必要隔离配方以 [完整原行证据](../data/support/full-health-reborn-basics.json) 固定回荡恐怖描述、附魔及淡水鳄。描述不是可出牌法术；专项通过普通诊断载体调用原存储关键词效果验证配方，没有把有限随从池或单一赐福包装成完整黑暗之赐发现。
 

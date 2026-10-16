@@ -5,9 +5,9 @@ beneficiary or attaches to a later incarnation that happens to reuse its ID.
 """
 from dataclasses import dataclass
 
-from .effects import Buff, Destroy, Effect, GrantKeyword, _integer, _player, _source
+from .effects import Buff, Destroy, Effect, GrantKeyword, SetStats, _integer, _player, _source
 from .errors import ResolutionError
-from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, Zone
+from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, StatReference, Zone
 
 
 @dataclass(frozen=True)
@@ -69,6 +69,37 @@ class BuffCapturedMinion(Effect):
 
     def __post_init__(self):
         reward_values(self)
+
+
+@dataclass(frozen=True)
+class SetCapturedMinionStats(Effect):
+    beneficiary: MinionReference
+    attack: int | StatReference | None = None
+    health: int | StatReference | None = None
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        SetStats(self.beneficiary.entity_id, self.attack, self.health, self.source_id).__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ref = self.beneficiary
+        entity = state.entities.get(ref.entity_id)
+        if entity is None or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
+            raise ValueError('Captured stat setter borrowed an unknown or future minion allocation')
+        if self.source_id is not None and self.source_id not in state.entities:
+            raise ValueError('Captured stat setter has an unknown original source')
+
+
+def set_captured_minion_stats(r, effect):
+    from .resolver import set_stats
+    effect.validate_in_state(r.state)
+    validate_request(r, effect)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id); return ()
+    set_stats(r, SetStats(effect.beneficiary.entity_id, effect.attack, effect.health, effect.source_id))
+    return ()
 
 
 @dataclass(frozen=True)
@@ -134,6 +165,33 @@ class SacrificeAdjacent(Effect):
         reward_values(self)
         if type(self.side) is not str or self.side not in ('left', 'right'):
             raise ValueError('Sacrifice side must be left or right')
+
+
+@dataclass(frozen=True)
+class DestroyCapturedMinion(Effect):
+    """Accept destruction of the original victim, then run ordinary continuations."""
+    victim: MinionReference
+    source_id: int | None = None
+    on_destroy: tuple[Effect, ...] = ()
+
+    def __post_init__(self):
+        reference_value(self.victim); _source(self.source_id)
+        if type(self.on_destroy) is not tuple or any(not isinstance(e,Effect) for e in self.on_destroy):
+            raise ValueError('Captured destruction requires immutable effect continuations')
+
+
+def destroy_captured_minion(r, effect):
+    from .resolver import destroy
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Captured destruction source does not exist')
+    if r.registry.card(effect.victim.card_id).kind!=CardType.MINION:
+        raise ResolutionError('Captured destruction requires an original minion')
+    victim=live_minion(r.state,effect.victim)
+    if victim is None:
+        r.stale(effect,effect.victim.entity_id);return ()
+    destroy(r,Destroy(victim.id,effect.source_id))
+    return effect.on_destroy
 
 
 @dataclass(frozen=True)
@@ -260,8 +318,10 @@ def complete_destruction_buff(r, effect):
 def register(mechanics):
     mechanics.register_payload_type(MinionReference)
     mechanics.register(DestroyForBuff, destroy_for_buff)
+    mechanics.register(DestroyCapturedMinion, destroy_captured_minion)
     mechanics.register(SacrificeAdjacent, sacrifice_adjacent)
     mechanics.register(CompleteDestructionBuff, complete_destruction_buff)
     mechanics.register(BuffCapturedMinion, buff_captured_minion)
+    mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

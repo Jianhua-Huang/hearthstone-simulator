@@ -1,4 +1,5 @@
 """Same-owner-end temporary copied hand: original physical group and return."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -242,7 +243,7 @@ class TemporaryHandTests(unittest.TestCase):
         self.invalid_boundary(g,lambda bad:bad._state.temporary_hands.clear())
 
     def test_snapshot_has_typed_history_and_rejects_old_schema_and_extra_fields(self):
-        g=self.game();self.play(g);saved=g.snapshot();self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(266,'prototype-v302',CORE_EFFECTS_VERSION))
+        g=self.game();self.play(g);saved=g.snapshot();self.assertEqual((saved['schema_version'],g.ruleset.id,g.mechanics.version),(SNAPSHOT_SCHEMA_VERSION,'prototype-v302',CORE_EFFECTS_VERSION))
         for version in (1,162,163):
             bad=json.loads(json.dumps(saved));bad['schema_version']=version
             with self.subTest(version=version),self.assertRaises(SnapshotError):Game.from_snapshot(bad,registry())

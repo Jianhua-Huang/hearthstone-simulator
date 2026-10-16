@@ -1,4 +1,5 @@
 """A1 school/class matching at the two existing manual-spell windows."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import copy
 import json
 import unittest
@@ -654,7 +655,7 @@ class SpellMatchTests(unittest.TestCase):
     def test_receipt_fields_are_mandatory_and_completed_ledger_is_compact(self):
         g = self.game(hand=('ask.arcane',), board=('board.any.2',))
         self.play(g, 'ask.arcane')
-        self.assertEqual(g.snapshot()['schema_version'], 266)
+        self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         old = g.snapshot(); old['schema_version'] = 100; self.reject(old)
         for field in ('spell_submission', 'spell_payload', 'spell_acceptance_closed'):
             snap = g.snapshot(); del snap['state']['play_history'][-1][field]; self.reject(snap)

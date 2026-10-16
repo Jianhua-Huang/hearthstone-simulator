@@ -40,7 +40,7 @@ class ResurrectionEntryMaterial:
     def __post_init__(self):
         if type(self.death)is not DeathRecord:raise ValueError('Complete typed immutable death material required')
         self.death.__post_init__()
-        if self.card_id!=self.death.card_id or self.death.zone!=Zone.BOARD or self.death.components:raise ValueError('Ordinary resurrection material requires its non-composite minion death')
+        if self.card_id!=self.death.card_id or self.death.zone!=Zone.BOARD:raise ValueError('Resurrection material requires its original board minion death')
         if self.source is not None:
             if type(self.source)is not SourceAllocationFact:raise ValueError('Typed original resurrection effect source required')
             self.source.__post_init__()
@@ -52,8 +52,13 @@ class ResurrectionEntryMaterial:
 
 
 def validate_face(registry,material):
-    from .summon_quantities import SummonEntryMaterial,validate_material
-    material.__post_init__();validate_material(registry,SummonEntryMaterial(material.card_id))
+    material.__post_init__();card=registry.card(material.card_id)
+    if card.kind!=CardType.MINION or card.choice_only or bool(card.starship_for)!=bool(material.death.components):
+        raise ValueError('Resurrection requires a complete printed minion and its original composition')
+    for card_id in material.death.components:
+        component=registry.card(card_id)
+        if component.kind!=CardType.MINION or component.starship_for:
+            raise ValueError('Resurrection composition requires its original non-composite minion pieces')
     if material.on_summon is not None:registry.behavior(material.on_summon)
     if registry.card(material.card_id).herald_scaling!=(material.entry_herald_count is not None):raise ValueError('Resurrection lost original deferred entry-strength basis')
 
@@ -84,7 +89,8 @@ def failed(r,material,player_id):
 
 
 def create_body(r,material,player_id,position):
-    entity = r.create_entity(player_id,material.card_id,Zone.BOARD,position,entry_herald_count=material.entry_herald_count)
+    entity = r.create_entity(player_id,material.card_id,Zone.BOARD,position,
+        components=material.death.components,entry_herald_count=material.entry_herald_count)
     from .jade import inherit_printed
     inherit_printed(material.death, entity)
     return entity
@@ -151,6 +157,18 @@ def continue_body(r,effect):
     if binding.status!='pending':raise ResolutionError('Resurrection continuation was already attempted')
     work=continue_resurrected_minion(r,ContinueResurrectedMinion(binding.resurrection.id,binding.beneficiary,binding.behavior_id))
     finish_body(r,binding,'attempted'if work else'skipped');return work
+
+
+def primary_resurrected_body(context):
+    """Identify the original body of this attributed resurrection, before extras."""
+    rows=[binding for binding in context.state.resurrection_quantity_bodies
+          if binding.resurrection.entity_id==context.target_id]
+    if len(rows)!=1 or context.death is None:
+        raise ResolutionError('Primary resurrection query requires its original attributed body')
+    binding=rows[0];row=binding.resurrection
+    if (row.player_id,row.source_id,row.death_id)!=(context.player_id,context.source_id,context.death.id):
+        raise ResolutionError('Primary resurrection query lost its original source or death')
+    return binding.index==0
 
 
 def validate_delivery(state,material,delivery,player_id,*,closed=False):

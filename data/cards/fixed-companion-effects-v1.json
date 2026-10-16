@@ -1,0 +1,556 @@
+{
+  "batch": "K34 fixed companions and hand refill",
+  "source_version": "37.0.0.255026",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_NEW1_031",
+        "dbf_id": 76297,
+        "name": "动物伙伴",
+        "name_en": "Animal Companion",
+        "text": "随机召唤一个野兽伙伴。",
+        "text_en": "Summon a random Beast Companion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 437
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "437",
+              "type": "Int",
+              "value": "437"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "817e645c61bdfc6c34114c9d7e07be2fcf77fed7a9513a7cb31a3dc3bc910e08",
+      "recipe": {
+        "role": "root",
+        "script": "random_companion",
+        "deck_identity": "NEW1_031",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_OG_211",
+        "dbf_id": 130721,
+        "name": "兽群呼唤",
+        "name_en": "Call of the Wild",
+        "text": "召唤全部三个动物伙伴。",
+        "text_en": "Summon all three Animal Companions.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 38727,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 38727
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38727",
+              "type": "Int",
+              "value": "38727"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9a5049149ba5d93d62c106f55d2784422bcbd6b6e0b04613cec54e30b6a208bb",
+      "recipe": {
+        "role": "root",
+        "script": "all_companions",
+        "deck_identity": "OG_211",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TRL_900",
+        "dbf_id": 126891,
+        "name": "哈尔拉兹，山猫之神",
+        "name_en": "Halazzi, the Lynx",
+        "text": "<b>突袭</b>。<b>战吼：</b>&用1/1并具有<b>突袭</b>的山猫填满你的手牌。",
+        "text_en": "<b>Rush</b>. <b>Battlecry:</b>& Fill your hand with 1/1 Lynxes\nthat have <b>Rush</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "858": 50659,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 50659,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 50213,
+          "1584": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "50659",
+              "type": "Int",
+              "value": "50659"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "1e71a7a880cdb3c1b2053e6da29c8fa8ebf8724efecba7b1b27f750b93102685",
+      "recipe": {
+        "role": "root",
+        "script": "fill_lynx",
+        "deck_identity": "TRL_900",
+        "keywords": [
+          "rush"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "NEW1_034",
+        "dbf_id": 100,
+        "name": "霍弗",
+        "name_en": "Huffer",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CHARGE": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "311f22defcf8c3b51210ac10d08d5e84e4720d34f27b153f7ead8b6f0a0a482e",
+      "recipe": {
+        "role": "dependency",
+        "script": "huffer",
+        "deck_identity": "NEW1_034",
+        "keywords": [
+          "charge"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "NEW1_033",
+        "dbf_id": 226,
+        "name": "雷欧克",
+        "name_en": "Leokk",
+        "text": "你的其他随从拥有+1攻击力。",
+        "text_en": "Your other minions have +1 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "AURA": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c59c8ebe081a99b054210027ce39b1ebdccb756809974e9409e8aabdb015f33b",
+      "recipe": {
+        "role": "dependency",
+        "script": "leokk",
+        "deck_identity": "NEW1_033",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "NEW1_032",
+        "dbf_id": 959,
+        "name": "米莎",
+        "name_en": "Misha",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fc317cb2c9ba52b53402eeeb32be160bf56b12b09c2c7be9320e6213ab2da066",
+      "recipe": {
+        "role": "dependency",
+        "script": "misha",
+        "deck_identity": "NEW1_032",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TRL_348t",
+        "dbf_id": 50213,
+        "name": "山猫",
+        "name_en": "Lynx",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "RUSH": 1,
+          "1584": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Lemon Sky"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "0e75ae39c8bc81951f0703e6482bf72303485bc34b6a1549f50288a056334233",
+      "recipe": {
+        "role": "dependency",
+        "script": "lynx",
+        "deck_identity": "TRL_348t",
+        "keywords": [
+          "rush"
+        ]
+      }
+    }
+  ],
+  "historical_identity_evidence": [
+    {
+      "record": {
+        "id": "NEW1_031",
+        "dbf_id": 437,
+        "name": "动物伙伴",
+        "name_en": "Animal Companion",
+        "text": "随机召唤一个野兽伙伴。",
+        "text_en": "Summon a random Beast Companion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          }
+        ]
+      },
+      "record_sha256": "f246fd643e346d755320947c48882f52e98a5628c0628f99097a19039aa42044"
+    },
+    {
+      "record": {
+        "id": "OG_211",
+        "dbf_id": 38727,
+        "name": "兽群呼唤",
+        "name_en": "Call of the Wild",
+        "text": "召唤全部三个动物伙伴。",
+        "text_en": "Summon all three Animal Companions.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 21,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          }
+        ]
+      },
+      "record_sha256": "1ccbf9130e1c6c99eb9ce521ddc21dc8b7ec5e17b8c6ae40d5b8c4d86785ec88"
+    },
+    {
+      "record": {
+        "id": "TRL_900",
+        "dbf_id": 50659,
+        "name": "哈尔拉兹，山猫之神",
+        "name_en": "Halazzi, the Lynx",
+        "text": "<b>突袭</b>。<b>战吼：</b>&用1/1并具有<b>突袭</b>的山猫填满你的手牌。",
+        "text_en": "<b>Rush</b>. <b>Battlecry:</b>& Fill your hand with 1/1 Lynxes\nthat have <b>Rush</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1129,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 50213,
+          "1584": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "2c5243bc1c377b72d315f92172bbdb6cca75154eb24202c2afc3a5971b3de7dc"
+    }
+  ],
+  "official_core_relation_sha256": "fec7b9aa4545a46a458fd6a443570b3c03f83570243a6815977534c0af2fdd16",
+  "companion_order": [
+    "NEW1_034",
+    "NEW1_033",
+    "NEW1_032"
+  ],
+  "lynx_card_id": "TRL_348t",
+  "reviewed_policy": {
+    "random": "Three complete named materials, uniform one choice; original attributed quantity copies retain selection.",
+    "all": "Three separate deterministic attributed requests in Huffer, Leokk, Misha order; each actual capacity and reaction applies.",
+    "fill": "Capture current effective hand capacity minus current hand once, then ordinary AddToHand for exactly that many; later reactions do not create an unbounded refill loop.",
+    "limit": "Historical primary player order description and unread official tweet URLs are not fixed CN calibration. Fill acceptance/capacity reaction policies remain internal."
+  }
+}

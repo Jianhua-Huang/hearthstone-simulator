@@ -1,0 +1,2618 @@
+{
+  "schema_version": 1,
+  "batch_id": "K01",
+  "source": {
+    "client_version": "36.6.3.253932",
+    "cards_sha256": "5949a71f7cb6108221b5175fafd1f19a7e166a9fbcace4b9a95978313aef27c9",
+    "dbf_sha256": "6ccf2105851c7fbc5357e3831c5665a1332329a72d456879a3d0c36f137ba35c",
+    "assembly_sha256": "3f67779510122dbce79ec431e4e7494643083160ec9e7592f6ecb899b2b69728"
+  },
+  "target_patch": "37.0",
+  "region": "CN",
+  "formal_pool_complete": false,
+  "latest_patch_data_verified": false,
+  "limitations": [
+    "Explicit ordinary-minion recipes over the refreshed local 36.6.3 snapshot.",
+    "Core IDs may include retired entries; exact standard membership requires separate evidence.",
+    "No new complete generation pool, source cards or official timing calibration."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_558",
+        "dbf_id": 122937,
+        "name": "进击的募援官",
+        "name_en": "Reinforcement Rallier",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 3,
+          "COST": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "2402c32aaa9ebc97b45861eb469cb8e5e3d0a391d97a1bdcc8fa4d4eb65b2e1c",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "keywords": [
+          "elusive"
+        ],
+        "deck_identity": "CATA_558"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_AT_092",
+        "dbf_id": 69710,
+        "name": "冰霜暴怒者",
+        "name_en": "Ice Rager",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 5,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 5,
+          "HEALTH": 2,
+          "CARDRACE": 18,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "858": 2594
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "cb5fe7d962ed63783d106fe260a792af1ff2dbedc03c1c494b9d7846d5ba0080",
+      "recipe": {
+        "cost": 3,
+        "attack": 5,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "AT_092"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_423",
+        "dbf_id": 69681,
+        "name": "灰舌将领",
+        "name_en": "Ashtongue Battlelord",
+        "text": "<b>嘲讽，吸血</b>",
+        "text_en": "<b>Taunt</b>\n<b>Lifesteal</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 14,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 5,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 1,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 56860,
+          "TAUNT": 1,
+          "LIFESTEAL": 1,
+          "CARDRACE": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f57e3c69cc23023f366cff086be7527c2bbe4ab2f8075341690ed559f5a263be",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "keywords": [
+          "taunt",
+          "lifesteal"
+        ],
+        "deck_identity": "BT_423"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BT_701",
+        "dbf_id": 129347,
+        "name": "间谍女郎",
+        "name_en": "Spymistress",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 3,
+          "HEALTH": 1,
+          "1413": 56377,
+          "858": 56377,
+          "STEALTH": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "STEALTH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "24bddd8e311265af141c998f95bfeae5012e44d0a045d77249c417b9b7ea7a6c",
+      "recipe": {
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "BT_701"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_065",
+        "dbf_id": 76281,
+        "name": "虚空行者",
+        "name_en": "Voidwalker",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 9,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 3,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "251": 9,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 48,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "868f2e826174d0e044be9563278ff74123157bf27037d6d1b8cc62b0d82cb5c6",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [
+          "taunt"
+        ],
+        "deck_identity": "CS2_065"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_120",
+        "dbf_id": 69536,
+        "name": "淡水鳄",
+        "name_en": "River Crocolisk",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 2,
+          "HEALTH": 3,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "858": 1369
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "80530b3f10def2aa3f41954d68d4bba3c9de9480a8372af22814346d22dbb917",
+      "recipe": {
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "CS2_120"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_179",
+        "dbf_id": 69542,
+        "name": "森金持盾卫士",
+        "name_en": "Sen'jin Shieldmasta",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 5,
+          "COLLECTIBLE": 1,
+          "FACTION": 1,
+          "251": 1,
+          "268": 2,
+          "858": 635,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f5728b58191b764713f74df8470bf235d2a78f01ab4e916bc0b9bc66923ac6d7",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "keywords": [
+          "taunt"
+        ],
+        "deck_identity": "CS2_179"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_182",
+        "dbf_id": 69543,
+        "name": "冰风雪人",
+        "name_en": "Chillwind Yeti",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 4,
+          "HEALTH": 5,
+          "COLLECTIBLE": 1,
+          "FACTION": 3,
+          "251": 6,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 90
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "bc578b47a5b81d0a5e292966104bb080dc0e4b94edbdb36c11cba72875f39d72",
+      "recipe": {
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "keywords": [],
+        "deck_identity": "CS2_182"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_231",
+        "dbf_id": 120970,
+        "name": "小精灵",
+        "name_en": "Wisp",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARDTYPE": 4,
+          "FACTION": 3,
+          "251": 7,
+          "CARDRACE": 11,
+          "3881": 1,
+          "1413": 179,
+          "858": 179,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "da1f15e9f9129a8fe3de1cbe6d1c8ca018ecb9246adcb62658e0bf201bbc9a19",
+      "recipe": {
+        "cost": 0,
+        "attack": 1,
+        "health": 1,
+        "keywords": [],
+        "deck_identity": "CS2_231"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS3_030",
+        "dbf_id": 66863,
+        "name": "战歌侦察骑兵",
+        "name_en": "Warsong Outrider",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 5,
+          "HEALTH": 4,
+          "RUSH": 1,
+          "858": 89150
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "8aa18c0eccf551ac40f401897017c4cd1c503a0b8625b938acadffdf5f0b5094",
+      "recipe": {
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "keywords": [
+          "rush"
+        ],
+        "deck_identity": "CS3_030"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DRG_079",
+        "dbf_id": 112925,
+        "name": "辟法巨龙",
+        "name_en": "Evasive Wyrm",
+        "text": "<b>突袭</b>。<b>圣盾</b>。<b>扰魔</b>",
+        "text_en": "<b>Rush</b>\n<b>Divine Shield</b>\n<b>Elusive</b>",
+        "cost": 6,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "COST": 6,
+          "CARDTYPE": 4,
+          "HEALTH": 4,
+          "COLLECTIBLE": 1,
+          "ATK": 5,
+          "CARDRACE": 24,
+          "858": 55429,
+          "ELUSIVE": 1,
+          "DIVINE_SHIELD": 1,
+          "RUSH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          },
+          {
+            "tag": "RUSH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "52158ce56b53fe905788b110a45236a47183f08b9a9b473df78f3d6ed53032a2",
+      "recipe": {
+        "cost": 6,
+        "attack": 5,
+        "health": 4,
+        "keywords": [
+          "rush",
+          "divine_shield",
+          "elusive"
+        ],
+        "deck_identity": "DRG_079"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_008",
+        "dbf_id": 69653,
+        "name": "银色侍从",
+        "name_en": "Argent Squire",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 2,
+          "251": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 757,
+          "DIVINE_SHIELD": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "8a4aafac389ca56b1dc2d38f20f1a90c8c9b915bac36b824b5837eb2bc789b11",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "keywords": [
+          "divine_shield"
+        ],
+        "deck_identity": "EX1_008"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_010",
+        "dbf_id": 69654,
+        "name": "狼人渗透者",
+        "name_en": "Worgen Infiltrator",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 2,
+          "251": 6,
+          "268": 2,
+          "858": 994,
+          "STEALTH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "STEALTH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "233325857c3b0ff0644cbd05ce0b1512f7ee916341eeae571ebc6851419042bd",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "EX1_010"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_017",
+        "dbf_id": 69657,
+        "name": "丛林猎豹",
+        "name_en": "Jungle Panther",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 4,
+          "HEALTH": 2,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 1,
+          "251": 6,
+          "268": 2,
+          "1584": 1,
+          "858": 921,
+          "STEALTH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "STEALTH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "4c2d77cb8879faf4df759eba169840ff08c1f1e9c25507c9936f081d1dd45ead",
+      "recipe": {
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "EX1_017"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_028",
+        "dbf_id": 69658,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 5,
+          "HEALTH": 5,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 2,
+          "251": 6,
+          "268": 2,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "1584": 1,
+          "858": 68,
+          "STEALTH": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "STEALTH",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "09777690d31b1e73aa70e8d8c72259c32a9907a95c8d21fe5e5aad68a4f4a021",
+      "recipe": {
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "EX1_028"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_522",
+        "dbf_id": 69624,
+        "name": "耐心的刺客",
+        "name_en": "Patient Assassin",
+        "text": "<b>潜行</b>\n<b>剧毒</b>",
+        "text_en": "<b>Stealth</b>\n <b>Poisonous</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 1,
+          "HEALTH": 2,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "FACTION": 3,
+          "251": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 1133,
+          "STEALTH": 1,
+          "POISONOUS": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "STEALTH",
+            "value": 1
+          },
+          {
+            "tag": "POISONOUS",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "29da892f25044ad9d3b03d747f9f11a32a6c77305691fbbb3961b06de1d0fc21",
+      "recipe": {
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "keywords": [
+          "stealth",
+          "poisonous"
+        ],
+        "deck_identity": "EX1_522"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_543",
+        "dbf_id": 69601,
+        "name": "暴龙王克鲁什",
+        "name_en": "King Krush",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 9,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COST": 9,
+          "ATK": 8,
+          "HEALTH": 8,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "FACTION": 3,
+          "251": 6,
+          "858": 1144,
+          "CHARGE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "CHARGE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "85765a718302dd3cc4771aac2e9526076efe96e0bc8fefdd862d868c6a402a04",
+      "recipe": {
+        "cost": 9,
+        "attack": 8,
+        "health": 8,
+        "keywords": [
+          "charge"
+        ],
+        "deck_identity": "EX1_543"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_558",
+        "dbf_id": 129175,
+        "name": "沼泽水蛭",
+        "name_en": "Swamp Leech",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CARDRACE": 20,
+          "1413": 47072,
+          "858": 47072,
+          "LIFESTEAL": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": 164,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "dc82b98312b643b0d9442b672260b749b2e72cd897ac7b8420bfc91253a530f7",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "keywords": [
+          "lifesteal"
+        ],
+        "deck_identity": "GIL_558"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GVG_044",
+        "dbf_id": 69716,
+        "name": "蜘蛛坦克",
+        "name_en": "Spider Tank",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 3,
+          "HEALTH": 4,
+          "CARDRACE": 17,
+          "ELITE": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "COLLECTIBLE": 1,
+          "858": 2012
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "86b5e212f9079cfe06d35dccc6cc9cb72f7b60af38f69eaf31f4b307d2c7e5b3",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "keywords": [],
+        "deck_identity": "GVG_044"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_GVG_085",
+        "dbf_id": 69718,
+        "name": "吵吵机器人",
+        "name_en": "Annoy-o-Tron",
+        "text": "<b>嘲讽</b>\n<b>圣盾</b>",
+        "text_en": "<b>Taunt</b>\n<b>Divine Shield</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 1,
+          "HEALTH": 2,
+          "CARDRACE": 17,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "TECH_LEVEL": 2,
+          "858": 2053,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "ba6737f996d27ae1be7d7542b4fc1ec3134bd86af4e8488d3585e8321a56449f",
+      "recipe": {
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "keywords": [
+          "taunt",
+          "divine_shield"
+        ],
+        "deck_identity": "GVG_085"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_023",
+        "dbf_id": 95755,
+        "name": "雪鳍企鹅",
+        "name_en": "Snowflipper Penguin",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 20,
+          "858": 42338,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "994c718f3186f8f88280654032328c6dda9e36a376ad1b769538805d6b22bf5c",
+      "recipe": {
+        "cost": 0,
+        "attack": 1,
+        "health": 1,
+        "keywords": [],
+        "deck_identity": "ICC_023"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_032",
+        "dbf_id": 95777,
+        "name": "制毒师",
+        "name_en": "Venomancer",
+        "text": "<b>剧毒</b>",
+        "text_en": "<b>Poisonous</b>",
+        "cost": 5,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 2,
+          "HEALTH": 5,
+          "858": 42446,
+          "POISONOUS": 1,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 11
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "POISONOUS",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "fc42b503fc5c432a206ccf7a1dbb61d34145a29238d68b2d8b8b8d1e8b1d3ca1",
+      "recipe": {
+        "cost": 5,
+        "attack": 2,
+        "health": 5,
+        "keywords": [
+          "poisonous"
+        ],
+        "deck_identity": "ICC_032"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_038",
+        "dbf_id": 69705,
+        "name": "正义保护者",
+        "name_en": "Righteous Protector",
+        "text": "<b>嘲讽</b>\n<b>圣盾</b>",
+        "text_en": "<b>Taunt</b>\n<b>Divine Shield</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "858": 42467,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "11f57d26f04bff78285a25d42d2d4b3540d6559a034d3992c640b250a78623d1",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "keywords": [
+          "taunt",
+          "divine_shield"
+        ],
+        "deck_identity": "ICC_038"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_212",
+        "dbf_id": 95635,
+        "name": "酷虐侍僧",
+        "name_en": "Acolyte of Agony",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 6,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 3,
+          "HEALTH": 3,
+          "858": 42596,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 11,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "abbcafed0566a40ce0a9b7206d0fe922a2dd45fafac32c7fb1e62dd79f00dbdc",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "keywords": [
+          "lifesteal"
+        ],
+        "deck_identity": "ICC_212"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_220",
+        "dbf_id": 95683,
+        "name": "死鳞骑士",
+        "name_en": "Deadscale Knight",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 14,
+          "858": 42663,
+          "COLLECTIBLE": 1,
+          "2534": 1,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "6325ba3ca1a36c5c2270ace89d36e790067412cda7eededee43c3b05b07211ba",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "keywords": [
+          "lifesteal"
+        ],
+        "deck_identity": "ICC_220"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_419",
+        "dbf_id": 69694,
+        "name": "熊鲨",
+        "name_en": "Bearshark",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 3,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 4,
+          "HEALTH": 3,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 42711,
+          "2534": 1,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "d96acfbbdcbd25673598d6282b8c637f0126d2fa5c77c4fd02437a4204a6d92f",
+      "recipe": {
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "keywords": [
+          "elusive"
+        ],
+        "deck_identity": "ICC_419"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_820",
+        "dbf_id": 95653,
+        "name": "寒刃勇士",
+        "name_en": "Chillblade Champion",
+        "text": "<b>冲锋，吸血</b>",
+        "text_en": "<b>Charge</b>\n<b>Lifesteal</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 2,
+          "858": 43127,
+          "COLLECTIBLE": 1,
+          "CARDRACE": 11,
+          "CHARGE": 1,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "CHARGE",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "004fd08fe88501121db896f5f538baa1ac9d0d7569c67ed4eb85482019579c94",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 2,
+        "keywords": [
+          "charge",
+          "lifesteal"
+        ],
+        "deck_identity": "ICC_820"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_905",
+        "dbf_id": 95645,
+        "name": "血虫",
+        "name_en": "Bloodworm",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 4,
+          "HEALTH": 4,
+          "CARDRACE": 20,
+          "858": 45329,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000338,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "fd645697c4a87282fb0187db61c05d8599a621b840cc1c6ba4821c322c9aa864",
+      "recipe": {
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "keywords": [
+          "lifesteal"
+        ],
+        "deck_identity": "ICC_905"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_300",
+        "dbf_id": 69687,
+        "name": "魔法乌鸦",
+        "name_en": "Enchanted Raven",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 2,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "858": 39350
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "02ca20a1dd14fd712ffa9174cc4bf2b927764c90c5d4a83431db428404af3cd0",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "KAR_300"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOEA10_3",
+        "dbf_id": 69723,
+        "name": "鱼人宝宝",
+        "name_en": "Murloc Tinyfin",
+        "text": "",
+        "text_en": "",
+        "cost": 0,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 14,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "COST": 0,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 13879
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "2dadf64e7847eae1ae1335e8526e8a9b02ab0e55c889c11d1d489c494d3f1c41",
+      "recipe": {
+        "cost": 0,
+        "attack": 1,
+        "health": 1,
+        "keywords": [],
+        "deck_identity": "LOEA10_3"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_125",
+        "dbf_id": 69725,
+        "name": "石皮蜥蜴",
+        "name_en": "Stoneskin Basilisk",
+        "text": "<b>圣盾</b>\n<b>剧毒</b>",
+        "text_en": "<b>Divine Shield</b>\n <b>Poisonous</b>",
+        "cost": 3,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "858": 43474,
+          "DIVINE_SHIELD": 1,
+          "POISONOUS": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          },
+          {
+            "tag": "POISONOUS",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "179dd515020b9d52a1be264c4d27e137b81ba78c23d8481e985bd63f8486528d",
+      "recipe": {
+        "cost": 3,
+        "attack": 1,
+        "health": 1,
+        "keywords": [
+          "divine_shield",
+          "poisonous"
+        ],
+        "deck_identity": "LOOT_125"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_137",
+        "dbf_id": 69726,
+        "name": "贪睡巨龙",
+        "name_en": "Sleepy Dragon",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 9,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 9,
+          "ATK": 6,
+          "HEALTH": 12,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "858": 43494,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "20b47107b489c7e5ab23b406a4d125865fe9a72fd84d10242c3bcf4e44d3e0f1",
+      "recipe": {
+        "cost": 9,
+        "attack": 6,
+        "health": 12,
+        "keywords": [
+          "taunt"
+        ],
+        "deck_identity": "LOOT_137"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_NEW1_010",
+        "dbf_id": 69632,
+        "name": "风领主奥拉基尔",
+        "name_en": "Al'Akir the Windlord",
+        "text": "<b>冲锋，圣盾，嘲讽，风怒</b>",
+        "text_en": "<b>Charge, Divine Shield, Taunt, Windfury</b>",
+        "cost": 8,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COST": 8,
+          "ATK": 3,
+          "HEALTH": 6,
+          "CARDRACE": 18,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "ENCHANTMENT_BIRTH_VISUAL": 0,
+          "ENCHANTMENT_IDLE_VISUAL": 0,
+          "858": 32,
+          "CHARGE": 1,
+          "DIVINE_SHIELD": 1,
+          "WINDFURY": 1,
+          "TAUNT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "CHARGE",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          },
+          {
+            "tag": "WINDFURY",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f0c152c3bcdef41b07bbd479069ce00cf9404edc4656351718f830316828a379",
+      "recipe": {
+        "cost": 8,
+        "attack": 3,
+        "health": 6,
+        "keywords": [
+          "charge",
+          "divine_shield",
+          "taunt",
+          "windfury"
+        ],
+        "deck_identity": "NEW1_010"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_NEW1_023",
+        "dbf_id": 76329,
+        "name": "精灵龙",
+        "name_en": "Faerie Dragon",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 2,
+          "ATK": 3,
+          "HEALTH": 2,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "858": 609,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "47f56b93e7fc40394e79febf2045c2215fbc120d4fb803d1571e55f632c898c9",
+      "recipe": {
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "keywords": [
+          "elusive"
+        ],
+        "deck_identity": "NEW1_023"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ULD_723",
+        "dbf_id": 102228,
+        "name": "鱼人木乃伊",
+        "name_en": "Murmy",
+        "text": "<b>复生</b>",
+        "text_en": "<b>Reborn</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDRACE": 14,
+          "2534": 1,
+          "858": 54730,
+          "REBORN": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "REBORN",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "b21f4d821fb106ba58d364774d07e4d9890c51cf16db4bc3c9c4d4d0b9d71d5c",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "keywords": [
+          "reborn"
+        ],
+        "deck_identity": "ULD_723"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_813",
+        "dbf_id": 69727,
+        "name": "风暴看守",
+        "name_en": "Stormwatcher",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": 7,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COST": 7,
+          "ATK": 4,
+          "HEALTH": 8,
+          "CARDRACE": 18,
+          "COLLECTIBLE": 1,
+          "ELITE": 0,
+          "858": 41327,
+          "WINDFURY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "WINDFURY",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "ea0d5fd39abbf2d495432c91d3fbe17d574a56285e67fc0c87aac634ecf6901c",
+      "recipe": {
+        "cost": 7,
+        "attack": 4,
+        "health": 8,
+        "keywords": [
+          "windfury"
+        ],
+        "deck_identity": "UNG_813"
+      }
+    },
+    {
+      "record": {
+        "id": "Core_CS2_200",
+        "dbf_id": 112924,
+        "name": "石拳食人魔",
+        "name_en": "Boulderfist Ogre",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 1,
+          "COST": 6,
+          "HEALTH": 7,
+          "ATK": 6,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "858": 1686
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "a8ab1899c40cbc4f04cef24148cbcfabd6280c061ea2fec2223290f7a02c963d",
+      "recipe": {
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "keywords": [],
+        "deck_identity": "CS2_200"
+      }
+    },
+    {
+      "record": {
+        "id": "Core_UNG_019",
+        "dbf_id": 113108,
+        "name": "空气元素",
+        "name_en": "Air Elemental",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 8,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COST": 1,
+          "HEALTH": 1,
+          "ATK": 3,
+          "CARDTYPE": 4,
+          "CARDRACE": 18,
+          "FACTION": 1,
+          "251": 1,
+          "268": 2,
+          "858": 41152,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "c05019f6277a28d9fbb1783c89df7cdb308b3339ea3bbc777d7901e9cd525547",
+      "recipe": {
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "keywords": [
+          "elusive"
+        ],
+        "deck_identity": "UNG_019"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_272",
+        "dbf_id": 115873,
+        "name": "常青雄鹿",
+        "name_en": "Evergreen Stag",
+        "text": "<b>扰魔</b>。<b>吸血</b>。<b>嘲讽</b>",
+        "text_en": "<b>Elusive</b>\n<b>Lifesteal</b>\n<b>Taunt</b>",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 2,
+          "COST": 6,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "ATK": 6,
+          "HEALTH": 7,
+          "CARDRACE": 20,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "TAUNT": 1,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          },
+          {
+            "tag": "TAUNT",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "4029b7dcddfd451693b1437dfa7d8870c207cd5c0b96698c9f4b2ca1e3f79357",
+      "recipe": {
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "keywords": [
+          "elusive",
+          "lifesteal",
+          "taunt"
+        ],
+        "deck_identity": "EDR_272"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_486",
+        "dbf_id": 115041,
+        "name": "纵火眼魔",
+        "name_en": "Scorching Observer",
+        "text": "<b>突袭</b>。<b>吸血</b>",
+        "text_en": "<b>Rush</b>\n<b>Lifesteal</b>",
+        "cost": 9,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COST": 9,
+          "CARDTYPE": 4,
+          "FACTION": 3,
+          "COLLECTIBLE": 1,
+          "ATK": 7,
+          "HEALTH": 9,
+          "CARDRACE": 15,
+          "RUSH": 1,
+          "LIFESTEAL": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "RUSH",
+            "value": 1
+          },
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "9f6515af7cb01554620fbf2954c1e9321e19490ff00498fafb55c4899a804b49",
+      "recipe": {
+        "cost": 9,
+        "attack": 7,
+        "health": 9,
+        "keywords": [
+          "rush",
+          "lifesteal"
+        ],
+        "deck_identity": "EDR_486"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_598",
+        "dbf_id": 117420,
+        "name": "梦境暴怒者",
+        "name_en": "Dream Rager",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 3,
+        "attack": 5,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COST": 3,
+          "HEALTH": 1,
+          "ATK": 5,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "ELUSIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "a73729f3aaf90a88d3d68cc90c495e50fbf6d3d6978eb15574e5a349b9568fb6",
+      "recipe": {
+        "cost": 3,
+        "attack": 5,
+        "health": 1,
+        "keywords": [
+          "elusive"
+        ],
+        "deck_identity": "EDR_598"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_045",
+        "dbf_id": 120856,
+        "name": "永恒雏龙",
+        "name_en": "Whelp of the Infinite",
+        "text": "<b>剧毒</b>。<b>复生</b>",
+        "text_en": "<b>Poisonous</b>\n<b>Reborn</b>",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 3,
+          "ATK": 1,
+          "HEALTH": 4,
+          "CARDRACE": 24,
+          "COLLECTIBLE": 1,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "WHELP": 1,
+          "POISONOUS": 1,
+          "REBORN": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "POISONOUS",
+            "value": 1
+          },
+          {
+            "tag": "REBORN",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "479254a8220d9b5c04afa7112ac6ab312364cd32bf6a0bb6d988f3b5d2e99294",
+      "recipe": {
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "keywords": [
+          "poisonous",
+          "reborn"
+        ],
+        "deck_identity": "TIME_045"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_053",
+        "dbf_id": 120954,
+        "name": "流沙巨口",
+        "name_en": "Sandmaw",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 7,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 3,
+          "HEALTH": 2,
+          "CARDRACE": 20,
+          "2540": 1,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "ATK": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "77ce4962cf8579d151cc1fb645fa938682abd4936cdf692cbe929d5539c4f322",
+      "recipe": {
+        "cost": 3,
+        "attack": 7,
+        "health": 2,
+        "keywords": [],
+        "deck_identity": "TIME_053"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_056",
+        "dbf_id": 120961,
+        "name": "青铜雏龙",
+        "name_en": "Whelp of the Bronze",
+        "text": "<b>吸血</b>。<b>圣盾</b>",
+        "text_en": "<b>Lifesteal</b>\n<b>Divine Shield</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 3,
+          "ATK": 4,
+          "HEALTH": 1,
+          "COLLECTIBLE": 1,
+          "RARITY": 1,
+          "CARDTYPE": 4,
+          "CARDRACE": 24,
+          "WHELP": 1,
+          "LIFESTEAL": 1,
+          "DIVINE_SHIELD": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "LIFESTEAL",
+            "value": 1
+          },
+          {
+            "tag": "DIVINE_SHIELD",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "f66bb557d9d0008f8973ae677953b0f1c718a72a13b33e74b7f9c7a95b86bb4e",
+      "recipe": {
+        "cost": 3,
+        "attack": 4,
+        "health": 1,
+        "keywords": [
+          "lifesteal",
+          "divine_shield"
+        ],
+        "deck_identity": "TIME_056"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_248",
+        "dbf_id": 118238,
+        "name": "超巨摩天龙",
+        "name_en": "Ultragigasaur",
+        "text": "",
+        "text_en": "",
+        "cost": 11,
+        "attack": 14,
+        "health": 28,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 12,
+          "COST": 11,
+          "HEALTH": 28,
+          "ATK": 14,
+          "CARDTYPE": 4,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "record_sha256": "84478df363488275c6e1484aba9389440286324f403b54766296c25ae5ffc134",
+      "recipe": {
+        "cost": 11,
+        "attack": 14,
+        "health": 28,
+        "keywords": [],
+        "deck_identity": "TLC_248"
+      }
+    }
+  ]
+}

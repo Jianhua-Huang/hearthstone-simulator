@@ -1,5 +1,169 @@
 # 机制扩展指南
 
+真实龙牌的当前种族/赐福条件、分阶段移除和回溯伤害继续复用原管线；只为实际地标需求增加有限随机入口。候选、原死亡、恢复及待国服窗口见[契约](m3-dragon-native-effects.md)，生成资格仍独立核对。
+
+从本人牌库发现并授予黑暗之赐须保留原实体和当前材料，不能套用生成副本。有限原牌发现、共享配对、原授予/区域交付及恢复边界见[契约](m3-stored-dark-gift-discovery.md)；这不认证外部随从生成池。
+
+真实具名亡语循环召唤新的基础实体，伤害后的固定入手复用普通批次和交付；已有静电震击定义保持，未知虚空灵魂来源继续显式未支持。完整依赖、保存与目录/生效补丁边界见[契约](m3-fixed-named-followups.md)。
+
+真实原生伤害与攻击提供者仅扩展有限来源、嘲讽绕过和本体免疫条件，数值/目标/生命周期仍交原执行器。当前种族、占位和未实现克洛玛图斯来源边界见[契约](m3-native-health-attack-providers.md)，不能从登记数量认证正式标准支持。
+
+真实条件消费者继续使用既有属性、攻击、施法和物理库存事实；跨冻结反应的原邻位组仅增加有限法术续接，冻结/死亡仍由公共执行器负责。保存、末次武器奖励及初始资格的边界见[契约](m3-conditional-consumers.md)，当前执行版本以原两份台账为准。
+
+真实卡牌应组合已有公共效果，敌方随从持续嘲讽仅增加有限声明范围；生命设值、连击复制、武器死亡、随机额外效果与牌库逆序继续共用原执行器。新增范围及待国服边界见[配方契约](m3-public-effect-consumers.md)，下文历史初始范围不覆盖此后新增形状。
+
+原延系检索按第一次实际抽牌的完整类型连接第二次物理检索；原生手牌额外效果只替换两个印刷关键词槽，独立授予继续保留。有限表达及未实现来源边界见[契约](m3-kindred-hand-bonus.md)。
+
+真实抽牌条件只读原两次物理抽牌，来源奖励绑定原连续驻留；按实际消灭奖励保存原目标与死亡原因，继续委托普通死亡、抽牌和法力执行器。有限请求及待国服边界见[五费随从契约](m3-five-cost-native.md)。
+
+真实原生法术参数绑定原亡语执行与物理材料，当前费用/亡语抽取连接原手牌奖励；首回合和后续正常抽牌共用可移除来源门禁。有限字段、公共执行及未覆盖继承边界见[亡灵资源契约](m3-undead-resource-native.md)。
+
+真实英雄本回合生命变化目标读取原提交账本，随机随从增益仅抽选后交给原属性层；受伤召唤、不能攻击和实际过量治疗继续组合公共执行器，表达与待校准边界见[亡灵原生效果契约](m3-undead-native.md)。
+
+上一张使用的印刷符文用原冻结历史查询；固定召唤组从完整原交付连接原目标强制攻击，保存、容量与时序边界见[符文与召唤组战斗契约](m3-blood-rune-native.md)。
+
+真实英雄救援复用原英雄致死屏障、实际残骸支出与原身份恢复，公开一次性标记按原接受时钟退役；具体表达、替换及校准边界见[哈斯克契约](m3-hero-corpse-rescue.md)。
+
+原生残骸获得倍率保留可移除来源和固有死亡基数；物理消费者检索、原目标支付及真实任务/地标/第二技能依赖见[残骸消费者契约](m3-corpse-consumer-native.md)。已有第二技能槽安装仍明确未支持，不能以首次安装认证整卡。
+
+原随从残骸门禁在执行时重核实际来源、空位/复生/召唤对象，再沿原完整支付分支；原目标伤害与三个真实选项保持引用和信息边界，见[残骸触发与选择契约](m3-corpse-trigger-choices.md)。
+
+真实固定召唤后的残骸奖励连接原完整交付和原支出，残骸raise按原实际容量/扣除单位生成固定新体；与原法力奖励共用交付连接器。入口、无残骸衍生物及待国服窗口见[残骸召唤契约](m3-corpse-summon-effects.md)。
+
+真实回手禁止须绑定成功到达的原物理对象；控制归还和“下个本人回合结束”按实际原玩家区间计时，普通/对方/结束反应安装分别接受。有限入口和仍未支持的控制层叠边界见[时间效果契约](m3-temporal-spell-effects.md)。
+
+真实首次复制的目标要求通过有限原生声明共用选择管线；召唤后的全法力奖励绑定原请求、实际交付和原支出，见[数值资源法术契约](m3-numeric-resource-spells.md)。
+
+下一次延系必须只重复真实成立部分，原准备/替代分支、原付款及原接收对象分别表达；原生入口、紧凑计划与恢复边界见[延系部分契约](m3-kindred-components.md)。
+
+真实固定家族随机置顶并增益用PutMatchingDeckMinionOnTop，不能两次随机分别挑受益牌。按原成功召唤奖励时，用BuffSummonedMinion绑定实际记录，避免按当前名字或复用实体ID重绑；限定用法与国服边界见[契约](m3-original-imp-recipients.md)。
+
+真实固定洗入先核官网child身份，用recruit_cards.shuffle复用一次语义批次；抽到时召唤用原成功物理抽牌条件和drawer/opponent回调，不从牌名猜衍生物、不制造副本。与下一回合税费的复用见[契约](m3-fixed-shuffle-followups.md)。
+
+真实下一次种族减费附圣盾，用AddCostModifier的有限minion_keyword声明共享原付款接受，不分开监听两个“下一张”。下一实际回合加费沿既有玩家实例/真实开始/当回合到期，见[费用卡契约](m3-paid-minion-price-keywords.md)。
+
+真实“尽量以自身为目标”使用PreferredMinionTarget保存原BoardPresenceReference，并交给原CastSpell/CastStoredSpell或历史重施；不要在卡牌层提前指定目标后取消合法回退。牌库筛选用CastRandomDeckSpell的存储费用，不用手牌报价，见[契约](m3-original-minion-spell-targets.md)。
+
+延系正文没有战吼时，用随从on_play读取原query_previous_owner_turn，不把延系声明为战吼。真实固定生成依赖按官网child与完整源身份核对，原生出牌、结束、亡语继续委托已有执行器；用法见[延系与鱼人依赖契约](m3-kindred-murloc-effects.md)。
+
+真实亡语状态用有限NativeDeathrattleSpec/DeathrattleMemory声明，抽牌关联用DrawForDeathrattle在原通知前保存，按原hand_entry驻留而非卡名绑定；卡牌代码不直接改全局历史。三个有限请求、私有引用和未接通授予边界见[契约](m3-native-deathrattle-memory.md)。
+
+真实满面板唤醒用dormant_turns=None和dormant_board_full=True，沿已有物理休眠实例/唤醒解释器；不要写死七随从、只订阅召唤事件或在查询中修改状态。声明、队列去重与旧存档边界见[契约](m3-full-board-dormancy.md)。
+
+按原使用随从奖励时，别把效果召唤当出牌，也别按后来卡面重算原亡语资格。用原实际入场绑定连续驻留，InvokeBehavior带原play_id在真正窗口委托原关键词模块；归因与未核实磁力接收者见[契约](m3-played-minion-keywords.md)。
+
+补基础角色先核对完整源HERO_POWER和职业，再通过有限initial_hero_power_bindings装配；defer_validation只用于完成外层真实依赖后统一校验。默认技能组合原效果，完整图腾池及食尸鬼用法见[契约](m3-basic-hero-roles.md)，不要用其他头像的Scenario代替默认构筑验证。
+
+原生受伤法强或小手牌技能设0用CardDefinition.native_condition=NativeSourceCondition(...)限定原提供者，不写回永久修正；本人回合英雄攻击用AuraSpec的friendly_hero/controller_turn配对。不要重算已接受付款或动态授予这些资格，完整有限形状见[契约](m3-native-conditional-sources.md)。
+
+真实“用完最后法力”按原正数扣款事实判断，不按报价或零费推导；当前回合技能条件的目标谓词只读玩家DTO。伪装文本的原落位接收者与使用者分开，固有过载不造战吼；具体配方及负属性边界见[契约](m3-one-cost-basic-cards.md)。
+
+真实连续手牌镜像使用CardDefinition.hand_mirror=HandMirrorSpec(3,4)，不要用回合开始来源、查询时换面或固定3费仿真。原提交、获取同步、复制/转手及3/4由公共层处理，材料继承和退役仍须CN校准；见[契约](m3-native-hand-mirrors.md)。
+
+真实随机困住一段实际目标回合时，用TrapRandomHandCards(player_id, count, source_id)，数量是原接受时计划值、候选晚取，同批无放回，可能与前一批重叠；不要自行降法力值、公开隐藏候选或用全局回合数计时。已有LockHandCard仍可用于明确原单牌，范围和待CN政策见[契约](m3-renferal-hand-traps.md)。
+
+原生满血保留附魔复生用CardDefinition.reborn_policy=full_health_enchantments及REBORN声明。真实匹配抽牌需在抽到时施放前取得局部法强时，用DrawMatchingSpellDamage(player_id, SPELL查询, source_id, amount)；普通存储授予用GrantStoredSpellDamage(原CardReference, amount, source_id)。不要手填CAST材料或改成玩家全局下一法术奖励；有限范围见[契约](m3-native-reborn-fire-draw.md)。
+
+真实原随从属性奖励使用SetCapturedMinionStats(MinionReference.capture(entity), health=value, source_id=source_id)，复用旧属性层。真实原生手牌/牌库单事件成长可声明HandProgressSpec的zone=(Zone.HAND,Zone.DECK)，只允许普通MINION的重复单位完成回调，不能扩成任意区域或组合矩阵；旧候选移区失效与私有投影见[契约](m3-stored-growth-cards.md)。
+
+真实自增益之后随机攻击敌方随从时，先交原BuffCapturedMinion，再用AttackRandomEnemyMinion(BoardPresenceReference.capture(state, source_id), player_id, source_id)。原源/玩家保持、候选晚取、选中防守方原驻留与原ForceAttack共同处理恢复和离场；有限范围及待CN边界见[契约](m3-beast-trigger-cards.md)。
+
+持牌打出龙不能用后来场上牌面或单纯召唤代替；以原HandProgress承诺窗和提交卡面/附魔判定。召唤成长须核对原SuccessfulSummonRecord并绑定原来源驻留。固定明示家族传完整SummonByCard候选与cause，不从已实现列表筛池；声明和待CN边界见[契约](m3-entry-native-cards.md)。
+
+原组召唤后给每个实际交付一个额外效果时，用SummonOrderedGroup(..., bonus_effects=True)。不要在同名衍生物上伪造能力、按当前场位抓目标或在第一次召唤后提前发完奖励；原CardSummonDelivery引用、奖励前缀及共享候选由公共层处理。具体限制和待CN边界见[契约](m3-summon-group-bonus.md)。
+
+真实洗牌效果用deck_shuffles.shuffled(context, entries, player_id=...)或ShuffleDeckCards明确批次、原actor及接收牌库；不按循环插入张数计洗牌，也不从当前所有者猜原归因。只接受同步原随机区域原语；未知来源、位置放置及临时返回边界见[契约](m3-semantic-deck-shuffles.md)。
+
+抽另一方牌库的物理卡时，用DrawMatching的owner_id指定原DECK，player_id指定实际抽牌者；匹配已用身份可用card_ids，最低DECK本地费用可用lowest_cost。不要先移牌再伪装普通抽牌或创建副本，CWD/爆牌/补抽和原引用由公共执行器负责；历史关联和待CN政策见[契约](m3-deck-history-native-cards.md)。
+
+真实多目标复制先捕获候选的BoardPresenceReference，再将它交给原CopyMinion；各份当前材料须在自身真实接受窗口捕获，不能提前冻结共同附件时钟。旧整数目标仍可使用，归因继续用SummonCause.capture，成功后授予走on_summon。生命周期与待CN政策见[复制驻留契约](m3-six-cost-native-cards.md)。
+
+三张真实持牌消费者继续声明既有HandProgressSpec。generic spell_cast_accepted允许已核对的SPELL转MINION目标，其他跨类/事件与普通UpgradeHandCard保持拒绝；额外授予能力不静默裁掉。持牌结束政策、原弃牌和完整形态见[契约](m3-held-draw-forms.md)。
+
+LockHandCard是有限手动资格门禁，不改变报价或支付账户；当前复制保留原时钟，base复制及重置清除。真实不同费用抽牌和拟态原材料使用扩展的DrawPhysicalGroup，不按手牌末项猜原受益。完整声明和待CN政策见[抽牌保留契约](m3-draw-retention-limits.md)。
+
+整组抽牌后选牌、减费、转交或增益可使用DrawPhysicalGroup及有限DrawGroupSlot/DrawGroupReward。普通槽与随机匹配槽保持不同空池政策，原始身份须有真实开局事实，不能从Scenario牌名补造；特殊defining_hand_source转交仍明确不支持。材料和窗口见[抽牌组契约](m3-physical-draw-groups.md)。
+
+需要复制体首次入场即带额外关键词时，CopyStoredMinion的minion_grant必须有SummonCause，授予者与原因严格一致。死亡来源印刷复制交原DeathRecord；弃牌之后的收益用on_success；已施放法术归还要保存原分配而非新建同名牌，具体限制见[契约](m3-original-material-spells.md)。
+
+使用`DrawMatchingWithFollowup`表达“先抽完，再对原抽牌奖励”，不要用最后手牌、draw_history总增量或逐张即时Buff代替。具名回调得到完成的原context.draw及同组奖励前状态，输出BuffStoredCard仍保留原驻留。健康死亡归因和必要真实衍生示例见[契约](m3-health-draw-beneficiaries.md)。
+
+当前手牌费用判断不要以印刷费用代替未选择报价，也不能消费一次费用修正。加甲后的护甲、伤害后的手牌条件和消灭后的全场目标应在明确续接窗口读取；使用原吸血声明与技能复原原语，不另造治疗/技能账本，见[真实条件法术契约](m3-health-resource-spells.md)。
+
+需要保存随机不同冻结目标时使用`FreezeRandomEnemyMinions`，已选引用过期不补抽；不同伤害的指定敌方主目标与随机其他目标使用`DamageEnemyAndRandomOthers`并提供原`SourceAllocationFact`。随机伤害死亡抽牌继续交原批归因，完整窗口和真实施法要求见[有限目标契约](m3-spell-target-sequences.md)。
+
+真实伤害后的条件抽牌可使用既有Damage.on_result与原HealthResult、RuleContext捕获事实；需要后续新场面时应明确使用原续接接口。不要把稍后复生体当作原目标存活，也不要给具名衍生物重复定义白板。实例与窗口见[六张伤害法术契约](m3-health-sequence-spells.md)。
+
+原归因战场复制可声明`CopyMinion(..., cause=SummonCause.capture(context), on_summon=behavior_id)`，每个实际交付在入场反应后续接。不能从最后场位猜目标，也不能以同ID的新驻留接替原复制体；原材料查询与私有分身示例见[契约](m3-copy-followups-hidden-pairs.md)。未声明时保持原复制行为。
+
+真实卡面要求存储退役触发亡语时，声明`CardDefinition(..., deathrattle=behavior_id, stored_deathrattle=True)`；不能另绑重复的`on_discard`/`on_destroyed`。普通弃牌、销毁和溢出仍沿原区域效果，原退役事件和完整亡语计划由内核接受。有限载体与schema273见[存储亡语契约](m3-stored-deathrattles.md)。
+
+法术授予亡语时，用已注册行为ID调用`GrantDeathrattle`，保留实际授予者的source_id。亡语主体的召唤需以当前亡语上下文捕获`SummonCause`，不能沿用原施法者或把召唤物当来源；自然死亡位置与主动触发位置分别声明。完整依赖、既有附件生命周期和内部位置边界见[剑龙骑术契约](m3-granted-deathrattle-cards.md)。
+
+补满手牌使用zones.FillHandWithCard(player_id, card_id, source_id)，不在纯卡牌上下文猜默认上限10。固定随机家族用一次SummonByCard候选集，全部依次召唤用多个单项请求，均携带真实cause；详见[固定伙伴契约](m3-fixed-companion-cards.md)。
+
+印刷随从使用StatRelationOperand.CONTROLLER_OPPONENT_TURN声明条件攻击；不要监听回合事件叠永久Buff。DrawMatching(..., selection="highest_cost")比较实际牌库本地费用，不能替换成手牌报价。武器吸血及生命周期仍用原声明，详见[契约](m3-native-weapon-turn-draw-cards.md)。
+
+随从单位随机分配使用原SplitDamage，跨双方的少量分配可由逐项命名InvokeBehavior重查后提交RandomDamage；单次十点与一次不同目标批量抽样必须分清。随从主体使用MINION_ABILITY，不能借SPELL专用报价或真实施法号。实际入口、生命期与待CN边界见[原生随机伤害契约](m3-native-random-damage-cards.md)。
+
+最高费用复活可组合Resurrect(query=DeathQuery(cost_extreme="highest"), cause=SummonCause.capture(context))；按上个本人回合取全部法术时，读取query_previous_owner_turn的完整rows，不能用matched过滤无学派行，也不能用自动cast记录替代个人play记录。用法和待CN边界见[历史返还契约](m3-history-recovery-cards.md)。
+
+一次销毁已捕获的多张牌库牌时使用DestroyDeckBatch(tuple_of_card_references, source_id)，不要用反应可穿插的多个单张请求模拟原批次。多次召唤须分别提交带实际cause的SummonByCard，materials是候选集；显式变形复用公共替换入口以保留正确物理来源。用法和边界见[物理区域契约](m3-physical-zone-cards.md)。
+
+跟随原攻击时，使用ForceAttack(BoardPresenceReference.capture(ctx.state, source_id), captured_defender)，随从受击者同样捕获原驻留，英雄使用物理ID。离场重入场不重绑，未来引用在origin_state codec及执行拒绝；原整数请求继续原政策。原攻击与击杀条件读取原CharacterAttackRecord/COMBAT原因，勿用裸伤害、后来死亡或当前同名对象补事实。详见[原生攻击续接](m3-attack-followup-cards.md)。
+
+传送门主体调用`SummonFromPool(..., cause=SummonCause.capture(context))`，传实际自动施法的上下文，不能只交来源ID或借外层抽牌法术。原召唤及池模块负责次数、选择和历史收据，卡牌不自行拼接接受事实；回溯编号复用及标准可达来源边界见[契约](m3-standard-portal-summon-source.md)。
+
+已有直接旧召唤主体可用`summon_quantities.card_summon(context, player_id, card_id, position=None, stats=None)`显式传真实上下文；它在原数量门禁适用时交给现有`SummonByCard`，其余保持相同普通请求。不在解释器中猜来源，也不绕过无来源请求的明确拒绝。原生属性、顺劈及0反击政策和剩余旧路径边界见[契约](m3-static-provider-cards.md)。
+
+真实下一张指定牌可用`AddCostModifier`的独立`combo_only`、`temporary_only`或既有种族筛选，有限`maximum_cost`只用于纯生命支付转换。不要用卡名白名单或整组换手租约代替实际临时资格。英雄禁疗到本人开始用`GrantHealthRule(..., until_owner_turn_start=...)`；原报价期限、排序与保存边界见[契约](m3-qualified-next-card-costs.md)。
+
+显式玩家健康来源保存原物理事实与受益方，普通玩家效果默认保持原语义；逻辑伤害委托原健康层，下一真实对手期间复用原实例/费用/时钟。严格捕获、解码、玩家隔离和统一格式常量见[玩家健康来源契约](m3-player-effect-health-source.md)，实际进度与验收仅在两台账。
+
+实际下一次技能费用、整局随从设费、开局双方上限/充能水晶和本方治疗增加沿现有公共层组合，扩展约定见[持续费用与真实开局契约](m3-persistent-economy-cards.md)。实际进度、验证与下一项仍只在两台账维护。
+
+消灭后续接用sacrifice.DestroyCapturedMinion，受益者用BuffCapturedMinion保持原驻留；当前HAND种族与最低报价复制用zones.CopyLowestCostMinion。cross_zone.TakeCapturedMinion可绑定普通手牌原付款目标或已有直接引用，委托原永久无source转控。两项关键词用RequestChoice与GrantCapturedKeyword；完整材料/付款证明用法见[定向战吼契约](m3-targeted-battlecry-cards.md)。
+
+原当前攻击力筛选抽牌用zones.DrawMinionWithAttack(player_id, attack, source_id)，空匹配skip，普通draw/burn与FrameCodec共享。持牌/灌注/目标种族条件通过PlayerTargetRuleSpec仅看玩家DTO，主体另用原事实查询；生命翻倍用DoubleStats，不重置已有受伤。完整用法及依据见[条件战吼契约](m3-conditional-battlecry-cards.md)。
+
+当前属性战吼用命名InvokeBehavior读取，再交原Buff/DamageBatch；生命属性减少用负health Buff。敌角色/敌随从目标用原TargetSpec(IF_AVAILABLE)，与纯召唤绕过战吼一致。过滤物理抽牌用DrawMatching后接Imbue，不给原流程虚构random_choice通知；用法及待CN边界见[战吼卡契约](m3-simple-battlecry-cards.md)。
+
+亡语自然死亡用ctx.death.attack读取原攻击快照，存活效果激活不得伪造死亡；原SplitDamage指定MINION_ABILITY避免法伤。当前持龙/最右牌用命名InvokeBehavior后查询，区域改费用CardReference/ModifyStoredCost，牌库底印刷新副本用AddToDeck的bottom与cost。实际依赖、装备和Imbue用法见[亡语卡契约](m3-death-followup-cards.md)。
+
+逐次“施放后”订阅spell_cast_finished并读取原cast记录；card_played保留物理出牌含义。SummonCause.capture按实际发起来源判定cast/power归因，监听对象不冒充发起者。基础出牌/治疗事实、原攻击完成、对手手牌招募及邻接光环用法见[基础触发卡契约](m3-basic-trigger-cards.md)。
+
+原生结束声明继续用EndTurnSpec指定controller/either，动态后段用命名InvokeBehavior读取当前局面。需要按来源身材召唤固定token时用source_stat_summons.SummonBySourceStats，传原MinionReference、完整正数接受身材及SummonCause；当前驻留有效时重读，失效保留接受材料，统一委托SummonByCard。原接受窗口及待CN边界见[结束卡牌契约](m3-native-end-cards.md)。
+
+最高攻击/最低生命等主体先形成完整原引用候选，再用`spell_targets.RandomSpellTarget`，随机后`ApplySpellTarget`守原随从生命周期。按原抽牌费用条件使用`spell_sequences.DrawIfCheap`；手牌批量属性继续复用BuffMinionsInZones。有限用途和待CN政策见[属性与抽牌契约](m3-stat-draw-spells.md)。
+
+有限递减AOE、按原批次死亡抽牌、原抽牌减费用`hs_sim.engine.spell_sequences`的三个有限请求，绑定实际cast/health batch/CardReference；不要自行修改抽牌历史、按当前手牌末尾选目标或重写伤害结算。各入口及内部政策见[伤害序列与抽牌契约](m3-spell-sequences.md)。
+
+手牌边缘固定费用用hand_edge、在场本人传说卡面固定费用用controlled_legendary的IntrinsicCostSpec，均复用原完整CostPresenceMatch与付款，不在卡牌回调改价。传说目标用TargetPredicateSpec.printed_rarities，已证无标签用Rarity.NONE，未知不得当成普通。需在死亡/反应后保留原生命结果时用InvokeHealthResult并传原health_resolved事件。完整域、虚拟报价和待CN政策见[条件法术契约](m3-conditional-health-spells.md)。
+
+从敌方角色偷取生命上限用`hs_sim.engine.health_theft.StealHealthToHero`，并列原引用用`RandomStealHealthToHero`；随从传MinionReference，英雄传物理ID，来源必须实际存在。最低生命等候选政策由真实卡牌的纯主体决定，不能用伤害/治疗近似或在随机等待后重绑对象。原属性生命周期、原子提交与待CN政策见[契约](m2-character-health-theft.md)；多次结束主体若需观察前次结果，使用命名InvokeBehavior逐次取当前场面。
+
+接入同文核心别名时，核对完整当前卡面与旧主体的触发入口及目标声明，再明确替换名称、身材和元数据；连击不能移成战吼。普通“治疗至满”使用目标当前max_health形成Heal请求，保留公共过量治疗/转换语义，抽牌仍接原Draw；需精确校准的政策单独登记。连续效果若后段要观察前段反应后的局面，使用命名InvokeBehavior再查询，不在首个回调中提前捕获后续候选。具体用法见[内容包](cards.md)。
+
+真实无限随从伤害用`InfiniteDamageMinion(ref, source_id)`，并列原引用组用`RandomInfiniteDamageMinion(tuple(refs), source_id)`，均从hs_sim.engine.infinite_damage导入。仅SPELL来源，原引用失效不改绑，防护仍正常执行；明确内部上限与RNG政策见[契约](m2-infinite-health.md)。不要自行传大整数、用Destroy代替或将显示“∞”门槛用于战斗，也不能据本入口宣称攻击/费用无限值已支持。
+
+真实攻击者变形用原窗口接受的MinionReference及TransformCapturedMinion，不重建实体或取消普通驻留。由某次死亡复活用ResurrectMinion(..., death_id, position=..., source_id=..., cause=SummonCause.capture(ctx))，原完整印刷卡面/组件、巨型入场和数量由内核处理，不能重放战吼；关联口径与待CN政策见[契约](m4-reactive-secrets.md)。
+
+真实“伤害余量给英雄”使用`DamageExcessToHero(MinionReference.capture(target), amount, source_id)`，从hs_sim.engine.excess_damage导入；来源必须是实际SPELL。不要先发完整Damage再从damage_dealt补算余量，也不要为第二份再次加法伤。原目标失效、数值层、同批提交和待CN政策见[契约](m2-excess-damage.md)；其他过量用途不能假装为此有限入口。
+
+原实例回手用ReturnCapturedMinion(ref,source_id,to_owner=...,cost=...,on_success=(...))；随机回手并对同一对象减费用RandomReturnCapturedMinion(tuple(refs),source_id,cost)。成功门槛、原引用失效和反应等待见[契约](m3-return-followups.md)。BuffStoredCard可对物理手牌/牌库武器加攻击，但武器health必须为0，不能把耐久当生命修改。
+
+按本回合敌英雄实际受伤次数减费用HeroDamageTakenCostSpec('cost.enemy-hero-current-turn-damage-count-v1')；双方无随从固定金额用唯一board_no_minions IntrinsicCostSpec。普通法术复用BoardMinionCostSpec('enemy')及HandCountCostSpec('friendly')，后者计物理自身、虚拟另加一张假设卡。原完整操作数、时钟与付款顺序见[伤害次数与区域费用](m3-damage-packets-zone-costs.md)，卡牌回调不能维护第二份计数或手动扣费。
+
+原相邻手牌使用submitted_hand_neighbors(ctx)配合ModifyStoredCost，下一种族减费用AddCostModifier(...,uses_remaining=1,tribes_any=(...))；英雄本回合治疗后的生命账户声明pay_health_if_hero_healed并使用原唯一治疗条件事实。实际原位置、引用失效、支付顺序和有限用途见[契约](m3-submitted-neighbors-next-costs.md)，不能在卡牌回调中改写手牌索引、余额或付款缓存。
+
+真实手牌其他龙、场上休眠或本回合神圣/暗影条件费用，使用原IntrinsicCostSpec的三个有限condition和对应history_profile_id；不能在卡牌回调中改写费用缓存。完整依据进入原condition_facts并绑定原付款subject，虚拟预览不分配实体；见[当前条件费用](m3-current-presence-costs.md)。原字段布局/schema267保持，新语义由core311与注册表保护。
+
+原物理招募需要对实际成功主体继续授予效果时，使用`SummonFromZone(..., cause=SummonCause.capture(ctx), on_summon=behavior_id)`；回调的target是原delivery的实际存活引用，不读取最后场位。额外副本分别接受续接，失效主体跳过，等待、回滚与私有收据由内核负责；见[招募续接](m3-recruit-followups.md)。实际保存字段变更由schema267/core310保护，不能自动认证旧记录。
+
+群体消灭用hs_sim.engine.effects.DestroyBatch(tuple(ids), source_id)，一次标记后交共享死亡检查；只有原场上随从/地标参与，不能用多个Destroy替代同批效果。随机回手用RandomReturnToHand(tuple(ids), source_id)，沿公共RNG选择和原拥有者交付/满手死亡政策。新内容的分段InvokeBehavior、明确目标谓词与副种族来源约定见[内容包契约](cards.md)。保存布局保持，核心指令的版本由mechanics签名控制；卡牌语义变化另升内容包版本。
+
+真实卡牌按效果分批接入时使用[卡牌内容包入口](cards.md)，复用下述公共指令与生命周期；历史代表包默认身份保留。目标版本、完整池与官方校准由独立台账维护，分类提示不自动生成可执行效果。
+
 拼装包在注册表冻结前用`Registry.register_assemble_template`登记能完整还原原卡的`AssembleTemplate`。来源行为返回`hs_sim.engine.assemble_offers.Assemble`，引用明确版本的审核候选池；抽样、真正半边选择和新定义交付由公共入口负责。只为实际审核片段声明兼容性，保留主卡身材/费用与不可变配方身份，未知内容明确报错。现有有限范围及显式空/小池政策见[拼装契约](m4-assemble.md)，不是完整正式池声明。
 
 原生存储/创建溢出按实际分配事实与接收者复用CardDestructionRecord/B150独立接受；11非BOARD生产函数保原抽取/创建/交付，原监听后本牌主体沿原解释器，无新账本、模块、字段、账户或组合。BOARD回手普通死亡独立，未分类native来源仍明确拒绝。见[溢出契约](m3-native-overflow-body.md)，prototype-v282/core-effects-v276/schema247，观察82/命令12/replay1及生产FP保持；生成/返回政策与精确CN仍开放，实际执行与下一项只在两台账。
@@ -1422,3 +1586,7 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 逻辑认输为独立座位动作Concede，复用原事务与终局中断管线；非主动方/换牌/待选也可提交，原付款与未完成工作保留真实中断收据，不以英雄死亡替代。玩家命令只含type=concede及原revision，不读取隐藏条件；见[独立认输契约](m3-logical-concession.md)。实际进度与下一项只在两份台账。
+
+需唤醒原休眠实例时，使用`hs_sim.engine.dormancy.AwakenCapturedMinion(MinionReference.capture(entity), entity.dormancy.id, source_id)`，不要仅保存可被重用的实体号。原休眠变化后请求失效，等待/回放和永久载体限制仍沿公共层。个人施法资格与原事件材料的表达见[原生触发契约](m3-reactive-growth-cards.md)。
+
+原抽牌或施法观察对象需跨反应保留复制材料时，使用`CapturedCardCopyMaterial.capture(context.state, source)`配合原`CopyCard`；HAND/DECK可current，GRAVEYARD只base，完整设费在创建通知前安装。不要从后来同名实体补材料或手动改新能力的来源；公共current复制层负责原生自身绑定。不同目标伤害用RandomDamageBatch，精确范围与待校准政策见[契约](m3-trigger-source-cards.md)。

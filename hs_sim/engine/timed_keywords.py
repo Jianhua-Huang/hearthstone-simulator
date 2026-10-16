@@ -33,9 +33,9 @@ def expire(r, boundary, turn, player_id):
     from .lifecycle import remove_attachments
     expired = []
     for entity in r.state.entities.values():
-        ids = tuple(a.id for a in entity.abilities if a.keyword_expiry is not None and
-            a.keyword_expiry.boundary == boundary and a.keyword_expiry.player_id == player_id and
-            a.keyword_expiry.owner_turn_index <= owner_turn_index(r.state, player_id))
+        ids = tuple(a.id for a in entity.abilities for expiry in (a.keyword_expiry,a.health_rule_expiry) if expiry is not None and
+            expiry.boundary == boundary and expiry.player_id == player_id and
+            expiry.owner_turn_index <= owner_turn_index(r.state, player_id))
         numeric_ids = tuple(e.id for e in entity.enchantments if e.owner_turn_expiry is not None and
             e.owner_turn_expiry.boundary == boundary and e.owner_turn_expiry.player_id == player_id and
             e.owner_turn_expiry.owner_turn_index <= owner_turn_index(r.state, player_id))
@@ -114,10 +114,20 @@ def validate_boundary(game):
     # End-boundary expirations may still be pending during an ending-turn choice.
     # Start-boundary removal is atomic before any reaction can pause.
     for entity in state.entities.values():
+        for ability in entity.abilities:
+            expiry=ability.health_rule_expiry
+            if expiry is not None and expiry.owner_turn_index<=owner_turn_index(state,expiry.player_id):
+                raise ValueError('Expired owner health rule at action boundary')
         for enchantment in entity.enchantments:
             expiry = enchantment.owner_turn_expiry
             if expiry is not None and expiry.owner_turn_index <= owner_turn_index(state, expiry.player_id):
                 raise ValueError('Expired numeric owner buff at action boundary')
+            expiry = enchantment.control_return_expiry
+            if expiry is not None:
+                previous = next((v for v in reversed(state.owner_turn_history) if v.player_id == expiry.player_id), None)
+                index = previous.owner_index if previous is not None else 0
+                if expiry.owner_turn_index < index or expiry.owner_turn_index == index and previous.closed:
+                    raise ValueError('Expired owner-end control at action boundary')
         for ability in entity.abilities:
             expiry = ability.keyword_expiry
             if expiry is not None:

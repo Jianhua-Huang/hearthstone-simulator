@@ -189,12 +189,15 @@ def capture_body(r,event):
     """One successful original occurrence, no additional discard/cast executor."""
     row=r.state.discard_history[-1];_validate_event(row,event)
     source=r.state.entities[row.entity_id]
+    if r.registry.card(source.card_id).stored_deathrattle:
+        from .stored_deathrattles import capture_group
+        return capture_group(r,event)
     validate_carrier(r.registry,source.card_id,source.kind,source.abilities,source.components)
     from .lifecycle import active_abilities
     bodies=active_abilities(source,'on_discard')
-    if not bodies:return None
-    return r.call(bodies[0].behavior_id,row.entity_id,row.player_id,event=event,
-                  trigger=bodies[0],discard=row)
+    if not bodies:return ()
+    return (r.call(bodies[0].behavior_id,row.entity_id,row.player_id,event=event,
+                  trigger=bodies[0],discard=row),)
 
 
 def material_value(row):

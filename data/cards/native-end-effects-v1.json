@@ -1,0 +1,1310 @@
+{
+  "format": "reviewed-native-end-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_107",
+        "dbf_id": 127099,
+        "name": "火炮长",
+        "name_en": "Cannonmaster",
+        "text": "<b>战吼：</b>获取一张1/1的火炮手。火炮手能在回合结束时随机对一个敌人造成1点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Get a 1/1\nCannoneer that deals\n1 damage to a random\nenemy at end of turn.",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127012,
+          "MINI_SET": 1,
+          "2525": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2525",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2525"
+          }
+        ]
+      },
+      "record_sha256": "dc01a5c0abfdbe8c083be3ab0a7e2129dbe272e4d7ed8bc51048a7f52a275eac",
+      "recipe": {
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "root": true,
+        "script": "cannonmaster",
+        "deck_identity": "CAP_107",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_133",
+        "dbf_id": 122970,
+        "name": "彩翼灵龙",
+        "name_en": "Iridescent Flitterwing",
+        "text": "<b>扰魔</b>。在你的回合结束时，&使你的其他随从获得+1/+1。",
+        "text_en": "<b>Elusive</b>\nAt the end of your\nturn,& give your other\nminions +1/+1.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kati Sarin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "72434e5e92a318d653ae56367e9e61e57f099a8465ae728e96faec7f31d57e27",
+      "recipe": {
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "root": true,
+        "script": "flitterwing",
+        "deck_identity": "CATA_133",
+        "keywords": [
+          "elusive"
+        ],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_305",
+        "dbf_id": 122878,
+        "name": "盛怒主母",
+        "name_en": "Incensed Matriarch",
+        "text": "在你的回合结束时，如果本随从具有所有生命值，&获得+3生命值。",
+        "text_en": "At the end of your turn,\nif this is at full Health,&\n gain +3 Health.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "ced404267735fa58e28ca1c58cff4d5a9fc46ea9c3328bdb16040ed5df4e72fe",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "root": true,
+        "script": "matriarch",
+        "deck_identity": "CATA_305",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_475",
+        "dbf_id": 123114,
+        "name": "破鳞盾卫",
+        "name_en": "Scalebreaker Bulwark",
+        "text": "在你的回合结束时，&对所有敌人造成2点伤害。",
+        "text_en": "[x]At the end of your\nturn,& deal 2 damage\nto all enemies.",
+        "cost": 6,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "1dfe90a613e9ec4969e41d353ea63514098d8399399da5b6ed59426b00d50582",
+      "recipe": {
+        "cost": 6,
+        "attack": 3,
+        "health": 6,
+        "root": true,
+        "script": "bulwark",
+        "deck_identity": "CATA_475",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_476",
+        "dbf_id": 123115,
+        "name": "青铜护卫者",
+        "name_en": "Bronze Keeper",
+        "text": "在你的回合结束时，&召唤一条6/6并具有<b>圣盾</b>的元素巨龙。",
+        "text_en": "[x]At the end of your\nturn,& summon a 6/6\nElemental Dragon with\n<b>Divine Shield</b>.",
+        "cost": 8,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 8,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "40b21e632ca81e222f2a7deed298fe0b031e08f8889fc3af2e72ef1c1f17c4c4",
+      "recipe": {
+        "cost": 8,
+        "attack": 3,
+        "health": 7,
+        "root": true,
+        "script": "keeper",
+        "deck_identity": "CATA_476",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_478",
+        "dbf_id": 123123,
+        "name": "青铜救赎者",
+        "name_en": "Bronze Redeemer",
+        "text": "在你的回合结束时，&召唤一条属性值等同于本随从的龙。",
+        "text_en": "At the end of your\nturn,& summon a Dragon\nwith stats equal to this minion's.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126052,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "67fbe9b054e57255b9a52a5ea547f29c3b4ebffd5472af077ffa8888b538ea9f",
+      "recipe": {
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "root": true,
+        "script": "redeemer",
+        "deck_identity": "CATA_478",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_999",
+        "dbf_id": 128058,
+        "name": "土石幼龙",
+        "name_en": "Earthen Drake",
+        "text": "在你的回合结束时，&对敌方英雄造成4点伤害。",
+        "text_en": "At the end of your turn,& deal 4 damage to the enemy hero.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "2540": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "24b5db4c6bd1ab9cf296aceda62a80cfdc19862f4c776e455803891155aef2be",
+      "recipe": {
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "root": true,
+        "script": "drake",
+        "deck_identity": "CATA_999",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_816",
+        "dbf_id": 116296,
+        "name": "怪异魔蚊",
+        "name_en": "Monstrous Mosquito",
+        "text": "在你的回合结束时，&使你的其他随从获得+1攻击力。",
+        "text_en": "At the end of your turn,& give your other minions +1_Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "a81a9222075896b0f10f4e90d38f35d11c303bca76ddbc920c429afafec46041",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "root": true,
+        "script": "mosquito",
+        "deck_identity": "EDR_816",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_942",
+        "dbf_id": 115867,
+        "name": "好奇的积云",
+        "name_en": "Curious Cumulus",
+        "text": "在你的回合结束时，&使你的英雄获得<b>圣盾</b>。",
+        "text_en": "[x]At the end of your turn,&\ngive your hero <b>Divine Shield</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0e9739ebc80e1d97e7748f6b1923db4fca8f5686bc9941c74a3bb37404b38531",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "root": true,
+        "script": "cumulus",
+        "deck_identity": "EDR_942",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_971",
+        "dbf_id": 115938,
+        "name": "小动物看护者",
+        "name_en": "Critter Caretaker",
+        "text": "在你的回合结束时，&为双方英雄各恢复#3点生命值。",
+        "text_en": "At the end of your turn,& restore #3 Health to both_heroes.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Caroline Gariba & Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "e8c9b6f4c73e6dbe61d0f967c572454f7ec79d57c9ade539e9a7435974d50cc9",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "root": true,
+        "script": "caretaker",
+        "deck_identity": "EDR_971",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_883",
+        "dbf_id": 126472,
+        "name": "激活的魔像",
+        "name_en": "Activated Golem",
+        "text": "在每个回合结束时，&获得<b>复生</b>。",
+        "text_en": "At the end of each turn,& gain <b>Reborn</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "33c03fdcbaeb577f23a35612e28a7bcee8f2ef456d77a63f6bba4a7182ff1d0f",
+      "recipe": {
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "root": true,
+        "script": "golem",
+        "deck_identity": "JAIL_883",
+        "keywords": [],
+        "turn_scope": "either"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_054",
+        "dbf_id": 120955,
+        "name": "时空艇长",
+        "name_en": "Time Skipper",
+        "text": "在每个玩家的回合结束时，使其获得一张幸运币。",
+        "text_en": "At the end of each player's turn, give them a Coin.",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kati Sarin"
+          }
+        ]
+      },
+      "record_sha256": "f9ffd5e86222733383cf7911c18410326cac21d867abf0cc333e55e6645b6161",
+      "recipe": {
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "root": true,
+        "script": "skipper",
+        "deck_identity": "TIME_054",
+        "keywords": [],
+        "turn_scope": "either"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_476t",
+        "dbf_id": 123116,
+        "name": "沙鳞巨龙",
+        "name_en": "Sandscale Dragon",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1980,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "2540": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          }
+        ]
+      },
+      "record_sha256": "4aa26ac88f6a592e2b69ac106dc3a8e64206a17c229a8b5a83aaa01c75ec9f7a",
+      "recipe": {
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "root": false,
+        "script": null,
+        "deck_identity": "CATA_476t",
+        "keywords": [
+          "divine_shield"
+        ],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_478t",
+        "dbf_id": 126052,
+        "name": "青铜蛮兵",
+        "name_en": "Bronze Brute",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "78f941e85a32f6b37171504c51e61167516b6206e4d0d6dc75260c90d746e637",
+      "recipe": {
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "root": false,
+        "script": null,
+        "deck_identity": "CATA_478t",
+        "keywords": [],
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TTN_866",
+        "dbf_id": 129169,
+        "name": "神秘恐魔",
+        "name_en": "Mythical Terror",
+        "text": "<b>吸血</b>。在你的回合结束时，&迫使所有敌方随从攻击本随从。",
+        "text_en": "[x]<b>Lifesteal</b>\nAt the end of your turn,&\n force all enemy minions\nto attack this.",
+        "cost": 7,
+        "attack": 4,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 4,
+          "COST": 7,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 98469,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 98469,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "98469",
+              "type": "Int",
+              "value": "98469"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "90a9a0f8e51388831268160d160000af846ceccc472766dd2491d295b9920674",
+      "recipe": {
+        "root": true,
+        "cost": 7,
+        "attack": 4,
+        "health": 10,
+        "keywords": [
+          "lifesteal"
+        ],
+        "deck_identity": "TTN_866",
+        "script": "terror",
+        "turn_scope": "controller"
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_132",
+        "dbf_id": 118497,
+        "name": "绝息剑龙",
+        "name_en": "Asphyxiodon",
+        "text": "<b>嘲讽</b>。在你的回合结束时，&随机对一个敌方随从造成5点伤害。",
+        "text_en": "[x]<b>Taunt</b>. At the end of your\nturn,& deal 5 damage to a\nrandom enemy minion.",
+        "cost": 8,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 8,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "2537": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "2f685bdcded309ff3ab5325cecc0b091b096a5380b1fce62e02541a6fab92ab7",
+      "recipe": {
+        "root": true,
+        "cost": 8,
+        "attack": 6,
+        "health": 12,
+        "keywords": [
+          "taunt"
+        ],
+        "deck_identity": "DINO_132",
+        "script": "asphyxiodon",
+        "turn_scope": "controller"
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CAP_107t",
+        "dbf_id": 127012,
+        "name": "火炮手",
+        "name_en": "Cannoneer",
+        "text": "在你的回合结束时，随机对一个敌人造成1点伤害。",
+        "text_en": "[x]At the end of your turn,\ndeal 1 damage to a\nrandom enemy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "ccd467cb0e88628485075c962e83b0ef797981e556c2ed39a0b8ae8e59938894"
+    }
+  ],
+  "followup_identity_evidence": [
+    {
+      "root_id": "CORE_TTN_866",
+      "record": {
+        "id": "TTN_866",
+        "dbf_id": 98469,
+        "name": "神秘恐魔",
+        "name_en": "Mythical Terror",
+        "text": "<b>吸血</b>。在你的回合结束时，&迫使所有敌方随从攻击本随从。",
+        "text_en": "[x]<b>Lifesteal</b>\nAt the end of your turn,&\n force all enemy minions\nto attack this.",
+        "cost": 7,
+        "attack": 4,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 4,
+          "COST": 7,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "b66965e310e9accd67af6db3508f92b7ab867a9c977fd96d9e680a39ccc7b7c5"
+    }
+  ],
+  "followup_batch": "K38b",
+  "followup_evidence": "outputs/card-integration-20261014/k38b-demon-dependencies-preaudit.json"
+}

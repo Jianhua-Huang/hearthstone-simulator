@@ -14,7 +14,7 @@ def attachment_id(state):
 
 def active_abilities(entity, kind):
     eligible = entity.active
-    if kind == 'dormant_trigger':
+    if kind in ('dormant_trigger', 'board_full_awaken'):
         eligible = entity.dormancy is not None and not entity.starship_building
     elif kind in ('on_play', 'battlecry', 'combo') and entity.dormancy is not None:
         eligible = not entity.starship_building
@@ -59,7 +59,7 @@ def remove_attachments(entity, *, enchantment_predicate, ability_predicate):
         entity.damage = max(0, entity.max_health - old_health)
 
 
-def install_printed(state, entity, definition, *, append=False, exclude_keywords=()):
+def install_printed(state, entity, definition, registry=None, *, append=False, exclude_keywords=()):
     if not append:
         entity.abilities = []
         entity.galakrond_invocations = None
@@ -69,9 +69,15 @@ def install_printed(state, entity, definition, *, append=False, exclude_keywords
     for keyword in definition.keywords:
         if keyword not in exclude_keywords and keyword not in (Keyword.SPELLBURST, Keyword.FRENZY, Keyword.CORRUPT, Keyword.INFUSE):
             spec = next((s for s in definition.timed_keywords if s.keyword == keyword), None)
-            add('keyword', keyword=keyword, timed_keyword=spec)
+            fields = {'reborn_policy': definition.reborn_policy} if keyword == Keyword.REBORN else {}
+            add('keyword', keyword=keyword, timed_keyword=spec, **fields)
     if definition.spell_damage:
-        add('spell_damage', spell_damage=definition.spell_damage, spell_damage_schools=definition.spell_damage_schools)
+        add('spell_damage', spell_damage=definition.spell_damage, spell_damage_schools=definition.spell_damage_schools,
+            native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind=='self_damaged'else None)
+    if registry is not None and definition.id in registry.corpse_gain_profiles:
+        add('corpse_gain', corpse_gain_card_id=definition.id)
+    if registry is not None and definition.id in registry.turn_draw_profiles:
+        add('turn_draw_suppression',turn_draw_card_id=definition.id)
     if definition.cleave:
         add('cleave')
     if definition.on_play:
@@ -95,15 +101,22 @@ def install_printed(state, entity, definition, *, append=False, exclude_keywords
         add('hand_progress', hand_progress=definition.hand_progress)
     if definition.defining_hand_source is not None and entity.zone in (Zone.HAND, Zone.DECK):
         add('defining_hand_source', hand_progress=definition.defining_hand_source, defining_card_id=definition.id)
+    if definition.hand_mirror is not None and entity.zone == Zone.HAND:
+        from .model import HandMirrorBinding
+        add('hand_mirror',hand_mirror=HandMirrorBinding(definition.id,entity.controller))
     if definition.on_awaken:
         add('on_awaken', behavior_id=definition.on_awaken)
+    if definition.dormant_board_full:
+        add('board_full_awaken')
     for trigger in definition.dormant_triggers:
         add('dormant_trigger', event=trigger.event, behavior_id=trigger.behavior_id,
             end_turn=trigger.end_turn)
     if definition.on_launch:
         add('on_launch', behavior_id=definition.on_launch)
     if definition.deathrattle:
-        add('deathrattle', behavior_id=definition.deathrattle, deathrattle_card_id=definition.id)
+        from .model import DeathrattleMemory
+        add('deathrattle', behavior_id=definition.deathrattle, deathrattle_card_id=definition.id,
+            deathrattle_memory=DeathrattleMemory(definition.native_deathrattle) if definition.native_deathrattle is not None else None)
     for trigger in definition.triggers:
         add('trigger', event=trigger.event, behavior_id=trigger.behavior_id,
             end_turn=trigger.end_turn)
@@ -112,7 +125,8 @@ def install_printed(state, entity, definition, *, append=False, exclude_keywords
             adjacent_only=aura.adjacent_only, aura_target=aura.target, aura_condition=aura.condition,
             aura_tribes_any=aura.tribes_any, aura_card_ids=aura.card_ids)
     for spec in definition.cost_auras:
-        add('cost_aura', cost_aura=spec)
+        add('cost_aura', cost_aura=spec,
+            native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind=='controller_hand_at_most'else None)
     for spec in definition.keyword_auras:
         add('keyword_aura', keyword_aura=spec)
     for index, spec in enumerate(definition.attack_policies):
@@ -163,14 +177,14 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
     entity.components = components
     entity.herald_rank = None
     entity.base_attack, entity.base_health = definition.attack, definition.health
-    install_printed(state, entity, definition)
+    install_printed(state, entity, definition, registry)
     for card_id in components:
         part = registry.card(card_id)
         if part.kind != CardType.MINION or part.starship_for:
             raise ValueError('Starship components must be non-composite minion definitions')
         entity.base_attack += part.attack
         entity.base_health += part.health
-        install_printed(state, entity, part, append=True, exclude_keywords=(Keyword.STARSHIP_PIECE,))
+        install_printed(state, entity, part, registry, append=True, exclude_keywords=(Keyword.STARSHIP_PIECE,))
     from .herald import initialize_instance
     initialize_instance(state, entity, definition, count=entry_herald_count)
     from .jade import initialize_instance as initialize_jade
@@ -252,7 +266,9 @@ def copy_attachments(state, source, destination, *, rebind_printed=False):
         if permit is not None:
             permit = replace(permit, permitted_ability_id=ability_ids.get(
                 permit.permitted_ability_id, permit.permitted_ability_id))
-        rebound_source=destination.id if rebind_printed and ability.origin=='printed'and ability.source_id==source.id else ability.source_id
+        if ability.kind=='hand_mirror'and destination.zone!=Zone.HAND:continue
+        native_self=ability.kind=='hand_mirror'or ability.origin=='printed'and ability.reborn_policy is not None
+        rebound_source=destination.id if native_self or rebind_printed and ability.origin=='printed'and ability.source_id==source.id else ability.source_id
         destination.abilities.append(replace(ability, id=ability_ids[ability.id], source_id=rebound_source, printed_attack_permit=permit))
     destination.silenced = source.silenced
     from .timed_keywords import arm
@@ -294,6 +310,7 @@ def renew_hand_progress(state, entity, *, previous_zone=None):
                         ('hand_progress', 'defining_hand_source') else a
                         for a in entity.abilities if a.kind != 'defining_hand_source' or
                         entity.zone in (Zone.HAND, Zone.DECK) and previous_zone != Zone.HAND]
+    entity.abilities=[a for a in entity.abilities if a.kind!='hand_mirror'or entity.zone==Zone.HAND]
 
 
 def apply_summon_stats(state, entity, spec):

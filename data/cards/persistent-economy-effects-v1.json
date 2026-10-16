@@ -1,0 +1,316 @@
+{
+  "batch": "K25A",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_DRG_403",
+        "dbf_id": 120433,
+        "name": "喷灯破坏者",
+        "name_en": "Blowtorch Saboteur",
+        "text": "<b>战吼：</b>你对手的下一个英雄技能的法力值消耗增加（2）点。",
+        "text_en": "<b>Battlecry:</b> Your opponent's next Hero Power costs (2)_more.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 56226,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56226
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ekaterina Shapovalova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56226",
+              "type": "Int",
+              "value": "56226"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "26b64d895c4c17d19289fc4aa9dbf527c333598f013f02bfa653809f3d290b9c",
+      "recipe": {
+        "script": "enemy_next_power",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "DRG_403"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_847",
+        "dbf_id": 114912,
+        "name": "梦缚信徒",
+        "name_en": "Dreambound Disciple",
+        "text": "<b>战吼，亡语：</b>&你的下一个英雄技能的法力值消耗为（0）点。",
+        "text_en": "<b>Battlecry and Deathrattle:</b>& Your next Hero Power costs (0).",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "e51e0acfddccae811a5825038a4f4b8a73d252c2180b2f5936569304d44c2ff5",
+      "recipe": {
+        "script": "next_power_zero",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "keywords": [],
+        "deck_identity": "EDR_847"
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_257",
+        "dbf_id": 118575,
+        "name": "洛，在世传奇",
+        "name_en": "Loh, the Living Legend",
+        "text": "<b>战吼：</b>&在本局对战中，你的随从牌的法力值消耗为（5）点。",
+        "text_en": "<b>Battlecry:</b>& Your minions cost (5) this game.",
+        "cost": 9,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "018dd6d34590fb7715f101aadf252b0752296b12f366697d6bcdef307d3c8994",
+      "recipe": {
+        "script": "minions_five",
+        "cost": 9,
+        "attack": 5,
+        "health": 5,
+        "keywords": [],
+        "deck_identity": "TLC_257"
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_000",
+        "dbf_id": 113321,
+        "name": "伊瑟拉，翡翠守护巨龙",
+        "name_en": "Ysera, Emerald Aspect",
+        "text": "<b>对战开始时：</b>双方玩家的法力值上限提高5点。<b>战吼：</b>获得3个法力水晶。",
+        "text_en": "[x]<b>Start of Game:</b> Increase both\nplayers'maximum Mana by 5.\n<b>Battlecry:</b> Gain 3\nMana Crystals.",
+        "cost": 9,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "START_OF_GAME_KEYWORD": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "4392": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4392",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4392"
+          }
+        ]
+      },
+      "record_sha256": "c9861a7452f09b3898f02944f30bd8e82d5ba0f3ddef13e62940a27a140c4dcc",
+      "recipe": {
+        "script": "ysera",
+        "cost": 9,
+        "attack": 4,
+        "health": 12,
+        "keywords": [],
+        "deck_identity": "EDR_000"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_216",
+        "dbf_id": 123426,
+        "name": "净化祭司",
+        "name_en": "Cleansing Cleric",
+        "text": "<b>战吼：</b>在本局对战中，你的治疗效果恢复的生命值增加2点。",
+        "text_en": "<b>Battlecry:</b> Your healing effects restore 2 more Health this game.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "18b4d21918041e8d3f1a4c41b8c70ca70f4859ba93477767be3884a57acb21fe",
+      "recipe": {
+        "script": "healing_bonus",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "keywords": [],
+        "deck_identity": "CATA_216"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "note": "Five complete roots using existing cost, opening, mana and persistent hero health rules; seven K25 roots remain queued."
+}

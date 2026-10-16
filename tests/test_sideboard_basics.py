@@ -1,4 +1,5 @@
 """Independent E.T.C. construction, original-band selection and persistence."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -411,8 +412,8 @@ class SideboardRuntimeTests(unittest.TestCase):
     def test_new_layout_versions_and_old_schema_explicitly_rejected(self):
         g = self.game(); saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version),
-            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         for version in (168, 167, 1):
             bad = deepcopy(saved); bad['schema_version'] = version
-            with self.assertRaisesRegex(SnapshotError, '1 through 265'):
+            with self.assertRaisesRegex(SnapshotError, f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
                 Game.from_snapshot(bad, registry())

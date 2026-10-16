@@ -1,0 +1,553 @@
+{
+  "batch": "K51",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_552",
+        "dbf_id": 122869,
+        "name": "乌鳞斥候",
+        "name_en": "Ebonscale Scout",
+        "text": "<b>战吼：</b>造成等同于本随从攻击力的伤害。<i>（当本牌在你手中时，使用一张龙牌即可将本牌变为8/8的龙！）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Deal damage\nequal to this minion's Attack.\n<i>(While in hand, play a Dragon to\n become an 8/8 Dragon!)</i>",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122870
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "309",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "608121bff8bb9fe8c7ad4031cfb2b93a558f3fa76a6bd92cffc3c5c8e0e87047",
+      "recipe": {
+        "script": "scout",
+        "root": true,
+        "deck_identity": "CATA_552",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_552t",
+        "dbf_id": 122870,
+        "name": "乌鳞斥候",
+        "name_en": "Ebonscale Scout",
+        "text": "<b>战吼：</b>造成等同于本随从攻击力的伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Deal\ndamage equal to this\nminion's Attack.",
+        "cost": 6,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 6,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "44dca8e196383a220385694c0b43c10e0af86312b163e9526b44c078715b4538",
+      "recipe": {
+        "script": "dragon_scout",
+        "root": false,
+        "deck_identity": "CATA_552t",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_721",
+        "dbf_id": 126222,
+        "name": "特莱斯塔斯，寄生之魂",
+        "name_en": "Tras'tath, Soul Parasite",
+        "text": "<b>预备。突袭</b>。在你召唤一个恶魔后，获得其属性值。",
+        "text_en": "[x]<b>Prepare, Rush</b>\nAfter you summon a\n_Demon, gain its stats.",
+        "cost": 6,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          }
+        ]
+      },
+      "record_sha256": "385df5a84ca2f296ec5f02064f6143871ae1daa7b3b9d75da33fae4ea28ef1e0",
+      "recipe": {
+        "script": "parasite",
+        "root": true,
+        "deck_identity": "JAIL_721",
+        "keywords": [
+          "rush"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_479",
+        "dbf_id": 119789,
+        "name": "死烂巨口",
+        "name_en": "Deathrot Maw",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&随机召唤一只邪能野兽。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b>& Summon a random Fel Beast.",
+        "cost": 6,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "2b1630fa3fc65ec449a51d3b87a69c720c3ca7e722ad778f5ff795bcc567bafb",
+      "recipe": {
+        "script": "maw",
+        "root": true,
+        "deck_identity": "TLC_479",
+        "keywords": [
+          "taunt"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_446t2",
+        "dbf_id": 118228,
+        "name": "邪能啸天龙",
+        "name_en": "Felscreamer",
+        "text": "<b>突袭</b>。<b>吸血</b>",
+        "text_en": "<b>Rush</b>\n<b>Lifesteal</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "RUSH": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "8115bcfa8b24937a9f155ab3d7e5b13f84945b5d573fe1111922b6a2eca6da5f",
+      "recipe": {
+        "script": "felscreamer",
+        "root": false,
+        "deck_identity": "TLC_446t2",
+        "keywords": [
+          "rush",
+          "lifesteal"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_446t3",
+        "dbf_id": 120037,
+        "name": "邪能迅猛龙",
+        "name_en": "Felraptor",
+        "text": "<b>冲锋</b>。<b>扰魔</b>",
+        "text_en": "<b>Charge</b>\n<b>Elusive</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CHARGE": 1,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "277a20503e48eda6c3dc2f98fd4209ef8771c4e3661cd999211425610ad153b7",
+      "recipe": {
+        "script": "felraptor",
+        "root": false,
+        "deck_identity": "TLC_446t3",
+        "keywords": [
+          "charge",
+          "elusive"
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_446t4",
+        "dbf_id": 120038,
+        "name": "邪能恐角龙",
+        "name_en": "Felhorn",
+        "text": "<b>嘲讽</b>。<b>复生</b>",
+        "text_en": "<b>Taunt</b>\n<b>Reborn</b>",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "REBORN": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "8de331edae6e7b00971b38dd595e36b1b7e2afb177cb6e9bec67e0059553452c",
+      "recipe": {
+        "script": "felhorn",
+        "root": false,
+        "deck_identity": "TLC_446t4",
+        "keywords": [
+          "taunt",
+          "reborn"
+        ]
+      }
+    }
+  ],
+  "gallery_links": [
+    {
+      "id": 122869,
+      "collectible": 1,
+      "slug": "122869-ebonscale-scout",
+      "class_id": 3,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 4,
+      "card_set_id": 1980,
+      "rarity_id": 4,
+      "artist_name": "Grafit Studio",
+      "health": 4,
+      "attack": 4,
+      "mana_cost": 6,
+      "name": "乌鳞斥候",
+      "text": "<b>战吼：</b>造成等同于本随从攻击力的伤害。<i>（当本牌在你手中时，使用一张龙牌即可将本牌变为8/8的龙！）</i>",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/f2b1c0eb9cd36d13336305912bb0b872b9a00d7574204328cc96018dd61c4b66.png",
+      "image_gold": "",
+      "flavor_text": "巨龙的双眼能看到很多……食物。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/02ea7b41b6d40bd6b649c790b49db0adf07c5bc2a34de42a76aab674b423fdae.png",
+      "child_ids": [
+        122870
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        8
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 2,
+      "class_priority": 3
+    },
+    {
+      "id": 126222,
+      "collectible": 1,
+      "slug": "126222-trastath-soul-parasite",
+      "class_id": 14,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 4,
+      "card_set_id": 1988,
+      "rarity_id": 5,
+      "artist_name": "  Grafit",
+      "health": 3,
+      "attack": 3,
+      "mana_cost": 6,
+      "name": "特莱斯塔斯，寄生之魂",
+      "text": "<b>预备。突袭</b>。在你召唤一个恶魔后，获得其属性值。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/aa1de54e4c22012bad3a1b58a4708c4ffdbe817ce30f0378123a79adbde26a28.png",
+      "image_gold": "",
+      "flavor_text": "特莱斯塔斯做了一番深度的灵魂检索，最终找上了伊莉达。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/f6c5130bfae9c9d722d33cd5919996ba25682b0f3cdab9d448a52c62facde80c.png",
+      "child_ids": null,
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        53,
+        382
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 1,
+      "class_priority": 1
+    },
+    {
+      "id": 119789,
+      "collectible": 1,
+      "slug": "119789-deathrot-maw",
+      "class_id": 9,
+      "multi_class_ids": [],
+      "minion_type_id": 0,
+      "card_type_id": 4,
+      "card_set_id": 1952,
+      "rarity_id": 3,
+      "artist_name": "Vlad Botos",
+      "health": 8,
+      "attack": 2,
+      "mana_cost": 6,
+      "name": "死烂巨口",
+      "text": "<b>嘲讽</b>。<b>亡语：</b>&随机召唤一只邪能野兽。",
+      "image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/2825a5ee780680e96888f75da1969bab5be38b5de14f234a44d9f65917516b6f.png",
+      "image_gold": "",
+      "flavor_text": "哦，别怕，阿烂不会咬人的。",
+      "crop_image": "https://hs.res.netease.com/pc/zt/20250225182549/static/img/c7e07b94e881ecf84f784c51e9d4a97cd35d6e667a3bd22c5044d97247a67033.png",
+      "child_ids": [
+        118228,
+        120037,
+        120038
+      ],
+      "bundledCardIds": null,
+      "is_zilliax_functional_module": false,
+      "is_zilliax_cosmetic_module": false,
+      "keyword_ids": [
+        1,
+        12
+      ],
+      "parent_id": 0,
+      "tourist_class_id": 0,
+      "runeCost": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "factionId": null,
+      "spellSchoolId": 0,
+      "set_priority": 4,
+      "class_priority": 9
+    }
+  ],
+  "fel_beast_candidate_ids": [
+    "TLC_446t2",
+    "TLC_446t3",
+    "TLC_446t4"
+  ],
+  "enchantment_evidence": [
+    {
+      "record": {
+        "id": "JAIL_721e",
+        "dbf_id": 131257,
+        "name": "窃取的灵魂",
+        "name_en": "Stolen Soul",
+        "text": "属性值提高。",
+        "text_en": "Increased Stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "43ccf1bd6e215ae880109a4b457339def0411d35ee7a04f6194098f1a9676f9c"
+    }
+  ],
+  "policy": {
+    "scout": "Native HandProgress card_committed; original submitted Dragon face and ordered submitted tribe changes, own hand only; current source Attack Battlecry.",
+    "parasite": "Actual own minion_summoned occurrence with frozen current tribes and original physical entry; captured current Attack and maximum Health; ordinary BuffCapturedMinion.",
+    "fel_beasts": "Complete explicit three-member family linked by current CN gallery child IDs, one ordinary attributed random SummonByCard; full global legal pool and exact CN policies remain uncertified.",
+    "cn_calibrated": false
+  }
+}

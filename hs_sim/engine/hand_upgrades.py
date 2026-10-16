@@ -63,16 +63,18 @@ def buff_stored_card(r, effect):
     effect.__post_init__()
     source_exists(r, effect.source_id)
     definition=r.registry.card(effect.card.card_id)
-    if definition.kind != CardType.MINION:
-        raise ResolutionError('Stored stat buffs currently require a minion')
+    if definition.kind not in (CardType.MINION, CardType.WEAPON):
+        raise ResolutionError('Stored stat buffs require a minion or weapon')
+    if definition.kind == CardType.WEAPON and (effect.health != 0 or type(effect.card) is DiscardRecord):
+        raise ResolutionError('Stored weapon buffs only modify Attack on physical stored cards')
     if effect.expires_turn is not None and effect.expires_turn < r.state.turn:
         raise ResolutionError('Stored buff already expired')
     entity = material_entity(r, effect.card) if type(effect.card) is DiscardRecord else reference_entity(r, effect.card)
     if entity is None:
         return
     validate_cost_targets(r.state,effect,((definition,entity),))
-    if entity.kind != CardType.MINION:
-        raise ResolutionError('Stored stat buffs currently require a minion')
+    if entity.kind not in (CardType.MINION, CardType.WEAPON):
+        raise ResolutionError('Stored stat buffs require a minion or weapon')
     if effect.attack == effect.health == 0 and effect.cost is None:
         return
     if effect.attack or effect.health:
@@ -86,7 +88,7 @@ def buff_stored_card(r, effect):
         r.emit('cost_modified',target_id=entity.id,source_id=effect.source_id,attachment_id=cost.id)
 
 
-def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy='preserve'):
+def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy='preserve', spell_to_minion=False):
     """Change only the printed face of a physical stored card, without playing."""
     if type(cost_policy) is not str or cost_policy not in ('preserve', 'clear_local'):
         raise ResolutionError('Unknown upgrade cost policy')
@@ -96,10 +98,13 @@ def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy=
     if source.zone not in (Zone.HAND, Zone.DECK) or source.components or not definition.hand_playable or definition.starship_for:
         raise ResolutionError('Upgrade requires a physical, non-composite stored form')
     changing_type = definition.kind != source.kind
+    if type(spell_to_minion)is not bool or spell_to_minion and (
+            health_to_durability or (source.kind,definition.kind)!=(CardType.SPELL,CardType.MINION)):
+        raise ResolutionError('Spell-to-minion progress requires its explicit original conversion pair')
     if health_to_durability:
         if (source.kind, definition.kind) != (CardType.MINION, CardType.WEAPON):
             raise ResolutionError('Health conversion requires a minion-to-weapon upgrade')
-    elif changing_type:
+    elif changing_type and not spell_to_minion:
         raise ResolutionError('Cross-type upgrade requires an explicit conversion policy')
     if source.card_id != card_id:
         if cost_policy == 'clear_local':
@@ -114,6 +119,12 @@ def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy=
                 kept.append(row)
             source.enchantments = kept
         granted = [a for a in source.abilities if a.origin != 'printed']
+        if spell_to_minion:
+            # Do not silently delete a granted spell-only body/repetition when
+            # the physical card changes type. Such a real source needs its own
+            # supported transfer policy before this action can complete.
+            if granted:
+                raise ResolutionError('Granted source has no supported spell-to-minion progress transfer policy')
         durability = definition.durability
         if health_to_durability:
             # Health becomes a one-time durability value, not weapon health.
@@ -139,7 +150,7 @@ def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy=
         source.use_limit = definition.uses_per_turn
         source.corpse_value = int(definition.kind == CardType.MINION) if definition.corpse_value is None else definition.corpse_value
         source.silenced = False
-        install_printed(r.state, source, definition)
+        install_printed(r.state, source, definition, r.registry)
         source.abilities.extend(granted)
         refresh_entity(source)
     if source.zone == Zone.HAND:

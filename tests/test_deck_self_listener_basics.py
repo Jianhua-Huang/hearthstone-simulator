@@ -1,4 +1,5 @@
 """Native deck event listeners reuse stored progress and exact physical entry."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import fields, replace
 import json
 from pathlib import Path
@@ -478,7 +479,7 @@ class DeckSelfListenerTests(unittest.TestCase):
 
     def test_current_schema_accepts_and_old_or_future_schemas_reject(self):
         g = self.game()
-        self.assertEqual(g.snapshot()['schema_version'], 266)
+        self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         for version in (1, 198, 217, True):
             s = g.snapshot()
             s['schema_version'] = version

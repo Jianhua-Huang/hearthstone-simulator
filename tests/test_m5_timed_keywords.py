@@ -1,4 +1,5 @@
 """Printed/granted deadlines, physical lifecycle and resumable boundaries (R-129)."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 from copy import deepcopy
@@ -323,7 +324,7 @@ class TimedKeywordTests(unittest.TestCase):
         s['state']['entities'][str(i)]['abilities'].append(asdict(a));s['state']['next_attachment_id']+=1;self.reject(s)
 
     def test_snapshot_rejects_previous_schema(self):
-        g=self.game(board=('cloak',));s=g.snapshot();self.assertEqual(s['schema_version'],266);s['schema_version']=83;self.reject(s)
+        g=self.game(board=('cloak',));s=g.snapshot();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION);s['schema_version']=83;self.reject(s)
 
     def test_grants_with_different_deadlines_expire_independently(self):
         self.script('grant',lambda c:[GrantKeyword(c.state.players[1].board[0],Keyword.STEALTH,
@@ -387,7 +388,7 @@ class TimedKeywordTests(unittest.TestCase):
 
     def test_real_combo_example_recovers_between_expiry_and_start(self):
         from examples.timed_keywords import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual((len(g.history),len(g.state.combo_history),len(g.state.battlecry_history)),(8,4,2))
 
 

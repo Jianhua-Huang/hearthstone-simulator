@@ -1,4 +1,5 @@
 """M5-13d-02l-03: frozen board power counts and independent result axes."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -634,7 +635,7 @@ class PowerRepeatTests(unittest.TestCase):
             self.restore(s)
 
     def test_previous_snapshot_schema_is_explicitly_rejected(self):
-        g = self.waiting(); s = g.snapshot(); self.assertEqual(s['schema_version'], 266)
+        g = self.waiting(); s = g.snapshot(); self.assertEqual(s['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         s['schema_version'] = 94; self.reject(s)
 
 
@@ -687,7 +688,7 @@ class PowerRepeatRepresentativeTests(unittest.TestCase):
     def test_wisprider_and_manual_native_example_restore_four_subjects(self):
         from examples.power_repeats import run
         game, snapshot = run(); state = game.state
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(len(snapshot['state']['hero_power_payload_history']), 2)
         self.assertEqual([p.origin for p in state.hero_power_history], ['effect', 'manual'])
         self.assertEqual([p.repeat_plan.repetitions for p in state.hero_power_history], [2, 2])

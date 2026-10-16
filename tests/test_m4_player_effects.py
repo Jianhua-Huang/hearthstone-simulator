@@ -1,4 +1,5 @@
 """Source-independent rules, owner clocks, lifecycle and resumable boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -338,7 +339,7 @@ class PlayerEffectTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.r.register_card(CardDefinition('bad','Bad',CardType.SPELL,on_play='armor',ongoing_effect_id='clock'))
 
     def test_previous_snapshot_schema_is_explicitly_rejected(self):
-        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],266);data['schema_version']=24
+        g=self.game();data=g.snapshot();self.assertEqual(data['schema_version'],SNAPSHOT_SCHEMA_VERSION);data['schema_version']=24
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 
     def test_expiry_callback_sees_removed_aura(self):
@@ -391,7 +392,7 @@ class PlayerEffectTests(unittest.TestCase):
 
     def test_real_player_command_example_restores_and_replays(self):
         from examples.persistent_effects import run
-        g,snapshot=run();self.assertEqual(snapshot['schema_version'],266);self.assertEqual(len(g.history),12)
+        g,snapshot=run();self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(len(g.history),12)
 
 
 if __name__ == '__main__':

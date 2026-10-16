@@ -1,4 +1,5 @@
 """Player-owned Imbue growth, physical power lifecycle and typed history (R-100)."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -454,7 +455,7 @@ class ImbueRepresentativeTests(unittest.TestCase):
 
     def test_real_example_through_player_ports(self):
         from examples.imbue_growth import run
-        g,snapshot=run();self.assertEqual(snapshot['schema_version'],266)
+        g,snapshot=run();self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual([r.hero_class for r in g.state.imbue_history],
                          [CardClass.DRUID,CardClass.MAGE,CardClass.DRUID])
 

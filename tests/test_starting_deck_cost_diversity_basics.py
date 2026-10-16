@@ -1,4 +1,5 @@
 """Distinct original printed costs: explicit minimum, no custom-location body."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import hashlib
 import json
@@ -430,7 +431,7 @@ class StartingDeckCostDiversityTests(unittest.TestCase):
     def test_current_versions_and_old_same_layout_handler_and_schema_rejections(self):
         g = self.match()
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         saved = g.snapshot()
         saved['mechanics_version']['version'] = 'core-effects-v236'
         self.reject(saved)

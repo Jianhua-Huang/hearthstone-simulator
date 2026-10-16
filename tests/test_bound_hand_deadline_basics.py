@@ -1,4 +1,5 @@
 """An original hand's nonmoving deadline and directly affected boundaries."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -380,7 +381,7 @@ class BoundHandDeadlineTests(unittest.TestCase):
     def test_snapshot_schema_and_public_payload_roundtrip_are_explicit(self):
         g = self.game(); self.play(g)
         self.assertEqual((g.snapshot()['schema_version'], g.ruleset.id, g.mechanics.version),
-            (266, 'prototype-v302', CORE_EFFECTS_VERSION))
+            (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
         codec = FrameCodec(g.mechanics, g.registry, origin_state=g.state)
         request = ScheduleHandRemoval(2, 3, g.state.hand_deadlines[0].request.source_id)
         wire = codec.encode(request); self.assertEqual(codec.decode(wire), request)

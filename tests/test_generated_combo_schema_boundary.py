@@ -1,4 +1,5 @@
 """The new origin-aware private wire explicitly rejects previous schema117."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import unittest
 from hs_sim.engine import Game, SnapshotError
 
@@ -8,8 +9,8 @@ class GeneratedComboSchemaBoundaryTests(unittest.TestCase):
         from tests.test_generated_combo_repetition import GeneratedComboRepetitionTests, registry
         game = GeneratedComboRepetitionTests().game()
         snapshot = game.snapshot()
-        self.assertEqual(snapshot['schema_version'], 266)
+        self.assertEqual(snapshot['schema_version'], SNAPSHOT_SCHEMA_VERSION)
         snapshot['schema_version'] = 117
         with self.assertRaises(SnapshotError) as error:
             Game.from_snapshot(snapshot, registry())
-        self.assertIn('schemas 1 through 265 need their original engines', str(error.exception))
+        self.assertIn(f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1} need their original engines', str(error.exception))

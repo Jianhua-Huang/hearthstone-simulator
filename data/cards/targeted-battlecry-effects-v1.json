@@ -1,0 +1,836 @@
+{
+  "format": "reviewed-targeted-battlecry-effects-v1",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "source_data_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_161",
+        "dbf_id": 123547,
+        "name": "残恶梦魇",
+        "name_en": "Gruesome Nightmare",
+        "text": "<b>战吼：</b>使你手牌中或战场上的一个随从获得等同于本随从攻击力的攻击力。",
+        "text_en": "<b>Battlecry:</b> Give a minion in your hand or battlefield Attack equal to this minion's Attack.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "a36f485cd5c202cfe8de256422582aba5daa8aa37052c926a2024b0212b950e6",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "CATA_161",
+        "script": "nightmare",
+        "target": "friendly_hand_or_board_minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_200",
+        "dbf_id": 123060,
+        "name": "古神的眼线",
+        "name_en": "Agent of the Old Ones",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌，将其变形成为幸运币。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a\ncard in your hand to\n transform into a Coin.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "9bc79d3a659560bcdc5eac5734468e1bb9a12fe56888ccc32b77831d587d7aaf",
+      "recipe": {
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "CATA_200",
+        "script": "eye",
+        "target": "hand_card",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_198",
+        "dbf_id": 69617,
+        "name": "娜塔莉·塞林",
+        "name_en": "Natalie Seline",
+        "text": "<b>战吼：</b>消灭一个随从并获得其生命值。",
+        "text_en": "<b>Battlecry:</b> Destroy a minion and gain its Health.",
+        "cost": 7,
+        "attack": 7,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 60071
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "60071",
+              "type": "Int",
+              "value": "60071"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "36cf7f3e9e475003505920ceaab3d9fac9e6db062384ec9ef0ae9c7ba25208d9",
+      "recipe": {
+        "cost": 7,
+        "attack": 7,
+        "health": 1,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EX1_198",
+        "script": "natalie",
+        "target": "minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ULD_165",
+        "dbf_id": 129221,
+        "name": "裂隙屠夫",
+        "name_en": "Riftcleaver",
+        "text": "<b>战吼：</b>消灭一个随从。你的英雄受到等同于该随从生命值的\n伤害。",
+        "text_en": "<b>Battlecry:</b> Destroy a minion. Your hero takes damage equal to its Health.",
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 53887,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 53887
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "53887",
+              "type": "Int",
+              "value": "53887"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d735bd083cc806e29f377e724c970075f8822fa471ba018e6a85d9c0e1298fc4",
+      "recipe": {
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "ULD_165",
+        "script": "rift",
+        "target": "minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ULD_178",
+        "dbf_id": 111464,
+        "name": "希亚玛特",
+        "name_en": "Siamat",
+        "text": "<b>战吼：</b>从<b>突袭，嘲讽，圣盾</b>或<b>风怒</b>中获得两种效果<i>（由你选择）</i>。",
+        "text_en": "[x]<b>Battlecry:</b> Gain 2 of <b>Rush</b>,\n<b>Taunt</b>, <b>Divine Shield</b>, or\n<b>Windfury</b> <i>(your choice).</i>",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 54148
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "54148",
+              "type": "Int",
+              "value": "54148"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cb81c63007974d2cf261b22d1c3a32833ecf6f3cc2becb4d75383dbe82d0eaa5",
+      "recipe": {
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "ULD_178",
+        "script": "siamat",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_518",
+        "dbf_id": 114289,
+        "name": "活体园林",
+        "name_en": "Living Garden",
+        "text": "<b>战吼：</b><b>灌注</b>你的英雄技能。使你手牌中一张随从牌的法力值消耗减少（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Imbue</b> your Hero\nPower. Reduce the Cost of a\n_minion in your hand by (1).",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & R. Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a307529ac40fef1599063803036e0405dc87feb58929e0e50afff56a1aebb664",
+      "recipe": {
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "EDR_518",
+        "script": "garden",
+        "target": "hand_minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_960",
+        "dbf_id": 115960,
+        "name": "龙裔护育师",
+        "name_en": "Tending Dragonkin",
+        "text": "<b>战吼：</b>&复制你手牌中法力值消耗最低的野兽牌。",
+        "text_en": "<b>Battlecry:</b>& Copy the lowest Cost Beast in your hand.",
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 24,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "c97587576a1e393fcb370917fd6bc3207b1687f8f6328321becc3dbb02f7f7f2",
+      "recipe": {
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "FIR_960",
+        "script": "nurturer",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_118",
+        "dbf_id": 125462,
+        "name": "瓦玛，死亡幽影",
+        "name_en": "V'ama, Looming Death",
+        "text": "<b>战吼：</b>消灭所有非圣骑士随从。",
+        "text_en": "<b>Battlecry:</b> Destroy all\nnon-Paladin minions.",
+        "cost": 9,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "5bccd28385216d1ef26fcffd4fc47959fd18ac38f4186c354de12c7e81046e4f",
+      "recipe": {
+        "cost": 9,
+        "attack": 5,
+        "health": 5,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "JAIL_118",
+        "script": "vama",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_429",
+        "dbf_id": 120471,
+        "name": "神圣预言师",
+        "name_en": "Divine Augur",
+        "text": "<b>战吼：</b>将你手牌中每张随从牌的攻击力和生命值变为两者中的高值。",
+        "text_en": "[x]<b>Battlecry:</b> Set the Attack\nand Health of every minion\nin your hand to the higher\nof the two stats.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "6ecbf88fcc7993414fc4248fc2661bdb3489c3d11c325980bf7b0b1d0c255862",
+      "recipe": {
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "TIME_429",
+        "script": "augur",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_435",
+        "dbf_id": 120543,
+        "name": "伊特努丝",
+        "name_en": "Eternus",
+        "text": "<b>战吼：</b>夺取一个生命值小于或等于本随从的敌方随从的控制权。",
+        "text_en": "[x]<b>Battlecry:</b> Take control of\nan enemy minion with this\n__minion's Health or less.",
+        "cost": 6,
+        "attack": 6,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "7fbb5a5d85b9349f54a51514e189f3f224f13b6c93f3e6f8a763c7e25bad2645",
+      "recipe": {
+        "cost": 6,
+        "attack": 6,
+        "health": 2,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "TIME_435",
+        "script": "eternus",
+        "target": "enemy_minion",
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_233",
+        "dbf_id": 117652,
+        "name": "孵化辅助师",
+        "name_en": "Hatchery Helper",
+        "text": "<b>战吼：</b>&使你的其他攻击力小于或等于2的随从获得+1/+1和<b>嘲讽</b>。",
+        "text_en": "[x]<b>Battlecry:</b>& Give your\nother minions with 2 or less\nAttack +1/+1 and <b>Taunt</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ba047a6f1541d5fea6543626f36e43bd5944455c976e2e9a43f328c9cb386a5c",
+      "recipe": {
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "TLC_233",
+        "script": "incubator",
+        "target": null,
+        "keywords": []
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_606",
+        "dbf_id": 117771,
+        "name": "拉特维亚护甲师",
+        "name_en": "Latorvian Armorer",
+        "text": "<b>战吼：</b>对一个敌方随从造成2点伤害。如果该随从死亡，&获得5点护甲值。",
+        "text_en": "<b>Battlecry:</b> Deal 2 damage to an enemy minion. If it dies,& gain 5 Armor.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "6e1ccfec63e48561c4ca526e81da160ee5a455a5dc58b3ceb66464c6f0386cce",
+      "recipe": {
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "collectible": true,
+        "scope_role": "standard_root_candidate",
+        "deck_identity": "TLC_606",
+        "script": "armorer",
+        "target": "enemy_minion",
+        "keywords": []
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8",
+      "scope_role": "reachable_dependency"
+    }
+  ]
+}

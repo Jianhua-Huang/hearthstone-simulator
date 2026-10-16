@@ -1,4 +1,5 @@
 """Pure continuously derived board prices and genuine frozen hand payments."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -135,11 +136,11 @@ class BoardMinionCostTests(unittest.TestCase):
         self.assertEqual((rows[SEA]['cost'], rows[SEA]['attack'], rows[SEA]['health']), (10, 8, 8))
 
     def test_only_finite_scopes_and_ordinary_minion_declarations_are_accepted(self):
-        for invalid in (True, 'enemy', 'expression', None):
+        for invalid in (True, 'expression', None):
             with self.assertRaises(ValueError): BoardMinionCostSpec(invalid)
         with self.assertRaises(ValueError): BoardMinionCostSpec(profile_id='unknown')
         r = registry()
-        for changes in ({'kind': CardType.SPELL, 'health': 0}, {'board_minion_cost': 'formula'},
+        for changes in ({'kind': CardType.HERO, 'health': 0}, {'board_minion_cost': 'formula'},
                 {'interactable': InteractableSpec('inert.use')}):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 r.register_card(replace(r.card(SEA), id='bad.' + str(len(r.cards)), **changes))
@@ -289,11 +290,11 @@ class BoardMinionCostTests(unittest.TestCase):
     def test_default_empty_stage_and_new_strict_wire_keep_public_protocols(self):
         g=self.game(hand=('card.1',));f=self.fact(g,'card.1');self.assertIsNone(f.intrinsic.board_minions)
         self.play(g,'card.1');saved=self.portable(g)
-        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,266))
-        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v85','player-actions-v12'))
+        self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
+        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v86','player-actions-v12'))
         for old in (1,169,170):
             bad=deepcopy(saved);bad['schema_version']=old
-            with self.assertRaisesRegex(SnapshotError,'schemas 1 through 265'):Game.from_snapshot(bad,registry())
+            with self.assertRaisesRegex(SnapshotError,f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):Game.from_snapshot(bad,registry())
 
     def test_necessary_native_ticking_template_preserves_printed_sum_and_friendly_formula(self):
         r=native_registry();selected=ModularSelection('TOY_330',('TOY_330t98',modular_fixture.PERFECT),'TOY_330t5');cid=selected.card_id

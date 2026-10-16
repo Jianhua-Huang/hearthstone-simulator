@@ -9,8 +9,8 @@ def validate_definition(definition):
     if type(spec) is not HandCountCostSpec:
         raise ValueError('Expected HandCountCostSpec')
     spec.__post_init__()
-    if definition.kind != CardType.MINION or not definition.hand_playable or definition.starship_for:
-        raise ValueError('Hand count cost belongs to an ordinary physical minion')
+    if definition.kind not in (CardType.MINION, CardType.SPELL) or not definition.hand_playable or definition.starship_for or definition.interactable:
+        raise ValueError('Hand count cost belongs to an ordinary physical minion or spell')
     if definition.board_minion_cost is not None:
         raise ValueError('Multiple intrinsic quantity formulas require a real reviewed source')
 
@@ -37,7 +37,9 @@ def capture(state, registry, player_id, definition, base_cost, subject_id=None):
     # An absent/generated subject is an additional hypothetical card. Its own
     # slot is excluded, so all currently held cards are its "other" cards.
     count = (len(hands[player_id - 1]) - int(subject_id in hands[player_id - 1])
-        if spec.scope == 'friendly_other' else len(hands[2 - player_id]))
+        if spec.scope == 'friendly_other' else
+        len(hands[player_id - 1]) + int(subject_id not in hands[player_id - 1])
+        if spec.scope == 'friendly' else len(hands[2 - player_id]))
     return HandCountCostFact(spec, player_id, state.next_entity_id, hands,
         subject_id, count, base_cost, max(0, base_cost - count))
 

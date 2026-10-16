@@ -1,0 +1,252 @@
+{
+  "format": "reviewed-spell-target-sequences-v1",
+  "source_preaudit": "outputs/card-integration-20261014/k40-health-target-sequences-preaudit.json",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_227",
+        "dbf_id": 117536,
+        "name": "熔岩涌流",
+        "name_en": "Lava Flow",
+        "text": "对生命值最低的敌人造成$2点伤害，触发三次。<b>过载：</b>（1）。",
+        "text_en": "Deal $2 damage to the lowest Health enemy, three times. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "824db4136fc211175a268c08146f5e1f75124ee42a8610293e9dd1bf419b5cb4",
+      "recipe": {
+        "script": "lava",
+        "target": null,
+        "deck_identity": "TLC_227"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_611",
+        "dbf_id": 120389,
+        "name": "时间停滞",
+        "name_en": "Timestop",
+        "text": "造成$3点伤害。随机<b>冻结</b>两个敌方随从。",
+        "text_en": "Deal $3 damage.\n<b>Freeze</b> two random enemy minions.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 2
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7ec95defb807047d4fd5aa2c20673b705e37af92f9801c44c7535572c3526c81",
+      "recipe": {
+        "script": "stasis",
+        "target": "character",
+        "deck_identity": "TIME_611"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_855",
+        "dbf_id": 119528,
+        "name": "奥术弹幕",
+        "name_en": "Arcane Barrage",
+        "text": "对一个敌人造成$3点伤害，并随机对两个其他敌人造成$2点伤害。",
+        "text_en": "Deal $3 damage to an enemy and $2 damage to two other random ones.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "b17a813c5362930f58cfd920866255ae50544ce7ee4a8560f0f5636a25c9372b",
+      "recipe": {
+        "script": "barrage",
+        "target": "enemy",
+        "deck_identity": "TIME_855"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_600",
+        "dbf_id": 119696,
+        "name": "精确射击",
+        "name_en": "Precise Shot",
+        "text": "造成$3点伤害。如果本牌位于你手牌的正中间，改为造成\n$5点。",
+        "text_en": "Deal $3 damage.\nIf this is EXACTLY in the center of your hand,\ndeal $5 instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "7a03f366a2787a698f79f36586dbdeb73967e444cb9f18bd2e0f88df4fda9aee",
+      "recipe": {
+        "script": "precision",
+        "target": "character",
+        "deck_identity": "TIME_600"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CATA_007",
+        "dbf_id": 127410,
+        "name": "吞噬",
+        "name_en": "Consumption",
+        "text": "随机对两个敌方随从造成$3点伤害。每有一个随从死亡，抽一张牌。",
+        "text_en": "Deal $3 damage to two random enemy minions. Draw a card\nfor each that dies.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_BLOOD": 2
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "afcc740b85f9e9e94ac8b43717347c021feeceac038a992d6855dc51ae7ecf90",
+      "recipe": {
+        "script": "consume",
+        "target": null,
+        "deck_identity": "CORE_CATA_007"
+      }
+    }
+  ]
+}

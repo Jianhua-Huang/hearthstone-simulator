@@ -63,7 +63,7 @@ def capture_hand_progress(r, event):
             for entity_id in getattr(r.state.players[player_id], zone.value):
                 entity = r.state.entities[entity_id]
                 ability = progress_ability(entity)
-                if (ability is None or ability.consumed or ability.hand_progress.zone != zone or
+                if (ability is None or ability.consumed or zone not in ability.hand_progress.zones or
                         ability.hand_progress.event_kind != event.kind):
                     continue
                 spec = ability.hand_progress
@@ -100,8 +100,8 @@ def advance(r, effect):
     if ability is None or ability.consumed:
         return
     spec, event = ability.hand_progress, effect.event
-    if (entity.zone != spec.zone or
-            entity.id not in getattr(r.state.players[candidate.player_id], spec.zone.value)):
+    if (entity.zone not in spec.zones or
+            entity.id not in getattr(r.state.players[candidate.player_id], entity.zone.value)):
         return
     if event.kind != spec.event_kind:
         return
@@ -155,7 +155,9 @@ def advance(r, effect):
     entity.abilities[entity.abilities.index(ability)] = updated
     if completed and spec.upgrade_card_id is not None:
         upgrade_face(r, entity, spec.upgrade_card_id, health_to_durability=spec.health_to_durability,
-                     cost_policy=spec.upgrade_cost_policy)
+                     cost_policy=spec.upgrade_cost_policy,
+                     spell_to_minion=(entity.kind,r.registry.card(spec.upgrade_card_id).kind)==(CardType.SPELL,CardType.MINION)
+                         and spec.kind=='event'and spec.event=='spell_cast_accepted')
         following = progress_ability(entity)
         if following is None:
             entity.abilities.append(updated)
@@ -170,7 +172,7 @@ def advance(r, effect):
             entity.abilities[entity.abilities.index(following)] = updated
         r.emit('hand_card_upgraded', target_id=entity.id, player_id=entity.controller)
     refresh_entity(entity)
-    if spec.zone == Zone.HAND and ability.kind == 'hand_progress':
+    if entity.zone == Zone.HAND and ability.kind == 'hand_progress':
         r.emit('hand_progressed', target_id=entity.id, player_id=entity.controller,
                amount=updated.progress_value, progress_kind=spec.kind)
     work = []
@@ -196,7 +198,9 @@ def validate_cast_progress(state, ability):
 
 def public_progress(entity):
     ability = progress_ability(entity)
-    if ability is None or ability.hand_progress.zone != Zone.HAND:
+    if ability is None or Zone.HAND not in ability.hand_progress.zones:
+        return None
+    if type(ability.hand_progress.zone) is tuple and entity.zone != Zone.HAND:
         return None
     return {'kind': ability.hand_progress.kind, 'value': ability.progress_value,
             'goal': ability.hand_progress.goal, 'completions': ability.progress_completions,

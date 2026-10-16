@@ -1,4 +1,5 @@
 """The necessary real Worgen, continuous Windfury and original attack allowance."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import FrozenInstanceError, replace
 import json
@@ -362,7 +363,7 @@ class SelfDamagedKeywordBasicsTests(unittest.TestCase):
         self.portable(g);self.portable(healthy)
 
     def test_strict_versions_and_all_previous_schemas(self):
-        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],266)
+        g=self.game();snap=g.snapshot();self.assertEqual(snap['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(snap['mechanics_version']['version'],CORE_EFFECTS_VERSION)
         for value in (1,179,180,True,181.0,217):
             bad=deepcopy(snap);bad['schema_version']=value

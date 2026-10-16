@@ -10,9 +10,10 @@ import json
 from random import Random
 from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
 from .copy_materials import CopyEntryMaterial
-from .effects import Effect,_integer,_player
+from .effects import Effect,_behavior,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
 from .model import CardClass,CardType,GameState,Zone,validate_end_turn_rng
+from .sacrifice import MinionReference,live_minion,reference_value
 
 
 @dataclass(frozen=True)
@@ -20,7 +21,9 @@ class RecruitEntryMaterial:
     card_id:str
     reference:CardReference
     copy:CopyEntryMaterial
+    on_summon:str|None=None
     def __post_init__(self):
+        if self.on_summon is not None:_behavior(self.on_summon)
         from .zones import CardReference
         if type(self.reference)is not CardReference or type(self.copy)is not CopyEntryMaterial:raise ValueError('Typed physical first/extra recruit material required')
         self.reference.__post_init__();self.copy.__post_init__();origin=self.copy.origin
@@ -32,6 +35,7 @@ class RecruitEntryMaterial:
 def validate_material(state,registry,material,*,closed=False):
     from .copy_materials import validate_scope
     material.__post_init__();validate_scope(state,registry,material.copy,closed=closed)
+    if material.on_summon is not None:registry.behavior(material.on_summon)
 
 
 def first_body(r,material,player_id,position):
@@ -58,7 +62,7 @@ def validate_delivery(material,delivery,player_id):
 def accept_entry(r,effect,source):
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect(r.state,r.registry,effect)
-    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id))
+    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon)
     request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position,producer_link=effect.producer_link)
     accept(r,request);child=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,child.id)
@@ -226,6 +230,63 @@ class ContinueRecruit(Effect):
     def __post_init__(self):_integer(self.recruit_id,'continue original recruit',1)
 
 
+@dataclass(frozen=True)
+class ContinueRecruitedMinion(Effect):
+    root_id:int
+    index:int
+    beneficiary:MinionReference
+    behavior_id:str
+    def __post_init__(self):
+        _integer(self.root_id,'original recruit child',1);_integer(self.index,'recruit delivery',0)
+        reference_value(self.beneficiary);_behavior(self.behavior_id)
+
+
+def followup_record(state,registry,effect):
+    from .summon_quantities import record as child_record
+    effect.__post_init__();registry.behavior(effect.behavior_id)
+    child=child_record(state,effect.root_id)
+    material=None if child.selected is None else child.request.materials[child.selected]
+    if type(material)is not RecruitEntryMaterial or material.on_summon!=effect.behavior_id:
+        raise ValueError('Recruit followup differs from its original selected material')
+    if effect.index>=len(child.deliveries):raise ValueError('Recruit followup precedes its actual delivery')
+    delivery=child.deliveries[effect.index];fact=delivery.entity;ref=effect.beneficiary
+    if delivery.outcome!='delivered' or (ref.entity_id,ref.player_id,ref.card_id,ref.zone_epoch,ref.entered_order)!=(
+            fact.entity_id,fact.controller,fact.card_id,fact.zone_epoch,fact.entered_order):
+        raise ValueError('Recruit followup borrowed another actual body or lifetime')
+    return child,delivery
+
+
+def continue_recruited_minion(r,effect):
+    from .summon_quantities import update as update_child
+    child,delivery=followup_record(r.state,r.registry,effect)
+    if child.status!='active' or delivery.followup_started:raise ResolutionError('Recruit followup already accepted or closed')
+    rows=list(child.deliveries);rows[effect.index]=replace(delivery,followup_started=True)
+    update_child(r.state,child,deliveries=tuple(rows))
+    r.emit('recruit_followup_started',source_id=child.request.cause.source.entity_id,
+        target_id=delivery.entity.entity_id,player_id=child.request.player_id,followup=encoded(effect),_capture=False)
+    if live_minion(r.state,effect.beneficiary) is None:
+        r.stale(effect,effect.beneficiary.entity_id);return ()
+    return (r.call(effect.behavior_id,child.request.cause.source.entity_id,
+                   child.request.player_id,target_id=delivery.entity.entity_id),)
+
+
+def validate_followup_events(game):
+    children=game._state.card_summon_history
+    if not any(type(m)is RecruitEntryMaterial and m.on_summon is not None for x in children for m in x.request.materials):return
+    seen=set()
+    for event in game._events:
+        if event.kind!='recruit_followup_started':continue
+        row=json.loads(dict(event.data)['followup']);ref=MinionReference(**row.pop('beneficiary'))
+        effect=ContinueRecruitedMinion(beneficiary=ref,**row)
+        child,delivery=followup_record(game._state,game.registry,effect);key=(child.id,effect.index)
+        if key in seen or not delivery.followup_started or (event.source_id,event.target_id,event.player_id)!=(
+                child.request.cause.source.entity_id,delivery.entity.entity_id,child.request.player_id):
+            raise ValueError('Missing, duplicated or foreign original recruit followup receipt')
+        seen.add(key)
+    expected={(x.id,d.index) for x in children if x.selected is not None and type(x.request.materials[x.selected])is RecruitEntryMaterial for d in x.deliveries if d.followup_started}
+    if seen!=expected:raise ValueError('Recruit followup acceptance receipts disagree with original deliveries')
+
+
 def record(state,identity):
     root=next((x for x in state.recruit_summon_history if x.id==identity),None)
     if root is None:raise ValueError('Unknown original physical recruit producer')
@@ -277,7 +338,7 @@ def continue_producer(r,effect):
         emit_root(r,'recruit_summon_finished',update(r.state,root,status='board_full'if full else'exhausted'));return ()
     from .colossal import SummonStoredCard
     position=None if root.spec.position is None else root.spec.position+round.index
-    return(SummonStoredCard(selected,root.spec.player_id,position,root.spec.stats,root.spec.cause,RecruitEntryLink(root.id,round.index)),ContinueRecruit(root.id))
+    return(SummonStoredCard(selected,root.spec.player_id,position,root.spec.stats,root.spec.cause,RecruitEntryLink(root.id,round.index),root.spec.on_summon),ContinueRecruit(root.id))
 
 
 def bind_entry(r,link,child_id=None):
@@ -292,6 +353,7 @@ def validate_effect(state,registry,effect):
     from .summon_sources import SummonFromZone
     from .colossal import SummonStoredCard
     effect.__post_init__();validate_cause(state,registry,effect.cause)
+    if effect.on_summon is not None:registry.behavior(effect.on_summon)
     if type(effect)is SummonFromZone:
         if effect.source_id is not None and effect.source_id not in state.entities:raise ValueError('Queued recruit has unknown original query source')
     elif type(effect)is SummonStoredCard:
@@ -301,7 +363,7 @@ def validate_effect(state,registry,effect):
         if link is not None:
             root=record(state,link.recruit_id);round=root.rounds[link.index]if link.index<len(root.rounds)else None
             position=None if root.spec.position is None else root.spec.position+link.index
-            if root.status!='active'or round is None or link.index!=len(root.rounds)-1 or round.entry_status!='unattempted'or(effect.card,effect.player_id,effect.position,effect.stats,effect.cause)!=(round.selected,root.spec.player_id,position,root.spec.stats,root.spec.cause):raise ValueError('Queued first recruit borrowed another original selection/window')
+            if root.status!='active'or round is None or link.index!=len(root.rounds)-1 or round.entry_status!='unattempted'or(effect.card,effect.player_id,effect.position,effect.stats,effect.cause,effect.on_summon)!=(round.selected,root.spec.player_id,position,root.spec.stats,root.spec.cause,root.spec.on_summon):raise ValueError('Queued first recruit borrowed another original selection/window')
 
 
 def validate_link(state,child,*,closed=False):
@@ -320,7 +382,7 @@ def validate_child(parent,index,child):
     position=None if parent.spec.position is None else parent.spec.position+index
     if round.entry_root_id!=child.id or request.producer_link!=RecruitEntryLink(parent.id,index)or request.player_id!=parent.spec.player_id or request.cause!=parent.spec.cause or request.position!=position or len(request.materials)!=1 or type(request.materials[0])is not RecruitEntryMaterial:raise ValueError('Physical child differs from original recruit selection/cause/position')
     material=request.materials[0]
-    if material.reference!=round.selected or material.copy.stats!=parent.spec.stats or child.event_cursor<=parent.event_cursor:raise ValueError('Physical material differs from original selected entity')
+    if material.reference!=round.selected or material.copy.stats!=parent.spec.stats or material.on_summon!=parent.spec.on_summon or child.event_cursor<=parent.event_cursor:raise ValueError('Physical material differs from original selected entity')
     fact=next(x.allocation for x in round.basis.inventory if x.reference()==round.selected)
     if (material.copy.origin.entity_id,material.copy.origin.card_id,material.copy.origin.owner,material.copy.origin.controller,material.copy.origin.zone,material.copy.origin.zone_epoch)!=(fact.entity_id,fact.card_id,fact.owner,fact.controller,fact.zone,fact.zone_epoch):raise ValueError('Recruit material borrowed another original allocation')
 
@@ -416,6 +478,7 @@ def validate_frame_references(state,registry,value):
 
 
 def validate_boundary(game):
+    validate_followup_events(game)
     frame=game._frame;queue=(*frame.prefix,*frame.continuation)if frame else()
     validate_queue(game._state,game.registry,queue)
     if frame:
@@ -520,3 +583,4 @@ def register(mechanics):
     for cls in(RecruitEntryMaterial,RecruitCandidateFact,RecruitBasis,RecruitEntryLink,RecruitRound,RecruitRecord):mechanics.register_payload_type(cls)
     # Original repeated SummonFromZone was a real checkpoint; keep this one real.
     mechanics.register(ContinueRecruit,continue_producer)
+    mechanics.register(ContinueRecruitedMinion,continue_recruited_minion)

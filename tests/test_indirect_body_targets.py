@@ -1,4 +1,5 @@
 """Real indirect grants and invocation windows, including physical lifecycle."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -427,7 +428,7 @@ class IndirectBodyTargetTests(unittest.TestCase):
                 with self.assertRaises(SnapshotError): Game.from_snapshot(snapshot,registry())
 
     def test_new_schema_rejects_old_134_and_missing_indirect_history(self):
-        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],266)
+        g=self.game(); snapshot=g.snapshot(); self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         old=deepcopy(snapshot); old['schema_version']=134
         with self.assertRaises(SnapshotError): Game.from_snapshot(old,registry())
         del snapshot['state']['indirect_body_sequences']; self.rehash(snapshot)

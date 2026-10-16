@@ -1,4 +1,5 @@
 """Native cleave uses one original combat exchange and current adjacency."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -262,7 +263,7 @@ class CleaveCombatBasicsTests(unittest.TestCase):
         self.assertEqual(g.snapshot(),before)
 
     def test_version_guard_rejects_previous_and_future_schema(self):
-        g=self.game();self.assertEqual(g.snapshot()['schema_version'],266)
+        g=self.game();self.assertEqual(g.snapshot()['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         for version in (189,217,True):
             snap=g.snapshot();snap['schema_version']=version
             with self.assertRaises(SnapshotError):Game.from_snapshot(snap,registry())

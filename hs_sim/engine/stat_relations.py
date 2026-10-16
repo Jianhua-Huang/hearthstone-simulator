@@ -62,6 +62,7 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                                             StatRelationOperand.CONTROLLER_ARMOR,
                                             StatRelationOperand.OTHER_BATTLEFIELD_TRIBE_COUNT,
                                             StatRelationOperand.CONTROLLER_OVERLOADED_MANA,
+                                            StatRelationOperand.CONTROLLER_OPPONENT_TURN,
                                             StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE):
             installed[ability.stat_relation] += 1
             if installed[ability.stat_relation] > card.stat_relations.count(ability.stat_relation):
@@ -76,7 +77,9 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                            'overload-weapon' if ability.stat_relation.operand ==
                            StatRelationOperand.CONTROLLER_OVERLOADED_MANA else
                            'spell-damage-weapon' if ability.stat_relation.operand ==
-                           StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE else 'discard-count')
+                           StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE else
+                           'opponent-turn' if ability.stat_relation.operand ==
+                           StatRelationOperand.CONTROLLER_OPPONENT_TURN else 'discard-count')
                 raise ValueError(f'Duplicate native {profile} Attack relation')
 
 
@@ -100,6 +103,8 @@ def conditional_attack(state, entity, registry=None):
     weapon = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_HAS_WEAPON)
     bonus = (sum(s.amount for s in weapon) if weapon and
              equipped_weapon(state, state.players[entity.controller]) is not None else 0)
+    if entity.zone == Zone.BOARD and state.active_player != entity.controller:
+        bonus += sum(s.amount for s in specs if s.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN)
     discarded = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT)
     if discarded:
         from .discard_history import discarded_cards
@@ -129,6 +134,16 @@ def conditional_attack(state, entity, registry=None):
                     if has_any_tribe(registry, target, (spec.count_tribe,), basis='current'):
                         bonus += spec.amount
     return bonus
+
+
+def refresh_turn_attacks(state, registry):
+    """Refresh only genuine turn-dependent carriers before new start capture."""
+    from .stat_auras import refresh_hero_auras
+    refresh_hero_auras(state)
+    for entity in state.entities.values():
+        if any(a.kind == 'stat_relation' and a.stat_relation.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN
+               for a in entity.abilities):
+            entity.conditional_attack = conditional_attack(state, entity, registry)
 
 
 def refresh_conditional_attacks(state, registry=None):

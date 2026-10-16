@@ -2,6 +2,7 @@
 
 Synthetic timing cases test the documented prototype contract, not CN certification.
 """
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import unittest
 
@@ -372,7 +373,7 @@ class MagneticTests(unittest.TestCase):
 
     def test_real_player_port_fusion_example(self):
         from examples.magnetic_fusion import run
-        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],266)
+        game,snapshot=run();self.assertEqual(len(game.history),8);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
 
 if __name__=='__main__':unittest.main()

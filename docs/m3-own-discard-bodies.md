@@ -1,5 +1,7 @@
 # 卡牌自身被弃时的原生主体入口
 
+原生亡语例外：真实卡面明确要求存储退役触发时，可声明`stored_deathrattle=True`并沿[存储亡语契约](m3-stored-deathrattles.md)使用原亡语接受、禁止和重复协议。它与本页普通`on_discard`/`on_destroyed`主体互斥，不创造场上死亡事实；未声明的旧路径保持本页原语义。
+
 本契约描述独立基础能力。实际执行与下一项只维护在[项目状态](project-status.md)和[机制清单](mechanism-backlog.md)。国服精确时序尚待校准，本文不宣称完整弃牌族或最新正式卡池已经支持。
 
 ## 声明和接受

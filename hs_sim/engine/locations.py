@@ -92,6 +92,34 @@ class DestroyLocation(Effect):
         _integer(self.target_id, 'target_id', 1); _source(self.source_id)
 
 
+@dataclass(frozen=True)
+class RandomDestroyLocation(Effect):
+    candidate_ids: tuple[int, ...]
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.candidate_ids) is not tuple:
+            raise ValueError('Random location candidates require an immutable tuple')
+        for identity in self.candidate_ids: _integer(identity, 'location candidate', 1)
+        if len(set(self.candidate_ids)) != len(self.candidate_ids):
+            raise ValueError('Duplicate random location candidates')
+        _source(self.source_id)
+
+
+def random_destroy_location(r, effect):
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Random location destruction source does not exist')
+    candidates = tuple(sorted(i for i in effect.candidate_ids if (e := r.state.entities.get(i)) is not None
+        and e.kind == CardType.LOCATION and e.zone == Zone.BOARD and e.active and e.durability > 0 and not e.doomed))
+    if not candidates:
+        r.emit('random_choice_skipped', source_id=effect.source_id, reason='no_candidates')
+        return ()
+    target = r.game._rng.choice(candidates)
+    r.emit('random_choice', source_id=effect.source_id, target_id=target, candidates=candidates)
+    return (DestroyLocation(target, effect.source_id),)
+
+
 def activate_location(r, effect):
     a = effect.action
     source = r.state.entities[a.entity_id]
@@ -156,6 +184,7 @@ def begin_location_turn(r, player):
 def register_locations(mechanics):
     mechanics.register_payload_type(LocationFaceReference)
     mechanics.register(AdvanceLocationFace, advance_location_face)
+    mechanics.register(RandomDestroyLocation, random_destroy_location)
     for kind, handler in ((ActivateLocation, activate_location), (FinishLocation, finish_location),
                           (PlaceLocation, place_location), (ModifyLocation, modify_location),
                           (RefreshLocation, modify_location), (DestroyLocation, modify_location)):

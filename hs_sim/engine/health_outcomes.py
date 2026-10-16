@@ -235,11 +235,12 @@ def capture_result(state, packet, target, before, batch_id, packet_index, combat
     """Called only by the mutating resolver, immediately after one packet settles."""
     source = state.entities.get(packet.source_id)
     split_source = packet.split_quote.source if packet.split_quote is not None else None
+    original_source=packet.player_source or split_source
     weapon = (state.entities.get(combat.weapon_id) if combat is not None and
               combat.attacker_id == packet.source_id and packet.damage_kind == DamageKind.COMBAT else None)
     value = HealthResult(batch_id=batch_id, packet_index=packet_index, turn=state.turn, active_player=state.active_player,
-        source_id=packet.source_id, source_card_id=split_source.card_id if split_source else source.card_id if source else None, source_controller=packet.source_controller,
-        source_zone_epoch=split_source.zone_epoch if split_source else source.zone_epoch if source else None, source_entered_order=split_source.entered_order if split_source else source.entered_order if source else None,
+        source_id=packet.source_id, source_card_id=original_source.card_id if original_source else source.card_id if source else None, source_controller=packet.source_controller,
+        source_zone_epoch=original_source.zone_epoch if original_source else source.zone_epoch if source else None, source_entered_order=original_source.entered_order if original_source else source.entered_order if source else None,
         weapon_id=weapon.id if weapon else None, weapon_zone_epoch=weapon.zone_epoch if weapon else None,
         weapon_entered_order=weapon.entered_order if weapon else None, target_id=target.id, target_card_id=target.card_id,
         target_controller=target.controller, target_kind=target.kind.value, target_zone_epoch=target.zone_epoch,

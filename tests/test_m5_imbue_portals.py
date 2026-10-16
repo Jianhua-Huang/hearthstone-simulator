@@ -1,4 +1,5 @@
 """Versioned-pool summoning and portal generation/draw/growth compositions."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 import unittest
@@ -307,7 +308,7 @@ class ImbuePortalTests(PortalFixtures,unittest.TestCase):
 
     def test_player_port_example_restores_and_replays(self):
         from examples.imbue_portals import run
-        g,s=run();self.assertEqual(s['schema_version'],266)
+        g,s=run();self.assertEqual(s['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertEqual(sum(d.card_id==PORTAL for d in g.state.cast_history),2)
 
 

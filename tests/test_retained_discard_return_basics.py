@@ -1,4 +1,5 @@
 """Original successful-discard material, numeric growth and retained return."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -278,4 +279,4 @@ class RetainedDiscardReturnTests(unittest.TestCase):
         g=self.game();cause=self.play(g,'discard')
         self.assertEqual([x.source_id for x in g.state.play_history],[cause]);self.assertEqual([x.source_id for x in g.state.cast_history],[cause])
         self.assertEqual(g.state.draw_history,[]);self.assertEqual(g.state.death_history,[])
-        self.assertFalse(any(x.kind=='card_created'for x in g.events));self.assertEqual(g.snapshot()['schema_version'],266);self.portable(g)
+        self.assertFalse(any(x.kind=='card_created'for x in g.events));self.assertEqual(g.snapshot()['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.portable(g)

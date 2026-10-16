@@ -5,6 +5,8 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
+SNAPSHOT_SCHEMA_VERSION = 303
+
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
     CardClass, CardType, ChoiceItem, ChoicePurpose, PendingChoice, OpeningState, StartingHandCard, Runes, CostSpec, CostModifier, CostScope, DamageKind, HealingKind, HealthFlow, HealthLayer, HealthOp,
@@ -77,6 +79,15 @@ def _integer(value, name, minimum=None):
     if type(value) is not int or (minimum is not None and value < minimum):
         raise ValueError(f'Invalid integer for {name}')
     return value
+
+
+def player_effect_from_dict(value):
+    row=_row(value,PlayerEffect)
+    if row['source_allocation'] is not None:
+        from .allocation_facts import allocation_from_payload
+        row['source_allocation']=allocation_from_payload(tuple(tuple(r)for r in
+            _list(row['source_allocation'],'player effect source allocation'))).payload()
+    return PlayerEffect(**row)
 
 
 def _boolean(value, name):
@@ -247,7 +258,7 @@ def _deathrattle_repeat_plan(value):
     for item in _list(row['contributors'],'Deathrattle repeat contributors'):
         if type(item) is dict and 'instance' in item:
             source=_row(item,DeathrattlePlayerContributor)
-            source['instance']=PlayerEffect(**_row(source['instance'],PlayerEffect))
+            source['instance']=player_effect_from_dict(source['instance'])
             source['spec']=_deathrattle_repeat_spec(source['spec']);sources.append(DeathrattlePlayerContributor(**source))
         else:
             source=_row(item,DeathrattleRepeatContributor);source['ability']=_ability_from_dict(source['ability'])
@@ -269,12 +280,27 @@ def _hero_power_repeat_plan(value):
 
 def _hand_progress_spec(value):
     row = _row(value, HandProgressSpec)
-    row['zone'] = Zone(row['zone'])
+    row['zone'] = tuple(Zone(x) for x in row['zone']) if type(row['zone']) in (list, tuple) else Zone(row['zone'])
     return HandProgressSpec(**row)
 
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['spell_base_value'] is not None:
+        from .model import SpellBaseDamageValue
+        row['spell_base_value']=SpellBaseDamageValue(**_row(row['spell_base_value'],SpellBaseDamageValue))
+    if row['deathrattle_memory'] is not None:
+        from .model import DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw
+        memory=_row(row['deathrattle_memory'],DeathrattleMemory)
+        memory['spec']=NativeDeathrattleSpec(**_row(memory['spec'],NativeDeathrattleSpec))
+        memory['draws']=tuple(RememberedDraw(**_row(x,RememberedDraw))for x in _list(memory['draws'],'remembered physical draws'))
+        row['deathrattle_memory']=DeathrattleMemory(**memory)
+    if row['native_condition'] is not None:
+        from .model import NativeSourceCondition
+        row['native_condition']=NativeSourceCondition(**_row(row['native_condition'],NativeSourceCondition))
+    if row['hand_mirror'] is not None:
+        from .model import HandMirrorBinding
+        row['hand_mirror']=HandMirrorBinding(**_row(row['hand_mirror'],HandMirrorBinding))
     if row['hero_power_use_aura'] is not None:
         from .model import HeroPowerUseAuraSpec
         row['hero_power_use_aura'] = HeroPowerUseAuraSpec(**_row(row['hero_power_use_aura'],HeroPowerUseAuraSpec))
@@ -329,6 +355,8 @@ def _ability_from_dict(value):
         row['timed_keyword'] = TimedKeywordSpec(**spec)
     if row['keyword_expiry'] is not None:
         row['keyword_expiry'] = KeywordExpiry(**_row(row['keyword_expiry'], KeywordExpiry))
+    if row['health_rule_expiry'] is not None:
+        row['health_rule_expiry'] = KeywordExpiry(**_row(row['health_rule_expiry'], KeywordExpiry))
     if row['summon_quantity'] is not None:
         from .summon_quantities import from_dict as quantity_from_dict
         from .model import SummonQuantitySpec
@@ -421,7 +449,7 @@ def _end_turn_repeat_contributor_from_dict(value):
     if row['ability'] is not None:
         row['ability'] = _ability_from_dict(row['ability'])
     if row['player_effect'] is not None:
-        row['player_effect'] = PlayerEffect(**_row(row['player_effect'], PlayerEffect))
+        row['player_effect'] = player_effect_from_dict(row['player_effect'])
     # Saved contributors always carry their full resolved spec, including ability sources.
     row['spec'] = _end_turn_repeat_spec_from_dict(row['spec'])
     return EndTurnRepeatContributor(**row)
@@ -446,7 +474,7 @@ def _end_turn_subject_from_dict(value):
     if row['ability'] is not None:
         row['ability'] = _ability_from_dict(row['ability'])
     if row['player_effect'] is not None:
-        row['player_effect'] = PlayerEffect(**_row(row['player_effect'], PlayerEffect))
+        row['player_effect'] = player_effect_from_dict(row['player_effect'])
     if row['trigger'] is not None:
         row['trigger'] = _trigger_from_dict(row['trigger'])
     return EndTurnSubject(**row)
@@ -476,7 +504,7 @@ def _end_turn_carrier_from_dict(value):
     from .model import EndTurnCarrier
     row = _row(value, EndTurnCarrier)
     if row['player_effect'] is not None:
-        row['player_effect'] = PlayerEffect(**_row(row['player_effect'], PlayerEffect))
+        row['player_effect'] = player_effect_from_dict(row['player_effect'])
     return EndTurnCarrier(**row)
 
 
@@ -545,9 +573,17 @@ def _health_rule_from_dict(value):
 
 def _enchantment_from_dict(value):
     row = _row(value, Enchantment)
+    if row['hand_play_lock'] is not None:
+        from .model import HandPlayLock, OwnerTurnExpiry
+        lock = _row(row['hand_play_lock'], HandPlayLock)
+        lock['deadline'] = OwnerTurnExpiry(**_row(lock['deadline'], OwnerTurnExpiry))
+        row['hand_play_lock'] = HandPlayLock(**lock)
     if row['owner_turn_expiry'] is not None:
         from .model import OwnerTurnExpiry
         row['owner_turn_expiry'] = OwnerTurnExpiry(**_row(row['owner_turn_expiry'], OwnerTurnExpiry))
+    if row['control_return_expiry'] is not None:
+        from .model import OwnerTurnExpiry
+        row['control_return_expiry'] = OwnerTurnExpiry(**_row(row['control_return_expiry'], OwnerTurnExpiry))
     if row['cthun_ritual'] is not None:
         from .model import CthunRitualStamp
         row['cthun_ritual'] = CthunRitualStamp(**_row(row['cthun_ritual'], CthunRitualStamp))
@@ -577,6 +613,9 @@ def _cost_modifier_from_dict(value):
     row = _row(value, CostModifier)
     row['spec'] = _cost_spec_from_dict(row['spec'])
     row['scope'] = CostScope(row['scope'])
+    row['tribes_any'] = tuple(_list(row['tribes_any'],'original tribal cost modifier'))
+    if row['minion_keyword'] is not None:
+        row['minion_keyword'] = Keyword(row['minion_keyword'])
     return CostModifier(**row)
 
 
@@ -586,6 +625,7 @@ def _cost_quote_input_from_dict(value):
     row['kind'] = CardType(row['kind'])
     row['enchantments'] = tuple(_enchantment_from_dict(v) for v in _list(row['enchantments'], 'cost quote enchantments'))
     row['abilities'] = tuple(_ability_from_dict(v) for v in _list(row['abilities'], 'cost quote abilities'))
+    if row['hand_lifetime'] is not None:row['hand_lifetime']=HandLifetime(**_row(row['hand_lifetime'],HandLifetime))
     return CostQuoteInput(**row)
 
 
@@ -664,6 +704,7 @@ def _cost_use_from_dict(value):
     row['modifier_ids'] = tuple(_list(row['modifier_ids'], 'cost use modifier IDs'))
     row['consumable_ids'] = tuple(_list(row['consumable_ids'], 'cost use consumable IDs'))
     row['player_modifiers'] = tuple(_cost_modifier_from_dict(m) for m in _list(row['player_modifiers'], 'cost use player modifiers'))
+    row['kindred_sources']=tuple(player_effect_from_dict(x)for x in _list(row['kindred_sources'],'original Kindred payment sources'))
     if row['current_deck'] is not None:
         row['current_deck'] = _current_deck_count_match_from_dict(row['current_deck'])
     if row['permanent_mana'] is not None:
@@ -792,13 +833,18 @@ def _intrinsic_stage_from_dict(value):
                         PlayerCorpseSpendCostSpec, PlayerCorpseSpendCostFact, CorpseSpendRecord,
                         IntrinsicCostOperationFact, OwnerTurnQueryBoundaryFact)
     row = _row(value, IntrinsicCostStageFact)
+    row['kindred_sources']=tuple(player_effect_from_dict(x)for x in _list(row['kindred_sources'],'intrinsic Kindred sources'))
     row['kind'] = CardType(row['kind'])
     boundary = _row(row['boundary'], OwnerTurnQueryBoundaryFact)
     if boundary['last_owner_turn'] is not None:
         boundary['last_owner_turn'] = _owner_turn_from_dict(boundary['last_owner_turn'])
     row['boundary'] = OwnerTurnQueryBoundaryFact(**boundary)
     row['rules'] = tuple(IntrinsicCostSpec(**_row(v, IntrinsicCostSpec)) for v in _list(row['rules'], 'intrinsic rules'))
-    if row['rules'] and row['rules'][0].condition == 'current_deck_count':
+    from .model import PRESENCE_COST_CONDITIONS
+    if row['rules'] and row['rules'][0].condition in PRESENCE_COST_CONDITIONS:
+        from .cost_presence import from_dict
+        row['condition_facts'] = tuple(from_dict(v) for v in _list(row['condition_facts'],'original presence conditions'))
+    elif row['rules'] and row['rules'][0].condition == 'current_deck_count':
         row['condition_facts'] = tuple(_current_deck_count_match_from_dict(value)
             for value in _list(row['condition_facts'], 'intrinsic current deck conditions'))
     elif row['rules'] and row['rules'][0].condition == 'hand_other_class':
@@ -814,6 +860,16 @@ def _intrinsic_stage_from_dict(value):
         from .model import PermanentManaMatch
         row['condition_facts'] = tuple(PermanentManaMatch(**_row(v,PermanentManaMatch))
             for v in _list(row['condition_facts'],'intrinsic permanent mana conditions'))
+    elif row['rules'] and row['rules'][0].condition == 'own_deck_shuffle_count':
+        from .model import DeckShuffleCostMatch
+        from .deck_shuffles import row_from_dict
+        conditions=[]
+        for value in _list(row['condition_facts'],'original shuffle price conditions'):
+            condition=_row(value,DeckShuffleCostMatch)
+            condition['records']=tuple(row_from_dict(r) for r in _list(condition['records'],'original shuffle operation prefix'))
+            condition['selected_ids']=tuple(_list(condition['selected_ids'],'original selected shuffle operations'))
+            conditions.append(DeckShuffleCostMatch(**condition))
+        row['condition_facts']=tuple(conditions)
     elif row['rules'] and row['rules'][0].condition == 'hero_healed_this_turn':
         from .model import HeroHealedTurnMatch
         from .healing_history import record_from_dict
@@ -1008,7 +1064,10 @@ def _draw_from_dict(value):
 
 def _spell_cast_from_dict(value):
     row = _row(value, SpellCastRecord)
-    row['spell_damage_effects'] = tuple(PlayerEffect(**_row(e, PlayerEffect))
+    row['local_spell_damage'] = tuple(_ability_from_dict(a)
+        for a in _list(row['local_spell_damage'], 'original local spell damage abilities'))
+    if row['native_spell_value'] is not None:row['native_spell_value']=_ability_from_dict(row['native_spell_value'])
+    row['spell_damage_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['spell_damage_effects'], 'claimed next-spell damage effects'))
     if row['target_selection'] is not None:
         from .automatic_targets import selection_from_dict
@@ -1020,6 +1079,8 @@ def _spell_cast_from_dict(value):
 
 def state_from_dict(value: dict) -> GameState:
     value = _row(deepcopy(value), GameState)
+    from .kindred import rows_from_dict as kindred_rows_from_dict
+    kindred_rows_from_dict(value)
     _optional_id(value['board_id'], 'game board ID')
     from .model import TurnSchedule
     schedule = _row(value['turn_schedule'], TurnSchedule)
@@ -1054,6 +1115,8 @@ def state_from_dict(value: dict) -> GameState:
         for item in _list(value['mana_consumption_history'],'original direct mana history')]
     value['corpse_spend_history'] = [CorpseSpendRecord(**_row(item, CorpseSpendRecord))
         for item in _list(value['corpse_spend_history'], 'original corpse debit history')]
+    from .deck_shuffles import row_from_dict as shuffle_from_dict
+    value['deck_shuffle_history']=[shuffle_from_dict(r) for r in _list(value['deck_shuffle_history'],'original shuffle operations')]
     from .discard_history import rows_from_dict as discard_rows_from_dict
     discard_rows_from_dict(value)
     from .successful_summons import rows_from_dict as successful_summon_rows_from_dict
@@ -1164,6 +1227,9 @@ def state_from_dict(value: dict) -> GameState:
             fact['spec'] = _hand_progress_spec(fact['spec'])
             fact['cast_ids']=tuple(_list(fact['cast_ids'],'held-spell witnesses'))
             row['held_spells']=HeldSpellProgress(**fact)
+        from .model import HandNeighborFact
+        row['hand_neighbors']=None if row['hand_neighbors'] is None else tuple(HandNeighborFact(**_row(x,HandNeighborFact))
+            for x in _list(row['hand_neighbors'],'original submitted hand neighbors'))
         plays.append(PlayRecord(**row))
     value['play_history']=plays
     value['cost_use_history'] = [_cost_use_from_dict(row) for row in _list(value['cost_use_history'], 'cost use history')]
@@ -1436,7 +1502,7 @@ def state_from_dict(value: dict) -> GameState:
         from .choose_policies import modifier_from_dict as choose_modifier_from_dict
         row['choose_both_modifiers'] = [choose_modifier_from_dict(m) for m in _list(row['choose_both_modifiers'], 'Choose Both policies')]
         row['cost_modifiers'] = [_cost_modifier_from_dict(m) for m in _list(row['cost_modifiers'], 'cost_modifiers')]
-        row['player_effects'] = [PlayerEffect(**_row(e, PlayerEffect))
+        row['player_effects'] = [player_effect_from_dict(e)
                                  for e in _list(row['player_effects'], 'player_effects')]
         for name in ('deck', 'hand', 'board', 'graveyard', 'setaside', 'pending_plays', 'quests', 'secrets', 'additional_hero_power_ids'):
             for entity_id in _list(row[name], f'player {name}'):
@@ -1491,7 +1557,7 @@ def entity_from_dict(row):
         _integer(row[name], f'entity {name}', 0)
     for name in ('attack_bonus', 'health_bonus', 'cost_modifier', 'aura_attack'):
         _integer(row[name], f'entity {name}')
-    for name in ('silenced', 'doomed', 'starship_building', 'interactable_object','old_god_free_used'):
+    for name in ('silenced', 'doomed', 'starship_building', 'interactable_object','old_god_free_used','face_replaced'):
         _boolean(row[name], f'entity {name}')
     if row['hand_lifetime'] is not None:
         row['hand_lifetime'] = HandLifetime(**_row(row['hand_lifetime'], HandLifetime))

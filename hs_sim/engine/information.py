@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v85'
+VIEW_VERSION = 'player-view-v87'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -50,7 +50,8 @@ PUBLIC_EVENTS = frozenset('''counter_policy_used limited_trigger_used game_creat
 CHOICE_EVENTS = frozenset(('choice_requested', 'choice_selected'))
 PRIVATE_CARD_EVENTS = frozenset(('choose_branch_changed', 'stored_card_buffed', 'hand_card_upgraded', 'hand_progressed',
                                'card_shattered', 'cards_recombined', 'card_expired', 'hand_card_made_temporary', 'stored_keyword_granted',
-                               'stored_card_transformed', 'counter_policy_added', 'card_spell_repeat_added', 'card_spell_repeat_removed'))
+                               'stored_card_transformed', 'counter_policy_added', 'card_spell_repeat_added', 'card_spell_repeat_removed',
+                               'stored_spell_damage_granted'))
 EVENT_KINDS = PUBLIC_EVENTS | CHOICE_EVENTS | PRIVATE_CARD_EVENTS | {'card_revealed'}
 _REF = re.compile(r'e([1-9][0-9]*)\Z')
 _CHOICE = re.compile(r'c([1-9][0-9]*)\Z')
@@ -351,9 +352,15 @@ class Information:
                 result['counter_policies'] = private_policies(entity) if entity.controller == viewer else None
                 from .hand_progress import public_progress
                 result['hand_progress'] = public_progress(entity)
+                from .deathrattle_memory import public_summons
+                summon_memory=public_summons(entity)
+                if summon_memory:result['deathrattle_summons']=summon_memory
                 if entity.kind==CardType.SPELL:
                     from .card_spell_repeats import public_repeats
                     result['card_spell_repeats']=public_repeats(entity)
+                    from .native_spell_values import public_value
+                    value=public_value(entity)
+                    if value is not None:result['base_damage']=value
                 if entity.zone == Zone.QUEST:
                     from .quests import public_progress
                     result['quest'] = public_progress(game.registry, entity)
@@ -844,7 +851,8 @@ def validate_player_effect_view(value, registry, event_kind):
     else:
         _integer(remaining)
         if (remaining > spec.duration or (remaining == 0) != (event_kind == 'player_effect_expired') or
-                (event_kind == 'player_effect_added' and remaining != spec.duration)):
+                (event_kind == 'player_effect_added' and remaining not in
+                    ((1, 2) if spec.next_turn_end else (spec.duration,)))):
             raise ValueError('Invalid public player effect countdown')
 
 

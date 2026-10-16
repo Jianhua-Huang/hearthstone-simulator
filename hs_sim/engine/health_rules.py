@@ -11,6 +11,7 @@ from .errors import ResolutionError
 from .model import (CardType, DamageKind, HealingKind, HealthFlow, HealthLayer,
                     HealthOp, HealthFloorPlan, Keyword, SpellSchool, Zone)
 from .random_split_damage import SplitBudgetQuote, SplitPacketLink
+from .allocation_facts import SourceAllocationFact
 
 
 @dataclass(frozen=True)
@@ -36,6 +37,9 @@ class PreparedHealth:
     floor_plan: HealthFloorPlan | None = None
     split_quote: SplitBudgetQuote | None = None
     split_packet: SplitPacketLink | None = None
+    # Ephemeral per-request arithmetic policy; never a persistent health ledger.
+    numeric_limit: int | None = None
+    player_source: SourceAllocationFact | None = None
 
     def event_data(self):
         return dict(base_amount=self.base_amount, spell_bonus=self.spell_bonus, modified_amount=self.amount,
@@ -64,7 +68,25 @@ def relation_matches(relation, entity_id, controller, holder_id, holder_controll
         return entity_id == holder_id
     if controller is None:
         return False
-    return (controller == holder_controller) if relation == 'friendly' else (controller != holder_controller)
+    if relation=='friendly':return controller==holder_controller
+    if relation=='enemy':return controller!=holder_controller
+    raise ValueError('This health relation requires its complete source context')
+
+
+def source_matches(state,registry,packet,holder_id,controller,relation):
+    tribes={'friendly_elemental_minions':'elemental','friendly_beast_minions':'beast'}
+    if relation not in tribes:
+        return relation_matches(relation,packet.source_id,packet.source_controller,holder_id,controller)
+    if packet.source_controller!=controller:return False
+    source=state.entities.get(packet.source_id)
+    if source is None:
+        if packet.player_source is not None and packet.player_source.kind==CardType.MINION:
+            from .registry import UnsupportedDefinitionError
+            raise UnsupportedDefinitionError('Current tribe of a retired player-effect minion source is not available')
+        return False
+    if source.kind!=CardType.MINION:return False
+    from .tribes import has_any_tribe
+    return has_any_tribe(registry,source,(tribes[relation],),basis='current')
 
 
 def matches(state, registry, packet, row):
@@ -79,7 +101,7 @@ def matches(state, registry, packet, row):
         return False
     target = state.entities.get(packet.target_id)
     return (target is not None and target.active and registry.card(target.card_id).kind in rule.target_kinds and
-            relation_matches(rule.source_relation, packet.source_id, packet.source_controller, holder_id, controller) and
+            source_matches(state,registry,packet,holder_id,controller,rule.source_relation) and
             relation_matches(rule.target_relation, target.id, target.controller, holder_id, controller))
 
 
@@ -122,11 +144,19 @@ def spell_damage_sources(state, player_id, registry, school=..., *, cast_id=None
         raise ValueError('Spell damage query requires an explicit SpellSchool or None')
     player = state.players[player_id]
     rows=[]
+    from .native_conditions import matches as native_provider_matches
     for entity_id in (player.hero_id,*player.board):
         entity=state.entities[entity_id]
         if not entity.active or entity.health<=0 or entity.doomed:continue
+        card=registry.cards.get(entity.card_id)
+        declared=None if card is None else card.native_condition
+        if (declared is not None and declared.kind=='self_damaged'or
+                any(a.kind=='spell_damage'and a.native_condition is not None for a in entity.abilities)):
+            from .native_conditions import validate_carrier as validate_native_provider
+            validate_native_provider(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
         for ability in entity.abilities:
             if (ability.kind=='spell_damage' and not ability.consumed and
+                    native_provider_matches(state,entity,ability.native_condition) and
                     (school is Ellipsis or not ability.spell_damage_schools or school in ability.spell_damage_schools)):
                 rows.append((entity,ability,None,ability.spell_damage))
     rows.extend((None,None,e,registry.player_effect(e.spec_id).spell_damage) for e in player.player_effects
@@ -137,6 +167,7 @@ def spell_damage_sources(state, player_id, registry, school=..., *, cast_id=None
         if cast.player_id != player_id:
             raise ValueError('Scoped Spell Damage belongs to another caster')
         if cast.payload_started and not cast.completed and not cast.interrupted:
+            rows.extend((state.entities[cast.source_id],a,None,a.spell_damage)for a in cast.local_spell_damage)
             for effect in cast.spell_damage_effects:
                 spec = registry.player_effect(effect.spec_id)
                 if spec.kind != 'next_spell_damage':
@@ -149,13 +180,32 @@ def spell_bonus(state, player_id, registry, school=..., *, cast_id=None):
     return sum(row[3] for row in spell_damage_sources(state,player_id,registry,school,cast_id=cast_id))
 
 
-def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=False, source_packet=None, split_link=None):
+def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=False, source_packet=None, split_link=None,
+                   partition_source=None, numeric_limit=None, apply_spell_bonus=True,player_effect=None,player_effect_owner=None):
     """A complete numeric/routing quote, without changing live state or counters."""
+    if source_packet is not None:
+        numeric_limit = source_packet.numeric_limit
+    if numeric_limit is not None:
+        from .infinite_damage import INFINITE_HEALTH_VALUE
+        if (type(numeric_limit) is not int or numeric_limit != INFINITE_HEALTH_VALUE or
+                split_link is not None or partition_source is not None):
+            raise ResolutionError('Unsupported or mixed infinite health arithmetic policy')
     flow = HealthFlow.DAMAGE if isinstance(instruction, Damage) else HealthFlow.HEALING
     source = state.entities.get(instruction.source_id)
     if instruction.source_id is not None and source is None:
         raise ResolutionError('Health effect source does not exist')
     definition = registry.card(source.card_id) if source else None
+    player_source=None
+    if player_effect is not None:
+        from .player_effects import health_source
+        if (type(instruction)is not Damage or instruction.kind!=DamageKind.EFFECT or
+                instruction.source_id!=player_effect.source_id or from_lifesteal or source_packet is not None or
+                split_link is not None or partition_source is not None or numeric_limit is not None):
+            raise ResolutionError('Logical player health source requires its independent ordinary effect damage')
+        player_source=health_source(state,registry,player_effect,player_effect_owner)
+        definition=registry.card(player_source.card_id)
+    elif player_effect_owner is not None:
+        raise ResolutionError('Player health owner requires the complete captured source')
     split_quote = None
     if split_link is not None:
         from .random_split_damage import packet_source
@@ -185,18 +235,39 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
     keywords = frozenset(source.keywords) if source else frozenset()
     if source and source.zone == Zone.HERO and damage_kind != DamageKind.COMBAT:
         keywords = frozenset(a.keyword for a in source.abilities if a.kind == 'keyword' and not a.consumed)
+    if player_source is not None:keywords=frozenset()
     packet = PreparedHealth(flow, flow, instruction.target_id, instruction.target_id, instruction.source_id,
-                            source.controller if source else None, keywords, instruction.amount, instruction.amount,
+                            player_effect_owner if player_source is not None else source.controller if source else None, keywords, instruction.amount, instruction.amount,
                             damage_kind, healing_kind, definition.spell_school if definition else None,
-                            from_lifesteal=from_lifesteal, split_quote=split_quote, split_packet=split_link)
+                            from_lifesteal=from_lifesteal, split_quote=split_quote, split_packet=split_link,
+                            numeric_limit=numeric_limit,player_source=player_source)
     if split_quote is not None:
         packet = replace(packet, source_controller=split_quote.cast.player_id,
             source_keywords=frozenset(split_quote.source_keywords), school=split_quote.school)
     if source_packet is not None:
         packet = replace(packet, source_controller=source_packet.source_controller,
                          source_keywords=source_packet.source_keywords, school=source_packet.school)
+    if partition_source is not None:
+        if (type(partition_source) is not PreparedHealth or type(instruction) is not Damage or
+                instruction.kind != DamageKind.SPELL or instruction.source_id != partition_source.source_id or
+                partition_source.original_flow != HealthFlow.DAMAGE or
+                partition_source.damage_kind != DamageKind.SPELL or from_lifesteal or
+                source_packet is not None or split_link is not None or rules is None or
+                any(row[3].layer != HealthLayer.TARGET for row in rules)):
+            raise ResolutionError('Partition delivery requires its quoted SPELL source and only recipient rules')
+        # This is an atomic batch-local value, never a suspended raw packet.
+        # The assigned base amount already contains its share of the quoted
+        # source budget; Spell Damage and source numeric rules must not run again.
+        packet = replace(partition_source, original_target_id=instruction.target_id,
+            target_id=instruction.target_id, base_amount=instruction.amount, amount=instruction.amount,
+            spell_bonus=0, redirect_path=(), floor_plan=None)
     target = state.entities.get(packet.target_id)
     if target is None or not target.active or not target.is_character or target.zone not in (Zone.HERO, Zone.BOARD):
+        return packet
+    # A zero-Attack combat participant has no outgoing damage to amplify or
+    # reroute. Keep the structural exchange packet, without inventing a hit.
+    # Zero-base spells still proceed: their source bonuses can make damage.
+    if packet.flow==HealthFlow.DAMAGE and packet.damage_kind==DamageKind.COMBAT and packet.amount==0:
         return packet
     rules = rule_sources(state) if rules is None else rules
     # Exactly one flow replacement for this packet. A conflicting inverse rule
@@ -231,7 +302,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         packet = replace(packet, target_id=destination, rule_ids=(*packet.rule_ids, rule_id), redirect_path=tuple(path))
     # Lifesteal is based on damage already dealt. Do not add spell damage twice
     # if its restorative packet is subsequently converted back into damage.
-    if packet.flow == HealthFlow.DAMAGE and packet.damage_kind == DamageKind.SPELL and not from_lifesteal and split_link is None:
+    if apply_spell_bonus and packet.flow == HealthFlow.DAMAGE and packet.damage_kind == DamageKind.SPELL and not from_lifesteal and split_link is None and partition_source is None:
         # This coefficient scales only the provider bonus, never the base
         # amount. Quote it here so earlier effects can change live providers.
         multiplier = instruction.spell_bonus_multiplier if isinstance(instruction, Damage) else 1
@@ -241,7 +312,9 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
             cast = active_cast(state,instruction.source_id,packet.source_controller)
             if cast is not None: cast_id = cast.id
         bonus = spell_bonus(state, packet.source_controller, registry, packet.school,cast_id=cast_id) * multiplier
-        packet = replace(packet, amount=packet.amount + bonus, spell_bonus=bonus)
+        amount = packet.amount + bonus
+        packet = replace(packet, amount=min(amount, packet.numeric_limit) if packet.numeric_limit is not None else amount,
+                         spell_bonus=bonus)
     phases = {HealthOp.ADD: 0, HealthOp.SCALE: 1, HealthOp.SET: 2, HealthOp.CAP: 3, HealthOp.PREVENT: 4}
     numeric = sorted((row for row in rules if row[3].operation in phases),
                      key=lambda row: (row[3].layer != HealthLayer.SOURCE, phases[row[3].operation], row[0]))
@@ -260,6 +333,8 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
             amount = min(amount, rule.amount)
         else:
             amount = 0
+        if packet.numeric_limit is not None:
+            amount = min(amount, packet.numeric_limit)
         packet = replace(packet, amount=amount, rule_ids=(*packet.rule_ids, row[0]),
                          prevented=rule.operation == HealthOp.PREVENT)
         if packet.prevented:

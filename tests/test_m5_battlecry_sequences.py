@@ -1,4 +1,5 @@
 """Direct payload caps, independent selection/order, and saved progress."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 import random
 import unittest
@@ -305,7 +306,7 @@ class BattlecrySequenceTests(unittest.TestCase):
         from examples.bounded_battlecries import run
         g,snapshot=run()
         self.assertEqual(len(self.children(g)),20);self.assertEqual(len(g.history),42)
-        self.assertEqual(snapshot['schema_version'],266)
+        self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
     def test_pause_after_child_completion_keeps_valid_completion_marker(self):
         self.watch('wait','battlecry_finished',lambda c:[self.pause(c)] if dict(c.event.data).get('battlecry_id')==4 else [])

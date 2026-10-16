@@ -1,0 +1,313 @@
+{
+  "format": "reviewed-original-material-spells-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_941",
+        "dbf_id": 115776,
+        "name": "烧灼映像",
+        "name_en": "Searing Reflection",
+        "text": "抽一张随从牌，召唤一个它的8/8并具有<b>圣盾</b>的复制。",
+        "text_en": "Draw a minion. Summon an 8/8 copy of it with <b>Divine Shield</b>.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Lea Faske"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "08d04c1fb66cf143e95bf0c6c74d961a1857d11ec393c7dfa6c7deb1e7451502",
+      "recipe": {
+        "script": "image",
+        "target": null,
+        "deck_identity": "FIR_941"
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_978",
+        "dbf_id": 123847,
+        "name": "辛达苟萨的胜利",
+        "name_en": "Sindragosa's Triumph",
+        "text": "对一个随从造成$8点伤害。使你手牌中一张随机牌的法力值消耗减少，减少的量等于超过目标生命值的伤害。",
+        "text_en": "[x]Deal $8 damage to a\nminion. Reduce the Cost\nof a random card in your\nhand by the excess damage.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "64505e6d64390355f136caed9ac5e115b85b89b87ac8d588386b7226fc455332",
+      "recipe": {
+        "script": "victory",
+        "target": "minion",
+        "deck_identity": "CATA_978"
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_225",
+        "dbf_id": 125571,
+        "name": "劫持",
+        "name_en": "Nab",
+        "text": "对一个随从造成\n$3点伤害。如果该随从死亡，将一张该随从的法力值消耗为（2）的复制洗入你的牌库。",
+        "text_en": "[x]Deal $3 damage\nto a minion. If it dies,\nshuffle a copy of it into\nyour deck that costs (2).",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "f9d8235eccbb0db394329e6b7d424b615b7bb644034d7db0874ea35ff127e841",
+      "recipe": {
+        "script": "hijack",
+        "target": "minion",
+        "deck_identity": "JAIL_225"
+      }
+    },
+    {
+      "record": {
+        "id": "END_025",
+        "dbf_id": 121188,
+        "name": "永时火焰箭",
+        "name_en": "Eternal Firebolt",
+        "text": "<b>吸血</b>。对一个随从造成$3点伤害。如果该随从死亡，在你的回合结束时将本牌移回你的手牌。",
+        "text_en": "<b>Lifesteal</b>\nDeal $3 damage to a minion. If it dies, return this to your hand at the end of your turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 40,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "174b47f14f501f4d70e04e2a18113acefa60df7754506f0e018bccd9c01d242d",
+      "recipe": {
+        "script": "eternal",
+        "target": "minion",
+        "deck_identity": "END_025"
+      }
+    },
+    {
+      "record": {
+        "id": "FIR_910",
+        "dbf_id": 115634,
+        "name": "灼烧之风",
+        "name_en": "Scorching Winds",
+        "text": "造成$3点伤害。随机弃掉一张火焰法术牌以再造成$3点。",
+        "text_en": "Deal $3 damage. Discard a random Fire spell to deal $3 more.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "98d560e83f83c12440fcc8f3ebddd9151ae02daec0a064da531de2edd502b071",
+      "recipe": {
+        "script": "wind",
+        "target": "character",
+        "deck_identity": "FIR_910"
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_702",
+        "dbf_id": 120748,
+        "name": "潮起潮落",
+        "name_en": "Ebb and Flow",
+        "text": "造成$3点伤害。如果你在本牌在你手中时使用过随从牌，获得5点护甲值。",
+        "text_en": "Deal $3 damage.\nIf you played a minion while holding this,\ngain 5 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "8ea3f1f2e0afe55c32697e3bddb32383c5f2b2129c264f62621c56c8e78fc92a",
+      "recipe": {
+        "script": "tide",
+        "target": "character",
+        "deck_identity": "TIME_702"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

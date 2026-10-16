@@ -1,4 +1,5 @@
 """A single real intrinsic quantity: the current payer hero's missing health."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -430,13 +431,13 @@ class HeroMissingHealthCostTests(unittest.TestCase):
         self.play(g, 'card.1')
         saved = self.portable(g)
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
-            ('prototype-v302', CORE_EFFECTS_VERSION, 266))
+            ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v85', 'player-actions-v12'))
+            ('player-view-v86', 'player-actions-v12'))
         for version in (1, 171, 172, 217, True, '173'):
             bad = deepcopy(saved)
             bad['schema_version'] = version
-            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, 'schemas 1 through 265'):
+            with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):
                 Game.from_snapshot(bad, registry())
 
 

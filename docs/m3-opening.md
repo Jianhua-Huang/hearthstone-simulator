@@ -1,5 +1,7 @@
 # M3-02：构筑校验、开局与换牌
 
+真实原生法术参数绑定原亡语执行与物理材料，当前费用/亡语抽取连接原手牌奖励；首回合和后续正常抽牌共用可移除来源门禁。有限字段、公共执行及未覆盖继承边界见[亡灵资源契约](m3-undead-resource-native.md)。
+
 本页原v171批次运行时 `prototype-v171` / `core-effects-v171`，snapshot schema166，代表包 `representative-m5-v64`。原M3-02打通普通构筑流程，最终起手见[起手契约](m3-starting-hands.md)；特殊构筑卡、精确开局时序及完整国服合法池仍未全部完成。进度见 [项目状态](project-status.md)，选择基础见 [M3-01 契约](m3-choices.md)。
 
 ## 1. 构筑数据与执行能力分开

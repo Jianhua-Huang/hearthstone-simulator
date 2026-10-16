@@ -1,0 +1,3339 @@
+{
+  "batch_id": "K05",
+  "source_version": "37.0.0.255026",
+  "source_commit": "be4ef28ef9bd9e613045d495138061ba31a6d2f9",
+  "formal_pool_complete": false,
+  "reachability_complete": false,
+  "policy_notes": [
+    "Finite reviewed conditions and complete named generation; no implemented-only formal random pool.",
+    "Tracking takes a sampled physical card from its own deck; draw-event policy still needs CN calibration.",
+    "Wrath combined branch deals one four-damage packet and draws once; exact combined policies await CN calibration.",
+    "Arcane Missiles uses the existing whole SPELL split budget, not non-spell SplitDamage.",
+    "Weapon prerequisite only restricts manual hand play; effects may cast a spell without that weapon."
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "AT_037t",
+        "dbf_id": 2790,
+        "name": "树苗",
+        "name_en": "Sapling",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 15,
+          "CLASS": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d05629ae1506d2450cdbd7500839f8cc359f52a8267d5391313fb0775042ca10",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "AT_037t",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_804",
+        "dbf_id": 127065,
+        "name": "捉鬼专家",
+        "name_en": "Specter Specialist",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>复生</b>。如果其已经拥有<b>复生</b>，召唤一个它的复制。",
+        "text_en": "[x]<b>Battlecry:</b> Give a\nfriendly minion <b>Reborn</b>.\nIf it already has <b>Reborn</b>,\n_summon a copy of it.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "087dd4ef19100d4c539ce25eb5865a8682975fd80ff3c78264d6736d710e9a44",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "friendly",
+          "kind": "minion"
+        },
+        "deck_identity": "CAP_804",
+        "script": "reborn_or_copy",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CATA_111",
+        "dbf_id": 122500,
+        "name": "晦鳞巢母",
+        "name_en": "Darkscale Broodmother",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，复原两个法力水晶。",
+        "text_en": "<b>Battlecry:</b> If you're\nholding a Dragon, refresh\n2 Mana Crystals.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "fab6599717713228d5c4c62400dbb96b40ee08ba9c70dfa17e1c09beb508990d",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "CATA_111",
+        "script": "dragon_refresh",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_AT_037",
+        "dbf_id": 76289,
+        "name": "活体根须",
+        "name_en": "Living Roots",
+        "text": "<b>抉择：</b>造成$2点伤害；或者召唤两个1/1的树苗。",
+        "text_en": "<b>Choose One -</b> Deal $2 damage; or Summon two 1/1 Saplings.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 2792,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Brereton"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2792",
+              "type": "Int",
+              "value": "2792"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "a00e425644125cdf3b1278a922c831748dc2ba7a796dfe132d9a23dfdf7cf463",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "AT_037",
+        "script": null,
+        "entry": "on_play",
+        "choices": [
+          {
+            "id": "first",
+            "label": "造成2点伤害",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 2
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "character"
+            }
+          },
+          {
+            "id": "second",
+            "label": "召唤两个树苗",
+            "steps": [
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "AT_037t",
+                "count": 2
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 2
+              },
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "AT_037t",
+                "count": 2
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "character"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BOT_576",
+        "dbf_id": 130525,
+        "name": "疯狂的药剂师",
+        "name_en": "Crazed Chemist",
+        "text": "<b>连击：</b>使一个友方随从获得+4攻击力。",
+        "text_en": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "858": 49494,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 49494
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "49494",
+              "type": "Int",
+              "value": "49494"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "afc563b4e7ecf5005a2f34063f0e76fbdc0bdfa54d1a918fb41159d4d6a08b2e",
+      "recipe": {
+        "root": true,
+        "keywords": [
+          "combo"
+        ],
+        "targeting": {
+          "relation": "friendly",
+          "kind": "minion"
+        },
+        "deck_identity": "BOT_576",
+        "script": "combo_buff",
+        "entry": "battlecry",
+        "choices": null,
+        "target_condition": "combo"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_BRM_013",
+        "dbf_id": 69691,
+        "name": "快速射击",
+        "name_en": "Quick Shot",
+        "text": "造成$3点伤害。\n如果你没有其他手牌，则抽一张牌。",
+        "text_en": "Deal $3 damage.\nIf your hand is empty, draw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1,
+          "858": 2260
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jonboy Meyers"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2260",
+              "type": "Int",
+              "value": "2260"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "4a5d6faf5d74be9758b468f64622ad527ce36f02a9164e081f264d8761d4e7b3",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "character"
+        },
+        "deck_identity": "BRM_013",
+        "script": "quick_shot",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_074",
+        "dbf_id": 69522,
+        "name": "致命药膏",
+        "name_en": "Deadly Poison",
+        "text": "使你的武器获得+2攻击力。",
+        "text_en": "Give your weapon +2_Attack.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 459,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trevor Jacobs"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "459",
+              "type": "Int",
+              "value": "459"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "ecfe88a12e7bf376f0e8ec955d75f332cb383c6d0779778b231fbf79a0d57f0e",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "CS2_074",
+        "script": "poison",
+        "entry": "on_play",
+        "choices": null,
+        "requires_weapon": true
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_DS1_184",
+        "dbf_id": 69545,
+        "name": "追踪术",
+        "name_en": "Tracking",
+        "text": "从你的牌库中<b>发现</b>一张牌。",
+        "text_en": "<b>Discover</b> a card from your deck.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 1047,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauro Cascioli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1047",
+              "type": "Int",
+              "value": "1047"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "6dab10258770d06e7a84a57e855f254b694eda3617dbc6454fed2a139bad00ae",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "DS1_184",
+        "script": "tracking",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_014",
+        "dbf_id": 69656,
+        "name": "穆克拉",
+        "name_en": "King Mukla",
+        "text": "<b>战吼：</b>使你的对手获得两根香蕉。",
+        "text_en": "<b>Battlecry:</b> Give your opponent 2 Bananas.",
+        "cost": 3,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 1693,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1694
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sunny Gho"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1693",
+              "type": "Int",
+              "value": "1693"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "e57b2ae67c05084f5d82e5d6f178bd1f62544089560e8b67d8ec154bf43d5a11",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_014",
+        "script": "bananas",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_043",
+        "dbf_id": 76325,
+        "name": "暮光幼龙",
+        "name_en": "Twilight Drake",
+        "text": "<b>战吼：</b>\n你每有一张手牌，便获得+1生命值。",
+        "text_en": "<b>Battlecry:</b> Gain +1 Health for each card in your hand.",
+        "cost": 4,
+        "attack": 4,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 1037
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1037",
+              "type": "Int",
+              "value": "1037"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "381ba96ed9c24ca8d64540ff1adee17c11c7824235d7f4c61cad68cfb7c280db",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_043",
+        "script": "hand_health",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_154",
+        "dbf_id": 76288,
+        "name": "愤怒",
+        "name_en": "Wrath",
+        "text": "<b>抉择：</b>\n对一个随从造成$3点伤害；或者造成$1点伤害并抽一张牌。",
+        "text_en": "<b>Choose One -</b>\nDeal $3 damage to a minion; or $1 damage\nand draw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 836,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "836",
+              "type": "Int",
+              "value": "836"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "71b3cac919d12fa51b0c7145b2bd0570ce354984d4eecbef46dff246e1d6dc87",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_154",
+        "script": null,
+        "entry": "on_play",
+        "choices": [
+          {
+            "id": "first",
+            "label": "造成3点伤害",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 3
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "minion"
+            }
+          },
+          {
+            "id": "second",
+            "label": "造成1点伤害并抽牌",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 1
+              },
+              {
+                "operation": "draw",
+                "scope": "target",
+                "amount": 1
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "minion"
+            }
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 4
+              },
+              {
+                "operation": "draw",
+                "scope": "target",
+                "amount": 1
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "minion"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_160",
+        "dbf_id": 69593,
+        "name": "野性之力",
+        "name_en": "Power of the Wild",
+        "text": "<b>抉择：</b>使你的所有随从获得+1/+1；或者召唤一只3/2的\n猎豹。",
+        "text_en": "<b>Choose One -</b> Give your minions +1/+1; or Summon a 3/2 Panther.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 503
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Tappin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "503",
+              "type": "Int",
+              "value": "503"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b23e61ed5121b7a68860f969a012dc704a82dd766d16406989234d6ac3ddef47",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_160",
+        "script": null,
+        "entry": "on_play",
+        "choices": [
+          {
+            "id": "first",
+            "label": "所有随从+1/+1",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "friendly_minions",
+                "attack": 1,
+                "health": 1
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "second",
+            "label": "召唤猎豹",
+            "steps": [
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "EX1_160t",
+                "count": 1
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "friendly_minions",
+                "attack": 1,
+                "health": 1
+              },
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "EX1_160t",
+                "count": 1
+              }
+            ],
+            "targeting": null
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_OG_047",
+        "dbf_id": 69688,
+        "name": "野性之怒",
+        "name_en": "Feral Rage",
+        "text": "<b>抉择：</b>使你的英雄在本回合中获得+4攻击力；或者获得8点护甲值。",
+        "text_en": "<b>Choose One -</b> Give your hero +4 Attack this turn; or Gain 8 Armor.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 38334
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38334",
+              "type": "Int",
+              "value": "38334"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1d745a788f5badf77cc5a74d5c2939bd97298a257f4bc5fc6d3ffc1d477e97de",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "OG_047",
+        "script": null,
+        "entry": "on_play",
+        "choices": [
+          {
+            "id": "first",
+            "label": "英雄本回合+4攻击力",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "own_hero",
+                "attack": 4,
+                "temporary": true
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "second",
+            "label": "获得8点护甲",
+            "steps": [
+              {
+                "operation": "armor",
+                "scope": "target",
+                "amount": 8
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "own_hero",
+                "attack": 4,
+                "temporary": true
+              },
+              {
+                "operation": "armor",
+                "scope": "target",
+                "amount": 8
+              }
+            ],
+            "targeting": null
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ONY_018",
+        "dbf_id": 129216,
+        "name": "暴烈枭兽",
+        "name_en": "Boomkin",
+        "text": "<b>抉择：</b>为你的英雄恢复#8点生命值；或者造成4点伤害。",
+        "text_en": "<b>Choose One - </b>Restore\n#8 Health to your hero; or Deal 4 damage.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 71241,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 71241,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "71241",
+              "type": "Int",
+              "value": "71241"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0a2a960becb7ad00674e4030b392a4ea94a948e0f3ff81c40912a0572c232e32",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "ONY_018",
+        "script": null,
+        "entry": "battlecry",
+        "choices": [
+          {
+            "id": "first",
+            "label": "治疗英雄8点",
+            "steps": [
+              {
+                "operation": "heal",
+                "scope": "own_hero",
+                "amount": 8
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "second",
+            "label": "造成4点伤害",
+            "steps": [
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 4
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "character"
+            }
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "heal",
+                "scope": "own_hero",
+                "amount": 8
+              },
+              {
+                "operation": "damage",
+                "scope": "target",
+                "amount": 4
+              }
+            ],
+            "targeting": {
+              "relation": "any",
+              "kind": "character"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_062",
+        "dbf_id": 111319,
+        "name": "蛛魔护群守卫",
+        "name_en": "Nerubian Swarmguard",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>召唤本随从的两个复制。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Summon two\ncopies of this minion.",
+        "cost": 4,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "4548": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "5d91d3e23812f8a06c50a49c65a7baa92a319be555e26a3b2cf61ab0849478ba",
+      "recipe": {
+        "root": true,
+        "keywords": [
+          "taunt"
+        ],
+        "targeting": null,
+        "deck_identity": "RLK_062",
+        "script": "copy_self_twice",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_814",
+        "dbf_id": 129166,
+        "name": "异教水晶工匠",
+        "name_en": "Crystalsmith Cultist",
+        "text": "<b>战吼：</b>如果你的手牌中有暗影法术牌，&获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> If you're\nholding a Shadow spell,& gain +1/+1.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 84204,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 84204,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "84204",
+              "type": "Int",
+              "value": "84204"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "9c8442c4a66f8eb8d26c88562b43c7b32ae68aba95bb33c73729a37e5de42ef2",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "RLK_814",
+        "script": "shadow_in_hand",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_SW_108",
+        "dbf_id": 126227,
+        "name": "初始之火",
+        "name_en": "First Flame",
+        "text": "对一个随从造成$2点伤害。将“传承之火”置入你的手牌。",
+        "text_en": "Deal $2 damage to a minion. Add a Second Flame to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 64430,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 64430,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 64432,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "64430",
+              "type": "Int",
+              "value": "64430"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "063ce04c59ec9ba065293b54b1bd678817e39cc9d996f61fbbf6d1a4d92d6baa",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "SW_108",
+        "script": "first_flame",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TRL_111",
+        "dbf_id": 69695,
+        "name": "猎头者之斧",
+        "name_en": "Headhunter's Hatchet",
+        "text": "<b>战吼：</b>如果你控制一个野兽，便获得+1耐久度。",
+        "text_en": "[x]<b>Battlecry:</b> If you\ncontrol a Beast, gain\n+1 Durability.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 50608
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Akkapoj T."
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "50608",
+              "type": "Int",
+              "value": "50608"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "fbf41e3301346de26e308c8c0cd281f2cf1d1b11d0135201e10e1783b579fbc0",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "TRL_111",
+        "script": "beast_axe",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_TSC_650",
+        "dbf_id": 117037,
+        "name": "划水好友",
+        "name_en": "Flipper Friends",
+        "text": "<b>抉择：</b>召唤一只6/6并具有<b>嘲讽</b>的虎鲸；或者六只1/1并具有<b>突袭</b>的海獭。",
+        "text_en": "[x]<b>Choose One</b> - Summon a\n6/6 Orca with <b>Taunt</b>; or\nsix 1/1 Otters with <b>Rush</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 73462,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 73462,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "73462",
+              "type": "Int",
+              "value": "73462"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a6c8aa855bb92db5e8a980b1294831eebf03f63e627334e40bf375a26ffe656",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "TSC_650",
+        "script": null,
+        "entry": "on_play",
+        "choices": [
+          {
+            "id": "first",
+            "label": "召唤嘲讽虎鲸",
+            "steps": [
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "TSC_650t",
+                "count": 1
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "second",
+            "label": "召唤六只突袭海獭",
+            "steps": [
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "TSC_650t4",
+                "count": 6
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "TSC_650t",
+                "count": 1
+              },
+              {
+                "operation": "summon",
+                "scope": "friendly",
+                "card_id": "TSC_650t4",
+                "count": 6
+              }
+            ],
+            "targeting": null
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_ULD_133",
+        "dbf_id": 129170,
+        "name": "水晶商人",
+        "name_en": "Crystal Merchant",
+        "text": "在你的回合结束时，如果你有未使用的法力水晶，&抽一张牌。",
+        "text_en": "If you have any unspent Mana at the end of your turn,& draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 53545,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 53545,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "53545",
+              "type": "Int",
+              "value": "53545"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "8946446c2245b61cac66f4ed7775ce0117ccfe65b8e557c0fbe8cde4d580ffdf",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "ULD_133",
+        "script": "unused_mana_draw",
+        "entry": "on_trigger",
+        "choices": null,
+        "trigger": "own_turn_end"
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_809",
+        "dbf_id": 111469,
+        "name": "火羽精灵",
+        "name_en": "Fire Fly",
+        "text": "<b>战吼：</b>将一张1/2的元素牌置入你的手牌。",
+        "text_en": "<b>Battlecry</b>: Add a 1/2 Elemental to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 41323,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42044
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41323",
+              "type": "Int",
+              "value": "41323"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9dae37ebd773bbebd3b82ef275a3d8b30510aa9867804b73b7ab2bab91fe1676",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "UNG_809",
+        "script": "flame_elemental",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "CS3_022",
+        "dbf_id": 66854,
+        "name": "雾帆劫掠者",
+        "name_en": "Fogsail Freebooter",
+        "text": "<b>战吼：</b>如果你装备着武器，造成2点伤害。",
+        "text_en": "<b>Battlecry:</b> If you have a weapon equipped, deal_2_damage.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "David Kegg"
+          }
+        ]
+      },
+      "record_sha256": "1bc02b1d5ccf5de71c52855e5285efde0d225905419cb2c40374191cf1ddf498",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "character"
+        },
+        "deck_identity": "CS3_022",
+        "script": "weapon_damage",
+        "entry": "battlecry",
+        "choices": null,
+        "weapon_target": true
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_402",
+        "dbf_id": 118406,
+        "name": "蝙蝠面具",
+        "name_en": "Bat Mask",
+        "text": "将一个友方随从的属性值变为1/1。用它的复制填满你的\n面板。",
+        "text_en": "Set a friendly minion's stats to 1/1. Fill your board with copies of it.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "80bca006a4095602bb1dc81b1954b357d32ad9b4ee41aa45af85f358fe8ed040",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "friendly",
+          "kind": "minion"
+        },
+        "deck_identity": "DINO_402",
+        "script": "bat_mask",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_403",
+        "dbf_id": 118408,
+        "name": "魔暴龙面具",
+        "name_en": "Devilsaur Mask",
+        "text": "将一个随从的属性值变为8/8。使其获得<b>冲锋</b>。",
+        "text_en": "Set a minion's stats to 8/8. Give it <b>Charge</b>.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5f3385ad1000d78bc92fc54b7b6dcef914fe1f4484170830b44a7242e86fae77",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "DINO_403",
+        "script": "devilsaur_mask",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "DINO_432",
+        "dbf_id": 118712,
+        "name": "奔行豹面具",
+        "name_en": "Panther Mask",
+        "text": "将一个随从的属性值变为5/4并使其获得<b>潜行</b>。抽两张牌。",
+        "text_en": "Set a minion's stats to\n5/4 and give it <b>Stealth</b>. Draw 2 cards.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5d5b486e0e3259552ce01b1548bb13bdb88fd7f87b76c06fb1f9a93f1164cee1",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "DINO_432",
+        "script": "panther_mask",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "EDR_257",
+        "dbf_id": 116667,
+        "name": "圣光抚愈者",
+        "name_en": "Lightmender",
+        "text": "<b><b>嘲讽</b>。</b><b>抉择：</b>\n获得+3攻击力和<b>圣盾</b>；或者获得+3生命值和<b>吸血</b>。",
+        "text_en": "[x]<b><b>Taunt</b>.</b> <b>Choose One -</b>\n+3 Attack and <b>Divine Shield</b>;\n_or +3 Health and <b>Lifesteal</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c0e439700dc9fcc1aaeecbfdb621548f1449272c8c78602022cf378bceb65839",
+      "recipe": {
+        "root": true,
+        "keywords": [
+          "taunt"
+        ],
+        "targeting": null,
+        "deck_identity": "EDR_257",
+        "script": null,
+        "entry": "battlecry",
+        "choices": [
+          {
+            "id": "first",
+            "label": "+3攻击力和圣盾",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "self",
+                "attack": 3
+              },
+              {
+                "operation": "keyword",
+                "scope": "self",
+                "keyword": "divine_shield"
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "second",
+            "label": "+3生命值和吸血",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "self",
+                "health": 3
+              },
+              {
+                "operation": "keyword",
+                "scope": "self",
+                "keyword": "lifesteal"
+              }
+            ],
+            "targeting": null
+          },
+          {
+            "id": "both",
+            "label": "两项效果",
+            "steps": [
+              {
+                "operation": "buff",
+                "scope": "self",
+                "attack": 3
+              },
+              {
+                "operation": "keyword",
+                "scope": "self",
+                "keyword": "divine_shield"
+              },
+              {
+                "operation": "buff",
+                "scope": "self",
+                "health": 3
+              },
+              {
+                "operation": "keyword",
+                "scope": "self",
+                "keyword": "lifesteal"
+              }
+            ],
+            "targeting": null
+          }
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "EX1_014t",
+        "dbf_id": 1694,
+        "name": "香蕉",
+        "name_en": "Bananas",
+        "text": "使一个随从获得+1/+1。",
+        "text_en": "Give a minion +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8e2d698deea9b7d73956c0508e1e8bbd15d44be9044f582888bdc246ed4905f8",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "EX1_014t",
+        "script": "banana_buff",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "EX1_160t",
+        "dbf_id": 812,
+        "name": "猎豹",
+        "name_en": "Panther",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "1584": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "c2398b1e0e99b84c1ce334e435864282739405d2b2bed4579bf16e3bec3be2ec",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_160t",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "EX1_277",
+        "dbf_id": 564,
+        "name": "奥术飞弹",
+        "name_en": "Arcane Missiles",
+        "text": "造成$3点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal $3 damage randomly split among all enemies.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Warren Mahy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "8b2a6bb75692263b8a7e49457293d341a034edb8535f8b8a1fc36c9a31a82112",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "EX1_277",
+        "script": "arcane_missiles",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_312",
+        "dbf_id": 126109,
+        "name": "私藏魔杖",
+        "name_en": "Contraband Wands",
+        "text": "获取3张奥术飞弹。",
+        "text_en": "Get 3 Arcane Missiles.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 564,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 564
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "a0bddbaf5f519ccbadc7adcef730231b6fbdd9c4dc37959a26710de61b80a6d0",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "JAIL_312",
+        "script": "missile_hand",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_436",
+        "dbf_id": 126180,
+        "name": "毒蛛噬咬",
+        "name_en": "Widow's Bite",
+        "text": "在本回合中，使你的英雄获得+1攻击力。获得1点护甲值。将毒蛛美餐置入你的手牌。",
+        "text_en": "Give your hero +1 Attack this turn. Gain 1 Armor. Add \"Widow's Feast\" to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "ee506ca6ee7ca86c5a2a30e014d836ae818cec1c7896b0707efa3a5085647a9b",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "JAIL_436",
+        "script": "spider_bite",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_436t",
+        "dbf_id": 126868,
+        "name": "毒蛛美餐",
+        "name_en": "Widow's Feast",
+        "text": "在本回合中，使你的英雄获得+2攻击力。获得2点护甲值。将毒蛛盛宴置入你的手牌。",
+        "text_en": "Give your hero +2 Attack this turn. Gain 2 Armor. Add \"Widow's Banquet\" to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126869
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "6dcf00bf12e34c9aef9c5bbeab1ca951c55516cd328d6dbe0fd622615a40d4d4",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "JAIL_436t",
+        "script": "spider_meal",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_436t2",
+        "dbf_id": 126869,
+        "name": "毒蛛盛宴",
+        "name_en": "Widow's Banquet",
+        "text": "在本回合中，使你的英雄获得+4攻击力。获得4点护甲值。",
+        "text_en": "Give your hero\n+4 Attack this turn.\nGain 4 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "144e0ffdada238193c1d502ba8a92d3da9e071480e0699d02f9431ae8ba5e39d",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "JAIL_436t2",
+        "script": "spider_feast",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_447",
+        "dbf_id": 126479,
+        "name": "鲁莽的侦探",
+        "name_en": "Reckless Detective",
+        "text": "<b>突袭</b>。<b>亡语：</b>获取一张能使一个随从获得+4/+4和<b>突袭</b>的侦探服。",
+        "text_en": "[x]<b>Rush</b>. <b>Deathrattle:</b> Get\nDetective's Clothes that\ngive +4/+4 and <b>Rush</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126480,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126480
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "b3b40d62a603930a0d4cb93e995f9948ed5729a9916222e3e9252f4f5a9731e7",
+      "recipe": {
+        "root": true,
+        "keywords": [
+          "rush"
+        ],
+        "targeting": null,
+        "deck_identity": "JAIL_447",
+        "script": "detective_gift",
+        "entry": "deathrattle",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_447t",
+        "dbf_id": 126480,
+        "name": "侦探服",
+        "name_en": "Detective's Clothes",
+        "text": "使一个随从获得+4/+4和<b>突袭</b>。",
+        "text_en": "Give a minion\n+4/+4 and <b>Rush</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8f11df1f681bffb972a5f023a8994a6e85a74ce7cd79272182c68cd1b6a26a5c",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "JAIL_447t",
+        "script": "detective_suit",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_720",
+        "dbf_id": 126221,
+        "name": "玉莲帮荷官",
+        "name_en": "Lotus Bookie",
+        "text": "<b>亡语：</b>&获取一张幸运币。",
+        "text_en": "<b>Deathrattle:</b>& Get a Coin.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4931": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          }
+        ]
+      },
+      "record_sha256": "6af9c1a66762f8d3ac44b3e4ffe5b4be671482ab54736126952ba0163c57c606",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "JAIL_720",
+        "script": "coin_gift",
+        "entry": "deathrattle",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_941",
+        "dbf_id": 126896,
+        "name": "神圣之拥",
+        "name_en": "Holy Embrace",
+        "text": "恢复#4点生命值。获取一张能造成4点伤害的黑暗之拥。",
+        "text_en": "Restore #4 Health.\n_Get a 'Dark Embrace'\n_that deals 4 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126897,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126897,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "ae7fe00cf50c2f3095799e794360406fb96fe8bf220d478b7d41426c20b58443",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "character"
+        },
+        "deck_identity": "JAIL_941",
+        "script": "light_embrace",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "JAIL_941t",
+        "dbf_id": 126897,
+        "name": "黑暗之拥",
+        "name_en": "Dark Embrace",
+        "text": "造成$4点伤害。",
+        "text_en": "Deal $4 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "1facb4038a82cbd5db20ca008669ce158363d6d7f3614bbd24212562f22a098e",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "character"
+        },
+        "deck_identity": "JAIL_941t",
+        "script": "dark_embrace",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "SW_108t",
+        "dbf_id": 64432,
+        "name": "传承之火",
+        "name_en": "Second Flame",
+        "text": "对一个随从造成$2点伤害。",
+        "text_en": "Deal $2 damage to\na minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "9e2d56d3236071e7629e98883476ea01794afd1e34dc972683c7924c6ee943eb",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": {
+          "relation": "any",
+          "kind": "minion"
+        },
+        "deck_identity": "SW_108t",
+        "script": "second_flame",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_242",
+        "dbf_id": 118220,
+        "name": "远古剑龙",
+        "name_en": "Ancient Stegodon",
+        "text": "<b>战吼：</b>从<b>嘲讽</b>，<b>剧毒</b>或+1/+1中选择一项并获得。",
+        "text_en": "<b>Battlecry:</b> Choose to\ngain <b>Taunt</b>, <b>Poisonous</b>,\nor +1/+1.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "592e08f004cc31932bdc865286cb4561ad3f936b9ca23a19b5fbb66dc18d1158",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "TLC_242",
+        "script": "stegodon_choice",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_245",
+        "dbf_id": 118224,
+        "name": "远古迅猛龙",
+        "name_en": "Ancient Raptor",
+        "text": "<b>战吼：</b>从+3攻击力，<b>圣盾</b>或“<b>亡语：</b>召唤两个1/1的植物”中选择一项并获得。",
+        "text_en": "[x]<b>Battlecry:</b> Choose to gain\n+3 Attack, <b>Divine Shield</b>,\nor \"<b>Deathrattle:</b> Summon\ntwo 1/1 Plants.\"",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f30cc90fda1fbb760033caf4e40f354a84f000dadff586b1256149c96a6e77cb",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "TLC_245",
+        "script": "raptor_choice",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "TLC_826",
+        "dbf_id": 117599,
+        "name": "卡纳莎的故事",
+        "name_en": "Story of Carnassa",
+        "text": "将十张法力值消耗为（1）的3/2的迅猛龙洗入你的牌库，这些迅猛龙具有“<b>战吼：</b>抽一张牌。”",
+        "text_en": "Shuffle ten 1-Cost 3/2 Raptors into your deck with \"<b>Battlecry:</b> Draw a card.\"",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42013
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Topdog Entertainment"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "218",
+              "name": "BATTLECRY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c59c6d3b34e58b856bd8ed5870d89ac73095621d0b9f8c1f5c643af6e7c9b71d",
+      "recipe": {
+        "root": true,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "TLC_826",
+        "script": "raptor_deck",
+        "entry": "on_play",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "TSC_650t",
+        "dbf_id": 73463,
+        "name": "虎鲸",
+        "name_en": "Orca",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "43cc569322d3127e9059f92aa2cb66e4fa06bd94cd2b5aa2c00742a262e63e71",
+      "recipe": {
+        "root": false,
+        "keywords": [
+          "taunt"
+        ],
+        "targeting": null,
+        "deck_identity": "TSC_650t",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "TSC_650t4",
+        "dbf_id": 73553,
+        "name": "海獭",
+        "name_en": "Otter",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "fb951c144467e7a3ac6841bedbaaf2ecbabde088b7307b13ab91374838430d9b",
+      "recipe": {
+        "root": false,
+        "keywords": [
+          "rush"
+        ],
+        "targeting": null,
+        "deck_identity": "TSC_650t4",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "UNG_809t1",
+        "dbf_id": 42044,
+        "name": "烈焰元素",
+        "name_en": "Flame Elemental",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler Walpole"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2f33a9294b2ad75ec28a375b93331aea46218fcb47c40a6f3b02cf0ca4cdf979",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "UNG_809t1",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "UNG_920t2",
+        "dbf_id": 42013,
+        "name": "卡纳莎的族群",
+        "name_en": "Carnassa's Brood",
+        "text": "<b>战吼：</b>抽一张牌。",
+        "text_en": "<b>Battlecry:</b> Draw a card.",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "f5c927f106c6c743dccf38a2b75e265894ec9c7d2c52ae720b6ab422136c78e0",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "UNG_920t2",
+        "script": "draw_one",
+        "entry": "battlecry",
+        "choices": null
+      }
+    },
+    {
+      "record": {
+        "id": "UNG_999t2t1",
+        "dbf_id": 41067,
+        "name": "植物",
+        "name_en": "Plant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "TECH_LEVEL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "768f8e463590b138bbf12324a4900ca0aa9e3f7e15cb0b82ffe4c993aa53171d",
+      "recipe": {
+        "root": false,
+        "keywords": [],
+        "targeting": null,
+        "deck_identity": "UNG_999t2t1",
+        "script": null,
+        "entry": "battlecry",
+        "choices": null
+      }
+    }
+  ]
+}

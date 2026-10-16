@@ -7,7 +7,7 @@ printed metadata. Domains, relations and selectable protections stay in targetin
 from dataclasses import dataclass
 
 from .effects import _behavior
-from .model import Keyword, Zone
+from .model import Keyword, Rarity, Zone
 
 
 @dataclass(frozen=True)
@@ -28,6 +28,7 @@ class TargetPredicateSpec:
     damage_max: int | None = None
     damaged: bool | None = None
     current_tribes_any: tuple[str, ...] = ()
+    printed_rarities: tuple[Rarity, ...] = ()
 
     def __post_init__(self):
         _behavior(self.id)
@@ -38,7 +39,7 @@ class TargetPredicateSpec:
                     raise ValueError('Target predicate bounds require exact integers; durability/damage are nonnegative')
             if lower is not None and upper is not None and lower > upper:
                 raise ValueError('Target predicate lower bound exceeds its upper bound')
-        for name, cls in (('printed_tribes_any', str), ('current_tribes_any', str), ('keywords_all', Keyword), ('keywords_none', Keyword)):
+        for name, cls in (('printed_tribes_any', str), ('current_tribes_any', str), ('keywords_all', Keyword), ('keywords_none', Keyword), ('printed_rarities', Rarity)):
             values = getattr(self, name)
             if (type(values) is not tuple or any(type(value) is not cls for value in values)
                     or len(set(values)) != len(values)):
@@ -60,6 +61,8 @@ def evaluate(spec, registry, context):
     """Read only retained scalar stats, keywords and the printed card face."""
     target = context.state.entities.get(context.target_id)
     if target is None:
+        return False
+    if spec.printed_rarities and printed_rarity(registry, target.card_id) not in spec.printed_rarities:
         return False
     for prefix in ('health', 'durability', 'attack', 'max_health', 'damage'):
         value = getattr(target, prefix)
@@ -83,6 +86,14 @@ def evaluate(spec, registry, context):
         if not has_any_tribe(registry, target, spec.current_tribes_any):
             return False
     return True
+
+
+def printed_rarity(registry, card_id):
+    metadata = registry.card(card_id).metadata
+    if metadata is None or metadata.rarity is None:
+        from .registry import UnsupportedDefinitionError
+        raise UnsupportedDefinitionError('Printed rarity is unknown: ' + card_id)
+    return metadata.rarity
 
 
 def reconstructible(registry, name):

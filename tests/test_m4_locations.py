@@ -1,4 +1,5 @@
 """Locations across board semantics, activation, players and persistence."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from hs_sim.engine.model import CostAuraSpec
 from copy import deepcopy
 from dataclasses import replace
@@ -313,7 +314,7 @@ class LocationTests(unittest.TestCase):
 
     def test_real_starport_example_restores_and_replays(self):
         from examples.use_starport import run
-        game,snapshot=run();self.assertEqual(len(game.history),11);self.assertEqual(snapshot['schema_version'],266)
+        game,snapshot=run();self.assertEqual(len(game.history),11);self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
 
     def test_unsupported_location_health_rule_is_rejected_instead_of_inactive(self):
         from hs_sim.engine import HealthFlow,HealthOp,HealthRule

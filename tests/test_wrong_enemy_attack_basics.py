@@ -1,4 +1,5 @@
 """A real wrong-enemy source uses existing sampled offers and attack replacement."""
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 import json
 from pathlib import Path
 import random
@@ -366,7 +367,7 @@ class WrongEnemyAttackBasicsTests(unittest.TestCase):
     def test_existing_core_and_wire_versions_remain_and_recipe_is_replayable(self):
         g=self.game();self.attack(g);snap=g.snapshot()
         self.assertEqual((snap['ruleset']['id'],snap['mechanics_version']['version'],snap['schema_version']),
-            ('prototype-v302',CORE_EFFECTS_VERSION,266));self.check(g)
+            ('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION));self.check(g)
 
 
 if __name__=='__main__':unittest.main()
