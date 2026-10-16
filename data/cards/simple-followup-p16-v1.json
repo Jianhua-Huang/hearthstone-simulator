@@ -1,0 +1,683 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_703",
+        "dbf_id": 126092,
+        "name": "好骗的卫兵",
+        "name_en": "Gullible Guard",
+        "text": "<b>亡语：</b>在本局对战中，你可以发送\n抱歉。",
+        "text_en": "<b>Deathrattle:</b> You can say Sorry this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "6d5a6849005a1e4b330768b07fae264c9b8fa39d91344458e81a359f81f06b59"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_001",
+        "dbf_id": 113328,
+        "name": "满怀希望的树妖",
+        "name_en": "Hopeful Dryad",
+        "text": "<b>战吼：</b>随机获取一张梦境牌。",
+        "text_en": "<b>Battlecry:</b> Get a random Dream card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8e2eb50d06b8a63e7f792fa3c6961d31c77d38b6413cffd44158322053e2698a"
+    }
+  ],
+  "skipped": [],
+  "skipped_dependencies": [
+    {
+      "record": {
+        "id": "DREAM_01",
+        "dbf_id": 340,
+        "name": "欢笑的姐妹",
+        "name_en": "Laughing Sister",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b2b08bb3d1fffdac2c445ab5c51ef1792d780898b8bcf3c50232143b436ea530",
+      "reason": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered."
+    },
+    {
+      "record": {
+        "id": "DREAM_03",
+        "dbf_id": 489,
+        "name": "翡翠幼龙",
+        "name_en": "Emerald Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0e684c058e0bdae741eb4eb361118ea9276a9192b19d74bf532f3500da4fdae1",
+      "reason": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered."
+    },
+    {
+      "record": {
+        "id": "DREAM_04",
+        "dbf_id": 808,
+        "name": "梦境",
+        "name_en": "Dream",
+        "text": "将一个随从移回其拥有者的\n手牌。",
+        "text_en": "Return a minion to its owner's hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "56a17e938fa75b49a8bbe023fba879338c552fb53500f9996d699c18c3ddd8f5",
+      "reason": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered."
+    }
+  ],
+  "noncombat_text_review": [
+    {
+      "record": {
+        "id": "CRED_23",
+        "dbf_id": 3023,
+        "name": "Christopher Yim",
+        "name_en": "Christopher Yim",
+        "text": "<b>战吼：</b>\n当你使用表情时，你的英雄所发出来的语音变为“电子音”。",
+        "text_en": "<b>Battlecry:</b> Your emotes are now spoken in \"Radio Voice.\"",
+        "cost": 4,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 16,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5
+        },
+        "card_set_id": 16,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "6a7bcda1fb5d3cb8cdb0f519c4fba53551458d1f4965ac71fb651b04527ab70a"
+    },
+    {
+      "record": {
+        "id": "CRED_35",
+        "dbf_id": 3035,
+        "name": "Max McCall",
+        "name_en": "Max McCall",
+        "text": "你的表情没有冷却时间，也无法被无视。",
+        "text_en": "Your emotes have no cooldown and can't be squelched.",
+        "cost": 4,
+        "attack": 9,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 9,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 16,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5
+        },
+        "card_set_id": 16,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5fc3bdb42b72671dac0d3374a57da6d76f05277a863aae65d89e570ed98ed363"
+    },
+    {
+      "record": {
+        "id": "ICCA08_029",
+        "dbf_id": 45655,
+        "name": "闭嘴，牧师",
+        "name_en": "Shut up, Priest",
+        "text": "你的对手无法使用表情。",
+        "text_en": "Your opponent can't emote.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1001,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "AI_MUST_PLAY": 1,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5ad16869a5737d48e1de7c13c9828032497310126cd32d120a7810aa58c79493"
+    },
+    {
+      "record": {
+        "id": "JAIL_703",
+        "dbf_id": 126092,
+        "name": "好骗的卫兵",
+        "name_en": "Gullible Guard",
+        "text": "<b>亡语：</b>在本局对战中，你可以发送\n抱歉。",
+        "text_en": "<b>Deathrattle:</b> You can say Sorry this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "6d5a6849005a1e4b330768b07fae264c9b8fa39d91344458e81a359f81f06b59"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-17T02:22:27.202832+08:00",
+    "source": "Ten complete cached official root/dependency/parent responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "JAIL_703",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126092&locale=en_US",
+        "response_file": "official-JAIL_703-en-us.json",
+        "response_sha256": "27db966d7b220360e0dbeb58a3338f4b4d73c8f19e875e480a2f56485f0c8538",
+        "face": {
+          "id": 126092,
+          "collectible": 1,
+          "slug": "126092-gullible-guard",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Gullible Guard",
+          "text": "<b>Deathrattle:</b> You can say Sorry this game.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/16ca38b48c07c59288ae4de69ad67a35e060c6f18016c4a2f8d52f80b3a32293.png",
+          "imageGold": "",
+          "flavorText": "Ohhhh you're a guard who left their gear at home? I am SO sorry, I thought for a moment you were a prisoner trying to escape!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1219c18af249d563a537268012bddbce53aca16e32e4051286e2a9407c2d09b.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_703",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126092&locale=zh_CN",
+        "response_file": "official-JAIL_703-zh-cn.json",
+        "response_sha256": "ba7392a276dc11bae3421a33de1cfc8d6658b84abb62b29ddbacd8f0979a5a59",
+        "face": {
+          "id": 126092,
+          "collectible": 1,
+          "slug": "126092-gullible-guard",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "好骗的卫兵",
+          "text": "<b>亡语：</b>在本局对战中，你可以发送 抱歉。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4d082591178cc73cf655b2b703397d1d55d7b10e7278fc51fc96558423acbee3.png",
+          "imageGold": "",
+          "flavorText": "哦——你其实是个没穿装备的守卫啊？嗨呀，实在抱歉，我还以为你是要越狱的逃犯呢！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1219c18af249d563a537268012bddbce53aca16e32e4051286e2a9407c2d09b.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_001",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113328&locale=en_US",
+        "response_file": "official-EDR_001-en-us.json",
+        "response_sha256": "21ee596161db8d8ac2d8340518f39f73f2176682fe4f33c48cda16a6e9771307",
+        "face": {
+          "id": 113328,
+          "collectible": 1,
+          "slug": "113328-hopeful-dryad",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Timur Shevtsov",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Hopeful Dryad",
+          "text": "<b>Battlecry:</b> Get a random Dream card.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69a50e1a1774822479580e5f39fbb2f3de594e4e938b3121e3b05531bd996d14.png",
+          "imageGold": "",
+          "flavorText": "\"I hope this dragon doesn't eat me when it grows up.\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de2c9d77f95b3f98e5246e551fbdfc66726a84ffd77dd40083198441555d20aa.png",
+          "childIds": [
+            217,
+            808,
+            340,
+            301,
+            489
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_001",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113328&locale=zh_CN",
+        "response_file": "official-EDR_001-zh-cn.json",
+        "response_sha256": "82894ffa3a8c8f4665aa87c37ea8f42f22260179b371ce22856b1ba285bfd66e",
+        "face": {
+          "id": 113328,
+          "collectible": 1,
+          "slug": "113328-hopeful-dryad",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Timur Shevtsov",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "满怀希望的树妖",
+          "text": "<b>战吼：</b>随机获取一张梦境牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93d6806c252fb95a9876fbcbb7af3cb8301ad46bb48b455216b63d4e1cefcfeb.png",
+          "imageGold": "",
+          "flavorText": "“希望这条小龙长大之后不要吃掉我。”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de2c9d77f95b3f98e5246e551fbdfc66726a84ffd77dd40083198441555d20aa.png",
+          "childIds": [
+            217,
+            808,
+            340,
+            301,
+            489
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_01",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=340&locale=en_US",
+        "response_file": "official-DREAM_01-en-us.json",
+        "response_sha256": "bdc76333e8c860164748b9fce76df059fb7ac39a63a9e6cf40aabd3596ac0226",
+        "face": {
+          "id": 340,
+          "collectible": 0,
+          "slug": "340-laughing-sister",
+          "classId": 11,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 5,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Laughing Sister",
+          "text": "<b>Elusive</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e4eb5311f6f59cb6b5ab870e3b49db9ad2bd563a656fcdae2d3e3142ff90832.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_01",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=340&locale=zh_CN",
+        "response_file": "official-DREAM_01-zh-cn.json",
+        "response_sha256": "81049812f26540ed293bb79409cbae7f7c6f896d342d6165fe256558d2381fc8",
+        "face": {
+          "id": 340,
+          "collectible": 0,
+          "slug": "340-laughing-sister",
+          "classId": 11,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 5,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "欢笑的姐妹",
+          "text": "<b>扰魔</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f39e1d3ddb46896e6b7ddcc1bc5fe7df61391c5fbd8022e5ccbd766a6f79847b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_03",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=489&locale=en_US",
+        "response_file": "official-DREAM_03-en-us.json",
+        "response_sha256": "a697561257164eafbcd8fa2fed99b41d1f5c982ca734be4d515a8c2e6692721f",
+        "face": {
+          "id": 489,
+          "collectible": 0,
+          "slug": "489-emerald-drake",
+          "classId": 11,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 6,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "Emerald Drake",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8fcdc1e601d37e0645350593d61c5e91c4177bc701af1fd1476709e1e4e80d.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_03",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=489&locale=zh_CN",
+        "response_file": "official-DREAM_03-zh-cn.json",
+        "response_sha256": "7e100a4903cf05e50ef2144d8da693b6bbea69d1f6b471b44a5d339a30ded345",
+        "face": {
+          "id": 489,
+          "collectible": 0,
+          "slug": "489-emerald-drake",
+          "classId": 11,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 6,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "翡翠幼龙",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91bedfa7c706312f6d6a9f91ee60c9f8f3583ef7171465c84a7de1fb9ddc86cc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_04",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=808&locale=en_US",
+        "response_file": "official-DREAM_04-en-us.json",
+        "response_sha256": "740f24f7f662586a19031bc14fab11ff8102dfbd0100db84a215cba2993efdc2",
+        "face": {
+          "id": 808,
+          "collectible": 0,
+          "slug": "808-dream",
+          "classId": 11,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "manaCost": 0,
+          "name": "Dream",
+          "text": "Return a minion to its owner's hand.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e47b2807981b47d57da34bd5d38ab5d91f6d3ee299b1c34b3141d29926315c7e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_04",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=808&locale=zh_CN",
+        "response_file": "official-DREAM_04-zh-cn.json",
+        "response_sha256": "aaaf26d51ef00034fb96428d78f1a7be1d577b1a0827992b98872d172b886bc5",
+        "face": {
+          "id": 808,
+          "collectible": 0,
+          "slug": "808-dream",
+          "classId": 11,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "manaCost": 0,
+          "name": "梦境",
+          "text": "将一个随从移回其拥有者的 手牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8626efc52e8e17f8b8b2fff2be2c1b90f0f7a793bb58f30e6411db92d2dabcbf.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "JAIL_703": "Actual1mana1/3 neutral MINION, with named native noncombat_sorry_permission Deathrattle. Explicit user/task combat scope excludes social emote permission; the known noncombat body returns empty effects and does not create emote/client/account/battle state. This is not unknown vanilla fallback: actual printed Deathrattle ability, definition/original identity, capture/invocation/repeat/history/silence/ordinary death and replay remain native. No social permission feature is claimed.",
+    "DREAM_01": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered.",
+    "DREAM_03": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered.",
+    "DREAM_04": "Whole dependency skipped: its complete original CLASS=11 is rejected by existing metadata_from_record/classes_from_tags with TargetValidationError(Unknown primary class metadata). No reviewed Dream-class decode/unknown-class metadata policy exists in this baseline. Required complete metadata cannot be obtained without public change or inventing/coercing class. Raw class remains11; no neutral substitution, partial definition or partial Dream generator registered.",
+    "EDR_001": "Evidence parent only, reserved to coordinator K102 with exact five children DREAM_01/02/03/04/05. No partial three-card random pool, VAN alias or producer registration. All three assigned children currently blocked on CLASS11 decoding; DREAM04 raw costNone/absentCOST and printed Nature retained, no executable default-cost or owner-return claim until complete registration.",
+    "noncombat_review": "Four supplied literal emote/Sorry rows retained as scope evidence (one duplicate actual Guard). Other cosmetic rows are not executable cards or proof that relevance inventory is exhaustive.",
+    "evidence": "Five root/dependency/parent faces in both locales, ten full cached official responses, and complete original raw rows including three additional cosmetic evidence rows. M0 formal pools and M6 precision remain incomplete."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
