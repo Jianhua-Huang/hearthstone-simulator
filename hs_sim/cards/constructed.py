@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v107"
+CONTENT_VERSION = "constructed-cn37-preview-v108"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -269,5 +269,7 @@ def build_registry():
     register_simple_timing_p06_cards(registry)
     from .native_timed_grant_cards import register_native_timed_grant_cards
     register_native_timed_grant_cards(registry)
+    from .simple_temporal_p07_cards import register_simple_temporal_p07_cards
+    register_simple_temporal_p07_cards(registry)
     registry.validate()
     return registry
