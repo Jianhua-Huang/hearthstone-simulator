@@ -1,0 +1,476 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_540",
+        "dbf_id": 115612,
+        "name": "扭曲的织网蛛",
+        "name_en": "Twisted Webweaver",
+        "text": "每当你使用其他的你已经使用过的随从牌，&抽一张牌。",
+        "text_en": "[x]Whenever you play another\nminion you've already\nplayed,& draw a card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "c91b25548445c33711fb6d655734e753ae5417c97d6646d58ce46da7dcb7e004"
+    },
+    {
+      "record": {
+        "id": "TLC_224",
+        "dbf_id": 117534,
+        "name": "机械熔火",
+        "name_en": "Mechanized Magma",
+        "text": "每当你使用一张\n火焰法术牌时，获得等同于其法力值消耗的属性值。",
+        "text_en": "Whenever you play a\nFire spell, gain stats\nequal to its Cost.",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "2539": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "51c571f397b132d488e54c2581b74618c72951a863e276d8dd59e7b2c3b7d0f3"
+    },
+    {
+      "record": {
+        "id": "TLC_232",
+        "dbf_id": 117650,
+        "name": "待哺群雏",
+        "name_en": "Ravenous Flock",
+        "text": "在你的下个回合开始时，&召唤三只2/1的啸天龙宝宝。",
+        "text_en": "At the start of your next turn,& summon three 2/1 Hatchlings.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 118658,
+          "OBJECTIVE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "edee673ca0725728997fa3446035434e297b30bb500289e4d28936ddd769e0f2"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_237t",
+        "dbf_id": 118658,
+        "name": "啸天龙宝宝",
+        "name_en": "Skyscreamer Hatchling",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "4b035fda23c443a036ffe86c8eddd65dbaaf460b0448d6ebd75ac89382cf8d68",
+      "definition_sha256": "49910093801024aef3c2371c73c5d2657dc65039c93b2b1261fb54bcf61ef2fc"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T23:10:37.425369+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_540",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115612&locale=en_US",
+        "response_file": "official-EDR_540-en-us.json",
+        "response_sha256": "d0cabf3b88bfb959a2d8e4d2dbd0f4f104a8acc66d22004d141d958b26f0b5ff",
+        "face": {
+          "id": 115612,
+          "collectible": 1,
+          "slug": "115612-twisted-webweaver",
+          "classId": 7,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Twisted Webweaver",
+          "text": "Whenever you play another minion you've already played,& draw a card.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0aa00cb0fab236ce59d7fcde770a79a5f27551f32d258b54af05a249e3c7cf71.png",
+          "imageGold": "",
+          "flavorText": "This spider is so evil that it catches things in its web and EATS them!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e320c6c5c78cec3159864b5559bba1d84f420f9e82ea1ce0ba4903f590beb318.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_540",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115612&locale=zh_CN",
+        "response_file": "official-EDR_540-zh-cn.json",
+        "response_sha256": "ab5d1c91bd780d8cb989ee215ea4cf02b66f1cd19b2eb794eff1809e400f0c56",
+        "face": {
+          "id": 115612,
+          "collectible": 1,
+          "slug": "115612-twisted-webweaver",
+          "classId": 7,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "扭曲的织网蛛",
+          "text": "每当你使用其他的你已经使用过的随从牌，&抽一张牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0df193840bc1f2a46db3a7ae2a4955001a0f5e61c7dcacec7bfbd96d7432163f.png",
+          "imageGold": "",
+          "flavorText": "这只蜘蛛太邪恶了，它不仅把猎物抓进蛛网，而且还会吃掉！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e320c6c5c78cec3159864b5559bba1d84f420f9e82ea1ce0ba4903f590beb318.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_224",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117534&locale=en_US",
+        "response_file": "official-TLC_224-en-us.json",
+        "response_sha256": "2c8c866d0803f68997dbd98f442c1b94680167cbab2652f39f0a206bde6fd72e",
+        "face": {
+          "id": 117534,
+          "collectible": 1,
+          "slug": "117534-mechanized-magma",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "multiTypeIds": [
+            17
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Felideus Bubastis",
+          "health": 5,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "Mechanized Magma",
+          "text": "Whenever you play a Fire spell, gain stats equal to its Cost.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a76fb9078f3ec3b0c2849579ba3c653ba400b3e6de2e5548142f03a5b00a5bd8.png",
+          "imageGold": "",
+          "flavorText": "Its volcanic strength powers its mechanical arm... and also its normal arm.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d0ae58970e087d9189e688522c346747d6992b4de2d6af88de6be796d527039.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_224",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117534&locale=zh_CN",
+        "response_file": "official-TLC_224-zh-cn.json",
+        "response_sha256": "6f152702ff129d2c33413a214dcb338b0a544d7eb201001c89ba19d5d2400e3b",
+        "face": {
+          "id": 117534,
+          "collectible": 1,
+          "slug": "117534-mechanized-magma",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "multiTypeIds": [
+            17
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Felideus Bubastis",
+          "health": 5,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "机械熔火",
+          "text": "每当你使用一张 火焰法术牌时，获得等同于其法力值消耗的属性值。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2283a86839541d49e3b59795881343ec764ad3b2aac818ab85cc956dd0cdea04.png",
+          "imageGold": "",
+          "flavorText": "它那条机械手臂由火山热能驱动，而另一条手臂……也一样。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d0ae58970e087d9189e688522c346747d6992b4de2d6af88de6be796d527039.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_232",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117650&locale=en_US",
+        "response_file": "official-TLC_232-en-us.json",
+        "response_sha256": "4e04da8d561cac4b65817b5d63c308d21c3576ccb4ee8432a59aac4f48567016",
+        "face": {
+          "id": 117650,
+          "collectible": 1,
+          "slug": "117650-ravenous-flock",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Guillaume Beauchêne",
+          "manaCost": 2,
+          "name": "Ravenous Flock",
+          "text": "At the start of your next turn,& summon three 2/1 Hatchlings.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/32be23bf9579bbd3384235a320c5220aef429e83b2fc9740a4d6056a72fc44b4.png",
+          "imageGold": "",
+          "flavorText": "It's a flock of screamgulls!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c5f50c7edf710ef76f471f1bd12d01543165cb4d572250486961cd8412f9eb1.png",
+          "childIds": [
+            118658
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_232",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117650&locale=zh_CN",
+        "response_file": "official-TLC_232-zh-cn.json",
+        "response_sha256": "0041e80d5108bce2e4799436929ef8d95bdbbaa0bc76b243cc6671f6e2fa5757",
+        "face": {
+          "id": 117650,
+          "collectible": 1,
+          "slug": "117650-ravenous-flock",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Guillaume Beauchêne",
+          "manaCost": 2,
+          "name": "待哺群雏",
+          "text": "在你的下个回合开始时，&召唤三只2/1的啸天龙宝宝。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5c31a0a936a9696f81bbb00d41cd94fbf83c0c466ba77e7b0299edc10a16404.png",
+          "imageGold": "",
+          "flavorText": "一群大啸子！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c5f50c7edf710ef76f471f1bd12d01543165cb4d572250486961cd8412f9eb1.png",
+          "childIds": [
+            118658
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_237t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118658&locale=en_US",
+        "response_file": "official-TLC_237t-en-us.json",
+        "response_sha256": "77591b55b95b4e58b5febec75f4797f9a3d4351357ef26b6530f9ca1f0ae7682",
+        "face": {
+          "id": 118658,
+          "collectible": 0,
+          "slug": "118658-skyscreamer-hatchling",
+          "classId": 2,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "Skyscreamer Hatchling",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9726f59cddfa4382682b1105b0ac5819d38eaf5c39da26aa0c9b6d85c3d412bd.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117657,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_237t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118658&locale=zh_CN",
+        "response_file": "official-TLC_237t-zh-cn.json",
+        "response_sha256": "8d6c687f97eb1d710a29bd60a2bae0bd6c3eaadf7e0b032727544b5b823c5fae",
+        "face": {
+          "id": 118658,
+          "collectible": 0,
+          "slug": "118658-skyscreamer-hatchling",
+          "classId": 2,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "啸天龙宝宝",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79202e9b3cda0939d5dd511d58010c69a5151e891e58ac14737704289dc47f8f.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117657,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "EDR_540": "Original card_committed hand MINION and earlier same-player actual MINION PlayRecords strictly before current play_id; canonical frozen played_face.metadata.deck_identity or frozen card_id; excludes listener physical source. Summons/transforms are not plays. Earlier countered commitments count under native played_cards contract.",
+    "TLC_224": "Original card_committed Fire SPELL hand PlayRecord; frozen submitted played face school and submitted_cost.quote.amount, not printed cost or actual mana debit. Triggers before payload/counter, automatic casts excluded; original captured source residence gets the buff.",
+    "TLC_232": "Real objective PlayerEffectSpec duration1 tick turn_started; common public secret-area capacity and expiry; next real owner start only, release slot before exactly three ordered Hatchling summons. Exact raw COLLECTION_RELATED_CARD_DATABASE_ID118658 with complete official child evidence.",
+    "status": "Internal adapter policies only; official full en-US/zh-CN faces verify identity and text, not CN precise timing/calibration."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
