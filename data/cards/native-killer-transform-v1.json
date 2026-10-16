@@ -1,0 +1,145 @@
+{
+  "batch": "K106",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_185",
+        "dbf_id": 123779,
+        "name": "无面复制者",
+        "name_en": "Faceless Replicator",
+        "text": "<b>扰魔。亡语：</b>将消灭本随从的随从变形成为无面复制者。",
+        "text_en": "[x]<b>Elusive\nDeathrattle:</b> Transform the\nminion that killed this into\n_a Faceless Replicator.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "542": 1,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "542"
+          }
+        ]
+      },
+      "record_sha256": "13adfc3d8a8b4ca3dbfec346776805a71e0c5057be2075c7e3894bcbfdef05a9"
+    }
+  ],
+  "dependencies": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T19:50:29.819319+00:00",
+    "observations": [
+      {
+        "card_id": "CATA_185",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123779&locale=en_US",
+        "response_file": "official-CATA_185-en_US.json",
+        "response_sha256": "1a52de9f6d9a7cdf39c2944e63fab98fdc5797dabf8c4dacd81d96d1317982b0",
+        "face": {
+          "id": 123779,
+          "collectible": 1,
+          "slug": "123779-faceless-replicator",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Zoltan Boros",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Faceless Replicator",
+          "text": "<b>Elusive Deathrattle:</b> Transform the minion that killed this into a Faceless Replicator.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86bca99be3106572565a2cf5280ac2ce92a0263fac7acec3c2162eeacc193deb.png",
+          "imageGold": "",
+          "flavorText": "I am thou, thou art I...",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a6cdac8ce509d0c27b666cd9ed1725906d55bc6d6e0997534a9b926fb0e85c4.png",
+          "keywordIds": [
+            12,
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_185",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123779&locale=zh_CN",
+        "response_file": "official-CATA_185-zh_CN.json",
+        "response_sha256": "01c0c2609c26054833b059f13bfe1a23f1cabfebad40130b1a0b8d3a1697ec31",
+        "face": {
+          "id": 123779,
+          "collectible": 1,
+          "slug": "123779-faceless-replicator",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Zoltan Boros",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "无面复制者",
+          "text": "<b>扰魔。亡语：</b>将消灭本随从的随从变形成为无面复制者。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73611fdc297b9ff6a8090e30de159a5047f804c369538cd9041b728ccead2339.png",
+          "imageGold": "",
+          "flavorText": "吾即是汝，汝即是吾……",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a6cdac8ce509d0c27b666cd9ed1725906d55bc6d6e0997534a9b926fb0e85c4.png",
+          "keywordIds": [
+            12,
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "The first actual fatal DeathCause supplies source identity; any minion source, including damage/poison/direct destruction, can qualify. No source or nonminion source gives no killer.",
+    "Transform only the original currently living active board minion with the same card/controller/zone_epoch/entered_order. No corpse rescue, later incarnation, control-change retarget or printed-base substitution.",
+    "Pure effect Deathrattle activation without an actual death has no killer. Copied/inherited callback uses its actual carrier death. ExactCN source eligibility and strict presence policy remain uncalibrated."
+  ]
+}

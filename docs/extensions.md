@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原致死随从变形从DeathCause取得原身份，再在实际执行时核对完整驻留，交由公共变形生命周期执行；见[原凶手变形契约](m3-native-killer-transform.md)。
+
 本回合死亡随从的亡语继承读取原完整物理声明，保留原生记忆和声明证明，分配新的可移除身份；不能只复制behavior ID，见[亡语继承契约](m3-deathrattle-inheritance.md)。
 
 混合普通效果与延系奖励应按原prepare/active接续，原属性与实际消灭奖励可直接复用已接受材料和原引用执行器，见[魔暴龙契约](m3-native-kindred-destruction.md)。
