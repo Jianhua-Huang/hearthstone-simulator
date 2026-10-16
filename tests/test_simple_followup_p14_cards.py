@@ -117,7 +117,10 @@ class SimpleFollowupP14Tests(unittest.TestCase):
             if raw['id']!=FRAGMENT:self.assertEqual(self.r.card(raw['id']).metadata,replace(metadata_from_record(raw),deck_identity=raw['id']))
         for o in d['official_observations']['observations']:
             if o['card_id']==BROLL:self.assertEqual(sorted(o['face']['childIds']),[100,226,959])
-        self.assertNotIn(FRAGMENT,self.r.cards)
+        self.assertEqual(tuple(x['record']['id']for x in d['skipped']),(FRAGMENT,))
+        if FRAGMENT in self.r.cards:
+            raw=d['skipped'][0]['record']
+            self.assertEqual(self.r.card(FRAGMENT).metadata,replace(metadata_from_record(raw),deck_identity=FRAGMENT))
 
     def test_existing_companions_and_explicit_unregistered_baseline_are_complete(self):
         with patch('hs_sim.cards.simple_followup_p14_cards.register_simple_followup_p14_cards',lambda r:None):before=build_registry()

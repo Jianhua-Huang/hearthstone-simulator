@@ -4,7 +4,8 @@ R-088 records provisional targeting, condition and automatic-choice windows.
 """
 from .hand_capacity import hand_capacity
 from copy import deepcopy
-from dataclasses import dataclass, replace
+from dataclasses import asdict, dataclass, replace
+import json
 
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError
@@ -25,6 +26,36 @@ def cast_record(state, cast_id):
     if cast_id > len(state.cast_history):
         raise ValueError('Unknown spell cast')
     return state.cast_history[cast_id - 1]
+
+
+def capture_target_origin(state, target_id):
+    """Freeze the final actual target at this cast's acceptance, before payload."""
+    from .allocation_facts import SourceAllocationFact
+    return None if target_id is None else SourceAllocationFact.capture(state,state.entities[target_id])
+
+
+def target_origin_receipt(record):
+    """Private event binding; no current entity is consulted after acceptance."""
+    return json.dumps(None if record.target_origin is None else asdict(record.target_origin),
+        ensure_ascii=False,sort_keys=True,separators=(',',':'))
+
+
+def validate_target_origins(game):
+    from .hero_health_history import effective_events
+    seen=set()
+    for event in effective_events(game._events):
+        if event.kind!='spell_cast_started':continue
+        data=dict(event.data)
+        if set(data)!={'cast_id','target_origin'}:
+            raise ValueError('Cast start requires its exact original target receipt')
+        record=cast_record(game._state,data['cast_id'])
+        if (record.id in seen or
+                (event.source_id,event.player_id,event.target_id,event.action)!=(record.source_id,record.player_id,record.target_id,record.action)or
+                event.sequence<=record.recorded_event or data['target_origin']!=target_origin_receipt(record)):
+            raise ValueError('Cast original target differs from its actual start fact')
+        seen.add(record.id)
+    if seen!={c.id for c in game._state.cast_history}:
+        raise ValueError('Cast history lost its complete original target facts')
 
 
 def cast_spells(state, player_id, *, origin=None, successful=None, turn=None, before_id=None):
@@ -109,12 +140,13 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False):
         target_id, play_id=play.id, iteration=iteration, from_zone=Zone.HAND,
         **{key: getattr(play, key) for key in CONDITIONS}, completed=countered, payload_started=not countered,
         failure='countered' if countered else None,branch_id=play.branch_id,
-        owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events))
+        owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
+        target_origin=capture_target_origin(r.state,target_id))
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
     r.emit('spell_cast_started',source_id=record.source_id,target_id=record.target_id,
-        player_id=record.player_id,cast_id=record.id)
+        player_id=record.player_id,cast_id=record.id,target_origin=target_origin_receipt(record))
     record = note_payload(r, record)
     return record
 
@@ -256,14 +288,15 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         caster_id=effect.source_id, from_zone=from_zone, choices=effect.choices,
         **conditions, completed=failure is not None, failure=failure, draw_id=draw_id, recast_id=recast_id,branch_id=branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
-        target_selection=target_proof.selection if target_proof is not None else None)
+        target_selection=target_proof.selection if target_proof is not None else None,
+        target_origin=capture_target_origin(r.state,target_id))
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     if draw_id is not None:
         from .draw_casts import note_cast
         note_cast(r, draw_id, record.id)
     r.emit('spell_cast_started', source_id=entity.id, target_id=target_id, player_id=record.player_id,
-           cast_id=record.id)
+           cast_id=record.id,target_origin=target_origin_receipt(record))
     if failure:
         r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
                cast_id=record.id, reason=failure)
@@ -375,6 +408,9 @@ def validate_history(state, registry):
     for index, record in enumerate(state.cast_history, 1):
         if type(record) is not SpellCastRecord: raise ValueError('Invalid spell cast record')
         record.__post_init__()
+        if record.target_origin is not None:
+            from .allocation_facts import validate_allocation
+            validate_allocation(state,registry,record.target_origin)
         if record.target_selection is not None:
             validate_preferred_source(record.target_selection.partition.preference, record.caster_id, state)
         from .stored_spell_damage import validate_record
@@ -438,6 +474,7 @@ def validate_history(state, registry):
 
 
 def validate_boundary(game):
+    validate_target_origins(game)
     if any(c.recorded_event > len(game._events) for c in game._state.cast_history):
         raise ValueError('Cast allocation cursor is newer than the actual event boundary')
     accepted = set(); restored_after = None

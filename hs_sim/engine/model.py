@@ -7003,7 +7003,18 @@ class SpellCastRecord:
     local_spell_damage: tuple[AbilityInstance, ...] = ()
     native_spell_value: AbilityInstance | None = None
 
+    target_origin: object | None = None
+
     def __post_init__(self):
+        from .allocation_facts import SourceAllocationFact
+        if self.target_origin is not None:
+            if type(self.target_origin)is not SourceAllocationFact:
+                raise ValueError('Spell target requires its typed original allocation')
+            self.target_origin.__post_init__()
+            if self.target_origin.entity_id!=self.target_id:
+                raise ValueError('Spell target allocation borrowed another physical target')
+        if (self.target_id is None)!=(self.target_origin is None):
+            raise ValueError('Spell target identity and original allocation must agree')
         from .stored_spell_damage import validate_local_ability
         if self.native_spell_value is not None:
             if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind!='spell_base_value':

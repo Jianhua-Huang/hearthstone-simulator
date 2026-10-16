@@ -1,0 +1,144 @@
+{
+  "batch": "K101",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "END_026",
+        "dbf_id": 121189,
+        "name": "虚无残遗",
+        "name_en": "Fragment of Nothing",
+        "text": "在你对随从施放法术后，&抽一张牌。",
+        "text_en": "After you cast a spell on a minion,& draw a card.",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 40,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "c3d3274b64cc41d30fd4820a5e73fbdf199f69cc2472cd9a4bf2867bda6b1c84"
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "END_026",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121189&locale=en_US",
+      "response_file": "official-END_026-en-us.json",
+      "response_sha256": "59250dd86f3835a8446dfbbb34662048a1abab4ddfbb0d3721d8044fdae7efce",
+      "face": {
+        "id": 121189,
+        "collectible": 1,
+        "slug": "121189-fragment-of-nothing",
+        "classId": null,
+        "multiClassIds": [
+          4,
+          6
+        ],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Gabriel Lopes",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Fragment of Nothing",
+        "text": "After you cast a spell on a minion,& draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c2363ceb1c4d7ef56b4f5b724bf6069fa9d68d9e1baf23cb3a0dbfb32de151b.png",
+        "imageGold": "",
+        "flavorText": "This is how much it cares.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5747540ad4af8315504b032a46d088de1e3b36a2885bbe5899791e55b30e46ab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "END_026",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121189&locale=zh_CN",
+      "response_file": "official-END_026-zh-cn.json",
+      "response_sha256": "c40239f47beba09b3cdc87b24ef293e308992c214ee1737c8ca0ded6b449020f",
+      "face": {
+        "id": 121189,
+        "collectible": 1,
+        "slug": "121189-fragment-of-nothing",
+        "classId": null,
+        "multiClassIds": [
+          4,
+          6
+        ],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Gabriel Lopes",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "虚无残遗",
+        "text": "在你对随从施放法术后，&抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8f1a1e6a034942345ef126f1790a8e1fbcd321cb7e27cd0386349743006a16f.png",
+        "imageGold": "",
+        "flavorText": "随便吧，它无所谓。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5747540ad4af8315504b032a46d088de1e3b36a2885bbe5899791e55b30e46ab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "target_window": "Each actual cast captures final target after native manual redirection or automatic selection and before payload/start reactions. Repeat executions accept independently. Original target SourceAllocationFact persists after death/return/cross-type transform. Successful completion consumers read exact cast_id, never latest mutable target.",
+    "consumer": "END_026 after successful own spell_cast_finished, original source alive at native finish capture, original target_origin.kind MINION => one native Draw. Hero/no-target/opponent/countered/failed casts do not qualify. Casts summoned during payload follow normal listener presence; accepted work survives later listeners according to existing native trigger capture.",
+    "integrity": "One existing typed target_origin material appended to SpellCastRecord. Full allocation validation and exact original source/player/target/action/ordered start binding in existing spell_cast_started data; original target JSON receipt remains internal, not player DTO. Effective Rewind timeline validates complete unique inventory. No new global ledger/event kind/Effect/payload type.",
+    "limits": "Target acceptance and successful-after-cast source lifecycle, exact CN policies uncalibrated. SourceAllocationFact is internal consistency evidence, not unsigned external archive authentication. Formal Standard pools and reachable content remain open."
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}
