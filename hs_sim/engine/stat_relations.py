@@ -7,7 +7,7 @@ from dataclasses import dataclass, fields, is_dataclass
 from collections import Counter
 
 from .effects import Effect, _grant
-from .model import (AbilityInstance, CardType, GameState, Keyword, StatRelationOperand, StatRelationSpec, Zone)
+from .model import (AbilityInstance, CardType, GameState, Keyword, StatReference, StatRelationOperand, StatRelationSpec, Zone)
 
 
 def validate_ordinary_face(card):
@@ -80,14 +80,16 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                            StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE else
                            'opponent-turn' if ability.stat_relation.operand ==
                            StatRelationOperand.CONTROLLER_OPPONENT_TURN else 'discard-count')
-                raise ValueError(f'Duplicate native {profile} Attack relation')
+                attribute = 'Health' if ability.stat_relation.target == StatReference.HEALTH else 'Attack'
+                raise ValueError(f'Duplicate native {profile} {attribute} relation')
 
 
 def conditional_attack(state, entity, registry=None):
     """Pure native own contribution from the current controller's facts."""
     from .lifecycle import active_abilities
     from .equipment import equipped_weapon
-    specs = tuple(a.stat_relation for a in active_abilities(entity, 'stat_relation'))
+    specs = tuple(a.stat_relation for a in active_abilities(entity, 'stat_relation')
+                  if a.stat_relation.target == StatReference.ATTACK)
     if any(s.operand == StatRelationOperand.CONTROLLER_ARMOR for s in specs):
         return state.entities[state.players[entity.controller].hero_id].armor
     overloaded = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_OVERLOADED_MANA)
@@ -146,8 +148,34 @@ def refresh_turn_attacks(state, registry):
             entity.conditional_attack = conditional_attack(state, entity, registry)
 
 
+def conditional_health(state, entity):
+    """Finite native contribution; the existing committed ledger owns the count."""
+    from .lifecycle import active_abilities
+    specs = tuple(a.stat_relation for a in active_abilities(entity, 'stat_relation')
+                  if a.stat_relation.target == StatReference.HEALTH)
+    if not specs:
+        return 0
+    for spec in specs:
+        spec.__post_init__()
+    from .discard_history import discarded_cards
+    return len(discarded_cards(state, entity.controller)) * sum(spec.amount for spec in specs)
+
+
+def refresh_conditional_health(state, *, clamp=True):
+    """Use the ordinary remaining-health clamp when this contribution shrinks."""
+    for entity in state.entities.values():
+        if not entity.conditional_health and not any(a.kind == 'stat_relation' and not a.consumed and
+                a.stat_relation.target == StatReference.HEALTH for a in entity.abilities):
+            continue
+        old_health, old_bonus = entity.health, entity.conditional_health
+        entity.conditional_health = conditional_health(state, entity)
+        if clamp and entity.conditional_health < old_bonus:
+            entity.damage = max(0, entity.max_health - old_health)
+
+
 def refresh_conditional_attacks(state, registry=None):
     """Normalize only self numeric caches; never rematch external aura sources."""
+    refresh_conditional_health(state)
     for entity in state.entities.values():
         entity.conditional_attack = conditional_attack(state, entity, registry)
     # Continuous inputs can change before an event freezes its context. Keep the original

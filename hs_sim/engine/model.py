@@ -324,6 +324,7 @@ class StatRelationOperand(StrEnum):
 class StatRelationLayer(StrEnum):
     FINAL_ATTACK = "final_attack"
     CONDITIONAL_ATTACK = "conditional_attack"
+    CONDITIONAL_HEALTH = "conditional_health"
 
 
 @dataclass(frozen=True)
@@ -339,10 +340,16 @@ class StatRelationSpec:
     count_tribe: str | None = None
 
     def __post_init__(self):
-        if (type(self.target) is not StatReference or self.target != StatReference.ATTACK or
+        if (type(self.target) is not StatReference or self.target not in (StatReference.ATTACK, StatReference.HEALTH) or
                 type(self.operand) is not StatRelationOperand or
                 type(self.layer) is not StatRelationLayer or type(self.amount) is not int):
             raise ValueError('Unsupported continuous stat relation')
+        if self.target == StatReference.HEALTH:
+            if (self.operand != StatRelationOperand.CONTROLLER_DISCARD_COUNT or
+                    self.layer != StatRelationLayer.CONDITIONAL_HEALTH or self.amount <= 0):
+                raise ValueError('Conditional Health currently requires native positive discard count')
+        elif self.layer == StatRelationLayer.CONDITIONAL_HEALTH:
+            raise ValueError('Conditional Health layer requires a Health target')
         if self.operand != StatRelationOperand.CONTROLLER_DECK_COUNT and (
                 self.card_count is not None or self.comparison is not None):
             raise ValueError('Only the current deck count relation carries a threshold/comparison')
@@ -358,7 +365,8 @@ class StatRelationSpec:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Weapon-presence relation requires its conditional layer and positive amount')
         elif self.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT:
-            if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
+            expected = StatRelationLayer.CONDITIONAL_HEALTH if self.target == StatReference.HEALTH else StatRelationLayer.CONDITIONAL_ATTACK
+            if self.layer != expected or self.amount <= 0:
                 raise ValueError('Discard-count relation requires its conditional layer and positive amount')
         elif self.operand == StatRelationOperand.CONTROLLER_DECK_COUNT:
             from .deck_conditions import DeckCountCondition
@@ -8855,6 +8863,7 @@ class Entity:
     hand_aura_keywords: set[Keyword] = field(default_factory=set)
     conditional_keywords: set[Keyword] = field(default_factory=set)
     conditional_attack: int = 0
+    conditional_health: int = 0
     uses_this_turn: int = 0
     use_limit: int = 1
     corpse_value: int = 0
@@ -8895,7 +8904,7 @@ class Entity:
 
     @property
     def max_health(self) -> int:
-        return self.base_health + self.health_bonus + self.aura_health
+        return self.base_health + self.health_bonus + self.aura_health + self.conditional_health
 
     @property
     def health(self) -> int:

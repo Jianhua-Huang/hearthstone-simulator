@@ -1,0 +1,139 @@
+{
+  "batch": "K91",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_493",
+        "dbf_id": 122713,
+        "name": "地狱公爵",
+        "name_en": "Duke of Below",
+        "text": "<b>突袭</b>。在本局对战中，你每弃掉一张牌，便拥有+2/+2。",
+        "text_en": "[x]<b>Rush</b>\nHas +2/+2 for each\ncard you've discarded\nthis game.",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "a49b3961620a70b766e69691cdfee473ed24fe987890ef84ae89096510aeba0f"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122713&locale=en_US",
+      "status": 200,
+      "sha256": "5ab6d818ed86e773f5bf735243fbfc7146e92dca72eaac5ec5e5194a9a4b23fe",
+      "body": {
+        "cards": [
+          {
+            "id": 122713,
+            "collectible": 1,
+            "slug": "122713-duke-of-below",
+            "classId": 9,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1980,
+            "rarityId": 4,
+            "artistName": "Mike Sass",
+            "health": 2,
+            "attack": 2,
+            "manaCost": 4,
+            "name": "Duke of Below",
+            "text": "<b>Rush</b> Has +2/+2 for each card you've discarded this game.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc2fcb400d3a209c3c3c08839cbbf854d67b7ae417528f20fcbc50d51c433ff6.png",
+            "imageGold": "",
+            "flavorText": "Oh come on, we can't ALL have the Duke.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca083df3b3f78abb5057c8da29ba67f70c2432088526a5f28242b965360ae24a.png",
+            "keywordIds": [
+              53
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122713&locale=zh_CN",
+      "status": 200,
+      "sha256": "d8fc71e143822cc87279d9bd8d726735e5aedd78a8a853e1c6592f98a0c418b6",
+      "body": {
+        "cards": [
+          {
+            "id": 122713,
+            "collectible": 1,
+            "slug": "122713-duke-of-below",
+            "classId": 9,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1980,
+            "rarityId": 4,
+            "artistName": "Mike Sass",
+            "health": 2,
+            "attack": 2,
+            "manaCost": 4,
+            "name": "地狱公爵",
+            "text": "<b>突袭</b>。在本局对战中，你每弃掉一张牌，便拥有+2/+2。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b51ca71b60c59273aea9e20fa2926dcbe8a19fcbb02d135d619eb3fb5b91097f.png",
+            "imageGold": "",
+            "flavorText": "其实大家的爵位都是低于公爵。",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca083df3b3f78abb5057c8da29ba67f70c2432088526a5f28242b965360ae24a.png",
+            "keywordIds": [
+              53
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      }
+    }
+  ],
+  "internal_policy": {
+    "counter": "Existing committed discard_history of current controller, includes this actual physical discard and restored Rewind ledger, no new counter.",
+    "stats": "Two finite printed native relations, Attack and Health each +2 per own discard, derived in hand/deck/board and other ordinary active carriers; never converted into permanent buffs. Health growth preserves damage; loss uses ordinary remaining-health clamp with aura changes settled together.",
+    "lifecycle": "Silence removes printed relation, reset clears caches, new current controller facts recalculate, copies preserve native declaration and recompute for recipient controller. Dormancy eligibility follows existing active-ability policy.",
+    "status": "Exact CN acceptance/health removal/copy/dormant and notification policies remain uncalibrated."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

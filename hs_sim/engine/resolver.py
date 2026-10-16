@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v382'
+CORE_EFFECTS_VERSION = 'core-effects-v383'
 
 
 class Mechanics:
@@ -628,6 +628,7 @@ class Resolution:
         bonuses = {i: [0, 0] for i in self.state.entities}
         old_health = {i: e.health for i, e in self.state.entities.items()}
         old_aura = {i: e.aura_health for i, e in self.state.entities.items()}
+        old_conditional = {i: e.conditional_health for i, e in self.state.entities.items()}
         for entity in self.state.entities.values():
             refresh_entity(entity)
         for player in self.state.players.values():
@@ -662,9 +663,11 @@ class Resolution:
                                 continue
                             bonuses[target_id][0] += aura.attack
                             bonuses[target_id][1] += aura.health
+        from .stat_relations import refresh_conditional_health
+        refresh_conditional_health(self.state, clamp=False)
         for entity_id, entity in self.state.entities.items():
             entity.aura_attack, entity.aura_health = bonuses[entity_id]
-            if entity.aura_health < old_aura[entity_id]:
+            if entity.aura_health + entity.conditional_health < old_aura[entity_id] + old_conditional[entity_id]:
                 entity.damage = max(0, entity.max_health - old_health[entity_id])
         from .keyword_auras import refresh_keyword_auras
         from .stat_auras import refresh_weapon_auras,refresh_hero_auras

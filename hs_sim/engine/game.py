@@ -652,7 +652,7 @@ class Game:
         def derived(e):
             return (e.aura_attack, e.aura_health, e.attack_bonus, e.health_bonus, e.cost_modifier,
                     e.weapon_attack, frozenset(e.weapon_keywords), frozenset(e.aura_keywords),
-                    frozenset(e.hand_aura_keywords), frozenset(e.conditional_keywords), e.conditional_attack,
+                    frozenset(e.hand_aura_keywords), frozenset(e.conditional_keywords), e.conditional_attack, e.conditional_health,
                     frozenset(e.keywords), e.frozen_until_owner_turn)
         before = {i: derived(e) for i, e in self._state.entities.items()}
         Resolution(self).refresh_auras(include_dying=deferred, emit_freeze_changes=False)

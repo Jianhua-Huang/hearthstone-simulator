@@ -213,6 +213,7 @@ def reset_to_definition(state, entity, definition, registry=None, *, components=
     entity.hand_aura_keywords = set()
     entity.conditional_keywords = set()
     entity.conditional_attack = 0
+    entity.conditional_health = 0
     entity.use_limit = definition.uses_per_turn
     entity.corpse_value = (int(definition.kind == 'minion') if definition.corpse_value is None
                            else definition.corpse_value)

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 305
+SNAPSHOT_SCHEMA_VERSION = 306
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1569,6 +1569,7 @@ def entity_from_dict(row):
     _integer(row['durability'], 'durability')
     _integer(row['weapon_attack'], 'weapon_attack', 0)
     _integer(row['conditional_attack'], 'conditional_attack', 0)
+    _integer(row['conditional_health'], 'conditional_health', 0)
     _integer(row['uses_this_turn'], 'uses_this_turn', 0)
     _integer(row['use_limit'], 'use_limit', 1)
     _integer(row['corpse_value'], 'corpse_value', 0)
