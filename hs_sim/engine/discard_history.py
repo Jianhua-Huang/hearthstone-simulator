@@ -21,6 +21,8 @@ class DiscardRecord:
     hand_entry_id: int
     source: SourceAllocationFact | None
     reveal: bool
+    components: tuple[str, ...] = ()
+    jade_size: int | None = None
 
     def __post_init__(self):
         for name in ('id','player_id','turn','event_sequence','hand_entry_id'):
@@ -36,6 +38,11 @@ class DiscardRecord:
             self.source.__post_init__()
             if (self.source.next_entity_id,self.source.next_order)!=(self.card.next_entity_id,self.card.next_order):
                 raise ValueError('Discard card and cause require one original capture window')
+        if type(self.components) is not tuple or any(type(cid) is not str or not cid for cid in self.components):
+            raise ValueError('Discard base material requires ordered component identities')
+        if self.jade_size is not None:_int(self.jade_size,'discard innate Jade size',0)
+        if self.kind != CardType.MINION and (self.components or self.jade_size is not None):
+            raise ValueError('Only discarded minions carry innate minion material')
 
     @property
     def entity_id(self):return self.card.entity_id
@@ -55,6 +62,7 @@ def validate_state(state, registry=None):
     last_turn=last_action=last_event=0;seen=set()
     for index,row in enumerate(state.discard_history,1):
         row.__post_init__();card=row.card
+        if registry is not None:validate_base_recipe(registry,row)
         if (row.id!=index or not last_turn<=row.turn<=state.turn or not last_action<=row.action<=state.action_number or
                 row.event_sequence<=last_event or row.hand_entry_id>len(state.hand_entries)):
             raise ValueError('Discard history changed its original chronology or acquisition')
@@ -97,13 +105,40 @@ def _validate_event(row,event):
         raise ValueError('Discard history disagrees with its actual original event')
 
 
+def validate_base_recipe(registry,row):
+    """The small printed recovery recipe, independent of later entity movement."""
+    definition=registry.card(row.card_id)
+    if bool(definition.starship_for) != bool(row.components):
+        raise ValueError('Discarded composite material differs from its original body kind')
+    for cid in row.components:
+        part=registry.card(cid)
+        if part.kind != CardType.MINION or part.starship_for:
+            raise ValueError('Discarded composition requires ordinary minion components')
+    from .jade import family_for
+    family=family_for(registry,row.card_id) if registry.jade_families else None
+    if family is None:
+        if row.jade_size is not None:raise ValueError('Discarded innate size requires its registered Jade family')
+    elif row.jade_size is None or family.card_for(row.jade_size)!=row.card_id:
+        raise ValueError('Discarded Jade material changed its original printed form')
+
+
+def validate_base_copy(state,registry,row):
+    if type(row) is not DiscardRecord:raise ValueError('Discard base copy requires a successful typed occurrence')
+    row.__post_init__()
+    if row.id > len(state.discard_history) or state.discard_history[row.id-1] != row:
+        raise ValueError('Discard base copy differs from its committed original occurrence')
+    validate_allocation(state,registry,row.card);validate_base_recipe(registry,row)
+    if not registry.card(row.card_id).hand_playable:
+        raise ValueError('Discard base copy requires a playable hand card')
+
+
 def commit(r,event,capture):
     """Publish once after actual HAND -> GRAVEYARD, before listeners capture."""
-    if type(capture) is not tuple or len(capture)!=4:raise ValueError('Discard publication needs its complete original capture')
-    card,entry_id,source,reveal=capture
+    if type(capture) is not tuple or len(capture)!=7:raise ValueError('Discard publication needs its complete original capture')
+    card,entry_id,source,reveal,components,jade_size,memory=capture
     validate_state(r.state,r.registry)
     row=DiscardRecord(r.state.next_discard_id,event.player_id,r.state.turn,r.state.action_number,
-        event.sequence,card,entry_id,source,reveal)
+        event.sequence,card,entry_id,source,reveal,components,jade_size)
     _validate_event(row,event);entity=r.state.entities.get(row.entity_id)
     if (event.sequence!=len(r.game._events)+1 or entity is None or
             (entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch)!=
@@ -111,6 +146,9 @@ def commit(r,event,capture):
         raise ValueError('Discard publication lost its actual original physical movement')
     r.state.discard_history.append(row);r.state.next_discard_id+=1
     validate_state(r.state,r.registry)
+    if memory is not None:
+        from .deathrattle_memory import remember_discard
+        remember_discard(r,memory,row)
 
 
 def validate_boundary(game):
@@ -130,6 +168,7 @@ def rows_from_dict(value):
     _integer(value['next_discard_id'],'next discard ID',1);rows=[]
     for item in _list(value['discard_history'],'discard history'):
         row=_row(item,DiscardRecord);row['card']=allocation_from_dict(row['card']);row['source']=allocation_from_dict(row['source'])
+        row['components']=tuple(_list(row['components'],'discard original components'))
         rows.append(DiscardRecord(**row))
     value['discard_history']=rows
 

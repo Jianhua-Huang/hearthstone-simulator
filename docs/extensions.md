@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实延迟返还弃牌使用原生discard_link，在实际成功通知前绑定原记录；基础重新获取使用CopyCard(DiscardRecord,mode="base")，不扫描source_id历史，也不扩展旧物理返还范围。见[原生弃牌记忆](m3-native-discard-memory.md)。
+
 真实“本回合使用过某学派”目标只读本人DTO的有序学派集合，原事实由既有提交账本投影，不能在玩家条件闭包读取全状态或从墓地推断。普通根与独立主体窗口、私密范围及原观察校验见[契约](m3-played-school-targets.md)。
 
 原随从攻击规则授予可用GrantAttackPolicy.recipient保护原接收对象，来源归属和source_binding仍各自保留；见[契约](m3-captured-attack-grants.md)。

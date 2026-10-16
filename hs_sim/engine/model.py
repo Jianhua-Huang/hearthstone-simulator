@@ -2477,7 +2477,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'draw_link'):
+        if self.kind not in ('summon_growth', 'draw_link', 'discard_link'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2485,7 +2485,7 @@ class NativeDeathrattleSpec:
             _name(self.card_id, 'native Deathrattle summon card')
             if self.health < 1:raise ValueError('Native summon requires positive initial Health')
         elif self.card_id is not None or self.attack or self.health:
-            raise ValueError('Draw linkage cannot carry summon material')
+            raise ValueError('Native linkage cannot carry summon material')
 
 
 @dataclass(frozen=True)
@@ -2505,6 +2505,7 @@ class DeathrattleMemory:
     spec: NativeDeathrattleSpec
     growth_steps: int = 0
     draws: tuple[RememberedDraw, ...] = ()
+    discard_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
@@ -2516,6 +2517,13 @@ class DeathrattleMemory:
             raise ValueError('Native Deathrattle memory mixed unrelated payloads')
         ids=tuple(x.draw_id for x in self.draws)
         if ids!=tuple(sorted(set(ids))):raise ValueError('Remembered draws must retain their original unique order')
+        if type(self.discard_ids) is not tuple or any(type(i) is not int or i < 1 for i in self.discard_ids):
+            raise ValueError('Discard memory requires immutable positive occurrence identities')
+        if self.discard_ids != tuple(sorted(set(self.discard_ids))):
+            raise ValueError('Remembered discards must retain their original unique order')
+        if (self.spec.kind != 'discard_link' and self.discard_ids or
+                self.spec.kind == 'discard_link' and (self.draws or self.growth_steps)):
+            raise ValueError('Native discard memory cannot mix unrelated payloads')
 
 
 @dataclass(frozen=True)

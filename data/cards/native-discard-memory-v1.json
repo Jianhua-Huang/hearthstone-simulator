@@ -1,0 +1,131 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_897",
+        "dbf_id": 123660,
+        "name": "宝石囤积者",
+        "name_en": "Gemstone Hoarder",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌并弃掉。<b>亡语：</b>重新获取弃掉的牌，其法力值消耗减少（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a card in\nyour hand to discard.\n<b>Deathrattle:</b> Get it back.\nIt costs (1) less.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "7e3f3d8895a7bf66bb1928252bfc5b6e8c663551eb11517d5e6b680556ecc3d3"
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_897",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123660&locale=en_US",
+      "response_file": "official-CATA_897-en-us.json",
+      "response_sha256": "cc3dbba9668872e493344dc078bb82550e34cc0fe07de21565387f3d324f97b0",
+      "face": {
+        "id": 123660,
+        "collectible": 1,
+        "slug": "123660-gemstone-hoarder",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Gemstone Hoarder",
+        "text": "<b>Battlecry:</b> Choose a card in your hand to discard. <b>Deathrattle:</b> Get it back. It costs (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46652e4b652b30c05cad2e38d325c701574814cd728ba56988ed7e4d92e9abff.png",
+        "imageGold": "",
+        "flavorText": "Two gems per day wasn't enough.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e9c06cef2ec52269e1dde6fbc1075d2cb8d2458f73ab7a684d2c91fedb17133.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "CATA_897",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123660&locale=zh_CN",
+      "response_file": "official-CATA_897-zh-cn.json",
+      "response_sha256": "18b53508a893751c4a688dfc26aded405bc5aeee9099b1bc2da4720ac6d30892",
+      "face": {
+        "id": 123660,
+        "collectible": 1,
+        "slug": "123660-gemstone-hoarder",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "宝石囤积者",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌并弃掉。<b>亡语：</b>重新获取弃掉的牌，其法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/134fc9df08a60dc0120d3fb492bca8381fdd38e474be250e56339d794af858c1.png",
+        "imageGold": "",
+        "flavorText": "每天只有两颗，运动量远远不够。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e9c06cef2ec52269e1dde6fbc1075d2cb8d2458f73ab7a684d2c91fedb17133.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "discard": "Ordinary IF_AVAILABLE friendly other HAND card of all playable types. Each actual successful DiscardRecord is linked to originally captured native Deathrattle abilities before discard listeners/own-discard body capture. Stale physical target creates neither discard nor memory.",
+    "memory": "Native discard_link stores only ordered immutable actual discard IDs; existing record also freezes minimal printed base components/Jade identity. Current copy carries memory independently; base copy, reset, silence and transform follow ordinary native attachment policies. No scanning source-ID history or player memo map.",
+    "recovery": "Actual native Deathrattle frozen memory resolves each original DiscardRecord through shared CopyCard(base,HAND), granting fresh local CostSpec(delta=-1) before acquisition notification. New base instance, components/innate printed identity retained, old local buffs/cost/injury/temporary hand lease not inherited. Current Deathrattle executor receives copy; original discarded physical entity can have moved without rebinding recipe. Exact server copy/return identity/material policy remains CN-uncalibrated.",
+    "multiple": "Each successful repeated native body appends its own accepted occurrence to original ability only. Already accepted Deathrattle captures remain unchanged; same-ID new residence/removed native ability do not receive late links. Non-native special grants lacking original memory remain explicit unsupported."
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}

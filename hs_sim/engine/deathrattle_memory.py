@@ -4,6 +4,7 @@ from .effects import Effect,_integer,_player
 from .errors import ResolutionError
 from .model import CardType,DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,Zone
 from .sacrifice import MinionReference,reference_value,same_instance,live_minion
+from .zones import CardReference,DiscardCard,discard_card
 
 
 def validate_link(state,link):
@@ -27,6 +28,14 @@ def validate_ability(state,registry,ability):
     if ability.deathrattle_card_id is None or registry.card(ability.deathrattle_card_id).native_deathrattle!=memory.spec:
         raise ValueError('Deathrattle memory differs from its printed declaration')
     for link in memory.draws:validate_link(state,link)
+    for discard_id in memory.discard_ids:
+        if discard_id > len(state.discard_history):raise ValueError('Remembered discard exceeds original history')
+        row=state.discard_history[discard_id-1]
+        from .discard_history import validate_base_copy
+        validate_base_copy(state,registry,row)
+        if (row.source is None or row.source.kind!=CardType.MINION or row.source.zone!=Zone.BOARD or
+                registry.card(row.source.card_id).native_deathrattle!=memory.spec):
+            raise ValueError('Remembered discard lost its original native source declaration')
 
 
 def validate_carrier(state,registry,card_id,kind,abilities,components=()):
@@ -65,6 +74,57 @@ class DiscardRememberedDraw(Effect):
         _integer(self.deathrattle_id,'actual Deathrattle invocation',1)
         if type(self.draw)is not RememberedDraw:raise ValueError('Expected original physical draw linkage')
         self.draw.__post_init__()
+
+
+@dataclass(frozen=True)
+class DiscardForDeathrattle(Effect):
+    """Commit an original hand discard to original native attachments before notification."""
+    card: CardReference
+    reference: MinionReference
+    ability_ids: tuple[int, ...]
+
+    def __post_init__(self):
+        if type(self.card) is not CardReference:raise ValueError('Native discard requires an original physical hand card')
+        self.card.__post_init__();reference_value(self.reference)
+        if self.card.zone!=Zone.HAND:raise ValueError('Native discard linkage requires HAND')
+        if type(self.ability_ids) is not tuple or len(set(self.ability_ids))!=len(self.ability_ids):
+            raise ValueError('Native discard requires immutable distinct original ability identities')
+        for value in self.ability_ids:_integer(value,'original discard-link ability',1)
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__();validate_reference(state,self.reference,self.ability_ids)
+        entity=state.entities.get(self.card.entity_id)
+        if entity is None or self.card.zone_epoch>entity.zone_epoch:
+            raise ValueError('Native discard borrowed an unknown or future original card')
+        if registry.card(self.reference.card_id).kind!=CardType.MINION or not registry.card(self.card.card_id).hand_playable:
+            raise ValueError('Native discard requires a minion source and playable stored card')
+
+
+def discard_for_memory(r,effect):
+    effect.validate_in_state(r.state,r.registry)
+    return discard_card(r,DiscardCard(effect.card,effect.reference.entity_id),deathrattle_memory=effect)
+
+
+def remember_discard(r,effect,row):
+    if type(effect) is not DiscardForDeathrattle:raise ResolutionError('Expected actual native discard request')
+    effect.validate_in_state(r.state,r.registry);ref=effect.reference;card=effect.card
+    if (row.card.entity_id,row.card.controller,row.card.card_id,row.card.zone_epoch)!=(
+            card.entity_id,card.player_id,card.card_id,card.zone_epoch):
+        raise ResolutionError('Native discard memory borrowed a different successful physical operation')
+    source=same_instance(r.state,ref)
+    if source is None:return
+    if row.source is None or (
+            row.source.entity_id,row.source.controller,row.source.card_id,row.source.zone_epoch,row.source.entered_order)!=(
+            ref.entity_id,ref.player_id,ref.card_id,ref.zone_epoch,ref.entered_order):
+        raise ResolutionError('Native discard memory borrowed a different original source residence')
+    replacements={}
+    for ability in source.abilities:
+        if ability.id not in effect.ability_ids:continue
+        validate_ability(r.state,r.registry,ability);memory=ability.deathrattle_memory
+        if memory is None or memory.spec.kind!='discard_link':
+            raise ResolutionError('Original discard-link ability changed its native profile')
+        replacements[ability.id]=replace(ability,deathrattle_memory=replace(memory,discard_ids=(*memory.discard_ids,row.id)))
+    source.abilities=[replacements.get(a.id,a)for a in source.abilities]
 
 
 def validate_reference(state,reference,ability_ids):
@@ -137,6 +197,7 @@ def public_summons(entity):
 
 
 def register(mechanics):
-    for typ,handler in ((GrowDeathrattleSummon,grow),(DrawForDeathrattle,draw),(DiscardRememberedDraw,discard)):
+    for typ,handler in ((GrowDeathrattleSummon,grow),(DrawForDeathrattle,draw),(DiscardRememberedDraw,discard),
+                        (DiscardForDeathrattle,discard_for_memory)):
         mechanics.register(typ,handler)
     for typ in (NativeDeathrattleSpec,RememberedDraw,DeathrattleMemory):mechanics.register_payload_type(typ)

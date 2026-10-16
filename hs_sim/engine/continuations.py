@@ -145,6 +145,13 @@ class FrameCodec:
         from .copy_materials import CapturedCardCopyMaterial,validate_captured_card_copy
         if type(value)is CapturedCardCopyMaterial and self.origin_state is not None:
             validate_captured_card_copy(self.origin_state,self.registry,value)
+        from .deathrattle_memory import DiscardForDeathrattle
+        if type(value) is DiscardForDeathrattle and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+        from .zones import CopyCard
+        from .discard_history import DiscardRecord,validate_base_copy
+        if type(value) is CopyCard and type(value.card) is DiscardRecord and self.origin_state is not None:
+            validate_base_copy(self.origin_state,self.registry,value.card)
         from .resolver import BehaviorCall
         from .player_effects import PlayerEffectDamage,health_source
         if type(value)is PlayerEffectDamage and self.origin_state is not None:

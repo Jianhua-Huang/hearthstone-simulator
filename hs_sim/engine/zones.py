@@ -19,6 +19,7 @@ from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
 from .copy_materials import CopyEntryMaterial,CapturedCardCopyMaterial,validate_captured_card_copy
 from .allocation_facts import SourceAllocationFact, allocation_from_payload, validate_allocation
+from .discard_history import DiscardRecord, validate_base_copy as validate_discard_base_copy
 
 
 CARD_ZONES = (Zone.HAND, Zone.DECK)
@@ -153,7 +154,7 @@ class MoveCard(Effect):
 
 @dataclass(frozen=True)
 class CopyCard(Effect):
-    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord
+    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord
     player_id: int
     destination: Zone = Zone.HAND
     mode: str = 'current'
@@ -164,7 +165,10 @@ class CopyCard(Effect):
     expires_turn: int | None = None
 
     def __post_init__(self):
-        if type(self.card)is DeathRecord:
+        if type(self.card)is DiscardRecord:
+            self.card.__post_init__()
+            if self.mode!='base':raise ValueError('Discard occurrence copies require the original printed recipe')
+        elif type(self.card)is DeathRecord:
             self.card.__post_init__()
             if self.mode!='base' or self.card.zone!=Zone.BOARD:raise ValueError('Death copies require their original printed board-minion recipe')
         elif type(self.card)is CapturedCardCopyMaterial:
@@ -764,6 +768,10 @@ def copy_physical_card(r, effect):
     if type(effect.card)is CapturedCardCopyMaterial:
         validate_captured_card_copy(r.state,r.registry,effect.card)
         source=effect.card.entity()
+    elif type(effect.card)is DiscardRecord:
+        row=effect.card;validate_discard_base_copy(r.state,r.registry,row)
+        source=Entity(row.entity_id,row.card_id,row.card.owner,row.player_id,Zone.GRAVEYARD,kind=row.kind,
+            components=row.components,jade_size=row.jade_size)
     elif type(effect.card)is DeathRecord:
         row=effect.card
         if row.id>len(r.state.death_history)or r.state.death_history[row.id-1]!=row or r.registry.card(row.card_id).kind!=CardType.MINION:
@@ -885,15 +893,23 @@ def destroy_deck_batch(r, effect):
     return ()
 
 
-def discard_card(r, effect):
+def discard_card(r, effect, *, deathrattle_memory=None):
     effect.__post_init__()
     source_exists(r, effect.source_id)
+    if deathrattle_memory is not None:
+        from .deathrattle_memory import DiscardForDeathrattle
+        if type(deathrattle_memory) is not DiscardForDeathrattle:
+            raise ResolutionError('Discard linkage requires its exact native request')
+        deathrattle_memory.validate_in_state(r.state,r.registry)
+        if (effect.card,effect.source_id)!=(deathrattle_memory.card,deathrattle_memory.reference.entity_id):
+            raise ResolutionError('Discard linkage borrowed a different original operation')
     entity = reference_entity(r, effect.card)
     if entity is None:
         return
     from .allocation_facts import SourceAllocationFact
     capture=(SourceAllocationFact.capture(r.state,entity),entity.hand_entry_id,
-        SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal)
+        SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal,
+        entity.components,entity.jade_size,deathrattle_memory)
     r.move(entity, Zone.GRAVEYARD)
     viewers = (1, 2) if effect.reveal else (entity.controller,)
     for viewer in viewers:

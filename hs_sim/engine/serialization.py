@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 311
+SNAPSHOT_SCHEMA_VERSION = 312
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -294,6 +294,7 @@ def _ability_from_dict(value):
         memory=_row(row['deathrattle_memory'],DeathrattleMemory)
         memory['spec']=NativeDeathrattleSpec(**_row(memory['spec'],NativeDeathrattleSpec))
         memory['draws']=tuple(RememberedDraw(**_row(x,RememberedDraw))for x in _list(memory['draws'],'remembered physical draws'))
+        memory['discard_ids']=tuple(_list(memory['discard_ids'],'remembered physical discards'))
         row['deathrattle_memory']=DeathrattleMemory(**memory)
     if row['native_condition'] is not None:
         from .model import NativeSourceCondition

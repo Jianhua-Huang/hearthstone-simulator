@@ -349,7 +349,7 @@ def enter(r,material,entity):
 
 
 def from_dict(cls,value):
-    from .serialization import _row,_ability_from_dict,_enchantment_from_dict
+    from .serialization import _row,_list,_ability_from_dict,_enchantment_from_dict
     row=_row(value,cls)
     if cls is CopyLocalState:
         if row['choose_branch'] is not None:
@@ -371,6 +371,7 @@ def from_dict(cls,value):
             row['discard']=dict(_row(row['discard'],DiscardRecord))
             row['discard']['card']=allocation_from_dict(row['discard']['card'])
             row['discard']['source']=allocation_from_dict(row['discard']['source'])
+            row['discard']['components']=tuple(_list(row['discard']['components'],'discard original components'))
             row['discard']=DiscardRecord(**row['discard'])
     return cls(**row)
 

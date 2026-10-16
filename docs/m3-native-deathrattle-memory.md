@@ -4,7 +4,7 @@
 
 [完整固定源](../data/cards/native-deathrattle-memory-v1.json)和[卡牌适配](../hs_sim/cards/native_deathrattle_memory_cards.py)保留两个根卡及完整速生雏龙。暮光龙卵的静态官方API省略了动态数字，初始2/1仍由固定源两个脚本值与真实2/1token共同约束，不能把漏值当作0/0。
 
-CardDefinition.native_deathrattle声明有限NativeDeathrattleSpec，kind只有summon_growth和draw_link。前者明确命名token及初始身材，后者不能混入召唤材料。印刷亡语安装DeathrattleMemory到原AbilityInstance，保存成长次数或完整有序RememberedDraw，二者不能混用。它是可复制、可被沉默移除的卡牌局部材料，不另建玩家计数或GameState历史副账本。
+CardDefinition.native_deathrattle声明有限NativeDeathrattleSpec，本节的kind为summon_growth和draw_link。前者明确命名token及初始身材，后者不能混入召唤材料。印刷亡语安装DeathrattleMemory到原AbilityInstance，保存成长次数或完整有序RememberedDraw，二者不能混用。它是可复制、可被沉默移除的卡牌局部材料，不另建玩家计数或GameState历史副账本。
 
 龙卵在控制者实际回合开始时返回GrowDeathrattleSummon，绑定原MinionReference/亡语能力ID；死亡、离场或被移除的能力不重绑。该请求只更换原附件的不可变记忆，不给龙卵自身增加属性。真正亡语使用DeathrattleCapture.ability中已经接受的材料，计算初始身材加成长值，再交SummonByCard与原SummonCause；不读取后来活体的数值或重新捕获已经接受的亡语计划。当前复制保留材料并独立成长，基础复制/重置沿原生命周期恢复初值。
 
@@ -19,3 +19,5 @@ DiscardRememberedDraw必须对应实际已开始、未完成/中断的亡语记�
 玩家观察只为可见的召唤成长材料增加deathrattle_summons，内容仅为token card_id及当前attack/health。栉龙的draw ID、hand_entry_id、来源ID和完整记忆不输出给任一玩家；完整快照继续是宿主全知数据。公开观察协议为player-view-v86，命令12、replay1保持。
 
 核心359/schema284包含三个有限效果及严格类型载荷；没有新GameState字段。新增AbilityInstance.deathrattle_memory字段进入保存，旧1～283必须使用原引擎。定义native_deathrattle=None仅从旧指纹/PIN视图省略，非空声明始终签名；旧定义asdict多出的None不能宣称字节未变。默认311指纹保持也不能推导跨schema存档兼容或国服完整支持。
+
+实际成功弃牌到后续重新获取另见[原生弃牌记忆](m3-native-discard-memory.md)。它在同一类型中新增discard_link，原两类解释器及本节范围保持；当前格式按该扩展及两份执行台账，不能沿用本节历史schema284载入新记忆。
