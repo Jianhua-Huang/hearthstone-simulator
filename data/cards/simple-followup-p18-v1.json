@@ -1,0 +1,278 @@
+{
+  "batch": "P18",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_395",
+        "dbf_id": 125934,
+        "name": "下水道游水鳄",
+        "name_en": "Sewer Swimmer",
+        "text": "<b>预备</b>。<b>战吼：</b>触发一个友方随从的<b>亡语</b>。",
+        "text_en": "[x]<b>Prepare</b>\n<b>Battlecry:</b> Trigger a friendly\n_minion's <b>Deathrattle.</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "60120da1ba954b82522d56e50576361af0cb2a3ed40a8c6918fc8a0fefdd3778"
+    },
+    {
+      "record": {
+        "id": "TLC_825",
+        "dbf_id": 117598,
+        "name": "暴掠龙女王",
+        "name_en": "Ravasaur Matriarch",
+        "text": "<b>延系：</b>对一个敌方随从造成等同于本随从攻击力的伤害。",
+        "text_en": "[x]<b>Kindred:</b> Deal damage to\nan enemy minion equal to\nthis minion's Attack.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "3cba52fbf34497fa7e1a3568b129b6115582d60f01be015602de762ada16beed"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [
+    {
+      "id": "TLC_825",
+      "reason": "Shared target pipeline has no native Kindred condition. Unconditional IF_AVAILABLE enemy domain requires targets even inactive; omniscient conditional predicate is rejected by player API. DTO does not retain prior owner-turn matching facts; do not bypass information/reconstruction contract. Whole root remains unregistered.",
+      "reproducer": "outputs/simple-cards-p18/test_p18_gap.py"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-17T02:50:19.200025+08:00",
+    "source": "Four complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "JAIL_395",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125934&locale=en_US",
+        "response_file": "official-JAIL_395-en_US.json",
+        "response_sha256": "2bdc717adc99ff632418a6a20885e6c3a2f62c4efca2b534c8fda42d14393482",
+        "face": {
+          "id": 125934,
+          "collectible": 1,
+          "slug": "125934-sewer-swimmer",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 4,
+          "artistName": "James Ryman",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "Sewer Swimmer",
+          "text": "<b>Prepare</b> <b>Battlecry:</b> Trigger a friendly minion's <b>Deathrattle.</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05ed99c7b88575ec082beae9b3d88a162128cd2069d13a9cc301d05acc99c4ef.png",
+          "imageGold": "",
+          "flavorText": "It's Sewer Swimmer Saturday!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf760e9efddd2d2ff921e13d85c667969aa21169d0b3c50aeae31428001cb250.png",
+          "keywordIds": [
+            8,
+            12,
+            382
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_395",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125934&locale=zh_CN",
+        "response_file": "official-JAIL_395-zh_CN.json",
+        "response_sha256": "76a5dd4fa2d69288304efc4e34f773738de1f828436ad6333703fb2089b11557",
+        "face": {
+          "id": 125934,
+          "collectible": 1,
+          "slug": "125934-sewer-swimmer",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 4,
+          "artistName": "James Ryman",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "下水道游水鳄",
+          "text": "<b>预备</b>。<b>战吼：</b>触发一个友方随从的<b>亡语</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd51dbc2e5ed51920bf51bd3acb6c732a7db41eac97219673505ad4df08be2d2.png",
+          "imageGold": "",
+          "flavorText": "今天是下水道划水的日子！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf760e9efddd2d2ff921e13d85c667969aa21169d0b3c50aeae31428001cb250.png",
+          "keywordIds": [
+            8,
+            12,
+            382
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_825",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117598&locale=en_US",
+        "response_file": "official-TLC_825-en_US.json",
+        "response_sha256": "06ea800bf670042585430489afc59a87179f5a7d0e30cf29946c3eb3dd187179",
+        "face": {
+          "id": 117598,
+          "collectible": 1,
+          "slug": "117598-ravasaur-matriarch",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Brian Despain",
+          "health": 4,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "Ravasaur Matriarch",
+          "text": "<b>Kindred:</b> Deal damage to an enemy minion equal to this minion's Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/051ad665b63088709cd7edf7928763bcfd5813ec85f7b5983e12db12f8abe2b6.png",
+          "imageGold": "",
+          "flavorText": "The female Ravasaur is 30% larger than the male. And 100% more aggressive.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab170bb9926db9d0eae794fac645fb7d2389fb771ca9a11ed2ac24ea9f4ab443.png",
+          "keywordIds": [
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_825",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117598&locale=zh_CN",
+        "response_file": "official-TLC_825-zh_CN.json",
+        "response_sha256": "e7e8b85ecdfd2f409cd7f70f251f183929acd67005ca8ded5c5ac7cecc0d1ae2",
+        "face": {
+          "id": 117598,
+          "collectible": 1,
+          "slug": "117598-ravasaur-matriarch",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Brian Despain",
+          "health": 4,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "暴掠龙女王",
+          "text": "<b>延系：</b>对一个敌方随从造成等同于本随从攻击力的伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3e2eeca0927b61bc7b90e0e491d0d758634fe15c6efb7ccee0488b2dab01a52.png",
+          "imageGold": "",
+          "flavorText": "雌性暴掠龙的体型比雄性大30%，攻击性更是高了100%。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab170bb9926db9d0eae794fac645fb7d2389fb771ca9a11ed2ac24ea9f4ab443.png",
+          "keywordIds": [
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Prepare uses native HandActionSpec and original payment, once state and same-turn lock.",
+    "Sewer Swimmer may target any other friendly eligible minion, including no Deathrattle; no target when no ally exists. Native activation does not fake a death.",
+    "Exact target/self, original activation and Prepare timing remain inherited local contracts pending CN.",
+    "TLC_825 complete raw and two official faces retained as skipped root evidence; no executable partial body or Kindred profile registered."
+  ]
+}
