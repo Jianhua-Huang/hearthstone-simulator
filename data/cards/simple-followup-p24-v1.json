@@ -1,0 +1,213 @@
+{
+  "batch": "P24",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_487",
+        "dbf_id": 123419,
+        "name": "祈雨元素",
+        "name_en": "Raincaller",
+        "text": "每回合中，你第一次用法术造成伤害时，&获得+2攻击力。",
+        "text_en": "The first time you deal damage with a spell each turn,& gain +2 Attack.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "b263776d0211940e61f2e5b6393aa45cad0ec3ac9e67289d9fbbe8bcd0a2925c"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_029",
+        "dbf_id": 315,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e5d6003a35de8d5a7cc21d1744d22d3aa569b62ef5085f523727966459d54996",
+      "definition_sha256": "00f3568b9f3302d8ea2b14459f5612ca6ae167dafeb14ecf424b5d506cc79088"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T04:02:13.571783+08:00",
+    "source": "Two complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_487",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123419&locale=en_US",
+        "response_file": "official-CATA_487-en_US.json",
+        "response_sha256": "5d686e6e4ef79850e811e560ba92e1ac37c19bc55966065d8add303e4efdf74f",
+        "face": {
+          "id": 123419,
+          "collectible": 1,
+          "slug": "123419-raincaller",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 4,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "Raincaller",
+          "text": "The first time you deal damage with a spell each turn,& gain +2 Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d30135be4d834070b51a53dfc9e7b1180ee64b71a638d62d9640d2f86cb72d.png",
+          "imageGold": "",
+          "flavorText": "I bless the rains down in Nazjatar...",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35f4bcce6a340aa0261addc35d1b54adb726cfa1a5b2119576f7e8507f7155e0.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_487",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123419&locale=zh_CN",
+        "response_file": "official-CATA_487-zh_CN.json",
+        "response_sha256": "3ed8522eca6aaeb8e95a21999ddd972d76611a93a9f7078901bacec2c7b8352f",
+        "face": {
+          "id": 123419,
+          "collectible": 1,
+          "slug": "123419-raincaller",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 4,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "祈雨元素",
+          "text": "每回合中，你第一次用法术造成伤害时，&获得+2攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d911269466355e5f8aec02a7af7f2882819e586dd1a9038e274fbcfe8834070.png",
+          "imageGold": "",
+          "flavorText": "请将甘霖赐予纳沙塔尔……",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35f4bcce6a340aa0261addc35d1b54adb726cfa1a5b2119576f7e8507f7155e0.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Raincaller complete Mage2mana1/4 Elemental; full numeric source tags including4548 preserved without invented keyword.",
+    "Native LimitedTriggerSpec health_resolved/uses1/resetturn; registered condition requires settled final DAMAGE flow, actual positive damage_dealt, DamageKind.SPELL and original source_controller equal current carrier controller. Event player_id is recipient, not caster.",
+    "Armor absorption counts through native damage_dealt. Prevented/zero, healing final flow and nonSPELL do not consume the budget. Conversion classification follows final native HealthResult; precise CN conversion/zero/armor windows uncalibrated.",
+    "Gain only+2Attack via BuffCapturedMinion/MinionReference; no health bonus, private clock/history or extra state. Physical budget, every global turn, silence/return/copy/control and queued sources inherit native finite-trigger policies.",
+    "Existing CS2_029 complete Fireball definition pinned for actual source tests; no generated pools, shared code or registration edits."
+  ]
+}
