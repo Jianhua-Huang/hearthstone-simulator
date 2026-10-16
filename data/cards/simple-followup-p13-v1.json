@@ -1,0 +1,719 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_380",
+        "dbf_id": 125996,
+        "name": "私运的铁铲",
+        "name_en": "Smuggled Shovel",
+        "text": "<b>亡语：</b>&抽一张你的套牌之外的法术牌。",
+        "text_en": "<b>Deathrattle:</b>& Draw a spell that didn't start in your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "251": 8,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "8"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b6e5630935f4afd9bd41a615c8cee30acaae8a12f5f06c2515abd8e9bbd4957c"
+    },
+    {
+      "record": {
+        "id": "MEND_301",
+        "dbf_id": 123488,
+        "name": "灵语猎手",
+        "name_en": "Spiritspeaker",
+        "text": "<b>战吼：</b>&选择并召唤一个动物伙伴。",
+        "text_en": "<b>Battlecry:</b>& Choose an Animal Companion to_summon.",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "6f28c9275ce18005b63b26adca7e2d7fa21319a281384e5676c67ca4e558ff7f"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "NEW1_032",
+        "dbf_id": 959,
+        "name": "米莎",
+        "name_en": "Misha",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fc317cb2c9ba52b53402eeeb32be160bf56b12b09c2c7be9320e6213ab2da066"
+    },
+    {
+      "record": {
+        "id": "NEW1_033",
+        "dbf_id": 226,
+        "name": "雷欧克",
+        "name_en": "Leokk",
+        "text": "你的其他随从拥有+1攻击力。",
+        "text_en": "Your other minions have +1 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "AURA": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c59c8ebe081a99b054210027ce39b1ebdccb756809974e9409e8aabdb015f33b"
+    },
+    {
+      "record": {
+        "id": "NEW1_034",
+        "dbf_id": 100,
+        "name": "霍弗",
+        "name_en": "Huffer",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CHARGE": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "311f22defcf8c3b51210ac10d08d5e84e4720d34f27b153f7ead8b6f0a0a482e"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [
+    {
+      "record": {
+        "id": "TLC_247",
+        "dbf_id": 118235,
+        "name": "原始剑齿豹",
+        "name_en": "Primal Sabretooth",
+        "text": "<b>潜行</b>。在本随从攻击并消灭一个随从后，获取一张被消灭随从的复制。",
+        "text_en": "[x]<b>Stealth</b>\nAfter this attacks and kills a\nminion, get a copy of it.",
+        "cost": 4,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "592b9817f93b7b610f152c39d7070cc3414692195cf88bb6f7d4a2d6e58dbdca",
+      "reason": "Whole TLC_247 skipped: actual attack_finished RuleContext is captured pre-death checkpoint, contains zero matching committed DeathRecords; later actual state has the original death. CopyCard(original dead MinionReference,base) skips after cleanup. Existing CopyCard(DeathRecord,base) works only with committed exact row, unavailable in original callback; no immutable original combat-death copy continuation bridges the two windows. Do not choose latest later mutable victim/history, fabricate a death ID/row or move trigger to minion_died."
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-17T01:30:57.627862+08:00",
+    "root_source": "Six complete cached official responses independently hash/byte verified",
+    "observations": [
+      {
+        "card_id": "TLC_247",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118235&locale=en_US",
+        "response_file": "official-TLC_247-en-us.json",
+        "response_sha256": "fbc3848bbcc48f24181407d7f43cab8a3663e7a5f653c3e876e87c412409572a",
+        "face": {
+          "id": 118235,
+          "collectible": 1,
+          "slug": "118235-primal-sabretooth",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Alex Horley Orlandelli",
+          "health": 3,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "Primal Sabretooth",
+          "text": "<b>Stealth</b> After this attacks and kills a minion, get a copy of it.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb5c98866a32e6dc27748b2c4b1ca0917955c23d37eeb2edcadb0d7c2de0bb2b.png",
+          "imageGold": "",
+          "flavorText": "100 dino birds versus 1 sabretooth. Who would win?",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/001fd1dc54b3ed4b82a1d4f29e254b75ea2438cc41863fe805da8a7039a0a84c.png",
+          "keywordIds": [
+            6
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_247",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118235&locale=zh_CN",
+        "response_file": "official-TLC_247-zh-cn.json",
+        "response_sha256": "9e8db33814a7140b25502cf71fe730fac92a4403ec4f9e67476558bf22c578d9",
+        "face": {
+          "id": 118235,
+          "collectible": 1,
+          "slug": "118235-primal-sabretooth",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Alex Horley Orlandelli",
+          "health": 3,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "原始剑齿豹",
+          "text": "<b>潜行</b>。在本随从攻击并消灭一个随从后，获取一张被消灭随从的复制。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/adf1b2a3bd5193484ccb82d6b73ff1f1ab3d27c6af0ea537b358438930cd2976.png",
+          "imageGold": "",
+          "flavorText": "100只恐鸟对阵1只剑齿豹，哪一方会获胜？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/001fd1dc54b3ed4b82a1d4f29e254b75ea2438cc41863fe805da8a7039a0a84c.png",
+          "keywordIds": [
+            6
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_380",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125996&locale=en_US",
+        "response_file": "official-JAIL_380-en-us.json",
+        "response_sha256": "c77e7f885268a79b9beb53532d1ec24c3fe91b527d59f03ca82e9825b5068b70",
+        "face": {
+          "id": 125996,
+          "collectible": 1,
+          "slug": "125996-smuggled-shovel",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Smuggled Shovel",
+          "text": "<b>Deathrattle:</b>& Draw a spell that didn't start in your deck.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc610f596d0aba3e66a7e306098b0c58637b9461c04aa386adac5f7c24f0e9e8.png",
+          "imageGold": "",
+          "flavorText": "I am a rat and I'm digging a hole. Diggy diggy hole, diggy diggy hole!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/606bc7d473a76db3765619069965fbb93c849421614d1b7b05c9373fccc90881.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_380",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=125996&locale=zh_CN",
+        "response_file": "official-JAIL_380-zh-cn.json",
+        "response_sha256": "ff25d6f65c43f8aac5a144839f3b29198ef14c85e2e3a1f70940ce980a9f10c2",
+        "face": {
+          "id": 125996,
+          "collectible": 1,
+          "slug": "125996-smuggled-shovel",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 2,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "私运的铁铲",
+          "text": "<b>亡语：</b>&抽一张你的套牌之外的法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/070831f2d2766aadaad36615362b63440401a263da5afe6b41bcba26dbabcff6.png",
+          "imageGold": "",
+          "flavorText": "狗头人脏鼠会打洞。打洞打洞打洞洞！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/606bc7d473a76db3765619069965fbb93c849421614d1b7b05c9373fccc90881.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_301",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123488&locale=en_US",
+        "response_file": "official-MEND_301-en-us.json",
+        "response_sha256": "43a80bfc47d4530007c072530c521dfe03b4a3290cc99d3020e8f71e5e9af7fb",
+        "face": {
+          "id": 123488,
+          "collectible": 1,
+          "slug": "123488-spiritspeaker",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "Spiritspeaker",
+          "text": "<b>Battlecry:</b>& Choose an Animal Companion to summon.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3be33cb6305f52e58325bfa301ff0120fe495587adc019381bdd5af116f48c99.png",
+          "imageGold": "",
+          "flavorText": "\"What did the spirit say?\" \"Caaaw!\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9966281e80cde35d61080d284ae434bdd85c88aafc24984bedc26e122ed19d2.png",
+          "childIds": [
+            100,
+            226,
+            959
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_301",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=123488&locale=zh_CN",
+        "response_file": "official-MEND_301-zh-cn.json",
+        "response_sha256": "6259fd5434238b32fbc5ee3eaa8c49d193d039eb3d3f26d7654321608ff3095a",
+        "face": {
+          "id": 123488,
+          "collectible": 1,
+          "slug": "123488-spiritspeaker",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "灵语猎手",
+          "text": "<b>战吼：</b>&选择并召唤一个动物伙伴。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/947a0ef303aeb6a2c6056a89ad7bedbbfa580f484a524fe9d12dc23512fc3bf6.png",
+          "imageGold": "",
+          "flavorText": "“动物之灵说什么了？”“嘎嘎嘎！”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9966281e80cde35d61080d284ae434bdd85c88aafc24984bedc26e122ed19d2.png",
+          "childIds": [
+            100,
+            226,
+            959
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_032",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=959&locale=en_US",
+        "response_file": "official-NEW1_032-en-us.json",
+        "response_sha256": "bcf96b90932541cad0306108fc085be3d3ecb34b58b5be593311963cfa13f0cd",
+        "face": {
+          "id": 959,
+          "collectible": 0,
+          "slug": "959-misha",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 4,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Misha",
+          "text": "<b>Taunt</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbd98def96695ad8e179485e60de4eb70c90d3ab7c93837dce607a1bf213c137.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6a8b47b93c084a0dc054e160f49445cdd4f8f5ad176e37975ba005980d598ce.jpg",
+          "keywordIds": [
+            1
+          ],
+          "copyOfCardId": [
+            68530
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_032",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=959&locale=zh_CN",
+        "response_file": "official-NEW1_032-zh-cn.json",
+        "response_sha256": "068d2eaebe9f81507c0572343d7828a1fb1ed608b50836182702b49fb469a7e3",
+        "face": {
+          "id": 959,
+          "collectible": 0,
+          "slug": "959-misha",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 4,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "米莎",
+          "text": "<b>嘲讽</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88c2e51554675bcdf637042851a4bb238dc9ab841dfe95ef15908620d4626ad7.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6a8b47b93c084a0dc054e160f49445cdd4f8f5ad176e37975ba005980d598ce.jpg",
+          "keywordIds": [
+            1
+          ],
+          "copyOfCardId": [
+            68530
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_033",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=226&locale=en_US",
+        "response_file": "official-NEW1_033-en-us.json",
+        "response_sha256": "7ed52d145dbb05f9eccf2b49f5f89e270acd073a3ce55536179cf5b22157ef87",
+        "face": {
+          "id": 226,
+          "collectible": 0,
+          "slug": "226-leokk",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 4,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "Leokk",
+          "text": "Your other minions have +1 Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1af6322d938240b3cb24dd4a86d465f148397b5842402ef85a49754d645aa574.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+          "copyOfCardId": [
+            68531
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_033",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=226&locale=zh_CN",
+        "response_file": "official-NEW1_033-zh-cn.json",
+        "response_sha256": "0d92215ee558a2fababfcc893ea56e58b0141b5b164445e37d7ff828a8c9d335",
+        "face": {
+          "id": 226,
+          "collectible": 0,
+          "slug": "226-leokk",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 4,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "雷欧克",
+          "text": "你的其他随从拥有+1攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/851d78ad966cb98ad83fd144949edc2d506f2e1edcbd4a8ddc0d7985126e0f9d.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+          "copyOfCardId": [
+            68531
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_034",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=100&locale=en_US",
+        "response_file": "official-NEW1_034-en-us.json",
+        "response_sha256": "f6d8a4cd19ea7b2dbabfcffa4ea31ce2f77f86d70b261f5599019415207a74b6",
+        "face": {
+          "id": 100,
+          "collectible": 0,
+          "slug": "100-huffer",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Huffer",
+          "text": "<b>Charge</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b761672e02693cd06668f82ef43d589ddc3f4390c897b81c624beba96daf9677.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+          "keywordIds": [
+            4
+          ],
+          "copyOfCardId": [
+            68533
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "NEW1_034",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=100&locale=zh_CN",
+        "response_file": "official-NEW1_034-zh-cn.json",
+        "response_sha256": "d9b682c34aaae42f93dd1d180f972fd8c362894abf7118cbe2f0e0a944832522",
+        "face": {
+          "id": 100,
+          "collectible": 0,
+          "slug": "100-huffer",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1635,
+          "rarityId": null,
+          "artistName": null,
+          "health": 2,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "霍弗",
+          "text": "<b>冲锋</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab13cfbcd1bc6366e1067fb702f15140da397c59dc306ce91a6a091b258430b6.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+          "keywordIds": [
+            4
+          ],
+          "copyOfCardId": [
+            68533
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "companion_choice_order": [
+    "NEW1_034",
+    "NEW1_033",
+    "NEW1_032"
+  ],
+  "internal_policy": {
+    "TLC_247": "Whole TLC_247 skipped: actual attack_finished RuleContext is captured pre-death checkpoint, contains zero matching committed DeathRecords; later actual state has the original death. CopyCard(original dead MinionReference,base) skips after cleanup. Existing CopyCard(DeathRecord,base) works only with committed exact row, unavailable in original callback; no immutable original combat-death copy continuation bridges the two windows. Do not choose latest later mutable victim/history, fabricate a death ID/row or move trigger to minion_died.",
+    "JAIL_380": "Actual 1mana1Attack2durability weapon with native Deathrattle. One DrawPhysicalGroup slot queries own physical DECK SPELL with starting_deck=False. Original opening original_entities and face_replaced policy, full candidate validation, sampling, root/replacement draw and private movement stay native. Generated same-name/new copies/foreign originals/explicit same-face replacements are outside; own unchanged original is excluded. Missing match skips without fatigue/RNG; missing actual opening is explicit unsupported rollback. No equipped/live-source requirement at Deathrattle.",
+    "MEND_301": "Actual 4mana2/2 MINION Battlecry. Ordinary fixed RequestChoice with three explicit card options, Huffer NEW1_034 then Leokk NEW1_033 then Misha NEW1_032, reusing pinned existing full fixed_companion_cards definitions. Each branch is one SummonByCard fixed material with original SummonCause. No random draw, Discover, external pool or dependency re-registration. Original native repeat/capacity/quantity/choice persistence owns delivery. Display order and full-board choice timing remain local uncalibrated policy.",
+    "evidence": "Six complete source rows, twelve full official EN/CN faces. Root Spiritspeaker childIds100/226/959 confirms all three existing real partners; old definitions remain intact. Internal mechanism evidence does not close M0 standard legal/generation pools or M6 exact CN timing."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
