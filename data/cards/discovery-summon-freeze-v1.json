@@ -1,0 +1,207 @@
+{
+  "schema": "discovery-summon-freeze-v1",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_AV_107",
+        "dbf_id": 127473,
+        "name": "冰川急冻",
+        "name_en": "Glaciate",
+        "text": "<b>发现</b>一张法力值消耗为（8）的随从牌。召唤并<b>冻结</b>该随从。",
+        "text_en": "<b>Discover</b> an 8-Cost minion. Summon and <b>Freeze</b> it.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 67192,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 67192,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "67192",
+              "type": "Int",
+              "value": "67192"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5e3e6eedb0cc5a85b199c3b121c3b5d7d6d3d23c389ca3efb799bf0dc3d41bc1"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "AV_107",
+        "dbf_id": 67192,
+        "name": "冰川急冻",
+        "name_en": "Glaciate",
+        "text": "<b>发现</b>一张法力值消耗为（8）的随从牌。召唤并<b>冻结</b>该随从。",
+        "text_en": "<b>Discover</b> an 8-Cost minion. Summon and <b>Freeze</b> it.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1626,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d8294193148480c6200669d4f8074b5382538f79bc882518ebc09dc519f45c36"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-16T21:54:33.194376+00:00",
+    "observations": [
+      {
+        "card_id": "CORE_AV_107",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127473&locale=en_US",
+        "response_file": "official-CORE_AV_107-en_US.json",
+        "response_sha256": "1ef7d20c44c460cde4e448dceed53e025ff4f796c2607d4ef635aa24ae96f11c",
+        "face": {
+          "id": 127473,
+          "collectible": 1,
+          "slug": "127473-glaciate",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Alex Horley Orlandelli",
+          "manaCost": 6,
+          "name": "Glaciate",
+          "text": "<b>Discover</b> an 8-Cost minion. Summon and <b>Freeze</b> it.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca02902cc5271d1eec44d175336392cb6ce7318ea0637baa0edfb39454df0e74.png",
+          "imageGold": "",
+          "flavorText": "We now have a more accurate answer to the age-old question \"What's cooler than being cool?\"",
+          "cropImage": null,
+          "keywordIds": [
+            10,
+            21
+          ],
+          "copyOfCardId": [
+            67192
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_AV_107",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127473&locale=zh_CN",
+        "response_file": "official-CORE_AV_107-zh_CN.json",
+        "response_sha256": "dccf850162c5cfae1e1579baea3ebc85053c59e4631c0a4029c71fda65cf6287",
+        "face": {
+          "id": 127473,
+          "collectible": 1,
+          "slug": "127473-glaciate",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 3,
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Alex Horley Orlandelli",
+          "manaCost": 6,
+          "name": "冰川急冻",
+          "text": "<b>发现</b>一张法力值消耗为（8）的随从牌。召唤并<b>冻结</b>该随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6807d5ea1b5ed9faf1a2a194599496016ab66d26a9a9baf9b2445f30e350bd0.png",
+          "imageGold": "",
+          "flavorText": "看似接近绝对零度，其实差不多0K。",
+          "cropImage": null,
+          "keywordIds": [
+            10,
+            21
+          ],
+          "copyOfCardId": [
+            67192
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "skipped": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": "Attributed collectible8-cost MINION discovery; original first delivery index0 frozen through public freeze after full selected entry completes. Failed/stale original skips; never freeze an extra quantity body as replacement. Implicit current hero+neutral, precise freeze window and extras remain pending CN calibration. Complete pool supplied by host."
+}

@@ -406,8 +406,18 @@ class DiscoverFromPool(Effect):
     cause: SummonCause | None = None
     gift_pool: DiscoveryGiftPool | None = None
     heal_hero_by_printed_cost: bool = False
+    freeze_summoned: bool = False
 
     def __post_init__(self):
+        if type(self.freeze_summoned)is not bool:
+            raise ValueError('Discovered summon freeze requires an explicit boolean')
+        if self.freeze_summoned and (
+                self.destination!='board'or self.cause is None or self.source_id is None or
+                self.count!=3 or self.discoveries!=1 or self.delivery!='after_each'or not self.replacement or
+                type(self.query)is not PoolQuery or self.query.kinds!=(CardType.MINION,)or self.query.collectible is not True or
+                self.cost is not None or self.expires_turn is not None or self.spell_repeat is not None or
+                self.gift_pool is not None or self.heal_hero_by_printed_cost):
+            raise ValueError('Discovered freeze requires one ordinary attributed board-minion discovery')
         if type(self.heal_hero_by_printed_cost)is not bool:
             raise ValueError('Discovery cost healing must be an explicit boolean')
         if self.heal_hero_by_printed_cost and(
