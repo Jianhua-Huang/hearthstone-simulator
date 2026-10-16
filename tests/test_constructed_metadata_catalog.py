@@ -22,8 +22,10 @@ ONYXIA='CATA_155';YETI='CORE_CS2_182';P='k108.test.';CTX=GenerationContext('k108
 
 
 def source_registry(legacy=False):
-    if not legacy:return build_registry()
-    with patch('hs_sim.cards.constructed_metadata_catalog.metadata_overrides',lambda:()),patch('hs_sim.cards.constructed_metadata_catalog.register_reviewed_pool_metadata',lambda r:None):return build_registry()
+    # Isolate the historical 24-row increment from the later complete catalog.
+    with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):
+        if not legacy:return build_registry()
+        with patch('hs_sim.cards.constructed_metadata_catalog.metadata_overrides',lambda:()),patch('hs_sim.cards.constructed_metadata_catalog.register_reviewed_pool_metadata',lambda r:None):return build_registry()
 
 
 def registry(legacy=False):

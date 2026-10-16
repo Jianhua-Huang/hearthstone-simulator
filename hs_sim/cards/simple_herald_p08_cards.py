@@ -74,7 +74,7 @@ def register_simple_herald_p08_cards(registry):
         if cid == SHRINE:
             if (raw['tags']['CARDTYPE'],raw['cost'],raw['health'],raw['tags'].get('HERALD')) != (39,4,2,1):
                 raise TargetValidationError('Shrine requires its complete real Location face')
-            kwargs.update(durability=2,on_use=PREFIX+'shrine')
+            kwargs.update(durability=2,on_use=PREFIX+'shrine',keywords=(Keyword.HERALD,))
         elif cid == RITUAL:
             if raw['tags'].get('SPELL_SCHOOL') != 4 or raw['tags'].get('HERALD') != 1:
                 raise TargetValidationError('Ritual requires its actual Nature Herald spell face')

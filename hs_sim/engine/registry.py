@@ -1450,8 +1450,8 @@ class Registry:
             raise ValueError('Passive powers require triggers and no manual activation declaration')
         if card.kind in (CardType.WEAPON, CardType.HERO_POWER, CardType.LOCATION) and card.health != 0:
             raise ValueError('Weapons and hero powers have no character health')
-        if card.kind == CardType.LOCATION and (card.attack or card.keywords or card.uses_per_turn != 1):
-            raise ValueError('Locations have no attack/keywords and use cooldowns instead of use limits')
+        if card.kind == CardType.LOCATION and (card.attack or any(k!=Keyword.HERALD for k in card.keywords) or card.uses_per_turn != 1):
+            raise ValueError('Locations permit printed Herald, no combat keywords/attack, and use cooldowns instead of use limits')
         if card.kind == CardType.WEAPON:
             from .equipment import WEAPON_KEYWORDS
             supported = WEAPON_KEYWORDS | {Keyword.SPELLBURST, Keyword.CORRUPT, Keyword.INFUSE,

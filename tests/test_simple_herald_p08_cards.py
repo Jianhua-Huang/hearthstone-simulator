@@ -284,7 +284,7 @@ class SimpleHeraldP08CardTests(unittest.TestCase):
         for cid in(NOZDORMU,TEST+'plain'):self.assertIn(Keyword.DIVINE_SHIELD,self.first(g,cid).keywords)
         shield=self.first(g,TEST+'shield');self.assertEqual((shield.attack,shield.health),(4,6))
         self.assertIn(Keyword.DIVINE_SHIELD,shield.keywords);self.assertNotIn(Keyword.DIVINE_SHIELD,self.first(g,TEST+'dormant').keywords)
-        self.assertFalse(self.first(g,SHRINE).keywords);self.assertNotIn(Keyword.DIVINE_SHIELD,self.first(g,TEST+'plain',2).keywords)
+        self.assertEqual(self.first(g,SHRINE).keywords,{Keyword.HERALD});self.assertNotIn(Keyword.DIVINE_SHIELD,self.first(g,TEST+'plain',2).keywords)
         self.assertTrue(g.state.end_turn_history[-1].completed);self.portable(g)
 
     def test_nozdormu_opponent_end_does_not_trigger_and_next_owner_end_buffs_existing_shield(self):

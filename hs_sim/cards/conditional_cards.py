@@ -25,7 +25,7 @@ from .metadata import metadata_from_record
 from .utility_cards import compile_body
 
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/conditional-effects-v1.json'
-BATCH_HASH='2eaf231d7ce0f76f0bd50e9ff8f95d954d2889275a0eb4d5b9c42bdabeaf3a26'
+BATCH_HASH='49425b0880da1711256deaa9ad7eeb9a83e7dac48bd8663ce0580fbdf7d2ef1d'
 PREFIX='cards.conditions.'
 
 
@@ -186,7 +186,7 @@ def register_conditional_cards(registry):
             entry=recipe['entry']
             if entry=='on_trigger' and recipe.get('trigger')=='own_turn_end':
                 kwargs['triggers']=(TriggerSpec('turn_ended',PREFIX+script,EndTurnSpec()),)
-            elif entry in ('on_play','battlecry','deathrattle'):
+            elif entry in ('on_play','battlecry','combo','deathrattle'):
                 kwargs[entry]=PREFIX+script
             else:raise TargetValidationError('Unreviewed conditional body entry')
         kwargs['targeting']=target_spec(recipe['targeting'],kind)

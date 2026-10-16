@@ -10221,7 +10221,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError('Only locations have a location cooldown')
         if entity.kind == CardType.LOCATION and (entity.base_attack or entity.base_health or entity.damage or
                 entity.armor or entity.attack_bonus or entity.health_bonus or entity.aura_attack or entity.aura_health or
-                entity.frozen or entity.keywords or entity.weapon_attack or entity.attacks_this_turn or entity.silenced):
+                entity.frozen or any(k!=Keyword.HERALD for k in entity.keywords) or entity.weapon_attack or entity.attacks_this_turn or entity.silenced):
             raise ValueError('Locations cannot have character combat state')
         permanent_dormancy = registry.card(entity.card_id).permanent_dormancy
         if (entity.zone == Zone.BOARD and permanent_dormancy and
