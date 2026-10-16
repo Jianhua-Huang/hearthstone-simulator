@@ -1,0 +1,745 @@
+{
+  "batch": "P35",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_471",
+        "dbf_id": 122879,
+        "name": "塔兰吉的奋战",
+        "name_en": "Talanji's Last Stand",
+        "text": "使你的随从获得\n“<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。”",
+        "text_en": "[x]Give your minions\n\"<b>Deathrattle:</b> Summon a\nrandom 4-Cost minion.\"",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COST_UNHOLY": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b00ecb6ed879c9695bcf1098e7b4fec73882b04fd0e24cec01e7fb0525066a84"
+    },
+    {
+      "record": {
+        "id": "CATA_499",
+        "dbf_id": 122831,
+        "name": "助祭耗材",
+        "name_en": "Disposable Acolytes",
+        "text": "当你使用或弃掉本牌时，随机召唤两个法力值消耗为（1）的随从。",
+        "text_en": "[x]When you play\nor discard this,\nsummon two random\n1-Cost minions.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "335": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "335",
+              "name": "InvisibleDeathrattle",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "335"
+          }
+        ]
+      },
+      "record_sha256": "9dfef6c8b582cab624c51b89f07448db94779d593c4d53f3eb7f26c0689edd81"
+    },
+    {
+      "record": {
+        "id": "Core_LOE_115",
+        "dbf_id": 113109,
+        "name": "乌鸦神像",
+        "name_en": "Raven Idol",
+        "text": "<b>抉择：</b>\n<b>发现</b>一张随从牌；或者<b>发现</b>一张法术牌。",
+        "text_en": "<b>Choose One -</b>\n<b>Discover</b> a minion; or <b>Discover</b> a spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "CHOOSE_ONE": 1,
+          "858": 13335,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "13335",
+              "type": "Int",
+              "value": "13335"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "7e689275c8c5d1657cd0e76e4a190640a3103a821a30a7611042870043edf849"
+    },
+    {
+      "record": {
+        "id": "EDR_872",
+        "dbf_id": 116977,
+        "name": "生命火花",
+        "name_en": "Spark of Life",
+        "text": "<b>抉择：</b><b>发现</b>\n一张法师法术牌；或者<b>发现</b>一张德鲁伊法术牌。",
+        "text_en": "<b>Choose One - </b><b>Discover</b> a Mage spell; or <b>Discover</b> a Druid spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "CHOOSE_ONE": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "9691490b20a4f649216f030706d9ac9971eef641ba800c620b62a43dd80cd5ea"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "LOE_115a",
+        "dbf_id": 38112,
+        "name": "冲破束缚",
+        "name_en": "Break Free",
+        "text": "<b>发现</b>一张随从牌。",
+        "text_en": "<b>Discover</b> a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 20,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "87ffdbb399a09ba36dc1affdfe1828c342a9f4f385e84305ce3931e648620dc1"
+    },
+    {
+      "record": {
+        "id": "LOE_115b",
+        "dbf_id": 38113,
+        "name": "梦醒时分",
+        "name_en": "Awakened",
+        "text": "<b>发现</b>一张法术牌。",
+        "text_en": "<b>Discover</b> a spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 20,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "49df6d16e3b60adcca1e1630b96c70a92c6fb269471d94ed4a14fab537ab2345"
+    },
+    {
+      "record": {
+        "id": "EDR_872A",
+        "dbf_id": 116978,
+        "name": "火焰之赐",
+        "name_en": "Gift of Fire",
+        "text": "<b>发现</b>一张法师法术牌。",
+        "text_en": "<b>Discover</b> a Mage spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "2be5c50c1815a5846b2edfad72988b97b8494cfab4359595ae1580898568ec13"
+    },
+    {
+      "record": {
+        "id": "EDR_872B",
+        "dbf_id": 116979,
+        "name": "自然之赐",
+        "name_en": "Gift of Nature",
+        "text": "<b>发现</b>一张德鲁伊法术牌。",
+        "text_en": "<b>Discover</b> a Druid spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "6a1be5f61037c78cae8c52e9af4b3eb5ccf92c360ac9184826f67d935a218a59"
+    }
+  ],
+  "choice_only_ids": [
+    "LOE_115a",
+    "LOE_115b",
+    "EDR_872A",
+    "EDR_872B"
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "LOE_115",
+        "dbf_id": 13335,
+        "name": "乌鸦神像",
+        "name_en": "Raven Idol",
+        "text": "<b>抉择：</b>\n<b>发现</b>一张随从牌；或者<b>发现</b>一张法术牌。",
+        "text_en": "<b>Choose One -</b>\n<b>Discover</b> a minion; or <b>Discover</b> a spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 20,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "CHOOSE_ONE": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "a834cc4225f97ffeda4c694eb741acbe43c014fa36e0d0458b64091c4e9aff4d"
+    },
+    {
+      "record": {
+        "id": "CATA_471e",
+        "dbf_id": 122880,
+        "name": "塔兰吉的遗愿",
+        "name_en": "Talanji's Last Wish",
+        "text": "<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。",
+        "text_en": "<b>Deathrattle:</b> Summon a random 4-Cost minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ca0fea654be653a16b1c2041943cbb7bb85cd4fa5f78c729e60ad4111a5da808"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T07:35:24.713691+08:00",
+    "source": "Eight complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_471",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122879&locale=en_US",
+        "response_file": "official-CATA_471-en_US.json",
+        "response_sha256": "1c212a0d2c5e1e11375ddf40f9b0d2ab735bb248c17c4266a34a891d603247f1",
+        "face": {
+          "id": 122879,
+          "collectible": 1,
+          "slug": "122879-talanjis-last-stand",
+          "classId": 1,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 5,
+          "name": "Talanji's Last Stand",
+          "text": "Give your minions \"<b>Deathrattle:</b> Summon a random 4-Cost minion.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50039644ee23fed1b49109d40477cb4bb1d350b6c1424818bf6064f40bd63e6e.png",
+          "imageGold": "",
+          "flavorText": "Talanji's relationship with Bwonsamdi was never easy or uncomplicated. But when the time came to lead Zandalar against Deathwing's forces, the two fought side by side.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01cd64ab52a619ade5c6b0d9b6c49044d6bd71976a2ac49a41c09926d88b773e.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false,
+          "runeCost": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 2
+          }
+        },
+        "origin": "reused complete saved response"
+      },
+      {
+        "card_id": "CATA_471",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122879&locale=zh_CN",
+        "response_file": "official-CATA_471-zh_CN.json",
+        "response_sha256": "3148e917bd27f4d9debd77c061d84b2e3bc81e5c504dd4829a4adf856928b600",
+        "face": {
+          "id": 122879,
+          "collectible": 1,
+          "slug": "122879-talanjis-last-stand",
+          "classId": 1,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 5,
+          "name": "塔兰吉的奋战",
+          "text": "使你的随从获得 “<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/744b86031ef8c17665d5087759103c1a6193f385cc249521b0ca10c259d74fe6.png",
+          "imageGold": "",
+          "flavorText": "塔兰吉和邦桑迪之间的关系一言难尽。然而死亡之翼大军压境，双方还是通力合作，带领着赞达拉人民抵御外敌。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01cd64ab52a619ade5c6b0d9b6c49044d6bd71976a2ac49a41c09926d88b773e.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false,
+          "runeCost": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 2
+          }
+        },
+        "origin": "reused complete saved response"
+      },
+      {
+        "card_id": "CATA_499",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122831&locale=en_US",
+        "response_file": "official-CATA_499-en_US.json",
+        "response_sha256": "6c39c9941670bd10917631b1f2c62f6a49349ee60dcce0c0ef8ba9871b8d836c",
+        "face": {
+          "id": 122831,
+          "collectible": 1,
+          "slug": "122831-disposable-acolytes",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 2,
+          "name": "Disposable Acolytes",
+          "text": "When you play or discard this, summon two random 1-Cost minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13160ece1c02bdb4a5ff573d839919cd2a99c20461ae6dcf3c4f928c2dbc2d26.png",
+          "imageGold": "",
+          "flavorText": "Did we learn NOTHING from the Diablo IV opening cinematic??",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5cf2e95ffec025712379dc7901edb6556a5f9de8d81c2ea95431d825a4b4864c.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "retried previously missing response"
+      },
+      {
+        "card_id": "CATA_499",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122831&locale=zh_CN",
+        "response_file": "official-CATA_499-zh_CN.json",
+        "response_sha256": "1d85aedd243320f27cdc731b8fad93bf39dcc2b36d767a835e2c4f4b9b3865f3",
+        "face": {
+          "id": 122831,
+          "collectible": 1,
+          "slug": "122831-disposable-acolytes",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Kevin Sidharta",
+          "manaCost": 2,
+          "name": "助祭耗材",
+          "text": "当你使用或弃掉本牌时，随机召唤两个法力值消耗为（1）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e230f9110798ce765f34be05dba5e44379df171c044ee7753c8d84829fd2aea.png",
+          "imageGold": "",
+          "flavorText": "他们没看过《暗黑破坏神IV》的开场动画吗？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5cf2e95ffec025712379dc7901edb6556a5f9de8d81c2ea95431d825a4b4864c.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "reused complete saved response"
+      },
+      {
+        "card_id": "Core_LOE_115",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113109&locale=en_US",
+        "response_file": "official-Core_LOE_115-en_US.json",
+        "response_sha256": "f8308907a660c1f88d0a65b18dd91f7313c979e4798d6b786f8f49bd44bd56bd",
+        "face": {
+          "id": 113109,
+          "collectible": 1,
+          "slug": "113109-raven-idol",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "A. J. Nazzaro",
+          "manaCost": 1,
+          "name": "Raven Idol",
+          "text": "<b>Choose One -</b> <b>Discover</b> a minion; or <b>Discover</b> a spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61527d36b7fa81c7b6080db1d1e8d98a6c9ce8a8780281628609a2d5b1eb3438.png",
+          "imageGold": "",
+          "flavorText": "Was petrified when it found out it didn't make the cut for Azerothian Idol.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d377e52fef1673f24c2984baa5fd7eede91db219aca224b2a0f6afdccbcae1aa.png",
+          "keywordIds": [
+            21
+          ],
+          "copyOfCardId": [
+            13335
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "reused complete saved response"
+      },
+      {
+        "card_id": "Core_LOE_115",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113109&locale=zh_CN",
+        "response_file": "official-Core_LOE_115-zh_CN.json",
+        "response_sha256": "559d27b5e2e7ec81dc598594d6192e173d4a46648faa12fb7d022775fdf26158",
+        "face": {
+          "id": 113109,
+          "collectible": 1,
+          "slug": "113109-raven-idol",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "A. J. Nazzaro",
+          "manaCost": 1,
+          "name": "乌鸦神像",
+          "text": "<b>抉择：</b> <b>发现</b>一张随从牌；或者<b>发现</b>一张法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7d0c91414f06c0946955fe14f6b9396bdd1faa65e5876522e8e3fa7aba61b93.png",
+          "imageGold": "",
+          "flavorText": "乌鸦通常代表着不祥之兆，竟然还有人对其顶礼膜拜……",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d377e52fef1673f24c2984baa5fd7eede91db219aca224b2a0f6afdccbcae1aa.png",
+          "keywordIds": [
+            21
+          ],
+          "copyOfCardId": [
+            13335
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "retried previously missing response"
+      },
+      {
+        "card_id": "EDR_872",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116977&locale=en_US",
+        "response_file": "official-EDR_872-en_US.json",
+        "response_sha256": "34f75e538321244639e1e60706cee89bb68f70992c6f8c8ed2f0117675db945d",
+        "face": {
+          "id": 116977,
+          "collectible": 1,
+          "slug": "116977-spark-of-life",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Mauricio Herrera",
+          "manaCost": 1,
+          "name": "Spark of Life",
+          "text": "<b>Choose One - </b><b>Discover</b> a Mage spell; or <b>Discover</b> a Druid spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3b06409be90ab8f3d5f94fd8439478003034072a14ed5def481689e81192a04.png",
+          "imageGold": "",
+          "flavorText": "Just don't spark that life too close to the World Tree.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fc26a0987155c4f5cba9817b31d64d284025ecadbacfbe1058d2dcad99eafb8.png",
+          "childIds": [
+            116978,
+            116979
+          ],
+          "keywordIds": [
+            21
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "retried previously missing response"
+      },
+      {
+        "card_id": "EDR_872",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116977&locale=zh_CN",
+        "response_file": "official-EDR_872-zh_CN.json",
+        "response_sha256": "65cba4d2e1338daef806a8e3330daf0344bfe536a9e1716a56957b0ecc299e5b",
+        "face": {
+          "id": 116977,
+          "collectible": 1,
+          "slug": "116977-spark-of-life",
+          "classId": 4,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Mauricio Herrera",
+          "manaCost": 1,
+          "name": "生命火花",
+          "text": "<b>抉择：</b><b>发现</b> 一张法师法术牌；或者<b>发现</b>一张德鲁伊法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffa07f2957710e0b36740db40b3c6a2286c6a4bb67914a698ed571acdd7c0646.png",
+          "imageGold": "",
+          "flavorText": "请勿在世界之树附近使用火源。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fc26a0987155c4f5cba9817b31d64d284025ecadbacfbe1058d2dcad99eafb8.png",
+          "childIds": [
+            116978,
+            116979
+          ],
+          "keywordIds": [
+            21
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "origin": "reused complete saved response"
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Talanji Last Stand5mana Death Knight2Unholy, no school: GrantDeathrattle to original active living ordinary friendly minions via public minions helper. Later native rattle captures actual carrier cause, exact printed4 collectible any-class MINION pool, position from public deathrattle_position (original death slot or live carrier right). No persistent aura or executable enchantment definition.",
+    "Disposable Acolytes2mana Warlock Shadow: same body for on_play/on_discard, public GenerateFromPool count2 board batch of collectible printed1 any-class MINION. Original two results presampled before independent quantities/capacities. Own-discard cause uses actual discarded card without impersonating outer cast; no duplicate payment or battlecry.",
+    "Raven Idol exact Core_LOE_115 spelling, deck identityLOE_115 from raw858. Ordinary ChooseOneSpec with real LOE_115a/minion or LOE_115b/spell currenthero+neutral discovery; complete combined branch executes both discoveries in printed order and shares root payment.",
+    "Spark of Life remains Mage only. Exact uppercase EDR_872A/B definitions both retain printed Mage metadata. Behaviors discover explicitly specified Mage/Druid SPELL classes, excluding neutral, including real matching dualclass, independently of currenthero. Existing PoolQuery requires class_mode=specified when classes is nonempty; requested any+classes is invalid API, supported specified declaration expresses intended fixed-class effect without public changes.",
+    "Four true choice-only dependency descriptors cost0 by existing display-definition contract; full raw1mana faces retained. No physical branch cards, branchonplay, pool rows, synthetic collectible combined card or removed dedicated ChooseOne combination mechanism.",
+    "All requests require complete matching host constructed.cards inventory and GenerationContext; full eligible unknown validation before each request ownRNG. No registered-only fallback, crop, placeholder, private registry mutation, local executor or production formal pool. Definitions/PoolCards precede full candidate catalog. Internal effect support only, M0/M6/fullreachable/stage acceptance remain open."
+  ]
+}
