@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from .construction import ids, integer, name
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice, Summon, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardAbilityCondition, CardClass, CardDefinition, CardMetadata, CardType, CostSpec, Keyword, Rarity, SpellSchool, validate_minion_subtypes
+from .model import CardAbilityCondition, CardClass, CardDefinition, CardMetadata, CardType, CostSpec, Keyword, Rarity, SpellSchool, SummonStats, validate_minion_subtypes
 from .card_conditions import matches_ability_values
 from .summon_quantities import SummonCause
 
@@ -407,8 +407,20 @@ class DiscoverFromPool(Effect):
     gift_pool: DiscoveryGiftPool | None = None
     heal_hero_by_printed_cost: bool = False
     freeze_summoned: bool = False
+    summon_copy_stats: SummonStats | None = None
 
     def __post_init__(self):
+        if self.summon_copy_stats is not None:
+            if type(self.summon_copy_stats)is not SummonStats:
+                raise ValueError('Discovered copy requires typed summon stats')
+            self.summon_copy_stats.__post_init__()
+            if (self.summon_copy_stats.attack is None or self.summon_copy_stats.health is None or
+                    self.destination!='hand'or self.cause is None or self.source_id is None or
+                    self.count!=3 or self.discoveries!=1 or self.delivery!='after_each'or not self.replacement or
+                    type(self.query)is not PoolQuery or self.query.kinds!=(CardType.MINION,)or self.query.collectible is not True or
+                    self.cost is not None or self.expires_turn is not None or self.spell_repeat is not None or
+                    self.gift_pool is not None or self.heal_hero_by_printed_cost or self.freeze_summoned):
+                raise ValueError('Discovered copy requires one plain attributed hand-minion discovery')
         if type(self.freeze_summoned)is not bool:
             raise ValueError('Discovered summon freeze requires an explicit boolean')
         if self.freeze_summoned and (
@@ -443,7 +455,7 @@ class DiscoverFromPool(Effect):
                         self.cost.ability is not None or CardType.MINION not in self.cost.card_types):
                     raise ValueError('Gift discovery source cost supports an ordinary reduction only')
         if self.cause is not None:
-            if type(self.cause)is not SummonCause or self.destination!='board':raise ValueError('Typed summon cause requires board discovery')
+            if type(self.cause)is not SummonCause or (self.destination!='board'and self.summon_copy_stats is None):raise ValueError('Typed summon cause requires board discovery or selected hand-copy declaration')
             self.cause.__post_init__()
         validate_declaration(self.spell_repeat)
         validate_request(self)

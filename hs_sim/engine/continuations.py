@@ -71,6 +71,8 @@ class FrameCodec:
     def _validate(self, value):
         from .discovery import HealHeroFromDiscoveredSpell,validate_cost_healing
         if type(value)is HealHeroFromDiscoveredSpell:validate_cost_healing(self.registry,value)
+        from .discovery import DeliverAndSummonDiscoveredMinion,validate_selected_copy
+        if type(value)is DeliverAndSummonDiscoveredMinion:validate_selected_copy(self.registry,value)
         from .spell_target_sequences import FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup,validate_frozen_group
         if type(value)in(FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup)and self.origin_state is not None:
             validate_frozen_group(self.origin_state,self.registry,value)

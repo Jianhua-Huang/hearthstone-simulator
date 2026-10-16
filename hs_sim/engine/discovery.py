@@ -38,7 +38,8 @@ class ContinuePoolDiscovery(Effect):
     def __post_init__(self):
         if type(self.spec) is not DiscoverFromPool: raise ValueError('Expected discovery specification')
         self.spec.__post_init__()
-        if (self.producer_id is None)!=(self.spec.cause is None):raise ValueError('Discovery progress requires its original attribution')
+        attributed_board=self.spec.cause is not None and self.spec.destination=='board'
+        if (self.producer_id is not None)!=attributed_board:raise ValueError('Discovery progress requires its original board attribution')
         if self.producer_id is not None:
             from .effects import _integer
             _integer(self.producer_id,'discovery producer',1)
@@ -74,7 +75,7 @@ class ResolvePoolDiscovery(Effect):
                 len({g.id for g in self.offered_gifts}) != len(self.offered_gifts)):
             raise ValueError('Gift discovery requires different gifts bound to every offered card')
         if self.choice_result is not None:
-            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
+            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost and self.batch.spec.summon_copy_stats is None):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
                 len(self.batch.selections) >= self.batch.spec.discoveries):
@@ -92,6 +93,43 @@ class HealHeroFromDiscoveredSpell(Effect):
         self.discovery.__post_init__();self.context.__post_init__()
         if not self.discovery.batch.spec.heal_hero_by_printed_cost or self.discovery.choice_result is None:
             raise ValueError('Discovered healing requires an actual declared selection result')
+
+
+@dataclass(frozen=True)
+class DeliverAndSummonDiscoveredMinion(Effect):
+    discovery:ResolvePoolDiscovery
+    context:GenerationContext
+    def __post_init__(self):
+        if type(self.discovery)is not ResolvePoolDiscovery or type(self.context)is not GenerationContext:
+            raise ValueError('Discovered copy requires original typed selection/context')
+        self.discovery.__post_init__();self.context.__post_init__()
+        if self.discovery.batch.spec.summon_copy_stats is None or self.discovery.choice_result is None:
+            raise ValueError('Discovered copy requires its actual declared selection result')
+
+
+def validate_selected_copy(registry,effect):
+    effect.__post_init__();validate_selection(registry,effect.context,effect.discovery)
+
+
+def deliver_and_summon_copy(r,effect):
+    validate_selected_copy(r.registry,effect)
+    if effect.context!=r.game._generation_context:raise ValueError('Discovered copy context changed')
+    spec=effect.discovery.batch.spec
+    from .summon_quantities import SummonByCard,SummonEntryMaterial,validate_cause,accept
+    validate_cause(r.state,r.registry,spec.cause)
+    if spec.cause.source.entity_id!=spec.source_id:raise ValueError('Discovered copy borrowed another cause')
+    from .effects import AddToHand
+    from .opening import create_hand_card
+    from .model import Zone
+    entity=create_hand_card(r,AddToHand(spec.player_id,effect.discovery.selection.card_id,spec.source_id))
+    if entity.zone==Zone.HAND:
+        from .copy_materials import CopyEntryMaterial
+        material=CopyEntryMaterial.capture(r.state,entity,'stored_copy','current',spec.summon_copy_stats,
+            registry=r.registry,player_id=spec.player_id)
+    else:material=SummonEntryMaterial(entity.card_id,spec.summon_copy_stats)
+    # The actual created object and its material/quantity are accepted before
+    # acquisition reactions. Public creation and summon checkpoints still run.
+    return accept(r,SummonByCard(spec.player_id,(material,),spec.cause))
 
 
 def validate_cost_healing(registry,effect):
@@ -225,7 +263,7 @@ def validate_selection(registry, context, effect):
             validate_pick_gift(registry,spec,DiscoveryPick(cid,effect.selection.hero_class,effect.selection.source_card_id,gift))
         if effect.selection.gift != effect.offered_gifts[offered.index(effect.selection.card_id)]:
             raise ValueError('Selected gift belongs to another offered minion')
-    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost):
+    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost or spec.summon_copy_stats is not None):
         result=effect.choice_result;choice=result.choice
         expected=tuple(o.item for o in options_for(registry,batch,offered,
             effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts))
@@ -250,7 +288,7 @@ def start(r, effect):
     validate_gift_candidates(r.registry,r.game._generation_context,effect,candidates)
     from .costs import validate_creation_cost
     validate_creation_cost(r.state,effect,(r.registry.card(m.card_id) for m in candidates))
-    if effect.cause is not None:
+    if effect.cause is not None and effect.destination=='board':
         from .discovery_summons import start as start_attributed
         return start_attributed(r,effect,candidates)
     return (ContinuePoolDiscovery(effect),) if effect.discoveries else ()
@@ -295,6 +333,8 @@ def resolve_discovery(r, effect):
         reject_ambiguous(r)
     validate_selection(r.registry,r.game._generation_context,effect)
     batch=effect.batch; spec=batch.spec
+    if spec.summon_copy_stats is not None and effect.choice_result is None:
+        raise ValueError('Discovered copy requires the actual complete choice result')
     if spec.heal_hero_by_printed_cost and effect.choice_result is None:
         raise ValueError('Discovery cost healing requires the actual complete choice result')
     if spec.gift_pool is not None:
@@ -308,6 +348,7 @@ def resolve_discovery(r, effect):
     if batch.producer_id is not None:
         from .discovery_summons import select_offer
         delivery=select_offer(r,effect)
+    elif spec.summon_copy_stats is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
     else:delivery=deliver_pick(spec,effect.selection) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)
@@ -323,6 +364,12 @@ def validate_boundary(game):
             validate_cost_healing(game.registry,value)
             if value.context!=game._generation_context or value.discovery.batch.spec.source_id not in game._state.entities:
                 raise ValueError('Discovered healing context or source differs from its queued outcome')
+            return
+        if type(value)is DeliverAndSummonDiscoveredMinion:
+            validate_selected_copy(game.registry,value)
+            if value.context!=game._generation_context:raise ValueError('Discovered copy context differs from queued outcome')
+            from .summon_quantities import validate_cause
+            validate_cause(game._state,game.registry,value.discovery.batch.spec.cause)
             return
         if type(value)is GameState:return
         if type(value)in(tuple,list):
@@ -359,3 +406,4 @@ def register(mechanics):
     mechanics.register(ContinuePoolDiscovery,continue_discovery)
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)
     mechanics.register(HealHeroFromDiscoveredSpell,heal_discovered_spell)
+    mechanics.register(DeliverAndSummonDiscoveredMinion,deliver_and_summon_copy)

@@ -1632,3 +1632,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 普通生成须在公共候选层排除来源及已审核的同卡版本，版本族独立于生成权重和构筑同卡身份。真实起始卡组与当前种族条件继续组合既有查询，边界见[来源排除与条件消费者](m3-generation-source-exclusion.md)。
 
 真实冰川急冻使用有限 DiscoverFromPool.freeze_summoned 声明，把原选中召唤请求的第0次实际交付连接到公共冻结。原队列、收据、连续驻留及待国服窗口见[发现后原召唤冻结契约](m3-discovered-summon-freeze.md)。
+
+生命仪式用有限 summon_copy_stats 手续把原实际生成手牌连接到2/3复制召唤；原ChoiceResult、真实创建对象、材料/数量接受窗与满手政策见[发现手牌复制契约](m3-discovered-minion-copy.md)。
