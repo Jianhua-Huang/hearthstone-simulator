@@ -1,0 +1,604 @@
+{
+  "batch": "P21",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_134",
+        "dbf_id": 122971,
+        "name": "荒林怪圈",
+        "name_en": "Wildwood Circle",
+        "text": "<b>裂变</b>\n召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”@召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+        "text_en": "[x]<b>Shatter</b>. Summon two\n 2/2 Treants. Give your\nminions \"<b>Deathrattle:</b>\n Summon a 2/2 Treant.\"@[x]Summon two 2/2\nTreants. Give your\nminions \"<b>Deathrattle:</b>\n__Summon a 2/2 Treant.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 122972,
+          "TAG_SCRIPT_DATA_NUM_2": 122973,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 4,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "765c00093fcd5f291b053390013170f4063388df73068f11f5f35aad3594710c"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_134t",
+        "dbf_id": 122972,
+        "name": "荒林怪圈",
+        "name_en": "Wildwood Circle",
+        "text": "<b>已裂变</b>\n召唤两个2/2的树人。",
+        "text_en": "[x]<b>Shattered</b>\nSummon two 2/2 Treants.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 122973,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 4,
+          "1724": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 122971,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "667eb98dde98c67a2b3d45d37ad83769e4bd8068d96bd4795c093ee09352458c"
+    },
+    {
+      "record": {
+        "id": "CATA_134t2",
+        "dbf_id": 122973,
+        "name": "荒林怪圈",
+        "name_en": "Wildwood Circle",
+        "text": "<b>已裂变</b>\n使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+        "text_en": "<b>Shattered</b>\nGive your minions \"<b>Deathrattle:</b> Summon\na 2/2 Treant.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 4,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0267ae11de74d40be8b50fa1aa0964bc4609cc5c442b63a16992a91b69946314"
+    },
+    {
+      "record": {
+        "id": "CATA_134t3",
+        "dbf_id": 126886,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "008bc388dcfa2da3030aba8b78994ccfc05c6638118b2d5ef088ec28467a2275"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_101",
+        "dbf_id": 121670,
+        "name": "穿越的炎术士",
+        "name_en": "Misplaced Pyromancer",
+        "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+        "text_en": "Whenever you <b>Shatter</b> a card, deal 2 damage to\nall enemy minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1ab6d031ae0b1ac9f24a89420969187613a7ccfc265dc468c46d646af713262f",
+      "definition_sha256": "71bd9e1686f9913dee6f5e7e73371018946f5f8ea76d0e680115eaa4166b9ef6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_134e",
+        "dbf_id": 127980,
+        "name": "荒林光环",
+        "name_en": "Wildwood Aura",
+        "text": "<b>亡语：</b>召唤一个2/2的树人。",
+        "text_en": "<b>Deathrattle:</b> Summon a 2/2 Treant.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e5367d2fa3fda9130de42c6538bbd41128d61a3ac2d2b3516f6534f78e0259fd"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T03:33:21.747044+08:00",
+    "source": "Eight complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_134",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122971&locale=en_US",
+        "response_file": "official-CATA_134-en_US.json",
+        "response_sha256": "b995521963d88ded6e609392c94b7ae8baacbd82c1ceb2dbe4fad8649a325cae",
+        "face": {
+          "id": 122971,
+          "collectible": 1,
+          "slug": "122971-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "Wildwood Circle",
+          "text": "<b>Shatter</b>. Summon two 2/2 Treants. Give your minions \"<b>Deathrattle:</b> Summon a 2/2 Treant.\" Summon two 2/2 Treants. Give your minions \"<b>Deathrattle:</b> Summon a 2/2 Treant.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcf7a430209be8011b03b11b912ddb508257647747b112fce702a163b0df01c3.png",
+          "imageGold": "",
+          "flavorText": "Let's circle back after we've played more cards.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dabb7f7159296fa3f5a01225dd641477a6569d91d1714a87d3f1477dcba5c593.png",
+          "childIds": [
+            122972,
+            122973,
+            126886
+          ],
+          "keywordIds": [
+            12,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122971&locale=zh_CN",
+        "response_file": "official-CATA_134-zh_CN.json",
+        "response_sha256": "06351ed78d50e07b8d61ae2a5dd0b3c28f5ca99c5b1d22ac6ba75a5b629fa244",
+        "face": {
+          "id": 122971,
+          "collectible": 1,
+          "slug": "122971-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "荒林怪圈",
+          "text": "<b>裂变</b> 召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。” 召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0535862dd73016bdd513f2ac65f5cfcb9de479ed80fb345608dfaea80f9aaaae.png",
+          "imageGold": "",
+          "flavorText": "打光了中间的牌后，我们又走回了这个怪圈。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dabb7f7159296fa3f5a01225dd641477a6569d91d1714a87d3f1477dcba5c593.png",
+          "childIds": [
+            122972,
+            122973,
+            126886
+          ],
+          "keywordIds": [
+            12,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122972&locale=en_US",
+        "response_file": "official-CATA_134t-en_US.json",
+        "response_sha256": "d38dfedc6750b26b7b7eaac80b8e6eef554c7e5bf9c24150dc7d55c3ce909f3f",
+        "face": {
+          "id": 122972,
+          "collectible": 0,
+          "slug": "122972-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "Wildwood Circle",
+          "text": "<b>Shattered</b> Summon two 2/2 Treants.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64f76895bed48f9efeeecb6ebe68ec0a93af181ef2b0753b86f2141635d584b5.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122972&locale=zh_CN",
+        "response_file": "official-CATA_134t-zh_CN.json",
+        "response_sha256": "06e0eceaa7fe681cece6981e80a50c810b092ca9154071d0a72e8ef275632cb2",
+        "face": {
+          "id": 122972,
+          "collectible": 0,
+          "slug": "122972-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "荒林怪圈",
+          "text": "<b>已裂变</b> 召唤两个2/2的树人。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d98c603beda1b654577bd72494c9439f99bcc4c0a2b33ae7bd5aa11fb525555f.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t2",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122973&locale=en_US",
+        "response_file": "official-CATA_134t2-en_US.json",
+        "response_sha256": "629371c644e1387f2443f28f176aa95e72bf96639af06de4c5981ebe3103dde4",
+        "face": {
+          "id": 122973,
+          "collectible": 0,
+          "slug": "122973-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "Wildwood Circle",
+          "text": "<b>Shattered</b> Give your minions \"<b>Deathrattle:</b> Summon a 2/2 Treant.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/829d8f28d921151eb9fb95a103284924ef01dad031c77593d3844e60d7c98651.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "keywordIds": [
+            12,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t2",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122973&locale=zh_CN",
+        "response_file": "official-CATA_134t2-zh_CN.json",
+        "response_sha256": "36b02fe2c52617c3db93d2811808cabdf640335ee8ad144ec1ebf4fc03345941",
+        "face": {
+          "id": 122973,
+          "collectible": 0,
+          "slug": "122973-wildwood-circle",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Bima Kusuma",
+          "manaCost": 4,
+          "name": "荒林怪圈",
+          "text": "<b>已裂变</b> 使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d6f774471578237b46b7534426b9b4222cb70c73ce7c263c9958d6977db606a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "keywordIds": [
+            12,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t3",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126886&locale=en_US",
+        "response_file": "official-CATA_134t3-en_US.json",
+        "response_sha256": "759b86d71c0211f14de77fd7cac390b88951a7fc70b41f8041d8cda871272281",
+        "face": {
+          "id": 126886,
+          "collectible": 0,
+          "slug": "126886-treant",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "Treant",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58367d8abf3d5cccb7f5ace8539d9e6da113b132c5b8d60e176ab0566e840679.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_134t3",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126886&locale=zh_CN",
+        "response_file": "official-CATA_134t3-zh_CN.json",
+        "response_sha256": "10a502ad3ddcf6469461c5ace77ddf359f029cfb76824b023d2109fc08ce5b27",
+        "face": {
+          "id": 126886,
+          "collectible": 0,
+          "slug": "126886-treant",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "树人",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/885fad8212fcc993b10ab0aa90b07472bcb41e4eeace03f9834d31c5ebf2d050.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122971,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Complete CATA_134 real Shatter family; alternate raw@display and complete official duplicated tooltips remain evidence, actual bodies execute once.",
+    "Whole emits two separate actual SummonByCard requests then a named fresh-state grant to current eligible friendly minions. Successful original/quantity/reaction bodies present at this window can receive the removable finite Deathrattle.",
+    "Fresh CATA_134t3 is exact Druid1mana2/2 with no printed Deathrattle and no invented tribe; raw2831 Treant subtype retained. No EX1_158 token substitution.",
+    "Granted Deathrattle requires real native natural/effect activation, uses actual carrier/controller and SummonCause; natural placement uses death.position, live effect activation uses right-of-carrier, otherwise default. Exact timing/placement are inherited local contracts pending CN.",
+    "One-time ordinary GrantDeathrattle attachments, not aura/player effect. Later-born Treants do not inherit; native silence/control/copy/return, quantity, capacity, replay/privacy remain shared.",
+    "CATA_134e is evidence only; existing TIME_101 complete definition pinned for actual-source bridge; no broad generated pool or shared changes."
+  ]
+}
