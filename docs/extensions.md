@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+纯延系随从的原生条件目标通过KindredTargetProfile连接既有主体与原目标流程，公开端只给本人手牌必要布尔值；约束见[契约](m3-native-kindred-target.md)。
+
 真实完整有限名单可通过GenerateFromCandidates复用原抽样与入手，无通用格式上下文时也不裁池；具体约束见[完整梦境来源](m3-fixed-dream-source.md)。
 
 真实数值与一次性开始回调须共同安装，原有限触发器负责条件、消费和来源；梦魇及伊瑟拉苏醒的限定表达见[契约](m3-complex-dream-cards.md)。

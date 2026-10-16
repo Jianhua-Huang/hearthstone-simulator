@@ -155,6 +155,7 @@ class Registry:
         self._turn_draw_profiles = {}
         self._spell_value_profiles = {}
         self._hero_health_target_profiles = {}
+        self._kindred_target_profiles = {}
         self._corpse_summon_profiles = {}
         self._corpse_gain_profiles = {}
         self._summon_attack_profiles = {}
@@ -269,6 +270,9 @@ class Registry:
     def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
 
     @property
+    def kindred_target_profiles(self):return MappingProxyType(self._kindred_target_profiles)
+
+    @property
     def corpse_summon_profiles(self):return MappingProxyType(self._corpse_summon_profiles)
 
     @property
@@ -338,6 +342,14 @@ class Registry:
             from .kindred import request
             self._behaviors[profile.wrapper]=lambda c,card_id=profile.card_id:request(c,card_id)
         self._kindred_profiles[profile.card_id]=profile
+
+    def register_kindred_target_profile(self, profile):
+        self._require_mutable()
+        from .kindred_targets import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._kindred_target_profiles:
+            raise ValueError('Duplicate native targeted Kindred profile')
+        self._kindred_target_profiles[profile.card_id] = profile
 
     def register_player_effect(self, spec: PlayerEffectSpec) -> None:
         self._require_mutable()
@@ -1509,6 +1521,8 @@ class Registry:
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
+        from .kindred_targets import validate_profile as validate_kindred_target_profile
+        for profile in self._kindred_target_profiles.values():validate_kindred_target_profile(self,profile)
         from .summon_attack_groups import validate_profile as validate_summon_attack_profile
         for profile in self._summon_attack_profiles.values():validate_summon_attack_profile(self,profile)
         from .corpse_gains import validate_profile as validate_corpse_gain_profile
@@ -1799,6 +1813,8 @@ class Registry:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
         if self._hero_health_target_profiles:
             payload['hero_health_target_profiles']=[asdict(self._hero_health_target_profiles[k])for k in sorted(self._hero_health_target_profiles)]
+        if self._kindred_target_profiles:
+            payload['kindred_target_profiles']=[asdict(self._kindred_target_profiles[k])for k in sorted(self._kindred_target_profiles)]
         if self._corpse_summon_profiles:
             payload['corpse_summon_profiles']=[asdict(self._corpse_summon_profiles[k])for k in sorted(self._corpse_summon_profiles)]
         if self._corpse_gain_profiles:

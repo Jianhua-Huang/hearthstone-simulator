@@ -121,9 +121,12 @@ Current target eligibility is deliberately not used as original eligibility.
     if len(heroes) != 1:
         raise ValueError('Original target board requires its single installed owned hero')
     player = PlayerState(play.player_id, heroes[0], hand=list(origin.hand), board=list(origin.board))
-    return GameState({play.player_id: player}, entities, active_player=play.player_id, turn=origin.turn,
+    original = GameState({play.player_id: player}, entities, active_player=play.player_id, turn=origin.turn,
         action_number=origin.action, next_entity_id=origin.next_entity_id,
-        next_attachment_id=origin.next_attachment_id), entities[source.id]
+        next_attachment_id=origin.next_attachment_id)
+    from .kindred_targets import restore_original_history
+    restore_original_history(original, state, registry, play)
+    return original, entities[source.id]
 
 
 def origin_from_dict(value):

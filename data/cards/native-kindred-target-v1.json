@@ -1,0 +1,123 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_825",
+        "dbf_id": 117598,
+        "name": "暴掠龙女王",
+        "name_en": "Ravasaur Matriarch",
+        "text": "<b>延系：</b>对一个敌方随从造成等同于本随从攻击力的伤害。",
+        "text_en": "[x]<b>Kindred:</b> Deal damage to\nan enemy minion equal to\nthis minion's Attack.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "3cba52fbf34497fa7e1a3568b129b6115582d60f01be015602de762ada16beed"
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_825",
+      "locale": "en_US",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117598&locale=en_US",
+      "response_file": "official-TLC_825-en_US.json",
+      "response_sha256": "06ea800bf670042585430489afc59a87179f5a7d0e30cf29946c3eb3dd187179",
+      "face": {
+        "id": 117598,
+        "collectible": 1,
+        "slug": "117598-ravasaur-matriarch",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Brian Despain",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Ravasaur Matriarch",
+        "text": "<b>Kindred:</b> Deal damage to an enemy minion equal to this minion's Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/051ad665b63088709cd7edf7928763bcfd5813ec85f7b5983e12db12f8abe2b6.png",
+        "imageGold": "",
+        "flavorText": "The female Ravasaur is 30% larger than the male. And 100% more aggressive.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab170bb9926db9d0eae794fac645fb7d2389fb771ca9a11ed2ac24ea9f4ab443.png",
+        "keywordIds": [
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_825",
+      "locale": "zh_CN",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117598&locale=zh_CN",
+      "response_file": "official-TLC_825-zh_CN.json",
+      "response_sha256": "e7e8b85ecdfd2f409cd7f70f251f183929acd67005ca8ded5c5ac7cecc0d1ae2",
+      "face": {
+        "id": 117598,
+        "collectible": 1,
+        "slug": "117598-ravasaur-matriarch",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Brian Despain",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "暴掠龙女王",
+        "text": "<b>延系：</b>对一个敌方随从造成等同于本随从攻击力的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3e2eeca0927b61bc7b90e0e491d0d758634fe15c6efb7ccee0488b2dab01a52.png",
+        "imageGold": "",
+        "flavorText": "雌性暴掠龙的体型比雄性大30%，攻击性更是高了100%。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab170bb9926db9d0eae794fac645fb7d2389fb771ca9a11ed2ac24ea9f4ab443.png",
+        "keywordIds": [
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "policy": "Actual native Kindred-only minion body: enemy-minion target exists only when previous genuine own-turn type relation matches. Shared target pipeline, payment and Kindred acceptance remain native; source Attack is read at active component execution. Exact CN acceptance/LKI/target-movement windows remain uncalibrated."
+}

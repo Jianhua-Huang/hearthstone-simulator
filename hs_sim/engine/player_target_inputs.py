@@ -129,6 +129,13 @@ def decode(proof, *, require_active_player=True):
                 zone != Zone.HERO and not (zone == Zone.HAND and controller == value['viewer']) or
                 type(row['invoke_progress']) is not int or not 0 <= row['invoke_progress'] <= 4):
             raise ValueError('Invoke progress requires a visible physical hero card and exact bounded integer')
+        if 'play_conditions' in row:
+            conditions = row['play_conditions']
+            if type(conditions) is not dict:
+                raise ValueError('Public play conditions require an explicit object')
+            if 'kindred' in conditions and (zone != Zone.HAND or controller != value['viewer']
+                    or type(conditions['kindred']) is not bool):
+                raise ValueError('Native Kindred target fact is a boolean private to its own hand')
         if 'preparation' in row:
             prepared = row['preparation']
             if zone != Zone.HAND or controller != value['viewer']:

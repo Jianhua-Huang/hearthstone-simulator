@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v88'
+VIEW_VERSION = 'player-view-v89'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -399,6 +399,10 @@ class Information:
                     result['magnetic_tribes']=list(game.registry.card(entity.card_id).magnetic_tribes)
                     from .play_history import preplay_conditions
                     result['play_conditions'] = preplay_conditions(state, entity, game.registry)
+                    if entity.controller == viewer and entity.card_id in game.registry.kindred_target_profiles:
+                        from .kindred_targets import matched
+                        result['play_conditions']['kindred'] = matched(state, game.registry, entity,
+                            game.registry.card(entity.card_id))
                     from .hand_actions import quote_hand_action
                     result['hand_actions'] = [
                         {'id': spec.id, 'kind': spec.kind, 'cost': {
