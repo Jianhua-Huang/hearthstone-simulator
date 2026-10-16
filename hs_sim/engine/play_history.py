@@ -34,6 +34,17 @@ def played_cards(state, player_id, *, turn=None, before_id=None, kind=None, comp
         (card_class is None or matches_played_class(p.played_face, card_class, registry=registry)))
 
 
+def spell_schools_from_plays(records):
+    """Ordered distinct schools of committed SPELL faces, never current entities.
+
+    Callers supply their original seat/turn slice. Countered hand plays count;
+    effect casts are absent from this ledger. No-school spells add no school.
+    """
+    return tuple(sorted({record.played_face.spell_school for record in records
+        if record.kind == CardType.SPELL and record.played_face.spell_school is not None},
+        key=lambda school: school.value))
+
+
 def matches_played_class(face, card_class, *, registry=None):
     """Pure original printed-class membership, independent of hero/current face."""
     from .model import FrozenPlayedFaceFact

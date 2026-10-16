@@ -11,7 +11,7 @@ import re
 from types import SimpleNamespace
 
 from .effects import _behavior
-from .model import CardType, PaidTargetObservation, Zone
+from .model import CardType, PaidTargetObservation, SpellSchool, Zone
 
 
 @dataclass(frozen=True)
@@ -84,8 +84,16 @@ def decode(proof, *, require_active_player=True):
     if type(value['players']) is not list or [p.get('id') for p in value['players'] if type(p) is dict] != [1, 2]:
         raise ValueError('Player target observation requires both ordered seats')
     for p in value['players']:
-        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual'} != PLAYER or type(p['id']) is not int:
+        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual', 'spell_schools_played_this_turn'} != PLAYER or type(p['id']) is not int:
             raise ValueError('Player target observation lost complete public player fields')
+        if p['id'] == value['viewer']:
+            schools = p.get('spell_schools_played_this_turn')
+            if (type(schools) is not list or
+                    any(type(school) is not str or school not in {s.value for s in SpellSchool} for school in schools) or
+                    schools != sorted(set(schools))):
+                raise ValueError('Own played-school input requires ordered distinct actual spell schools')
+        elif 'spell_schools_played_this_turn' in p:
+            raise ValueError('Played-school input is private to its own viewer')
         if 'invoke_count' in p and (p['id'] != value['viewer'] or
                 type(p['invoke_count']) is not int or p['invoke_count'] < 0):
             raise ValueError('Private Invoke count requires the viewer and an exact nonnegative integer')
@@ -233,6 +241,11 @@ def validate_origin(registry, origin, source, *, play=None, prior=(), require_ac
             owned = [r for r in prior if r.player_id == p['id']]
             if (p['cards_played_total'], p['cards_played_this_turn']) != (len(owned), sum(r.turn == origin.turn for r in owned)):
                 raise ValueError('Original player target view changed its actual preceding plays')
+        from .play_history import spell_schools_from_plays
+        expected = [school.value for school in spell_schools_from_plays(
+            r for r in prior if r.player_id == source.controller and r.turn == origin.turn)]
+        if own['spell_schools_played_this_turn'] != expected:
+            raise ValueError('Original player target view changed its actual preceding spell schools')
 
 
 def factory(proof, *, require_active_player=True):

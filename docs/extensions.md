@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“本回合使用过某学派”目标只读本人DTO的有序学派集合，原事实由既有提交账本投影，不能在玩家条件闭包读取全状态或从墓地推断。普通根与独立主体窗口、私密范围及原观察校验见[契约](m3-played-school-targets.md)。
+
 原随从攻击规则授予可用GrantAttackPolicy.recipient保护原接收对象，来源归属和source_binding仍各自保留；见[契约](m3-captured-attack-grants.md)。
 
 非施法随从/地标的具名分摊可显式使用NON_SPELL_PROFILE，cast_id=None及匹配kind，复用原完整单位管线和原致死结果；见[契约](m3-non-spell-split.md)。

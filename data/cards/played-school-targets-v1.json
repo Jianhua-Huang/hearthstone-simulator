@@ -1,0 +1,138 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_EVENT_002",
+        "dbf_id": 126847,
+        "name": "怨毒焰魔",
+        "name_en": "Baleful Blazer",
+        "text": "<b>战吼：</b>如果你在本回合中施放过火焰法术，消灭一个随从。",
+        "text_en": "<b>Battlecry:</b> If you've played a Fire spell this turn, destroy a minion.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1941,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "5622a46eeb394b7a118b48a5186c9cbdf94a15980f3003128ef063d9da753ce7",
+      "reason": "Existing IF_AVAILABLE history predicate can use trusted played_cards but player legality rejects omniscient target rules with unsupported_rule. PlayerRuleContext observation/PlayerTargetRuleSpec cannot read exact original current-turn Fire play history; no existing native Fire-history target profile. Complete root skipped, not approximated by total play counts or graveyard identities.",
+      "reproducer": "outputs/simple-cards-p10/reproduce_blazer_target_gap.py",
+      "evidence": [
+        "outputs/simple-cards-p10/blazer-gap-01/result.json",
+        "outputs/simple-cards-p10/gap-no-fire.json",
+        "outputs/simple-cards-p10/gap-after-fire.json"
+      ]
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_EVENT_002",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126847&locale=en_US",
+      "response_file": "official-CATA_EVENT_002-en-us.json",
+      "response_sha256": "a671bd44228f0cf51e5c6fd77759456bf79e7ff7342b69219e6af5fc8a985f7e",
+      "face": {
+        "id": 126847,
+        "collectible": 1,
+        "slug": "126847-baleful-blazer",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Baleful Blazer",
+        "text": "<b>Battlecry:</b> If you've played a Fire spell this turn, destroy a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4785146868cce6b02c634f562d0b8021881725abc58d7a325c32266c4cd9f0f4.png",
+        "imageGold": "",
+        "flavorText": "I SHALL PASS!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ab366d65b767e9fbddf5d630d7936082b6b8152d591dc759c4a950e9d8ef960.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_002",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=126847&locale=zh_CN",
+      "response_file": "official-CATA_EVENT_002-zh-cn.json",
+      "response_sha256": "c77d41c931b620816a5b4d58ce315e7f105e500ddf300bc7e10db1ad879260a3",
+      "face": {
+        "id": 126847,
+        "collectible": 1,
+        "slug": "126847-baleful-blazer",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "怨毒焰魔",
+        "text": "<b>战吼：</b>如果你在本回合中施放过火焰法术，消灭一个随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e948e13cb59caca2440a02c319e466d0c72832b8a2a4c6137488c9350be314de.png",
+        "imageGold": "",
+        "flavorText": "我偏要过去！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ab366d65b767e9fbddf5d630d7936082b6b8152d591dc759c4a950e9d8ef960.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "condition": "Own committed hand SPELL frozen Fire face during the current global turn. Countered committed plays count; opponent, earlier turn, effect casts, summons, powers and uncommitted attempts do not. Native manual play uses its ordinary root target and the body reads the original RuleContext history; explicit independent paid/generated body profiles additionally retain their established original-input/current-recheck policies. No new timing window is introduced.",
+    "targets": "IF_AVAILABLE all ordinarily targetable MINIONs on BOARD, either side. Without Fire or eligible target, targetless minion play remains legal. Manual source in HAND is not a board candidate; independent triggered Battlecry can target itself under ordinary body policies.",
+    "execution": "Use existing ordinary Destroy after native Battlecry target validation. No additional payment, postpayment choice, custom RNG or death executor.",
+    "information": "Sorted distinct known schools derived from existing PlayRecord frozen faces, own viewer only; no card identity/event/record/physical mapping added to DTO. Canonical original inputs and actual preceding records validate paid acceptance."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
