@@ -11,7 +11,7 @@ CLASS_TAGS = MappingProxyType({
     1: CardClass.DEATH_KNIGHT, 2: CardClass.DRUID, 3: CardClass.HUNTER,
     4: CardClass.MAGE, 5: CardClass.PALADIN, 6: CardClass.PRIEST,
     7: CardClass.ROGUE, 8: CardClass.SHAMAN, 9: CardClass.WARLOCK,
-    10: CardClass.WARRIOR, 12: CardClass.NEUTRAL, 14: CardClass.DEMON_HUNTER,
+    10: CardClass.WARRIOR, 11: CardClass.DREAM, 12: CardClass.NEUTRAL, 14: CardClass.DEMON_HUNTER,
 })
 KNOWN_MASK = sum(1 << (value - 1) for value in CLASS_TAGS)
 

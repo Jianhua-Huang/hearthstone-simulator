@@ -61,9 +61,9 @@ class CardSpellSourceTests(unittest.TestCase):
         self.assertEqual(classes_from_tags({'CLASS':12}),(CardClass.NEUTRAL,))
 
     def test_unknown_class_bits_types_and_mixed_neutral_rejected(self):
-        for tags in ({},{'CLASS':0},{'CLASS':11},{'CLASS':13},{'CLASS':True},{'CLASS':4.0},
+        for tags in ({},{'CLASS':0},{'CLASS':13},{'CLASS':True},{'CLASS':4.0},
             {'MULTIPLE_CLASSES':True},{'MULTIPLE_CLASSES':-1},{'MULTIPLE_CLASSES':2**32},
-            {'MULTIPLE_CLASSES':1<<10},{'MULTIPLE_CLASSES':1<<12},{'MULTIPLE_CLASSES':(1<<11)|8}):
+            {'MULTIPLE_CLASSES':1<<12},{'MULTIPLE_CLASSES':(1<<11)|8}):
             with self.subTest(tags=tags),self.assertRaises(TargetValidationError):classes_from_tags(tags)
 
     def test_gidra_corrected_to_two_classes_and_not_neutral(self):

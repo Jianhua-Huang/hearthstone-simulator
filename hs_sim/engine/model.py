@@ -27,6 +27,7 @@ class CardType(StrEnum):
 
 class CardClass(StrEnum):
     NEUTRAL = 'neutral'
+    DREAM = 'dream'
     DEATH_KNIGHT = 'death_knight'
     DEMON_HUNTER = 'demon_hunter'
     DRUID = 'druid'
@@ -38,6 +39,9 @@ class CardClass(StrEnum):
     SHAMAN = 'shaman'
     WARLOCK = 'warlock'
     WARRIOR = 'warrior'
+
+
+PLAYABLE_CARD_CLASSES = frozenset(c for c in CardClass if c not in (CardClass.NEUTRAL,CardClass.DREAM))
 
 
 class Rarity(StrEnum):
@@ -9942,9 +9946,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     for player_id, player in state.players.items():
         if not isinstance(player, PlayerState) or type(player.id) is not int or player.id != player_id:
             raise ValueError(f"player key {player_id} disagrees with player state")
-        if player.hero_class is not None and not isinstance(player.hero_class, CardClass):
+        if player.hero_class is not None and (not isinstance(player.hero_class, CardClass)or player.hero_class==CardClass.DREAM):
             raise ValueError('Invalid current hero class')
-        if player.deck_class is not None and (not isinstance(player.deck_class, CardClass) or player.deck_class == CardClass.NEUTRAL):
+        if player.deck_class is not None and (not isinstance(player.deck_class, CardClass) or player.deck_class not in PLAYABLE_CARD_CLASSES):
             raise ValueError('Invalid starting deck class')
         if player.runes is not None:
             from .tourists import requires_runes

@@ -13,7 +13,8 @@ from .model import CardClass, CardType, ExcavationRecord, Rarity, Zone
 from .pools import GenerationContext, sample_candidates
 
 
-PLAYABLE_CLASSES = frozenset(c for c in CardClass if c != CardClass.NEUTRAL)
+from .model import PLAYABLE_CARD_CLASSES
+PLAYABLE_CLASSES = PLAYABLE_CARD_CLASSES
 RARITIES = (Rarity.COMMON, Rarity.RARE, Rarity.EPIC, Rarity.LEGENDARY)
 
 

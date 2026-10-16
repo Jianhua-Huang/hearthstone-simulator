@@ -65,7 +65,8 @@ class DeckSpec:
     def __post_init__(self):
         name(self.hero_card_id, 'hero_card_id')
         name(self.hero_power_card_id, 'hero_power_card_id')
-        if not isinstance(self.card_class, CardClass) or self.card_class == CardClass.NEUTRAL:
+        from .model import PLAYABLE_CARD_CLASSES
+        if type(self.card_class)is not CardClass or self.card_class not in PLAYABLE_CARD_CLASSES:
             raise ValueError('A deck needs a playable hero class')
         ids(self.cards, 'deck cards')
         from .sideboards import SideboardSpec

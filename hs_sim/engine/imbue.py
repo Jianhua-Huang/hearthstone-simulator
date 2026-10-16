@@ -12,7 +12,8 @@ from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import CardClass, CardType, ImbueRecord
 
 
-PLAYABLE_CLASSES = frozenset(c for c in CardClass if c != CardClass.NEUTRAL)
+from .model import PLAYABLE_CARD_CLASSES
+PLAYABLE_CLASSES = PLAYABLE_CARD_CLASSES
 
 
 @dataclass(frozen=True)
