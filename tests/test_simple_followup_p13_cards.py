@@ -1,6 +1,7 @@
 """Native weapon death draws, fixed chosen companions and retained attack gap."""
 from dataclasses import asdict,replace
 import json,re,unittest
+from unittest.mock import patch
 from hs_sim.cards import build_registry
 from hs_sim.cards.metadata import metadata_from_record
 from hs_sim.cards.simple_followup_p13_cards import SABRE,SHOVEL,SPEAKER,ROOTS,COMPANIONS,load_batch,register_simple_followup_p13_cards
@@ -111,7 +112,10 @@ class SimpleFollowupP13Tests(unittest.TestCase):
             if o['card_id']==SPEAKER:self.assertEqual(sorted(o['face']['childIds']),[100,226,959])
 
     def test_all_existing_companion_definitions_are_retained_without_re_registration(self):
-        before=build_registry();after=build_registry();register_simple_followup_p13_cards(after)
+        with patch('hs_sim.cards.simple_followup_p13_cards.register_simple_followup_p13_cards',lambda r:None):
+            before=build_registry()
+        after=build_registry()
+        if not all(cid in after.cards for cid in ROOTS):register_simple_followup_p13_cards(after)
         for cid in COMPANIONS:self.assertEqual(asdict(before.card(cid)),asdict(after.card(cid)))
         self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertNotIn(SABRE,after.cards)
 
