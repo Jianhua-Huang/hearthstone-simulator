@@ -1,0 +1,136 @@
+{
+  "batch": "K90",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_822",
+        "dbf_id": 117574,
+        "name": "恐龙保育师",
+        "name_en": "Dinositter",
+        "text": "在你的回合结束时，&随机使你手牌中一张野兽牌的法力值消耗减少（1）点。",
+        "text_en": "[x]At the end of your\nturn,& reduce the Cost\nof a random Beast in\nyour hand by (1).",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "63dcd80d1fce87db961e30167e0e41b1befd0ea8d0ba973b64854c99560a52e6"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "TLC_822",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117574&locale=en_US",
+        "sha256": "c6bd17313b0c95f51f234c6cf2e5bf5a010f5f8537fa9f3404d821e8b2d6697d",
+        "face": {
+          "id": 117574,
+          "collectible": 1,
+          "slug": "117574-dinositter",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Dinositter",
+          "text": "At the end of your turn,& reduce the Cost of a random Beast in your hand by (1).",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c21b2a657deab7531c0b9d08339cc198f85d9fb85271e835c230387afb3b31fa.png",
+          "imageGold": "",
+          "flavorText": "\"You aren't leaving this log until you finish your greens.\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/833a0dd91a00cbdaa9d7639e9856ea8a1c33dc368422c9e8bf008f00f2ecfb81.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_822",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117574&locale=zh_CN",
+        "sha256": "eb67c4ce1b8de13148a853c46887e0de593213c95868de37e65fbd658ab74db9",
+        "face": {
+          "id": 117574,
+          "collectible": 1,
+          "slug": "117574-dinositter",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "恐龙保育师",
+          "text": "在你的回合结束时，&随机使你手牌中一张野兽牌的法力值消耗减少（1）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f4c62a9f55fe2ef5927f106889a4f661b9e4dad8d7f9306587f3756dbceb6d2.png",
+          "imageGold": "",
+          "flavorText": "“不吃完这些绿叶子不许出去玩。”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/833a0dd91a00cbdaa9d7639e9856ea8a1c33dc368422c9e8bf008f00f2ecfb81.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "evidence": "outputs/card-parallel-p05-20261016/worker-evidence/official-face-audit.json"
+  },
+  "internal_policy": {
+    "filter": "Actual owner end reads current physical hand minions via existing RandomBuffStoredMinion with explicit tribe_basis=current; all tribes and exclusions use common has_any_tribe. Printed remains the default for old callers.",
+    "application": "One original physical hand reference is chosen once; existing BuffStoredCard and cost layer own -1, floor, expiry, movement and reactions. Empty pool consumes no RNG.",
+    "status": "Exact current/printed qualification, candidate windows, notification order and CN RNG policy remain uncalibrated."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

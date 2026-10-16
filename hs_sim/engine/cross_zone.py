@@ -117,11 +117,14 @@ class RandomBuffStoredMinion(Effect):
     source_id: int | None = None
     cost: CostSpec | None = None
     expires_turn: int | None = None
+    tribe_basis: str = 'printed'
 
     def __post_init__(self):
         from .zones import card_zone,filter_value
         _player(self.player_id); _source(self.source_id); card_zone(self.zone); filter_value(self.query)
         _integer(self.attack,'random stored attack'); integer(self.health,'random stored health',0)
+        if type(self.tribe_basis) is not str or self.tribe_basis not in ('printed', 'current'):
+            raise ValueError('Random stored tribe basis must be printed or current')
         if self.query.kinds not in ((),(CardType.MINION,)):
             raise ValueError('Random stored buff requires a minion query')
         if self.cost is not None:
@@ -134,8 +137,13 @@ def random_buff_stored(r,effect):
     from .zones import zone_candidates
     from .costs import validate_cost_targets
     effect.__post_init__(); source_exists(r,effect.source_id)
-    refs=zone_candidates(r,effect.player_id,effect.zone,replace(effect.query,kinds=(CardType.MINION,)),
+    query=replace(effect.query,kinds=(CardType.MINION,))
+    metadata_query=replace(query,tribes_any=()) if effect.tribe_basis=='current' else query
+    refs=zone_candidates(r,effect.player_id,effect.zone,metadata_query,
                         effect.player_id,effect.source_id)
+    if effect.tribe_basis=='current' and query.tribes_any:
+        from .tribes import has_any_tribe
+        refs=tuple(ref for ref in refs if has_any_tribe(r.registry,r.state.entities[ref.entity_id],query.tribes_any))
     validate_cost_targets(r.state,effect,((r.registry.card(ref.card_id),r.state.entities[ref.entity_id]) for ref in refs))
     if not refs or effect.attack==effect.health==0 and effect.cost is None:return ()
     # One physical candidate supplies both modifications; no second random draw.
