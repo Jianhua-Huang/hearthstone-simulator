@@ -1,0 +1,132 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_829",
+        "dbf_id": 117610,
+        "name": "饥饿的魔暴龙",
+        "name_en": "Ravenous Devilsaur",
+        "text": "<b>战吼：</b>消灭一个随从。<b>延系：</b>获得被消灭随从的属性值。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy a minion.\n<b>Kindred:</b> Gain its stats.",
+        "cost": 7,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 7,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & I. Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "244f769f702f57f402469feca10217d040715ef1f2c816b684e29e301baa82b0"
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_829",
+      "locale": "en_US",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117610&locale=en_US",
+      "response_file": "official-TLC_829-en_US.json",
+      "response_sha256": "9241ca26c062b945d1eb96b80b10116adcbc7cd7a5cf4b8777a811df487379a4",
+      "face": {
+        "id": 117610,
+        "collectible": 1,
+        "slug": "117610-ravenous-devilsaur",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & I. Campelo da Silva",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "Ravenous Devilsaur",
+        "text": "<b>Battlecry:</b> Destroy a minion. <b>Kindred:</b> Gain its stats.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/513f2d6646e1e12b7e31a690aa16e55b9c460d1db21edba09fafe1052a243f98.png",
+        "imageGold": "",
+        "flavorText": "You're not you when you're ravenous.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fefbabd0c6c535c44b756800c77891a37380fc556c1bb64cbeb470be2eb2e0d.png",
+        "childIds": [
+          117614
+        ],
+        "keywordIds": [
+          8,
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_829",
+      "locale": "zh_CN",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117610&locale=zh_CN",
+      "response_file": "official-TLC_829-zh_CN.json",
+      "response_sha256": "69b69d53b636dc52097439f5352bd7480ac4d7ee1e7a60758c9b5e19378abb91",
+      "face": {
+        "id": 117610,
+        "collectible": 1,
+        "slug": "117610-ravenous-devilsaur",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & I. Campelo da Silva",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "饥饿的魔暴龙",
+        "text": "<b>战吼：</b>消灭一个随从。<b>延系：</b>获得被消灭随从的属性值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ada8b93de7a0e0e3c07ad0184b87b8dff5e6ea913040cf06fdbb929db80e9893.png",
+        "imageGold": "",
+        "flavorText": "贪图食物时，你就不是你了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fefbabd0c6c535c44b756800c77891a37380fc556c1bb64cbeb470be2eb2e0d.png",
+        "childIds": [
+          117614
+        ],
+        "keywordIds": [
+          8,
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "policy": "Ordinary prepare destroys one original live minion once; qualified active reward uses the original accepted target Attack and positive remaining Health, first-death boundary and original receiver reference. No later graveyard reread; no reward without actual destruction/current original beneficiary. Inherits public deferred-death and strict controller/residence policy. Exact CN timing/LKI/current versus max Health remain uncalibrated."
+}

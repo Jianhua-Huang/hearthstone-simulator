@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+混合普通效果与延系奖励应按原prepare/active接续，原属性与实际消灭奖励可直接复用已接受材料和原引用执行器，见[魔暴龙契约](m3-native-kindred-destruction.md)。
+
 纯延系随从的原生条件目标通过KindredTargetProfile连接既有主体与原目标流程，公开端只给本人手牌必要布尔值；约束见[契约](m3-native-kindred-target.md)。
 
 真实完整有限名单可通过GenerateFromCandidates复用原抽样与入手，无通用格式上下文时也不裁池；具体约束见[完整梦境来源](m3-fixed-dream-source.md)。
