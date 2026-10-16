@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v95"
+CONTENT_VERSION = "constructed-cn37-preview-v96"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -245,5 +245,7 @@ def build_registry():
     register_dragon_native_effect_cards(registry)
     from .parallel_trial_p01_cards import register_parallel_trial_p01_cards
     register_parallel_trial_p01_cards(registry)
+    from .native_draw_followup_cards import register_native_draw_followup_cards
+    register_native_draw_followup_cards(registry)
     registry.validate()
     return registry
