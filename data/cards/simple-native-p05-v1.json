@@ -1,0 +1,767 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_LOOT_044",
+        "dbf_id": 129222,
+        "name": "铁刃护手",
+        "name_en": "Bladed Gauntlet",
+        "text": "攻击力等同于你的\n护甲值。无法攻击英雄。",
+        "text_en": "Has Attack equal to your Armor. Can't attack heroes.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 43277,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 43277
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "43277",
+              "type": "Int",
+              "value": "43277"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1afaa0bf5f1bc53646c8a3453bc299f44eb5c46cd80d375d0c9785b29578b406"
+    },
+    {
+      "record": {
+        "id": "TIME_703",
+        "dbf_id": 120749,
+        "name": "濒危的渡渡鸟",
+        "name_en": "Endangered Dodo",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的生命值小于或等于10点，获得+5/+5并召唤一个本随从的复制。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If you have 10 or\nless Health, gain +5/+5 and\n___summon a copy of this.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "93c5e5ab6c78c0688febfbaad3a08c25a3495b07a59304b78cba340f8cd1a7b8"
+    },
+    {
+      "record": {
+        "id": "TIME_EVENT_300",
+        "dbf_id": 129894,
+        "name": "黑铁先驱",
+        "name_en": "Dark Iron Harbinger",
+        "text": "<b>亡语：</b>召唤一个0/7的末日预言者。末日预言者会在你的回合开始时消灭所有随从。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\n0/7 Doomsayer that\ndestroys ALL minions at\nthe start of your turn.",
+        "cost": 4,
+        "attack": 7,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 76317
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "164d532b70bf863bce6fea9cbf255223cf5d07f326f3fe754b0205ab4d786045"
+    },
+    {
+      "record": {
+        "id": "TLC_220",
+        "dbf_id": 117531,
+        "name": "扫页疾风",
+        "name_en": "Windswept Pageturner",
+        "text": "在你召唤一个元素后，&随机对一个敌人造成3点伤害。",
+        "text_en": "[x]After you summon an\nElemental,& deal 3 damage\nto a random enemy.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "261d46d34a8c8e556714bb8f0912d8a9e2627b44ad6a4798ab7fade1d5e6b4a4"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_NEW1_021",
+        "dbf_id": 76317,
+        "name": "末日预言者",
+        "name_en": "Doomsayer",
+        "text": "在你的回合开始时，&消灭所有随从。",
+        "text_en": "At the start of your turn,& destroy ALL minions.",
+        "cost": 2,
+        "attack": null,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 138,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "138",
+              "type": "Int",
+              "value": "138"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          }
+        ]
+      },
+      "record_sha256": "ba5cbb45824ae05eb1b87253de8f1587b29784d5a2407900962bf693e3cecfe0",
+      "definition_sha256": "4872328bb6f9f233864fbd2f0385be50a25943cddfa884d4c5b7aa78474d4d62"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "LOOT_044",
+        "dbf_id": 43277,
+        "name": "铁刃护手",
+        "name_en": "Bladed Gauntlet",
+        "text": "攻击力等同于你的\n护甲值。无法攻击英雄。",
+        "text_en": "Has Attack equal to your Armor. Can't attack heroes.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 10,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "bcd732d3d46b07af0064e1bcd178b7da7e33d94efdd1f2a3f26fcd8ab67c317c"
+    }
+  ],
+  "skipped": [
+    {
+      "record": {
+        "id": "TLC_822",
+        "dbf_id": 117574,
+        "name": "恐龙保育师",
+        "name_en": "Dinositter",
+        "text": "在你的回合结束时，&随机使你手牌中一张野兽牌的法力值消耗减少（1）点。",
+        "text_en": "[x]At the end of your\nturn,& reduce the Cost\nof a random Beast in\nyour hand by (1).",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "63dcd80d1fce87db961e30167e0e41b1befd0ea8d0ba973b64854c99560a52e6",
+      "reason": "RandomBuffStoredMinion uses printed metadata tribes, without current-tribe physical hand selection. Real current-Beast hand transformation is missed.",
+      "evidence": "outputs/simple-cards-p05/dinositter-gap-repro-01/review.json"
+    }
+  ],
+  "official_observations": {
+    "observed_at": "2026-10-16T22:51:37.271788+08:00",
+    "observations": [
+      {
+        "card_id": "CORE_LOOT_044",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129222&locale=en_US",
+        "sha256": "5bf2d5dc166f898f370f4b354d03caf3c757538b6034bb47074d08978fb74f34",
+        "face": {
+          "id": 129222,
+          "collectible": 1,
+          "slug": "129222-bladed-gauntlet",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Luca Zontini",
+          "health": 2,
+          "manaCost": 2,
+          "name": "Bladed Gauntlet",
+          "text": "Has Attack equal to your Armor. Can't attack heroes.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d8b567455f95d81c57ee03b717d93c907bda1dba6025ce851b88daf6ac997b7.png",
+          "imageGold": "",
+          "flavorText": "CAUTION: DO NOT SCRATCH NOSE.",
+          "cropImage": null,
+          "copyOfCardId": [
+            43277
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_LOOT_044",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=129222&locale=zh_CN",
+        "sha256": "5e2802b31eeff9aa16f6902ba358a8101a5e8a5efdd7375c48183cc8c7365446",
+        "face": {
+          "id": 129222,
+          "collectible": 1,
+          "slug": "129222-bladed-gauntlet",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Luca Zontini",
+          "health": 2,
+          "manaCost": 2,
+          "name": "铁刃护手",
+          "text": "攻击力等同于你的 护甲值。无法攻击英雄。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a58dc4c9af72d96e021a36c06c0b994d39a3dc02c69ba2688c1bb5e9c8bc35b0.png",
+          "imageGold": "",
+          "flavorText": "警告：不要用来挖鼻孔。",
+          "cropImage": null,
+          "copyOfCardId": [
+            43277
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_703",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120749&locale=en_US",
+        "sha256": "c76fda928c652de4a2656207403f5bb7e4c143b3ee59262acd1888f1d1ce7b01",
+        "face": {
+          "id": 120749,
+          "collectible": 1,
+          "slug": "120749-endangered-dodo",
+          "classId": 2,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Matt Dixon",
+          "health": 5,
+          "attack": 5,
+          "manaCost": 5,
+          "name": "Endangered Dodo",
+          "text": "<b>Taunt</b> <b>Battlecry:</b> If you have 10 or less Health, gain +5/+5 and summon a copy of this.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20660bd3b63cf0ac8bbcb7fac04872175e54b763742525261c642e3ff075862f.png",
+          "imageGold": "",
+          "flavorText": "The reports of my imminent demise have been greatly exagger-",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dcbe62da9c4ba86cb97ee1afcf26e63c1b8432c99583e6973e06257860da99c.png",
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_703",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=120749&locale=zh_CN",
+        "sha256": "b8e900a6f668d858b9dd3ea7b7f77568f8b7e9690de90f51bdfb1328287b039f",
+        "face": {
+          "id": 120749,
+          "collectible": 1,
+          "slug": "120749-endangered-dodo",
+          "classId": 2,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Matt Dixon",
+          "health": 5,
+          "attack": 5,
+          "manaCost": 5,
+          "name": "濒危的渡渡鸟",
+          "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的生命值小于或等于10点，获得+5/+5并召唤一个本随从的复制。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f0f6f69db4958d661d94c7b3b7a0b9e43854f33160b237bfab753766e65c349.png",
+          "imageGold": "",
+          "flavorText": "各种有关我的物种濒危报告有过分夸大的——",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dcbe62da9c4ba86cb97ee1afcf26e63c1b8432c99583e6973e06257860da99c.png",
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_EVENT_300",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129894&locale=en_US",
+        "sha256": "bcdfde4705ad949dec23a667551e3779401fdfd5b4d067f724c0ca07e2d019d5",
+        "face": {
+          "id": 129894,
+          "collectible": 1,
+          "slug": "129894-dark-iron-harbinger",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1941,
+          "rarityId": 4,
+          "artistName": "Mike Sass",
+          "health": 4,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "Dark Iron Harbinger",
+          "text": "<b>Deathrattle:</b> Summon a 0/7 Doomsayer that destroys ALL minions at the start of your turn.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e891c7066de1f85dda9432de5f33c6a706d0a2369c0d8a762dbacca44cf4772.png",
+          "imageGold": "",
+          "flavorText": "Doomsayer had almost given up hope until he heard there was going to be a second Cataclysm!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b91c066c4f667f2635e7bd81d3c303fd4042a6d11de5c984f386a29d8813c8a.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_EVENT_300",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=129894&locale=zh_CN",
+        "sha256": "6687887fdc3283bd08409fa9516b9c2f640f0ab70fba42cda0da462c8b595479",
+        "face": {
+          "id": 129894,
+          "collectible": 1,
+          "slug": "129894-dark-iron-harbinger",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1941,
+          "rarityId": 4,
+          "artistName": "Mike Sass",
+          "health": 4,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "黑铁先驱",
+          "text": "<b>亡语：</b>召唤一个0/7的末日预言者。末日预言者会在你的回合开始时消灭所有随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82580169710492033bcdd00c5aff0a979dbf52bc44a4925739bb610b1d173a9b.png",
+          "imageGold": "",
+          "flavorText": "末日预言者本以为自己错过了《大地的裂变》，没想到这样的末日还有第二次！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b91c066c4f667f2635e7bd81d3c303fd4042a6d11de5c984f386a29d8813c8a.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_220",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117531&locale=en_US",
+        "sha256": "f255bdcbb19ebd432375f1bb2a3c093183acd511c4c1c09269c93db9951ef686",
+        "face": {
+          "id": 117531,
+          "collectible": 1,
+          "slug": "117531-windswept-pageturner",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Drew Hill",
+          "health": 5,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "Windswept Pageturner",
+          "text": "After you summon an Elemental,& deal 3 damage to a random enemy.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a9f3c2c70c484fa4e942d7a520d77eb7848df5a58c17091d4671a6858fbae85.png",
+          "imageGold": "",
+          "flavorText": "This story will blow you away.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0992310c328dadd8088d2b068fa7e235e8bbda6b623004a2d5b86c8eabb55a4f.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_220",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117531&locale=zh_CN",
+        "sha256": "fc20eefebf8c4725ab46ba12231e4da83be374e99473ccb67885864c2c7c56da",
+        "face": {
+          "id": 117531,
+          "collectible": 1,
+          "slug": "117531-windswept-pageturner",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Drew Hill",
+          "health": 5,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "扫页疾风",
+          "text": "在你召唤一个元素后，&随机对一个敌人造成3点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89a6b032a2fc468924817b9cc46fe243d71d30ee810955f5ba3c1935cc53ddaa.png",
+          "imageGold": "",
+          "flavorText": "书欲静而风不止。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0992310c328dadd8088d2b068fa7e235e8bbda6b623004a2d5b86c8eabb55a4f.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_822",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117574&locale=en_US",
+        "sha256": "c6bd17313b0c95f51f234c6cf2e5bf5a010f5f8537fa9f3404d821e8b2d6697d",
+        "face": {
+          "id": 117574,
+          "collectible": 1,
+          "slug": "117574-dinositter",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Dinositter",
+          "text": "At the end of your turn,& reduce the Cost of a random Beast in your hand by (1).",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c21b2a657deab7531c0b9d08339cc198f85d9fb85271e835c230387afb3b31fa.png",
+          "imageGold": "",
+          "flavorText": "\"You aren't leaving this log until you finish your greens.\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/833a0dd91a00cbdaa9d7639e9856ea8a1c33dc368422c9e8bf008f00f2ecfb81.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_822",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117574&locale=zh_CN",
+        "sha256": "eb67c4ce1b8de13148a853c46887e0de593213c95868de37e65fbd658ab74db9",
+        "face": {
+          "id": 117574,
+          "collectible": 1,
+          "slug": "117574-dinositter",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "恐龙保育师",
+          "text": "在你的回合结束时，&随机使你手牌中一张野兽牌的法力值消耗减少（1）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f4c62a9f55fe2ef5927f106889a4f661b9e4dad8d7f9306587f3756dbceb6d2.png",
+          "imageGold": "",
+          "flavorText": "“不吃完这些绿叶子不许出去玩。”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/833a0dd91a00cbdaa9d7639e9856ea8a1c33dc368422c9e8bf008f00f2ecfb81.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_NEW1_021",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=76317&locale=en_US",
+        "sha256": "8e29bb756b92e81c50c92b3b60c91cf5be62c991edb2c68620f9ae73717c4736",
+        "face": {
+          "id": 76317,
+          "collectible": 1,
+          "slug": "76317-doomsayer",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Alex Horley Orlandelli",
+          "health": 7,
+          "attack": 0,
+          "manaCost": 2,
+          "name": "Doomsayer",
+          "text": "At the start of your turn,& destroy ALL minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffd7bb0cf482e1afcfc3b39afb307dd2d65fa5b001bd148f6f476b082692adc7.png",
+          "imageGold": "",
+          "flavorText": "He's almost been right so many times. He was <i>sure</i> it was coming during the Cataclysm.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72514ac73693b3ff1422b58d68cb36e595aa3765b508cee3460a90aed6baa1e5.png",
+          "copyOfCardId": [
+            138,
+            70085
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_NEW1_021",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=76317&locale=zh_CN",
+        "sha256": "237c9116c4746008c82eba84a0c2450755d10f6544c801916bcc9032af2ab8b3",
+        "face": {
+          "id": 76317,
+          "collectible": 1,
+          "slug": "76317-doomsayer",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Alex Horley Orlandelli",
+          "health": 7,
+          "attack": 0,
+          "manaCost": 2,
+          "name": "末日预言者",
+          "text": "在你的回合开始时，&消灭所有随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f12ffd69b93dd14622f31df6258e5dee229c3e81034269635f2253058b94f82f.png",
+          "imageGold": "",
+          "flavorText": "他的预言几乎都是准确的。他确信，大约会是在《大地的裂变》。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72514ac73693b3ff1422b58d68cb36e595aa3765b508cee3460a90aed6baa1e5.png",
+          "copyOfCardId": [
+            138,
+            70085
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "note": "Complete official roots and recursive children; not precise CN timing calibration.",
+    "explicit_links": [
+      {
+        "root": "TIME_EVENT_300",
+        "raw_tag": "COLLECTION_RELATED_CARD_DATABASE_ID",
+        "dbf_id": 76317,
+        "card_id": "CORE_NEW1_021",
+        "root_official_childIds": null,
+        "relation_basis": "Exact raw collection-related tag plus matching full official named Doomsayer face"
+      }
+    ]
+  },
+  "internal_policy": [
+    "Core Gauntlet keeps exact LOOT_044 deck identity, native controller Armor relation and cannot_attack_heroes policy, ordinary durability/equipment.",
+    "Dinositter remains unregistered because existing random stored minion scope is printed tribes; no callback RNG or card-name filter substitutes current physical candidates.",
+    "Dodo tests actual owner hero Health<=10 at battlecry acceptance; ordinary captured-source +5/+5 then current CopyMinion bound to original BoardPresenceReference. Reactions can change current material but cannot rebind departed/reentered physical residence.",
+    "Harbinger uses exact COLLECTION_RELATED_CARD_DATABASE_ID76317, existing full CORE_NEW1_021 Doomsayer, ordinary attributed SummonByCard; original start trigger/destroy filtering remain unchanged.",
+    "Pageturner requires original own SuccessfulSummonRecord and frozen current/all Elemental tribes. Native minion_summoned includes own entry under current pipeline; source capture/self qualification and exact CN timing remain uncalibrated.",
+    "Each accepted Pageturner match invokes a named late hit that requeries current living enemies and submits one three-point MINION_ABILITY RandomDamage; no spell damage bonus."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
