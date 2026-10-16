@@ -529,6 +529,39 @@ def deliver_generated(effect, selected):
 
 
 @dataclass(frozen=True)
+class GenerateFromCandidates(Effect):
+    """Get one uniformly random card from a complete card-defined finite list."""
+    player_id: int
+    card_ids: tuple[str, ...]
+    source_id: int | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); _source(self.source_id)
+        ids(self.card_ids, 'hand generation candidates', unique=True)
+        if not self.card_ids:
+            raise ValueError('Hand generation candidates cannot be empty')
+
+
+def validate_hand_candidates(registry, card_ids):
+    for card_id in card_ids:
+        card = registry.card(card_id)
+        if not card.hand_playable or card.choice_only:
+            raise ResolutionError('Every hand candidate must be a physical playable card')
+
+
+def generate_from_candidates(r, effect):
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Generation source does not exist')
+    # Validate the complete fixed list even when the destination hand is full.
+    # Format eligibility is irrelevant to this explicitly named card recipe.
+    validate_hand_candidates(r.registry, effect.card_ids)
+    selected, = sample_candidates(r.game._rng, tuple(PoolMember(i) for i in sorted(effect.card_ids)),
+                                  1, replacement=True)
+    return (AddToHand(effect.player_id, selected, effect.source_id),)
+
+
+@dataclass(frozen=True)
 class SummonFromCandidates(Effect):
     """Uniform choice from a card-defined finite list, independent of format pools.
 
@@ -645,6 +678,7 @@ def register_generation(mechanics):
     mechanics.register_payload_type(DiscoveryGiftPool)
     mechanics.register(DiscoverFromPool, discover_from_pool)
     mechanics.register(GenerateFromPool, generate_from_pool)
+    mechanics.register(GenerateFromCandidates, generate_from_candidates)
     mechanics.register(SummonFromCandidates, summon_from_candidates)
     mechanics.register(SummonFromPool, summon_from_pool)
     from .discovery import register

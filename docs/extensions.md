@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实完整有限名单可通过GenerateFromCandidates复用原抽样与入手，无通用格式上下文时也不裁池；具体约束见[完整梦境来源](m3-fixed-dream-source.md)。
+
 真实数值与一次性开始回调须共同安装，原有限触发器负责条件、消费和来源；梦魇及伊瑟拉苏醒的限定表达见[契约](m3-complex-dream-cards.md)。
 
 梦境CLASS11使用独立CardClass.DREAM；可用英雄职业须按PLAYABLE_CARD_CLASSES查询，不能把所有非中立类别当作可玩职业。来源、类别筛选与格式边界见[契约](m3-dream-class.md)。

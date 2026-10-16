@@ -79,8 +79,10 @@ class SimpleFollowupP17Tests(unittest.TestCase):
         self.assertEqual(len(PLAYABLE_CARD_CLASSES),11);self.assertNotIn(CardClass.DREAM,PLAYABLE_CARD_CLASSES)
 
     def test_only_three_dependencies_added_no_collectible_root_or_partial_random_parent(self):
-        with patch('hs_sim.cards.simple_followup_p17_cards.register_simple_followup_p17_cards',lambda r:None):before=build_registry()
-        after=build_registry()
+        # Isolate the original P17 increment: later complete parent recipes
+        # intentionally reject a registry with one of their dependencies absent.
+        with patch('hs_sim.cards.fixed_dream_source.register_fixed_dream_source',lambda r:None), patch('hs_sim.cards.simple_followup_p17_cards.register_simple_followup_p17_cards',lambda r:None):before=build_registry()
+        with patch('hs_sim.cards.fixed_dream_source.register_fixed_dream_source',lambda r:None):after=build_registry()
         if not all(cid in after.cards for cid in DEPENDENCIES):register_simple_followup_p17_cards(after)
         self.assertFalse(ROOTS);self.assertEqual(set(after.cards)-set(before.cards),set(DEPENDENCIES));self.assertTrue(all(asdict(before.card(cid))==asdict(after.card(cid))for cid in before.cards))
         for cid in(PARENT,'DREAM_02','DREAM_05','VAN_DREAM_01','VAN_DREAM_03','VAN_DREAM_04'):self.assertEqual(cid in before.cards,cid in after.cards)

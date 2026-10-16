@@ -213,7 +213,11 @@ class FrameCodec:
         from .imbue import Imbue
         if isinstance(value, Imbue) and value.count:
             self.registry.imbue_profile(value.profile_id)
-        from .pools import SummonFromCandidates, validate_summon_candidates
+        from .pools import GenerateFromCandidates, validate_hand_candidates, SummonFromCandidates, validate_summon_candidates
+        if type(value) is GenerateFromCandidates:
+            validate_hand_candidates(self.registry, value.card_ids)
+            if self.origin_state is not None and value.source_id is not None and value.source_id not in self.origin_state.entities:
+                raise ValueError('Finite hand generation has an unknown original source')
         if isinstance(value, SummonFromCandidates):
             validate_summon_candidates(self.registry, value.card_ids)
         from .zones import DrawMatching
