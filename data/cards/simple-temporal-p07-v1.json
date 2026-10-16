@@ -1,0 +1,491 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_483",
+        "dbf_id": 115033,
+        "name": "破碎之力",
+        "name_en": "Fractured Power",
+        "text": "摧毁你的一个法力水晶。2回合后，获得两个。",
+        "text_en": "Destroy one of your Mana Crystals.\nIn 2 turns, gain two.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          }
+        ]
+      },
+      "record_sha256": "ab4301fe0a720fc69bd71a0bd26007d098244bfc687918501234e752d8cd2e9a"
+    },
+    {
+      "record": {
+        "id": "END_011",
+        "dbf_id": 121150,
+        "name": "加速光环",
+        "name_en": "Acceleration Aura",
+        "text": "在你的回合开始时，获得一个临时的法力水晶。持续\n@回合。",
+        "text_en": "At the start of your turn, gain a temporary Mana Crystal. Lasts @ turns.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 18,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "MINI_SET": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "4120a6833a28557febda1bac10f2d4420eed3eb8d5c937d3e60e1cef7de184c7"
+    },
+    {
+      "record": {
+        "id": "TIME_700",
+        "dbf_id": 120644,
+        "name": "时序光环",
+        "name_en": "Chronological Aura",
+        "text": "在你的回合\n结束时，召唤一条3/5并具有<b>嘲讽</b>的龙。持续@回合。",
+        "text_en": "At the end of your turn, summon a 3/5 Dragon with <b>Taunt</b>.\nLasts @ turns.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a78cad3560cf0eb8c3a923105410727752e4951a11cc3bd6240ac5fb8d1990f2"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_700t",
+        "dbf_id": 122736,
+        "name": "时序幼龙",
+        "name_en": "Chronological Drake",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "def0efdfc29549846aad24837e68ac0db9a32eb98485b3333c7b70b79e2c8364"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T23:29:11.344419+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_483",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115033&locale=en_US",
+        "response_file": "official-EDR_483-en-us.json",
+        "response_sha256": "8a6d317010bd34214540b9c6d367e17f89a446159b7b9c2653217055e5f34ee4",
+        "face": {
+          "id": 115033,
+          "collectible": 1,
+          "slug": "115033-fractured-power",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Guillaume Beauchêne",
+          "manaCost": 2,
+          "name": "Fractured Power",
+          "text": "Destroy one of your Mana Crystals. In 2 turns, gain two.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12e16f884dc29e59595db816b855e79516a51ca748f6bcd4e347982779331fdc.png",
+          "imageGold": "",
+          "flavorText": "Look what Warlocks need just to mimic a fraction of our power!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/832e5fea85dc11b7f0506c2d52df935f32d5cae9c5c3a1e966e11f559816f7c1.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_483",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115033&locale=zh_CN",
+        "response_file": "official-EDR_483-zh-cn.json",
+        "response_sha256": "5ed7087de8fb5dc206bd22c4bcf51188a6fa4d58b4d7e8fd1d00e9d05d28ae40",
+        "face": {
+          "id": 115033,
+          "collectible": 1,
+          "slug": "115033-fractured-power",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Guillaume Beauchêne",
+          "manaCost": 2,
+          "name": "破碎之力",
+          "text": "摧毁你的一个法力水晶。2回合后，获得两个。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44a31cef03b5887d271f1d47cf6ca1d4fd6f12ee6c51b35f801f465c60ca4aeb.png",
+          "imageGold": "",
+          "flavorText": "看呐，术士需要付出怎样的代价，才能模仿出我们力量的一小部分。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/832e5fea85dc11b7f0506c2d52df935f32d5cae9c5c3a1e966e11f559816f7c1.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_700",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120644&locale=en_US",
+        "response_file": "official-TIME_700-en-us.json",
+        "response_sha256": "6cb9d56704f93afc94798f410428eca08110c9372a79f18c445542e46cbd1507",
+        "face": {
+          "id": 120644,
+          "collectible": 1,
+          "slug": "120644-chronological-aura",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Vlad Botos",
+          "manaCost": 5,
+          "name": "Chronological Aura",
+          "text": "At the end of your turn, summon a 3/5 Dragon with <b>Taunt</b>. Lasts turns.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec5ea6274807617a3894e79380cd77d44745982380257288b68042320d1df336.png",
+          "imageGold": "",
+          "flavorText": "We need to find the missing dragon link!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50d28c22853d9f54ceb295d52ca404a2430b3410145bbb45af663fa01fb82e58.png",
+          "childIds": [
+            122736
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_700",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=120644&locale=zh_CN",
+        "response_file": "official-TIME_700-zh-cn.json",
+        "response_sha256": "425cb5fa3ac5fe54b53e2a2780902547330f37581bfbd9d66f71b8ee03f68488",
+        "face": {
+          "id": 120644,
+          "collectible": 1,
+          "slug": "120644-chronological-aura",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Vlad Botos",
+          "manaCost": 5,
+          "name": "时序光环",
+          "text": "在你的回合 结束时，召唤一条3/5并具有<b>嘲讽</b>的龙。持续 回合。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00e4f22a5ab6279160e54b9cabc9e720aa1d3a9dc308fa5be7ffa1b20bb79716.png",
+          "imageGold": "",
+          "flavorText": "我们需要找到龙族进化链上缺失的那一环！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50d28c22853d9f54ceb295d52ca404a2430b3410145bbb45af663fa01fb82e58.png",
+          "childIds": [
+            122736
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_011",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121150&locale=en_US",
+        "response_file": "official-END_011-en-us.json",
+        "response_sha256": "ec82b9425431d163df582c71bfeb67c172b82a65903f72b86e915e9cd76050dd",
+        "face": {
+          "id": 121150,
+          "collectible": 1,
+          "slug": "121150-acceleration-aura",
+          "classId": null,
+          "multiClassIds": [
+            2,
+            5
+          ],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "manaCost": 2,
+          "name": "Acceleration Aura",
+          "text": "At the start of your turn, gain a temporary Mana Crystal. Lasts turns.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f6a522f9e0dab6474c58f7f878c4b28c9c9332b435c4c407ea3fcccd071aac4.png",
+          "imageGold": "",
+          "flavorText": "Really makes you feel like you're running in the 90s.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/193f5f0e8b57cfe7c191679ba30437010da6dabfb74dd4cec6f41831b7b43578.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_011",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=121150&locale=zh_CN",
+        "response_file": "official-END_011-zh-cn.json",
+        "response_sha256": "b73255e8863709fe5397e93bfaf4b00ab162667e545fca6eb6afcddf81a83a28",
+        "face": {
+          "id": 121150,
+          "collectible": 1,
+          "slug": "121150-acceleration-aura",
+          "classId": null,
+          "multiClassIds": [
+            2,
+            5
+          ],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "manaCost": 2,
+          "name": "加速光环",
+          "text": "在你的回合开始时，获得一个临时的法力水晶。持续 回合。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1f0c000797cef3d819557f721d94e9f1de561b7e64034e26e1aef3f70cb669f.png",
+          "imageGold": "",
+          "flavorText": "感觉像是回到了90年代。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/193f5f0e8b57cfe7c191679ba30437010da6dabfb74dd4cec6f41831b7b43578.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_700t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122736&locale=en_US",
+        "response_file": "official-TIME_700t-en-us.json",
+        "response_sha256": "01d556091a6abefa0f6a0f91b834b6dbbe6e58a69d73fc16d375fc68e53cb61f",
+        "face": {
+          "id": 122736,
+          "collectible": 0,
+          "slug": "122736-chronological-drake",
+          "classId": 5,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Vlad Botos",
+          "health": 5,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "Chronological Drake",
+          "text": "<b>Taunt</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a483071326f97ae1debc56fc02fc148055a0dd7bc77e82c915092dcb4388e55.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 120644,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_700t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122736&locale=zh_CN",
+        "response_file": "official-TIME_700t-zh-cn.json",
+        "response_sha256": "4d7056fb71172848cce6937f96244f578205474b538d0f731d206db9377fc250",
+        "face": {
+          "id": 122736,
+          "collectible": 0,
+          "slug": "122736-chronological-drake",
+          "classId": 5,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": null,
+          "artistName": "Vlad Botos",
+          "health": 5,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "时序幼龙",
+          "text": "<b>嘲讽</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5933ee5e71e3b64a09350187d3e73a0fb7d3f6bcaf4ebe00b5174536a930c182.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 120644,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "EDR_483": "Shadow hand/effect payload destroys one ordinary maximum crystal via ChangeManaCrystals(-1), then installs first persistent stage independently of physical source. First real recipient turn_started removes stage1 and installs stage2; second removes stage2 and gains two filled ordinary crystals via ChangeManaCrystals(2,filled=True), capped by original resource rules. No Objective flag, timed public-area slot or custom counter. Gain is unconditional even if destruction at zero removed nothing. Full-crystal interpretation follows wording without empty, and exact two-owner-start window remain uncalibrated internal policies.",
+    "END_011": "Holy dual-class root. Real objective duration3, tick_event=turn_started; own-start trigger grants GainTemporaryMana(1) after ordinary mana refresh, before native countdown and turn draw. Three future real owner starts each reward once including last before expiry. Owner end/opponent start do not tick; temporary amount never changes max_mana or mana_cap and expires through native turn departure. Internal timing policy, not CN calibration.",
+    "TIME_700": "Holy root. Real objective duration3, tick_event=turn_ended with EndTurnSpec(controller). Three real owner ends, including current ordinary owner end if installed before boundary, each request one exact TIME_700t122736 before native countdown; third reward precedes expiry, no on_expire extra reward. Counterpart end does not tick. Exact 3/5 Dragon Taunt dependency linked by both official childIds, source-independent ordinary summon attribution/quantity/capacity. Native end-body repetitions and countdown remain independent; no invented timer.",
+    "boundaries": "Public full en-US/zh-CN faces confirm identity, text, child and fixed three-turn raw tags. Official gallery drops @ display placeholder; comparison removes only that known placeholder. Faces do not establish exact server trigger ordering, ramp fill policy or timer semantics. Formal standard pool and CN timing calibration incomplete."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
