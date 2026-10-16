@@ -1,0 +1,237 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_616",
+        "dbf_id": 120209,
+        "name": "悼念成真",
+        "name_en": "Memoriam Manifest",
+        "text": "召唤在本局对战中死亡的法力值消耗最高的友方亡灵。",
+        "text_en": "Summon the highest Cost friendly Undead that died this game.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "320edf46e4d805a74115bec6b36c26357b76ceeb485664d86ada0b2919914ad4"
+    },
+    {
+      "record": {
+        "id": "TLC_818",
+        "dbf_id": 117557,
+        "name": "轮回转生",
+        "name_en": "Resuscitate",
+        "text": "复活法力值消耗为1，2，3的随从各一个，使其获得<b>复生</b>。",
+        "text_en": "Resurrect a 1, 2,\nand 3-Cost minion.\nGive them <b>Reborn</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a52f24ef938b6e5ba59f702af41fb81d78dc81f62717b194524b43c16e0cf6e"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T02:08:57.907493+08:00",
+    "source": "Four complete cached official responses independently hash/byte verified, no network refetch",
+    "observations": [
+      {
+        "card_id": "TIME_616",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120209&locale=en_US",
+        "response_file": "official-TIME_616-en-us.json",
+        "response_sha256": "6ace88e129aca01bfb7aa1761af9fa9e81a1a79664ddde0b5fcaa5a9c16d01e7",
+        "face": {
+          "id": 120209,
+          "collectible": 1,
+          "slug": "120209-memoriam-manifest",
+          "classId": 1,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Felideus Bubastis",
+          "manaCost": 4,
+          "name": "Memoriam Manifest",
+          "text": "Summon the highest Cost friendly Undead that died this game.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b32dbc3b1bebf3551e5cd181c374fb1ac064aa03a39ed150c55965e2f3ed3e72.png",
+          "imageGold": "",
+          "flavorText": "\"Just let me die already!\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/184235afa8a26d6273e960a6d8d15836c3f627462b932e8dcb7d3b67d9caceb5.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_616",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120209&locale=zh_CN",
+        "response_file": "official-TIME_616-zh-cn.json",
+        "response_sha256": "fc4cbc42a319587a399ccfcf74604a337d6900c3e495be2ff20aa7fc897672b5",
+        "face": {
+          "id": 120209,
+          "collectible": 1,
+          "slug": "120209-memoriam-manifest",
+          "classId": 1,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Felideus Bubastis",
+          "manaCost": 4,
+          "name": "悼念成真",
+          "text": "召唤在本局对战中死亡的法力值消耗最高的友方亡灵。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01a37212d823400e56c1805a53ba6cc84519cb59a0e243b45d360e56dd1ecd06.png",
+          "imageGold": "",
+          "flavorText": "“放我安心地去吧！”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/184235afa8a26d6273e960a6d8d15836c3f627462b932e8dcb7d3b67d9caceb5.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_818",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117557&locale=en_US",
+        "response_file": "official-TLC_818-en-us.json",
+        "response_sha256": "b0161527c815ea0561c5034e43323e7b3670087a9637ea7ced8483549e899083",
+        "face": {
+          "id": 117557,
+          "collectible": 1,
+          "slug": "117557-resuscitate",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Felideus Bubastis",
+          "manaCost": 6,
+          "name": "Resuscitate",
+          "text": "Resurrect a 1, 2, and 3-Cost minion. Give them <b>Reborn</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df8a3a10fb11149ea2d95d93dcecad2a0a3f9f7211f8e5c545aeca7610ce0af4.png",
+          "imageGold": "",
+          "flavorText": "This mud bath really does make you feel reborn.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b79969fdec3a9aa28049c2dca819cfaa0388d7399ecac15d0ce8144c25065e9d.png",
+          "keywordIds": [
+            78
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_818",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117557&locale=zh_CN",
+        "response_file": "official-TLC_818-zh-cn.json",
+        "response_sha256": "de2266a43b7dfbb029974d46e04c9bc3754c36ba66d665a75229062450dd0d7a",
+        "face": {
+          "id": 117557,
+          "collectible": 1,
+          "slug": "117557-resuscitate",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Felideus Bubastis",
+          "manaCost": 6,
+          "name": "轮回转生",
+          "text": "复活法力值消耗为1，2，3的随从各一个，使其获得<b>复生</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7381ea3010b60c359cb253d107fb218969d1115c54577cc72009b1e3a6a5d38d.png",
+          "imageGold": "",
+          "flavorText": "这样的泥浴能让你感到重获新生。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b79969fdec3a9aa28049c2dca819cfaa0388d7399ecac15d0ce8144c25065e9d.png",
+          "keywordIds": [
+            78
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "TIME_616": "4mana Shadow spell. One attributed native Resurrect query over full committed friendly-controller-at-death BOARD MINION history, complete printed dead-face metadata Undead filter, highest printed cost. Native all/dual metadata matcher, death-occurrence tie weights/random selection, nonconsumption, original material, capacity/empty/RNG and quantity apply; not local discounted cost, latest mutable corpse or current board. Dynamic granted/removed tribe attachments do not rewrite this printed-face profile. Exact ancestry/tie/window policy remains CN-uncalibrated.",
+    "TLC_818": "6mana Shadow spell. Three distinct attributed native Resurrect requests, exact printed costs1 then2 then3; each slot accepts its native inventory/window after earlier deliveries/reactions. Every successful actual body (including all native quantity extras) gets native on_summon continuation with exact death and original recipient. GrantCapturedKeyword(MinionReference.capture(actual target),REBORN,original spell source) after normal entry/expansion/reactions, no primary-only filter or board/name scan. Native stale-body guard skips death/return/reentry/transform/control/dormancy; silence alone retains original body and can receive new Reborn. Grant/default reborn lifecycle remains shared. No battlecry replay or extra reward on failed delivery.",
+    "evidence": "Two complete fixed37.0 raw rows and four full cached official EN/CN responses independently verified. No named child/generated pool required. Printed ancestry/cost/ties, cost-slot acceptance and per-body after-entry grant windows are local policies pending M6; complete M0 standard/generation pools remain open."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
