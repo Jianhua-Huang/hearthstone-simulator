@@ -15,7 +15,7 @@ from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import ChoicePurpose
 from hs_sim.engine.replay import build_replay, replay
 from hs_sim.engine.representative import build_registry as defaults
-from hs_sim.engine.serialization import canonical_hash
+from hs_sim.engine.serialization import canonical_hash, SNAPSHOT_SCHEMA_VERSION
 from hs_sim.engine.zones import CardReference, DiscardCard
 
 YETI='CORE_CS2_182'; FIRE='CORE_CS2_029'
@@ -156,9 +156,11 @@ class NativeDiscardRewindTests(unittest.TestCase):
         fake=SimpleNamespace(_state=g._state,registry=g.registry,_events=events)
         with self.assertRaisesRegex(ValueError,'actual original event'):validate_boundary(fake)
 
-    def test_actual_old_core378_snapshots_rejected_with_same_schema303(self):
+    def test_actual_old_core378_schema303_snapshots_require_original_engine(self):
         for name,factory in(('default-core378',defaults),('constructed-v97',build_registry)):
             saved=json.loads((BEFORE/(name+'-snapshot.json')).read_text(encoding='utf-8-sig'))
             self.assertEqual(saved['schema_version'],303)
             reason = 'Mechanics version mismatch' if name == 'default-core378' else 'Registry version/fingerprint mismatch'
+            if SNAPSHOT_SCHEMA_VERSION != saved['schema_version']:
+                reason = f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1} need their original engines'
             with self.assertRaisesRegex(SnapshotError,reason):Game.from_snapshot(saved,factory())

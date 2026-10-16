@@ -200,7 +200,7 @@ class SimpleFixedP04CardTests(unittest.TestCase):
             self.assertFalse(self.r.card(cid).hand_playable)
             self.assertNotIn(cid, self.r.pool_cards)
 
-    def test_coghammer_whole_root_skipped_with_full_current_and_historical_identity(self):
+    def test_p04_preserves_original_coghammer_skip_and_historical_identity(self):
         d = load_batch(); row, = d['skipped']; old, = d['evidence_only']
         self.assertEqual(row['record']['id'], COGHAMMER)
         self.assertEqual(row['record']['tags']['858'], old['record']['dbf_id'])

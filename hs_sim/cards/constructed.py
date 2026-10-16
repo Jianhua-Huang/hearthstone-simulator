@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v101"
+CONTENT_VERSION = "constructed-cn37-preview-v102"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -257,5 +257,7 @@ def build_registry():
     register_native_weapon_choice_cards(registry)
     from .simple_fixed_p04_cards import register_simple_fixed_p04_cards
     register_simple_fixed_p04_cards(registry)
+    from .random_minion_keyword_cards import register_random_minion_keyword_cards
+    register_random_minion_keyword_cards(registry)
     registry.validate()
     return registry

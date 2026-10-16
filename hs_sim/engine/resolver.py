@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v380'
+CORE_EFFECTS_VERSION = 'core-effects-v381'
 
 
 class Mechanics:
@@ -2386,6 +2386,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_end_turn_repeats(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
+    from .random_minion_keywords import register as register_random_minion_keywords
+    register_random_minion_keywords(mechanics)
     from .keyword_auras import register as register_keyword_auras
     register_keyword_auras(mechanics)
     from .spell_repeats import register as register_spell_repeats
