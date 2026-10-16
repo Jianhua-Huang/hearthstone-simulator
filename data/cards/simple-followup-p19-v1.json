@@ -1,0 +1,257 @@
+{
+  "batch": "P19",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_101",
+        "dbf_id": 121670,
+        "name": "穿越的炎术士",
+        "name_en": "Misplaced Pyromancer",
+        "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+        "text_en": "Whenever you <b>Shatter</b> a card, deal 2 damage to\nall enemy minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1ab6d031ae0b1ac9f24a89420969187613a7ccfc265dc468c46d646af713262f"
+    },
+    {
+      "record": {
+        "id": "TLC_821",
+        "dbf_id": 117566,
+        "name": "枯萎之影",
+        "name_en": "Wilted Shadow",
+        "text": "<b>吸血</b>。每当你治疗一个敌人，本随从攻击该敌人。",
+        "text_en": "[x]<b>Lifesteal</b>\nWhenever you heal an\nenemy, this attacks it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "502c814d1a789af9ee8c15a7083dc63b5732741fffd0191dd5dd2efe9e6f3bb4"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T02:59:46.530705+08:00",
+    "source": "Four complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "TIME_101",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121670&locale=en_US",
+        "response_file": "official-TIME_101-en_US.json",
+        "response_sha256": "ca2bb55d19a6d9a2a98be33ae56b1a176129df0e254a91e6994337579ae332bd",
+        "face": {
+          "id": 121670,
+          "collectible": 1,
+          "slug": "121670-misplaced-pyromancer",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Misplaced Pyromancer",
+          "text": "Whenever you <b>Shatter</b> a card, deal 2 damage to all enemy minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/65bd8cf0da0b835186c7bf3ac5c9716503c101dc34cb7da5ada1b9caabba8424.png",
+          "imageGold": "",
+          "flavorText": "Oh no! The timeline's <b>Shattered</b>!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e292e5c6267b9f6578863883ea5562ae9d6ee7abe5293e778a865dbf10d9d9f5.png",
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_101",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121670&locale=zh_CN",
+        "response_file": "official-TIME_101-zh_CN.json",
+        "response_sha256": "238fc05597929593ab0bec4ef8fb797fd7fc7ebea4d46d04c2f09e88a2107f96",
+        "face": {
+          "id": 121670,
+          "collectible": 1,
+          "slug": "121670-misplaced-pyromancer",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "穿越的炎术士",
+          "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66e79983f954dfdf875ca84b8c560fca6a82c094c6e026ed33c8126d839060d8.png",
+          "imageGold": "",
+          "flavorText": "糟了！时间线<b>裂变</b>了！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e292e5c6267b9f6578863883ea5562ae9d6ee7abe5293e778a865dbf10d9d9f5.png",
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_821",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117566&locale=en_US",
+        "response_file": "official-TLC_821-en_US.json",
+        "response_sha256": "d8f50e2123fa7b2831e125f1e07aa4c1a28a7df4c5b3e8f407e5243f5e2d2dd3",
+        "face": {
+          "id": 117566,
+          "collectible": 1,
+          "slug": "117566-wilted-shadow",
+          "classId": 6,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 7,
+          "attack": 6,
+          "manaCost": 7,
+          "name": "Wilted Shadow",
+          "text": "<b>Lifesteal</b> Whenever you heal an enemy, this attacks it.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/859791553a5b9617364ccdc3e5014f726a970b02c58ee72d8863205b5d741b32.png",
+          "imageGold": "",
+          "flavorText": "The shadow shall burn you!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/163ea67eaba29f6d6fde6cd439798c9c52877fe75d0b552c8870603377de9e1d.png",
+          "keywordIds": [
+            38
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_821",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117566&locale=zh_CN",
+        "response_file": "official-TLC_821-zh_CN.json",
+        "response_sha256": "5eaaa45478e25ac84145a93c118bb8e38dc81468d7a07d1dcbd02688fd0e0a76",
+        "face": {
+          "id": 117566,
+          "collectible": 1,
+          "slug": "117566-wilted-shadow",
+          "classId": 6,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 7,
+          "attack": 6,
+          "manaCost": 7,
+          "name": "枯萎之影",
+          "text": "<b>吸血</b>。每当你治疗一个敌人，本随从攻击该敌人。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9ce5cec313b9e4093d6b912eb7dc401d58070eada283a76df3bd005474dea48.png",
+          "imageGold": "",
+          "flavorText": "暗影会制裁你！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/163ea67eaba29f6d6fde6cd439798c9c52877fe75d0b552c8870603377de9e1d.png",
+          "keywordIds": [
+            38
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Pyromancer listens to actual card_shattered for its current controller while alive, then ordinary simultaneous MINION_ABILITY DamageBatch against currently eligible enemy minions.",
+    "Shadow listens to immutable settled HealthResult final healing flow and positive healed; source_controller must match carrier controller, target_controller must oppose. Event player_id is recipient and is not caster.",
+    "Shadow preserves settled target identity/zone epoch/entry before capturing original board presence; enemy heroes use original physical hero ID. Native ForceAttack retains relation/continuity and combat/lifesteal, including native readiness bypass.",
+    "Actual healing0 or final converted damage do not trigger; zero/overheal and precise CN windows remain uncalibrated.",
+    "No shared code/registration edits. Baseline has no registered Shatter family; tests reuse the existing complete test_m5_shatter.family native fixture, without pretending it is a real supported collectible family."
+  ]
+}
