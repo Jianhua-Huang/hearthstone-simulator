@@ -1,0 +1,388 @@
+{
+  "batch": "K88",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_525",
+        "dbf_id": 114517,
+        "name": "倒刺荆棘",
+        "name_en": "Barbed Thorn",
+        "text": "<b>抉择：</b>获得在本回合中的<b>剧毒</b>；或者获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+        "text_en": "[x]<b>Choose One -</b> Gain\n<b>Poisonous</b> this turn; or Gain\n\"<b>Deathrattle:</b> Deal 2 damage\nto all enemies.\"",
+        "cost": 3,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1a3a28af0fbc69a7555c1b8cf715ba59d4b98cd690772d7a35d989d3978ebbed",
+      "reason": "Real WEAPON Choose One root is rejected by existing choose_one.normalize kind gate (only MINION/SPELL/HERO_POWER).",
+      "evidence": "outputs/simple-cards-p03/weapon-choose-one-gap.json"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_525A",
+        "dbf_id": 117240,
+        "name": "增生眼球",
+        "name_en": "Extra Eyes",
+        "text": "获得在本回合中的<b>剧毒</b>。",
+        "text_en": "Gain <b>Poisonous</b> this turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "07a97cc0c1c0697f50e65779bbe5cd59c78113a35c0204f63fadfcd780e4bac5"
+    },
+    {
+      "record": {
+        "id": "EDR_525B",
+        "dbf_id": 117241,
+        "name": "增生荆棘",
+        "name_en": "Extra Thorns",
+        "text": "获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+        "text_en": "Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3868181531e95d09e7129092a4074e79fd1f5f3f8292ba3786d1bb1fc995c8d5"
+    }
+  ],
+  "choice_only_ids": [
+    "EDR_525A",
+    "EDR_525B"
+  ],
+  "evidence_only": [],
+  "official_observations": {
+    "observed_at": "2026-10-16T22:25:55.366154+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_525",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114517&locale=en_US",
+        "sha256": "9b55cdfd1b06e8a16a4bb4e06ef95b1594b6acf654de1188b1aa6e53cad39103",
+        "face": {
+          "id": 114517,
+          "collectible": 1,
+          "slug": "114517-barbed-thorn",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Stefan Bogdasarov",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "Barbed Thorn",
+          "text": "<b>Choose One -</b> Gain <b>Poisonous</b> this turn; or Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8f21fac817ca3e1165a9e1dfd32ce58b69c88d9597d60626a04569533ed821d.png",
+          "imageGold": "",
+          "flavorText": "Comes with a pack of bandages.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8be6651a20d6fa7dfa9746490ca0713cfe68349f5bf25aac45609a92b00e20a.png",
+          "childIds": [
+            117240,
+            117241
+          ],
+          "keywordIds": [
+            12,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114517&locale=zh_CN",
+        "sha256": "0bbd53a6e57299ce9e7c6354e305525198bd3f277ceffb567dcfeb93de5c3525",
+        "face": {
+          "id": 114517,
+          "collectible": 1,
+          "slug": "114517-barbed-thorn",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Stefan Bogdasarov",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "倒刺荆棘",
+          "text": "<b>抉择：</b>获得在本回合中的<b>剧毒</b>；或者获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeff56b83f88a024f3df3c7a848aeafaf8208654095381b2493c24169eee6157.png",
+          "imageGold": "",
+          "flavorText": "附赠一包创可贴。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8be6651a20d6fa7dfa9746490ca0713cfe68349f5bf25aac45609a92b00e20a.png",
+          "childIds": [
+            117240,
+            117241
+          ],
+          "keywordIds": [
+            12,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525A",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117240&locale=en_US",
+        "sha256": "df827d931f3a824cbaae02890b2a6e54c5882fe0afedd705249f22ef3831c6ad",
+        "face": {
+          "id": 117240,
+          "collectible": 0,
+          "slug": "117240-extra-eyes",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "Extra Eyes",
+          "text": "Gain <b>Poisonous</b> this turn.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5f41d11a06521961b553d839a5f9cf948044cea9bd99ba1a30b08ee1fae885e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525A",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117240&locale=zh_CN",
+        "sha256": "eac024c06183619861b61e3eed7265cc5029893a006591ee49fa1acf8e6516e4",
+        "face": {
+          "id": 117240,
+          "collectible": 0,
+          "slug": "117240-extra-eyes",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "增生眼球",
+          "text": "获得在本回合中的<b>剧毒</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7db67b485597c840fa5464f86d9136bbc702fda686921784d2832840d1324548.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525B",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117241&locale=en_US",
+        "sha256": "2ebe10dc8c57a84f336721d07f306844b6c95b70b9e4375c859acb21e7342abb",
+        "face": {
+          "id": 117241,
+          "collectible": 0,
+          "slug": "117241-extra-thorns",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "Extra Thorns",
+          "text": "Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/240835edc31372bf970025179d466fcb2aed9ea470b757d91093057a2fe10d94.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525B",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117241&locale=zh_CN",
+        "sha256": "8587b76f33da952828a02b2e91c07293b35b638e1c5272580e6e3d28129da443",
+        "face": {
+          "id": 117241,
+          "collectible": 0,
+          "slug": "117241-extra-thorns",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "增生荆棘",
+          "text": "获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7760b971b9e94e3bc8c3c20fcf28b9de6f71d4f7f47d0af6fcf8c969ab710779.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "evidence": "outputs/card-parallel-p03-20261016/worker-evidence/official-face-audit.json",
+    "note": "Complete original en/zh weapon and official options; identity/text evidence only."
+  },
+  "internal_policy": {
+    "activation": "Normal physical hand play accepts branch before payment, equips original weapon through existing pipeline, then invokes accepted on_play branch; EquipWeapon alone has no branch activation.",
+    "poisonous": "GrantKeyword on original physical weapon, expires_turn=current global turn; common weapon-to-hero contribution and end expiry.",
+    "deathrattle": "GrantDeathrattle on original physical weapon, later ordinary weapon death applies one EFFECT DamageBatch to current enemy characters; no spell bonus.",
+    "branch_state": "Weapon preselection accepts hand origin only. Other nonphysical weapon activations remain unsupported, not advertised as generic spell casts.",
+    "combined": "Existing ChooseOneSpec requires explicit combined body; grants poisonous then the ordinary deathrattle, no new combination mechanism.",
+    "calibration": "Exact equip/branch/reaction timing, Poisonous attribution on deathrattle, expiry/control and CN behavior remain uncalibrated."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

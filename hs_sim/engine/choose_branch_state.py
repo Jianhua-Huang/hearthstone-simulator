@@ -33,6 +33,7 @@ def validate_selection_for_card(card, value):
     branch(card, value.branch_id)
     allowed = (('power_manual', 'power_effect') if card.kind == CardType.HERO_POWER else
                ('hand', 'physical') if card.kind == CardType.MINION else
+               ('hand',) if card.kind == CardType.WEAPON else
                ('hand', 'cast_effect', 'cast_draw', 'cast_history'))
     if any(origin not in allowed for origin in value.origins):
         raise ValueError('Preselected origin cannot activate this physical card kind')

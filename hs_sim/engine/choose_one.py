@@ -21,7 +21,7 @@ def normalize(definition):
             definition.magnetic_tribes or Keyword.MAGNETIC in definition.keywords or
             Keyword.SHATTER in definition.keywords or Keyword.SHATTERED in definition.keywords):
         raise ValueError('Unsupported Choose One composite root declaration')
-    if (definition.kind not in (CardType.MINION, CardType.SPELL, CardType.HERO_POWER) or
+    if (definition.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON, CardType.HERO_POWER) or
             definition.choice_only or definition.passive_hero_power or definition.target_condition or
             definition.requires_target or definition.targeting is not None or definition.target_rule != 'any_entity'):
         raise ValueError('Unsupported Choose One root declaration; targeting belongs to branches')

@@ -187,7 +187,7 @@ class SimpleChoiceP03CardTests(unittest.TestCase):
             self.assertEqual(set(self.r.card(cid).metadata.tribes), {'beast', 'undead'})
         self.assertEqual(self.r.card(FOREST).spell_school, SpellSchool.NATURE)
 
-    def test_thorn_remains_evidence_only_as_real_unsupported_weapon_choice_root(self):
+    def test_p03_retains_original_skipped_weapon_source_without_owning_its_adapter(self):
         d = load_batch()
         row, = d['skipped']
         self.assertEqual((row['record']['id'], row['record']['type']), (THORN, 'WEAPON'))
