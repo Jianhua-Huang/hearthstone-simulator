@@ -1,0 +1,1596 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_570",
+        "dbf_id": 116660,
+        "name": "凶险梦魇",
+        "name_en": "Ominous Nightmares",
+        "text": "<b>抉择：</b>对所有随从造成$1点伤害；或者使一个受伤的随从获得+2/+2。",
+        "text_en": "[x]<b>Choose One - </b>Deal $1\ndamage to all minions;\nor Give a damaged\nminion +2/+2.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "be1c8a06d537e77012084fb4613252876525bc2caea720e89c099cd6d200c06e"
+    },
+    {
+      "record": {
+        "id": "EDR_490",
+        "dbf_id": 115215,
+        "name": "麻痹睡眠",
+        "name_en": "Sleep Paralysis",
+        "text": "<b>抉择：</b>召唤两个3/6并具有<b>嘲讽</b>且无法攻击的恶魔；或者消灭一个敌方随从。",
+        "text_en": "[x]<b>Choose One - </b>Summon\ntwo 3/6 Demons with\n<b>Taunt</b> that can't attack; or\nDestroy an enemy minion.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2f06c2bb4bf91da2a84fc6225c6d235db96a106f3636a19cbdb5701832918d06"
+    },
+    {
+      "record": {
+        "id": "EDR_654",
+        "dbf_id": 118250,
+        "name": "疯长的恐魔",
+        "name_en": "Overgrown Horror",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>使你手牌中具有<b>黑暗之赐</b>的随从牌的法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Reduce the Cost\nof minions in your hand\nwith <b>Dark Gifts</b> by (2).",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "eaf1b21715ed5498df03f75548dee3dc1695fb5597687d5cc432c46b00e82bf7"
+    },
+    {
+      "record": {
+        "id": "TLC_630",
+        "dbf_id": 117869,
+        "name": "格里什异种虫",
+        "name_en": "Gorishi Wasp",
+        "text": "<b>突袭</b>。每当本随从受到伤害，&获取一张法力值消耗为（1）的格里什毒刺虫。",
+        "text_en": "<b>Rush</b>. Whenever this takes damage,& get a 1-Cost Gorishi Stinger.",
+        "cost": 5,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4931": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          }
+        ]
+      },
+      "record_sha256": "1e008195e0c2b220eb9572c0118715fc757596eb9de0389dba7fea419ea6ca86"
+    },
+    {
+      "record": {
+        "id": "TLC_902",
+        "dbf_id": 117686,
+        "name": "虫害侵扰",
+        "name_en": "Infestation",
+        "text": "获取两张法力值消耗为（1）的格里什毒刺虫。毒刺虫可以造成$2点伤害并召唤一只2/1具有<b>突袭</b>的异种虫幼体。",
+        "text_en": "[x]Get two 1-Cost Gorishi\nStingers. Each one deals\n$2 damage and summons\na 2/1 Grub with <b>Rush</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e3782013b0580b15599c6bb0002d0132399b5c3ce9c35aabc6ae21dacad9ba91"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_570A",
+        "dbf_id": 116661,
+        "name": "噩梦爆发",
+        "name_en": "Nightmarish Burst",
+        "text": "对所有随从造成$1点伤害。",
+        "text_en": "Deal $1 damage to\nall minions.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "b01fe5969faad89e177cef4bf1af599844dc7bea042e9e02b102ae35e60ad2b3"
+    },
+    {
+      "record": {
+        "id": "EDR_570B",
+        "dbf_id": 116662,
+        "name": "动荡能量",
+        "name_en": "Unstable Power",
+        "text": "使一个受伤的随从获得+2/+2。",
+        "text_en": "Give a damaged minion +2/+2.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "3b0269a330367a458323f1782d479deb7cf6b6c4dbe3843df0a9272186dea247"
+    },
+    {
+      "record": {
+        "id": "EDR_490a",
+        "dbf_id": 115217,
+        "name": "暗处的身影",
+        "name_en": "Figure in the Dark",
+        "text": "召唤两个3/6并具有<b>嘲讽</b>且无法攻击的恶魔。",
+        "text_en": "Summon two 3/6 Demons with <b>Taunt</b> that can't attack.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e76a6f7dc0abeef69bbc2966095b10ecc37ba9e945bc8819ae7638a91834c3e7"
+    },
+    {
+      "record": {
+        "id": "EDR_490b",
+        "dbf_id": 115216,
+        "name": "神智的终结",
+        "name_en": "Wit's End",
+        "text": "消灭一个敌方随从。",
+        "text_en": "Destroy an enemy minion.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "7893b66d7f7d82ac995cf3961f9902b1b35ad2843363edba74ef31ccb1860c66"
+    },
+    {
+      "record": {
+        "id": "EDR_490t",
+        "dbf_id": 115937,
+        "name": "暗夜恐魔",
+        "name_en": "Night Terror",
+        "text": "<b>嘲讽</b>\n无法攻击。",
+        "text_en": "<b>Taunt</b>\nCan't attack.",
+        "cost": 3,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "CANT_ATTACK": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "eaeb0baa3e6dcd5bd76fe1d8604576b4eed53e518d456ec141b2702b2b5f81ef"
+    },
+    {
+      "record": {
+        "id": "TLC_630t",
+        "dbf_id": 117870,
+        "name": "格里什毒刺虫",
+        "name_en": "Gorishi Stinger",
+        "text": "造成$2点伤害。召唤一只2/1并具有<b>突袭</b>的异种虫幼体。",
+        "text_en": "Deal $2 damage. Summon a 2/1 Grub with <b>Rush</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "FACTION": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0d0e5e9060b86f5ca6c8ba2e9974060d2699047641b44bba0448a108c03add0"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_903t",
+        "dbf_id": 117689,
+        "name": "异种虫幼体",
+        "name_en": "Silithid Grub",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "2b11f081c547487e57558a6edf6dd03123f67879c1fb782973abf1232db1be65",
+      "definition_sha256": "f1006a0cf1d8eedb5ec238889c7c97df8f0a4cece59f526dfaf392e6eeb66be6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "GVG_059",
+        "dbf_id": 2027,
+        "name": "齿轮光锤",
+        "name_en": "Coghammer",
+        "text": "<b>战吼：</b>&随机使一个友方随从获得<b>圣盾</b>和<b>嘲讽</b>。",
+        "text_en": "<b>Battlecry:</b>& Give a random friendly minion <b>Divine Shield</b> and <b>Taunt</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 13,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dany Orizio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8cc2ea2e7b5be649ae88dc6b3dad4466405c31a3545e6b2d7f2e664033309fd8"
+    }
+  ],
+  "skipped": [
+    {
+      "record": {
+        "id": "CORE_GVG_059",
+        "dbf_id": 130820,
+        "name": "齿轮光锤",
+        "name_en": "Coghammer",
+        "text": "<b>战吼：</b>&随机使一个友方随从获得<b>圣盾</b>和<b>嘲讽</b>。",
+        "text_en": "<b>Battlecry:</b>& Give a random friendly minion <b>Divine Shield</b> and <b>Taunt</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2027,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 2027,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dany Orizio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2027",
+              "type": "Int",
+              "value": "2027"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e9d5b5520ce927c14c95630c8a9fc1a80c564618ee04688e6ec5e3bf2c239abf",
+      "reason": "No existing public physical random target keyword-grant group",
+      "evidence": "outputs/simple-cards-p04/coghammer-public-gap.json"
+    }
+  ],
+  "choice_only_ids": [
+    "EDR_570A",
+    "EDR_570B",
+    "EDR_490a",
+    "EDR_490b"
+  ],
+  "official_observations": {
+    "observed_at": "2026-10-16T22:39:15.001896+08:00",
+    "observations": [
+      {
+        "card_id": "CORE_GVG_059",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130820&locale=en_US",
+        "sha256": "5dd0520e5108ac9a5af4bd6bc94b3918a8f94c4d13dbfc14a79278715be8286b",
+        "face": {
+          "id": 130820,
+          "collectible": 1,
+          "slug": "130820-coghammer",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Dany Orizio",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "Coghammer",
+          "text": "<b>Battlecry:</b> Give a random friendly minion <b>Divine Shield</b> and <b>Taunt</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b058bd64face30d3e15b6bafd9a6c73023a7468d1a94b6260d63db1d2e819f34.png",
+          "imageGold": "",
+          "flavorText": "So you ripped this out of a machine, carved some runes on it, stuck it on a handle, and now it's a weapon of great divine power? Seems legit.",
+          "cropImage": null,
+          "keywordIds": [
+            1,
+            3,
+            8
+          ],
+          "copyOfCardId": [
+            2027
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_GVG_059",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=130820&locale=zh_CN",
+        "sha256": "007c25c7d02563d9ac5a9c73a47a2445777fca28786ecf15b4c7e1c4c6fb50b1",
+        "face": {
+          "id": 130820,
+          "collectible": 1,
+          "slug": "130820-coghammer",
+          "classId": 5,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1637,
+          "rarityId": 4,
+          "artistName": "Dany Orizio",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "齿轮光锤",
+          "text": "<b>战吼：</b> 随机使一个友方随从获得<b>圣盾</b>和<b>嘲讽</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ef64138463413d584f3e660cd532d71eab8fdb5a39a141416e3be2c2ceccafb.png",
+          "imageGold": "",
+          "flavorText": "你们就是把一个大齿轮从机器上拆下来，在上面刻了点符文图案，然后用胶水粘上把手，就对我说这是一把灌注了神圣之力的强力武器？……好吧，似乎也不赖。",
+          "cropImage": null,
+          "keywordIds": [
+            1,
+            3,
+            8
+          ],
+          "copyOfCardId": [
+            2027
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115215&locale=en_US",
+        "sha256": "b2cc1b2f1d1e9de205b4f660f287488af0b506b0ea0464d2c226522db8e04e17",
+        "face": {
+          "id": 115215,
+          "collectible": 1,
+          "slug": "115215-sleep-paralysis",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "Sleep Paralysis",
+          "text": "<b>Choose One - </b>Summon two 3/6 Demons with <b>Taunt</b> that can't attack; or Destroy an enemy minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f43e220451354069dffbb0c77a58101e1fd1381f967612a449616b6f0922f639.png",
+          "imageGold": "",
+          "flavorText": "The wild SPRITE is paralyzed! It can't sleep!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cabfca9bf91c9270d654a8423f5a8b17d15941fc44aa3d74d72e0ce5d622cbe.png",
+          "childIds": [
+            115937,
+            115217,
+            115216
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115215&locale=zh_CN",
+        "sha256": "a24356eebf9915a46958404741dc6559a3f359283dc9cb8579927836595de095",
+        "face": {
+          "id": 115215,
+          "collectible": 1,
+          "slug": "115215-sleep-paralysis",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "麻痹睡眠",
+          "text": "<b>抉择：</b>召唤两个3/6并具有<b>嘲讽</b>且无法攻击的恶魔；或者消灭一个敌方随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c223f33d30bcd548473e6e589166ceecbb78ccd5f52d6d8ad8b49ad980bbb6e3.png",
+          "imageGold": "",
+          "flavorText": "野生的林精麻痹了！不能睡觉！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cabfca9bf91c9270d654a8423f5a8b17d15941fc44aa3d74d72e0ce5d622cbe.png",
+          "childIds": [
+            115937,
+            115217,
+            115216
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116660&locale=en_US",
+        "sha256": "ae4fa9bb5448f870e30f7aa7ed2dc74d0fb68bab845cbe254bb277c66c120855",
+        "face": {
+          "id": 116660,
+          "collectible": 1,
+          "slug": "116660-ominous-nightmares",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "Ominous Nightmares",
+          "text": "<b>Choose One - </b>Deal 1 damage to all minions; or Give a damaged minion +2/+2.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7fce70ca4073edfdde605f646967ef91bdd082eeae76cc7b4825594ae0f30a5.png",
+          "imageGold": "",
+          "flavorText": "Everyone keeps talking about nightmares, but I don't see any horses?",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5f5b3eb764e7950c77aac914d0da4bc38a7cefa97c97097752c531868a5f2ad.png",
+          "childIds": [
+            116661,
+            116662
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116660&locale=zh_CN",
+        "sha256": "46eee62cf921f43338c76c5833520f665159ef32c125cabd5ad8e5fdcbdc450b",
+        "face": {
+          "id": 116660,
+          "collectible": 1,
+          "slug": "116660-ominous-nightmares",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "凶险梦魇",
+          "text": "<b>抉择：</b>对所有随从造成 1点伤害；或者使一个受伤的随从获得+2/+2。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d37bb55532bbf75da2e26a584ac73ebe19a2f80e156589b22f96cf88aded8273.png",
+          "imageGold": "",
+          "flavorText": "大家都在说梦魇，但我怎么没看到黑马呢？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5f5b3eb764e7950c77aac914d0da4bc38a7cefa97c97097752c531868a5f2ad.png",
+          "childIds": [
+            116661,
+            116662
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_654",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118250&locale=en_US",
+        "sha256": "4592ec258bec3bfb04bf1552dc72393fdd86f5a8dc20c19e690a6a8b6785b791",
+        "face": {
+          "id": 118250,
+          "collectible": 1,
+          "slug": "118250-overgrown-horror",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Matt Dixon",
+          "health": 5,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "Overgrown Horror",
+          "text": "<b>Taunt</b> <b>Battlecry:</b> Reduce the Cost of minions in your hand with <b>Dark Gifts</b> by (2).",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7141dffe9660b654b38bdda18bb4c9d36ef9db717c69bc537051ff6fd149e70.png",
+          "imageGold": "",
+          "flavorText": "Fetch me the garden shears. The BIG shears.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37d60005e621899498d0341d21da197780ef0bd56ca0d33a3106cd1ba5466e7e.png",
+          "keywordIds": [
+            1,
+            8,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_654",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118250&locale=zh_CN",
+        "sha256": "cca90bd859d58ac9599cd03234d2d6a05e6f7e009babfe46409b142435ad7027",
+        "face": {
+          "id": 118250,
+          "collectible": 1,
+          "slug": "118250-overgrown-horror",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Matt Dixon",
+          "health": 5,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "疯长的恐魔",
+          "text": "<b>嘲讽</b>。<b>战吼：</b>使你手牌中具有<b>黑暗之赐</b>的随从牌的法力值消耗减少（2）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/891b7011041729863fe6a30b27d733d44023081827795a8e98c797db074d41e8.png",
+          "imageGold": "",
+          "flavorText": "拿我的园艺剪来。最大的那把。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37d60005e621899498d0341d21da197780ef0bd56ca0d33a3106cd1ba5466e7e.png",
+          "keywordIds": [
+            1,
+            8,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_630",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117869&locale=en_US",
+        "sha256": "5300ac173dc62585b3c35afbbbe2b65177849f86b66e57eee768bf27f528b9a6",
+        "face": {
+          "id": 117869,
+          "collectible": 1,
+          "slug": "117869-gorishi-wasp",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Vlad Botos",
+          "health": 7,
+          "attack": 2,
+          "manaCost": 5,
+          "name": "Gorishi Wasp",
+          "text": "<b>Rush</b>. Whenever this takes damage,& get a 1-Cost Gorishi Stinger.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21c9593c133c69e8619bb1f114b6e117ba0065d74e9ff96434b866dfbbf3c03b.png",
+          "imageGold": "",
+          "flavorText": "This card is the wasp's elbows!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be92b24b4609f19b3c7d387b1415b87147d70f3de6518101f4b1f4a629e74597.png",
+          "childIds": [
+            117870,
+            117689
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_630",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117869&locale=zh_CN",
+        "sha256": "4661b729dd1802ebd89c445919a5608f19de48f0b458f15179e2c36c1ec18a03",
+        "face": {
+          "id": 117869,
+          "collectible": 1,
+          "slug": "117869-gorishi-wasp",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Vlad Botos",
+          "health": 7,
+          "attack": 2,
+          "manaCost": 5,
+          "name": "格里什异种虫",
+          "text": "<b>突袭</b>。每当本随从受到伤害，&获取一张法力值消耗为（1）的格里什毒刺虫。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10344f4d9bb76831e33e04d2c0a079e27ec089892ee9b3f8a5f040ba4c4578c0.png",
+          "imageGold": "",
+          "flavorText": "堪称癫蜂之作！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be92b24b4609f19b3c7d387b1415b87147d70f3de6518101f4b1f4a629e74597.png",
+          "childIds": [
+            117870,
+            117689
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_902",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117686&locale=en_US",
+        "sha256": "939f0ff50a84372d420ed301788b805b1c8a3639dd90e0e965431380c32aa9cb",
+        "face": {
+          "id": 117686,
+          "collectible": 1,
+          "slug": "117686-infestation",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "manaCost": 2,
+          "name": "Infestation",
+          "text": "Get two 1-Cost Gorishi Stingers. Each one deals 2 damage and summons a 2/1 Grub with <b>Rush</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07717e6c039bd739d5d4643cc571ea87c1d0f80de000552e991d7d12fedbd11f.png",
+          "imageGold": "",
+          "flavorText": "NOT THE WASPS!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a399d02ef9b3858ab82fd0b4434723dcab0139c133dec8eab832e7f609a61f68.png",
+          "childIds": [
+            117870,
+            117689
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_902",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117686&locale=zh_CN",
+        "sha256": "7edd11379fc15f092d50824d966abe2e60affefd0fe68e378f08006cf3634ad9",
+        "face": {
+          "id": 117686,
+          "collectible": 1,
+          "slug": "117686-infestation",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "manaCost": 2,
+          "name": "虫害侵扰",
+          "text": "获取两张法力值消耗为（1）的格里什毒刺虫。毒刺虫可以造成 2点伤害并召唤一只2/1具有<b>突袭</b>的异种虫幼体。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5307ded4ed7c1b9e90bb559ff8f50825765b7d2c79c4fab285595ac7634f17e8.png",
+          "imageGold": "",
+          "flavorText": "别动我的异种虫！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a399d02ef9b3858ab82fd0b4434723dcab0139c133dec8eab832e7f609a61f68.png",
+          "childIds": [
+            117870,
+            117689
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490a",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115217&locale=en_US",
+        "sha256": "d456df167d991e8d9c6a1bb0b5bcd580929ee2640a7289398476610fd4954757",
+        "face": {
+          "id": 115217,
+          "collectible": 0,
+          "slug": "115217-figure-in-the-dark",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "Figure in the Dark",
+          "text": "Summon two 3/6 Demons with <b>Taunt</b> that can't attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cff6f2a79e8ad218c2b7ef9a0a01be482813cc740a718aefa95dd459f7d5e1e0.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490a",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115217&locale=zh_CN",
+        "sha256": "8de05092c240c47127d2396acebd33bac1c7f500f1f90931b8b045c07083c8bc",
+        "face": {
+          "id": 115217,
+          "collectible": 0,
+          "slug": "115217-figure-in-the-dark",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "暗处的身影",
+          "text": "召唤两个3/6并具有<b>嘲讽</b>且无法攻击的恶魔。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/208af54b3f13dccb85441d32c144fae97d6f23ac9dd7ad7fd423bebb691773cf.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490b",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115216&locale=en_US",
+        "sha256": "b222b1720043cabf46e97b895956bf3a8c7222edbac0876ca87797a8175e6517",
+        "face": {
+          "id": 115216,
+          "collectible": 0,
+          "slug": "115216-wits-end",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "Wit's End",
+          "text": "Destroy an enemy minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0147a1a75efbd7d7c5aba545599a44a9078cd9ab6f3132e4f05d9248498f21c.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490b",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115216&locale=zh_CN",
+        "sha256": "e1863620130db2e35c8d625e93d04009ad625f18b2406ede1860dde88abd6cae",
+        "face": {
+          "id": 115216,
+          "collectible": 0,
+          "slug": "115216-wits-end",
+          "classId": 9,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 5,
+          "name": "神智的终结",
+          "text": "消灭一个敌方随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6181e564b054a1a159d6dc7754768432e5e6fce77aa6c4a12599f73de03d037a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115937&locale=en_US",
+        "sha256": "7c37bb3c299b74897ffaf557cbc04b7533652210e8ab1300c4b872be46c76905",
+        "face": {
+          "id": 115937,
+          "collectible": 0,
+          "slug": "115937-night-terror",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Night Terror",
+          "text": "<b>Taunt</b> Can't attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcbabbed6f6b99ab4e2238372c50ac6210ad428a4e8b58a28ca26e9d065ef98a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_490t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115937&locale=zh_CN",
+        "sha256": "23a7d876cea438223bdad8c07129754afb19f74b31fd995f816077f2afc8b921",
+        "face": {
+          "id": 115937,
+          "collectible": 0,
+          "slug": "115937-night-terror",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Patrik Bjorkstrom",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "暗夜恐魔",
+          "text": "<b>嘲讽</b> 无法攻击。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a2b3375a693e624bb7f7d0d62d56820e0cf88c5f038f5bb717a1c156d2e2169.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115215,
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570A",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116661&locale=en_US",
+        "sha256": "11e46980abca32b5982d760a8ecebeca4636d91028622cbdb872b2c5df57417a",
+        "face": {
+          "id": 116661,
+          "collectible": 0,
+          "slug": "116661-nightmarish-burst",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "Nightmarish Burst",
+          "text": "Deal 1 damage to all minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/172a1f408d5fc2aa6f34a47093ba9b3da3a4b3ecb2ed45ca671b508f23d9cbd1.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 116660,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570A",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116661&locale=zh_CN",
+        "sha256": "dca03c4baad65149b075bb70936806da473e0b7e01a14a0394156ccf5accb1c3",
+        "face": {
+          "id": 116661,
+          "collectible": 0,
+          "slug": "116661-nightmarish-burst",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "噩梦爆发",
+          "text": "对所有随从造成 1点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de92718c43d1d304a229e0156360ed79289d2eea7e57789367211ac1179ec35e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 116660,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570B",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=116662&locale=en_US",
+        "sha256": "49bc0f6787c41ec2a98e7ca4647e08c4036e69b658aa5e4186b838a6b6bcc521",
+        "face": {
+          "id": 116662,
+          "collectible": 0,
+          "slug": "116662-unstable-power",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "Unstable Power",
+          "text": "Give a damaged minion +2/+2.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19810365be717d3521bd715461719a68797e73a7a79ee989b4f8dccada18aa45.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 116660,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_570B",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=116662&locale=zh_CN",
+        "sha256": "2b828ce57970e737f52fc45f374c929f9b590f33dd96fadbe597f94b31afa6c6",
+        "face": {
+          "id": 116662,
+          "collectible": 0,
+          "slug": "116662-unstable-power",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Jakub Kasper",
+          "manaCost": 1,
+          "name": "动荡能量",
+          "text": "使一个受伤的随从获得+2/+2。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d34f9a05dc3badc5b485b50e3d54740dc94f0025fceacb99e160174becbe718.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 116660,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_630t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117870&locale=en_US",
+        "sha256": "1d5b26c7ea2585d956e36adcbc0a8a8c05a52bcd87726b627315536bf7a12665",
+        "face": {
+          "id": 117870,
+          "collectible": 0,
+          "slug": "117870-gorishi-stinger",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Vlad Botos",
+          "manaCost": 1,
+          "name": "Gorishi Stinger",
+          "text": "Deal 2 damage. Summon a 2/1 Grub with <b>Rush</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ce06daa19232afbaf257579b8ba14f3df20d4a1d23ff11b4f48532ca9b22a13.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117869,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_630t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117870&locale=zh_CN",
+        "sha256": "efd689575fd1a9b160239c7a2d6842d2401ab73fbd4c5b4970dad7050410f7aa",
+        "face": {
+          "id": 117870,
+          "collectible": 0,
+          "slug": "117870-gorishi-stinger",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Vlad Botos",
+          "manaCost": 1,
+          "name": "格里什毒刺虫",
+          "text": "造成 2点伤害。召唤一只2/1并具有<b>突袭</b>的异种虫幼体。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b658162cde2d9124029282b25f654dddd36af02ca45ffd278b4c3ec01cce4a87.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117869,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_903t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117689&locale=en_US",
+        "sha256": "df7f89a374fda2edaf7337a8518d1e443aa43706912873bece5770eb4ecbd9a7",
+        "face": {
+          "id": 117689,
+          "collectible": 0,
+          "slug": "117689-silithid-grub",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Brian Despain",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "Silithid Grub",
+          "text": "<b>Rush</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e170521b95f17c9d4851d1dd31607d3cc2270f8dcbacc0727757c3177ffda882.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117687,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_903t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117689&locale=zh_CN",
+        "sha256": "c57ba5c241b77d526217ad933dd1cb7959e02df396f7cccb30416e5a85275afb",
+        "face": {
+          "id": 117689,
+          "collectible": 0,
+          "slug": "117689-silithid-grub",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Brian Despain",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "异种虫幼体",
+          "text": "<b>突袭</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfba1b0930c0384c195fb3f46e9eedc647e32e17132a938ff4f21da9a2f3c8ed.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 117687,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "note": "Complete official roots and recursively listed children; not exact CN timing calibration."
+  },
+  "internal_policy": [
+    "Coghammer is wholly unregistered pending an actual public one-physical-target keyword-group random operation. Full current and historical identity rows remain evidence.",
+    "Ominous uses native ChooseOneSpec: one SPELL DamageBatch over current active minions, or captured original damaged minion +2/+2 through public predicate. Required combined branch uses damaged-at-acceptance target, damage then captured buff; exact CN combined target policy remains uncalibrated.",
+    "Sleep uses native summon or enemy-minion destruction branch; required combined body summons two Night Terrors then destroys original captured enemy. Exact CN combined order remains local.",
+    "Overgrown Horror reduces only actually held minions with real Dark Gift attachments, using CardReference and ModifyStoredCost(-2); ordinary quote/payment floor stays public.",
+    "Wasp listens to original positive damage_dealt, including accepted lethal notification, then ordinary AddToHand of the exact 1-Cost Stinger; no survival requirement or damage-amount multiplier.",
+    "Stinger has ordinary character target, a two-damage SPELL packet then one attributed existing Grub summon; Infestation gets two copies of the same full Stinger.",
+    "Official full faces/children support identity and text, not exact CN timing or formal Standard pool closure."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
