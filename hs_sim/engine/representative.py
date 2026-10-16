@@ -845,9 +845,16 @@ def register_combo_pool(registry, baseline, metadata_decoder=metadata_from_recor
 
 
 def build_registry(*, version: str = "representative-m5-v65", known_unrarified_ids: tuple[str, ...] = (),
-                   initial_hero_power_bindings: tuple[tuple[str, str], ...] = (), defer_validation: bool = False) -> Registry:
+                   initial_hero_power_bindings: tuple[tuple[str, str], ...] = (), defer_validation: bool = False,
+                   metadata_overrides: tuple[tuple[str, CardMetadata], ...] = ()) -> Registry:
     """Compile fixtures; an outer content assembler can defer final reference linking."""
     if type(defer_validation)is not bool:raise ValueError('Deferred content validation must be explicit boolean')
+    if (type(metadata_overrides)is not tuple or any(type(row)is not tuple or len(row)!=2 or
+            type(row[0])is not str or not row[0].strip()or type(row[1])is not CardMetadata for row in metadata_overrides)):
+        raise ValueError('Printed metadata overrides require immutable explicit card/metadata pairs')
+    overrides=dict(metadata_overrides);used_metadata=set()
+    if len(overrides)!=len(metadata_overrides):raise ValueError('Duplicate printed metadata override')
+    for meta in overrides.values():meta.__post_init__()
     if (type(initial_hero_power_bindings)is not tuple or any(type(row)is not tuple or len(row)!=2 or
             any(type(value)is not str or not value.strip()for value in row)for row in initial_hero_power_bindings)):
         raise ValueError('Initial hero bindings require immutable explicit hero/power pairs')
@@ -1340,6 +1347,8 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         if school_tag is not None and (type(school_tag) is not int or school_tag not in schools):
             raise TargetValidationError(f'Unsupported spell school tag: {card_id}')
         meta = decode_metadata(raw)
+        if card_id in overrides:
+            meta=overrides[card_id];used_metadata.add(card_id)
         return CardDefinition(card_id, raw["name"], kind, cost=cost, attack=attack, health=health,
                               durability=durability, spell_school=schools[school_tag] if school_tag is not None else None,
                               metadata=meta,
@@ -1768,6 +1777,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
             for cls in sorted(PLAYABLE_CLASSES))))
     from .dark_gift_cards import register_representatives as register_dark_gift_cards
     register_dark_gift_cards(registry, baseline.target['target_id'])
+    if used_metadata!=set(overrides):raise ValueError('Printed metadata override has no compiled source card')
     if not defer_validation:registry.validate()
     return registry
 

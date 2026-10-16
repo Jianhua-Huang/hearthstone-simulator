@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v142"
+CONTENT_VERSION = "constructed-cn37-preview-v143"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -64,8 +64,10 @@ def build_registry():
     from .conditional_health_cards import load_batch as load_conditional_health_batch
     known_unrarified = tuple(row['record']['id'] for row in load_conditional_health_batch()['known_unrarified_legacy'])
     from .basic_hero_roles import representative_initial_bindings
+    from .constructed_metadata_catalog import metadata_overrides,register_reviewed_pool_metadata
     registry = build_representative_registry(version=CONTENT_VERSION, known_unrarified_ids=known_unrarified,
-        initial_hero_power_bindings=representative_initial_bindings(),defer_validation=True)
+        initial_hero_power_bindings=representative_initial_bindings(),defer_validation=True,
+        metadata_overrides=metadata_overrides())
     from .demon_zone_cards import register_demon_zone_cards
     register_demon_zone_cards(registry)
     from .hand_mirror_cards import register_hand_mirror_cards
@@ -339,5 +341,6 @@ def build_registry():
     register_simple_followup_p24_cards(registry)
     from .simple_followup_p25_cards import register_simple_followup_p25_cards
     register_simple_followup_p25_cards(registry)
+    register_reviewed_pool_metadata(registry)
     registry.validate()
     return registry

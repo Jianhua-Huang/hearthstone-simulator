@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+已审印刷元数据在构筑组装时显式投影，生成目录从完整可执行定义登记，历史代表包保持原默认值；见[构筑元数据契约](m3-constructed-metadata-catalog.md)。
+
 通用构筑生成使用宿主GenerationContext绑定的constructed.cards完整资格池；原生已重组状态在首个入手通知前消费印刷裂变，见[生成与创建契约](m3-combined-shatter-generation.md)。
 
 原致死随从变形从DeathCause取得原身份，再在实际执行时核对完整驻留，交由公共变形生命周期执行；见[原凶手变形契约](m3-native-killer-transform.md)。
