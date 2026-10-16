@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+非施法随从/地标的具名分摊可显式使用NON_SPELL_PROFILE，cast_id=None及匹配kind，复用原完整单位管线和原致死结果；见[契约](m3-non-spell-split.md)。
+
 真实具名生成法术可使用AddToHand.spell_damage正数材料，要求实际SPELL及来源，复用物理局部法伤安装；仅该入口，默认0保持。见[契约](m3-created-spell-bonuses.md)。
 
 真实龙牌的当前种族/赐福条件、分阶段移除和回溯伤害继续复用原管线；只为实际地标需求增加有限随机入口。候选、原死亡、恢复及待国服窗口见[契约](m3-dragon-native-effects.md)，生成资格仍独立核对。

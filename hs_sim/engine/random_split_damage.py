@@ -13,6 +13,7 @@ from .model import (AbilityInstance, CardType, DamageKind, GameState, Keyword,
 from .resource_operations import SourceAllocationFact
 
 PROFILE = 'spell_bonus_once_unit_packets'
+NON_SPELL_PROFILE = 'non_spell_unit_packets'
 
 @dataclass(frozen=True)
 class SplitDamageScope:
@@ -27,20 +28,28 @@ class SplitDamageScope:
 @dataclass(frozen=True)
 class RandomSplitDamage(Effect):
     player_id: int
-    cast_id: int
+    cast_id: int | None
     source_id: int
     amount: int
     scope: SplitDamageScope = SplitDamageScope()
     on_result: str | None = None
     on_complete: str | None = None
     profile: str = PROFILE
+    kind: DamageKind = DamageKind.SPELL
     def __post_init__(self):
         _player(self.player_id)
-        for n in ('cast_id','source_id'): _integer(getattr(self,n),n,1)
+        if type(self.kind)is not DamageKind:raise ValueError('Split damage requires an exact damage kind')
+        _integer(self.source_id,'source_id',1)
         _integer(self.amount,'whole split base budget',0)
         if type(self.scope) is not SplitDamageScope: raise ValueError('Split scope requires exact typed declaration')
         self.scope.__post_init__()
-        if self.profile != PROFILE: raise ValueError('Unsupported whole split profile')
+        if self.profile == PROFILE:
+            _integer(self.cast_id,'cast_id',1)
+            if self.kind != DamageKind.SPELL: raise ValueError('SPELL split requires its real cast and damage kind')
+        elif self.profile == NON_SPELL_PROFILE:
+            if self.cast_id is not None or type(self.kind)is not DamageKind or self.kind not in (DamageKind.MINION_ABILITY,DamageKind.EFFECT):
+                raise ValueError('Non-spell split requires its explicit non-cast minion/location profile')
+        else: raise ValueError('Unsupported whole split profile')
         for name in ('on_result','on_complete'):
             if getattr(self,name) is not None: _name(getattr(self,name),'split callback')
 
@@ -61,7 +70,7 @@ class SplitBonusContribution:
 
 @dataclass(frozen=True)
 class SplitBudgetQuote:
-    cast: SpellCastRecord
+    cast: SpellCastRecord | None
     source: SourceAllocationFact
     source_keywords: tuple[Keyword, ...]
     school: SpellSchool | None
@@ -72,10 +81,16 @@ class SplitBudgetQuote:
     root_action: int
     event_cursor: int
     def __post_init__(self):
-        if type(self.cast) is not SpellCastRecord or type(self.source) is not SourceAllocationFact:
-            raise ValueError('Split quote needs original CAST and allocated source')
-        self.cast.__post_init__(); self.source.__post_init__()
-        if (self.source.kind != CardType.SPELL or self.cast.source_id != self.source.entity_id or
+        if type(self.source) is not SourceAllocationFact:
+            raise ValueError('Split quote needs its allocated original source')
+        self.source.__post_init__()
+        if self.cast is None:
+            if self.source.kind not in (CardType.MINION,CardType.LOCATION) or self.contributions or self.spell_bonus:
+                raise ValueError('Non-spell quote cannot borrow a CAST or Spell Damage')
+        elif type(self.cast)is not SpellCastRecord:
+            raise ValueError('Split quote needs its exact original CAST')
+        else:self.cast.__post_init__()
+        if self.cast is not None and (self.source.kind != CardType.SPELL or self.cast.source_id != self.source.entity_id or
                 self.cast.card_id != self.source.card_id or self.cast.player_id != self.source.controller or
                 not self.cast.payload_started or self.cast.completed or self.cast.interrupted or self.cast.failure is not None):
             raise ValueError('Split quote is not an original active SPELL payload')
@@ -136,6 +151,8 @@ class SplitPacketReceipt:
     selection: SplitSelection
     result_events: tuple[int, ...] = ()
     completed: bool = False
+    source: SourceAllocationFact | None = None
+    source_keywords: tuple[Keyword, ...] = ()
     def __post_init__(self):
         if type(self.link) is not SplitPacketLink or type(self.selection) is not SplitSelection:
             raise ValueError('Packet requires original link and selection')
@@ -145,6 +162,12 @@ class SplitPacketReceipt:
             raise ValueError('Packet result identities must be ordered unique events')
         for i in self.result_events: _integer(i,'packet health result event',1)
         if type(self.completed) is not bool: raise ValueError('Packet completion must be boolean')
+        if self.source is not None:
+            if type(self.source)is not SourceAllocationFact:raise ValueError('Split unit needs an original physical source')
+            self.source.__post_init__()
+        if (type(self.source_keywords)is not tuple or len(set(self.source_keywords))!=len(self.source_keywords) or
+                any(type(k)is not Keyword for k in self.source_keywords) or self.source is None and self.source_keywords):
+            raise ValueError('Split unit source keywords need their original source fact')
 
 @dataclass(frozen=True)
 class SplitDamageRoot:
@@ -165,9 +188,12 @@ class SplitDamageRoot:
         if type(self.request) is not RandomSplitDamage or type(self.quote) is not SplitBudgetQuote:
             raise ValueError('Split root requires full original request and budget quote')
         self.request.__post_init__(); self.quote.__post_init__()
+        spell = self.request.profile == PROFILE
         if (self.quote.budget != self.request.amount+self.quote.spell_bonus or
-                (self.request.cast_id,self.request.source_id,self.request.player_id) !=
-                (self.quote.cast.id,self.quote.source.entity_id,self.quote.cast.player_id)):
+                self.request.source_id != self.quote.source.entity_id or
+                spell and (self.quote.cast is None or (self.request.cast_id,self.request.player_id) !=
+                (self.quote.cast.id,self.quote.cast.player_id)) or
+                not spell and (self.quote.cast is not None or self.quote.source.kind != source_kind(self.request))):
             raise ValueError('Split root differs from its original total budget')
         if type(self.packets) is not tuple or len(self.packets)>self.quote.budget:
             raise ValueError('Split packets exceed original budget')
@@ -175,6 +201,9 @@ class SplitDamageRoot:
             if type(p) is not SplitPacketReceipt or p.link != SplitPacketLink(self.id,index):
                 raise ValueError('Split packet identity/order differs from its root')
             p.__post_init__()
+            if spell and p.source is not None or not spell and (p.source is None or
+                    p.source.entity_id!=self.request.source_id or p.source.kind!=source_kind(self.request)):
+                raise ValueError('Split unit source differs from its declared damage profile')
             if index<len(self.packets) and not p.completed: raise ValueError('A later packet overtook original callbacks')
         for n in ('completed','interrupted'):
             if type(getattr(self,n)) is not bool: raise ValueError('Split status flags must be boolean')
@@ -249,7 +278,15 @@ def quote_budget(state,registry,request,root_action,event_cursor):
     request.__post_init__()
     for name in ('on_result','on_complete'):
         if getattr(request,name) is not None: registry.behavior(getattr(request,name))
-    cast=cast_record(state,request.cast_id);source=state.entities.get(request.source_id)
+    source=state.entities.get(request.source_id)
+    if request.profile == NON_SPELL_PROFILE:
+        if source is None or source.kind!=source_kind(request):
+            raise ResolutionError('Non-spell split requires its actual minion/location source')
+        definition=registry.card(source.card_id)
+        return SplitBudgetQuote(None,SourceAllocationFact.capture(state,source),
+            tuple(sorted(source.keywords,key=lambda k:k.value)),definition.spell_school,(),0,
+            request.amount,state.action_number,root_action,event_cursor)
+    cast=cast_record(state,request.cast_id)
     if source is None or cast!=active_cast(state,request.source_id,request.player_id):
         raise ResolutionError('Split budget needs its real current active CAST')
     definition=registry.card(source.card_id)
@@ -265,6 +302,37 @@ def root_record(state,root_id):
     r=next((r for r in state.split_damage_history if r.id==root_id),None)
     if r is None: raise ValueError('Unknown original split root')
     return r
+
+
+def closed_root(state,event):
+    """The actual completed root for a callback, never a global death delta."""
+    from .model import Event
+    if type(event)is not Event or event.kind!='split_damage_closed':
+        raise ValueError('Split result requires its original completion event')
+    data=dict(event.data)
+    if len(event.data)!=1 or set(data)!={'root'} or type(data['root'])is not str:
+        raise ValueError('Split completion lost its original complete receipt')
+    rows={'split_damage_history':[json.loads(data['root'])]};rows_from_dict(rows)
+    root=rows['split_damage_history'][0]
+    if (root!=root_record(state,root.id) or not root.completed or root.interrupted or
+            (event.source_id,event.player_id)!=(root.request.source_id,root.request.player_id)):
+        raise ValueError('Split callback borrowed an uncompleted or unrelated root')
+    return root
+
+
+def killed_minions(state,event):
+    """Actual deaths whose first fatal transition belongs to this root's units."""
+    root=closed_root(state,event);actual={}
+    for row in state.damage_history:
+        result=row.health_result;link=result.split_packet
+        if link is not None and link.root_id==root.id:
+            actual[link]=result
+    deaths=[]
+    for death in state.death_history:
+        result=death.cause.health_result if death.cause is not None else None
+        if (result is not None and result.damage_dealt>0 and result.split_packet in actual and
+                actual[result.split_packet]==result):deaths.append(death)
+    return tuple(deaths)
 
 def update(state,old,**values):
     new=replace(old,**values);new.__post_init__()
@@ -286,8 +354,24 @@ def packet_source(state,registry,link):
     if (root.completed or root.interrupted or link.index!=len(root.packets) or not root.packets or
             root.packets[-1].completed or root.packets[-1].link!=link):
         raise ValueError('Internal split packet is not the unique active allocated unit')
+    if root.request.profile == NON_SPELL_PROFILE:
+        packet=root.packets[-1]
+        return replace(root.quote,source=packet.source,source_keywords=packet.source_keywords,
+            school=registry.card(packet.source.card_id).spell_school)
     if registry.card(root.quote.source.card_id).kind!=CardType.SPELL: raise ValueError('Original split source is not SPELL')
     return root.quote
+
+
+def source_kind(request):
+    return CardType.SPELL if request.kind==DamageKind.SPELL else CardType.MINION if request.kind==DamageKind.MINION_ABILITY else CardType.LOCATION
+
+
+def unit_source(state,request):
+    if request.profile == PROFILE:return None,()
+    source=state.entities.get(request.source_id)
+    if source is None or source.kind!=source_kind(request):
+        raise ResolutionError('Non-spell split unit lost its actual damage source kind')
+    return SourceAllocationFact.capture(state,source),tuple(sorted(source.keywords,key=lambda k:k.value))
 
 def deliver(r,effect):
     from .resolver import settle_health_batch
@@ -302,9 +386,10 @@ def deliver(r,effect):
     if chosen is None:
         update(r.state,root,empty_selection=selection);return ()
     link=SplitPacketLink(root.id,effect.index)
-    update(r.state,root,packets=(*root.packets,SplitPacketReceipt(link,selection)))
+    source,keywords=unit_source(window,root.request)
+    update(r.state,root,packets=(*root.packets,SplitPacketReceipt(link,selection,source=source,source_keywords=keywords)))
     start=len(r.game._events)
-    calls=settle_health_batch(r,(Damage(chosen.allocation.entity_id,1,root.request.source_id,DamageKind.SPELL,
+    calls=settle_health_batch(r,(Damage(chosen.allocation.entity_id,1,root.request.source_id,root.request.kind,
         on_result=root.request.on_result),),split_link=link)
     event_ids=tuple(e.sequence for e in r.game._events[start:] if
         (v:=health_result(e)) is not None and v.split_packet==link)
@@ -327,11 +412,18 @@ def validate_packet_proof(proof,registry):
     if split_candidates(proof.state,registry,old.request.player_id,old.request.scope)!=proof.selection.candidates:
         raise ValueError('Split selection truncated or changed its complete original candidate pool')
 
+
+def validate_unit_source(proof,packet):
+    request=root_record(proof.state,proof.root_id).request
+    if (packet.source,packet.source_keywords)!=unit_source(proof.state,request):
+        raise ValueError('Split unit borrowed source material outside its original delivery window')
+
 def finish_packet(r,effect):
     validate_packet_proof(effect.proof,r.registry)
     root=root_record(r.state,effect.root_id)
     if len(root.packets)!=effect.index or root.packets[-1].completed or root.packets[-1].selection!=effect.proof.selection:
         raise ResolutionError('Split packet tail duplicated or borrowed selection')
+    validate_unit_source(effect.proof,root.packets[-1])
     packet=replace(root.packets[-1],completed=True)
     root=update(r.state,root,packets=(*root.packets[:-1],packet))
     return (DeliverSplitPacket(root.id,effect.index+1),) if effect.index<root.quote.budget else ()
@@ -367,12 +459,13 @@ def validate_state(state,registry):
         if root.parent_id is not None and root.parent_id not in known: raise ValueError('Split history lost its original parent')
         validate_compact_facts(state,registry,root)
         from .spell_casts import cast_record
-        actual_cast=cast_record(state,root.request.cast_id)
-        if replace(actual_cast,completed=False,interrupted=False)!=root.quote.cast:
-            raise ValueError('Split quote differs from its real allocated original CAST record')
+        if root.request.profile == PROFILE:
+            actual_cast=cast_record(state,root.request.cast_id)
+            if replace(actual_cast,completed=False,interrupted=False)!=root.quote.cast:
+                raise ValueError('Split quote differs from its real allocated original CAST record')
         a=root.quote.source
         if a.next_entity_id>state.next_entity_id or a.next_order>state.next_order: raise ValueError('Split source exceeds original physical allocation')
-        if registry.card(a.card_id).kind!=CardType.SPELL: raise ValueError('Split quote changed original source kind')
+        if registry.card(a.card_id).kind!=source_kind(root.request): raise ValueError('Split quote changed original source kind')
         if root.quote.action>state.action_number:
             raise ValueError('Split quote is newer than its original state domain')
         current=state.entities.get(a.entity_id)
@@ -405,6 +498,7 @@ def validate_boundary(game):
             if len(packets)!=1 or packets[0].index!=len(root.packets) or delivery:
                 raise ValueError('Split pending packet lost its unique finish or has premature next delivery')
             validate_packet_proof(packets[0].proof,game.registry)
+            validate_unit_source(packets[0].proof,root.packets[-1])
             if packets[0].proof.selection!=root.packets[-1].selection: raise ValueError('Split pending packet borrowed selection')
             if queue.index(packets[0])>queue.index(next(t for t in tails if t.root_id==root.id)):
                 raise ValueError('Split packet follows root completion')
@@ -463,9 +557,12 @@ def validate_closed_events(game):
             raise ValueError('Health result references a missing/future original split root')
         root=all_roots[link.root_id]
         if link.index>len(root.packets): raise ValueError('Health result references an unallocated split packet')
-        packet=root.packets[link.index-1];source=root.quote.source;selected=packet.selection.selected.allocation
+        packet=root.packets[link.index-1];source=packet.source or root.quote.source;selected=packet.selection.selected.allocation
+        controller=root.request.player_id if root.request.profile==PROFILE else source.controller
         if ((result.source_id,result.source_card_id,result.source_controller,result.source_zone_epoch,result.source_entered_order)!=
-                (source.entity_id,source.card_id,root.request.player_id,source.zone_epoch,source.entered_order) or
+                (source.entity_id,source.card_id,controller,source.zone_epoch,source.entered_order) or
+                result.damage_kind!=root.request.kind.value or
+                root.request.profile==NON_SPELL_PROFILE and result.spell_bonus!=0 or
                 result.original_target_id!=selected.entity_id or event.sequence not in packet.result_events or
                 event.sequence<=root.quote.event_cursor or link.root_id in closing_sequence and event.sequence>=closing_sequence[link.root_id]):
             raise ValueError('Split result differs from its original packet/source/event association')
@@ -524,6 +621,7 @@ def validate_compact_facts(state,registry,root):
             raise ValueError('Split bonus duplicated or exceeded original attachment allocation')
         seen.add(identity)
     for p in root.packets:
+        if p.source is not None:allocation(p.source)
         for row in p.selection.candidates:
             a=row.allocation;allocation(a)
             if (a.kind not in root.request.scope.kinds or
@@ -548,9 +646,9 @@ def rows_from_dict(value):
         row['rng_before']=end_turn_rng_from_json(row['rng_before']);row['rng_after']=end_turn_rng_from_json(row['rng_after']);return SplitSelection(**row)
     result=[]
     for v in _list(value['split_damage_history'],'split history'):
-        row=_row(v,SplitDamageRoot);request=_row(row['request'],RandomSplitDamage);request['scope']=scope(request['scope']);row['request']=RandomSplitDamage(**request)
+        row=_row(v,SplitDamageRoot);request=_row(row['request'],RandomSplitDamage);request['scope']=scope(request['scope']);request['kind']=DamageKind(request['kind']);row['request']=RandomSplitDamage(**request)
         quote=_row(row['quote'],SplitBudgetQuote)
-        quote['cast']=_spell_cast_from_dict(quote['cast']);quote['source']=allocation(quote['source']);quote['source_keywords']=tuple(Keyword(k) for k in quote['source_keywords'])
+        quote['cast']=_spell_cast_from_dict(quote['cast']) if quote['cast'] is not None else None;quote['source']=allocation(quote['source']);quote['source_keywords']=tuple(Keyword(k) for k in quote['source_keywords'])
         if quote['school'] is not None:quote['school']=SpellSchool(quote['school'])
         contributions=[]
         for c in quote['contributions']:
@@ -565,7 +663,7 @@ def rows_from_dict(value):
             contributions.append(SplitBonusContribution(**c))
         quote['contributions']=tuple(contributions);row['quote']=SplitBudgetQuote(**quote);packets=[]
         for v in row['packets']:
-            p=_row(v,SplitPacketReceipt);p['link']=SplitPacketLink(**_row(p['link'],SplitPacketLink));p['selection']=selection(p['selection']);p['result_events']=tuple(p['result_events']);packets.append(SplitPacketReceipt(**p))
+            p=_row(v,SplitPacketReceipt);p['link']=SplitPacketLink(**_row(p['link'],SplitPacketLink));p['selection']=selection(p['selection']);p['result_events']=tuple(p['result_events']);p['source']=allocation(p['source']) if p['source'] is not None else None;p['source_keywords']=tuple(Keyword(k) for k in p['source_keywords']);packets.append(SplitPacketReceipt(**p))
         row['packets']=tuple(packets)
         if row['empty_selection'] is not None:row['empty_selection']=selection(row['empty_selection'])
         result.append(SplitDamageRoot(**row))

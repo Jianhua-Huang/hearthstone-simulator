@@ -210,10 +210,12 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
     if split_link is not None:
         from .random_split_damage import packet_source
         split_quote = packet_source(state, registry, split_link)
-        if (type(instruction) is not Damage or instruction.kind != DamageKind.SPELL or
+        expected_kind=(DamageKind.SPELL if split_quote.cast is not None else
+            DamageKind.MINION_ABILITY if split_quote.source.kind==CardType.MINION else DamageKind.EFFECT)
+        if (type(instruction) is not Damage or instruction.kind != expected_kind or
                 instruction.source_id != split_quote.source.entity_id or instruction.amount != 1 or
                 instruction.spell_bonus_multiplier != 1 or from_lifesteal):
-            raise ResolutionError('Internal split linkage requires exactly its original SPELL unit')
+            raise ResolutionError('Internal split linkage requires exactly its original damage unit')
     elif source_packet is not None:
         split_quote = source_packet.split_quote
     if split_quote is not None:
@@ -242,7 +244,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
                             from_lifesteal=from_lifesteal, split_quote=split_quote, split_packet=split_link,
                             numeric_limit=numeric_limit,player_source=player_source)
     if split_quote is not None:
-        packet = replace(packet, source_controller=split_quote.cast.player_id,
+        packet = replace(packet, source_controller=split_quote.cast.player_id if split_quote.cast is not None else split_quote.source.controller,
             source_keywords=frozenset(split_quote.source_keywords), school=split_quote.school)
     if source_packet is not None:
         packet = replace(packet, source_controller=source_packet.source_controller,
