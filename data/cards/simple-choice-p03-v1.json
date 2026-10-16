@@ -1,0 +1,1779 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "bytes": 23509652,
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_457",
+        "dbf_id": 114219,
+        "name": "龙巢守护者",
+        "name_en": "Brood Keeper",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，&装备一把2/2的剑。",
+        "text_en": "<b>Battlecry:</b> If you're holding a\nDragon,& equip a 2/2 Sword.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "f34f47ac1f72634c5ab33b9f7d998227f9482f1532b7ac4e6d861a995c175547"
+    },
+    {
+      "record": {
+        "id": "JAIL_387",
+        "dbf_id": 126598,
+        "name": "释放野兽",
+        "name_en": "Release the Beasts",
+        "text": "使你手牌中的随从牌获得+1/+1。<b>传说</b>随从牌额外获得+2/+1。",
+        "text_en": "[x]Give minions in\n_your hand +1/+1.\n<b>_Legendary</b> minions\n_get an extra +2/+1.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "3d0f818bde8b7abfa79bcfe478439f05f82259ca7435f2dfc2a6ac87a3bfc0d1"
+    },
+    {
+      "record": {
+        "id": "EDR_233",
+        "dbf_id": 114369,
+        "name": "森林之灵",
+        "name_en": "Spirits of the Forest",
+        "text": "<b>抉择：</b>召唤三只2/3并具有<b>嘲讽</b>的狼；或者召唤两只4/3并具有<b>风怒</b>的猎鹰。",
+        "text_en": "<b>Choose One -</b> Summon three 2/3 Wolves with <b>Taunt</b>; or Summon two 4/3 Falcons with <b>Windfury</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e467f1b0596de2b8973ce1d2ad4ac1d9282668a9a2f5bb152821ae7c630e5067"
+    },
+    {
+      "record": {
+        "id": "EDR_263",
+        "dbf_id": 115058,
+        "name": "巨狼的恩赐",
+        "name_en": "Grace of the Greatwolf",
+        "text": "<b>抉择：</b>对敌方英雄造成$4点伤害；或者召唤两只3/2并具有<b>突袭</b>的狼。",
+        "text_en": "[x]<b>Choose One -</b> Deal $4\ndamage to the enemy\nhero; or Summon two\n3/2 Wolves with <b>Rush</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "be9e079663e7726937b25b198b67800f39a0d831224c0202ca73e5eaa7e759ec"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_457t",
+        "dbf_id": 117304,
+        "name": "梦魇之剑",
+        "name_en": "Nightmare Slicer",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "83c9c3f12c402bb3778f65e1c8150ab66f7d06b82b639f9ef7cd48b9de513193"
+    },
+    {
+      "record": {
+        "id": "EX1_tk11",
+        "dbf_id": 533,
+        "name": "幽灵狼",
+        "name_en": "Spirit Wolf",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2542": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "8b52370579441f9e7af6775283bcb2f6db9758437c62fd8e62cf6e07e0a6efaf"
+    },
+    {
+      "record": {
+        "id": "EDR_233t2",
+        "dbf_id": 114645,
+        "name": "幽灵猎鹰",
+        "name_en": "Spirit Falcon",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "2534": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "171b3e3511bf5246c9a9b1a79dbb60bc6215c4165f5696cc65d83f6930fc8c5e"
+    },
+    {
+      "record": {
+        "id": "EDR_233a",
+        "dbf_id": 114370,
+        "name": "群狼的力量",
+        "name_en": "Wolf's Strength",
+        "text": "召唤三只2/3并具有<b>嘲讽</b>的狼。",
+        "text_en": "Summon three 2/3 Wolves with <b>Taunt</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8caba643d85e4a66115ffbf9d8f905cc9834a9290be7147518ab70aaa3125d50"
+    },
+    {
+      "record": {
+        "id": "EDR_233b",
+        "dbf_id": 114371,
+        "name": "猎鹰的灵动",
+        "name_en": "Falcon's Dexterity",
+        "text": "召唤两只\n4/3并具有<b>风怒</b>\n的猎鹰。",
+        "text_en": "Summon two 4/3 Falcons with <b>Windfury</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b8b9fd8d68339e3830b32b5d2e3ddcc4cc19b73274179b4bc08692b9fb7a9108"
+    },
+    {
+      "record": {
+        "id": "EDR_263a",
+        "dbf_id": 115497,
+        "name": "巨狼的狂暴",
+        "name_en": "Greatwolf's Ferocity",
+        "text": "对敌方英雄造成$4点伤害。",
+        "text_en": "Deal $4 damage to the enemy hero.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "7725fcb89c6e407f3836acfb56f06108d14f30ac9d026bf2e926dffbd5d47ef0"
+    },
+    {
+      "record": {
+        "id": "EDR_263b",
+        "dbf_id": 115498,
+        "name": "巨狼的指引",
+        "name_en": "Greatwolf's Guidance",
+        "text": "召唤两只3/2并具有<b>突袭</b>的狼。",
+        "text_en": "Summon two 3/2 Wolves with <b>Rush</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bf091c3a385369922e6844ee310b566747b21a93744e9b9d01eeb748a579e17d"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_850pe",
+        "dbf_id": 114053,
+        "name": "顽皮的狼崽",
+        "name_en": "Playful Pup",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "be4a247567c4d915bf93378678a60df8f3b921d7f35e9350d5dc0ba36c4be4f5",
+      "definition_sha256": "b3ce8bdb01dfa82ada1c9bb0fb0de7b598b6739edab6ef95cd6538a25b06aff0"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_525A",
+        "dbf_id": 117240,
+        "name": "增生眼球",
+        "name_en": "Extra Eyes",
+        "text": "获得在本回合中的<b>剧毒</b>。",
+        "text_en": "Gain <b>Poisonous</b> this turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "07a97cc0c1c0697f50e65779bbe5cd59c78113a35c0204f63fadfcd780e4bac5"
+    },
+    {
+      "record": {
+        "id": "EDR_525B",
+        "dbf_id": 117241,
+        "name": "增生荆棘",
+        "name_en": "Extra Thorns",
+        "text": "获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+        "text_en": "Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3868181531e95d09e7129092a4074e79fd1f5f3f8292ba3786d1bb1fc995c8d5"
+    }
+  ],
+  "skipped": [
+    {
+      "record": {
+        "id": "EDR_525",
+        "dbf_id": 114517,
+        "name": "倒刺荆棘",
+        "name_en": "Barbed Thorn",
+        "text": "<b>抉择：</b>获得在本回合中的<b>剧毒</b>；或者获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+        "text_en": "[x]<b>Choose One -</b> Gain\n<b>Poisonous</b> this turn; or Gain\n\"<b>Deathrattle:</b> Deal 2 damage\nto all enemies.\"",
+        "cost": 3,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1a3a28af0fbc69a7555c1b8cf715ba59d4b98cd690772d7a35d989d3978ebbed",
+      "reason": "Real WEAPON Choose One root is rejected by existing choose_one.normalize kind gate (only MINION/SPELL/HERO_POWER).",
+      "evidence": "outputs/simple-cards-p03/weapon-choose-one-gap.json"
+    }
+  ],
+  "choice_only_ids": [
+    "EDR_233a",
+    "EDR_233b",
+    "EDR_263a",
+    "EDR_263b"
+  ],
+  "official_observations": {
+    "observed_at": "2026-10-16T22:25:55.366154+08:00",
+    "observations": [
+      {
+        "card_id": "EDR_233",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114369&locale=en_US",
+        "sha256": "0d92ad7ef1efac38196f540d08451e4fe9bf6c8c2648d2be3253b26eab648452",
+        "face": {
+          "id": 114369,
+          "collectible": 1,
+          "slug": "114369-spirits-of-the-forest",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "Spirits of the Forest",
+          "text": "<b>Choose One -</b> Summon three 2/3 Wolves with <b>Taunt</b>; or Summon two 4/3 Falcons with <b>Windfury</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a772577de78651a96244137f0a1c1ba57d705a235ec7ab45716944d2c340e33.png",
+          "imageGold": "",
+          "flavorText": "...or sixteen cows.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88ea72ebf84bc5f302ad19682f2c43c03f25d6ea5b3a3b1b15cda5e36bed0920.png",
+          "childIds": [
+            533,
+            114645,
+            114370,
+            114371
+          ],
+          "keywordIds": [
+            1,
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114369&locale=zh_CN",
+        "sha256": "528324526f1327ae879e7484baae7c0d887de2a0bbb1a3d75c1c3c7b694bf5ee",
+        "face": {
+          "id": 114369,
+          "collectible": 1,
+          "slug": "114369-spirits-of-the-forest",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "森林之灵",
+          "text": "<b>抉择：</b>召唤三只2/3并具有<b>嘲讽</b>的狼；或者召唤两只4/3并具有<b>风怒</b>的猎鹰。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da11eaeaeda7a339454113f92ec7e39c5af7015f5e14f96ef1fb3338aae7f1e9.png",
+          "imageGold": "",
+          "flavorText": "……或者十六头牛。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88ea72ebf84bc5f302ad19682f2c43c03f25d6ea5b3a3b1b15cda5e36bed0920.png",
+          "childIds": [
+            533,
+            114645,
+            114370,
+            114371
+          ],
+          "keywordIds": [
+            1,
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115058&locale=en_US",
+        "sha256": "c332986defdf1fac960b6ba8ba8c24f8ebccf5cc74e02d30654b4583154521be",
+        "face": {
+          "id": 115058,
+          "collectible": 1,
+          "slug": "115058-grace-of-the-greatwolf",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "Grace of the Greatwolf",
+          "text": "<b>Choose One -</b> Deal 4 damage to the enemy hero; or Summon two 3/2 Wolves with <b>Rush</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9abd8b2f077707f6ede89129c634806705de423da89fe02bdcc42900a1c426c.png",
+          "imageGold": "",
+          "flavorText": "LOOK WHAT I CAN DO!!!!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2299ee5d9497e46ddcb93cfd69530e803f0d093c0f98d9c40424d9d118452edc.png",
+          "childIds": [
+            115497,
+            115498,
+            114053
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115058&locale=zh_CN",
+        "sha256": "4ce22ec3673ccbcd3b345445fce0219d7e820d463fff4802ba28ec37fed6c8a6",
+        "face": {
+          "id": 115058,
+          "collectible": 1,
+          "slug": "115058-grace-of-the-greatwolf",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "巨狼的恩赐",
+          "text": "<b>抉择：</b>对敌方英雄造成 4点伤害；或者召唤两只3/2并具有<b>突袭</b>的狼。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/922af8d741c515059314cf15b67c9d24f785bc4a01f6cab2427ef2683b02de2e.png",
+          "imageGold": "",
+          "flavorText": "好好看，好好学！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2299ee5d9497e46ddcb93cfd69530e803f0d093c0f98d9c40424d9d118452edc.png",
+          "childIds": [
+            115497,
+            115498,
+            114053
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_457",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114219&locale=en_US",
+        "sha256": "5af579ce4212dd694653bc339afab297cf398bd0f3fb2ca0f1c6a5e9716b9590",
+        "face": {
+          "id": 114219,
+          "collectible": 1,
+          "slug": "114219-brood-keeper",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Brood Keeper",
+          "text": "<b>Battlecry:</b> If you're holding a Dragon,& equip a 2/2 Sword.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e15ee158d6f42b8fb93f7723de87af12b5725c012cad3fee2113861c0a38f85.png",
+          "imageGold": "",
+          "flavorText": "Mess with the brood, and you get the dude!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/145fc17a7fc461466e15c63db57d8f6aa2c9a64a3ae54d3716d7f692eaae320d.png",
+          "childIds": [
+            117304
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_457",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114219&locale=zh_CN",
+        "sha256": "2a7cf7cfda27a5772e00afeea15608370e59e377a0fc6da5e90b96f880793fc5",
+        "face": {
+          "id": 114219,
+          "collectible": 1,
+          "slug": "114219-brood-keeper",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "龙巢守护者",
+          "text": "<b>战吼：</b>如果你的手牌中有龙牌，&装备一把2/2的剑。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afc202c2075a86b0b5d92ba1ac6d83fac0b858403e0a5edbd939c7393a17e2d7.png",
+          "imageGold": "",
+          "flavorText": "不入龙穴，焉得招惹守护者！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/145fc17a7fc461466e15c63db57d8f6aa2c9a64a3ae54d3716d7f692eaae320d.png",
+          "childIds": [
+            117304
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114517&locale=en_US",
+        "sha256": "9b55cdfd1b06e8a16a4bb4e06ef95b1594b6acf654de1188b1aa6e53cad39103",
+        "face": {
+          "id": 114517,
+          "collectible": 1,
+          "slug": "114517-barbed-thorn",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Stefan Bogdasarov",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "Barbed Thorn",
+          "text": "<b>Choose One -</b> Gain <b>Poisonous</b> this turn; or Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8f21fac817ca3e1165a9e1dfd32ce58b69c88d9597d60626a04569533ed821d.png",
+          "imageGold": "",
+          "flavorText": "Comes with a pack of bandages.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8be6651a20d6fa7dfa9746490ca0713cfe68349f5bf25aac45609a92b00e20a.png",
+          "childIds": [
+            117240,
+            117241
+          ],
+          "keywordIds": [
+            12,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114517&locale=zh_CN",
+        "sha256": "0bbd53a6e57299ce9e7c6354e305525198bd3f277ceffb567dcfeb93de5c3525",
+        "face": {
+          "id": 114517,
+          "collectible": 1,
+          "slug": "114517-barbed-thorn",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Stefan Bogdasarov",
+          "health": 3,
+          "attack": 1,
+          "manaCost": 3,
+          "name": "倒刺荆棘",
+          "text": "<b>抉择：</b>获得在本回合中的<b>剧毒</b>；或者获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeff56b83f88a024f3df3c7a848aeafaf8208654095381b2493c24169eee6157.png",
+          "imageGold": "",
+          "flavorText": "附赠一包创可贴。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8be6651a20d6fa7dfa9746490ca0713cfe68349f5bf25aac45609a92b00e20a.png",
+          "childIds": [
+            117240,
+            117241
+          ],
+          "keywordIds": [
+            12,
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_387",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126598&locale=en_US",
+        "sha256": "2a037892e970457985c1c8ccff4c637514efc7e77a850ca9dda670cdf1cec91c",
+        "face": {
+          "id": 126598,
+          "collectible": 1,
+          "slug": "126598-release-the-beasts",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "manaCost": 2,
+          "name": "Release the Beasts",
+          "text": "Give minions in your hand +1/+1. <b> Legendary</b> minions get an extra +2/+1.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49c9a22ad8b846fea8db4918bb6b9d1ac21d0b15a827cb3c79121231f8f43676.png",
+          "imageGold": "",
+          "flavorText": "\"Mano a mano, man-to-man. Just you, me, and my ELEKK!\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5cb2ffeb48977e9c90c63243a2b077ec08eb25f63e7fd3d3c40664090115415.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_387",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=126598&locale=zh_CN",
+        "sha256": "29499589242ad9e081f6cda08486de28575acd42e3614c7579bf18ad0a1364d5",
+        "face": {
+          "id": 126598,
+          "collectible": 1,
+          "slug": "126598-release-the-beasts",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "manaCost": 2,
+          "name": "释放野兽",
+          "text": "使你手牌中的随从牌获得+1/+1。<b>传说</b>随从牌额外获得+2/+1。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d600a44e90c1fd9465836ef7a09fd97880d32e43496a226e072369713faebae1.png",
+          "imageGold": "",
+          "flavorText": "“来啊，单挑啊，你，我，还有我的雷象！”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5cb2ffeb48977e9c90c63243a2b077ec08eb25f63e7fd3d3c40664090115415.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233a",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114370&locale=en_US",
+        "sha256": "5a1afbb308c6fa4d753b45bc7ffd6d6498302ef3691da1c77b4dc62bf9ece770",
+        "face": {
+          "id": 114370,
+          "collectible": 0,
+          "slug": "114370-wolfs-strength",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "Wolf's Strength",
+          "text": "Summon three 2/3 Wolves with <b>Taunt</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc3ced8a25ba3c65eb82da9336c17725f7da121eb4bf2b3eceaee9120935902b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "childIds": [
+            533
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233a",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114370&locale=zh_CN",
+        "sha256": "93c6df4daa6dd72780fe2df6bf97f746f3a6832f7940f29e98f9da245554cdb4",
+        "face": {
+          "id": 114370,
+          "collectible": 0,
+          "slug": "114370-wolfs-strength",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "群狼的力量",
+          "text": "召唤三只2/3并具有<b>嘲讽</b>的狼。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7d2e66846279530880750e4523c8b9bdf0f6acb304ad2503cac2e1b4d8ec391.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "childIds": [
+            533
+          ],
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233b",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114371&locale=en_US",
+        "sha256": "cc05627c8345a75ab55b62f22d74a1176a13f8e1c9abc2288c1ac324be76c5a2",
+        "face": {
+          "id": 114371,
+          "collectible": 0,
+          "slug": "114371-falcons-dexterity",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "Falcon's Dexterity",
+          "text": "Summon two 4/3 Falcons with <b>Windfury</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5f4f94a70d9bb7241d3cbe12cbee8c8419f6b7c70acb462509dc132cc3dbc6d.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "childIds": [
+            114645
+          ],
+          "keywordIds": [
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233b",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114371&locale=zh_CN",
+        "sha256": "0c34dc38fdd3b8886d4b6ab9e064d0e4edd77497f437cef9f2a3b1c636b4a10f",
+        "face": {
+          "id": 114371,
+          "collectible": 0,
+          "slug": "114371-falcons-dexterity",
+          "classId": 8,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "manaCost": 5,
+          "name": "猎鹰的灵动",
+          "text": "召唤两只 4/3并具有<b>风怒</b> 的猎鹰。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/506f4eb812fbf92f1e65067cf23a4a1257b672b642fc9b427362b2cda325d599.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "childIds": [
+            114645
+          ],
+          "keywordIds": [
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233t2",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114645&locale=en_US",
+        "sha256": "5fcf64ad5011d33d282c669c756f77b4188c8a42db8ab623c91a30cc79985ecc",
+        "face": {
+          "id": 114645,
+          "collectible": 0,
+          "slug": "114645-spirit-falcon",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            11
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Spirit Falcon",
+          "text": "<b>Windfury</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/194de20982af3b64dce968116279bbe60115bf962616c01a1a23946ad844ad11.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "keywordIds": [
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_233t2",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114645&locale=zh_CN",
+        "sha256": "9a3298a44bcf997fc82bd21fdd9549812694a3839cb1b77ec019cfedcb844a46",
+        "face": {
+          "id": 114645,
+          "collectible": 0,
+          "slug": "114645-spirit-falcon",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            11
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "BOSi Studio",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "幽灵猎鹰",
+          "text": "<b>风怒</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/684565124ec01c304dcc01f02f432653c0118a6a92e533c268458ea77ab314c2.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114369,
+          "keywordIds": [
+            11
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263a",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115497&locale=en_US",
+        "sha256": "57791087e7de69d48e0db0fd61777e08fbf0535fb43db00e7a3a66ea1aa82ad4",
+        "face": {
+          "id": 115497,
+          "collectible": 0,
+          "slug": "115497-greatwolfs-ferocity",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "Greatwolf's Ferocity",
+          "text": "Deal 4 damage to the enemy hero.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a31754c59009d01410722258e480fd0e71542c213ab144a8b9a5054deb76fdc5.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115058,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263a",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115497&locale=zh_CN",
+        "sha256": "3fa5632f59e7b1aae3b5f147b8d81e863ea476f04bcb60b01f21ba91f60777d5",
+        "face": {
+          "id": 115497,
+          "collectible": 0,
+          "slug": "115497-greatwolfs-ferocity",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "巨狼的狂暴",
+          "text": "对敌方英雄造成 4点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f895d98030444b351590b0b9322e58da93374df57446e6fb5c4b3fc240f1000.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115058,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263b",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115498&locale=en_US",
+        "sha256": "d7987197871cdcd704a34dfa97f3e8bd037513d64905486e71aababe273d697b",
+        "face": {
+          "id": 115498,
+          "collectible": 0,
+          "slug": "115498-greatwolfs-guidance",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "Greatwolf's Guidance",
+          "text": "Summon two 3/2 Wolves with <b>Rush</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b64bdaa699cf43739a69c86d1533630d815e9cd918f77ac79a2589975004da5.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115058,
+          "childIds": [
+            114053
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_263b",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=115498&locale=zh_CN",
+        "sha256": "74d1e1525ee59172154aa0767faccf0cd34ba2c45364a7d87dd231fc5c06fcd6",
+        "face": {
+          "id": 115498,
+          "collectible": 0,
+          "slug": "115498-greatwolfs-guidance",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Vika Yarova",
+          "manaCost": 4,
+          "name": "巨狼的指引",
+          "text": "召唤两只3/2并具有<b>突袭</b>的狼。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfe79a354339034b577164cbd8c3abc51fe3180f5bf5f82a975b7a125202c7e3.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115058,
+          "childIds": [
+            114053
+          ],
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_457t",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117304&locale=en_US",
+        "sha256": "5372c8488dc7654b00af10ca0bfe6ae6489d0ad7cf2c16ca81298be5745fc4ac",
+        "face": {
+          "id": 117304,
+          "collectible": 0,
+          "slug": "117304-nightmare-slicer",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ramzy Kamen",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Nightmare Slicer",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88259645a9ff52857ad7db6ef38afa6fa96d6d8d64d5abbf21a323d1110fa97a.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114219,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_457t",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117304&locale=zh_CN",
+        "sha256": "96d28d8dcc332ac492bd56e2f5492e9c0316498000edce089283e0f853e600ed",
+        "face": {
+          "id": 117304,
+          "collectible": 0,
+          "slug": "117304-nightmare-slicer",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 7,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ramzy Kamen",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "梦魇之剑",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b1e957951cc11966681bd0f7b7884d1329f17b4aed424e95d095379cc7cdb47.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114219,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525A",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117240&locale=en_US",
+        "sha256": "df827d931f3a824cbaae02890b2a6e54c5882fe0afedd705249f22ef3831c6ad",
+        "face": {
+          "id": 117240,
+          "collectible": 0,
+          "slug": "117240-extra-eyes",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "Extra Eyes",
+          "text": "Gain <b>Poisonous</b> this turn.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5f41d11a06521961b553d839a5f9cf948044cea9bd99ba1a30b08ee1fae885e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525A",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117240&locale=zh_CN",
+        "sha256": "eac024c06183619861b61e3eed7265cc5029893a006591ee49fa1acf8e6516e4",
+        "face": {
+          "id": 117240,
+          "collectible": 0,
+          "slug": "117240-extra-eyes",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "增生眼球",
+          "text": "获得在本回合中的<b>剧毒</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7db67b485597c840fa5464f86d9136bbc702fda686921784d2832840d1324548.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            32
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525B",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117241&locale=en_US",
+        "sha256": "2ebe10dc8c57a84f336721d07f306844b6c95b70b9e4375c859acb21e7342abb",
+        "face": {
+          "id": 117241,
+          "collectible": 0,
+          "slug": "117241-extra-thorns",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "Extra Thorns",
+          "text": "Gain \"<b>Deathrattle:</b> Deal 2 damage to all enemies.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/240835edc31372bf970025179d466fcb2aed9ea470b757d91093057a2fe10d94.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_525B",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117241&locale=zh_CN",
+        "sha256": "8587b76f33da952828a02b2e91c07293b35b638e1c5272580e6e3d28129da443",
+        "face": {
+          "id": 117241,
+          "collectible": 0,
+          "slug": "117241-extra-thorns",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Stefan Bogdasarov",
+          "manaCost": 3,
+          "name": "增生荆棘",
+          "text": "获得“<b>亡语：</b>对所有敌人造成2点伤害。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7760b971b9e94e3bc8c3c20fcf28b9de6f71d4f7f47d0af6fcf8c969ab710779.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114517,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_850pe",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114053&locale=en_US",
+        "sha256": "3e3dca3dfe3fd435f899f445130a4d8121dd00afbb02378c0d1d4fe0f6a304e3",
+        "face": {
+          "id": 114053,
+          "collectible": 0,
+          "slug": "114053-playful-pup",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            11
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Matt Dixon",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Playful Pup",
+          "text": "<b>Rush</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b78ee0c82324274ec6aa8444c95a4f7a2a769b49fa351c15fee1d71bd573c6be.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_850pe",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=114053&locale=zh_CN",
+        "sha256": "f7828acf6491cc17505e5cd8c2ea7f760af66ae6583c4a2eaba35744c9d15d04",
+        "face": {
+          "id": 114053,
+          "collectible": 0,
+          "slug": "114053-playful-pup",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            11
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Matt Dixon",
+          "health": 2,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "顽皮的狼崽",
+          "text": "<b>突袭</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcfa9a1e73f054cb793116541ffca1f1f37b1566fb401085680c6c885ab5afdb.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EX1_tk11",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=533&locale=en_US",
+        "sha256": "a027fa82fdccab3bea2aa8b72ca0c7a5a81f94a77e5bcce5b4bdde2a5a26d6ab",
+        "face": {
+          "id": 533,
+          "collectible": 0,
+          "slug": "533-spirit-wolf",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 11,
+          "multiTypeIds": [
+            20
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Spirit Wolf",
+          "text": "<b>Taunt</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4bdfedd6e4ee2135823c4a09c21022533b2e36037d091ef37b76597bef57d8dc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            1
+          ],
+          "copyOfCardId": [
+            70065
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EX1_tk11",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=533&locale=zh_CN",
+        "sha256": "53d0fda3d94bc6a92eb3442a5956aa76a297a2b6cf50414c5aae90ed4b02f67f",
+        "face": {
+          "id": 533,
+          "collectible": 0,
+          "slug": "533-spirit-wolf",
+          "classId": 8,
+          "multiClassIds": [],
+          "minionTypeId": 11,
+          "multiTypeIds": [
+            20
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "幽灵狼",
+          "text": "<b>嘲讽</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffce43d25f8aef5485d9bbb229d9812f31b4f4e81d876901be653066199bad11.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            1
+          ],
+          "copyOfCardId": [
+            70065
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "note": "Complete official root/recursive child faces; identity and text only, not CN timing calibration."
+  },
+  "internal_policy": [
+    "Brood Keeper checks actual owner hand after leaving it, current/all Dragon membership, and uses exact Nightmare Slicer with ordinary EquipWeapon.",
+    "Release captures original hand minion physical references and original Legendary subset together, then gives all +1/+1 and those original Legendary references an extra +2/+1. New entries or reentries do not gain old rewards.",
+    "Spirits/Grace use existing native ChooseOneSpec, root payment and captured branch. Four complete source option records are choice-only zero-cost descriptors, not new playable spells.",
+    "Spirits summons three exact EX1_tk11 then, in required combined body, two EDR_233t2. Grace combined body deals four SPELL damage to enemy hero then summons two existing EDR_850pe. Exact combined order is local pending CN calibration, not a new combination mechanism.",
+    "Named summons use SummonByCard with actual source/cast cause; complete Beast/Undead dual tribes retained.",
+    "EDR_525 and its two choice children are evidence only; no weapon root approximated as minion, no private choice/engine logic added."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
