@@ -28,8 +28,12 @@ class PoolSummonBasis:
     source:SourceAllocationFact|None
     hero_class:CardClass|None
     candidates:tuple[PoolMember,...]
+    entry_keywords:tuple[Keyword,...]=()
 
     def __post_init__(self):
+        if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
+                any(type(k)is not Keyword for k in self.entry_keywords) or self.entry_keywords and self.source is None):
+            raise ValueError('Original pool entry requires its finite typed Taunt declaration and source')
         _player(self.player_id)
         for name in ('pool_id','pool_version'):
             if type(getattr(self,name))is not str or not getattr(self,name):raise ValueError('Unknown pool summon identity')
@@ -46,11 +50,11 @@ class PoolSummonBasis:
         if len({x.card_id for x in self.candidates})!=len(self.candidates):raise ValueError('Duplicate canonical pool entry')
 
     @classmethod
-    def capture(cls,r,effect,candidates):
+    def capture(cls,r,effect,candidates,*,entry_keywords=()):
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates)
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
@@ -63,7 +67,7 @@ def validate_basis(state,registry,basis,*,closed=False):
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
         exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
-    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id))
+    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords))
 
 
 def choose_weighted(rng,materials,weights):
@@ -76,7 +80,7 @@ def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
     validate_basis(state,registry,request.pool_basis,closed=closed)
     if (request.player_id!=request.pool_basis.player_id or
-        tuple(m.card_id for m in request.materials)!=tuple(m.card_id for m in request.pool_basis.candidates)or
+        request.materials!=tuple(SummonEntryMaterial(m.card_id,keywords=request.pool_basis.entry_keywords)for m in request.pool_basis.candidates)or
         request.weights!=tuple(m.weight for m in request.pool_basis.candidates)):
         raise ValueError('Weighted entry differs from original resolved pool')
 
@@ -383,6 +387,7 @@ def from_dict(cls,value):
         policy=_row(row['policy'],GenerationPolicy);policy['allowed_special']=tuple(Keyword(k)for k in policy['allowed_special']);row['policy']=GenerationPolicy(**policy)
         row['source']=allocation_from_dict(row['source']);row['hero_class']=None if row['hero_class']is None else CardClass(row['hero_class'])
         row['candidates']=tuple(PoolMember(**_row(x,PoolMember))for x in row['candidates'])
+        row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
     elif cls is PoolSummonBatchSpec:
         row['cause']=entry_from_dict(SummonCause,row['cause']);row['basis']=from_dict(PoolSummonBasis,row['basis'])
     elif cls is PoolSummonBatchRecord:

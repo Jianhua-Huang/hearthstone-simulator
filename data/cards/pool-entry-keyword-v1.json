@@ -1,0 +1,170 @@
+{
+  "batch": "K116",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_060",
+        "dbf_id": 110889,
+        "name": "大地庇护",
+        "name_en": "Ward of Earth",
+        "text": "获得5点护甲值。随机召唤一个法力值消耗为（5）的随从并使其获得<b>嘲讽</b>。",
+        "text_en": "Gain 5 Armor. Summon a random 5-Cost minion and give it <b>Taunt</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bbcbc0c8bfff5f9e222c167d937b5f0c0f401908c36a1990ba0a9725b705cb1a"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_060e",
+        "dbf_id": 120351,
+        "name": "大地庇护",
+        "name_en": "Ward of Earth",
+        "text": "在本回合中你召唤的随从获得<b>嘲讽</b>。",
+        "text_en": "Minions you summon this turn gain <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f94fdfe399bd49e0fe22a237393380d17989b40559252047097ab7db83b4ef92"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "skipped": [],
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "EDR_060",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=110889&locale=en_US",
+        "response_file": "official-EDR_060-en_US.json",
+        "response_sha256": "9049dbe8c9a456d6942b549bb288f7c881762900efd0fcdaeb377a35629e5eae",
+        "face": {
+          "id": 110889,
+          "collectible": 1,
+          "slug": "110889-ward-of-earth",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "manaCost": 5,
+          "name": "Ward of Earth",
+          "text": "Gain 5 Armor. Summon a random 5-Cost minion and give it <b>Taunt</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ee6dd94cf8833b12eaaa6327eecefc2fc19320817430b421fbaa8753d21a937.png",
+          "imageGold": "",
+          "flavorText": "Rock solid defense.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34cbeb2e57239cd65fadc9aa173993550e2c1258ab99e2f3b5c3ee0056e7d1bc.png",
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_060",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=110889&locale=zh_CN",
+        "response_file": "official-EDR_060-zh_CN.json",
+        "response_sha256": "6580c52bf6b8df4f1249d06f9e285501e09aa8fe0955b6c670174e30471aa34e",
+        "face": {
+          "id": 110889,
+          "collectible": 1,
+          "slug": "110889-ward-of-earth",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Zoltan Boros",
+          "manaCost": 5,
+          "name": "大地庇护",
+          "text": "获得5点护甲值。随机召唤一个法力值消耗为（5）的随从并使其获得<b>嘲讽</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/328b85fbd10ceabdb59b2f1b23f75500ee7e7013a806715f6330ce029dfa01d3.png",
+          "imageGold": "",
+          "flavorText": "防御坚如磐石。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34cbeb2e57239cd65fadc9aa173993550e2c1258ab99e2f3b5c3ee0056e7d1bc.png",
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Ward current5manaDruidNATURESPELL Gain5Armor then randomprinted5costcollectibleMINION anyclass, withoriginalSummonCause. No Taunt-onlyfilter and noSpellnativeTAUNT.",
+    "Finite SummonFromPool.entry_keywords=(TAUNT,) forwards toexistingSummonEntryMaterial before actualminionentry; fulloriginalPoolSummonBasis retains declaredkeywords. Allquantityextrabodies inheritacceptedmaterial. Entrywindow/extraquantityprecisionpendingCN.",
+    "EDR_060e complete oldone-turn enchantmentrow is evidenceonly withoutprovenlink; not an all-turnaura and not anexecutableplaceholder. No localgenerator/keywordexecutor or inventedmechanismmatrix."
+  ]
+}

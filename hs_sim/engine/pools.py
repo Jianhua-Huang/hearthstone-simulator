@@ -701,8 +701,14 @@ class SummonFromPool(Effect):
     policy: GenerationPolicy = GenerationPolicy()
     empty: str = 'skip'
     cause: SummonCause | None = None
+    entry_keywords: tuple[Keyword,...] = ()
 
     def __post_init__(self):
+        if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
+                any(type(k)is not Keyword for k in self.entry_keywords)):
+            raise ValueError('Pool entry keywords support only the declared Taunt recipe')
+        if self.entry_keywords and(self.cause is None or self.source_id is None):
+            raise ValueError('Pool entry keywords require original source and summon attribution')
         if self.cause is not None:
             if type(self.cause)is not SummonCause:raise ValueError('Typed pool summon attribution required')
             self.cause.__post_init__()
@@ -728,8 +734,8 @@ def summon_from_pool(r,effect):
     if effect.cause is not None:
         from .summon_quantities import SummonByCard,SummonEntryMaterial,accept
         from .pool_summons import PoolSummonBasis
-        basis=PoolSummonBasis.capture(r,effect.request(),rows)
-        return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id)for m in rows),effect.cause,
+        basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords)
+        return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords)for m in rows),effect.cause,
             'weighted',weights=tuple(m.weight for m in rows),pool_basis=basis))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='board_full')

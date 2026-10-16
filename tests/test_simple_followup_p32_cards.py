@@ -9,7 +9,7 @@ from hs_sim.cards.simple_followup_p32_cards import IRON,SILVER,HORN,BLOOD,BIOME,
 from hs_sim.engine import CardClass,CardDefinition,CardMetadata,CardType,EndTurn,Game,Keyword,PaymentType,PlayCard,PlayerSetup,Scenario,SelectChoice,UseLocation,Zone
 from hs_sim.engine.effects import ChoiceOption,Damage,InvokeBehavior,RequestChoice,Summon
 from hs_sim.engine.errors import IllegalAction,ResolutionError
-from hs_sim.engine.model import ChoicePurpose,LimitedTriggerSpec
+from hs_sim.engine.model import ChoicePurpose,LimitedTriggerSpec,Rarity,SpellSchool
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,resolve_candidates,sample_candidates
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.spell_casts import CastSpell
@@ -24,6 +24,7 @@ def batch_registry():
 
 def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
+    if TEST+'unknown_nature' in members:r.register_pool_card(PoolCard(TEST+'unknown_nature',CardType.SPELL,5,replace(META,collectible=True,classes=(CardClass.DRUID,),rarity=Rarity.COMMON),spell_school=SpellSchool.NATURE))
     for cid in members:
         if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p32-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
@@ -162,7 +163,7 @@ class SimpleFollowupP32Tests(unittest.TestCase):
                 self.assertEqual(g.snapshot(),saved)
 
     def test_real_unknown_candidates_fail_before_each_first_request_rng(self):
-        for cid,unknown,hero in((IRON,'CAP_005','HERO_08'),(HORN,'EDR_060','HERO_06'),(BLOOD,'DINO_414','HERO_08'),(REGROWTH,'EDR_060','HERO_08')):
+        for cid,unknown,hero in((IRON,'CAP_005','HERO_08'),(HORN,TEST+'unknown_nature','HERO_06'),(BLOOD,'DINO_414','HERO_08'),(REGROWTH,TEST+'unknown_nature','HERO_08')):
             with self.subTest(cid=cid):
                 g=self.game((cid,)if cid!=BIOME else(),board=(BIOME,)if cid==BIOME else(),members=(*MEMBERS,unknown),hero=hero);saved=g.snapshot();self.assertNotIn(unknown,g.registry.cards)
                 with patch.object(random.Random,'randrange',side_effect=AssertionError('Unknown before request RNG'))as calls:
