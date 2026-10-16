@@ -1,0 +1,186 @@
+{
+  "batch": "K96",
+  "source": {
+    "path": "outputs\\card-integration-20261014\\cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_564",
+        "dbf_id": 122952,
+        "name": "飞行助翼",
+        "name_en": "Air Support",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>超级风怒</b>，且该随从无法攻击英雄。",
+        "text_en": "[x]<b>Battlecry:</b> Give a friendly\nminion <b>Mega-Windfury</b>.\nIt can't attack heroes.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1207",
+              "name": "MEGA_WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7821b73ce90ee314c2cfd2b81d06d7ae5280a5a3b1fb555dded9653cca6cf58a"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122952&locale=en_US",
+      "status": 200,
+      "sha256": "308a0c4825e8a66eb7db3163bce1675d522b3b943596d8949fff61a6c6148aad",
+      "face": {
+        "id": 122952,
+        "collectible": 1,
+        "slug": "122952-air-support",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Air Support",
+        "text": "<b>Battlecry:</b> Give a friendly minion <b>Mega-Windfury</b>. It can't attack heroes.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e2bc1ae641cf4356749b306d3be91dea9c3afd1094d25fd5a7e05662bce333f.png",
+        "imageGold": "",
+        "flavorText": "You called down the thunder, now reap the <b>Mega-Windfury</b>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d81ba12d7996ea2559d293910b034e0558b76d951777aacaba7a755509f3c95.png",
+        "keywordIds": [
+          8,
+          77
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=122952&locale=zh_CN",
+      "status": 200,
+      "sha256": "07237d40d5dd9069bed85fcf98754610ef110aa216806bf1dde06e2d57c041e9",
+      "face": {
+        "id": 122952,
+        "collectible": 1,
+        "slug": "122952-air-support",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "飞行助翼",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>超级风怒</b>，且该随从无法攻击英雄。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e001aceb991d02efe5a82510502a675ba05482b1604dae1d45b6eec336bb1b71.png",
+        "imageGold": "",
+        "flavorText": "你召来了雷霆，那就承受<b>超级风怒</b>吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d81ba12d7996ea2559d293910b034e0558b76d951777aacaba7a755509f3c95.png",
+        "keywordIds": [
+          8,
+          77
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "recipient": "Actual CATA_564 battlecry captures one original MinionReference; Mega-Windfury and cannot_attack_heroes both guard that same definition/controller/zone epoch/entered order. Skip stale recipient without rebinding; original grant source stays the real issuer, independent of target guard.",
+    "target": "Ordinary friendly minion IF_AVAILABLE; self is not explicitly excluded so an actual triggered on-board battlecry can select itself, while paid hand target domain still excludes a source in HAND. Exact automatic target eligibility remains CN calibration.",
+    "lifecycle": "Existing four-attack budget, ordinary attack policy, copy/silence/reset, paid target and Battlecry/choice machinery. Restriction is permanent independent attachment; source departure does not revoke it. Grant order follows printed keyword then restriction and can pause normally.",
+    "status": "Exact CN grant ordering, recipient controller/face invalidation, automatic targeting and source lifecycle policies remain uncalibrated; gallery faces only confirm identity/text/stats.",
+    "existing_consumer": "TIME_043 same set-stats/restriction stale-recipient error reproduced and fixed with existing SetCapturedMinionStats plus guarded policy. Definition/full raw pin unchanged; this-turn expiry preserved."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "existing_consumers": [
+    {
+      "record": {
+        "id": "TIME_043",
+        "dbf_id": 120818,
+        "name": "无穷永动机",
+        "name_en": "PMM Infinitizer",
+        "text": "<b>战吼：</b>将一个友方随从的攻击力和生命值变为8。该随从在本回合中无法攻击英雄。",
+        "text_en": "<b>Battlecry:</b> Set a friendly minion's Attack and Health to 8. It can't attack heroes this turn.",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "8612ee1a905cf9bc53f20d2e53548b65811009bfaf8db03fc3bdf67b1e073dba",
+      "definition_sha256": "d8d67d70215713fa8d3a989d7d395386e68b2f3166fe809bcb81efdb4180f879"
+    }
+  ]
+}

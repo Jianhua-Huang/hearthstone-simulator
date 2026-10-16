@@ -6,13 +6,14 @@ from pathlib import Path
 from hs_sim.engine.attack_policies import GrantAttackPolicy
 from hs_sim.engine.costs import quote_unselected_cost
 from hs_sim.engine.effects import (CopyMinion,Damage,DamageBatch,Draw,GrantKeyword,InvokeBehavior,
-    RandomDamage,RandomDamageBatch,RandomDestroy,RandomForceAttack,SetStats,SwapStats)
+    RandomDamage,RandomDamageBatch,RandomDestroy,RandomForceAttack,SwapStats)
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import (AttackPolicySpec,CardDefinition,CardType,CostSpec,DamageKind,
     BoardPresenceReference,EndTurnSpec,HealthFlow,Keyword,Resource,TargetMode,TargetSpec,TriggerSpec,Zone)
 from hs_sim.engine.owner_turns import query_for_definition,query_previous_owner_turn
 from hs_sim.engine.pools import PoolCard,PoolQuery
 from hs_sim.engine.resource_operations import SpendUpToResource
+from hs_sim.engine.sacrifice import MinionReference,SetCapturedMinionStats
 from hs_sim.engine.spell_casts import CastSpell
 from hs_sim.engine.summon_quantities import SummonCause
 from hs_sim.engine.summon_sources import DeathQuery,Resurrect,death_candidates
@@ -66,8 +67,9 @@ def register_six_cost_native_cards(registry):
 
     def infinitizer(c):
         if c.target_id is None:return ()
-        return (SetStats(c.target_id,8,8,c.source_id),GrantAttackPolicy(c.target_id,
-            AttackPolicySpec('cannot_attack_heroes'),c.source_id,c.state.turn))
+        original=MinionReference.capture(c.state.entities[c.target_id])
+        return (SetCapturedMinionStats(original,8,8,c.source_id),GrantAttackPolicy(c.target_id,
+            AttackPolicySpec('cannot_attack_heroes'),c.source_id,c.state.turn,recipient=original))
 
     def hourglass(c):
         result=c.health_result

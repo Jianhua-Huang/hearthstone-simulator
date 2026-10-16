@@ -134,6 +134,11 @@ class FrameCodec:
         from .sacrifice import SetCapturedMinionStats
         if type(value) is SetCapturedMinionStats and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        from .attack_policies import GrantAttackPolicy
+        if type(value) is GrantAttackPolicy and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+            if value.recipient is not None and self.registry.card(value.recipient.card_id).kind != CardType.MINION:
+                raise ValueError('Captured attack recipient requires a minion definition')
         from .stored_spell_damage import GrantStoredSpellDamage,DrawMatchingSpellDamage
         if type(value) in (GrantStoredSpellDamage,DrawMatchingSpellDamage) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原随从攻击规则授予可用GrantAttackPolicy.recipient保护原接收对象，来源归属和source_binding仍各自保留；见[契约](m3-captured-attack-grants.md)。
+
 非施法随从/地标的具名分摊可显式使用NON_SPELL_PROFILE，cast_id=None及匹配kind，复用原完整单位管线和原致死结果；见[契约](m3-non-spell-split.md)。
 
 真实具名生成法术可使用AddToHand.spell_damage正数材料，要求实际SPELL及来源，复用物理局部法伤安装；仅该入口，默认0保持。见[契约](m3-created-spell-bonuses.md)。
