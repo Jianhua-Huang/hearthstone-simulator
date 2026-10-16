@@ -60,7 +60,8 @@ def validate_basis(state,registry,basis,*,closed=False):
     if basis.source is not None:validate_allocation(state,registry,basis.source,closed=closed)
     if registry.pool(basis.pool_id,basis.context).version!=basis.pool_version:raise ValueError('Original pool version differs from registered inventory')
     rows=resolve_candidates(registry,basis.context,basis.pool_id,basis.query,current_class=basis.hero_class,
-        source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id)
+        source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
+        exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
     for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id))
 

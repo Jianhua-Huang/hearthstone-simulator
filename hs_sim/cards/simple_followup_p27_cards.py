@@ -11,7 +11,7 @@ BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/simple-followup-p27-v
 BATCH_HASH='7959e6d2c5202e457909f05c509c1e02af0786ad03e8c8424bc6002e2ff7e67a'
 BOOK='CORE_EDR_001';PIRATE='CORE_KAR_069';NURSE='DINO_434';CAKE='JAIL_460'
 ROOTS=(BOOK,PIRATE,NURSE,CAKE);DEPENDENCIES=();POOL_ID='constructed.cards';PREFIX='cards.simple_followup_p27.'
-IDENTITIES={BOOK:'EDR_001',PIRATE:'KAR_069',NURSE:NURSE,CAKE:CAKE}
+IDENTITIES={BOOK:BOOK,PIRATE:'KAR_069',NURSE:NURSE,CAKE:CAKE}
 QUERIES={BOOK+'.bc':PoolQuery(kinds=(CardType.SPELL,),collectible=True,class_mode='specified',classes=(CardClass.MAGE,),include_neutral=False),
  PIRATE+'.bc':PoolQuery(collectible=True,class_mode='other',include_neutral=False),
  NURSE+'.bc':PoolQuery(kinds=(CardType.MINION,),min_cost=1,max_cost=1,collectible=True),

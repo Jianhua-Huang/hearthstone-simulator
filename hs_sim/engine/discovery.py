@@ -182,7 +182,8 @@ def eligible(registry, context, spec, pick):
         raise ValueError('Discovery receipt source policy disagrees with query')
     if pick.source_card_id is not None: registry.card(pick.source_card_id)
     candidates = resolve_candidates(registry, context, spec.pool_id, spec.query,
-        current_class=pick.hero_class, source_card_id=pick.source_card_id, policy=spec.policy, player_id=spec.player_id)
+        current_class=pick.hero_class, source_card_id=pick.source_card_id, policy=spec.policy, player_id=spec.player_id,
+        exclude_source_by_rule=True)
     for member in candidates:
         definition=registry.card(member.card_id)
         if (definition.choice_only or (definition.kind != CardType.MINION if spec.destination=='board'

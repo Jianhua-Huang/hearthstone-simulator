@@ -281,13 +281,15 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
 
 
 def resolve_candidates(registry, context, pool_id, query, *, current_class=None, source_card_id=None,
-                       policy=GenerationPolicy(), player_id=None):
+                       policy=GenerationPolicy(), player_id=None, exclude_source_by_rule=False):
     """Pure query. Validate every eligible member before deduplication or RNG."""
     if type(context) is not GenerationContext or type(query) is not PoolQuery:
         raise ValueError('Generation requires an explicit context and PoolQuery')
     context.__post_init__()
     query.__post_init__()
     validate_policy(policy)
+    if type(exclude_source_by_rule) is not bool:
+        raise ValueError('Generation source rule requires an explicit boolean')
     if player_id is not None:
         _player(player_id)
     pool = registry.pool(pool_id, context)
@@ -300,10 +302,18 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
         excluded.add(source_card_id)
         if source_card_id in registry.pool_cards:
             excluded_identities.add(registry.pool_card(source_card_id).generation_identity)
+    # Ordinary collectible generation cannot create its source or a reviewed
+    # edition of it. Pure queries, physical inventory and named recipes opt out.
+    source_family = (set(registry.generation_family(source_card_id))
+                     if exclude_source_by_rule and source_card_id is not None else set())
+    source_identities = {registry.pool_card(cid).generation_identity for cid in source_family
+                         if cid in registry.pool_cards}
     eligible = []
     for member in sorted(pool.members, key=lambda m: m.card_id):
         row = registry.pool_card(member.card_id)
         meta = row.metadata
+        if meta.collectible is True and (row.card_id in source_family or row.generation_identity in source_identities):
+            continue
         # Explicit Titan/main-quest bans, evaluated from independent inventory metadata.
         if (SPECIAL_GENERATION_KEYWORDS - set(policy.allowed_special)) & set(row.keywords):
             continue
@@ -499,7 +509,8 @@ def generation_candidates(r, effect):
         current_class = player.hero_class
     candidates = resolve_candidates(r.registry, r.game._generation_context, effect.pool_id, effect.query,
                                     current_class=current_class, source_card_id=source_card_id,
-                                    policy=getattr(effect, 'policy', GenerationPolicy()), player_id=effect.player_id)
+                                    policy=getattr(effect, 'policy', GenerationPolicy()), player_id=effect.player_id,
+                                    exclude_source_by_rule=True)
     board = getattr(effect, 'destination', 'hand') == 'board'
     if any((r.registry.card(m.card_id).kind != CardType.MINION if board
             else not r.registry.card(m.card_id).hand_playable) or r.registry.card(m.card_id).choice_only

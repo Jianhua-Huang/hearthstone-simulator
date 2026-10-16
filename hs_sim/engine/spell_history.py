@@ -373,7 +373,8 @@ def validate_boundary(game):
             spec = work.spec
             if spec.refresh == 'frozen':
                 expected = resolve_candidates(registry,game._generation_context,spec.pool_id,spell_query(spec.query),
-                    current_class=work.frozen_class,source_card_id=work.frozen_source_card,policy=spec.policy,player_id=spec.player_id)
+                    current_class=work.frozen_class,source_card_id=work.frozen_source_card,policy=spec.policy,player_id=spec.player_id,
+                    exclude_source_by_rule=True)
                 if work.candidates != expected: raise ValueError('Frozen spell pool differs from its declared inventory')
             pool = registry.pool(spec.pool_id,game._generation_context)
             identities = {registry.pool_card(m.card_id).generation_identity for m in pool.members}

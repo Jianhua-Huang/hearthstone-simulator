@@ -1,0 +1,593 @@
+{
+  "schema": "conditional-pool-consumers-v1",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_806",
+        "dbf_id": 126415,
+        "name": "妖术长官",
+        "name_en": "Hexmarshal",
+        "text": "<b>战吼：</b>随机获取一张法力值消耗大于或等于（5）点的法术牌。如果你的套牌中没有法术牌，获取的这张牌法力值消耗减少（5）点。",
+        "text_en": "[x]<b>Battlecry:</b> Get a random\n_spell that costs (5) or more.\nIf your deck started with no\n__spells, it costs (5) less.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "cf8d88c2c5f1970dbc2a551be6d2b271b08b038c282fa74005acfbb9530366a0",
+      "decoded_metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_806",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_062",
+        "dbf_id": 120172,
+        "name": "虚空幽龙史学家",
+        "name_en": "Netherspite Historian",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，便<b>发现</b>一张龙牌。",
+        "text_en": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b>\na Dragon.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 39554,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 39554
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39554",
+              "type": "Int",
+              "value": "39554"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "4ed5183122af578fcd8d59df952c23a1dac8c247cdb9759b023de978db75b363",
+      "decoded_metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_KAR_062",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CORE_LOE_039",
+        "dbf_id": 86548,
+        "name": "A3型机械金刚",
+        "name_en": "Gorillabot A-3",
+        "text": "<b>战吼：</b>如果你控制着其他机械，&<b>发现</b>一张机械牌。",
+        "text_en": "<b>Battlecry:</b> If you control another Mech,& <b>Discover</b> a Mech.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 2911,
+          "USE_DISCOVER_VISUALS": 1,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2911",
+              "type": "Int",
+              "value": "2911"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "372048c1d446b1a91ff4cab0f689c0d6a6dc2c27a5470f4cc84cadc2b118c2b7",
+      "decoded_metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOE_039",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "KAR_062",
+        "dbf_id": 39554,
+        "name": "虚空幽龙史学家",
+        "name_en": "Netherspite Historian",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，便<b>发现</b>一张龙牌。",
+        "text_en": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b>\na Dragon.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 23,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          }
+        ]
+      },
+      "record_sha256": "8d7d80f25c93d56b597ffba4f4fcf8605e2b09502f25e84040cca67545aaf111"
+    },
+    {
+      "record": {
+        "id": "LOE_039",
+        "dbf_id": 2911,
+        "name": "A3型机械金刚",
+        "name_en": "Gorillabot A-3",
+        "text": "<b>战吼：</b>如果你控制着其他机械，&<b>发现</b>一张机械牌。",
+        "text_en": "<b>Battlecry:</b> If you control another Mech,& <b>Discover</b> a Mech.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 20,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "d792454fb08be5812ee3fd7354076337f50b2cf6e1d9fe35f9d4614b8b925977"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-16T21:25:25.750172+00:00",
+    "observations": [
+      {
+        "card_id": "JAIL_806",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126415&locale=en_US",
+        "response_file": "official-JAIL_806-en_US.json",
+        "response_sha256": "f8bfaaa64563d21424708dd2d6a322aafe77af06fb784db38841ca741f01fee8",
+        "face": {
+          "id": 126415,
+          "collectible": 1,
+          "slug": "126415-hexmarshal",
+          "classId": 8,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": " Sonderflex",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 6,
+          "name": "Hexmarshal",
+          "text": "<b>Battlecry:</b> Get a random spell that costs (5) or more. If your deck started with no spells, it costs (5) less.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/818c005a5a0b41de58d77b5d4af0175bdc3d801f05e9935e0ca5a3902560755b.png",
+          "imageGold": "",
+          "flavorText": "When you just put the prisoners in their cells and they're escaping <i>again</i>!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1593dc8792fc693147c0393e57794da7f7c0cd6ea2fec479cd3d7690ab9522d.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_806",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126415&locale=zh_CN",
+        "response_file": "official-JAIL_806-zh_CN.json",
+        "response_sha256": "1306a75bd742aced9ad258ac04c2c9369ac50a640f98164984ada4725473362c",
+        "face": {
+          "id": 126415,
+          "collectible": 1,
+          "slug": "126415-hexmarshal",
+          "classId": 8,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": " Sonderflex",
+          "health": 6,
+          "attack": 6,
+          "manaCost": 6,
+          "name": "妖术长官",
+          "text": "<b>战吼：</b>随机获取一张法力值消耗大于或等于（5）点的法术牌。如果你的套牌中没有法术牌，获取的这张牌法力值消耗减少（5）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/83e75027be24f797e3aa6a7e81e5ac46c7b6d394e61178ce60c0e6ab1f9be6fc.png",
+          "imageGold": "",
+          "flavorText": "刚刚把囚犯投入牢房，结果他们<i>又</i>跑了！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1593dc8792fc693147c0393e57794da7f7c0cd6ea2fec479cd3d7690ab9522d.png",
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_KAR_062",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120172&locale=en_US",
+        "response_file": "official-CORE_KAR_062-en_US.json",
+        "response_sha256": "3855046457b1b2b80e5965108efe0f5ffe9e8ae178c500565ed706bab48a88af",
+        "face": {
+          "id": 120172,
+          "collectible": 1,
+          "slug": "120172-netherspite-historian",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Ralph Horsley",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Netherspite Historian",
+          "text": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b> a Dragon.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96dd9af11c8ad57a1f34a0e37367be86f208e3985667f0f38b89c7184fa4850e.png",
+          "imageGold": "",
+          "flavorText": "She can tell you all about the history of people not STANDING IN THE GREEN BEAM!",
+          "cropImage": null,
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            39554
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_KAR_062",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120172&locale=zh_CN",
+        "response_file": "official-CORE_KAR_062-zh_CN.json",
+        "response_sha256": "1c3ba124d2a030ae24f6c318071ab1edfbdfe8bc7267fec6ff71967b7426adb5",
+        "face": {
+          "id": 120172,
+          "collectible": 1,
+          "slug": "120172-netherspite-historian",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Ralph Horsley",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "虚空幽龙史学家",
+          "text": "<b>战吼：</b>如果你的手牌中有龙牌，便<b>发现</b>一张龙牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0245b3c39b907a493959dd88018fbb245ca88f3b9fd94d0fe8345920f8c0bb5a.png",
+          "imageGold": "",
+          "flavorText": "她会告诉你当年那些没挡着绿光的人，现在都回家带孩子去了！",
+          "cropImage": null,
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            39554
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_LOE_039",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86548&locale=en_US",
+        "response_file": "official-CORE_LOE_039-en_US.json",
+        "response_sha256": "2e7dc5af4a876b432172657874a514659f557f32c78bd571780c8019a4e77cf7",
+        "face": {
+          "id": 86548,
+          "collectible": 1,
+          "slug": "86548-gorillabot-a-",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 17,
+          "multiTypeIds": [
+            20
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Skan Srisuwan",
+          "health": 4,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Gorillabot A-3",
+          "text": "<b>Battlecry:</b> If you control another Mech,& <b>Discover</b> a Mech.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a94448bc44383e244f117d768f7707dfbe698f2cce2edc4bd3c9e2f99687022a.png",
+          "imageGold": "",
+          "flavorText": "A-1 and A-2 went nuts, when they should have gone bolts.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b34e251529c69dd99f63cecc48bec9714ca5b1e51b4c2a013b358a79b692e6e2.png",
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            2911
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_LOE_039",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86548&locale=zh_CN",
+        "response_file": "official-CORE_LOE_039-zh_CN.json",
+        "response_sha256": "e0dbe676e7e172ff248b880fa55ee3272e5cc11e7768ae8017e8dc7293c9cfd7",
+        "face": {
+          "id": 86548,
+          "collectible": 1,
+          "slug": "86548-gorillabot-a-",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 17,
+          "multiTypeIds": [
+            20
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 1,
+          "artistName": "Skan Srisuwan",
+          "health": 4,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "A3型机械金刚",
+          "text": "<b>战吼：</b>如果你控制着其他机械，&<b>发现</b>一张机械牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f18f4ce2730610f769134c05f0c4d030271cfe4acfe81a1bab5576feab2a5b7.png",
+          "imageGold": "",
+          "flavorText": "A1和A2型机械金刚都发疯了，早知道不给它们喂香蕉了……",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b34e251529c69dd99f63cecc48bec9714ca5b1e51b4c2a013b358a79b692e6e2.png",
+          "keywordIds": [
+            8,
+            21
+          ],
+          "copyOfCardId": [
+            2911
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "skipped": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": {
+    "JAIL_806": "Always get one random collectible SPELL of printed cost>=5, any class. Ordinary permanent CostSpec(delta=-5) only if public starting/no_spells condition is true; false condition removes discount, not generation.",
+    "CORE_KAR_062": "Native Battlecry: if holding a current Dragon, public has_any_tribe includes ALL, ordinary current-hero-class collectible Dragon MINION discovery; Core deck identity KAR_062.",
+    "CORE_LOE_039": "Native Battlecry: if control another current Mech, excluding source physical ID, use existing live minions and has_any_tribe including ALL, ordinary current-class collectible Mech MINION discovery; Core deck identity LOE_039."
+  },
+  "fact_boundary": "Starting/no_spells requires the actual opening record; UnknownDeckFacts for an arbitrary scenario is explicit and must not be inferred from later deck/hand. Test complete opening via the existing experimental from_decks fixture, not fabricated starting facts. False held/board conditions do not invoke generation; no exhaustive combinations."
+}

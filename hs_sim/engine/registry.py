@@ -185,6 +185,8 @@ class Registry:
         self._generated_whole_target_bindings = {}
         self._pool_cards: dict[str, PoolCard] = {}
         self._pools: dict[tuple[str, str, str], PoolDefinition] = {}
+        self._generation_families: dict[str, tuple[str, ...]] = {}
+        self._generation_family_members: dict[str, str] = {}
         self._excavation_profiles = {}
         self._imbue_profiles = {}
         self._invoke_profile = None
@@ -249,6 +251,29 @@ class Registry:
     @property
     def pool_cards(self) -> Mapping[str, PoolCard]:
         return MappingProxyType(self._pool_cards)
+
+    @property
+    def generation_families(self):
+        """Reviewed same-card editions, independent of pool weights/copy limits."""
+        return MappingProxyType(self._generation_families)
+
+    def register_generation_family(self, card_ids):
+        self._require_mutable()
+        if type(card_ids) is not tuple or len(card_ids) < 2:
+            raise ValueError('Generation family requires an immutable group of editions')
+        for card_id in card_ids:
+            _name(card_id, 'generation family card')
+        if card_ids != tuple(sorted(set(card_ids))):
+            raise ValueError('Generation family editions must be unique and sorted')
+        if any(cid in self._generation_family_members for cid in card_ids):
+            raise ValueError('Duplicate or overlapping generation family')
+        self._generation_families[card_ids[0]] = card_ids
+        self._generation_family_members.update((cid, card_ids[0]) for cid in card_ids)
+
+    def generation_family(self, card_id):
+        _name(card_id, 'generation source card')
+        key = self._generation_family_members.get(card_id)
+        return (card_id,) if key is None else self._generation_families[key]
 
     @property
     def player_effects(self) -> Mapping[str, PlayerEffectSpec]:
@@ -1596,6 +1621,16 @@ class Registry:
                 raise ValueError('Cost query profile identity differs from its registered key')
             profile.__post_init__()
         from .repeat_source_conditions import validate_source_declaration
+        family_members = {}
+        for key, members in self._generation_families.items():
+            if (type(members) is not tuple or len(members) < 2 or
+                    any(type(cid) is not str or not cid.strip() for cid in members) or
+                    members != tuple(sorted(set(members))) or key != members[0] or
+                    any(cid in family_members for cid in members)):
+                raise ValueError('Invalid registered generation family')
+            family_members.update((cid, key) for cid in members)
+        if family_members != self._generation_family_members:
+            raise ValueError('Generation family lookup differs from its complete declarations')
         validate_pools(self)
         from .imbue import validate_profiles as validate_imbue_profiles
         validate_imbue_profiles(self)
@@ -1813,6 +1848,8 @@ class Registry:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
         if self._hero_health_target_profiles:
             payload['hero_health_target_profiles']=[asdict(self._hero_health_target_profiles[k])for k in sorted(self._hero_health_target_profiles)]
+        if self._generation_families:
+            payload['generation_families'] = [self._generation_families[k] for k in sorted(self._generation_families)]
         if self._kindred_target_profiles:
             payload['kindred_target_profiles']=[asdict(self._kindred_target_profiles[k])for k in sorted(self._kindred_target_profiles)]
         if self._corpse_summon_profiles:

@@ -448,7 +448,8 @@ def validate_boundary(game):
         if type(root.request) is DiscoverFromPool:
             req = root.request
             pool = resolve_candidates(registry, game._generation_context, req.pool_id, req.query,
-                current_class=root.hero_class, source_card_id=root.source_card_id, policy=req.policy, player_id=req.player_id)
+                current_class=root.hero_class, source_card_id=root.source_card_id, policy=req.policy, player_id=req.player_id,
+                exclude_source_by_rule=True)
             if pool != root.available_pool or root.available_cards: raise ValueError('Hand offer changed its original pool basis')
             offered = sample_candidates(local, pool, req.count, replacement=False)
             expected = tuple(HandFollowupOption(f'generated-{n}', cid) for n, cid in enumerate(offered, 1))

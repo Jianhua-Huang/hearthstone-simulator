@@ -13,9 +13,10 @@ from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMe
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.targets import canonical_digest
 TEST='p25.test.';YETI='CORE_CS2_182';ALL='DINO_435';DRAGON4='CORE_EX1_043';MULTI='CORE_ICC_220';UNKNOWN=TEST+'unimplemented';UNKNOWN_META=TEST+'unknown_metadata';BANNED=TEST+'titan'
+SMALL_DRAGON='CORE_EX1_189'
 CONTEXT=GenerationContext('p25-explicit-experimental-inventory','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
-def registry(members=ROOTS,mode=None,pool=True):
+def registry(members=(*ROOTS,ALL,SMALL_DRAGON),mode=None,pool=True):
     r=build_registry()
     if not all(cid in r.cards for cid in ROOTS):register_simple_followup_p25_cards(r)
     for cid in(UNKNOWN,UNKNOWN_META,BANNED):
@@ -40,7 +41,7 @@ def registry(members=ROOTS,mode=None,pool=True):
     r.validate();return r
 
 class SimpleFollowupP25Tests(unittest.TestCase):
-    def game(self,hand=(),board=(),members=ROOTS,mode=None,pool=True,context=CONTEXT):
+    def game(self,hand=(),board=(),members=(*ROOTS,ALL,SMALL_DRAGON),mode=None,pool=True,context=CONTEXT):
         self.members=members;self.mode=mode;self.pool=pool;self.context=context
         if mode:board=(*board,TEST+'watch')
         return Game.from_scenario(Scenario((PlayerSetup('HERO_08',hand=hand,board=board,deck=(YETI,)*8,mana=50,max_mana=50,mana_cap=50),
@@ -82,7 +83,7 @@ class SimpleFollowupP25Tests(unittest.TestCase):
     def test_each_paid_battlecry_uses_any_class_pool_and_creates_new_physical_card(self):
         for cid in ROOTS:
             with self.subTest(cid=cid):
-                g=self.game((cid,));source=self.play(g,cid);new,=self.hand(g);self.assertEqual(new.card_id,cid);self.assertNotEqual(source,new.id);self.assertEqual(g.state.players[1].mana,49);self.assertEqual(len(g.state.battlecry_history),1);self.assertFalse(g.state.cast_history)
+                g=self.game((cid,));source=self.play(g,cid);new,=self.hand(g);self.assertEqual(new.card_id,SMALL_DRAGON if cid==WHELP else ALL);self.assertNotEqual(source,new.id);self.assertEqual(g.state.players[1].mana,49);self.assertEqual(len(g.state.battlecry_history),1);self.assertFalse(g.state.cast_history)
                 created=[e for e in g.events if e.kind in('card_created','card_added_to_hand')];self.assertTrue(created);self.assertTrue(all(e.source_id==source and e.target_id==new.id for e in created));self.assertEqual(g.state.players[1].hero_class,CardClass.MAGE)
 
     def test_natural_effect_summons_do_not_execute_battlecry_or_require_pool(self):
@@ -96,7 +97,7 @@ class SimpleFollowupP25Tests(unittest.TestCase):
             with self.subTest(cid=cid):self.assertEqual({m.card_id for m in resolve_candidates(r,CONTEXT,POOL_ID,QUERIES[cid],player_id=1)},expected[cid])
 
     def test_actual_canonical_rng_matches_shared_query_including_all_type(self):
-        members=(*ROOTS,ALL);g=self.game((RAIDER,),members=members);candidates=resolve_candidates(g.registry,CONTEXT,POOL_ID,QUERIES[RAIDER],player_id=1);rng=random.Random();rng.setstate(g._rng.getstate());expected=candidates[rng.randrange(len(candidates))].card_id;self.play(g,RAIDER);self.assertEqual(self.hand(g)[0].card_id,expected);self.assertEqual(g._rng.getstate(),rng.getstate());self.portable(g)
+        members=(*ROOTS,ALL);g=self.game((RAIDER,),members=members);candidates=resolve_candidates(g.registry,CONTEXT,POOL_ID,QUERIES[RAIDER],player_id=1,source_card_id=RAIDER,exclude_source_by_rule=True);rng=random.Random();rng.setstate(g._rng.getstate());expected=candidates[rng.randrange(len(candidates))].card_id;self.play(g,RAIDER);self.assertEqual(self.hand(g)[0].card_id,expected);self.assertEqual(g._rng.getstate(),rng.getstate());self.portable(g)
 
     def test_missing_wrong_context_or_matching_pool_rejects_entire_action(self):
         for context,pool in((None,True),(CONTEXT,False),(GenerationContext('different-target','experimental'),True),(GenerationContext(CONTEXT.target_id,'standard'),True)):
@@ -118,20 +119,20 @@ class SimpleFollowupP25Tests(unittest.TestCase):
                 self.assertEqual(g.snapshot(),saved)
 
     def test_shared_special_ban_excludes_titan_before_missing_executable_check(self):
-        g=self.game((RAIDER,),members=(RAIDER,BANNED));self.play(g,RAIDER);self.assertEqual([e.card_id for e in self.hand(g)],[RAIDER]);self.assertNotIn(BANNED,g.registry.cards)
+        g=self.game((RAIDER,),members=(RAIDER,ALL,BANNED));self.play(g,RAIDER);self.assertEqual([e.card_id for e in self.hand(g)],[ALL]);self.assertNotIn(BANNED,g.registry.cards)
 
     def test_full_hand_overflow_burns_generated_identity_with_actual_source(self):
-        g=self.game((RAIDER,)+(YETI,)*9,mode='fill');source=self.play(g,RAIDER);self.assertEqual(len(self.hand(g)),10);self.assertTrue(all(e.card_id==YETI for e in self.hand(g)));burn,=[e for e in g.events if e.kind=='card_burned'];self.assertNotEqual(burn.target_id,source);self.assertEqual(g.state.entities[burn.target_id].card_id,RAIDER);self.assertTrue(any(e.kind=='card_created'and e.target_id==burn.target_id and e.source_id==source for e in g.events));self.portable(g)
+        g=self.game((RAIDER,)+(YETI,)*9,mode='fill');source=self.play(g,RAIDER);self.assertEqual(len(self.hand(g)),10);self.assertTrue(all(e.card_id==YETI for e in self.hand(g)));burn,=[e for e in g.events if e.kind=='card_burned'];self.assertNotEqual(burn.target_id,source);self.assertEqual(g.state.entities[burn.target_id].card_id,ALL);self.assertTrue(any(e.kind=='card_created'and e.target_id==burn.target_id and e.source_id==source for e in g.events));self.portable(g)
 
     def test_real_battlecry_repeat_creates_two_independent_hand_entities_one_payment(self):
-        g=self.game((RAIDER,),board=('TIME_064',));source=self.play(g,RAIDER);cards=self.hand(g);self.assertEqual([e.card_id for e in cards],[RAIDER,RAIDER]);self.assertEqual(len({source,*(e.id for e in cards)}),3);self.assertEqual(g.state.players[1].mana,49)
+        g=self.game((RAIDER,),board=('TIME_064',));source=self.play(g,RAIDER);cards=self.hand(g);self.assertEqual([e.card_id for e in cards],[ALL,ALL]);self.assertEqual(len({source,*(e.id for e in cards)}),3);self.assertEqual(g.state.players[1].mana,49)
 
     def test_actual_creation_and_arrival_wait_restore_replay_and_bad_resume_rollback(self):
         for mode in('created','arrival'):
             with self.subTest(mode=mode):
                 g=self.game((RAIDER,),mode=mode);self.play(g,RAIDER);self.assertIsNotNone(g.state.pending_choice);other=self.portable(g);saved=g.snapshot()
                 with self.assertRaises(ResolutionError):self.choose(g,'bad')
-                self.assertEqual(g.snapshot(),saved);self.choose(g);self.choose(other);self.assertEqual(g.snapshot(),other.snapshot());self.assertEqual([e.card_id for e in self.hand(g)],[RAIDER]);self.assertEqual(g.state.players[1].mana,49);self.portable(g)
+                self.assertEqual(g.snapshot(),saved);self.choose(g);self.choose(other);self.assertEqual(g.snapshot(),other.snapshot());self.assertEqual([e.card_id for e in self.hand(g)],[ALL]);self.assertEqual(g.state.players[1].mana,49);self.portable(g)
 
     def test_late_generation_failure_rolls_back_paid_play_creation_and_rng(self):
         g=self.game((RAIDER,),members=(*ROOTS,ALL),mode='fail');saved=g.snapshot()
@@ -139,6 +140,6 @@ class SimpleFollowupP25Tests(unittest.TestCase):
         self.assertEqual(g.snapshot(),saved)
 
     def test_accepted_generation_finishes_after_original_source_retires(self):
-        g=self.game((RAIDER,),mode='retire');source=self.play(g,RAIDER);self.assertIsNotNone(g.state.pending_choice);self.choose(g);self.assertEqual(g.state.entities[source].zone,Zone.GRAVEYARD);new,=self.hand(g);self.assertEqual(new.card_id,RAIDER);self.assertNotEqual(new.id,source);self.assertTrue(any(e.kind=='card_added_to_hand'and e.target_id==new.id and e.source_id==source for e in g.events));self.portable(g)
+        g=self.game((RAIDER,),mode='retire');source=self.play(g,RAIDER);self.assertIsNotNone(g.state.pending_choice);self.choose(g);self.assertEqual(g.state.entities[source].zone,Zone.GRAVEYARD);new,=self.hand(g);self.assertEqual(new.card_id,ALL);self.assertNotEqual(new.id,source);self.assertTrue(any(e.kind=='card_added_to_hand'and e.target_id==new.id and e.source_id==source for e in g.events));self.portable(g)
 
 if __name__=='__main__':unittest.main()

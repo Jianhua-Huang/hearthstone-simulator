@@ -95,7 +95,7 @@ class SimpleFollowupP28Tests(unittest.TestCase):
                 g=self.game((TEST+'kill',),board=(cid,),members=members);source=self.first(g,cid,'board').id;self.play(g,TEST+'kill',source);self.assertEqual([g.state.entities[e.target_id].card_id for e in self.created(g,source)],expected);self.assertEqual(g.state.entities[source].zone,Zone.GRAVEYARD);record,=g.state.deathrattle_history;self.assertEqual(record.capture.origin,'death');self.assertEqual(record.capture.ability.deathrattle_card_id,cid);self.assertTrue(record.completed)
 
     def test_dragon_permanent_minus_two_not_set_to_two_and_zero_floor(self):
-        for spell,expected in((DRAGON,2),(SMALL,0)):
+        for spell,expected in(('CORE_EX1_043',2),(SMALL,0)):
             with self.subTest(card=spell):
                 g=self.game((TEST+'kill',),board=(DRAGON,),members=(spell,));source=self.first(g,DRAGON,'board').id;self.play(g,TEST+'kill',source);event,=self.created(g,source);new=g.state.entities[event.target_id];self.assertEqual(g.quote_cost(new.id).amount,expected);self.assertEqual(new.base_cost,g.registry.card(spell).cost);self.assertTrue(any(e.cost==-2 and e.set_cost is None and e.expires_turn is None for e in new.enchantments));g.apply(EndTurn(1));g.apply(EndTurn(2));self.assertEqual(g.quote_cost(new.id).amount,expected)
 

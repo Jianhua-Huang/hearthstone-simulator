@@ -15,7 +15,8 @@ from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMe
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.targets import canonical_digest
 TEST='p26.test.';YETI='CORE_CS2_182';HOLY='CORE_CFM_604';HOLY2='CORE_CS2_089';NATURE='CS2_009';SHADOW='CORE_EX1_197';FIRE='CS2_029';UNKNOWN_LEG=TEST+'unknown_legendary';UNKNOWN_HOLY=TEST+'unknown_holy'
-MEMBERS=(BRIGHT,HOLY,NATURE,SHADOW,FIRE,YETI);CONTEXT=GenerationContext('p26-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
+OTHER_LEG='CATA_155'
+MEMBERS=(BRIGHT,OTHER_LEG,HOLY,NATURE,SHADOW,FIRE,YETI);CONTEXT=GenerationContext('p26-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
 def registry(members=MEMBERS,mode=None,pool=True):
     r=build_registry()
@@ -54,7 +55,7 @@ class SimpleFollowupP26Tests(unittest.TestCase):
     def first(self,g,cid,p=1,zone='hand'):return next(g.state.entities[i]for i in getattr(g.state.players[p],zone)if g.state.entities[i].card_id==cid)
     def play(self,g,cid,target=None):
         eid=self.first(g,cid).id;g.apply(PlayCard(1,eid,target,len(g.state.players[1].board)if g.registry.card(cid).kind==CardType.MINION else None));return eid
-    def generated(self,g,p=1):return[g.state.entities[i]for i in g.state.players[p].hand if g.state.entities[i].card_id in(BRIGHT,HOLY,HOLY2,NATURE,SHADOW)]
+    def generated(self,g,p=1):return[g.state.entities[i]for i in g.state.players[p].hand if g.state.entities[i].card_id in(BRIGHT,OTHER_LEG,HOLY,HOLY2,NATURE,SHADOW)]
     def price(self,g,eid):return quote_cost(g.state,g.registry,g.state.entities[eid]).amount
     def choose(self,g,key='ok'):
         q=g.state.pending_choice;g.apply(SelectChoice(q.player_id,q.id,(key,)))
@@ -87,12 +88,12 @@ class SimpleFollowupP26Tests(unittest.TestCase):
         r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
 
     def test_queries_filter_legendary_minions_and_exact_spell_schools_any_class(self):
-        r=registry();expected={BRIGHT:{BRIGHT},SENTRY:{HOLY},PIXIE:{NATURE},TOTEM:{SHADOW}}
+        r=registry();expected={BRIGHT:{BRIGHT,OTHER_LEG},SENTRY:{HOLY},PIXIE:{NATURE},TOTEM:{SHADOW}}
         for cid in ROOTS:
             with self.subTest(cid=cid):self.assertEqual({m.card_id for m in resolve_candidates(r,CONTEXT,POOL_ID,QUERIES[cid],player_id=1)},expected[cid]);self.assertEqual(QUERIES[cid].class_mode,'any');self.assertTrue(QUERIES[cid].collectible)
 
     def test_brightwing_paid_native_battlecry_gets_new_legendary_once(self):
-        g=self.game((BRIGHT,));source=self.play(g,BRIGHT);new,=self.generated(g);self.assertEqual(new.card_id,BRIGHT);self.assertNotEqual(new.id,source);self.assertEqual(g.state.players[1].mana,48);self.assertEqual(len(g.state.battlecry_history),1);self.assertTrue(all(e.source_id==source for e in g.events if e.kind in('card_created','card_added_to_hand')));self.portable(g)
+        g=self.game((BRIGHT,));source=self.play(g,BRIGHT);new,=self.generated(g);self.assertEqual(new.card_id,OTHER_LEG);self.assertNotEqual(new.id,source);self.assertEqual(g.state.players[1].mana,48);self.assertEqual(len(g.state.battlecry_history),1);self.assertTrue(all(e.source_id==source for e in g.events if e.kind in('card_created','card_added_to_hand')));self.portable(g)
 
     def test_brightwing_natural_summon_does_not_invoke_battlecry_or_require_pool(self):
         g=self.game((TEST+'summon',),pool=False,context=None);self.play(g,TEST+'summon');self.assertFalse(self.generated(g));self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].board],[BRIGHT]);self.assertFalse(g.state.battlecry_history)

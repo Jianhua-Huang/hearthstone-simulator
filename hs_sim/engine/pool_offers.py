@@ -161,7 +161,7 @@ def validate_receipt(registry,context,receipt):
     if receipt.source_card_id is not None:registry.card(receipt.source_card_id)
     for group,captured in zip(spec.groups,receipt.groups):
         rows=resolve_candidates(registry,context,group.pool_id,group.query,current_class=receipt.hero_class,
-            source_card_id=receipt.source_card_id,policy=spec.policy,player_id=spec.player_id)
+            source_card_id=receipt.source_card_id,policy=spec.policy,player_id=spec.player_id,exclude_source_by_rule=True)
         allowed=tuple(m.card_id for m in rows)
         if any(not registry.card(cid).hand_playable for cid in allowed):raise ValueError('Offer pool includes non-hand content')
         if spec.cost is not None and any(not matches_cost(spec.cost,registry.card(cid)) for cid in allowed):

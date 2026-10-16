@@ -1628,3 +1628,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 需唤醒原休眠实例时，使用`hs_sim.engine.dormancy.AwakenCapturedMinion(MinionReference.capture(entity), entity.dormancy.id, source_id)`，不要仅保存可被重用的实体号。原休眠变化后请求失效，等待/回放和永久载体限制仍沿公共层。个人施法资格与原事件材料的表达见[原生触发契约](m3-reactive-growth-cards.md)。
 
 原抽牌或施法观察对象需跨反应保留复制材料时，使用`CapturedCardCopyMaterial.capture(context.state, source)`配合原`CopyCard`；HAND/DECK可current，GRAVEYARD只base，完整设费在创建通知前安装。不要从后来同名实体补材料或手动改新能力的来源；公共current复制层负责原生自身绑定。不同目标伤害用RandomDamageBatch，精确范围与待校准政策见[契约](m3-trigger-source-cards.md)。
+
+普通生成须在公共候选层排除来源及已审核的同卡版本，版本族独立于生成权重和构筑同卡身份。真实起始卡组与当前种族条件继续组合既有查询，边界见[来源排除与条件消费者](m3-generation-source-exclusion.md)。
