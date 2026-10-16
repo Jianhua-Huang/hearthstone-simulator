@@ -1,0 +1,58 @@
+{
+  "batch": "K87",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_008",
+        "dbf_id": 119545,
+        "name": "过去的末日宣言者",
+        "name_en": "Bygone Doomspeaker",
+        "text": "<b>回溯</b>。<b>战吼：</b>双方玩家各随机弃一张牌。",
+        "text_en": "[x]<b>Rewind</b>\n<b>Battlecry:</b> Both players\n_discard a random card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "2c5f4caa89942d1ea31f6cdf9f2bd3126ecb9b8e98e3d786eb7fc097aa488cca"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "policy": "Actual Battlecry discards once from the caster hand then once from the opponent hand, using normal physical DiscardMatching. Native Rewind restores state facts and advances RNG; retained abandoned diagnostic events are excluded only from committed-ledger boundary inventory through the existing effective_events function. Exact CN discard-order and timing calibration remain open.",
+  "official_faces": "outputs/card-parallel-p02-20261016/worker-evidence/official-face-audit.json"
+}

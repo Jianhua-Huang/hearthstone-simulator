@@ -201,8 +201,9 @@ class SimpleFollowupP02CardTests(unittest.TestCase):
         self.assertEqual(self.r.card(PREDATORS).spell_school, SpellSchool.SHADOW)
         self.assertIsNotNone(self.r.kindred_profiles[PREDATORS].prepare)
 
-    def test_doomspeaker_is_unregistered_due_to_real_rewind_discard_gap(self):
-        self.assertNotIn(DOOMSPEAKER, self.r.cards)
+    def test_p02_preserves_skipped_doomspeaker_source_without_claiming_its_adapter(self):
+        self.assertNotIn(DOOMSPEAKER, ROOTS)
+        self.assertNotIn(DOOMSPEAKER, tuple(x['record']['id'] for x in load_batch()['cards']))
         row, = load_batch()['skipped']
         self.assertEqual(row['record']['id'], DOOMSPEAKER)
         self.assertEqual(canonical_digest(row['record']), row['record_sha256'])

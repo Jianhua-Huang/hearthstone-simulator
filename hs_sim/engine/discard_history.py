@@ -115,7 +115,10 @@ def commit(r,event,capture):
 
 def validate_boundary(game):
     state=game._state;validate_state(state,game.registry)
-    if tuple(e.sequence for e in game._events if e.kind=='card_discarded')!=tuple(row.event_sequence for row in state.discard_history):
+    from .hero_health_history import effective_events
+    # Rewind restores the original State ledger while retaining diagnostic
+    # events. Only committed timeline events can witness current occurrences.
+    if tuple(e.sequence for e in effective_events(game._events) if e.kind=='card_discarded')!=tuple(row.event_sequence for row in state.discard_history):
         raise ValueError('Discard history lost its complete committed event inventory')
     for row in state.discard_history:
         if row.event_sequence>len(game._events):raise ValueError('Discard history names a future original event')
