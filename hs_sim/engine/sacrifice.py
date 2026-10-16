@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from .effects import Buff, Destroy, Effect, GrantKeyword, SetStats, _integer, _player, _source
 from .errors import ResolutionError
-from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, StatReference, Zone
+from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, StatReference, TimedKeywordSpec, Zone
 
 
 @dataclass(frozen=True)
@@ -108,10 +108,11 @@ class GrantCapturedKeyword(Effect):
     keyword: Keyword
     source_id: int | None = None
     expires_turn: int | None = None
+    duration: TimedKeywordSpec | None = None
 
     def __post_init__(self):
         reference_value(self.beneficiary)
-        GrantKeyword(self.beneficiary.entity_id, self.keyword, self.source_id, self.expires_turn)
+        GrantKeyword(self.beneficiary.entity_id, self.keyword, self.source_id, self.expires_turn, duration=self.duration)
 
 
 def grant_captured_keyword(r, effect):
@@ -121,7 +122,8 @@ def grant_captured_keyword(r, effect):
     if live_minion(r.state, effect.beneficiary) is None:
         r.stale(effect, effect.beneficiary.entity_id)
         return ()
-    grant_ability(r, GrantKeyword(effect.beneficiary.entity_id, effect.keyword, effect.source_id, effect.expires_turn))
+    grant_ability(r, GrantKeyword(effect.beneficiary.entity_id, effect.keyword, effect.source_id, effect.expires_turn,
+                                duration=effect.duration))
 
 
 @dataclass(frozen=True)

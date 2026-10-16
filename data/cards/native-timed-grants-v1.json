@@ -1,0 +1,499 @@
+{
+  "batch": "K92",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_246",
+        "dbf_id": 118232,
+        "name": "远古翼手龙",
+        "name_en": "Ancient Pterrordax",
+        "text": "<b>战吼：</b>从<b>扰魔</b>，<b>风怒</b>或直到下回合<b>潜行</b>中选择一项获得。",
+        "text_en": "[x]<b>Battlecry:</b> Choose to gain\n<b>Stealth</b> until your next turn,\n<b>Elusive</b>, or <b>Windfury</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "753664d03c32289df1a4978aa017ffc0681a3807754762cf8ef8d545f8036ae9"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "UNG_999t10",
+        "dbf_id": 41054,
+        "name": "氤氲迷雾",
+        "name_en": "Shrouding Mist",
+        "text": "获得<b>潜行</b>直到你的下个回合。",
+        "text_en": "<b>Stealth</b> until your next turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "87b2f0226952ef114ef5966369697bbab9f93b033fa50af18df37d98911f97eb"
+    },
+    {
+      "record": {
+        "id": "UNG_999t5",
+        "dbf_id": 41060,
+        "name": "液态外膜",
+        "name_en": "Liquid Membrane",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "a6e63c395597d87fd70ee2fa3c58c9786ec22ad72dbbb92bb8f81274cb30ff9c"
+    },
+    {
+      "record": {
+        "id": "UNG_999t7",
+        "dbf_id": 41062,
+        "name": "闪电之速",
+        "name_en": "Lightning Speed",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "e0894b44c29309c2dcf2abe1fb3e91305de238bcdc3cfdc5ae1c9bfcf339f923"
+    }
+  ],
+  "choice_only_ids": [
+    "UNG_999t10",
+    "UNG_999t5",
+    "UNG_999t7"
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118232&locale=en_US",
+      "status": 200,
+      "sha256": "076ae00134dd41c3846c19223a95d4188d9174fb81118351d022b8bd66da72ef",
+      "face": {
+        "id": 118232,
+        "collectible": 1,
+        "slug": "118232-ancient-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Ancient Pterrordax",
+        "text": "<b>Battlecry:</b> Choose to gain <b>Stealth</b> until your next turn, <b>Elusive</b>, or <b>Windfury</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d215b257b3efc3b10cec35df85ae4ea6a0723a87d89829ddd374282a3d399ef.png",
+        "imageGold": "",
+        "flavorText": "What's that sound? He's a terrible conductor.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2200ac1ff2229336056c9273a4d92e3f040a51aef59fbb068f1a2351088a8324.png",
+        "childIds": [
+          41054,
+          41060,
+          41062
+        ],
+        "keywordIds": [
+          6,
+          8,
+          11,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118232&locale=zh_CN",
+      "status": 200,
+      "sha256": "d959aa253d14c51158e28d5e74dd2b7ed3e968811e1082fae5c0960f6ce04606",
+      "face": {
+        "id": 118232,
+        "collectible": 1,
+        "slug": "118232-ancient-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "远古翼手龙",
+        "text": "<b>战吼：</b>从<b>扰魔</b>，<b>风怒</b>或直到下回合<b>潜行</b>中选择一项获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00bdd73c2f3fa708eb595e5753d3b30fdb18c30eea00efcf2951d498c1a7e2b8.png",
+        "imageGold": "",
+        "flavorText": "那是什么动静？请他导览太可怕了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2200ac1ff2229336056c9273a4d92e3f040a51aef59fbb068f1a2351088a8324.png",
+        "childIds": [
+          41054,
+          41060,
+          41062
+        ],
+        "keywordIds": [
+          6,
+          8,
+          11,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41054&locale=en_US",
+      "status": 200,
+      "sha256": "a295e315f1ce2f6f5bcb5b531db8849c1f81dc41d3aff9be10f24b9eb14e8955",
+      "face": {
+        "id": 41054,
+        "collectible": 0,
+        "slug": "41054-shrouding-mist",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 0,
+        "name": "Shrouding Mist",
+        "text": "<b>Stealth</b> until your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af976e363ab9ca729f279db503db36a284620284806344794b2ca17e0439bbf4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=41054&locale=zh_CN",
+      "status": 200,
+      "sha256": "f51336a34a6f007144866ed3bc6d9052455da0c7fb3d53bb4e87686e80ce454e",
+      "face": {
+        "id": 41054,
+        "collectible": 0,
+        "slug": "41054-shrouding-mist",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 0,
+        "name": "氤氲迷雾",
+        "text": "获得<b>潜行</b>直到你的下个回合。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a6c5a38cd435c10d6f13aa6025327cb97f368b674338094b92ecf42ba4d33c0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41060&locale=en_US",
+      "status": 200,
+      "sha256": "a125c0d496293798dcfba5c445d53e7282de8c6ce7371a058f6f94adfd1b8552",
+      "face": {
+        "id": 41060,
+        "collectible": 0,
+        "slug": "41060-liquid-membrane",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "manaCost": 0,
+        "name": "Liquid Membrane",
+        "text": "<b>Elusive</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1891c24b487e0724f49d7cf2e4c4cdefb4feeec04ce5adb0712edfee2d93952a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=41060&locale=zh_CN",
+      "status": 200,
+      "sha256": "022e1f81b87abe072bcefab6d97612fd0f1de6abd4e9a2344882de3a7f1b5de1",
+      "face": {
+        "id": 41060,
+        "collectible": 0,
+        "slug": "41060-liquid-membrane",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "manaCost": 0,
+        "name": "液态外膜",
+        "text": "<b>扰魔</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/454a6fa178151ebf22ba68d188470034e181870d62cc6437fc1d0ba8f9098714.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41062&locale=en_US",
+      "status": 200,
+      "sha256": "5aa3887fbcb3fec33f0747671a869aa9e2b49af36a8285e770851fb8c0081598",
+      "face": {
+        "id": 41062,
+        "collectible": 0,
+        "slug": "41062-lightning-speed",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "Lightning Speed",
+        "text": "<b>Windfury</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/915f48d98415f16b4e0e106c87199afebbb5b6fa7e79195f604a92aa05b7eb47.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          11
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=41062&locale=zh_CN",
+      "status": 200,
+      "sha256": "1e53230c636c1beab921e7a30c4f2b8063d1c61241914765ca84ebab7aad1ed6",
+      "face": {
+        "id": 41062,
+        "collectible": 0,
+        "slug": "41062-lightning-speed",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "闪电之速",
+        "text": "<b>风怒</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40c000906569f6a78137fbcfbcc2697dbbb24192fcadb48ef8ba3d4123d56a7c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          11
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "activation": "Real battlecry RequestChoice with three complete official option IDs; not Druid Choose One and not three extra spell casts.",
+    "recipient": "One original live minion reference captured at actual battlecry, retained through waiting; departed/reentered/transferred original does not receive old choice reward.",
+    "duration": "Stealth only uses existing TimedKeywordSpec(controller,next actual owner turn_started,occurrences1); Elusive/Windfury permanent. Captured grant simply validates and forwards duration to existing GrantKeyword handler.",
+    "status": "Option order, original recipient/deadline/control/copy and CN notification timing remain internal uncalibrated policies."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
