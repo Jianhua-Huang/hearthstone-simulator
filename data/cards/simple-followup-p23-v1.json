@@ -1,0 +1,494 @@
+{
+  "batch": "P23",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_306",
+        "dbf_id": 122874,
+        "name": "教派分歧",
+        "name_en": "Schism",
+        "text": "<b>裂变</b>\n使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。@使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。",
+        "text_en": "[x]<b>Shatter</b>\nGive a friendly minion\n+2/+3 and <b>Elusive</b>.\nSummon a copy of it.@Give a friendly minion\n+2/+3 and <b>Elusive</b>.\nSummon a copy of it.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 122876,
+          "TAG_SCRIPT_DATA_NUM_2": 122877,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 6,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e2749a2fe75e6600147f86304d5effbccf2d07a419cfe436da8929f9e632dfb5"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_306t1",
+        "dbf_id": 122876,
+        "name": "教派分歧",
+        "name_en": "Schism",
+        "text": "<b>已裂变</b>\n使一个友方随从获得+2/+3和<b>扰魔</b>。",
+        "text_en": "<b>Shattered</b>\nGive a friendly minion\n+2/+3 and <b>Elusive</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 122877,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 122874,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d44996c5953f69a6fdb80029aa5f2ff752c2b9ead1a4db2a162cf19a0bc96f74"
+    },
+    {
+      "record": {
+        "id": "CATA_306t2",
+        "dbf_id": 122877,
+        "name": "教派分歧",
+        "name_en": "Schism",
+        "text": "<b>已裂变</b>\n召唤一个友方随从的一个复制。",
+        "text_en": "<b>Shattered</b>\nSummon a copy of a friendly minion.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 6,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "9e0f1f0566aa1f0de72b2c210eb5e21656528375efb8826741798d22645b79de"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_101",
+        "dbf_id": 121670,
+        "name": "穿越的炎术士",
+        "name_en": "Misplaced Pyromancer",
+        "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+        "text_en": "Whenever you <b>Shatter</b> a card, deal 2 damage to\nall enemy minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1ab6d031ae0b1ac9f24a89420969187613a7ccfc265dc468c46d646af713262f",
+      "definition_sha256": "71bd9e1686f9913dee6f5e7e73371018946f5f8ea76d0e680115eaa4166b9ef6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_306e",
+        "dbf_id": 122875,
+        "name": "黑暗影响",
+        "name_en": "Dark Influence",
+        "text": "+2/+3",
+        "text_en": "+2/+3",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a372ef2b38de10dd19226c78efcf014ae81d8ce600f7c06cf37f5617c20bf4d8"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T03:50:54.738861+08:00",
+    "source": "Six complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_306",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122874&locale=en_US",
+        "response_file": "official-CATA_306-en_US.json",
+        "response_sha256": "7d8cc9dd28677686daac6df42aa94fcb6998547aed62f895b165e30c865cb93d",
+        "face": {
+          "id": 122874,
+          "collectible": 1,
+          "slug": "122874-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "Schism",
+          "text": "<b>Shatter</b> Give a friendly minion +2/+3 and <b>Elusive</b>. Summon a copy of it. Give a friendly minion +2/+3 and <b>Elusive</b>. Summon a copy of it.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7835655c26f0c03ddcd4d0b41b23d011a51a632bea3630d6f1a55215db77d938.png",
+          "imageGold": "",
+          "flavorText": "I know the card halves fit 'cause I watched them break apart",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c98649b4c78f28050a47fcac4a8814b8233566008bdfa48d07859cb32de90450.png",
+          "childIds": [
+            122876,
+            122877
+          ],
+          "keywordIds": [
+            265,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_306",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122874&locale=zh_CN",
+        "response_file": "official-CATA_306-zh_CN.json",
+        "response_sha256": "17294a2f08638d795d9d15ca27a2e08ad9edbc58ecd8269cd139b8dda0440b95",
+        "face": {
+          "id": 122874,
+          "collectible": 1,
+          "slug": "122874-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "教派分歧",
+          "text": "<b>裂变</b> 使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。 使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45410e71b8c4ddb7da1d239a2f0eb167efcd018db6400bcda56c86b1cad2d6b6.png",
+          "imageGold": "",
+          "flavorText": "我知道这半张牌的另一半长什么样。我亲眼看着它被拆。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c98649b4c78f28050a47fcac4a8814b8233566008bdfa48d07859cb32de90450.png",
+          "childIds": [
+            122876,
+            122877
+          ],
+          "keywordIds": [
+            265,
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_306t1",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122876&locale=en_US",
+        "response_file": "official-CATA_306t1-en_US.json",
+        "response_sha256": "0c5ff5246395adf87f400ce652257dd146a7a68b861bdc1d0e93c3899880c5ce",
+        "face": {
+          "id": 122876,
+          "collectible": 0,
+          "slug": "122876-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "Schism",
+          "text": "<b>Shattered</b> Give a friendly minion +2/+3 and <b>Elusive</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa6b5e126dab678176d1ee47ba69a9e376261da6bbfde0592d0a95f131e1d13f.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122874,
+          "childIds": [
+            122877
+          ],
+          "keywordIds": [
+            265,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_306t1",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122876&locale=zh_CN",
+        "response_file": "official-CATA_306t1-zh_CN.json",
+        "response_sha256": "8a6381d39376cf8a6fb5c95c7b8ce4ee9027b0566da57de90138a390a62a8a83",
+        "face": {
+          "id": 122876,
+          "collectible": 0,
+          "slug": "122876-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "教派分歧",
+          "text": "<b>已裂变</b> 使一个友方随从获得+2/+3和<b>扰魔</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17543d3378cf01650d8ea8bf7a2b278946d04cb1ba2d056f4a0c68808a231efc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122874,
+          "childIds": [
+            122877
+          ],
+          "keywordIds": [
+            265,
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_306t2",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122877&locale=en_US",
+        "response_file": "official-CATA_306t2-en_US.json",
+        "response_sha256": "379ff0369faab1fc4329f86ab04cc347232b40aa302dcdf3940862e5431c51ca",
+        "face": {
+          "id": 122877,
+          "collectible": 0,
+          "slug": "122877-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "Schism",
+          "text": "<b>Shattered</b> Summon a copy of a friendly minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd221f0709a46084213f2633373b76ce4013e138a9e6d639af37c292bff12b43.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122874,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_306t2",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122877&locale=zh_CN",
+        "response_file": "official-CATA_306t2-zh_CN.json",
+        "response_sha256": "5436f76382bc64ac0944c008254b5b218d62047d553d99c4f2f2f1b244fbb3a4",
+        "face": {
+          "id": 122877,
+          "collectible": 0,
+          "slug": "122877-schism",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Grafit Studio",
+          "manaCost": 4,
+          "name": "教派分歧",
+          "text": "<b>已裂变</b> 召唤一个友方随从的一个复制。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38472733ed971a8594ad9b619ea97fa2dff4d975834c8890b8d6b83a39b244d4.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 122874,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Complete real Schism Shatter root and exact t1/t2 fragments: Priest4manaShadow, required friendly BOARD MINION spell targets; raw alternate@display and full official duplicate text preserved, actual payload once.",
+    "Whole accepts original target once; captured +2/+3 and Elusive then CopyMinion original BoardPresenceReference current mode. Native copy acceptance occurs after actual earlier effects/reactions and does not recheck manual spell selectability after own Elusive.",
+    "Captured numeric/keyword references retain original controller/card/zone; copy uses original continuous board residence, then current material for original caster. Same residence control/face changes follow existing native CopyMinion policy; death/return/reentry stales and never retargets another same-name minion.",
+    "Copy carries actual spell SummonCause and uses native capacity/quantities, attachments and K105 inheritance material; no printed/base reconstruction or new copy executor.",
+    "CATA_306e evidence only, existing TIME_101 exact definition pinned. Precise CN acceptance/grant/copy/continuity boundaries pending calibration; no shared modifications or broad generated pool."
+  ]
+}
