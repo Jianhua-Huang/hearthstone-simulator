@@ -1,0 +1,810 @@
+{
+  "batch": "P20",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_820",
+        "dbf_id": 121757,
+        "name": "运输补给",
+        "name_en": "Supply Run",
+        "text": "<b>裂变</b>\n抽三张随从牌。使你手牌中的随从牌获得+2/+2。@抽三张随从牌。使你手牌中的随从牌获得+2/+2。",
+        "text_en": "<b>Shatter</b>\nDraw 3 minions.\nGive minions in your\nhand +2/+2.@Draw 3 minions.\nGive minions in your\nhand +2/+2.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 121758,
+          "TAG_SCRIPT_DATA_NUM_2": 121760,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "a81ae9318b9a564b279263db916504694afa8a688592d0c7fad676d77994c555"
+    },
+    {
+      "record": {
+        "id": "CATA_489",
+        "dbf_id": 123692,
+        "name": "奥术涌流",
+        "name_en": "Arcane Flow",
+        "text": "<b>裂变</b>\n造成$4点伤害。对所有敌人造成$2点伤害。@造成$4点伤害。对所有敌人造成$2点伤害。",
+        "text_en": "[x]<b>Shatter</b>\nDeal $4 damage.\n_Deal $2 damage to\n_all enemies.@[x]Deal $4 damage.\n_Deal $2 damage to\n_all enemies.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 123743,
+          "TAG_SCRIPT_DATA_NUM_2": 123744,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 1,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "d692588ff441bab360ae4942f760f45ef6e1a3ed3e911244d603c2aa301f58a4"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_820t",
+        "dbf_id": 121758,
+        "name": "运输补给",
+        "name_en": "Supply Run",
+        "text": "<b>已裂变</b>\n抽三张随从牌。",
+        "text_en": "<b>Shattered</b>\nDraw 3 minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 121760,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "1724": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 121757,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "a3407f2cc57f4e9e20153c999827b369e85cab91b87b16ce03bf7256966ad72e"
+    },
+    {
+      "record": {
+        "id": "CATA_820t2",
+        "dbf_id": 121760,
+        "name": "运输补给",
+        "name_en": "Supply Run",
+        "text": "<b>已裂变</b>\n使你手牌中的随从牌获得+2/+2。",
+        "text_en": "<b>Shattered</b>\nGive minions in your\nhand +2/+2.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 121758,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 121757,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "7599094b2002da78a0b563049c99db61f90ff872b9d7107e523cf8bb0612c525"
+    },
+    {
+      "record": {
+        "id": "CATA_489t",
+        "dbf_id": 123743,
+        "name": "奥术涌流",
+        "name_en": "Arcane Flow",
+        "text": "<b>已裂变</b>\n造成$4点伤害。",
+        "text_en": "<b>Shattered</b>\nDeal $4 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 123744,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 1,
+          "1724": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 123692,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "0295f57731d5cf7d7a2f08eacd80330c76b23addbab3382a58b437668df8e9b9"
+    },
+    {
+      "record": {
+        "id": "CATA_489t2",
+        "dbf_id": 123744,
+        "name": "奥术涌流",
+        "name_en": "Arcane Flow",
+        "text": "<b>已裂变</b>\n对所有敌人造成$2点伤害。",
+        "text_en": "<b>Shattered</b>\nDeal $2 damage to\nall enemies.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "EVIL_GLOW": 1,
+          "SPELL_SCHOOL": 1,
+          "SHATTERED": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "ecdc76f9876c590e0a033c1846d2613ea1d5024431d23b37849d765b7541d73c"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_101",
+        "dbf_id": 121670,
+        "name": "穿越的炎术士",
+        "name_en": "Misplaced Pyromancer",
+        "text": "每当你<b>裂变</b>一张牌时，对所有敌方随从造成2点伤害。",
+        "text_en": "Whenever you <b>Shatter</b> a card, deal 2 damage to\nall enemy minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1ab6d031ae0b1ac9f24a89420969187613a7ccfc265dc468c46d646af713262f",
+      "definition_sha256": "71bd9e1686f9913dee6f5e7e73371018946f5f8ea76d0e680115eaa4166b9ef6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_820e",
+        "dbf_id": 121761,
+        "name": "添砖加瓦",
+        "name_en": "Brick by Brick",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "73a03879e9bb6a23232f761017bae04fdfaf09725fe2f9aa0c9a825fa9edf621"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T03:18:01.488636+08:00",
+    "source": "Twelve complete cached official responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "CATA_820",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121757&locale=en_US",
+        "response_file": "official-CATA_820-en_US.json",
+        "response_sha256": "a4b70c8a90b42e43e335ccd2cd0efcdd87ae5af3b0148f5e48de8b4370dce8a5",
+        "face": {
+          "id": 121757,
+          "collectible": 1,
+          "slug": "121757-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "Supply Run",
+          "text": "<b>Shatter</b> Draw 3 minions. Give minions in your hand +2/+2. Draw 3 minions. Give minions in your hand +2/+2.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6294493b6453623ce0ea171c47ec7287846053c57370952add825038d2c8c06.png",
+          "imageGold": "",
+          "flavorText": "DrakeDash was key in delivering victory against Al'Akir.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aabef999c52adb96f405f484fc5474f00be07de008e7a3337648d1ccd91bbff.png",
+          "childIds": [
+            121758,
+            121760
+          ],
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_820",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121757&locale=zh_CN",
+        "response_file": "official-CATA_820-zh_CN.json",
+        "response_sha256": "4d2d751f71fc95c23ffdf7058b439a038b4ce354b70381de3bec05c0bce178d7",
+        "face": {
+          "id": 121757,
+          "collectible": 1,
+          "slug": "121757-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "运输补给",
+          "text": "<b>裂变</b> 抽三张随从牌。使你手牌中的随从牌获得+2/+2。 抽三张随从牌。使你手牌中的随从牌获得+2/+2。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f7f31b6fcdd691ff9d72fa1d3622c4f2258d495fef1a19d84d69e7c763b667c.png",
+          "imageGold": "",
+          "flavorText": "幼龙航线是对战奥拉基尔时的制胜关键。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aabef999c52adb96f405f484fc5474f00be07de008e7a3337648d1ccd91bbff.png",
+          "childIds": [
+            121758,
+            121760
+          ],
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_820t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121758&locale=en_US",
+        "response_file": "official-CATA_820t-en_US.json",
+        "response_sha256": "e898d45ccd640fc0c79c7a0ba27119f19e7a11ca333c43ab96032f147e969081",
+        "face": {
+          "id": 121758,
+          "collectible": 0,
+          "slug": "121758-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "Supply Run",
+          "text": "<b>Shattered</b> Draw 3 minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15dfb639775533f2c4ddcd2f18d7fc441e4bd0656b4e2bfdeb358d88ab0772a2.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121757,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_820t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121758&locale=zh_CN",
+        "response_file": "official-CATA_820t-zh_CN.json",
+        "response_sha256": "a55a8b6b060210c8f65c49e046f169727cee536c5925566853253422d31482d4",
+        "face": {
+          "id": 121758,
+          "collectible": 0,
+          "slug": "121758-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "运输补给",
+          "text": "<b>已裂变</b> 抽三张随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1fa78c0282b78acdeecd5509a4467e5b65a08c35762be85d5c70c82e6a3f2359.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121757,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_820t2",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121760&locale=en_US",
+        "response_file": "official-CATA_820t2-en_US.json",
+        "response_sha256": "8f43c88f685ed77819999e24f6b5ea1174a6c16ce763f6c9bc89300608e4f33f",
+        "face": {
+          "id": 121760,
+          "collectible": 0,
+          "slug": "121760-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "Supply Run",
+          "text": "<b>Shattered</b> Give minions in your hand +2/+2.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0fdbb4e08533b5126e60f5991117cc2d46c8a5c4f6997044505774206b434b6c.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121757,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_820t2",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121760&locale=zh_CN",
+        "response_file": "official-CATA_820t2-zh_CN.json",
+        "response_sha256": "50213cc40f9799f6b377ed3fd2ea0ee41492c4502063de9de304b8c6454e20b9",
+        "face": {
+          "id": 121760,
+          "collectible": 0,
+          "slug": "121760-supply-run",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Mooncolony",
+          "manaCost": 4,
+          "name": "运输补给",
+          "text": "<b>已裂变</b> 使你手牌中的随从牌获得+2/+2。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6831d4a513b6390f76f794aacc3b9b56d897266407b0b9caa5cf0f7fd36b6db.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 121757,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123692&locale=en_US",
+        "response_file": "official-CATA_489-en_US.json",
+        "response_sha256": "8b6e69ae3c6612205065345b5d473ce3476cb5a50b42fb1cf68101a7b83cfd7d",
+        "face": {
+          "id": 123692,
+          "collectible": 1,
+          "slug": "123692-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "Arcane Flow",
+          "text": "<b>Shatter</b> Deal 4 damage. Deal 2 damage to all enemies. Deal 4 damage. Deal 2 damage to all enemies.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec085f554e82a3feed27e1c80728acac31a892d3ff9e8c3321e16c6272488f1d.png",
+          "imageGold": "",
+          "flavorText": "Super excited to combo this with ERROR MISPLACED CARD",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/609e639b9961ffb0cb6670bd8e467f1ae9d91847931f989e776c072ecd5a2204.png",
+          "childIds": [
+            123743,
+            123744
+          ],
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123692&locale=zh_CN",
+        "response_file": "official-CATA_489-zh_CN.json",
+        "response_sha256": "b33889a0c657a7d8d411bd07ccdba27a7b45bba8c3795fb0b1265b84d1fda96b",
+        "face": {
+          "id": 123692,
+          "collectible": 1,
+          "slug": "123692-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "奥术涌流",
+          "text": "<b>裂变</b> 造成 4点伤害。对所有敌人造成 2点伤害。 造成 4点伤害。对所有敌人造成 2点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b0dbbd331a5d5d079c4e6961e9035ba2659656a73f5caf54c6866e1c1349caa.png",
+          "imageGold": "",
+          "flavorText": "很高兴能和这张穿越的卡牌联动。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/609e639b9961ffb0cb6670bd8e467f1ae9d91847931f989e776c072ecd5a2204.png",
+          "childIds": [
+            123743,
+            123744
+          ],
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123743&locale=en_US",
+        "response_file": "official-CATA_489t-en_US.json",
+        "response_sha256": "29935568e84185de914f3e87d5ab5cbd649ef3a6de11336a9cf678f3e6c9da25",
+        "face": {
+          "id": 123743,
+          "collectible": 0,
+          "slug": "123743-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "Arcane Flow",
+          "text": "<b>Shattered</b> Deal 4 damage.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fdffdcb9cf132ecbc1448ebfff572e5a8433ec7fcdd0d54d5beda3c04577732b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123692,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123743&locale=zh_CN",
+        "response_file": "official-CATA_489t-zh_CN.json",
+        "response_sha256": "83df6df05fbac76f4fc44e38cc4c3b7f973ef7773a1e9b743c4dad6a0e247d20",
+        "face": {
+          "id": 123743,
+          "collectible": 0,
+          "slug": "123743-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "奥术涌流",
+          "text": "<b>已裂变</b> 造成 4点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d6d711788c3c0f19cfa8872559b412d4c4d6189059473f1ad03d4a066fc7bd5.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123692,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489t2",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123744&locale=en_US",
+        "response_file": "official-CATA_489t2-en_US.json",
+        "response_sha256": "60fad9b53a8ede56c36b49060c109086ce6d0c8e409153ca1100345da6c7fd00",
+        "face": {
+          "id": 123744,
+          "collectible": 0,
+          "slug": "123744-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "Arcane Flow",
+          "text": "<b>Shattered</b> Deal 2 damage to all enemies.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a43d4e43331a89c945f976189ae4832db5d895efac3a3c4b64caf6a70bbd6dc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123692,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_489t2",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123744&locale=zh_CN",
+        "response_file": "official-CATA_489t2-zh_CN.json",
+        "response_sha256": "3796fc0a88808d551d35d0fddf586e1ec7a926037c3fb7ab2b5720f28eef2f46",
+        "face": {
+          "id": 123744,
+          "collectible": 0,
+          "slug": "123744-arcane-flow",
+          "classId": 4,
+          "multiClassIds": [],
+          "spellSchoolId": 1,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "manaCost": 4,
+          "name": "奥术涌流",
+          "text": "<b>已裂变</b> 对所有敌人造成 2点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e3968a3f4a53204e5dbe07e0126eec6af7b7230c0805c122bad357f8da8c8f8.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 123692,
+          "keywordIds": [
+            372
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "Complete two real Shatter families use native split/recombine/consumed printed keyword; raw alternate display segments and official flattened duplicate tooltip do not double payload.",
+    "Supply Run uses DrawMatching MINION count3 random/empty skip, then named fresh-state HAND-only BuffMinionsInZones +2/+2; fragments execute only their own halves. Empty-match/fatigue and exact draw reaction windows inherit local contracts pending CN.",
+    "Arcane Flow chosen4 SPELL damage, then named fresh-state enemy-character DamageBatch2; Arcane school retained for all three faces, Supply Run school absent. Ordinary target rules and source attribution unchanged.",
+    "TIME_101 complete existing definition pinned for actual-source bridge. CATA_820e source evidence only; no executable enchantment or broad pool registered.",
+    "Public Shatter overflow/fragment current-base copy/inheritance and accepted named continuation timing are native policies pending precise CN calibration."
+  ]
+}
