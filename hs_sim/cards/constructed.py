@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v139"
+CONTENT_VERSION = "constructed-cn37-preview-v140"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -333,5 +333,7 @@ def build_registry():
     register_native_killer_transform_cards(registry)
     from .simple_followup_p23_cards import register_simple_followup_p23_cards
     register_simple_followup_p23_cards(registry)
+    from .combined_shatter_generation_cards import register_combined_shatter_generation_cards
+    register_combined_shatter_generation_cards(registry)
     registry.validate()
     return registry

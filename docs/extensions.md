@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+通用构筑生成使用宿主GenerationContext绑定的constructed.cards完整资格池；原生已重组状态在首个入手通知前消费印刷裂变，见[生成与创建契约](m3-combined-shatter-generation.md)。
+
 原致死随从变形从DeathCause取得原身份，再在实际执行时核对完整驻留，交由公共变形生命周期执行；见[原凶手变形契约](m3-native-killer-transform.md)。
 
 本回合死亡随从的亡语继承读取原完整物理声明，保留原生记忆和声明证明，分配新的可移除身份；不能只复制behavior ID，见[亡语继承契约](m3-deathrattle-inheritance.md)。

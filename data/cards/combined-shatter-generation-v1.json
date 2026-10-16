@@ -1,0 +1,456 @@
+{
+  "batch": "K107",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_202",
+        "dbf_id": 123074,
+        "name": "能量窃取",
+        "name_en": "Stolen Power",
+        "text": "随机获取一张另一职业的<i>已拼合的</i><b>裂变</b>牌。",
+        "text_en": "Get a random <b>Shatter</b> card from another class. <i>(It's already combined).</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4239",
+              "name": "SHATTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "01030f44855ef77499c610337af3d7c4eaf9724db53f8d027bb2733d88a2b456"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_134",
+        "dbf_id": 122971,
+        "name": "荒林怪圈",
+        "name_en": "Wildwood Circle",
+        "text": "<b>裂变</b>\n召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”@召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+        "text_en": "[x]<b>Shatter</b>. Summon two\n 2/2 Treants. Give your\nminions \"<b>Deathrattle:</b>\n Summon a 2/2 Treant.\"@[x]Summon two 2/2\nTreants. Give your\nminions \"<b>Deathrattle:</b>\n__Summon a 2/2 Treant.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 122972,
+          "TAG_SCRIPT_DATA_NUM_2": 122973,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 4,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "765c00093fcd5f291b053390013170f4063388df73068f11f5f35aad3594710c",
+      "definition_sha256": "55b5710be3ccd0a966c33a249dc1cc4486f71a4886822e93eb24542ae5d09813"
+    },
+    {
+      "record": {
+        "id": "CATA_306",
+        "dbf_id": 122874,
+        "name": "教派分歧",
+        "name_en": "Schism",
+        "text": "<b>裂变</b>\n使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。@使一个友方随从获得+2/+3和<b>扰魔</b>。召唤一个它的复制。",
+        "text_en": "[x]<b>Shatter</b>\nGive a friendly minion\n+2/+3 and <b>Elusive</b>.\nSummon a copy of it.@Give a friendly minion\n+2/+3 and <b>Elusive</b>.\nSummon a copy of it.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 122876,
+          "TAG_SCRIPT_DATA_NUM_2": 122877,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 6,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e2749a2fe75e6600147f86304d5effbccf2d07a419cfe436da8929f9e632dfb5",
+      "definition_sha256": "bf91da21d6b2c300afc0d195ffb0cec4728a41fd78306c71f9519b8086cfedf5"
+    },
+    {
+      "record": {
+        "id": "CATA_479",
+        "dbf_id": 123139,
+        "name": "飞龙机动",
+        "name_en": "Flight Maneuvers",
+        "text": "<b>裂变</b>\n召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。@召唤两条4/2的幼龙。使你的随从获得+1攻击力和<b>圣盾</b>。",
+        "text_en": "[x]<b>Shatter</b>. Summon\ntwo 4/2 Drakes. Give\nyour minions +1 Attack\nand <b>Divine Shield</b>.@Summon two 4/2 Drakes. Give your minions +1 Attack and <b>Divine Shield</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 123141,
+          "TAG_SCRIPT_DATA_NUM_2": 123142,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 5,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "217499fc47091dbf282e70c378b3012724e6541f5b352ba7f75ce7ffdb98f242",
+      "definition_sha256": "fe80ba66484f0b064ff162e1d0abbfa0a80da15ed8177ad61ef854e4692da77b"
+    },
+    {
+      "record": {
+        "id": "CATA_489",
+        "dbf_id": 123692,
+        "name": "奥术涌流",
+        "name_en": "Arcane Flow",
+        "text": "<b>裂变</b>\n造成$4点伤害。对所有敌人造成$2点伤害。@造成$4点伤害。对所有敌人造成$2点伤害。",
+        "text_en": "[x]<b>Shatter</b>\nDeal $4 damage.\n_Deal $2 damage to\n_all enemies.@[x]Deal $4 damage.\n_Deal $2 damage to\n_all enemies.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 123743,
+          "TAG_SCRIPT_DATA_NUM_2": 123744,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 1,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "d692588ff441bab360ae4942f760f45ef6e1a3ed3e911244d603c2aa301f58a4",
+      "definition_sha256": "2f02402c7998c075790fb2df6337b2e564b64db0bfa0462c469ccdabc4d9f920"
+    },
+    {
+      "record": {
+        "id": "CATA_820",
+        "dbf_id": 121757,
+        "name": "运输补给",
+        "name_en": "Supply Run",
+        "text": "<b>裂变</b>\n抽三张随从牌。使你手牌中的随从牌获得+2/+2。@抽三张随从牌。使你手牌中的随从牌获得+2/+2。",
+        "text_en": "<b>Shatter</b>\nDraw 3 minions.\nGive minions in your\nhand +2/+2.@Draw 3 minions.\nGive minions in your\nhand +2/+2.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 121758,
+          "TAG_SCRIPT_DATA_NUM_2": 121760,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "a81ae9318b9a564b279263db916504694afa8a688592d0c7fad676d77994c555",
+      "definition_sha256": "036083aa9d42ae565acfd1d0a2214e738a774e9be7e0215449eb26c27180fd5e"
+    }
+  ],
+  "official_observations": {
+    "checked_at": "2026-10-16T19:59:29.995727+00:00",
+    "observations": [
+      {
+        "card_id": "CATA_202",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123074&locale=en_US",
+        "response_file": "official-CATA_202-en_US.json",
+        "response_sha256": "2dab8dfe0104f732205d323acd6acdb3b41d0dfc2e80d7bfacb9fbe781dab8cc",
+        "face": {
+          "id": 123074,
+          "collectible": 1,
+          "slug": "123074-stolen-power",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 3,
+          "name": "Stolen Power",
+          "text": "Get a random <b>Shatter</b> card from another class. <i>(It's already combined).</i>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/811bc50be12f52777d764c51791e5c587d941c31f487eda4bef91bc60b5f85cf.png",
+          "imageGold": "",
+          "flavorText": "Your powers are mine!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9dcd91f2767a9e8b84357c22e5aa9bdd14b4613f1c420164d6fd83d1bd160a5a.png",
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CATA_202",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123074&locale=zh_CN",
+        "response_file": "official-CATA_202-zh_CN.json",
+        "response_sha256": "6848afc70da9444f1f8ee8d8918c49537b941ac090430bbdff01d2c12dd77913",
+        "face": {
+          "id": 123074,
+          "collectible": 1,
+          "slug": "123074-stolen-power",
+          "classId": 7,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 1,
+          "artistName": "Patrik Bjorkstrom",
+          "manaCost": 3,
+          "name": "能量窃取",
+          "text": "随机获取一张另一职业的<i>已拼合的</i><b>裂变</b>牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48614fc17915b133d44f23bdb762cfc72de235bee22471681625d510869ef1c3.png",
+          "imageGold": "",
+          "flavorText": "我会夺取你的力量！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9dcd91f2767a9e8b84357c22e5aa9bdd14b4613f1c420164d6fd83d1bd160a5a.png",
+          "keywordIds": [
+            371
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "required_pool_id": "constructed.cards",
+  "required_generation_context": true,
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "raw_scan_scope": "Complete frozen rawSHATTER5 audit, never used as a substitute for format eligibility.",
+  "internal_policy": [
+    "Requires explicit host GenerationContext and matching constructed.cards PoolDefinition; shared eligibility/other current hero class, special bans, unknown eligible content validation and RNG remain authoritative. No implicit prototype/registered-only fallback.",
+    "Combined creation consumes the native printed SHATTER ability before card_created/card_added_to_hand; no split/recombine events, no newstateflag. Current/basecopy use ordinary native consumption lifecycle.",
+    "No production formalstandard pool is registered here. Experimental fixture pools establish internal execution only; M0 legal/generatedpool and M6 exactCN policies remain open."
+  ]
+}

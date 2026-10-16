@@ -98,8 +98,11 @@ class AddToHand(Effect):
     choose_branch: ChooseBranchSelection | None = None
     minion_grant: CreatedMinionGrant | None = None
     spell_damage: int = 0
+    combined_shatter: bool = False
 
     def __post_init__(self):
+        from .card_creation import validate_combined_shatter
+        validate_combined_shatter(self.combined_shatter)
         validate_declaration(self.spell_repeat)
         validate_minion_grant(self.minion_grant)
         validate_branch_declaration(self.choose_branch, self.card_id)

@@ -442,8 +442,11 @@ class GenerateFromPool(Effect):
     spell_repeat: CardSpellRepeatGrant | None = None
     cause: SummonCause | None = None
     producer_profile_id: str | None = None
+    combined_shatter: bool = False
 
     def __post_init__(self):
+        from .card_creation import validate_combined_shatter
+        validate_combined_shatter(self.combined_shatter)
         if self.producer_profile_id is not None:
             if type(self.producer_profile_id) is not str or not self.producer_profile_id or self.cause is None or self.destination != 'board':
                 raise ValueError('Logical summon profile requires a named attributed board batch')
@@ -463,6 +466,8 @@ def validate_delivery(effect):
     position_value(effect.position)
     if effect.destination != 'deck' and effect.position != 'random':
         raise ValueError('Generation insertion position applies only to the deck')
+    if getattr(effect,'combined_shatter',False) and effect.destination!='hand':
+        raise ValueError('Combined Shatter generation requires hand delivery')
     from .effects import validate_generated_cost
     validate_generated_cost(effect.cost, effect.expires_turn)
     if effect.destination == 'board' and effect.spell_repeat is not None:
@@ -525,7 +530,8 @@ def deliver_generated(effect, selected):
         return tuple(AddToDeck(effect.player_id, card_id, effect.position, effect.source_id,
                                effect.cost, effect.expires_turn, spell_repeat=effect.spell_repeat) for card_id in selected)
     return tuple(AddToHand(effect.player_id, card_id, effect.source_id,
-                          cost=effect.cost, expires_turn=effect.expires_turn, spell_repeat=effect.spell_repeat) for card_id in selected)
+                          cost=effect.cost, expires_turn=effect.expires_turn, spell_repeat=effect.spell_repeat,
+                          combined_shatter=getattr(effect,'combined_shatter',False)) for card_id in selected)
 
 
 @dataclass(frozen=True)

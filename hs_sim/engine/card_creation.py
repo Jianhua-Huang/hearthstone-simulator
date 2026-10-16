@@ -119,6 +119,10 @@ def validate_branch_transfer(policy, value, mapping):
             raise ValueError('Branch mapping cannot duplicate source or target branches')
 
 
+def validate_combined_shatter(value):
+    if type(value)is not bool:raise ValueError('Combined Shatter creation requires a boolean declaration')
+
+
 def validate_spell_damage_grant(amount, source_id):
     integer(amount, 'created local Spell Damage', 0)
     if amount and source_id is None:
@@ -126,6 +130,8 @@ def validate_spell_damage_grant(amount, source_id):
 
 
 def validate_candidates(effect, definitions):
+    combined=getattr(effect,'combined_shatter',False)
+    validate_combined_shatter(combined)
     spec = getattr(effect, 'spell_repeat', None)
     validate_declaration(spec)
     selection = getattr(effect, 'choose_branch', None)
@@ -133,8 +139,10 @@ def validate_candidates(effect, definitions):
     validate_minion_grant(grant)
     spell_damage = getattr(effect, 'spell_damage', 0)
     validate_spell_damage_grant(spell_damage, effect.source_id)
-    if spec is None and selection is None and grant is None and not spell_damage: return
+    if spec is None and selection is None and grant is None and not spell_damage and not combined: return
     definitions = tuple(definitions)
+    if combined and any(d.kind!=CardType.SPELL or d.shatter is None or Keyword.SHATTER not in d.keywords for d in definitions):
+        raise ResolutionError('Every combined Shatter creation candidate must be a native whole spell')
     if spell_damage and any(d.kind != CardType.SPELL for d in definitions):
         raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
@@ -149,7 +157,8 @@ def validate_candidates(effect, definitions):
 def validate_creation(state, effect, definitions=()):
     validate_candidates(effect, definitions)
     spec = getattr(effect, 'spell_repeat', None)
-    if spec is None and getattr(effect, 'minion_grant', None) is None and not getattr(effect, 'spell_damage', 0):
+    if (spec is None and getattr(effect, 'minion_grant', None) is None and
+            not getattr(effect, 'spell_damage', 0) and not getattr(effect,'combined_shatter',False)):
         return
     if effect.source_id is not None and effect.source_id not in state.entities:
         raise ResolutionError('Creation attachment source does not exist')
@@ -163,6 +172,9 @@ def install(state, entity, effect):
     Like creation costs, this emits no intermediate acquisition/attachment event.
     The first card_created observer receives the complete card.
     """
+    if getattr(effect,'combined_shatter',False):
+        from .lifecycle import consume_keyword
+        consume_keyword(entity,Keyword.SHATTER)
     spec = effect.spell_repeat
     if spec is not None:
         from .card_spell_repeats import attach
