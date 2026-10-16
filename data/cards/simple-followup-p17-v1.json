@@ -1,0 +1,425 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "bytes": 23509652
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DREAM_01",
+        "dbf_id": 340,
+        "name": "欢笑的姐妹",
+        "name_en": "Laughing Sister",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b2b08bb3d1fffdac2c445ab5c51ef1792d780898b8bcf3c50232143b436ea530"
+    },
+    {
+      "record": {
+        "id": "DREAM_03",
+        "dbf_id": 489,
+        "name": "翡翠幼龙",
+        "name_en": "Emerald Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0e684c058e0bdae741eb4eb361118ea9276a9192b19d74bf532f3500da4fdae1"
+    },
+    {
+      "record": {
+        "id": "DREAM_04",
+        "dbf_id": 808,
+        "name": "梦境",
+        "name_en": "Dream",
+        "text": "将一个随从移回其拥有者的\n手牌。",
+        "text_en": "Return a minion to its owner's hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "56a17e938fa75b49a8bbe023fba879338c552fb53500f9996d699c18c3ddd8f5"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_001",
+        "dbf_id": 113328,
+        "name": "满怀希望的树妖",
+        "name_en": "Hopeful Dryad",
+        "text": "<b>战吼：</b>随机获取一张梦境牌。",
+        "text_en": "<b>Battlecry:</b> Get a random Dream card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8e2eb50d06b8a63e7f792fa3c6961d31c77d38b6413cffd44158322053e2698a"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T02:35:07.848327+08:00",
+    "source": "Eight complete cached official dependency/parent responses independently verified; no refetch",
+    "observations": [
+      {
+        "card_id": "EDR_001",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113328&locale=en_US",
+        "response_file": "official-EDR_001-en-us.json",
+        "response_sha256": "21ee596161db8d8ac2d8340518f39f73f2176682fe4f33c48cda16a6e9771307",
+        "face": {
+          "id": 113328,
+          "collectible": 1,
+          "slug": "113328-hopeful-dryad",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Timur Shevtsov",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Hopeful Dryad",
+          "text": "<b>Battlecry:</b> Get a random Dream card.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69a50e1a1774822479580e5f39fbb2f3de594e4e938b3121e3b05531bd996d14.png",
+          "imageGold": "",
+          "flavorText": "\"I hope this dragon doesn't eat me when it grows up.\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de2c9d77f95b3f98e5246e551fbdfc66726a84ffd77dd40083198441555d20aa.png",
+          "childIds": [
+            217,
+            808,
+            340,
+            301,
+            489
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_001",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113328&locale=zh_CN",
+        "response_file": "official-EDR_001-zh-cn.json",
+        "response_sha256": "82894ffa3a8c8f4665aa87c37ea8f42f22260179b371ce22856b1ba285bfd66e",
+        "face": {
+          "id": 113328,
+          "collectible": 1,
+          "slug": "113328-hopeful-dryad",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Timur Shevtsov",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "满怀希望的树妖",
+          "text": "<b>战吼：</b>随机获取一张梦境牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93d6806c252fb95a9876fbcbb7af3cb8301ad46bb48b455216b63d4e1cefcfeb.png",
+          "imageGold": "",
+          "flavorText": "“希望这条小龙长大之后不要吃掉我。”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de2c9d77f95b3f98e5246e551fbdfc66726a84ffd77dd40083198441555d20aa.png",
+          "childIds": [
+            217,
+            808,
+            340,
+            301,
+            489
+          ],
+          "keywordIds": [
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_01",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=340&locale=en_US",
+        "response_file": "official-DREAM_01-en-us.json",
+        "response_sha256": "bdc76333e8c860164748b9fce76df059fb7ac39a63a9e6cf40aabd3596ac0226",
+        "face": {
+          "id": 340,
+          "collectible": 0,
+          "slug": "340-laughing-sister",
+          "classId": 11,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 5,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Laughing Sister",
+          "text": "<b>Elusive</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e4eb5311f6f59cb6b5ab870e3b49db9ad2bd563a656fcdae2d3e3142ff90832.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_01",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=340&locale=zh_CN",
+        "response_file": "official-DREAM_01-zh-cn.json",
+        "response_sha256": "81049812f26540ed293bb79409cbae7f7c6f896d342d6165fe256558d2381fc8",
+        "face": {
+          "id": 340,
+          "collectible": 0,
+          "slug": "340-laughing-sister",
+          "classId": 11,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 5,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "欢笑的姐妹",
+          "text": "<b>扰魔</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f39e1d3ddb46896e6b7ddcc1bc5fe7df61391c5fbd8022e5ccbd766a6f79847b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "keywordIds": [
+            265
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_03",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=489&locale=en_US",
+        "response_file": "official-DREAM_03-en-us.json",
+        "response_sha256": "a697561257164eafbcd8fa2fed99b41d1f5c982ca734be4d515a8c2e6692721f",
+        "face": {
+          "id": 489,
+          "collectible": 0,
+          "slug": "489-emerald-drake",
+          "classId": 11,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 6,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "Emerald Drake",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8fcdc1e601d37e0645350593d61c5e91c4177bc701af1fd1476709e1e4e80d.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_03",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=489&locale=zh_CN",
+        "response_file": "official-DREAM_03-zh-cn.json",
+        "response_sha256": "7e100a4903cf05e50ef2144d8da693b6bbea69d1f6b471b44a5d339a30ded345",
+        "face": {
+          "id": 489,
+          "collectible": 0,
+          "slug": "489-emerald-drake",
+          "classId": 11,
+          "multiClassIds": [],
+          "minionTypeId": 24,
+          "cardTypeId": 4,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "health": 6,
+          "attack": 7,
+          "manaCost": 4,
+          "name": "翡翠幼龙",
+          "text": "",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91bedfa7c706312f6d6a9f91ee60c9f8f3583ef7171465c84a7de1fb9ddc86cc.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_04",
+        "locale": "en-us",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=808&locale=en_US",
+        "response_file": "official-DREAM_04-en-us.json",
+        "response_sha256": "740f24f7f662586a19031bc14fab11ff8102dfbd0100db84a215cba2993efdc2",
+        "face": {
+          "id": 808,
+          "collectible": 0,
+          "slug": "808-dream",
+          "classId": 11,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "manaCost": 0,
+          "name": "Dream",
+          "text": "Return a minion to its owner's hand.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e47b2807981b47d57da34bd5d38ab5d91f6d3ee299b1c34b3141d29926315c7e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DREAM_04",
+        "locale": "zh-cn",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=808&locale=zh_CN",
+        "response_file": "official-DREAM_04-zh-cn.json",
+        "response_sha256": "aaaf26d51ef00034fb96428d78f1a7be1d577b1a0827992b98872d172b886bc5",
+        "face": {
+          "id": 808,
+          "collectible": 0,
+          "slug": "808-dream",
+          "classId": 11,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 3,
+          "rarityId": null,
+          "artistName": null,
+          "manaCost": 0,
+          "name": "梦境",
+          "text": "将一个随从移回其拥有者的 手牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8626efc52e8e17f8b8b2fff2be2c1b90f0f7a793bb58f30e6411db92d2dabcbf.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "internal_policy": {
+    "DREAM_01": "Exact child340,2mana3/5 MINION with native Elusive. Complete metadata_from_record decodes original CLASS11 as CardClass.DREAM (nonplayable hero class), noncollectible, explicit no-rarity and empty printed tribe. Manual spell/hero power target protection and ordinary battlecry/combat/silence/automatic targeting remain native; no extra bespoke protection.",
+    "DREAM_03": "Exact child489,4mana7/6 ordinary Dragon MINION, complete native Dream metadata, noncollectible/no-rarity. Printed blank text is a reviewed vanilla definition, not unknown-effect fallback.",
+    "DREAM_04": "Exact child808 Nature SPELL with required BOARD MINION target on either side. Raw costNone and absentCOST remain unchanged; omit cost argument so native execution default0 applies, independent of official displayed manaCost0. One ordinary source-free ReturnToHand(target,to_owner=True): preserve physical identity, true original owner destination, normal reset on success and native full owner-hand death/Deathrattle rather than successful return. Original spell payment/cast attribution remain in native cast history. Native manual target protection/counter/automatic targeting/choice recovery are reused.",
+    "EDR_001": "Parent evidence only. Exact five children217/301/340/489/808; source and DREAM_02/05 remain reserved to coordinator. No partial three-item Dream random pool or VAN replacement; batch adds3 definitions and0 collectible roots.",
+    "evidence": "Four complete raw rows and eight full cached official EN/CN primary responses, independently verified. K102a resolves prior CLASS11 gap; historical P16 data/errors remain unchanged. Target/return/reset/overflow/automatic protection policies remain inherited local contracts pending precise CN calibration; full M0 formal pools remain open."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
