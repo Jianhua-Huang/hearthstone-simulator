@@ -100,11 +100,13 @@ class PoolSummonBatchSpec:
     count:int
     replacement:bool
     producer_profile_id:str|None=None
+    position:int|None=None
     def __post_init__(self):
         if type(self.cause)is not SummonCause or type(self.basis)is not PoolSummonBasis:raise ValueError('Typed attributed batch producer required')
         self.cause.__post_init__();self.basis.__post_init__();_integer(self.count,'original batch count',0)
         if type(self.replacement)is not bool:raise ValueError('Typed batch replacement required')
         if self.producer_profile_id is not None and (type(self.producer_profile_id)is not str or not self.producer_profile_id):raise ValueError('Named logical batch profile required')
+        if self.position is not None:_integer(self.position,'original pool batch board position',0)
 
 
 @dataclass(frozen=True)
@@ -186,7 +188,7 @@ def accept_batch(r,effect,candidates):
     amount=capture_amount(r,effect)
     count=effect.count if amount is None else amount.total
     if count>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Derived producer amount exceeds engineering budget')
-    spec=PoolSummonBatchSpec(effect.cause,basis,effect.count,effect.replacement,effect.producer_profile_id)
+    spec=PoolSummonBatchSpec(effect.cause,basis,effect.count,effect.replacement,effect.producer_profile_id,effect.board_position)
     before=r.game._rng.getstate()
     selected=sample_candidates(r.game._rng,candidates,count,replacement=effect.replacement)
     root=PoolSummonBatchRecord(r.state.next_pool_summon_id,len(r.game._events),r.state.turn,r.state.action_number,
@@ -195,11 +197,18 @@ def accept_batch(r,effect,candidates):
     return ((StartPoolSummonEntry(root.id,0),)if selected else ())+ (FinishPoolSummonBatch(root.id),)
 
 
+def entry_position(batch,index,children):
+    if batch.spec.position is None:return None
+    return batch.spec.position+sum(d.outcome=='delivered'for child_id in batch.entry_root_ids[:index]
+        for d in children[child_id].deliveries)
+
+
 def start_entry(r,effect):
     root=record(r.state,effect.batch_id)
     if root.status!='active'or effect.index!=len(root.entry_root_ids)or effect.index>=len(root.selected):raise ResolutionError('Out-of-order original pool entry')
     if root.entry_root_ids and next(x for x in r.state.card_summon_history if x.id==root.entry_root_ids[-1]).status=='active':raise ResolutionError('Pool entry preceded completion of previous entry')
     request=SummonByCard(root.spec.basis.player_id,(SummonEntryMaterial(root.selected[effect.index]),),root.spec.cause,
+        position=entry_position(root,effect.index,{x.id:x for x in r.state.card_summon_history}),
         capacity='preselected_attempt',producer_link=PoolSummonEntryLink(root.id,effect.index))
     continuation=accept_entry(r,request);child_id=r.state.card_summon_history[-1].id
     update(r.state,root,entry_root_ids=(*root.entry_root_ids,child_id))
@@ -230,7 +239,8 @@ def validate_link(state,root,*,closed=False):
         raise ValueError('Unknown pool entry producer')
     if (link.index>=len(batch.entry_root_ids)or batch.entry_root_ids[link.index]!=root.id or
         root.request.cause!=batch.spec.cause or root.request.player_id!=batch.spec.basis.player_id or
-        root.request.materials!=(SummonEntryMaterial(batch.selected[link.index]),)or root.request.capacity!='preselected_attempt'):
+        root.request.materials!=(SummonEntryMaterial(batch.selected[link.index]),)or root.request.capacity!='preselected_attempt'or
+        root.request.position!=entry_position(batch,link.index,{x.id:x for x in state.card_summon_history})):
         raise ValueError('Entry borrowed another original batch/index/cause/material')
 
 
@@ -250,7 +260,8 @@ def validate_record(state,registry,root,*,closed=False,children=None):
         req=child.request
         if (req.producer_link!=PoolSummonEntryLink(root.id,index)or req.cause!=root.spec.cause or
             req.player_id!=root.spec.basis.player_id or req.materials!=(SummonEntryMaterial(root.selected[index]),)or
-            req.capacity!='preselected_attempt' or child.event_cursor<=root.event_cursor):raise ValueError('Batch entry differs from original selected item/cause/window')
+            req.capacity!='preselected_attempt' or req.position!=entry_position(root,index,children)or
+            child.event_cursor<=root.event_cursor):raise ValueError('Batch entry differs from original selected item/cause/window')
 
 
 def validate_history(state,registry):

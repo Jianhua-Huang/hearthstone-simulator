@@ -9,6 +9,7 @@ from hs_sim.engine.summon_quantities import SummonCause
 from hs_sim.targets import TargetValidationError,canonical_digest
 from .health_cards import SCHOOLS
 from .metadata import metadata_from_record
+from .native_followup_cards import deathrattle_position
 
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/simple-followup-p34-v1.json'
 BATCH_HASH='618ce636fb8c17d12da944526cfa1517c542fce5b6b230834b614d3ae69654a5'
@@ -40,7 +41,7 @@ def register_simple_followup_p34_cards(registry):
     def astro(c):
         size=len(c.state.players[c.player_id].hand)
         return(SummonFromPool(c.player_id,POOL_ID,PoolQuery(kinds=(CardType.MINION,),collectible=True,min_cost=size,max_cost=size),source_id=c.source_id,cause=SummonCause.capture(c)),)
-    def atlas(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[ATLAS],source_id=c.source_id,cause=SummonCause.capture(c)),)
+    def atlas(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[ATLAS],source_id=c.source_id,cause=SummonCause.capture(c),position=deathrattle_position(c)),)
     def drake(c):return(GenerateFromPool(c.player_id,POOL_ID,QUERIES[DRAKE],source_id=c.source_id),)
     def aegis(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[AEGIS],source_id=c.source_id,cause=SummonCause.capture(c),entry_keywords=(Keyword.TAUNT,)),Imbue(c.player_id,c.source_id))
     bodies=dict(zip(ROOTS,(jackpot,seller,astro,atlas,drake,aegis)))

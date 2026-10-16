@@ -500,6 +500,7 @@ class GenerateFromPool(Effect):
     producer_profile_id: str | None = None
     combined_shatter: bool = False
     temporary_until_turn: int | None = None
+    board_position: int | None = None
 
     def __post_init__(self):
         from .card_creation import validate_combined_shatter
@@ -523,6 +524,10 @@ def validate_delivery(effect):
     position_value(effect.position)
     if effect.destination != 'deck' and effect.position != 'random':
         raise ValueError('Generation insertion position applies only to the deck')
+    if getattr(effect,'board_position',None)is not None:
+        integer(effect.board_position,'generated board position',0)
+        if effect.destination!='board' or effect.cause is None:
+            raise ValueError('Generated board position requires attributed board delivery')
     if effect.temporary_until_turn is not None:
         integer(effect.temporary_until_turn, 'temporary pool card deadline', 1)
         if (effect.destination!='hand' or effect.source_id is None or not effect.replacement or
@@ -702,8 +707,10 @@ class SummonFromPool(Effect):
     empty: str = 'skip'
     cause: SummonCause | None = None
     entry_keywords: tuple[Keyword,...] = ()
+    position: int | None = None
 
     def __post_init__(self):
+        if self.position is not None:integer(self.position,'pool summon board position',0)
         if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
                 any(type(k)is not Keyword for k in self.entry_keywords)):
             raise ValueError('Pool entry keywords support only the declared Taunt recipe')
@@ -736,13 +743,13 @@ def summon_from_pool(r,effect):
         from .pool_summons import PoolSummonBasis
         basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords)
         return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords)for m in rows),effect.cause,
-            'weighted',weights=tuple(m.weight for m in rows),pool_basis=basis))
+            'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='board_full')
         return ()
     if not rows:return ()
     card_id=sample_candidates(r.game._rng,rows,1,replacement=True)[0]
-    return (Summon(effect.player_id,card_id),)
+    return (Summon(effect.player_id,card_id,position=effect.position),)
 
 
 def validate_summon_boundary(game):

@@ -8,6 +8,7 @@ from hs_sim.engine.summon_quantities import SummonCause
 from hs_sim.targets import TargetValidationError,canonical_digest
 from .health_cards import SCHOOLS
 from .metadata import metadata_from_record
+from .native_followup_cards import deathrattle_position
 
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/simple-followup-p30-v1.json'
 BATCH_HASH='74a78237b63e65038ee37f215e2d11ea18bae5d1de9e4069222ee6c521089a37'
@@ -29,8 +30,8 @@ def load_batch():
 
 def register_simple_followup_p30_cards(registry):
     def maze(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[MAZE],source_id=c.source_id,cause=SummonCause.capture(c)),)
-    def mongrel(c):return(GenerateFromPool(c.player_id,POOL_ID,QUERIES[MONGREL],count=2,source_id=c.source_id,destination='board',cause=SummonCause.capture(c)),)
-    def sneed(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[SNEED],source_id=c.source_id,cause=SummonCause.capture(c)),)
+    def mongrel(c):return(GenerateFromPool(c.player_id,POOL_ID,QUERIES[MONGREL],count=2,source_id=c.source_id,destination='board',cause=SummonCause.capture(c),board_position=deathrattle_position(c)),)
+    def sneed(c):return(SummonFromPool(c.player_id,POOL_ID,QUERIES[SNEED],source_id=c.source_id,cause=SummonCause.capture(c),position=deathrattle_position(c)),)
     def tools(c):return(GenerateFromPool(c.player_id,POOL_ID,QUERIES[TOOLS],count=2,source_id=c.source_id,cost=CostSpec(delta=-2)),)
     bodies={MAZE:maze,MONGREL:mongrel,SNEED:sneed,TOOLS:tools}
     for row in load_batch()['cards']:

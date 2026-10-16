@@ -35,6 +35,15 @@ def minions(c, registry, player_id):
         and registry.card(e.card_id).interactable is None)
 
 
+def deathrattle_position(c):
+    """Use the actual natural death slot, or the live carrier's right side."""
+    if c.deathrattle is None:
+        raise ValueError('Deathrattle placement requires its actual native activation')
+    if c.death is not None:return c.death.position
+    board=c.state.players[c.player_id].board
+    return board.index(c.source_id)+1 if c.source_id in board else None
+
+
 def characters(c, registry, player_id):
     hero = c.state.entities[c.state.players[player_id].hero_id]
     return ((hero.id,) if hero.active and hero.health > 0 and not hero.doomed else ()) + minions(c, registry, player_id)
