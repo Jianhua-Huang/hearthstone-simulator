@@ -150,13 +150,14 @@ class SpellBonusMultiplierBasicsTests(unittest.TestCase):
         self.assertEqual((card.cost, card.spell_school, card.metadata.rarity), (1, SpellSchool.ARCANE, Rarity.EPIC))
         self.assertFalse(packet['CN_calibrated'])
 
-    def test_coefficient_rejects_noninteger_nonpositive_and_nonspell_requests(self):
-        for value in (True, False, 0, -1, 1.5, '2', None):
+    def test_coefficient_rejects_noninteger_negative_and_nonspell_requests(self):
+        for value in (True, False, -1, 1.5, '2', None):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 Damage(1, 2, 3, DamageKind.SPELL, spell_bonus_multiplier=value)
         for kind in (DamageKind.EFFECT, DamageKind.COMBAT, DamageKind.MINION_ABILITY, DamageKind.HERO_POWER):
-            with self.subTest(kind=kind), self.assertRaises(ValueError):
-                Damage(1, 2, 3, kind, spell_bonus_multiplier=2)
+            for coefficient in (0,2):
+                with self.subTest(kind=kind,coefficient=coefficient), self.assertRaises(ValueError):
+                    Damage(1, 2, 3, kind, spell_bonus_multiplier=coefficient)
         with self.assertRaises(ValueError): Damage(1, 2, kind=DamageKind.FATIGUE, spell_bonus_multiplier=2)
 
     def test_native_base_two_plus_double_bonus_zero_one_and_three(self):
@@ -332,7 +333,7 @@ class SpellBonusMultiplierBasicsTests(unittest.TestCase):
         value = Damage(self.entity(g).id, 2, source, DamageKind.SPELL, spell_bonus_multiplier=2)
         raw = codec.encode(value)
         self.assertEqual(codec.decode(raw), value)
-        for field, value in (('spell_bonus_multiplier', True), ('spell_bonus_multiplier', 0), ('unknown', 1)):
+        for field, value in (('spell_bonus_multiplier', True), ('spell_bonus_multiplier', -1), ('unknown', 1)):
             with self.subTest(field=field, value=value):
                 bad = deepcopy(raw)
                 bad['fields'][field] = value

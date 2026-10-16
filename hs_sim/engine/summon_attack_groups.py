@@ -3,7 +3,7 @@ from copy import deepcopy
 from dataclasses import dataclass,replace
 
 from .effects import Effect,ForceAttack,_integer
-from .model import BoardPresenceReference,CardType,_name
+from .model import BoardPresenceReference,CardType,_name,validate_combat_relation
 from .original_summon_groups import recipients
 from .owner_turns import validate_accepted_prefix
 from .registry import RuleContext
@@ -14,10 +14,12 @@ class SummonAttackProfile:
     card_id:str
     token_id:str
     count:int
+    combat_relation:str='opponent'
 
     def __post_init__(self):
         _name(self.card_id,'summon attack spell');_name(self.token_id,'summon attack token')
         _integer(self.count,'original summon attack requests',1)
+        validate_combat_relation(self.combat_relation)
 
 
 def validate_profile(registry,profile):
@@ -62,7 +64,8 @@ def execute(r,effect):
     current=replace(old,state=deepcopy(r.state),cast=r.state.cast_history[old.cast.id-1])
     ids=recipients(old,current,r.registry,profile.token_id,profile.count)
     return tuple(ForceAttack(BoardPresenceReference(r.state.successful_summon_history[i-1].entity_id,
-        r.state.successful_summon_history[i-1].minion.entered_order),effect.target)for i in ids)
+        r.state.successful_summon_history[i-1].minion.entered_order),effect.target,
+        combat_relation=profile.combat_relation)for i in ids)
 
 
 def register(mechanics):mechanics.register(AttackSummonedGroup,execute)

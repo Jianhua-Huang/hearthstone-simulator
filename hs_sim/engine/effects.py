@@ -417,7 +417,7 @@ class Damage(Effect):
         _source(self.source_id)
         _damage_kind(self.kind, self.source_id)
         _health_callback(self.on_result, self.source_id)
-        _integer(self.spell_bonus_multiplier, "spell_bonus_multiplier", 1)
+        _integer(self.spell_bonus_multiplier, "spell_bonus_multiplier", 0)
         if self.spell_bonus_multiplier != 1 and self.kind != DamageKind.SPELL:
             raise ValueError("Only SPELL damage may scale its Spell Damage bonus")
 

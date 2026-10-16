@@ -31,3 +31,5 @@
 没有新的持久模型字段、伤害或支付控制器。core369/schema294拒旧1～293，观察86/命令12/replay1保持，默认代表注册表指纹及旧卡定义保持。完整帧、入场身份、原状态及随机材料不投影给玩家。
 
 [中英卡面比较](../outputs/card-integration-20261014/k75-official-face-01/comparison.json)核对真实符文、武器属性、护士及双向child关联。[36.0.3官方说明](https://hearthstone.blizzard.com/en-us/news/24290431)把紧急手术的数量从三改为四，与固定37.0有效卡面一致；[实际HTTP200归档](../outputs/card-integration-20261014/k75-official-patch-01/observation.json)保留。此证据不代替全部国服热修、正式标准池和精确时序校准。
+
+后续真实树群来袭在SummonAttackProfile末尾增加有默认值的combat_relation，紧急手术三参调用保持opponent；有限双方随从关系及当前格式见[真实源扩展](m3-native-shreds-treants.md)。本节原组/容量/反应政策保持，历史core369/schema294不代表当前新格式。

@@ -313,7 +313,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
             from .spell_casts import active_cast
             cast = active_cast(state,instruction.source_id,packet.source_controller)
             if cast is not None: cast_id = cast.id
-        bonus = spell_bonus(state, packet.source_controller, registry, packet.school,cast_id=cast_id) * multiplier
+        bonus = 0 if multiplier == 0 else spell_bonus(state, packet.source_controller, registry, packet.school,cast_id=cast_id) * multiplier
         amount = packet.amount + bonus
         packet = replace(packet, amount=min(amount, packet.numeric_limit) if packet.numeric_limit is not None else amount,
                          spell_bonus=bonus)

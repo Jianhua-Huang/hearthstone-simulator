@@ -19,7 +19,7 @@ Damage(ctx.target_id, 2, ctx.source_id, DamageKind.SPELL,
 
 ## 原伤害管线的边界
 
-- 系数必须是严格正整数，拒绝布尔、0、负数与其他类型；仅 `DamageKind.SPELL` 可以声明非 1 系数。来源、类型、回调和目标继续沿用旧验证。
+- 本节初始格式只支持正整数；真实时空撕裂后续开放0，见[真实源扩展](m3-native-shreds-treants.md)。当前仍拒绝布尔、负数与其他类型；仅 `DamageKind.SPELL` 可以声明非 1 系数。来源、类型、回调和目标继续沿用旧验证。
 - 转换与重定向后，只有最终是普通法术伤害的包进入法强步骤。原 `spell_damage_sources` 按实际来源控制者和实际学派取得同一份适用加成之和，然后乘系数。来源类型仍须是法术。
 - 报价公式是 `base_amount + spell_bonus_multiplier*S`；随后才进入原 SOURCE/TARGET 的 ADD、SCALE、SET、CAP、PREVENT 和生命下限步骤。默认 1 保留旧行为；治疗转法术伤害仍取得默认 1，不要求 `Heal` 拥有新字段。
 - `PreparedHealth.base_amount` 和 `HealthResult.base_amount` 保留原声明值；原 `spell_bonus` 保存本次实际加成。例如奥术冲击加 S=1 保存 base=2、bonus=2。结果续接消费原捕获结果，不重新查询当前法强。
@@ -36,3 +36,5 @@ Damage(ctx.target_id, 2, ctx.source_id, DamageKind.SPELL,
 ## 证据限度
 
 官方卡文支持加成翻倍的定义；应用窗口、护盾、死亡、等待及结果政策仍按既有内部管线验证，未经国服实际对局校准。不展开任意系数来源、授予或关键词组合，也不以四条标签记录宣称完整构筑范围已确定。M0 正式池、M6 国服校准、M7 批量接卡与完整目标继续开放。
+
+真实免疫法强来源对0的扩展及当前格式见[时空撕裂契约](m3-native-shreds-treants.md)；本文历史core246/schema222不代表新格式。原正系数语义与AT_004范围保持。

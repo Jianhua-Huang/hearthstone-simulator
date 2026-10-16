@@ -7409,7 +7409,7 @@ class MagneticRecord:
 
 
 def validate_combat_relation(value):
-    if type(value) is not str or value not in ('opponent', 'friendly_minions'):
+    if type(value) is not str or value not in ('opponent', 'friendly_minions', 'any_minions'):
         raise ValueError('Unsupported combat relation')
 
 

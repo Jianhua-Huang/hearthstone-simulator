@@ -1,0 +1,451 @@
+{
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_026",
+        "dbf_id": 120484,
+        "name": "续连熵能",
+        "name_en": "Entropic Continuity",
+        "text": "使你的随从获得+1/+1。将2张时空撕裂洗入你的牌库。",
+        "text_en": "[x]Give your minions +1/+1.\nShuffle 2 Shreds of Time\ninto your deck.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "bbd4b884f5e0d5c8b08247fa594a12ae8d03149435a1b373bcb4bbd1c748a5bb",
+      "reason": "Whole root skipped: necessary TIME_025t full raw tag349 ImmuneToSpellpower requires SPELL damage with no Spell Damage bonus. Native Damage(SPELL) gives 5 with Spell Damage+2 instead of3; multiplier0 is rejected and no per-card/profile suppression exists. Do not substitute EFFECT damage or omit CastsWhenDrawn/replacement."
+    },
+    {
+      "record": {
+        "id": "TLC_230",
+        "dbf_id": 117646,
+        "name": "树群来袭",
+        "name_en": "TREEEES!!!",
+        "text": "选择一个随从。召唤四个2/2的树人攻击该随从。",
+        "text_en": "Choose a minion. Summon four 2/2 Treants that attack it.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "44bc6dbf2e65f6b1012b1834957beb460f6b4a13ab605c2da4661f0c70f31da2",
+      "reason": "Whole root skipped: friendly MINION is a legal selected original target, but existing AttackSummonedGroup emits only default opponent ForceAttack. Actual four original summons occur, friendly target takes0 attacks versus enemy4; finite SummonAttackProfile has no combat-relation field. No card-layer group reconstruction/rebinding workaround."
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_025t",
+        "dbf_id": 120483,
+        "name": "时空撕裂",
+        "name_en": "Shred of Time",
+        "text": "<b>抽到时施放</b>\n对你的英雄造成$3点伤害。",
+        "text_en": "<b>Casts When Drawn</b>\nDeal $3 damage to\nyour hero.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "349": 1,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "514b2858af3ef90efee5257c1cb39b30cf753d02df86647fb3bcbac42f459ee1"
+    },
+    {
+      "record": {
+        "id": "TLC_230t",
+        "dbf_id": 118492,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "3bacdda6aa284cb15a80420a5ea70fb3bbfea5a810739698123eb04aac280f4e"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_026",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120484&locale=en_US",
+      "response_file": "official-TIME_026-en-us.json",
+      "response_sha256": "af0707ea77d682f81ac99339257cc4b306fcdcba2a7a930e6a69d7aa91c74efa",
+      "face": {
+        "id": 120484,
+        "collectible": 1,
+        "slug": "120484-entropic-continuity",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "Entropic Continuity",
+        "text": "Give your minions +1/+1. Shuffle 2 Shreds of Time into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35b86847c01521e6b089ba71d9d77ce19c0600d87bfc900775486be7a8b0548f.png",
+        "imageGold": "",
+        "flavorText": "I thought I signed up to go to the Tropic Continuity...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a04071aaaa0836fcb1fd7b9623683c93e20a09f51a80f2e9fefdb8d516abaf2.png",
+        "childIds": [
+          120483
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TIME_026",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=120484&locale=zh_CN",
+      "response_file": "official-TIME_026-zh-cn.json",
+      "response_sha256": "0eed04d492f976e19f992a2c33302cc49e76c175b088181ed7b867d9648f66bc",
+      "face": {
+        "id": 120484,
+        "collectible": 1,
+        "slug": "120484-entropic-continuity",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "续连熵能",
+        "text": "使你的随从获得+1/+1。将2张时空撕裂洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7cd37efc0291286c3e1f3a1e00b85bb39618adc31bcab5ed0a8f00e0fcc7e83.png",
+        "imageGold": "",
+        "flavorText": "我以为自己选的是商务，没想到是熵能……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a04071aaaa0836fcb1fd7b9623683c93e20a09f51a80f2e9fefdb8d516abaf2.png",
+        "childIds": [
+          120483
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_230",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117646&locale=en_US",
+      "response_file": "official-TLC_230-en-us.json",
+      "response_sha256": "56811244cd3104c7071d644ba45bc628706e8f86164f347c23ed5bde83aec386",
+      "face": {
+        "id": 117646,
+        "collectible": 1,
+        "slug": "117646-treeees",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "TREEEES!!!",
+        "text": "Choose a minion. Summon four 2/2 Treants that attack it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e57ec850c49873f2b2d720a50fd3bfe5a77b4a2e7df6ea8b768ab7ad64c93800.png",
+        "imageGold": "",
+        "flavorText": "Photo synth THIS, fool!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d7b11a5dbd6d75109bb0a1f79ddaef3a0cbaa74b874ce7194a2e8f9cf9d581a.png",
+        "childIds": [
+          118492
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_230",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=117646&locale=zh_CN",
+      "response_file": "official-TLC_230-zh-cn.json",
+      "response_sha256": "5da3154a83e2c781db120db47be92c8cabdd55d2b1051865e4709588d9168f0f",
+      "face": {
+        "id": 117646,
+        "collectible": 1,
+        "slug": "117646-treeees",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "树群来袭",
+        "text": "选择一个随从。召唤四个2/2的树人攻击该随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a96355a4a9550d94f17342fcd6f0e4544bf2018ba6563b6193ab3d710a9c11d3.png",
+        "imageGold": "",
+        "flavorText": "如果手速够快，就能掌控这群失控的树人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d7b11a5dbd6d75109bb0a1f79ddaef3a0cbaa74b874ce7194a2e8f9cf9d581a.png",
+        "childIds": [
+          118492
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TIME_025t",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120483&locale=en_US",
+      "response_file": "official-TIME_025t-en-us.json",
+      "response_sha256": "81da0f132f0456b878522b280e16fd802276f68727d4fde64ecb7b32c4107ddf",
+      "face": {
+        "id": 120483,
+        "collectible": 0,
+        "slug": "120483-shred-of-time",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 0,
+        "name": "Shred of Time",
+        "text": "<b>Casts When Drawn</b> Deal 3 damage to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c32cda6cb8c321bccb3c9b06340ce2f453092304b98cd17ec50c4346a4ef8aeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120482,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TIME_025t",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=120483&locale=zh_CN",
+      "response_file": "official-TIME_025t-zh-cn.json",
+      "response_sha256": "a1434865659593a7bebb7d4c3e29c7b7e1a373346aaff84788bd163b51bb970b",
+      "face": {
+        "id": 120483,
+        "collectible": 0,
+        "slug": "120483-shred-of-time",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 0,
+        "name": "时空撕裂",
+        "text": "<b>抽到时施放</b> 对你的英雄造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01e66ef0c21265f6e97ff25f700eaeb2ba68a0979e169c9f1326f134c5660772.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120482,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_230t",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118492&locale=en_US",
+      "response_file": "official-TLC_230t-en-us.json",
+      "response_sha256": "3736bce1bcab37665569347ec06a10719a2b392dc3094dc0585dcf98c769c692",
+      "face": {
+        "id": 118492,
+        "collectible": 0,
+        "slug": "118492-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Treant",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a07a9bb29fb66972316c0604b22f50cd5a231792e721c96c9a0c7824f1b4bd1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117646,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_230t",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118492&locale=zh_CN",
+      "response_file": "official-TLC_230t-zh-cn.json",
+      "response_sha256": "4a9cb14c579de0d0f4084826da8c062cb22cc4c1d9549b7fbc5ee9a9a6547341",
+      "face": {
+        "id": 118492,
+        "collectible": 0,
+        "slug": "118492-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "树人",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/160529e22f411a7622b4d90934ad12dbfcbb9904d1cf49ca643b57908f0ba37b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117646,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "entropy": "Capture original living active friendly minions, use guarded +1/+1 then native one semantic shuffle of two exact TIME025t. No printed school inferred.",
+    "shred": "Raw349 ImmuneToSpellpower retained. Native SPELL Damage3 to own hero with spell_bonus_multiplier0 ignores only Spell Damage provider sum, including current source-local spell bonus under existing shared definition; other source/target modifiers, damage classification/cast, countering, death and CWD replacement remain ordinary. No printed COST tag: retain null raw and use existing CardDefinition execution default0; no school invented.",
+    "trees": "Required any ordinary BOARD MINION, either side. Four fixed SummonByCard requests complete under original quantity/capacity/reaction policy, then exact original successful group attacks original target via combat_relation=any_minions. Original actors/target residence and normal force-attack rules remain. Partial board does not refill after later attacks; exact CN summon/attack order and control timing uncalibrated."
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}
