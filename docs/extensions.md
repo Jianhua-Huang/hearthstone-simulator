@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+普通池发现/随机获取的临时随从交付复用原CreateTemporaryCard，独立于费用到期；原期限、批次与等待恢复见[临时池随从契约](m3-temporary-pool-minions.md)。
+
 普通发现的固定属性增益转交已有实际创建层，包装器不支持时明确拒绝；有限形状与创建/烧牌窗口见[发现随从增益契约](m3-discovered-minion-grant.md)。
 
 已审印刷元数据在构筑组装时显式投影，生成目录从完整可执行定义登记，历史代表包保持原默认值；见[构筑元数据契约](m3-constructed-metadata-catalog.md)。

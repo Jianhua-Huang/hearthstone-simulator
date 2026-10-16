@@ -127,11 +127,16 @@ def make_hand_card_temporary(r, effect):
 def validate_temporary_frame(game):
     from dataclasses import fields, is_dataclass
     from .model import GameState
+    from .pools import DiscoverFromPool,GenerateFromPool
     seen = set()
 
     def visit(value):
         if type(value) is MakeHandCardTemporary:
             validate_temporary_request(game._state, game.registry, value)
+        if type(value)in(DiscoverFromPool,GenerateFromPool)and value.temporary_until_turn is not None:
+            value.__post_init__()
+            if value.temporary_until_turn!=game._state.turn:
+                raise ValueError('Temporary pool frame lost its accepted current-turn deadline')
         if value is None or type(value) is GameState or id(value) in seen:
             return
         if is_dataclass(value) and not isinstance(value, type):

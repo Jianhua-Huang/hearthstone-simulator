@@ -1,0 +1,266 @@
+{
+  "batch": "K115",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_449",
+        "dbf_id": 117837,
+        "name": "血瓣群系",
+        "name_en": "Bloodpetal Biome",
+        "text": "<b>发现</b>一张<b>临时</b>的法力值消耗为（1）的随从牌。",
+        "text_en": "<b>Discover</b> a <b>Temporary</b> 1-Cost minion.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 39,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cd638801948fec8e6b66c8e3f2bc9b62db3d362ac70e929609bc411b66f3c905"
+    },
+    {
+      "record": {
+        "id": "TLC_469",
+        "dbf_id": 118282,
+        "name": "坑道恐怪",
+        "name_en": "Tunnel Terror",
+        "text": "<b>亡语：</b>&随机获取两张<b>临时</b>的法力值消耗为（2）的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Get two random <b>Temporary</b>\n2-Cost minions.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "03f85208585c510e6bba86735cca725c8383b26168d1a4eed929d9fec13ff12d"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-16T22:44:24.920454+00:00",
+    "observations": [
+      {
+        "card_id": "TLC_449",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117837&locale=en_US",
+        "response_file": "official-TLC_449-en_US.json",
+        "response_sha256": "92a5d01662d78629c294101e70d7093807dd49da21d131299c0ed5832d298046",
+        "face": {
+          "id": 117837,
+          "collectible": 1,
+          "slug": "117837-bloodpetal-biome",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 39,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "manaCost": 1,
+          "name": "Bloodpetal Biome",
+          "text": "<b>Discover</b> a <b>Temporary</b> 1-Cost minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8246795c4e72d7068053b45a576b38552291d27cc22b7281a79184dadce0098.png",
+          "imageGold": "",
+          "flavorText": "The rash doesn't FEEL temporary.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1be7267d7bf29306f1ef49b37ffe7764aef78d51e1e7bbf6d6ca8e2479b30b85.png",
+          "keywordIds": [
+            21,
+            320
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_449",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117837&locale=zh_CN",
+        "response_file": "official-TLC_449-zh_CN.json",
+        "response_sha256": "f4f91e53b3b579384e64a54208fd33b51a403dd1e6616c4812f0ba700edea60b",
+        "face": {
+          "id": 117837,
+          "collectible": 1,
+          "slug": "117837-bloodpetal-biome",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 39,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "BOSi Studio",
+          "health": 2,
+          "manaCost": 1,
+          "name": "血瓣群系",
+          "text": "<b>发现</b>一张<b>临时</b>的法力值消耗为（1）的随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d1ccf6faeaa2c78e38b1f29efb08aafd9a9930ebe04117f368c3478aac7c8ed.png",
+          "imageGold": "",
+          "flavorText": "过敏的症状可不是临时的。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1be7267d7bf29306f1ef49b37ffe7764aef78d51e1e7bbf6d6ca8e2479b30b85.png",
+          "keywordIds": [
+            21,
+            320
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_469",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118282&locale=en_US",
+        "response_file": "official-TLC_469-en_US.json",
+        "response_sha256": "cadad06c4640821faccc9bda3bb3ae7b583a22dd8efc2935911d27b62b0f3da0",
+        "face": {
+          "id": 118282,
+          "collectible": 1,
+          "slug": "118282-tunnel-terror",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Ian Ameling",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "Tunnel Terror",
+          "text": "<b>Deathrattle:</b>& Get two random <b>Temporary</b> 2-Cost minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a201a7fabf97a33c28e0376516ec5058e36bb86c1c237120bd057b0411aa5bc.png",
+          "imageGold": "",
+          "flavorText": "And a tiny soul patch to match.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b24a4d34fe1e6a4023e22eb17e48cd04e87f5f13421c7a760ca43bfd88792b83.png",
+          "keywordIds": [
+            12,
+            320
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_469",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118282&locale=zh_CN",
+        "response_file": "official-TLC_469-zh_CN.json",
+        "response_sha256": "8daf1ba6fd04a2458855e62c8b19c750b7da60ca90e225b22f0ab2db1413856c",
+        "face": {
+          "id": 118282,
+          "collectible": 1,
+          "slug": "118282-tunnel-terror",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Ian Ameling",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 3,
+          "name": "坑道恐怪",
+          "text": "<b>亡语：</b>&随机获取两张<b>临时</b>的法力值消耗为（2）的随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/796eeea210862e883828a6c88623c2e7a8e3f96fad79aa7eb62cf428c4f1b2c9.png",
+          "imageGold": "",
+          "flavorText": "唇下再留一撮小胡子就更棒了。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b24a4d34fe1e6a4023e22eb17e48cd04e87f5f13421c7a760ca43bfd88792b83.png",
+          "keywordIds": [
+            12,
+            320
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Biome is actual1mana LOCATION with2uses from rawhealth2; nativeon_use ordinary1costMINION currenthero+neutral discovery toTemporaryhand.",
+    "Tunnel Terror actual3mana4/3BeastMINION withnativeDR get2random2costMINION anyclass toTemporaryhand. Entiretworesults sampled beforephysicaldelivery as normalGenerateFromPool.",
+    "Finite explicittemporary_until_turn freezescurrentglobalturn on nativebodyacceptance; delivery usesexistingCreateTemporaryCard, no cost-expiry alias or separateentity/lifetimeexecutor. Nativeexpiry/fullhand/interruption/windows are inherited internalpolicy pendingpreciseCN."
+  ]
+}

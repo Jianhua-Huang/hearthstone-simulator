@@ -409,6 +409,7 @@ class DiscoverFromPool(Effect):
     freeze_summoned: bool = False
     summon_copy_stats: SummonStats | None = None
     minion_grant: CreatedMinionGrant | None = None
+    temporary_until_turn: int | None = None
 
     def __post_init__(self):
         validate_minion_grant(self.minion_grant)
@@ -498,6 +499,7 @@ class GenerateFromPool(Effect):
     cause: SummonCause | None = None
     producer_profile_id: str | None = None
     combined_shatter: bool = False
+    temporary_until_turn: int | None = None
 
     def __post_init__(self):
         from .card_creation import validate_combined_shatter
@@ -521,6 +523,18 @@ def validate_delivery(effect):
     position_value(effect.position)
     if effect.destination != 'deck' and effect.position != 'random':
         raise ValueError('Generation insertion position applies only to the deck')
+    if effect.temporary_until_turn is not None:
+        integer(effect.temporary_until_turn, 'temporary pool card deadline', 1)
+        if (effect.destination!='hand' or effect.source_id is None or not effect.replacement or
+                type(effect.query)is not PoolQuery or effect.query.kinds!=(CardType.MINION,) or
+                effect.query.collectible is not True or effect.cost is not None or
+                effect.expires_turn is not None or effect.spell_repeat is not None or effect.cause is not None or
+                getattr(effect,'combined_shatter',False) or getattr(effect,'minion_grant',None)is not None or
+                getattr(effect,'gift_pool',None)is not None or getattr(effect,'heal_hero_by_printed_cost',False) or
+                getattr(effect,'freeze_summoned',False) or getattr(effect,'summon_copy_stats',None)is not None or
+                (type(effect)is DiscoverFromPool and
+                 (effect.count!=3 or effect.discoveries!=1 or effect.delivery!='after_each'))):
+            raise ValueError('Temporary pool cards require a plain source-bound hand-minion delivery')
     if getattr(effect,'combined_shatter',False) and effect.destination!='hand':
         raise ValueError('Combined Shatter generation requires hand delivery')
     from .effects import validate_generated_cost
@@ -533,6 +547,8 @@ def validate_delivery(effect):
 
 def generation_candidates(r, effect):
     effect.__post_init__()
+    if getattr(effect,'temporary_until_turn',None)is not None and effect.temporary_until_turn!=r.state.turn:
+        raise ResolutionError('Temporary pool deadline must be the accepted current turn')
     player = r.player(effect.player_id)
     source_card_id = None
     if effect.source_id is not None:
@@ -579,6 +595,10 @@ def generate_from_pool(r, effect):
 
 
 def deliver_generated(effect, selected):
+    if effect.temporary_until_turn is not None:
+        from .temporary_cards import CreateTemporaryCard
+        return tuple(CreateTemporaryCard(effect.player_id,card_id,effect.temporary_until_turn,
+                     source_id=effect.source_id)for card_id in selected)
     if effect.destination == 'board':
         return tuple(Summon(effect.player_id, card_id) for card_id in selected)
     if effect.destination == 'deck':
