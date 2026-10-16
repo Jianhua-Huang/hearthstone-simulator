@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实原攻击致死可在原不可变上下文冻结BOARD随从的基础复制材料，后续沿普通CopyCard执行；仅MINION/base，不开放场上当前冻结复制。来源/归因/格式与国服政策边界见[契约](m3-native-combat-copy.md)。
+
 真实免疫法强SPELL使用既有Damage系数0，原召唤组可声明限定双方随从关系；继续使用原健康和强制战斗执行器。类型、原引用、默认关系及旧格式边界见[契约](m3-native-shreds-treants.md)。
 
 真实延迟返还弃牌使用原生discard_link，在实际成功通知前绑定原记录；基础重新获取使用CopyCard(DiscardRecord,mode="base")，不扫描source_id历史，也不扩展旧物理返还范围。见[原生弃牌记忆](m3-native-discard-memory.md)。

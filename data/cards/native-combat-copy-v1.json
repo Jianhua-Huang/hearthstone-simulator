@@ -1,0 +1,150 @@
+{
+  "batch": "K100",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_247",
+        "dbf_id": 118235,
+        "name": "原始剑齿豹",
+        "name_en": "Primal Sabretooth",
+        "text": "<b>潜行</b>。在本随从攻击并消灭一个随从后，获取一张被消灭随从的复制。",
+        "text_en": "[x]<b>Stealth</b>\nAfter this attacks and kills a\nminion, get a copy of it.",
+        "cost": 4,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "592b9817f93b7b610f152c39d7070cc3414692195cf88bb6f7d4a2d6e58dbdca",
+      "recipe": {
+        "script": "sabre",
+        "keywords": [
+          "stealth"
+        ],
+        "deck_identity": "TLC_247"
+      }
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_247",
+      "locale": "en-us",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118235&locale=en_US",
+      "response_file": "official-TLC_247-en-us.json",
+      "response_sha256": "fbc3848bbcc48f24181407d7f43cab8a3663e7a5f653c3e876e87c412409572a",
+      "face": {
+        "id": 118235,
+        "collectible": 1,
+        "slug": "118235-primal-sabretooth",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Primal Sabretooth",
+        "text": "<b>Stealth</b> After this attacks and kills a minion, get a copy of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb5c98866a32e6dc27748b2c4b1ca0917955c23d37eeb2edcadb0d7c2de0bb2b.png",
+        "imageGold": "",
+        "flavorText": "100 dino birds versus 1 sabretooth. Who would win?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/001fd1dc54b3ed4b82a1d4f29e254b75ea2438cc41863fe805da8a7039a0a84c.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "card_id": "TLC_247",
+      "locale": "zh-cn",
+      "url": "https://hearthstone.blizzard.com/zh-cn/api/cards?card=118235&locale=zh_CN",
+      "response_file": "official-TLC_247-zh-cn.json",
+      "response_sha256": "9e8db33814a7140b25502cf71fe730fac92a4403ec4f9e67476558bf22c578d9",
+      "face": {
+        "id": 118235,
+        "collectible": 1,
+        "slug": "118235-primal-sabretooth",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "原始剑齿豹",
+        "text": "<b>潜行</b>。在本随从攻击并消灭一个随从后，获取一张被消灭随从的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/adf1b2a3bd5193484ccb82d6b73ff1f1ab3d27c6af0ea537b358438930cd2976.png",
+        "imageGold": "",
+        "flavorText": "100只恐鸟对阵1只剑齿豹，哪一方会获胜？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/001fd1dc54b3ed4b82a1d4f29e254b75ea2438cc41863fe805da8a7039a0a84c.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "internal_policy": {
+    "kill_credit": "Only native attack_finished with one completed original character attack by this living original minion residence. Exact target damage/poison death cause must have COMBAT health result credited to original source/residence and actual attack event window. No later DeathRecord query or synthetic death.",
+    "material": "Capture original target full immutable CapturedCardCopyMaterial in the original accepted context before death checkpoint; CopyCard base into original controller HAND uses same material even after later source movement or face replacement. Native printed face/components/Jade retained; local battlefield buffs/injury/cost and temporary hand clocks reset. Exact CN inheritance policy remains uncalibrated.",
+    "lifecycle": "Ordinary native trigger capture and death checkpoint order preserved. Source must be living and same combat residence when original native callback accepted; accepted original material survives later reactions. Silence, transform, source removal, full hand and created card notifications use existing lifecycle.",
+    "limits": "No current BOARD capture copies; BOARD payload only MINION/base, no new Effect/payload/history/state/operand fields. Existing stored/current and spent/base paths unchanged. No formal legal pool or CN timing certification."
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}

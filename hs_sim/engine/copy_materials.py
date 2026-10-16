@@ -53,7 +53,7 @@ class CopyLocalState:
 
 @dataclass(frozen=True)
 class CapturedCardCopyMaterial:
-    """Original stored-card material; no live reference is reread after a wait."""
+    """Original card material; board minions permit only printed base copies."""
     origin:SourceAllocationFact
     local:CopyLocalState
     components:tuple[str,...]
@@ -69,9 +69,10 @@ class CapturedCardCopyMaterial:
         if type(self.origin)is not SourceAllocationFact or type(self.local)is not CopyLocalState:
             raise ValueError('Captured card copy requires typed original material')
         self.origin.__post_init__();self.local.__post_init__()
-        if self.origin.zone not in(Zone.HAND,Zone.DECK,Zone.GRAVEYARD)or self.origin.kind not in(
-                CardType.MINION,CardType.SPELL,CardType.WEAPON,CardType.LOCATION,CardType.HERO):
-            raise ValueError('Captured card copy requires an original stored or spent card')
+        if (self.origin.zone not in(Zone.HAND,Zone.DECK,Zone.GRAVEYARD,Zone.BOARD)or self.origin.kind not in(
+                CardType.MINION,CardType.SPELL,CardType.WEAPON,CardType.LOCATION,CardType.HERO)or
+                self.origin.zone==Zone.BOARD and self.origin.kind!=CardType.MINION):
+            raise ValueError('Captured card copy requires an original stored/spent card or board minion')
         if type(self.components)is not tuple or any(type(cid)is not str or not cid for cid in self.components):
             raise ValueError('Captured copy requires ordered component identities')
         for name,floor in(('durability',0),('turn',1),('action',0),('next_attachment_id',1)):

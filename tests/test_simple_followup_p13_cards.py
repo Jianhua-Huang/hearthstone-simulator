@@ -117,7 +117,8 @@ class SimpleFollowupP13Tests(unittest.TestCase):
         after=build_registry()
         if not all(cid in after.cards for cid in ROOTS):register_simple_followup_p13_cards(after)
         for cid in COMPANIONS:self.assertEqual(asdict(before.card(cid)),asdict(after.card(cid)))
-        self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertNotIn(SABRE,after.cards)
+        self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS))
+        self.assertEqual(SABRE in before.cards,SABRE in after.cards)
 
     def test_default_311_and_complete_fingerprint_remain(self):
         from hs_sim.engine.representative import build_registry as default

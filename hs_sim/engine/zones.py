@@ -173,8 +173,8 @@ class CopyCard(Effect):
             if self.mode!='base' or self.card.zone!=Zone.BOARD:raise ValueError('Death copies require their original printed board-minion recipe')
         elif type(self.card)is CapturedCardCopyMaterial:
             self.card.__post_init__()
-            if self.card.origin.zone==Zone.GRAVEYARD and self.mode!='base':
-                raise ValueError('Spent-card copies require the printed base recipe')
+            if self.card.origin.zone in(Zone.GRAVEYARD,Zone.BOARD)and self.mode!='base':
+                raise ValueError('Spent/board captured copies require the printed base recipe')
         elif type(self.card)is CopyEntryMaterial:
             self.card.__post_init__()
             if (self.card.profile!='discard_copy' or self.player_id!=self.card.discard.player_id or
