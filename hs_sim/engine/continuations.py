@@ -131,9 +131,14 @@ class FrameCodec:
         from .forced_attack_sequences import AttackRandomEnemyMinion
         if type(value) is AttackRandomEnemyMinion and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
-        from .sacrifice import SetCapturedMinionStats
-        if type(value) is SetCapturedMinionStats and self.origin_state is not None:
+        from .sacrifice import SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger
+        if type(value) in (SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        if type(value) is BuffCapturedMinionWithStartTrigger:
+            self.registry.behavior(value.behavior_id)
+            self.registry.trigger_condition(value.condition_id)
+            if self.registry.card(value.beneficiary.card_id).kind != CardType.MINION:
+                raise ValueError('Numeric/start grant requires an original minion definition')
         from .attack_policies import GrantAttackPolicy
         if type(value) is GrantAttackPolicy and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

@@ -5,9 +5,9 @@ beneficiary or attaches to a later incarnation that happens to reuse its ID.
 """
 from dataclasses import dataclass
 
-from .effects import Buff, Destroy, Effect, GrantKeyword, SetStats, _integer, _player, _source
+from .effects import Buff, Destroy, Effect, GrantKeyword, SetStats, _behavior, _integer, _player, _source
 from .errors import ResolutionError
-from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, StatReference, TimedKeywordSpec, Zone
+from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, LimitedTriggerSpec, StatReference, TimedKeywordSpec, Zone
 
 
 @dataclass(frozen=True)
@@ -69,6 +69,53 @@ class BuffCapturedMinion(Effect):
 
     def __post_init__(self):
         reward_values(self)
+
+
+@dataclass(frozen=True)
+class BuffCapturedMinionWithStartTrigger(Effect):
+    """Install one numeric grant and its removable one-use turn-start callback."""
+    beneficiary: MinionReference
+    attack: int
+    health: int
+    behavior_id: str
+    source_id: int
+    condition_id: str
+
+    def __post_init__(self):
+        reward_values(self)
+        _integer(self.source_id, 'numeric/start grant source', 1)
+        _behavior(self.behavior_id)
+        _behavior(self.condition_id)
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ref = self.beneficiary
+        entity = state.entities.get(ref.entity_id)
+        if entity is None or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
+            raise ValueError('Numeric/start grant borrowed an unknown or future minion allocation')
+        if self.source_id not in state.entities:
+            raise ValueError('Numeric/start grant has an unknown original source')
+
+
+def buff_captured_minion_with_start_trigger(r, effect):
+    from .lifecycle import attachment_id
+    from .resolver import buff
+    effect.validate_in_state(r.state)
+    validate_request(r, effect)
+    spec = LimitedTriggerSpec('turn_started', effect.behavior_id, effect.condition_id)
+    r.registry.validate_limited_trigger(spec)
+    entity = live_minion(r.state, effect.beneficiary)
+    if entity is None:
+        r.stale(effect, effect.beneficiary.entity_id); return ()
+    # No reaction can capture a half-installed grant. Numeric application and
+    # its notification still use the ordinary stat executor and health tracking.
+    ability = AbilityInstance(attachment_id(r.state), 'limited_trigger', source_id=effect.source_id,
+                              limited_trigger=spec, uses_remaining=1)
+    entity.abilities.append(ability)
+    buff(r, Buff(entity.id, effect.attack, effect.health, effect.source_id))
+    r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
+           ability_id=ability.id, ability_kind=ability.kind)
+    return ()
 
 
 @dataclass(frozen=True)
@@ -324,6 +371,7 @@ def register(mechanics):
     mechanics.register(SacrificeAdjacent, sacrifice_adjacent)
     mechanics.register(CompleteDestructionBuff, complete_destruction_buff)
     mechanics.register(BuffCapturedMinion, buff_captured_minion)
+    mechanics.register(BuffCapturedMinionWithStartTrigger, buff_captured_minion_with_start_trigger)
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

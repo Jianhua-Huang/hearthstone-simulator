@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实数值与一次性开始回调须共同安装，原有限触发器负责条件、消费和来源；梦魇及伊瑟拉苏醒的限定表达见[契约](m3-complex-dream-cards.md)。
+
 梦境CLASS11使用独立CardClass.DREAM；可用英雄职业须按PLAYABLE_CARD_CLASSES查询，不能把所有非中立类别当作可玩职业。来源、类别筛选与格式边界见[契约](m3-dream-class.md)。
 
 真实施法完成消费者从原cast_id的target_origin读取已接受目标，原分配材料与开始事实共同保持；不在目标换面后查询当前类型。完整范围、回溯及信息边界见[契约](m3-native-cast-target.md)。
