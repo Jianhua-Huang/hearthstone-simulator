@@ -811,8 +811,13 @@ class SummonFromPool(Effect):
     cause: SummonCause | None = None
     entry_keywords: tuple[Keyword,...] = ()
     position: int | None = None
+    entry_dormant_turns: int | None = None
 
     def __post_init__(self):
+        if self.entry_dormant_turns is not None:
+            integer(self.entry_dormant_turns,'pool pre-entry dormant turns',1)
+            if self.cause is None or self.source_id is None or self.entry_keywords:
+                raise ValueError('Dormant pool entry requires a source-bound plain summon material')
         if self.position is not None:integer(self.position,'pool summon board position',0)
         if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
                 any(type(k)is not Keyword for k in self.entry_keywords)):
@@ -844,8 +849,8 @@ def summon_from_pool(r,effect):
     if effect.cause is not None:
         from .summon_quantities import SummonByCard,SummonEntryMaterial,accept
         from .pool_summons import PoolSummonBasis
-        basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords)
-        return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords)for m in rows),effect.cause,
+        basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,entry_dormant_turns=effect.entry_dormant_turns)
+        return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords,dormant_turns=effect.entry_dormant_turns)for m in rows),effect.cause,
             'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='board_full')

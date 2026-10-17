@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v415'
+CORE_EFFECTS_VERSION = 'core-effects-v416'
 
 
 class Mechanics:
@@ -493,7 +493,7 @@ class Resolution:
     def stale(self, effect, target_id):
         self.emit('effect_skipped', target_id=target_id, effect=type(effect).__name__, reason='target_not_in_play')
 
-    def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False):
+    def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
         from .game_boards import resolve_card_id
         card_id = resolve_card_id(self.state, self.registry, card_id)
         player = self.player(player_id)
@@ -525,7 +525,7 @@ class Resolution:
         install_base(self.state, entity, definition, self.registry, components, entry_herald_count=entry_herald_count)
         from .cthun import initialize_instance as initialize_cthun
         initialize_cthun(self.state, self.registry, entity)
-        initialize_dormancy(self.state, entity, definition)
+        initialize_dormancy(self.state, entity, definition, turns_override=entry_dormant_turns)
         if additional_hero_power:
             player.additional_hero_power_ids.append(entity_id)
         elif zone in (Zone.HERO, Zone.WEAPON, Zone.HERO_POWER):

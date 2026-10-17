@@ -29,8 +29,13 @@ class PoolSummonBasis:
     hero_class:CardClass|None
     candidates:tuple[PoolMember,...]
     entry_keywords:tuple[Keyword,...]=()
+    entry_dormant_turns:int|None=None
 
     def __post_init__(self):
+        if self.entry_dormant_turns is not None:
+            _integer(self.entry_dormant_turns,'original pool dormant turns',1)
+            if self.source is None or self.entry_keywords:
+                raise ValueError('Dormant pool entry requires a source and plain printed material')
         if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
                 any(type(k)is not Keyword for k in self.entry_keywords) or self.entry_keywords and self.source is None):
             raise ValueError('Original pool entry requires its finite typed Taunt declaration and source')
@@ -50,11 +55,11 @@ class PoolSummonBasis:
         if len({x.card_id for x in self.candidates})!=len(self.candidates):raise ValueError('Duplicate canonical pool entry')
 
     @classmethod
-    def capture(cls,r,effect,candidates,*,entry_keywords=()):
+    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None):
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords)
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
@@ -67,7 +72,7 @@ def validate_basis(state,registry,basis,*,closed=False):
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
         exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
-    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords))
+    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns))
 
 
 def choose_weighted(rng,materials,weights):
@@ -80,7 +85,7 @@ def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
     validate_basis(state,registry,request.pool_basis,closed=closed)
     if (request.player_id!=request.pool_basis.player_id or
-        request.materials!=tuple(SummonEntryMaterial(m.card_id,keywords=request.pool_basis.entry_keywords)for m in request.pool_basis.candidates)or
+        request.materials!=tuple(SummonEntryMaterial(m.card_id,keywords=request.pool_basis.entry_keywords,dormant_turns=request.pool_basis.entry_dormant_turns)for m in request.pool_basis.candidates)or
         request.weights!=tuple(m.weight for m in request.pool_basis.candidates)):
         raise ValueError('Weighted entry differs from original resolved pool')
 
@@ -104,6 +109,8 @@ class PoolSummonBatchSpec:
     def __post_init__(self):
         if type(self.cause)is not SummonCause or type(self.basis)is not PoolSummonBasis:raise ValueError('Typed attributed batch producer required')
         self.cause.__post_init__();self.basis.__post_init__();_integer(self.count,'original batch count',0)
+        if self.basis.entry_dormant_turns is not None:
+            raise ValueError('Preselected batch producer does not declare forced dormant entries')
         if type(self.replacement)is not bool:raise ValueError('Typed batch replacement required')
         if self.producer_profile_id is not None and (type(self.producer_profile_id)is not str or not self.producer_profile_id):raise ValueError('Named logical batch profile required')
         if self.position is not None:_integer(self.position,'original pool batch board position',0)

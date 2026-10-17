@@ -1,0 +1,142 @@
+{
+  "batch": "K126",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_058",
+        "dbf_id": 120964,
+        "name": "渺小的振翅蝶",
+        "name_en": "Paltry Flutterwing",
+        "text": "<b>亡语：</b>随机召唤一个\n法力值消耗为（2）并<b>休眠</b>2回合的随从。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\nrandom 2-Cost minion that\nis <b>Dormant</b> for 2 turns.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "732645d1d91a30e61e3826a7fa2b10b934c178598ab7312374eb1af27efc3c5f"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "TIME_058",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120964&locale=zh_CN",
+        "response_file": "official-TIME_058-zh_CN.json",
+        "response_sha256": "7a67a5ef97882a3e7209dbcd2d60f2a55bcaedcee7d96da7710cf9f865d50771",
+        "face": {
+          "id": 120964,
+          "collectible": 1,
+          "slug": "120964-paltry-flutterwing",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "渺小的振翅蝶",
+          "text": "<b>亡语：</b>随机召唤一个 法力值消耗为（2）并<b>休眠</b>2回合的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13ac264f8dd88e597cb42609a7205ed9796bce53d4b3ab7435ec22c4339af87b.png",
+          "imageGold": "",
+          "flavorText": "当心，振翅蝶效应的后果更危险！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e69db93b9ca1a663a3778fd5ba658143a1b256be9c035856e45aa3cf417d76fc.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_058",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120964&locale=en_US",
+        "response_file": "official-TIME_058-en_US.json",
+        "response_sha256": "5eebed5b5e868ce85dfd32c02198cc9b003c04ac38cdab607137d5ed4dac496a",
+        "face": {
+          "id": 120964,
+          "collectible": 1,
+          "slug": "120964-paltry-flutterwing",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Tanamaes Leejierasaes",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Paltry Flutterwing",
+          "text": "<b>Deathrattle:</b> Summon a random 2-Cost minion that is <b>Dormant</b> for 2 turns.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3d889b5b602c04d56a2eea7d168b0f2359a3b2505342b43242eb0f2989b2877.png",
+          "imageGold": "",
+          "flavorText": "Beware! The Flutterwing Effect is even more dangerous.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e69db93b9ca1a663a3778fd5ba658143a1b256be9c035856e45aa3cf417d76fc.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "entry_policy": "forced-plain-pre-entry-dormancy-v1",
+  "policy": "Original host complete printed2 collectibleMINION anyclass pool. Actual chosen plain material enters with forced2 turns installed during original allocation before first summon notification/auras, replacing ordinary initial timed or indefinite dormancy. Permanent carriers remain explicit unsupported beforeRNG, never cropped; no global permanence guard relaxation. Controller owner-start clock/on_awaken/quantity/death-slot/presence remain common. No normal-active entry followed by MakeDormant. Exact forced-vs-native precedence and CN windows remain uncalibrated.",
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}

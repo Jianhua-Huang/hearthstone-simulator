@@ -21,11 +21,19 @@ def active_abilities(entity, kind):
     return tuple(a for a in entity.abilities if a.kind == kind and not a.consumed) if eligible else ()
 
 
-def initialize_dormancy(state, entity, definition):
+def initialize_dormancy(state, entity, definition, *, turns_override=None):
+    if turns_override is not None:
+        from .effects import _integer
+        _integer(turns_override, 'entry dormant turns', 1)
+        if entity.zone != Zone.BOARD or entity.kind != CardType.MINION:
+            raise ValueError('Entry dormancy requires a newly allocated board minion')
+        if definition.permanent_dormancy:
+            raise ValueError('Timed entry cannot override a permanent dormant carrier')
     entity.dormancy = None
-    if entity.zone == Zone.BOARD and definition.dormant_turns != 0:
-        entity.dormancy = DormancyState(attachment_id(state), definition.dormant_turns,
-                                       state.turn, definition.permanent_dormancy)
+    turns = definition.dormant_turns if turns_override is None else turns_override
+    if entity.zone == Zone.BOARD and turns != 0:
+        entity.dormancy = DormancyState(attachment_id(state), turns,
+                                       state.turn, definition.permanent_dormancy if turns_override is None else False)
     refresh_entity(entity)
 
 

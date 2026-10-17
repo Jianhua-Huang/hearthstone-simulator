@@ -62,9 +62,14 @@ class SummonEntryMaterial:
     stats: SummonStats | None = None
     deathrattles: tuple[str,...] = ()
     keywords: tuple[Keyword,...] = ()
+    dormant_turns: int | None = None
 
     def __post_init__(self):
         from .model import validate_summon_stats
+        if self.dormant_turns is not None:
+            _integer(self.dormant_turns, 'pre-entry dormant turns', 1)
+            if self.stats is not None or self.deathrattles or self.keywords:
+                raise ValueError('Forced dormant entry requires its plain printed minion material')
         if type(self.card_id) is not str or not self.card_id: raise ValueError('Summon entry requires a card')
         validate_summon_stats(self.stats)
         if type(self.deathrattles) is not tuple or any(type(s) is not str or not s for s in self.deathrattles):
@@ -163,6 +168,8 @@ def validate_material(registry,material):
     if (card.kind!=CardType.MINION or card.choice_only or card.starship_for or card.colossal or
             Keyword.MAGNETIC in card.keywords or Keyword.STARSHIP_PIECE in card.keywords):
         raise ValueError('This entry profile requires an ordinary non-composite minion')
+    if material.dormant_turns is not None and card.permanent_dormancy:
+        raise ValueError('Forced timed entry for a permanent dormant carrier is unsupported')
     for s in material.deathrattles: registry.behavior(s)
 
 
@@ -441,7 +448,8 @@ def deliver(r,effect):
             from .resurrection_summons import create_body
             entity=create_body(r,material,root.request.player_id,position)
         else:entity=r.create_entity(root.request.player_id,material.card_id,Zone.BOARD,position,
-            entry_herald_count=None if root.entry_strength is None else root.entry_strength.count)
+            entry_herald_count=None if root.entry_strength is None else root.entry_strength.count,
+            entry_dormant_turns=material.dormant_turns if type(material)is SummonEntryMaterial else None)
         if type(material) is PhysicalReplayEntryMaterial:
             entity.origin_entity_id = root.request.cause.source.entity_id
         if type(material)is ResurrectionEntryMaterial:
