@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原具名交付后的全体生命偷取使用`original_named_reference`及`StealHealthFromOtherMinions`；不要给白板衍生物永久加战吼或逐个发送独立Buff模拟原子批次，见[契约](m3-pterrordax-egg.md)。
+
 真实固定预算召唤使用`SummonManaWorth`和原`SummonCause`，不要猜未来分配ID或扫描同来源历史。预算链接、终局及过载回溯见[契约](m3-mana-worth-summons.md)。
 
 真实手中幸运币武器减费使用`CoinHandCountCostSpec`及经完整源核对的SPELL身份分类，不按卡名或法力效果猜定；普通付款和冻结历史见[契约](m3-coin-hand-costs.md)。

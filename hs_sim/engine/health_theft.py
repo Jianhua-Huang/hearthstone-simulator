@@ -7,7 +7,7 @@ from dataclasses import dataclass, replace
 from .effects import Buff, Effect, _integer, _player
 from .errors import ResolutionError
 from .health_loss import StealHeroHealth, adjust_max_health, current_living_hero, steal_hero_health
-from .model import CardType, Zone
+from .model import BoardPresenceReference, CardType, Zone
 from .sacrifice import MinionReference, live_minion, reference_value
 
 
@@ -78,6 +78,24 @@ class ChooseHealthForMinion(Effect):
         _integer(self.amount, 'chosen stolen minion health', 0)
         _integer(self.count, 'remaining minion theft choices', 0)
         _integer(self.source_id, 'chosen minion health theft source', 1)
+
+
+@dataclass(frozen=True)
+class StealHealthFromOtherMinions(Effect):
+    player_id: int
+    beneficiary: BoardPresenceReference
+    amount: int
+    source_id: int
+
+    def __post_init__(self):
+        _player(self.player_id)
+        if type(self.beneficiary) is not BoardPresenceReference:
+            raise ValueError('Other-minion theft requires its original delivered board residence')
+        self.beneficiary.__post_init__()
+        _integer(self.amount, 'health stolen from each other minion', 0)
+        _integer(self.source_id, 'original stealing minion', 1)
+        if self.source_id != self.beneficiary.entity_id:
+            raise ValueError('Other-minion theft belongs to the original stealing minion itself')
 
 
 def eligible(r, player_id, reference):
@@ -165,6 +183,43 @@ def deliver_to_minion(r, request):
     return ()
 
 
+def steal_from_other_minions(r, request):
+    """Freeze all donor amounts, then commit the complete batch before events."""
+    from .board_presence import resolve_board_presence
+    from .resolver import _buff_to
+    validate_source(r, request)
+    beneficiary = resolve_board_presence(r.state, request.beneficiary)
+    if (beneficiary is None or not beneficiary.active or beneficiary.health <= 0 or beneficiary.doomed or
+            beneficiary.controller != request.player_id):
+        r.stale(request, request.beneficiary.entity_id); return ()
+    if r.registry.card(beneficiary.card_id).interactable is not None:
+        raise ResolutionError('Health thief must be an ordinary current minion')
+    donors = []
+    for pid in (1, 2):
+        for eid in tuple(r.player(pid).board):
+            entity = r.state.entities[eid]
+            card = r.registry.card(entity.card_id)
+            if entity.zone != Zone.BOARD or entity.controller != pid or entity.kind != card.kind:
+                raise ResolutionError('Other-minion health inventory differs from its actual board')
+            if (entity.id == beneficiary.id or entity.kind != CardType.MINION or not entity.active or
+                    entity.health <= 0 or entity.doomed): continue
+            if card.interactable is not None:
+                raise ResolutionError('Health donor must be an ordinary current minion')
+            amount = min(request.amount, entity.health)
+            if amount: donors.append((entity, amount))
+    if not donors: return ()
+    changes = [(entity, _buff_to(r, Buff(entity.id, health=-amount, source_id=request.source_id),
+        entity, notify=False), -amount) for entity, amount in donors]
+    amount = sum(amount for _, amount in donors)
+    changes.append((beneficiary, _buff_to(r, Buff(beneficiary.id, health=amount, source_id=request.source_id),
+        beneficiary, notify=False), amount))
+    r.refresh_auras()
+    for entity, enchantment, delta in changes:
+        r.emit('stats_changed', source_id=request.source_id, target_id=entity.id,
+            enchantment_id=enchantment.id, attack_delta=0, health_delta=delta)
+    return ()
+
+
 def choose_for_minion(r, request):
     """Each actual choice observes the board after the preceding theft/reactions."""
     from .battlecries import active_battlecry
@@ -202,3 +257,4 @@ def register(mechanics):
     mechanics.register(RandomStealHealthToHero, choose)
     mechanics.register(StealHealthToMinion, deliver_to_minion)
     mechanics.register(ChooseHealthForMinion, choose_for_minion)
+    mechanics.register(StealHealthFromOtherMinions, steal_from_other_minions)

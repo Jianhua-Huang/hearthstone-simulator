@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "batch": "K163",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_831",
+        "dbf_id": 117674,
+        "name": "翼手龙蛋",
+        "name_en": "Pterrordax Egg",
+        "text": "<b>亡语：</b>召唤一只3/3并会从所有其他随从处\n偷取1点生命值的翼手龙。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon\na 3/3 Pterrordax that\nsteals 1 Health from\nall other minions.",
+        "cost": 3,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 117675
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "04ad4d7ed534a0acd5939b4e9a0ffd02dacb7f5575087681ba39cb1e37a823cd"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_831t",
+        "dbf_id": 117675,
+        "name": "幼年翼手龙",
+        "name_en": "Juvenile Pterrordax",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "3917400dc0b9d448289a19d413c5c73809b12084f16e4d384c08bd2c32048abf"
+    }
+  ],
+  "existing_definition_pins": {
+    "TLC_831t": "1e294c5b64f8b7d59112ffe0410ec5f202f78c89ad455f1a7e82d1228bf7a5b9"
+  },
+  "official_observations": [
+    {
+      "card_id": "TLC_831",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k163-source-preaudit-01/official/117674-zh_CN.json",
+      "response_sha256": "e9e3a437b316e03e2268a2853e6bee7c9b30c8a4a960bd5163bfe463a3da0665",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117674&locale=zh_CN",
+      "face": {
+        "id": 117674,
+        "collectible": 1,
+        "slug": "117674-pterrordax-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 3,
+        "name": "翼手龙蛋",
+        "text": "<b>亡语：</b>召唤一只3/3并会从所有其他随从处 偷取1点生命值的翼手龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e49fca30dc5bc075f0c9fb40582d1ce30444bb56d496c18e1543a2471f26969.png",
+        "imageGold": "",
+        "flavorText": "你打蛋，蛋就打你。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/757f4d80aa45f82bf6a9d36afb256d36f997dbc78323fcc03b70b0bb24b9740b.png",
+        "childIds": [
+          117675
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117674&locale=zh_CN",
+        "sha256": "e9e3a437b316e03e2268a2853e6bee7c9b30c8a4a960bd5163bfe463a3da0665",
+        "bytes": 800,
+        "observed_at": "2026-10-17T05:25:01.644915+00:00"
+      },
+      "original_response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117674-zh_CN.json"
+    },
+    {
+      "card_id": "TLC_831",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k163-source-preaudit-01/official/117674-en_US.json",
+      "response_sha256": "0e2af3aae11eae645c5c136682bb395b25b24e3080f82b85928163552c4df701",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117674&locale=en_US",
+      "face": {
+        "id": 117674,
+        "collectible": 1,
+        "slug": "117674-pterrordax-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 3,
+        "name": "Pterrordax Egg",
+        "text": "<b>Deathrattle:</b> Summon a 3/3 Pterrordax that steals 1 Health from all other minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecf02eea72091157d5c01a1a71d2213b5938febc9674ad30528d65ba37f01502.png",
+        "imageGold": "",
+        "flavorText": "When you crack this egg, it cracks you right back.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/757f4d80aa45f82bf6a9d36afb256d36f997dbc78323fcc03b70b0bb24b9740b.png",
+        "childIds": [
+          117675
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117674&locale=en_US",
+        "sha256": "0e2af3aae11eae645c5c136682bb395b25b24e3080f82b85928163552c4df701",
+        "bytes": 817,
+        "observed_at": "2026-10-17T05:25:01.665320+00:00"
+      },
+      "original_response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117674-en_US.json"
+    },
+    {
+      "card_id": "TLC_831t",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k163-source-preaudit-01/official/117675-zh_CN.json",
+      "response_sha256": "e0dc3dde01f899f7b80db7c91c9f409f3cb6328a80626bd84a95ace9cc6d0479",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117675&locale=zh_CN",
+      "face": {
+        "id": 117675,
+        "collectible": 0,
+        "slug": "117675-juvenile-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "幼年翼手龙",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc9b8e8c784a12f8f22b737ebbe7def4292112b78dc977e412355173ad5acbe5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117674,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117675&locale=zh_CN",
+        "sha256": "e0dc3dde01f899f7b80db7c91c9f409f3cb6328a80626bd84a95ace9cc6d0479",
+        "bytes": 570,
+        "observed_at": "2026-10-17T05:22:50.876364+00:00"
+      },
+      "original_response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117675-zh_CN.json"
+    },
+    {
+      "card_id": "TLC_831t",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k163-source-preaudit-01/official/117675-en_US.json",
+      "response_sha256": "08886f82744f7fcec1308083d1a31544a60c3942fd32246e288d1c1abeef04aa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117675&locale=en_US",
+      "face": {
+        "id": 117675,
+        "collectible": 0,
+        "slug": "117675-juvenile-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Juvenile Pterrordax",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59a084680be057c15f7fc5208c9eafbe4009d8b64055915634ea9678eb6cef19.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117674,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117675&locale=en_US",
+        "sha256": "08886f82744f7fcec1308083d1a31544a60c3942fd32246e288d1c1abeef04aa",
+        "bytes": 574,
+        "observed_at": "2026-10-17T05:22:50.697261+00:00"
+      },
+      "original_response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117675-en_US.json"
+    }
+  ],
+  "numeric_normalizations": {
+    "TLC_831": {
+      "attack": 0
+    }
+  },
+  "exact_primary_relations": 4,
+  "policies": {
+    "entry": "Original named3/3 delivery owns the followup; existing blank token stays unchanged. Source is the original delivered thief itself.",
+    "theft": "All current other living awake ordinary minions on both boards, including friendly. Original donor amounts are frozen before one atomic ordinary-attachment commit, then aura refresh and donor/beneficiary stats notifications.",
+    "lifecycle": "Keep continuous original board residence through minion face changes; departure/reentry, death, dormancy or controller change skips. No damage/healing packets; no target protection filtering.",
+    "uncalibrated": "Entry-after-reactions, all-donor atomic window, self-source attribution, notification order and exact CN health policy require M6."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}
