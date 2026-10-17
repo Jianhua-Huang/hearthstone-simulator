@@ -1,8 +1,17 @@
 """Turn-bound keyword lifetimes; provisional lifecycle contract R-129."""
 from dataclasses import replace
 
-from .model import CardType, KeywordExpiry, TimedKeywordSpec, Zone
+from .model import CardType, Keyword, KeywordExpiry, TimedKeywordSpec, Zone
 from .owner_turns import owner_turn_index
+
+HERO_IMMUNITY = TimedKeywordSpec(Keyword.IMMUNE)
+
+
+def supports_grant(entity, spec, source_id):
+    """Keep the existing minion scope; only the real next-own-start hero grant extends it."""
+    return (entity.kind == CardType.MINION and entity.zone == Zone.BOARD or
+            entity.kind == CardType.HERO and entity.zone == Zone.HERO and
+            spec == HERO_IMMUNITY and source_id is not None)
 
 
 def deadline(state, controller, spec):
@@ -68,7 +77,12 @@ def validate_instance(state, entity, ability):
     if spec is None:
         return
     if entity.kind != CardType.MINION:
-        raise ValueError('Timed keywords require minion carriers')
+        # Replacing a hero copies its ordinary granted attachments to the new
+        # hero and retains the old allocation in the graveyard. Both keep the
+        # original deadline and are retired by the same shared clock.
+        if (entity.kind != CardType.HERO or ability.origin != 'granted' or
+                spec != HERO_IMMUNITY or ability.source_id is None or expiry is None):
+            raise ValueError('Timed keywords require minion carriers or next-turn granted hero immunity')
     if expiry is None:
         if entity.zone == Zone.BOARD and not entity.starship_building and not ability.consumed:
             raise ValueError('A board timed keyword has no deadline')

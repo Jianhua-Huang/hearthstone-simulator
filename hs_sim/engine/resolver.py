@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v418'
+CORE_EFFECTS_VERSION = 'core-effects-v419'
 
 
 class Mechanics:
@@ -1828,9 +1828,9 @@ def grant_ability(r, effect):
     fields = dict(source_id=effect.source_id, expires_turn=effect.expires_turn)
     if isinstance(effect, GrantKeyword):
         if effect.duration is not None:
-            if entity.kind != CardType.MINION or entity.zone != Zone.BOARD:
-                raise ResolutionError('Timed keyword grants require board minions')
-            from .timed_keywords import deadline
+            from .timed_keywords import deadline, supports_grant
+            if not supports_grant(entity, effect.duration, effect.source_id):
+                raise ResolutionError('Timed keyword grants require board minions or source-bound next-turn hero immunity')
             fields['timed_keyword'] = effect.duration
             fields['keyword_expiry'] = deadline(r.state, entity.controller, effect.duration)
         if effect.keyword in (Keyword.REWIND, Keyword.CASTS_WHEN_DRAWN, Keyword.TWINSPELL, Keyword.MINIATURIZE, Keyword.GIGANTIFY, Keyword.MINI, Keyword.GIGANTIC, Keyword.ECHO, Keyword.SHATTER, Keyword.SHATTERED, Keyword.TITAN, Keyword.OLD_GOD, Keyword.QUEST, Keyword.QUESTLINE, Keyword.SIDEQUEST, Keyword.SECRET, Keyword.HERALD, Keyword.INVOKE, Keyword.COLOSSAL, Keyword.MAGNETIC, Keyword.COMBO, Keyword.OUTCAST, Keyword.FINALE, Keyword.MANATHIRST, Keyword.QUICKDRAW, Keyword.SPELLBURST, Keyword.FRENZY, Keyword.CORRUPT, Keyword.INFUSE):

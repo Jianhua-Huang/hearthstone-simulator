@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v181"
+CONTENT_VERSION = "constructed-cn37-preview-v182"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -413,6 +413,8 @@ def build_registry():
     register_simple_followup_p43_cards(registry)
     from .cosmic_manifestation_cards import register_cosmic_manifestation_cards
     register_cosmic_manifestation_cards(registry)
+    from .hero_outcast_immunity_cards import register_hero_outcast_immunity_cards
+    register_hero_outcast_immunity_cards(registry)
     register_reviewed_pool_metadata(registry)
     from .candidate_generation_catalog import register_candidate_pool_metadata
     register_candidate_pool_metadata(registry)
