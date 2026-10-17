@@ -140,6 +140,80 @@ class CardBatchToolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'multiple classes'):
             batch.check_face(raw, dict(face, multiClassIds=[1, 7]), 'zh_CN')
 
+    def zero_minion(self):
+        raw, face = self.face()
+        raw.update(type='MINION', health=2)
+        raw['tags']['CARDTYPE'] = 4
+        face.update(cardTypeId=4, health=2, attack=0)
+        return raw, face
+
+    def test_missing_attack_is_still_strict_without_a_card_specific_zero_declaration(self):
+        raw, face = self.zero_minion()
+        with self.assertRaisesRegex(ValueError, 'numeric face drift'):
+            batch.check_face(raw, face, 'zh_CN')
+
+    def test_explicit_zero_minion_is_bound_to_both_primary_faces_without_mutating_source(self):
+        raw, face = self.zero_minion()
+        before = deepcopy(raw)
+        batch.check_face(raw, face, 'zh_CN', numeric_normalizations={'attack': 0})
+        english = dict(face, name=raw['name_en'], text=raw['text_en'])
+        batch.check_face(raw, english, 'en_US', numeric_normalizations={'attack': 0})
+        self.assertEqual(raw, before)
+        self.assertIsNone(raw['attack'])
+
+    def test_missing_cost_can_only_be_declared_as_exact_primary_zero(self):
+        raw, face = self.face()
+        raw.update(type='SPELL', cost=None)
+        for value in (1, False, None):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(face, manaCost=value), 'zh_CN', numeric_normalizations={'cost': 0})
+        batch.check_face(raw, dict(face, manaCost=0), 'zh_CN', numeric_normalizations={'cost': 0})
+
+    def test_zero_declaration_cannot_hide_a_present_raw_value_or_tag(self):
+        raw, face = self.zero_minion()
+        for changes, tags in (({'attack': 1}, {}), ({'attack': 0}, {}), ({}, {'ATK': 0})):
+            candidate = deepcopy(raw)
+            candidate.update(changes)
+            candidate['tags'].update(tags)
+            with self.subTest(changes=changes, tags=tags), self.assertRaises(ValueError):
+                batch.check_face(candidate, face, 'zh_CN', numeric_normalizations={'attack': 0})
+
+    def test_zero_policy_rejects_boolean_positive_health_and_nonminion_attack_overrides(self):
+        raw, face = self.zero_minion()
+        for mapping in ({'attack': False}, {'attack': 1}, {'health': 0}, {'manaCost': 0}, []):
+            with self.subTest(mapping=mapping), self.assertRaises(ValueError):
+                batch.check_face(raw, face, 'zh_CN', numeric_normalizations=mapping)
+        raw['type'] = 'SPELL'
+        with self.assertRaisesRegex(ValueError, 'actual minion'):
+            batch.check_face(raw, face, 'zh_CN', numeric_normalizations={'attack': 0})
+
+    def test_manifest_zero_policy_cannot_change_unassigned_cards_or_undeclared_fields(self):
+        manifest = dict(schema=1, roots=['A'], effect_groups=[dict(cards=['A'])], source_sha256='0' * 64,
+            allowed_files=['data/cards/new.json', 'hs_sim/cards/new.py', 'tests/test_new.py'],
+            numeric_normalizations={'A': {'attack': 0}})
+        path = self.root / 'zeros.json'
+        self.write(path, manifest)
+        self.assertEqual(batch.load_manifest(path)['numeric_normalizations'], {'A': {'attack': 0}})
+        for value in ({'B': {'attack': 0}}, {'A': {}}, {'A': {'health': 0}}, {'A': {'cost': False}}, []):
+            self.write(path, dict(manifest, numeric_normalizations=value))
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                batch.load_manifest(path)
+
+    def test_cached_zero_observation_still_requires_explicit_semantic_validation(self):
+        raw, face = self.zero_minion()
+        cache = self.root / 'zeros'
+        cache.mkdir()
+        body = cache / '101-zh_CN.json'
+        self.write(body, dict(cards=[face]))
+        self.write(body.with_suffix('.receipt.json'), dict(
+            url='https://hearthstone.blizzard.com/en-us/api/cards?card=101&locale=zh_CN', sha256=batch.sha(body)))
+        original = body.read_bytes()
+        with self.assertRaises(ValueError):
+            batch.official(raw, 'zh_CN', cache, offline=True)
+        checked = batch.official(raw, 'zh_CN', cache, offline=True, numeric_normalizations={'attack': 0})
+        self.assertEqual(checked['face'], face)
+        self.assertEqual(body.read_bytes(), original)
+
     def test_offline_cache_requires_full_body_receipt_and_checks_hash(self):
         raw, face = self.face()
         cache = self.root / 'cache'

@@ -78,6 +78,12 @@ def load_manifest(path):
         relative_file(value)
         require(value.startswith(prefix) and value.endswith(suffix), 'Unexpected simple-batch file scope')
     require(task.get('source_sha256') and len(task['source_sha256']) == 64, 'Pin the complete source SHA256')
+    numeric = task.get('numeric_normalizations', {})
+    require(type(numeric) is dict and set(numeric) <= set(ids),
+            'Printed zero declarations must name assigned source identities')
+    for values in numeric.values():
+        validate_numeric_normalizations(values)
+        require(bool(values), 'Printed zero declarations must be explicit nonempty fields')
     return task
 
 
@@ -100,7 +106,13 @@ def display(text):
     return re.sub(r'\s+', '', text.translate(str.maketrans('', '', '$#&_')))
 
 
-def check_face(row, face, locale, display_normalizations=None):
+def validate_numeric_normalizations(values):
+    require(type(values) is dict and set(values) <= {'cost', 'attack'} and
+            all(type(v) is int and v == 0 for v in values.values()),
+            'Only explicit printed cost/attack zero declarations are supported')
+
+
+def check_face(row, face, locale, display_normalizations=None, *, numeric_normalizations=None):
     chinese = locale == 'zh_CN'
     require(locale in ('zh_CN', 'en_US'), 'Unreviewed face locale')
     require(face['id'] == row['dbf_id'], 'Official response selected another DBF identity')
@@ -120,8 +132,21 @@ def check_face(row, face, locale, display_normalizations=None):
     require(display(face['text']) == display(raw_text),
             'Official card rules drift: ' + row['id'])
     pairs = [('manaCost', 'cost'), ('attack', 'attack'), ('health', 'health')]
+    numeric = {} if numeric_normalizations is None else numeric_normalizations
+    validate_numeric_normalizations(numeric)
     for primary, raw in pairs:
-        require(face.get(primary) == row.get(raw), 'Official numeric face drift: ' + primary)
+        expected = row.get(raw)
+        if raw in numeric:
+            tag = 'COST' if raw == 'cost' else 'ATK'
+            require(expected is None and tag not in row['tags'],
+                    'Printed zero cannot replace an explicit source value/tag')
+            require(row.get('type') in ('MINION', 'SPELL', 'WEAPON', 'LOCATION', 'HERO', 'HERO_POWER') and
+                    (raw != 'attack' or row['type'] == 'MINION'),
+                    'Printed attack zero requires an actual minion source')
+            require(type(face.get(primary)) is int and face[primary] == 0,
+                    'Printed zero requires its exact full primary zero face')
+            expected = 0
+        require(face.get(primary) == expected, 'Official numeric face drift: ' + primary)
     for primary, raw in [('cardTypeId', 'CARDTYPE'), ('cardSetId', 'CARD_SET'), ('rarityId', 'RARITY')]:
         if raw in row['tags']:
             require(face.get(primary) == row['tags'][raw], 'Official typed face drift: ' + primary)
@@ -139,7 +164,7 @@ def check_face(row, face, locale, display_normalizations=None):
         require(row['tags']['CARDRACE'] in races, 'Official primary minion type drift')
 
 
-def official(row, locale, cache, *, offline=False, display_normalizations=None):
+def official(row, locale, cache, *, offline=False, display_normalizations=None, numeric_normalizations=None):
     cache = Path(cache)
     cache.mkdir(parents=True, exist_ok=True)
     path = cache / f"{row['dbf_id']}-{locale}.json"
@@ -167,7 +192,7 @@ def official(row, locale, cache, *, offline=False, display_normalizations=None):
     data = read(path)
     faces = [f for f in data['cards'] if f.get('id') == row['dbf_id']]
     require(len(faces) == 1, 'Missing or ambiguous cached primary face')
-    check_face(row, faces[0], locale, display_normalizations)
+    check_face(row, faces[0], locale, display_normalizations, numeric_normalizations=numeric_normalizations)
     return dict(card_id=row['id'], locale=locale, response_file=str(path.resolve()),
                 response_sha256=sha(path), url=url, face=faces[0], observation=read(receipt))
 
@@ -198,10 +223,13 @@ def prepare(manifest, output, *, root=ROOT, cache=None, offline=False):
              for cid in ids}
     faces = task.get('official_ids', task['roots'] + task.get('dependencies', []))
     require(len(faces) == len(set(faces)) and set(faces) <= set(ids), 'Official scope must use explicit unique source identities')
+    require(set(task.get('numeric_normalizations', {})) <= set(faces),
+            'Every printed zero declaration requires full primary observations')
     cache = Path(cache) if cache else Path(root) / 'outputs/card-source-cache-cn37/official'
     with ThreadPoolExecutor(max_workers=4) as executor:
         observations = list(executor.map(lambda pair: official(rows[pair[0]], pair[1], cache, offline=offline,
-                            display_normalizations=task.get('display_normalizations', {}).get(pair[0])),
+                            display_normalizations=task.get('display_normalizations', {}).get(pair[0]),
+                            numeric_normalizations=task.get('numeric_normalizations', {}).get(pair[0])),
                             [(cid, locale) for cid in faces for locale in ('zh_CN', 'en_US')]))
     result = dict(schema=1, batch=task['batch'], task=task, cards=cards,
                   official_observations=observations, source_verified=True,
