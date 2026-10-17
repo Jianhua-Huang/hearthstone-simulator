@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+地图“使用本次发现的原牌后再选余项”复用`DiscoverForPlayFollowup`；首次历史筛选与原余项必须分开，见[登山地图契约](m3-hiking-trail.md)，不要另造持续效果或在奖励时重抽池。
+
 查询原使用的随从类型使用`submitted_minion_types`或`played_minion_type_facts`，不读取实体后来的种族；任务中的有限类型匹配及其原起源范围见[契约](m3-played-minion-types.md)。
 
 整批复活后的攻击使用`Resurrect(death_ids=..., attack_after_all=True, cause=...)`，精确原死亡子集与整批窗口见[契约](m3-actual-reborn-resurrection-attacks.md)；不要用逐体`on_summon`替代整批结束，也不要重新实现随机攻击器。
