@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实原死体入库使用完整死亡行与墓地分配事实，不把稀疏死亡ID当列表索引，也不借中间手牌、复活或新副本替代物理洗回。有限原语、语义操作计数及恢复见[契约](m3-master-dusk-dead-shuffles.md)。
+
 原具名交付后的全体生命偷取使用`original_named_reference`及`StealHealthFromOtherMinions`；不要给白板衍生物永久加战吼或逐个发送独立Buff模拟原子批次，见[契约](m3-pterrordax-egg.md)。
 
 真实固定预算召唤使用`SummonManaWorth`和原`SummonCause`，不要猜未来分配ID或扫描同来源历史。预算链接、终局及过载回溯见[契约](m3-mana-worth-summons.md)。

@@ -1,0 +1,976 @@
+{
+  "schema": 1,
+  "batch": "K164",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_513",
+        "dbf_id": 117222,
+        "name": "暗中设伏",
+        "name_en": "Lie in Wait",
+        "text": "<b>任务：</b>将卡牌洗入你的牌库，总计5次。<b>奖励：</b>暮影\n大师。",
+        "text_en": "[x]<b>Quest:</b> Shuffle cards\ninto your deck, 5 times.\n<b>Reward: </b>Master Dusk.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 117224,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "d59e88d4da601f4ee8028800b54ed1419cb092d65139375f95706d517bfa4f0e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_513",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_513t",
+        "dbf_id": 117224,
+        "name": "暮影大师",
+        "name_en": "Master Dusk",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>潜行</b>的忍者。你的忍者会在其死亡时洗回你的牌库。",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\n3/3 Ninjas with <b>Stealth</b>.\nYour Ninjas now shuffle back\ninto your deck when they die.",
+        "cost": 3,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 30,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 3,
+          "BATTLECRY": 1,
+          "ARMOR": 8,
+          "HERO_POWER": 119197,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "EMOTECHARACTER": 467
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 119197,
+            "card_id": "TLC_513hp"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Topdog Entertainment"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "23a4f96b5a5fb2573ff930e797e4c6a24857b68d9f3ed5666d6fb8ac676426e2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_513t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_513hp",
+        "dbf_id": 119197,
+        "name": "隐甲之道",
+        "name_en": "Way of the Shell",
+        "text": "抽两张你套牌之外的牌。",
+        "text_en": "Draw 2 cards\nthat didn't start\nin your deck.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Topdog Entertainment"
+          }
+        ]
+      },
+      "record_sha256": "25523686c060bf90822605bcbe4c8a5ce9afe2394c806166dde205f770c6f193",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_513hp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_513t2",
+        "dbf_id": 119563,
+        "name": "忍者始祖龟",
+        "name_en": "Tortollan Ninja",
+        "text": "<b>抽到时召唤</b>\n<b>潜行</b>",
+        "text_en": "<b>Summoned When Drawn</b>\n<b>Stealth</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3128",
+              "name": "SUMMONED_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "627372ebf2cab9849a7d74f5900dfafda286bcf01c3b7e92a7d54627801570bf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_513t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "TLC_513hp": {
+      "definition": {
+        "id": "TLC_513hp",
+        "name": "隐甲之道",
+        "kind": "hero_power",
+        "cost": 1,
+        "attack": 0,
+        "health": 0,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": "cards.simple_followup_p71.shell",
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "rogue"
+          ],
+          "rarity": "none",
+          "deck_identity": "TLC_513hp",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "9ecc9344c66c8b9f8499ad683918100433b160300a077bc7bed279be1671723a"
+    },
+    "TLC_513t2": {
+      "definition": {
+        "id": "TLC_513t2",
+        "name": "忍者始祖龟",
+        "kind": "minion",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "keywords": [
+          "stealth"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "rogue"
+          ],
+          "rarity": "none",
+          "deck_identity": "TLC_513t2",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": {
+          "kind": "event",
+          "goal": 1,
+          "upgrade_card_id": null,
+          "on_progress": null,
+          "on_complete": "cards.recruits.draw_drawer",
+          "repeat": true,
+          "event": "card_drawn",
+          "condition_id": "cards.recruits.physical_draw",
+          "health_to_durability": false,
+          "amount_basis": "one",
+          "upgrade_cost_policy": "preserve",
+          "zone": "hand"
+        },
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "438b71fb1f9c0e1e804e25ffd3214e95a1141ba14458fd1f59c2b079e761312c"
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "TLC_513",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117222-zh_CN.json",
+      "response_sha256": "e15c99ac7a73d79aaeeb6ac7c9db4efbf8cfa643329011ed00533ef2e97d8fff",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117222&locale=zh_CN",
+      "face": {
+        "id": 117222,
+        "collectible": 1,
+        "slug": "117222-lie-in-wait",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Alex Stone",
+        "manaCost": 1,
+        "name": "暗中设伏",
+        "text": "<b>任务：</b>将卡牌洗入你的牌库，总计5次。<b>奖励：</b>暮影 大师。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3734b0ce2c8d754dc06c348934492a8274f47729f32413dc57290488adae3d26.png",
+        "imageGold": "",
+        "flavorText": "第2天。山里的第一夜有点难受，唉，年纪大了。总觉得有人在监视我们，昨天夜里我绝对看到了什么奇怪的亮光。本打算早餐时问问安布拉，可她一直没露面。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/417df6240cdcb5af2126a7037fdeea94b50401101457b3a7962921af7426277b.png",
+        "childIds": [
+          117224,
+          119197,
+          119563
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117222&locale=zh_CN",
+        "sha256": "e15c99ac7a73d79aaeeb6ac7c9db4efbf8cfa643329011ed00533ef2e97d8fff",
+        "bytes": 966,
+        "observed_at": "2026-10-17T18:29:28.831915+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117222-en_US.json",
+      "response_sha256": "32fbd4ee5aaab68a52e946a4e6bf7dcc38a4576cd323b58349539b29fcf35a74",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117222&locale=en_US",
+      "face": {
+        "id": 117222,
+        "collectible": 1,
+        "slug": "117222-lie-in-wait",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Alex Stone",
+        "manaCost": 1,
+        "name": "Lie in Wait",
+        "text": "<b>Quest:</b> Shuffle cards into your deck, 5 times. <b>Reward: </b>Master Dusk.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b4ecd4d6a8fd7c991c8de8dffdec1ac7d12bae5c544104b9204c921d26860e7.png",
+        "imageGold": "",
+        "flavorText": "Day 2. Our first night in the Crater was a tad rough on this old shell. I can’t shake the feeling that we’re being watched. I swear I saw a glint of shining silver in the dark. I was going to ask Umbra about it at breakfast, but she never turned up.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/417df6240cdcb5af2126a7037fdeea94b50401101457b3a7962921af7426277b.png",
+        "childIds": [
+          117224,
+          119197,
+          119563
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117222&locale=en_US",
+        "sha256": "32fbd4ee5aaab68a52e946a4e6bf7dcc38a4576cd323b58349539b29fcf35a74",
+        "bytes": 996,
+        "observed_at": "2026-10-17T18:29:28.996829+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117224-zh_CN.json",
+      "response_sha256": "410f21b064ac5690945d596265d6cc4edc927d12c271e2fc43e7e634a36275dd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117224&locale=zh_CN",
+      "face": {
+        "id": 117224,
+        "collectible": 0,
+        "slug": "117224-master-dusk",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 3,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Topdog Entertainment",
+        "health": 30,
+        "manaCost": 3,
+        "armor": 8,
+        "name": "暮影大师",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>潜行</b>的忍者。你的忍者会在其死亡时洗回你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b106b1b7d5a78dff486fd18256905c742d19eb9bb13c85ef38b37d8a98ec7dd6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "childIds": [
+          119197
+        ],
+        "keywordIds": [
+          6,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117224&locale=zh_CN",
+        "sha256": "410f21b064ac5690945d596265d6cc4edc927d12c271e2fc43e7e634a36275dd",
+        "bytes": 704,
+        "observed_at": "2026-10-17T18:29:38.579196+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117224-en_US.json",
+      "response_sha256": "2cbd96bc32f3bd4c4b2ab8abc7b9786b472ae9f2b83c60cb6622faa47d7b8be7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117224&locale=en_US",
+      "face": {
+        "id": 117224,
+        "collectible": 0,
+        "slug": "117224-master-dusk",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 3,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Topdog Entertainment",
+        "health": 30,
+        "manaCost": 3,
+        "armor": 8,
+        "name": "Master Dusk",
+        "text": "<b>Battlecry:</b> Summon two 3/3 Ninjas with <b>Stealth</b>. Your Ninjas now shuffle back into your deck when they die.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/098174430ef68422b3c4dfa77228473dfccaebca4d43c738373635b4e981ffc2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "childIds": [
+          119197
+        ],
+        "keywordIds": [
+          6,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117224&locale=en_US",
+        "sha256": "2cbd96bc32f3bd4c4b2ab8abc7b9786b472ae9f2b83c60cb6622faa47d7b8be7",
+        "bytes": 706,
+        "observed_at": "2026-10-17T18:29:38.684136+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513hp",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119197-zh_CN.json",
+      "response_sha256": "ec1ef97993f699ce76127f92cdbf3d5ec90441ed28d876c0058a8c9f02283786",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119197&locale=zh_CN",
+      "face": {
+        "id": 119197,
+        "collectible": 0,
+        "slug": "119197-way-of-the-shell",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Topdog Entertainment",
+        "manaCost": 1,
+        "name": "隐甲之道",
+        "text": "抽两张你套牌之外的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1089a7e10feeb9553cc14d5eb5c2aa1fbdcae9df5281e02e44ebf739890c6d66.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119197&locale=zh_CN",
+        "sha256": "ec1ef97993f699ce76127f92cdbf3d5ec90441ed28d876c0058a8c9f02283786",
+        "bytes": 566,
+        "observed_at": "2026-10-17T18:29:32.539956+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513hp",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119197-en_US.json",
+      "response_sha256": "04f3f5d280e27d0c05c18f2487fda76d037da47193cca7f3c72f81a13e2f7074",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119197&locale=en_US",
+      "face": {
+        "id": 119197,
+        "collectible": 0,
+        "slug": "119197-way-of-the-shell",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Topdog Entertainment",
+        "manaCost": 1,
+        "name": "Way of the Shell",
+        "text": "Draw 2 cards that didn't start in your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2536978444fde070d99e4026d79fe2cf8416bdb6984e580e7678fda9498a48ae.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119197&locale=en_US",
+        "sha256": "04f3f5d280e27d0c05c18f2487fda76d037da47193cca7f3c72f81a13e2f7074",
+        "bytes": 581,
+        "observed_at": "2026-10-17T18:29:32.644220+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119563-zh_CN.json",
+      "response_sha256": "7e4ada052b4de97a43e17225e9439e4519e7e39206b4bae38bd91230a1966fba",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119563&locale=zh_CN",
+      "face": {
+        "id": 119563,
+        "collectible": 0,
+        "slug": "119563-tortollan-ninja",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "忍者始祖龟",
+        "text": "<b>抽到时召唤</b> <b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f11cc83f998c4af54157f4abc7ae18936ad11d6ce921f67c661d0c4056ac0a5b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "keywordIds": [
+          6,
+          291
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119563&locale=zh_CN",
+        "sha256": "7e4ada052b4de97a43e17225e9439e4519e7e39206b4bae38bd91230a1966fba",
+        "bytes": 605,
+        "observed_at": "2026-10-17T19:05:03.786369+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_513t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119563-en_US.json",
+      "response_sha256": "86de87d07d561b792c1dba2e09ac507e4a3dcb3e427110047a6e3536bd5ddadc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119563&locale=en_US",
+      "face": {
+        "id": 119563,
+        "collectible": 0,
+        "slug": "119563-tortollan-ninja",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Tortollan Ninja",
+        "text": "<b>Summoned When Drawn</b> <b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90dfb847e035ed77bcb54e08aae344cfd401a44157a312a675453e8e925e7a26.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117222,
+        "keywordIds": [
+          6,
+          291
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119563&locale=en_US",
+        "sha256": "86de87d07d561b792c1dba2e09ac507e4a3dcb3e427110047a6e3536bd5ddadc",
+        "bytes": 610,
+        "observed_at": "2026-10-17T19:05:03.884923+00:00"
+      }
+    }
+  ],
+  "exact_primary_relations": [
+    {
+      "parent": "TLC_513",
+      "child": "TLC_513t",
+      "locale": "zh_CN",
+      "dbf_id": 117224,
+      "evidence": "primary.childIds"
+    },
+    {
+      "parent": "TLC_513t",
+      "child": "TLC_513hp",
+      "locale": "zh_CN",
+      "dbf_id": 119197,
+      "evidence": "primary.childIds"
+    },
+    {
+      "parent": "TLC_513",
+      "child": "TLC_513t2",
+      "locale": "zh_CN",
+      "dbf_id": 119563,
+      "evidence": "primary.child.parentId"
+    },
+    {
+      "parent": "TLC_513",
+      "child": "TLC_513t",
+      "locale": "en_US",
+      "dbf_id": 117224,
+      "evidence": "primary.childIds"
+    },
+    {
+      "parent": "TLC_513t",
+      "child": "TLC_513hp",
+      "locale": "en_US",
+      "dbf_id": 119197,
+      "evidence": "primary.childIds"
+    },
+    {
+      "parent": "TLC_513",
+      "child": "TLC_513t2",
+      "locale": "en_US",
+      "dbf_id": 119563,
+      "evidence": "primary.child.parentId"
+    }
+  ],
+  "policies": {
+    "quest": "Only successful semantic shuffle operations issued by this player into this own deck while the Quest is active. Only the first physical insertion witnesses one operation; a multi-card batch counts once. Unknown issuer explicitly errors.",
+    "hero": "Native3-Mana8-Armor hero with original health/weapon lifecycle and exact complete Way of the Shell power. Battlecry performs two separately attributed ordinary Ninja requests, then installs one persistent player program.",
+    "ninja": "Exact complete TLC_513t2 identity at its actual friendly board death. Capture original DeathRecord and post-death SourceAllocationFact; direct random deck insertion moves this same corpse and resets through ordinary shuffle rules. No permanent local Deathrattle, intermediate hand or replacement copy.",
+    "timing": "Written-order summons then program installation, duplicate original instances, exact named face, original corpse, semantic operation and death/draw windows are internal policies pending M6.",
+    "limits": "No formal Standard pool, CN calibration or exhaustive reachability certification from this batch."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}
