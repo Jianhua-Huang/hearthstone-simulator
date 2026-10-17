@@ -78,6 +78,7 @@ class DiscoverySummonRecord:
     status:str='active'
     freeze_acceptances:tuple[int,...]=()
     stat_acceptances:tuple[int,...]=()
+    copy_acceptances:tuple[int,...]=()
 
     def __post_init__(self):
         for n,floor in (('id',1),('event_cursor',0),('turn',1),('action',0)):_integer(getattr(self,n),'discovery producer '+n,floor)
@@ -103,6 +104,11 @@ class DiscoverySummonRecord:
                 len(self.stat_acceptances) > len(self.entry_root_ids) or
                 self.spec.set_summoned_stats is None and self.stat_acceptances):
             raise ValueError('Discovery lost its ordered original stat-setting acceptances')
+        if (type(self.copy_acceptances) is not tuple or any(type(i) is not int for i in self.copy_acceptances) or
+                self.copy_acceptances != tuple(range(len(self.copy_acceptances))) or
+                len(self.copy_acceptances) > len(self.entry_root_ids) or
+                not self.spec.copy_selected_to_hand and self.copy_acceptances):
+            raise ValueError('Discovery lost its ordered original selected-copy acceptances')
         picks=sum(o.result is not None for o in self.offers)
         if len(self.entry_root_ids)>picks:raise ValueError('Discovery delivered an unselected entry')
         if self.phase not in ('discovering','delivering')or type(self.exhausted)is not bool or self.status not in ('active','completed','interrupted'):
@@ -116,6 +122,8 @@ class DiscoverySummonRecord:
             raise ValueError('Discovery closed before its original freeze')
         if self.status == 'completed' and self.spec.set_summoned_stats is not None and len(self.stat_acceptances) != len(self.entry_root_ids):
             raise ValueError('Discovery closed before its original stat setting')
+        if self.status == 'completed' and self.spec.copy_selected_to_hand and len(self.copy_acceptances) != len(self.entry_root_ids):
+            raise ValueError('Discovery closed before its original selected copy')
 
 
 @dataclass(frozen=True)
@@ -149,7 +157,16 @@ class SetDiscoveredMinionStats(Effect):
         _integer(self.index,'stat-setting selected entry',0)
 
 
-CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion,SetDiscoveredMinionStats)
+@dataclass(frozen=True)
+class CopyDiscoveredCardToHand(Effect):
+    producer_id:int
+    index:int
+    def __post_init__(self):
+        _integer(self.producer_id,'copy discovery producer',1)
+        _integer(self.index,'copy selected entry',0)
+
+
+CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion,SetDiscoveredMinionStats,CopyDiscoveredCardToHand)
 
 
 def record(state,producer_id):
@@ -266,6 +283,8 @@ def start_entry(r,effect):
         continuation=(*continuation,FreezeDiscoveredMinion(root.id,effect.index))
     if root.spec.set_summoned_stats is not None:
         continuation=(*continuation,SetDiscoveredMinionStats(root.id,effect.index))
+    if root.spec.copy_selected_to_hand:
+        continuation=(*continuation,CopyDiscoveredCardToHand(root.id,effect.index))
     if root.phase=='delivering'and len(root.entry_root_ids)<len(chosen):
         continuation=(*continuation,StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)))
     return continuation
@@ -311,6 +330,26 @@ def set_discovered_minion_stats(r,effect):
     ref=MinionReference(fact.entity_id,fact.controller,fact.card_id,fact.zone_epoch,fact.entered_order)
     stats=root.spec.set_summoned_stats
     return set_captured_minion_stats(r,SetCapturedMinionStats(ref,stats.attack,stats.health,root.spec.source_id))
+
+
+def copy_discovered_card_to_hand(r,effect):
+    from .summon_quantities import record as child_record
+    from .effects import AddToHand
+    from .opening import create_hand_card
+    effect.__post_init__(); root=record(r.state,effect.producer_id)
+    if (root.status != 'active' or not root.spec.copy_selected_to_hand or
+            effect.index != len(root.copy_acceptances) or effect.index >= len(root.entry_root_ids)):
+        raise ResolutionError('Stale or foreign original discovery copy')
+    child=child_record(r.state,root.entry_root_ids[effect.index]); validate_child(root,effect.index,child)
+    if child.status not in ('completed','skipped'):
+        raise ResolutionError('Discovery copy preceded complete selected entry')
+    root=update(r.state,root,copy_acceptances=(*root.copy_acceptances,effect.index))
+    emit(r,'discovery_summon_copy_started',root)
+    # Copy the original selected card recipe, including a failed board entry.
+    # Later damage, transformations, control or same-face bodies cannot rebind it.
+    # Recipe/window policy awaits CN calibration; ordinary creation owns overflow.
+    create_hand_card(r,AddToHand(root.spec.player_id,picks(root)[effect.index].card_id,root.spec.source_id))
+    return ()
 
 
 def finish(r,effect):
@@ -382,6 +421,8 @@ def validate_record(state,registry,root,*,closed=False,children=None):
         validate_child(root,index,children[i])
         if not closed and index in root.freeze_acceptances and children[i].status not in('completed','skipped'):
             raise ValueError('Discovery froze an unfinished original entry')
+        if not closed and index in root.copy_acceptances and children[i].status not in ('completed','skipped'):
+            raise ValueError('Discovery copied before its original entry completed')
 
 
 def validate_history(state,registry):
@@ -413,7 +454,8 @@ def validate_queue(state,registry,queue):
         chosen=picks(root);need_entry=len(root.entry_root_ids)<len(chosen)and(root.spec.delivery=='after_each'or root.phase=='delivering')
         freeze=(FreezeDiscoveredMinion(root.id,len(root.freeze_acceptances)),)if root.spec.freeze_summoned and len(root.freeze_acceptances)<len(root.entry_root_ids)else()
         stats=(SetDiscoveredMinionStats(root.id,len(root.stat_acceptances)),)if root.spec.set_summoned_stats is not None and len(root.stat_acceptances)<len(root.entry_root_ids)else()
-        expected=freeze+stats+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
+        copies=(CopyDiscoveredCardToHand(root.id,len(root.copy_acceptances)),)if root.spec.copy_selected_to_hand and len(root.copy_acceptances)<len(root.entry_root_ids)else()
+        expected=freeze+stats+copies+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
         if tuple(controls)!=expected:raise ValueError('Discovery lost original owed entry/finish tail')
         pending=bool(root.offers and root.offers[-1].offered and root.offers[-1].result is None)
         if len(advances)!=(int(root.phase=='discovering'and not pending)):raise ValueError('Discovery lost original next offer continuation')
@@ -489,7 +531,7 @@ def validate_closed_events(game):
         if event.kind=='card_summon_finished':
             child=entry_from_dict(CardSummonRecord,json.loads(dict(event.data)['root']))
             finished[child.id]=(child,event.sequence)
-    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_stats_started','discovery_summon_finished')
+    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_stats_started','discovery_summon_copy_started','discovery_summon_finished')
     for event in events:
         if event.kind not in kinds:continue
         data=dict(event.data)
@@ -500,7 +542,7 @@ def validate_closed_events(game):
             raise ValueError('Discovery event changed original identity/domain')
         previous=latest.get(root.id)
         if event.kind=='discovery_summon_accepted':
-            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.stat_acceptances or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
+            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.stat_acceptances or root.copy_acceptances or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
                 raise ValueError('Invalid/duplicate original discovery acceptance')
         else:
             if previous is None or previous.status!='active':raise ValueError('Discovery transition has no original active producer')
@@ -538,6 +580,14 @@ def validate_closed_events(game):
                 if done is None or done[0].status not in ('completed','skipped') or done[1] >= event.sequence:
                     raise ValueError('Discovery stat setting lost its original completed child')
                 validate_child(root,index,done[0]); expected=replace(previous,stat_acceptances=root.stat_acceptances)
+            elif event.kind=='discovery_summon_copy_started':
+                index=len(previous.copy_acceptances)
+                if not root.spec.copy_selected_to_hand or root.copy_acceptances != (*previous.copy_acceptances,index) or index >= len(root.entry_root_ids):
+                    raise ValueError('Discovery changed original selected-copy acceptance')
+                done=finished.get(root.entry_root_ids[index])
+                if done is None or done[0].status not in ('completed','skipped') or done[1] >= event.sequence:
+                    raise ValueError('Discovery copy lost its original completed child')
+                validate_child(root,index,done[0]); expected=replace(previous,copy_acceptances=root.copy_acceptances)
             elif event.kind=='discovery_summon_finished':
                 if root.status=='active':raise ValueError('Discovery has no final status')
                 expected=replace(previous,status=root.status)
@@ -584,6 +634,7 @@ def from_dict(cls,value):
         row['spec']=spec_from_dict(row['spec']);row['offers']=tuple(from_dict(DiscoverySummonOffer,x)for x in row['offers'])
         row['entry_root_ids']=tuple(row['entry_root_ids']);row['freeze_acceptances']=tuple(row['freeze_acceptances'])
         row['stat_acceptances']=tuple(row['stat_acceptances'])
+        row['copy_acceptances']=tuple(row['copy_acceptances'])
     return cls(**row)
 
 
@@ -597,3 +648,4 @@ def register(mechanics):
     mechanics.register(StartDiscoverySummonEntry,start_entry);mechanics.register(FinishDiscoverySummon,finish)
     mechanics.register(FreezeDiscoveredMinion,freeze_discovered_minion)
     mechanics.register(SetDiscoveredMinionStats,set_discovered_minion_stats)
+    mechanics.register(CopyDiscoveredCardToHand,copy_discovered_card_to_hand)
