@@ -247,30 +247,41 @@ def encode_entries(game,viewer,action):
              'target':None if v.target_id is None else knowledge.refs[str(v.target_id)]} for v in action.body_targets]
 
 
-def independent_play_actions(game):
-    """Actual bounded host actions, shared by the player projection."""
+def independent_hand_play_actions(game, source, *, validator=None, budget=None, first_only=False):
+    """One source's original complete body routes, without a global turn gate."""
     from .choose_one import branches
     from .paid_body_targets import _selection
-    result=[]
+    if not bound_profiles(game, source):return ()
     state=game._state
-    player=state.players[state.active_player]
-    for entity_id in player.hand:
-        source=state.entities[entity_id]
-        if not bound_profiles(game,source):continue
-        definition=game.registry.card(source.card_id)
-        positions=range(len(player.board)+1) if source.kind in (CardType.MINION,CardType.LOCATION) else (None,)
-        for position in positions:
-            for branch in branches(state,definition,player.id,entity=source):
-                try:alternatives=plans(game,source,position,branch)
-                except IllegalAction:continue
-                for plan in alternatives:
-                    count=len(plan.root.target_choices)
-                    for requirement in plan.bodies.requirements:count*=len(requirement.target_choices)
-                    if len(result)+count>game.ruleset.max_choice_combinations:
-                        raise ResolutionLimitExceeded('Independent body target enumeration exceeds combination limit; submit the complete vector directly')
-                    for targets in product(plan.root.target_choices,*(r.target_choices for r in plan.bodies.requirements)):
-                        action=replace(plan.bodies.action,target_id=targets[0],body_target_profile_id=plan.bodies.profile_id,
-                            body_targets=tuple(_selection(r.declaration.reference,target) for r,target in zip(plan.bodies.requirements,targets[1:])))
-                        game.validate(action)
-                        result.append(action)
+    player=state.players[source.controller]
+    entity_id=source.id
+    validator=game.validate if validator is None else validator
+    limit=game.ruleset.max_choice_combinations if budget is None else budget
+    result=[]
+    definition=game.registry.card(source.card_id)
+    positions=range(len(player.board)+1) if source.kind in (CardType.MINION,CardType.LOCATION) else (None,)
+    for position in positions:
+        for branch in branches(state,definition,player.id,entity=source):
+            try:alternatives=plans(game,source,position,branch)
+            except IllegalAction:continue
+            for plan in alternatives:
+                count=len(plan.root.target_choices)
+                for requirement in plan.bodies.requirements:count*=len(requirement.target_choices)
+                if len(result)+count>limit:
+                    raise ResolutionLimitExceeded('Independent body target enumeration exceeds combination limit; submit the complete vector directly')
+                for targets in product(plan.root.target_choices,*(r.target_choices for r in plan.bodies.requirements)):
+                    action=replace(plan.bodies.action,target_id=targets[0],body_target_profile_id=plan.bodies.profile_id,
+                        body_targets=tuple(_selection(r.declaration.reference,target) for r,target in zip(plan.bodies.requirements,targets[1:])))
+                    validator(action)
+                    result.append(action)
+                    if first_only:return tuple(result)
+    return tuple(result)
+
+
+def independent_play_actions(game):
+    """Actual bounded host actions, shared by the player projection."""
+    result=[]
+    for entity_id in game._state.players[game._state.active_player].hand:
+        result.extend(independent_hand_play_actions(game, game._state.entities[entity_id],
+            budget=game.ruleset.max_choice_combinations-len(result)))
     return tuple(result)

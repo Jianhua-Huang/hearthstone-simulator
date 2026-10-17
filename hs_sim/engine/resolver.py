@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v434'
+CORE_EFFECTS_VERSION = 'core-effects-v435'
 
 
 class Mechanics:
@@ -500,62 +500,11 @@ class Resolution:
         self.emit('effect_skipped', target_id=target_id, effect=type(effect).__name__, reason='target_not_in_play')
 
     def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
-        from .game_boards import resolve_card_id
-        card_id = resolve_card_id(self.state, self.registry, card_id)
-        player = self.player(player_id)
-        definition = self.registry.card(card_id)
-        if (type(interactable_object) is not bool or (definition.interactable is not None) != interactable_object or
-                interactable_object and (zone != Zone.BOARD or components)):
-            raise ResolutionError('Interactable carriers require their dedicated board installation')
-        if type(additional_hero_power) is not bool or (additional_hero_power and zone != Zone.HERO_POWER):
-            raise ResolutionError('Additional hero powers require the hero power zone')
-        if zone == Zone.HERO_POWER and definition.kind != CardType.HERO_POWER:
-            raise ResolutionError('Hero power installation requires a hero power definition')
-        if definition.choice_only:
-            raise ResolutionError('Choice-only definitions cannot become physical cards')
-        entity_id = self.state.next_entity_id
-        self.state.next_entity_id += 1
-        entity = Entity(id=entity_id, card_id=card_id, owner=player_id, controller=player_id,
-                        zone=zone, kind=definition.kind, base_attack=definition.attack, base_health=definition.health,
-                        base_cost=definition.cost, keywords=set(definition.keywords),
-                        summoned_turn=0 if ready else self.state.turn,
-                        durability=definition.durability, use_limit=definition.uses_per_turn,
-                        interactable_object=interactable_object,
-                        corpse_value=(int(definition.kind == CardType.MINION) if definition.corpse_value is None
-                                      else definition.corpse_value))
-        self.state.entities[entity_id] = entity
-        if entry_herald_count is not None:
-            from .effects import _integer
-            _integer(entry_herald_count,'accepted entry Herald count',0)
-            if not definition.herald_scaling or zone!=Zone.BOARD:raise ResolutionError('Deferred entry strength requires its scaling board definition')
-        install_base(self.state, entity, definition, self.registry, components, entry_herald_count=entry_herald_count)
-        from .cthun import initialize_instance as initialize_cthun
-        initialize_cthun(self.state, self.registry, entity)
-        initialize_dormancy(self.state, entity, definition, turns_override=entry_dormant_turns)
-        if additional_hero_power:
-            player.additional_hero_power_ids.append(entity_id)
-        elif zone in (Zone.HERO, Zone.WEAPON, Zone.HERO_POWER):
-            field = {Zone.HERO: 'hero_id', Zone.WEAPON: 'weapon_id', Zone.HERO_POWER: 'hero_power_id'}[zone]
-            if getattr(player, field):
-                raise ResolutionError('Entity slot is already occupied')
-            setattr(player, field, entity_id)
-            if zone == Zone.HERO:
-                assign_hero_class(player, definition)
-        else:
-            dest = getattr(player, zone.value.lower())
-            if position is None:
-                dest.append(entity_id)
-            else:
-                dest.insert(max(0, min(position, len(dest))), entity_id)
-        if zone in (Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.QUEST, Zone.SECRET, Zone.HERO_POWER):
-            entity.entered_order = self.state.next_order
-            self.state.next_order += 1
-        if zone == Zone.BOARD and entity.kind == CardType.MINION:
-            entity.board_presence_id = entity.entered_order
-        if zone == Zone.HAND:
-            from .hand_history import enter_hand
-            enter_hand(self.state, entity, reason=hand_entry_reason)
-        return entity
+        from .entity_materialization import create_entity
+        return create_entity(self.state, self.registry, player_id, card_id, zone, position, ready,
+            components=components, hand_entry_reason=hand_entry_reason,
+            additional_hero_power=additional_hero_power, entry_herald_count=entry_herald_count,
+            interactable_object=interactable_object, entry_dormant_turns=entry_dormant_turns)
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
         previous_zone = entity.zone

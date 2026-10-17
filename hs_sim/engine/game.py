@@ -554,6 +554,8 @@ class Game:
         validate_discovery_boundary(self)
         from .generated_spell_healing import validate_boundary as validate_generated_healing_boundary
         validate_generated_healing_boundary(self)
+        from .playable_spell_generation import validate_events as validate_playable_spell_events
+        validate_playable_spell_events(self)
         from .assemble_offers import validate_boundary as validate_assembly_boundary
         validate_assembly_boundary(self)
         from .pool_offers import validate_boundary as validate_offer_boundary
@@ -664,17 +666,9 @@ class Game:
             raise ValueError('Stale derived attachment or aura values')
 
     def validate(self, action: Action):
-        if type(action) is PlayCard and action.body_target_profile_id is not None:
-            from .paid_body_targets import capture, root_definition
-            capture(self._state, self.registry, action, game=self)
-            return self._validate_action(action, play_target_definition=root_definition(self._state, self.registry, action))
         if type(action) is PlayCard:
-            source = self._state.entities.get(action.entity_id)
-            if source is not None and any(card_id == source.card_id for card_id, _ in self.registry.body_root_target_bindings):
-                raise IllegalAction('This carrier requires its complete independent paid body target vector')
-            if source is not None:
-                from .indirect_body_targets import require_legacy_paid_scope
-                require_legacy_paid_scope(self.registry,source)
+            from .hand_admission import root_target_contract
+            return self._validate_action(action, play_target_definition=root_target_contract(self, action))
         return self._validate_action(action)
 
     def _validate_action(self, action: Action, *, play_target_definition=None):
@@ -756,66 +750,9 @@ class Game:
                 raise IllegalAction(reason)
             return
         if isinstance(action, PlayCard):
-            if action.entity_id not in player.hand:
-                raise IllegalAction('Card is not in the active player\'s hand')
-            entity = state.entities[action.entity_id]
-            from .prepare import play_error
-            if reason := play_error(state, entity):
-                raise IllegalAction(reason)
-            definition = self.registry.card(entity.card_id)
-            if not definition.hand_playable:
-                raise IllegalAction('This card type cannot be played')
-            if not definition.manual_playable:
-                raise IllegalAction('This card cannot be manually played from hand')
-            from .play_requirements import manual_requirement_error
-            if reason := manual_requirement_error(state, self.registry, entity):
-                raise IllegalAction(reason)
-            from .player_effects import manual_play_allowed
-            if not manual_play_allowed(state, self.registry, player.id, definition.kind):
-                raise IllegalAction('Current-turn rule prohibits manually playing this card type')
-            from .disguised import destination
-            try:
-                board_player_id = destination(definition, player.id, action.board_player_id)
-            except ValueError as error:
-                raise IllegalAction(str(error)) from error
-            if definition.disguised and action.body_target_profile_id is not None:
-                raise IllegalAction('Disguised independent play does not accept a special body target route')
-            from .choose_one import selection_error
-            if reason := selection_error(state,definition,player.id,action.branch_id,self.ruleset,entity=entity):
-                raise IllegalAction(reason)
-            from .quests import activation_error
-            if reason := activation_error(state, self.registry, self.ruleset, player.id, entity.card_id):
-                raise IllegalAction(reason)
-            from .player_effects import activation_error as ongoing_error
-            if reason := ongoing_error(state, self.registry, self.ruleset, player.id, entity.card_id):
-                raise IllegalAction(reason)
-            from .secrets import activation_error as secret_error
-            if reason := secret_error(state, self.registry, self.ruleset, player.id, entity.card_id):
-                raise IllegalAction(reason)
-            if reason := payment_error(state, quote_cost(state, self.registry, entity)):
-                raise IllegalAction(reason)
-            if definition.kind in (CardType.MINION, CardType.LOCATION):
-                from .magnetic import host_at_position
-                board = state.players[board_player_id].board
-                if len(board) >= self.ruleset.max_board and host_at_position(state,self.registry,entity,action.position) is None:
-                    raise IllegalAction('Board is full')
-                if action.position is not None and action.position > len(board):
-                    raise IllegalAction('Invalid board position')
-            elif action.position is not None:
-                raise IllegalAction('Only minions and locations can specify a board position')
-            from .magnetic import play_definition as placed_definition
-            if play_target_definition is None:
-                target_definition = placed_definition(state, self.registry, entity,action.position,branch_id=action.branch_id)
-            else:
-                from .model import CardDefinition
-                if type(play_target_definition) is not CardDefinition or (
-                        play_target_definition.id, play_target_definition.kind) != (definition.id, definition.kind):
-                    raise IllegalAction('Internal root target contract differs from the actual carrier')
-                target_definition = play_target_definition
-            reason = target_error(state, self.registry, entity, target_definition, action.target_id, context_factory=context)
-            if reason is not None:
-                raise IllegalAction(reason)
-            return
+            from .hand_admission import validate_hand_play
+            return validate_hand_play(state, self.registry, self.ruleset, action,
+                context=context, play_target_definition=play_target_definition)
         if isinstance(action, Attack):
             reason = attack_error(state, action.attacker_id, action.defender_id, player.id, registry=self.registry)
             if reason is not None:
@@ -903,30 +840,8 @@ class Game:
                 except IllegalAction:
                     continue
                 result.append(candidate)
-            if not definition.manual_playable:
-                continue
-            from .player_effects import manual_play_allowed
-            if not manual_play_allowed(state, self.registry, player.id, definition.kind):
-                continue
-            from .magnetic import play_definition as placed_definition
-            from .choose_one import branches, effective
-            from .body_player_commands import bound_profiles
-            if bound_profiles(self,state.entities[entity_id]):continue
-            sides = (None, enemy.id) if definition.disguised else (None,)
-            for board_player_id in sides:
-                board = state.players[player.id if board_player_id is None else board_player_id].board
-                positions = range(len(board) + 1) if definition.kind in (CardType.MINION, CardType.LOCATION) else [None]
-                for position in positions:
-                    for branch_id in branches(state,definition,player.id,entity=state.entities[entity_id]):
-                        choices = target_choices(state,self.registry,state.entities[entity_id],placed_definition(state,self.registry,state.entities[entity_id],position,branch_id=branch_id),context_factory=context)
-                        for target in choices:
-                            candidate = PlayCard(player.id, entity_id, target, position, branch_id,
-                                board_player_id=board_player_id)
-                            try:
-                                self.validate(candidate)
-                            except IllegalAction:
-                                continue
-                            result.append(candidate)
+            from .hand_admission import hand_plays
+            result.extend(hand_plays(self, state.entities[entity_id], validator=self.validate, context=context))
         for entity_id in player.hero_power_ids:
             source = state.entities[entity_id]
             from .choose_one import branches, effective

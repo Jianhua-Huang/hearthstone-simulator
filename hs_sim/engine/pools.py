@@ -969,6 +969,8 @@ def register_generation(mechanics):
     mechanics.register(FillBoardFromPool, fill_board_from_pool)
     from .generated_spell_healing import register as register_generated_spell_healing
     register_generated_spell_healing(mechanics)
+    from .playable_spell_generation import register as register_playable_spells
+    register_playable_spells(mechanics)
     from .discovery import register
     register(mechanics)
     from .pool_offers import register as register_offers
