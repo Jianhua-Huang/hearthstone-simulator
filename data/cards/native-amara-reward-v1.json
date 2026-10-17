@@ -1,0 +1,844 @@
+{
+  "batch": "K147",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "UNG_940t8",
+        "dbf_id": 41950,
+        "name": "希望守护者阿玛拉",
+        "name_en": "Amara, Warden of Hope",
+        "text": "<b>嘲讽，战吼：</b>\n将你英雄的生命值变为40。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Set your\nhero's Health to 40.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "fbd10f39ae0e24fd0f400a67235d2f11708fd5acfe2d2c999bb69b302814ccec",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_940t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_835",
+        "dbf_id": 120593,
+        "name": "阿玛拉的故事",
+        "name_en": "Story of Amara",
+        "text": "将你英雄的生命值变为40。",
+        "text_en": "Set your hero's\nHealth to 40.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          }
+        ]
+      },
+      "record_sha256": "9adb10ebd56f3806d9c14e6f59667a71022936f198379503059d8dedf57180fc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_835",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "UNG_940",
+        "dbf_id": 41494,
+        "name": "唤醒造物者",
+        "name_en": "Awaken the Makers",
+        "text": "<b>任务：</b>召唤6个<b>亡语</b>随从。<b>奖励：</b>希望守护者阿玛拉。",
+        "text_en": "<b>Quest:</b> Summon\n6 <b>Deathrattle</b> minions.<b>\nReward:</b> Amara, Warden of Hope.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41950,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "708d6c2cc559b1089e23da0de25f548bcbec7c9861a96781dda82b7a53d7798e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "UNG_940",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_602",
+        "dbf_id": 117716,
+        "name": "走进失落之城",
+        "name_en": "Enter the Lost City",
+        "text": "<b>任务：</b>存活10个回合。<b>奖励：</b>拉特维厄斯，城市之眼。",
+        "text_en": "[x]<b>Quest:</b> Survive 10 turns.\n<b>Reward: </b>Latorvius, Gaze\nof the City.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 10,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 117717,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1,
+          "4357": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4357",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4357"
+          }
+        ]
+      },
+      "record_sha256": "cae610783c3414e06f2ed3a04fe61f542e4c67697b608faf666f9f3c4ac44be0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_602",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_602t",
+        "dbf_id": 117717,
+        "name": "拉特维厄斯，城市之眼",
+        "name_en": "Latorvius, Gaze of the City",
+        "text": "<b>战吼：</b>随机获取2张勇闯安戈洛的<b>任务奖励</b>。将其余奖励洗入你的牌库。",
+        "text_en": "[x]<b>Battlecry:</b> Get 2 random\n'Journey to Un'Goro' <b>Quest\nRewards</b>. Shuffle the rest\ninto your deck.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "18d052531888328769cccb9c6521a6ef3dd5119e6a8c4705b5cc4aaae6f66757",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_602t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "UNG_940t8",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\41950-zh_CN.json",
+      "response_sha256": "60bb3abce6d47837c06545607d745a303a1ee91278b5a2fa3bc20f31fcaa69b3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41950&locale=zh_CN",
+      "face": {
+        "id": 41950,
+        "collectible": 0,
+        "slug": "41950-amara-warden-of-hope",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "希望守护者阿玛拉",
+        "text": "<b>嘲讽，战吼：</b> 将你英雄的生命值变为40。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef6281d172d692c5e06215070392017289aac18e3e7ecd6475c0f46bae013800.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41494,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41950&locale=zh_CN",
+        "sha256": "60bb3abce6d47837c06545607d745a303a1ee91278b5a2fa3bc20f31fcaa69b3",
+        "bytes": 643,
+        "observed_at": "2026-10-17T11:02:37.271809+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_940t8",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\41950-en_US.json",
+      "response_sha256": "8eb7d8b7c035a5c798a448e5c75732fed83dc569d9921b7fc41378e3cd198461",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41950&locale=en_US",
+      "face": {
+        "id": 41950,
+        "collectible": 0,
+        "slug": "41950-amara-warden-of-hope",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Amara, Warden of Hope",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> Set your hero's Health to 40.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41a0bab3e69a3f121fb84dab8b69459b1d1e657a5e17d0a3aa65f20c8c30ac36.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41494,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41950&locale=en_US",
+        "sha256": "8eb7d8b7c035a5c798a448e5c75732fed83dc569d9921b7fc41378e3cd198461",
+        "bytes": 639,
+        "observed_at": "2026-10-17T11:02:37.561445+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_835",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\120593-zh_CN.json",
+      "response_sha256": "2e3555da9242404de6e2da49a82ef3005c9e7b2c19b1d04fc2e8fb8686c680b4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120593&locale=zh_CN",
+      "face": {
+        "id": 120593,
+        "collectible": 1,
+        "slug": "120593-story-of-amara",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Stefano Spagnuolo",
+        "manaCost": 10,
+        "name": "阿玛拉的故事",
+        "text": "将你英雄的生命值变为40。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74d1e9bf02eaf3be303d29b855c45db8aab3215cf552b338a4620d8da58e669c.png",
+        "imageGold": "",
+        "flavorText": "“很久很久以前……好吧，不如直接讲结局吧？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c9ad0c760ffeded6be5e676ac15f0aa0d24fcce736a82f761d1a395b8bf96ee.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120593&locale=zh_CN",
+        "sha256": "2e3555da9242404de6e2da49a82ef3005c9e7b2c19b1d04fc2e8fb8686c680b4",
+        "bytes": 730,
+        "observed_at": "2026-10-17T11:02:37.459417+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_835",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\120593-en_US.json",
+      "response_sha256": "2967e295c795e981216908acb8a323adc825d97a65b218eed621718202649bab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120593&locale=en_US",
+      "face": {
+        "id": 120593,
+        "collectible": 1,
+        "slug": "120593-story-of-amara",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Stefano Spagnuolo",
+        "manaCost": 10,
+        "name": "Story of Amara",
+        "text": "Set your hero's Health to 40.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaaa1bcba6945792960193941617f11cddbbaeb7fba2f58240ccdd2fea458a90.png",
+        "imageGold": "",
+        "flavorText": "\"Once upon a time... ok how about we just skip to the end?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c9ad0c760ffeded6be5e676ac15f0aa0d24fcce736a82f761d1a395b8bf96ee.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120593&locale=en_US",
+        "sha256": "2967e295c795e981216908acb8a323adc825d97a65b218eed621718202649bab",
+        "bytes": 715,
+        "observed_at": "2026-10-17T11:02:37.148679+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_940",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\41494-zh_CN.json",
+      "response_sha256": "760e748046c087b4ddec06f0a138bbc93a702191968cbaa80577bc293d1f9882",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41494&locale=zh_CN",
+      "face": {
+        "id": 41494,
+        "collectible": 1,
+        "slug": "41494-awaken-the-makers",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 5,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 1,
+        "name": "唤醒造物者",
+        "text": "<b>任务：</b>召唤6个<b>亡语</b>随从。<b>奖励：</b>希望守护者阿玛拉。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6c3e50c9de511d8fa94610680f390c28ccc25c16cab972c05ca91a6336626e9.png",
+        "imageGold": "",
+        "flavorText": "他们唤醒造物者的方法就是不停地按门铃。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1be644f324f30c9f5dcbd480dfe65832c1fc864b9da0d1f2c061d90bd3e1c2f.png",
+        "childIds": [
+          41950
+        ],
+        "keywordIds": [
+          12,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41494&locale=zh_CN",
+        "sha256": "760e748046c087b4ddec06f0a138bbc93a702191968cbaa80577bc293d1f9882",
+        "bytes": 813,
+        "observed_at": "2026-10-17T11:02:37.901393+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_940",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\41494-en_US.json",
+      "response_sha256": "2e0a7b1bb3f8ac4de514958f18c392b225c5016f9fe8c626a0c50b23b31cdb8c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41494&locale=en_US",
+      "face": {
+        "id": 41494,
+        "collectible": 1,
+        "slug": "41494-awaken-the-makers",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 5,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 1,
+        "name": "Awaken the Makers",
+        "text": "<b>Quest:</b> Summon 6 <b>Deathrattle</b> minions.<b> Reward:</b> Amara, Warden of Hope.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8544cff575ea7d37345e0a3f82f61abc422b5371ae9ebb2bd6360e08e8288e8e.png",
+        "imageGold": "",
+        "flavorText": "They keep hitting the Snooze button.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1be644f324f30c9f5dcbd480dfe65832c1fc864b9da0d1f2c061d90bd3e1c2f.png",
+        "childIds": [
+          41950
+        ],
+        "keywordIds": [
+          12,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41494&locale=en_US",
+        "sha256": "2e0a7b1bb3f8ac4de514958f18c392b225c5016f9fe8c626a0c50b23b31cdb8c",
+        "bytes": 791,
+        "observed_at": "2026-10-17T11:02:38.223986+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\117716-zh_CN.json",
+      "response_sha256": "59a1e8b0058c698c11862b6405dcafe4cfcea1ecd16db9acd2f43264f6be7e08",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117716&locale=zh_CN",
+      "face": {
+        "id": 117716,
+        "collectible": 1,
+        "slug": "117716-enter-the-lost-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "走进失落之城",
+        "text": "<b>任务：</b>存活10个回合。<b>奖励：</b>拉特维厄斯，城市之眼。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4423902aaacfb43ecf4bf1b50b436d245b96f3a31e0f1652ce7e33728600129d.png",
+        "imageGold": "",
+        "flavorText": "第8天。成功了！入夜时分，我们走到一处发光的隧道，入口只有两个瞌睡的托维尔人看守。我们悄悄走过隧道，直接来到了失落之城的核心地带！同胞们一定会用温暖的怀抱迎接我们。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f09f4810bea94cbb55aa89a53b8d5337ae2029a33cfe4b1e33a0c6f54779ecb0.png",
+        "childIds": [
+          117717,
+          41100,
+          41367,
+          41167,
+          41946,
+          41950,
+          41221,
+          41498,
+          41942,
+          41426
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117716&locale=zh_CN",
+        "sha256": "59a1e8b0058c698c11862b6405dcafe4cfcea1ecd16db9acd2f43264f6be7e08",
+        "bytes": 1050,
+        "observed_at": "2026-10-17T10:32:49.580649+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\117716-en_US.json",
+      "response_sha256": "c7464243927a13cfc7123d4b859ba33a3017de50b643e7afc6508b3f44eb9431",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117716&locale=en_US",
+      "face": {
+        "id": 117716,
+        "collectible": 1,
+        "slug": "117716-enter-the-lost-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "Enter the Lost City",
+        "text": "<b>Quest:</b> Survive 10 turns. <b>Reward: </b>Latorvius, Gaze of the City.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/386f3c4eef3527f334301f6083f1c445d2a5f40e64c583cc10b3413f6bd47c79.png",
+        "imageGold": "",
+        "flavorText": "Day 8. We’ve done it! As night fell, we came upon a brilliantly glowing tunnel guarded by two slumbering Tol’vir. With silent footsteps, we walked through and emerged into the heart of the Lost City! I’m sure my people will welcome us with open arms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f09f4810bea94cbb55aa89a53b8d5337ae2029a33cfe4b1e33a0c6f54779ecb0.png",
+        "childIds": [
+          117717,
+          41100,
+          41367,
+          41167,
+          41946,
+          41950,
+          41221,
+          41498,
+          41942,
+          41426
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117716&locale=en_US",
+        "sha256": "c7464243927a13cfc7123d4b859ba33a3017de50b643e7afc6508b3f44eb9431",
+        "bytes": 1053,
+        "observed_at": "2026-10-17T10:32:49.911907+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\117717-zh_CN.json",
+      "response_sha256": "8eb5ba5c1737f20fd669909c8a9ceb75558c12ebb787e90876c046e3a468293d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117717&locale=zh_CN",
+      "face": {
+        "id": 117717,
+        "collectible": 0,
+        "slug": "117717-latorvius-gaze-of-the-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "拉特维厄斯，城市之眼",
+        "text": "<b>战吼：</b>随机获取2张勇闯安戈洛的<b>任务奖励</b>。将其余奖励洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/708fe4907a1cd3d72e68dc1df511413d01fb03c1b82ff1ac5a650c1fddb32155.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117716,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117717&locale=zh_CN",
+        "sha256": "8eb5ba5c1737f20fd669909c8a9ceb75558c12ebb787e90876c046e3a468293d",
+        "bytes": 702,
+        "observed_at": "2026-10-17T10:32:49.825823+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k147-official\\117717-en_US.json",
+      "response_sha256": "d20bd9c7cd812cd321023a9f46c811777c98b7d8cd4a708d6222717ab895adf4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117717&locale=en_US",
+      "face": {
+        "id": 117717,
+        "collectible": 0,
+        "slug": "117717-latorvius-gaze-of-the-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Latorvius, Gaze of the City",
+        "text": "<b>Battlecry:</b> Get 2 random 'Journey to Un'Goro' <b>Quest Rewards</b>. Shuffle the rest into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/958da02adfbea1ff292c8ecee67e8ef27c1fe27dd4eeadd2a95b541d1120aca8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117716,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117717&locale=en_US",
+        "sha256": "d20bd9c7cd812cd321023a9f46c811777c98b7d8cd4a708d6222717ab895adf4",
+        "bytes": 697,
+        "observed_at": "2026-10-17T10:20:14.080851+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "UNG_940",
+      "child": "UNG_940t8",
+      "dbf_id": 41950,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "UNG_940",
+      "child": "UNG_940t8",
+      "dbf_id": 41950,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_602",
+      "child": "TLC_602t",
+      "dbf_id": 117717,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_602",
+      "child": "TLC_602t",
+      "dbf_id": 117717,
+      "locale": "en_US"
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "TLC_835": "635fc269be162da983f9b9890f9ec917ea608718eb5706c88d41a7759de80ba9"
+  },
+  "reuse_behavior_id": "cards.public_consumers.amara",
+  "reachability_basis": "Standard TLC_602t explicitly names Journey to UnGoro Quest Rewards; UNG_940 primary reward text and actual childIds identify UNG_940t8. No direct TLC_602t child edge fabricated.",
+  "policies": {
+    "assignment": "Reuse the already registered full cards.public_consumers.amara behavior used by TLC_835. SetStats of current player Hero to local maximum40 and clears damage before its one ordinary stats_changed event. Existing ordered enchantments, hero health ledger, aura layer, armor, terminal and observer semantics unchanged. Not Heal, Damage, direct loss or separate max/current steps.",
+    "old_gap_correction": "P60 preaudit omitted existing general SetStats and existing full TLC_835 consumer. This is a native card reuse, not a new public health capability.",
+    "calibration": "The existing SetStats local layer/aura and exact CN interaction policy remain uncalibrated."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "parents_implemented": false
+}
