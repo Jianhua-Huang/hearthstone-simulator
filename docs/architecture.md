@@ -1336,3 +1336,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 真实发现后的零费条件复用原固有费用及完整付款证明，只增加完整发现前缀匹配事实；原同回合布尔查询、历史前缀和国服边界见[契约](m3-discovery-turn-costs.md)。
+
+
+内部发现交付可从原 create_deck_card / move_physical_card 直接取得真实创建或移动对象；旧效果handler保持原续接约定，返回对象不能入解释器或玩家DTO。范围、原驻留及未完成统一发现收据见[契约](m3-materialization-results.md)。

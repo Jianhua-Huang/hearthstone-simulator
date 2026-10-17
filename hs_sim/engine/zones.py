@@ -681,6 +681,15 @@ def copy_lowest_cost_minion(r, effect):
 
 
 def add_to_deck(r, effect):
+    create_deck_card(r, effect)
+
+
+def create_deck_card(r, effect):
+    """Materialize once through the ordinary creator and return its actual body.
+
+    Internal delivery callers may immediately capture a physical reference. The
+    registered AddToDeck handler still returns no interpreter continuation.
+    """
     player = r.player(effect.player_id); source_exists(r, effect.source_id)
     if not r.registry.card(effect.card_id).hand_playable:
         raise ResolutionError('Unsupported generated deck card type')
@@ -696,16 +705,23 @@ def add_to_deck(r, effect):
     r.emit('card_created', target_id=entity.id, source_id=effect.source_id, player_id=player.id)
     r.emit('card_added_to_deck', target_id=entity.id, source_id=effect.source_id, player_id=player.id, position=position,
         _deck_insertion_mode=effect.position if type(effect.position)is str else 'index')
+    return entity
 
 
 def move_card(r, effect):
     if effect.draw:
         from .draw_casts import draw_one
         return draw_one(r,effect.player_id,card=effect.card,source_id=effect.source_id,reset=effect.reset)
-    return move_physical_card(r,effect)
+    # The physical helper exposes its actual recipient to internal callers;
+    # an Entity is never interpreter work returned by this effect handler.
+    move_physical_card(r,effect)
 
 
 def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
+    """Move the original physical card, returning its actual body or no-op None.
+
+    Draw orchestration remains in draw_one; this is its existing movement step.
+    """
     source_exists(r, effect.source_id)
     entity = reference_entity(r, effect.card)
     if entity is None:
@@ -759,6 +775,7 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
         emit_burn(r,entity,profile='stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
     else:
         r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id, **data)
+    return entity
 
 
 def copy_card(r, effect):

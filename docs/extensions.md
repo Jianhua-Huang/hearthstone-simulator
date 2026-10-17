@@ -1717,3 +1717,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 真实“本回合发现过则零费”用固定 card_discovered_this_turn / discovery.card-this-turn-v1 的 IntrinsicCostSpec(set_to=0)，不缓存实体费用或消耗发现次数；原完整报价及历史前缀见[契约](m3-discovery-turn-costs.md)。
+
+
+需要原真实交付输出时，牌库生成用 zones.create_deck_card，物理移动用 move_physical_card；手牌创建/复制继续原既有返回接口。立即捕获原CardReference，禁止用实体游标或同名搜索，禁止把Entity当续接；完整边界见[契约](m3-materialization-results.md)。
