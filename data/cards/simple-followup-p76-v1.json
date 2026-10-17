@@ -1,0 +1,2712 @@
+{
+  "schema": 1,
+  "batch": "P76",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p76-20261018/manifest-01.json",
+    "sha256": "c36f71b1eebf2e4bab8ee34cd8fe9c6726507bc5c09abae717d84fa0153ad867"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_RLK_066",
+        "dbf_id": 111320,
+        "name": "鲜血魔术师",
+        "name_en": "Hematurge",
+        "text": "<b>战吼：</b>消耗一份<b>残骸</b>，&<b>发现</b>一张鲜血符文牌。~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "text_en": "<b>Battlecry:</b> Spend a\n<b>Corpse</b> to& <b>Discover</b> a\nBlood Rune card.~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 78356,
+          "USE_DISCOVER_VISUALS": 1,
+          "COST_BLOOD": 1,
+          "CORPSE_SPENDER": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dez Bencosme"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78356",
+              "type": "Int",
+              "value": "78356"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e4704ed5f2f54578a44300a4e836c4f8e06155ba93b88319550f8feffb9f2630",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_RLK_066",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_116",
+        "dbf_id": 111328,
+        "name": "死灵殡葬师",
+        "name_en": "Necrotic Mortician",
+        "text": "<b>战吼：</b>如果在你的上回合之后有友方亡灵死亡，<b>发现</b>一张邪恶符文牌。",
+        "text_en": "<b>Battlecry:</b> If a friendly Undead died after your\nlast turn, <b>Discover</b> an Unholy Rune card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80083,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80083",
+              "type": "Int",
+              "value": "80083"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3531788beb06e50febab39a0ee41b17918fc0283b5d6012cbde34cd5a37bc536",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_RLK_116",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_025",
+        "dbf_id": 78325,
+        "name": "冰霜打击",
+        "name_en": "Frost Strike",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，<b>发现</b>一张冰霜符文牌。",
+        "text_en": "Deal $3 damage to a minion. If it dies, <b>Discover</b> a Frost\nRune card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e3d801469f4d925a84715d707289c9fa17bd1c2b0066fbc2cd809db68e2c64e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_025",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "AT_101",
+        "dbf_id": 2521,
+        "name": "格斗士",
+        "name_en": "Pit Fighter",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 15,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "48a21549a9bd94910f65c99a770dc0a42eefec27da5827692f1b37c4596ebbb4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "AT_101",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GVG_070",
+        "dbf_id": 2038,
+        "name": "熟练的水手",
+        "name_en": "Salty Dog",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 7,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "9dcec42e709bbfbb24d5711f9184f7c1dc4237ad76b28ad19c498dad5e07ac2b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "GVG_070",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_187",
+        "dbf_id": 1140,
+        "name": "藏宝海湾保镖",
+        "name_en": "Booty Bay Bodyguard",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Cavotta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "4973c7f12725c8b7a4b661c831c33f20e5c19a0bda23ac5651fded7ffe22d04f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_187",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_151",
+        "dbf_id": 69,
+        "name": "白银之手骑士",
+        "name_en": "Silver Hand Knight",
+        "text": "<b>战吼：</b>召唤一个2/2的侍从。",
+        "text_en": "<b>Battlecry:</b> Summon a 2/2_Squire.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 482
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Starbuck"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "fb824f9aa2f9dfc07f09df39cf5972547f61193632276f049dfd689787df0bd2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CS2_151",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GVG_053",
+        "dbf_id": 2021,
+        "name": "盾甲侍女",
+        "name_en": "Shieldmaiden",
+        "text": "<b>战吼：</b>\n获得5点护甲值。",
+        "text_en": "<b>Battlecry:</b> Gain 5 Armor.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 13,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "c6abdc7f063ae56630302370ac239316ef45e2a5ddb35696ea4e1e78a83d20f2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "GVG_053",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GVG_069",
+        "dbf_id": 2037,
+        "name": "老式治疗机器人",
+        "name_en": "Antique Healbot",
+        "text": "<b>战吼：</b>为你的英雄恢复#8点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore #8 Health to your hero.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          }
+        ]
+      },
+      "record_sha256": "080ab8334387c2c8b9a933fc6b13e9d71ca61c1ad62b5abdf6ec8f83d3334fa3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "GVG_069",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_593",
+        "dbf_id": 670,
+        "name": "夜刃刺客",
+        "name_en": "Nightblade",
+        "text": "<b>战吼：</b>对敌方英雄造成3点伤害。",
+        "text_en": "<b>Battlecry: </b>Deal 3 damage to the enemy hero.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          }
+        ]
+      },
+      "record_sha256": "6803ca3e50b392bbc4854db2bfb093c88f38e534f1adc17a3cd5e8a89460acc6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "EX1_593",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_150",
+        "dbf_id": 413,
+        "name": "雷矛特种兵",
+        "name_en": "Stormpike Commando",
+        "text": "<b>战吼：</b>造成2点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 2 damage.",
+        "cost": 5,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "BATTLECRY": 1,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kev Walker"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "ff478636969231a739e43db8dbf90c952d2247f85e930d184ea2be70d0f0506f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_150",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_152",
+        "dbf_id": 482,
+        "name": "侍从",
+        "name_en": "Squire",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "251": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "c9b20e1036236b956b19c34bab5c32f87d7c5e23dcf94eb55eb29414ffcdd71a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CS2_152",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_040",
+        "dbf_id": 120782,
+        "name": "消散的回忆",
+        "name_en": "Fading Memory",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Get a\nrandom 5-Cost minion from the past.",
+        "cost": 4,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "9a491cc6054857214a6c6c71791f83c8e908dd4e3226f73f18beac9981e1c782",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_040",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_028",
+        "dbf_id": 68,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 3,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "1d61a3cda45c61edebea453fa49277af2afaf171299aa2d9abf8e0c516544ece",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "EX1_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_028",
+        "dbf_id": 69658,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 68,
+          "1584": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "68",
+              "type": "Int",
+              "value": "68"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "398f2468940c3c390e1c7fa2f6e8ca7cb3d83258cde9f5ae33fe33f8a2a46556",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "collectible_candidate_roots": [
+    "CORE_RLK_066",
+    "CORE_RLK_116",
+    "RLK_025"
+  ],
+  "necessary_cross_series_collectibles": [
+    "AT_101",
+    "GVG_070",
+    "CS2_187",
+    "CS2_151",
+    "GVG_053",
+    "GVG_069",
+    "EX1_593",
+    "CS2_150"
+  ],
+  "necessary_noncollectibles": [
+    "CS2_152"
+  ],
+  "new_definition_ids": [
+    "CORE_RLK_066",
+    "CORE_RLK_116",
+    "RLK_025",
+    "AT_101",
+    "GVG_070",
+    "CS2_187",
+    "CS2_151",
+    "GVG_053",
+    "GVG_069",
+    "EX1_593",
+    "CS2_150",
+    "CS2_152"
+  ],
+  "official_observations": [
+    {
+      "card_id": "CORE_RLK_066",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111320-zh_CN.json",
+      "response_sha256": "8f8b628d74b9393443b49c38a5fdd81097a679f68ac2127faf24eefe74b27c1a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111320&locale=zh_CN",
+      "face": {
+        "id": 111320,
+        "collectible": 1,
+        "slug": "111320-hematurge",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Dez Bencosme",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "鲜血魔术师",
+        "text": "<b>战吼：</b>消耗一份<b>残骸</b>， <b>发现</b>一张鲜血符文牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72f234653cf861b9a3abf2e88bfd9ab01c1245a00cdca236ebbc79da533d241c.png",
+        "imageGold": "",
+        "flavorText": "就让她来帮你！重塑！形体！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b7130c4f7a84d789815893723d77b55911b17f61e0ab62e4fddf10316df59af.png",
+        "keywordIds": [
+          8,
+          21,
+          247
+        ],
+        "copyOfCardId": [
+          78356
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111320&locale=zh_CN",
+        "sha256": "8f8b628d74b9393443b49c38a5fdd81097a679f68ac2127faf24eefe74b27c1a",
+        "bytes": 849,
+        "observed_at": "2026-10-17T22:07:10.548990+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_RLK_066",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111320-en_US.json",
+      "response_sha256": "9f182bd841904764973ba5a494fffa0aacf18afcc1a8e69ea562538ada9c2a64",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111320&locale=en_US",
+      "face": {
+        "id": 111320,
+        "collectible": 1,
+        "slug": "111320-hematurge",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Dez Bencosme",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Hematurge",
+        "text": "<b>Battlecry:</b> Spend a <b>Corpse</b> to <b>Discover</b> a Blood Rune card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5680ccdaf6d9b042da4eb3d3c29d24591c0acf3c1cffb949ed251f9a495aa957.png",
+        "imageGold": "",
+        "flavorText": "She's here to PUMP! YOU UP!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b7130c4f7a84d789815893723d77b55911b17f61e0ab62e4fddf10316df59af.png",
+        "keywordIds": [
+          8,
+          21,
+          247
+        ],
+        "copyOfCardId": [
+          78356
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111320&locale=en_US",
+        "sha256": "9f182bd841904764973ba5a494fffa0aacf18afcc1a8e69ea562538ada9c2a64",
+        "bytes": 826,
+        "observed_at": "2026-10-17T22:07:10.550584+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_RLK_116",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111328-zh_CN.json",
+      "response_sha256": "08ba8420086763484e4d7b09316ffdf6525112edf41ab2d58823abcfc05292bf",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111328&locale=zh_CN",
+      "face": {
+        "id": 111328,
+        "collectible": 1,
+        "slug": "111328-necrotic-mortician",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "死灵殡葬师",
+        "text": "<b>战吼：</b>如果在你的上回合之后有友方亡灵死亡，<b>发现</b>一张邪恶符文牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/054c28dbd934b7b1e23a275782615e84081b39504b706722177cdbaccda18d4a.png",
+        "imageGold": "",
+        "flavorText": "头衔里带一个师字，头发里全都是虱子。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4706417c2c4f01085a4fd56fda29303148afd0a14506a858633941693be62f3.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          80083
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111328&locale=zh_CN",
+        "sha256": "08ba8420086763484e4d7b09316ffdf6525112edf41ab2d58823abcfc05292bf",
+        "bytes": 900,
+        "observed_at": "2026-10-17T22:07:10.125766+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_RLK_116",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111328-en_US.json",
+      "response_sha256": "394a51bbd9ddeaf9b074894f583c6e102091d6d091557e385d09c0ca59e4f3e9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111328&locale=en_US",
+      "face": {
+        "id": 111328,
+        "collectible": 1,
+        "slug": "111328-necrotic-mortician",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Necrotic Mortician",
+        "text": "<b>Battlecry:</b> If a friendly Undead died after your last turn, <b>Discover</b> an Unholy Rune card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bc5150c1cbecadab94f745b227b398f96ccdbfe42d23443c7c0d1becf87fcf3.png",
+        "imageGold": "",
+        "flavorText": "Her hair, just like her name, is full of 'tic's.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4706417c2c4f01085a4fd56fda29303148afd0a14506a858633941693be62f3.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          80083
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111328&locale=en_US",
+        "sha256": "394a51bbd9ddeaf9b074894f583c6e102091d6d091557e385d09c0ca59e4f3e9",
+        "bytes": 892,
+        "observed_at": "2026-10-17T22:07:10.245869+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_025",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\78325-zh_CN.json",
+      "response_sha256": "670924498fadfd02c332c0ea06ac7c01ade514ee30d7bf380d783f0089081911",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78325&locale=zh_CN",
+      "face": {
+        "id": 78325,
+        "collectible": 1,
+        "slug": "78325-frost-strike",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "冰霜打击",
+        "text": "对一个随从造成 3点伤害。如果该随从死亡，<b>发现</b>一张冰霜符文牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/080bd2e0ee07fc293400344bc8ac9be8993f8e03e7b52a4a2de910e14269ba3f.png",
+        "imageGold": "",
+        "flavorText": "有人要打球吗？霜打！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/adbde586081f53ed68c8ed4411131702242260cd7e5d9d390026820405fc2bf7.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78325&locale=zh_CN",
+        "sha256": "670924498fadfd02c332c0ea06ac7c01ade514ee30d7bf380d783f0089081911",
+        "bytes": 823,
+        "observed_at": "2026-10-17T22:07:11.324012+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_025",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\78325-en_US.json",
+      "response_sha256": "972dda052366f89361e0cfcc82cbffb5de3e383b14a49c89b385d88a921dab23",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78325&locale=en_US",
+      "face": {
+        "id": 78325,
+        "collectible": 1,
+        "slug": "78325-frost-strike",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "Frost Strike",
+        "text": "Deal 3 damage to a minion. If it dies, <b>Discover</b> a Frost Rune card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/729bfd6cbc8fede79a3b5f88c89c130a2dfb0ac0c5e558106c211ec171aa998e.png",
+        "imageGold": "",
+        "flavorText": "Anyone up for some frost bowling?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/adbde586081f53ed68c8ed4411131702242260cd7e5d9d390026820405fc2bf7.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78325&locale=en_US",
+        "sha256": "972dda052366f89361e0cfcc82cbffb5de3e383b14a49c89b385d88a921dab23",
+        "bytes": 803,
+        "observed_at": "2026-10-17T22:07:11.230864+00:00"
+      }
+    },
+    {
+      "card_id": "AT_101",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2521-zh_CN.json",
+      "response_sha256": "de4a1328e4b9a87a21937bb1d304c14dcdac078bcfb24d0a63338f4328709302",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2521&locale=zh_CN",
+      "face": {
+        "id": 2521,
+        "collectible": 1,
+        "slug": "2521-pit-fighter",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "格斗士",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ea22b048b897b0903eb7e741c4a9cd8bbe56bf9a5729183d887ee505421fc7a.png",
+        "imageGold": "",
+        "flavorText": "他们的血液里充斥着尚武精神，想要打一架吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd029acf8612d702b29a5315b7b3855b1f8f7528b875816a98575a575521a1e0.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2521&locale=zh_CN",
+        "sha256": "de4a1328e4b9a87a21937bb1d304c14dcdac078bcfb24d0a63338f4328709302",
+        "bytes": 701,
+        "observed_at": "2026-10-17T22:07:11.381711+00:00"
+      }
+    },
+    {
+      "card_id": "AT_101",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2521-en_US.json",
+      "response_sha256": "805fbf349e21cc140b2a16ec40083d8c04cc17d9553fc9aa9273a71aed63e79c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2521&locale=en_US",
+      "face": {
+        "id": 2521,
+        "collectible": 1,
+        "slug": "2521-pit-fighter",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Pit Fighter",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d806950029c9f80bd77619ca715ba140b2f2591a12e9c7a3d3c6f0dbe6a56232.png",
+        "imageGold": "",
+        "flavorText": "What did the pits ever do to you?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd029acf8612d702b29a5315b7b3855b1f8f7528b875816a98575a575521a1e0.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2521&locale=en_US",
+        "sha256": "805fbf349e21cc140b2a16ec40083d8c04cc17d9553fc9aa9273a71aed63e79c",
+        "bytes": 673,
+        "observed_at": "2026-10-17T22:07:11.761186+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_070",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2038-zh_CN.json",
+      "response_sha256": "21f5fb60b8cdae60cbcecf68ffda56ffe02e69db076394038292f672f0df848a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2038&locale=zh_CN",
+      "face": {
+        "id": 2038,
+        "collectible": 1,
+        "slug": "2038-salty-dog",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 4,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "熟练的水手",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f80c62d43ddb894337b3e99ce253ab310070ee9dea62e324e60b37f22e4b7b9.png",
+        "imageGold": "",
+        "flavorText": "他喜欢在船上颠簸的感觉，比在陆地上走路更有安全感。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90102dfaafb8c10370a58f22cb83280a58ddb18586fdebde47fb22bbcbe46330.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2038&locale=zh_CN",
+        "sha256": "21f5fb60b8cdae60cbcecf68ffda56ffe02e69db076394038292f672f0df848a",
+        "bytes": 735,
+        "observed_at": "2026-10-17T22:07:11.942436+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_070",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2038-en_US.json",
+      "response_sha256": "8de0335540dd51b5ee5fdc4f1df68ec3919e886a827c869936c11768089314f5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2038&locale=en_US",
+      "face": {
+        "id": 2038,
+        "collectible": 1,
+        "slug": "2038-salty-dog",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 4,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "Salty Dog",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92844474a7ff1bb11e11e39caf1f7cd71a371d0f12846b65b35a565bea8d6939.png",
+        "imageGold": "",
+        "flavorText": "He's recently recovered from being a \"scurvy dog.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90102dfaafb8c10370a58f22cb83280a58ddb18586fdebde47fb22bbcbe46330.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2038&locale=en_US",
+        "sha256": "8de0335540dd51b5ee5fdc4f1df68ec3919e886a827c869936c11768089314f5",
+        "bytes": 706,
+        "observed_at": "2026-10-17T22:07:12.037692+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_187",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1140-zh_CN.json",
+      "response_sha256": "3bd2b1218cd4f419377412cfcdbf220c088b317cc3daec4aedb586210463d52f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1140&locale=zh_CN",
+      "face": {
+        "id": 1140,
+        "collectible": 1,
+        "slug": "1140-booty-bay-bodyguard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Matt Cavotta",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "藏宝海湾保镖",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7763c80645f0cfa50782e8bb6c161ffa5c2e96f75d9ea7a0dd0558056be5a81f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08fef21a3eb8c3feb3f178a9bb821e027ee075c67812b6507a2889281e6a385f.png",
+        "flavorText": "你可以雇佣他们为你效命...直到有人出更高的价钱来让他们对付你。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5dbd9adb72b08d57f16a060944a869a56bba84f886271411ceeffa2073b7abe.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68402
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1140&locale=zh_CN",
+        "sha256": "3bd2b1218cd4f419377412cfcdbf220c088b317cc3daec4aedb586210463d52f",
+        "bytes": 908,
+        "observed_at": "2026-10-17T22:07:12.086199+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_187",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1140-en_US.json",
+      "response_sha256": "61008bf207e22dfe6b33be21ebaf69a183000bc5764be65a90f7f2dbb4de6b83",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1140&locale=en_US",
+      "face": {
+        "id": 1140,
+        "collectible": 1,
+        "slug": "1140-booty-bay-bodyguard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Matt Cavotta",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Booty Bay Bodyguard",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f4c741d65dde270d24dfe1d79fa7a56b3d5ddf6ebc990efc7495b711ac64f09.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08fef21a3eb8c3feb3f178a9bb821e027ee075c67812b6507a2889281e6a385f.png",
+        "flavorText": "You can hire him... until someone offers him enough gold to turn on you.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5dbd9adb72b08d57f16a060944a869a56bba84f886271411ceeffa2073b7abe.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68402
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1140&locale=en_US",
+        "sha256": "61008bf207e22dfe6b33be21ebaf69a183000bc5764be65a90f7f2dbb4de6b83",
+        "bytes": 890,
+        "observed_at": "2026-10-17T22:07:12.476314+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_151",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69-zh_CN.json",
+      "response_sha256": "2f59f5ef2d3e5bf0c2def4c394aeac5a558e7c531ff0ad186ca9e0a375892148",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69&locale=zh_CN",
+      "face": {
+        "id": 69,
+        "collectible": 1,
+        "slug": "69-silver-hand-knight",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Matt Starbuck",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "白银之手骑士",
+        "text": "<b>战吼：</b>召唤一个2/2的侍从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ceb7925dcd84fd0a0833a91054bd68f3fea49ae554f8506414c1b184547ce71a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62ebd41e64fbe54b5daca45a5029c31414ac69d33f449f9b1fee8fa89fefee8e.png",
+        "flavorText": "做一名骑士很威风，但是做骑士的侍从感觉就差一点了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f9007ebd46ad12ab4362036b23002f0a8b80c003c08507b0d5ddcdba7b48b9a.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          69756
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69&locale=zh_CN",
+        "sha256": "2f59f5ef2d3e5bf0c2def4c394aeac5a558e7c531ff0ad186ca9e0a375892148",
+        "bytes": 916,
+        "observed_at": "2026-10-17T22:07:12.658799+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_151",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69-en_US.json",
+      "response_sha256": "88bf1498b60eea172f9a450aa80784e64b1e1d9c44746e8ff51882cd3ff751a2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69&locale=en_US",
+      "face": {
+        "id": 69,
+        "collectible": 1,
+        "slug": "69-silver-hand-knight",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Matt Starbuck",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Silver Hand Knight",
+        "text": "<b>Battlecry:</b> Summon a 2/2 Squire.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e38a8d09037a39f2e316663b38956c080455138e86186dc9d22d3c3740103a2f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62ebd41e64fbe54b5daca45a5029c31414ac69d33f449f9b1fee8fa89fefee8e.png",
+        "flavorText": "It's good to be a knight. Less so to be one's squire.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f9007ebd46ad12ab4362036b23002f0a8b80c003c08507b0d5ddcdba7b48b9a.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          69756
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69&locale=en_US",
+        "sha256": "88bf1498b60eea172f9a450aa80784e64b1e1d9c44746e8ff51882cd3ff751a2",
+        "bytes": 889,
+        "observed_at": "2026-10-17T22:07:12.736681+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_053",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2021-zh_CN.json",
+      "response_sha256": "431f9d6ed8e8b73cf32920a2400d4bd3e10ed17b4394d564cb3a583389434744",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2021&locale=zh_CN",
+      "face": {
+        "id": 2021,
+        "collectible": 1,
+        "slug": "2021-shieldmaiden",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "盾甲侍女",
+        "text": "<b>战吼：</b> 获得5点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14e00501d42456a52267d82ac31ebf57dfd52dee13dd5a3c1defe37042d356e2.png",
+        "imageGold": "",
+        "flavorText": "对于侏儒战士来说，一块盾牌可以对其进行全方位的保护。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69a983b862ec7c360d4751cd5020b4053757f1c8bedaf56b8bb1c617dfc7bfcf.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          69741
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2021&locale=zh_CN",
+        "sha256": "431f9d6ed8e8b73cf32920a2400d4bd3e10ed17b4394d564cb3a583389434744",
+        "bytes": 799,
+        "observed_at": "2026-10-17T22:07:13.016487+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_053",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2021-en_US.json",
+      "response_sha256": "e47c04dd7809ba17afbfe8ae2e4b0063c560eaeff569580188abcc2772cecd70",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2021&locale=en_US",
+      "face": {
+        "id": 2021,
+        "collectible": 1,
+        "slug": "2021-shieldmaiden",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Shieldmaiden",
+        "text": "<b>Battlecry:</b> Gain 5 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95d8db06e3530426913fe9c180b5c616b89f00004444c10c90d6438d3501085f.png",
+        "imageGold": "",
+        "flavorText": "She has three shieldbearers in her party to supply her with back ups when she gets low on durability.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69a983b862ec7c360d4751cd5020b4053757f1c8bedaf56b8bb1c617dfc7bfcf.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          69741
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2021&locale=en_US",
+        "sha256": "e47c04dd7809ba17afbfe8ae2e4b0063c560eaeff569580188abcc2772cecd70",
+        "bytes": 814,
+        "observed_at": "2026-10-17T22:07:13.202226+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_069",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2037-zh_CN.json",
+      "response_sha256": "b2721a17226ca745e3df2a6dc916f52e4a024164702e4d52347fa9c6a92e4f86",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2037&locale=zh_CN",
+      "face": {
+        "id": 2037,
+        "collectible": 1,
+        "slug": "2037-antique-healbot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Jesper Ejsing",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "老式治疗机器人",
+        "text": "<b>战吼：</b>为你的英雄恢复 8点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9e8c83f73ce8611ef5c1646370bd61c3347736471c25a91694615d043e5f8f7.png",
+        "imageGold": "",
+        "flavorText": "由于可能会因为爆炸而影响患者的治疗，这种类型的机器人已经停产很久了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e77f6d882a51d1785e7d127c348c422f55649ab3c569bcb85c6248a53b70a536.jpg",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2037&locale=zh_CN",
+        "sha256": "b2721a17226ca745e3df2a6dc916f52e4a024164702e4d52347fa9c6a92e4f86",
+        "bytes": 836,
+        "observed_at": "2026-10-17T22:07:13.364032+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_069",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2037-en_US.json",
+      "response_sha256": "fe668ac7ba76fcb10f683b7f4ae6b397a0e3e224594c757b6afae85825e9136f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2037&locale=en_US",
+      "face": {
+        "id": 2037,
+        "collectible": 1,
+        "slug": "2037-antique-healbot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Jesper Ejsing",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Antique Healbot",
+        "text": "<b>Battlecry:</b> Restore 8 Health to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51864a6cf678d480e30cd0beb21fb6e2ca399a4cfe353e840c119df2ddf244c6.png",
+        "imageGold": "",
+        "flavorText": "They don't make 'em like they used to! (Because of explosions, mostly.)",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e77f6d882a51d1785e7d127c348c422f55649ab3c569bcb85c6248a53b70a536.jpg",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2037&locale=en_US",
+        "sha256": "fe668ac7ba76fcb10f683b7f4ae6b397a0e3e224594c757b6afae85825e9136f",
+        "bytes": 793,
+        "observed_at": "2026-10-17T22:07:13.486502+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_593",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\670-zh_CN.json",
+      "response_sha256": "0ea6fc42d9980f0d710422ddcef26d2f7bc9ea402e4681dbe0a5ce5dd6874a1d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=670&locale=zh_CN",
+      "face": {
+        "id": 670,
+        "collectible": 1,
+        "slug": "670-nightblade",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Raymond Swanland",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "夜刃刺客",
+        "text": "<b>战吼：</b>对敌方英雄造成3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f84ceb71a36148a2cba4f4924d234bd540e162909564f9506b3ef0e36215daad.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/876508e7343e54d1115695b81502e9193cb2c95c025a5810944a5dddb394eb28.png",
+        "flavorText": "你的脸可能是你最不希望被刀子碰到的地方，但却是潜行者们最喜欢下手的地方。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3124c1c8bbf8f29e2f6f6af7b7b3362db17e95faaf1f151b88c42d68a663df9.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          68206,
+          68478
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=670&locale=zh_CN",
+        "sha256": "0ea6fc42d9980f0d710422ddcef26d2f7bc9ea402e4681dbe0a5ce5dd6874a1d",
+        "bytes": 956,
+        "observed_at": "2026-10-17T22:07:13.713641+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_593",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\670-en_US.json",
+      "response_sha256": "9e6af9504420e69e473caa04318216032c18d537228a72b5355ac01a529497a3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=670&locale=en_US",
+      "face": {
+        "id": 670,
+        "collectible": 1,
+        "slug": "670-nightblade",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Raymond Swanland",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Nightblade",
+        "text": "<b>Battlecry: </b>Deal 3 damage to the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec655fd270ff7bf5127d364035dbd1c49e3d71d8d972f1da0c6aa5f360463104.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/876508e7343e54d1115695b81502e9193cb2c95c025a5810944a5dddb394eb28.png",
+        "flavorText": "Your face is the place you'd probably least like a dagger, and where rogues are most likely to deliver them.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3124c1c8bbf8f29e2f6f6af7b7b3362db17e95faaf1f151b88c42d68a663df9.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          68206,
+          68478
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=670&locale=en_US",
+        "sha256": "9e6af9504420e69e473caa04318216032c18d537228a72b5355ac01a529497a3",
+        "bytes": 954,
+        "observed_at": "2026-10-17T22:07:13.935996+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_150",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\413-zh_CN.json",
+      "response_sha256": "87e8c5ce3cbfa171f246d4e1f64a0bab9501766b19168a10dbe562771da4def0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=413&locale=zh_CN",
+      "face": {
+        "id": 413,
+        "collectible": 1,
+        "slug": "413-stormpike-commando",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Kev Walker",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "雷矛特种兵",
+        "text": "<b>战吼：</b>造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d1f96255da386f1bbaa36e5e28102b9bcbf5d5b8b4c0aaeb728120bbde6388a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2e3a8f63a5f9a05ec59dfe915e04ef2d884d6c4dd27af6e1296997f04e9c1cd.png",
+        "flavorText": "雷矛特种兵都是爆破专家。他们还会烘焙简易的蛋糕。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e23b2b4b664c46da71fd706b893cbdadf9bb5d5051d7147a46f410fc36534c7.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          68392
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=413&locale=zh_CN",
+        "sha256": "87e8c5ce3cbfa171f246d4e1f64a0bab9501766b19168a10dbe562771da4def0",
+        "bytes": 904,
+        "observed_at": "2026-10-17T22:07:14.065297+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_150",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\413-en_US.json",
+      "response_sha256": "de26c042fbc7a08f916b6a8ce87dcc720b6656fc6544744b05ed3f2da8a2cd36",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=413&locale=en_US",
+      "face": {
+        "id": 413,
+        "collectible": 1,
+        "slug": "413-stormpike-commando",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Kev Walker",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Stormpike Commando",
+        "text": "<b>Battlecry:</b> Deal 2 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/067162f6b007acf185291cdd2184e6b1d0a769f931ae5db0949ea0610c163d93.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2e3a8f63a5f9a05ec59dfe915e04ef2d884d6c4dd27af6e1296997f04e9c1cd.png",
+        "flavorText": "The Stormpike Commandos are demolition experts. They also bake a mean cupcake.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e23b2b4b664c46da71fd706b893cbdadf9bb5d5051d7147a46f410fc36534c7.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          68392
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=413&locale=en_US",
+        "sha256": "de26c042fbc7a08f916b6a8ce87dcc720b6656fc6544744b05ed3f2da8a2cd36",
+        "bytes": 910,
+        "observed_at": "2026-10-17T22:07:14.475687+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_152",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\482-zh_CN.json",
+      "response_sha256": "0c999509be4cf4bac88201ff919f96547611a930429bb4cb01a5670408a1c50f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=482&locale=zh_CN",
+      "face": {
+        "id": 482,
+        "collectible": 0,
+        "slug": "482-squire",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "侍从",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2239b39656c653b919b59dfa6f75b1d2281923578cc0a18b191cb6b8a72a2acf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "copyOfCardId": [
+          69757
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=482&locale=zh_CN",
+        "sha256": "0c999509be4cf4bac88201ff919f96547611a930429bb4cb01a5670408a1c50f",
+        "bytes": 517,
+        "observed_at": "2026-10-17T22:07:14.464518+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_152",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\482-en_US.json",
+      "response_sha256": "9e32f852bc610691b5764e564e6576f681bfeaeda6b681622f39676069b08e01",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=482&locale=en_US",
+      "face": {
+        "id": 482,
+        "collectible": 0,
+        "slug": "482-squire",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Squire",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41130f73d2141116dd2a15e035cbb732dc45c342e49b9bc448dea003b8e8d13c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "copyOfCardId": [
+          69757
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=482&locale=en_US",
+        "sha256": "9e32f852bc610691b5764e564e6576f681bfeaeda6b681622f39676069b08e01",
+        "bytes": 517,
+        "observed_at": "2026-10-17T22:07:14.642783+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120782-zh_CN.json",
+      "response_sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "消散的回忆",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/124dbe1ae668610b47aa809dc0d8421a3300d3c91c4abb1c8ab9bf4172e1305f.png",
+        "imageGold": "",
+        "flavorText": "我想到了一条绝妙的卡牌趣文……怎么又忘了？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+        "sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+        "bytes": 832,
+        "observed_at": "2026-10-17T16:37:15.061765+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120782-en_US.json",
+      "response_sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "Fading Memory",
+        "text": "<b>Deathrattle:</b>& Get a random 5-Cost minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13e8b54c21ae8be793ac75e2a8f0d773da7e299fbc0481a7da0db6541fe29ba7.png",
+        "imageGold": "",
+        "flavorText": "I had the best idea for flavor text! …what was it again?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+        "sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+        "bytes": 797,
+        "observed_at": "2026-10-17T16:37:15.541325+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\68-zh_CN.json",
+      "response_sha256": "62c2847261af1a3576f3e44e03d3b15e556f5895bc8233853c8fab5e26ccc93b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=zh_CN",
+      "face": {
+        "id": 68,
+        "collectible": 1,
+        "slug": "68-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "荆棘谷猛虎",
+        "text": "<b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0533aa5e3b240367fd71d82abb745b3939a8ec60ffd1fa2d37d6b2ffa4ad179.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0039c76c7c7ea602bbe36bda87c6ac12a84ab8ff375f918cfe190d48f88e92.png",
+        "flavorText": "这些美丽的大猫是荆棘谷一道亮丽的风景！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52e4d713b09e95d8b2510e735efd167c9d8cf3a719411c558b818d2348a72337.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          69658,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=zh_CN",
+        "sha256": "62c2847261af1a3576f3e44e03d3b15e556f5895bc8233853c8fab5e26ccc93b",
+        "bytes": 899,
+        "observed_at": "2026-10-17T22:07:14.990800+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\68-en_US.json",
+      "response_sha256": "72113232fd29c892460c5ae42f095676417f73e23c8b5a0d8260d021f3690cb7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=en_US",
+      "face": {
+        "id": 68,
+        "collectible": 1,
+        "slug": "68-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stranglethorn Tiger",
+        "text": "<b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb2eb59e8858064af7c57ba520c1475eb47a3f5da3174534f3dd711d1572ea74.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0039c76c7c7ea602bbe36bda87c6ac12a84ab8ff375f918cfe190d48f88e92.png",
+        "flavorText": "The wonderful thing about tigers is tigers are wonderful things!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52e4d713b09e95d8b2510e735efd167c9d8cf3a719411c558b818d2348a72337.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          69658,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=en_US",
+        "sha256": "72113232fd29c892460c5ae42f095676417f73e23c8b5a0d8260d021f3690cb7",
+        "bytes": 911,
+        "observed_at": "2026-10-17T22:07:15.173363+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69658-zh_CN.json",
+      "response_sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "荆棘谷猛虎",
+        "text": "<b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc8651fe343dd5c9a8fa4e8105741df05c91b7a21afa5415f34ecec548cbc8d1.png",
+        "imageGold": "",
+        "flavorText": "这些美丽的大猫是荆棘谷一道亮丽的风景！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+        "sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+        "bytes": 787,
+        "observed_at": "2026-10-17T22:07:15.174397+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69658-en_US.json",
+      "response_sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stranglethorn Tiger",
+        "text": "<b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03d3846eba11cba5db6578e60928c2b3010c686cf041d8f8ecd5bfd3f9d4192f.png",
+        "imageGold": "",
+        "flavorText": "The wonderful thing about tigers is tigers are wonderful things!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+        "sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+        "bytes": 799,
+        "observed_at": "2026-10-17T22:07:15.397897+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "CORE_RLK_066": {
+      "~GAMEPLAY_ASPROXY_CORE_RLK_066": ""
+    }
+  },
+  "known_current_family_omissions": [
+    {
+      "not_added": "EX1_028",
+      "current": "CORE_EX1_028",
+      "family": "EX1_028",
+      "current_standard_candidate": true,
+      "basis": "Exact existing current Standard definition canonical deck identity plus full old/current source faces. Omission is conservative candidate selection; no exact TIME_040 pool/filter is registered."
+    }
+  ],
+  "preserved_current_family_definition_pins": {
+    "CORE_EX1_028": {
+      "definition": {
+        "id": "CORE_EX1_028",
+        "name": "荆棘谷猛虎",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [
+          "stealth"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "common",
+          "deck_identity": "EX1_028",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "5878cd1f7718dfcc3e89657c2b737a18f1eba015d3c8d16363128ead8ec812d5"
+    }
+  },
+  "exact_parent_child_links": [],
+  "named_dependency_links": [
+    {
+      "parent": "CS2_151",
+      "child": "CS2_152",
+      "locale": "zh_CN",
+      "basis": "Full literal named summon and exact2/2Squire face; no forged direct API edge.",
+      "execution_identity_pending_M6": true
+    },
+    {
+      "parent": "CS2_151",
+      "child": "CS2_152",
+      "locale": "en_US",
+      "basis": "Full literal named summon and exact2/2Squire face; no forged direct API edge.",
+      "execution_identity_pending_M6": true
+    }
+  ],
+  "source_tag_links": [
+    {
+      "parent": "CS2_151",
+      "child": "CS2_152",
+      "tag": "COLLECTION_RELATED_CARD_DATABASE_ID",
+      "dbf_id": 482
+    }
+  ],
+  "pool_predicate_qualifications": [
+    {
+      "card_id": "AT_101",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "AT_101",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "GVG_070",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "GVG_070",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "CS2_187",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "CS2_187",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "CS2_151",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "CS2_151",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "GVG_053",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "GVG_053",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "GVG_069",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "GVG_069",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "EX1_593",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "EX1_593",
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "CS2_150",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "known_standard_family": [],
+      "family": "CS2_150",
+      "exact_source_pool_certified": false
+    }
+  ],
+  "unsupported_source_cards": [
+    "TIME_040"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Three newly executable Standard candidate Rune roots, eight necessary older printed5-cost collectible candidate dependencies and one exact2/2Squire. No Wild-format deliverable, complete past pool or implemented-only filter is added. Existing current Tiger family remains byte-exact and old EX1_028 is not counted.",
+    "hematurge": "Actual Battlecry always submits native SpendResource(CORPSES,1), without a snapshot precheck. The execution-time bank chooses exactly one native branch; only successful payment runs ordinary collectible Blood Rune discovery. Corpus payment, choice, rollback and original captured player stay shared.",
+    "mortician": "Read the actual last closed owner interval, not globalturn-2. DeathQuery starts at the first global turn after that exact owner interval; before any previous owner interval it covers recorded game history. End-of-that-owner-turn deaths remain inside the closed turn and do not qualify. Every friendly original death in the real window is checked through public has_any_tribe on its frozen DeathRecord enchantments, including ALL/exclusions/current tribe. Unknown facts fail, no current entity reconstruction or shadow clock.",
+    "strike": "Original3Spell damage with actual health-result callback. InvokeHealthResult re-enters fresh state and existing direct_death matches the exact original target and complete damage/poison cause payload. Only its actual original linked death yields collectible Frost Rune discovery. Earlier same-ID deaths, surviving/redirected/reaction-destroyed targets are not inferred kills; actual Reborn after the original death does not revoke the original reward.",
+    "runes": "Use positive printed blood/unholy/frost Rune requirements through PoolQuery.runes_any, independent of spell school, current hero class and deck Rune allocation. Ordinary full candidate validation, discovery policy and private choice/delivery are retained; no local source-specific restricted pool.",
+    "basics": "Pit Fighter5/6 and Salty Dog7/4 have their exact blank printed text; Booty Bay Bodyguard5/4 has native Taunt. Silver Hand Knight submits one attributed ordinary Squire summon. Shieldmaiden gains5Armor, Antique Healbot heals the accepted player hero8 through ordinary EFFECT healing, Nightblade deals3MINION_ABILITY damage to the accepted enemy hero, Stormpike Commando deals2MINION_ABILITY damage to its ordinary required character target. No Battlecry is moved into generic on_play.",
+    "family": "Known canonical existing Standard family metadata is checked separately from raw record identity. Raw-only first audit did not inherit the existing CORE_EX1_028 canonical identity and is retained; second audit uses exact current definitions. This does not certify all possible alias equivalences or exact past eligibility.",
+    "evidence": "Complete original rows and full primary bodies/receipts stay fixed. Only the accepted exact Hematurge proxy macro is explicitly omitted. No printed scalar default is assumed; all selected minion costs/Attack/Health are explicit and strictly compared.",
+    "limits": "Accurate CN pool eligibility, before-first-own-turn policy, death/tribe and payment/health/discovery timing remain internal policies pendingM6. M0 formal legal pool and all actual reachable content stay open."
+  }
+}
