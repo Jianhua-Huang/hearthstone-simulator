@@ -1,0 +1,4489 @@
+{
+  "schema": 1,
+  "batch": "P75",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p75-20261018/manifest-02.json",
+    "sha256": "59fa922459da161fc996894d635723ec890db49ed44f8bc4918173075d5b70b3"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_909",
+        "dbf_id": 124075,
+        "name": "迪菲亚跟风狗",
+        "name_en": "Defias Wannabe",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。@<i>（已使用@张）</i>",
+        "text_en": "[x]<b>Prepare</b>\n<b><b>Combo</b>:</b> Gain +1/+1 for\neach other card played\nthis turn.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "ba8bd9eef9817eeabba95924975a86e6c45cc82c8c67a8dd7be12368c04e2d6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_909",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_474",
+        "dbf_id": 130021,
+        "name": "青玉守卫",
+        "name_en": "Jade Guardians",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。@<i>（减少@点）</i>",
+        "text_en": "[x]Get two random 8-Cost\nminions. They cost (1) less\nfor each card you played\nfor 2 Mana this game.@ <i>(@)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "ae8c989fbc0cdf045978768358e212a25e47c82f88065b11d180c9521c1aa43d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_474",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TSC_029t",
+        "dbf_id": 80793,
+        "name": "盖亚的钻头",
+        "name_en": "Gaia's Drill",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ac000817a08a5855aa8692d6b4472851da71f5c69dd0d06326b971921d6a54ee",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_029t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_029t2",
+        "dbf_id": 85858,
+        "name": "盖亚的钻头",
+        "name_en": "Gaia's Drill",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "14e3868f32b99925897a308c4ab617a2385e34e9f44730d2a24a29cda4a45b0f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_029t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219t",
+        "dbf_id": 73727,
+        "name": "希拉格的蔓足",
+        "name_en": "Xhilag's Stalk",
+        "text": "在你的回合结束时，随机对一个敌人造成@点伤害。",
+        "text_en": "At the end of your turn, deal @ damage to a random enemy.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9925cb23ad061a762334c3f61bb69ad3c64aa05ebd0a18b6b0fa1f69c1369bf9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_219t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219t2",
+        "dbf_id": 85853,
+        "name": "希拉格的蔓足",
+        "name_en": "Xhilag's Stalk",
+        "text": "在你的回合结束时，随机对一个敌人造成@点伤害。",
+        "text_en": "At the end of your turn, deal @ damage to a random enemy.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8546f3358738771a8dab56b2cf5a8e9a657b4f6b130306f26bd0272c400ed8f7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_219t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219t3",
+        "dbf_id": 85854,
+        "name": "希拉格的蔓足",
+        "name_en": "Xhilag's Stalk",
+        "text": "在你的回合结束时，随机对一个敌人造成@点伤害。",
+        "text_en": "At the end of your turn, deal @ damage to a random enemy.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "11d7562755e64b3ac52ff1b1eac4160b00c192df5674e3f4904379759e24dd2a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_219t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219t4",
+        "dbf_id": 85855,
+        "name": "希拉格的蔓足",
+        "name_en": "Xhilag's Stalk",
+        "text": "在你的回合结束时，随机对一个敌人造成@点伤害。",
+        "text_en": "At the end of your turn, deal @ damage to a random enemy.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f7c29256aa5f6d8f112d7fb48bcc3a3c1bb5d722c82347859b7d89ca03b3cb7f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_219t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NX2_037t",
+        "dbf_id": 87330,
+        "name": "辛达苟萨之翼",
+        "name_en": "Sindragosa's Wing",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "text_en": "<b>Rush</b>\n<b>Freeze</b> any character damaged by this minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "FREEZE": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "a9962a4b7fe73c4d1174433026a5a211185292d6b8046a0057a5cf5087409f1c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "NX2_037t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NX2_037t2",
+        "dbf_id": 94607,
+        "name": "辛达苟萨之翼",
+        "name_en": "Sindragosa's Wing",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "text_en": "<b>Rush</b>\n<b>Freeze</b> any character damaged by this minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "FREEZE": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "faa89254cde4470343549fac45f5c469f9a144fbb43fc2e14f4f05d5255ee560",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "NX2_037t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_365",
+        "dbf_id": 118266,
+        "name": "乱翻库存",
+        "name_en": "Storage Scuffle",
+        "text": "对一个随从造成$3点伤害。如果你在本回合中<b>发现</b>过，则本牌的法力值消耗为（0）点。",
+        "text_en": "Deal $3 damage\nto a minion. Costs (0)\nif you've <b>Discovered</b>\nthis turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0c58112422d886c905af5b6948abde172c2e9326e293ba50e476282077283e5c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_365",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "TLC_462",
+        "dbf_id": 118199,
+        "name": "出土神器",
+        "name_en": "Unearthed Artifacts",
+        "text": "随机召唤一个法力值消耗为（2）的随从。如果你在本回合中<b><b>发现</b>过</b>，改为随机召唤一个法力值消耗为（4）的随从。",
+        "text_en": "[x]Summon a random 2-Cost\nminion. If you've <b><b>Discover</b>ed</b>\nthis turn, summon a random\n4-Cost minion instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d4d99ca65d29fce514082f1ded1aa2e71c4804ba97d3ce973332a86aca5f4078",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_462",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_483",
+        "dbf_id": 120582,
+        "name": "宝库闯入者",
+        "name_en": "Vault Breaker",
+        "text": "在你<b>发现</b>一张卡牌后，使其法力值消耗减少（1）点。",
+        "text_en": "After you <b>Discover</b> a card, reduce its Cost by (1).",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "dc87f9e292899e139a2f33aa03c4d1d00e73f4d02136efd8d9ebb3fdd2cd9070",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_483",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_460",
+        "dbf_id": 118183,
+        "name": "禁忌序列",
+        "name_en": "The Forbidden Sequence",
+        "text": "<b>任务：</b><b>发现</b>8张牌。<b>奖励：</b>源生之石。",
+        "text_en": "[x]<b>Quest:</b> <b>Discover</b> 8 cards.\n<b>Reward:</b> The Origin Stone.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 118191,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "43327c776ec2d16d72533017087975969e54d876f8a685e36b7afc7dad3f51cc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_460",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_460t",
+        "dbf_id": 118191,
+        "name": "源生之石",
+        "name_en": "The Origin Stone",
+        "text": "在你<b>发现</b>一张牌后，本武器会使用其余选项并失去1点耐久度。",
+        "text_en": "After you <b>Discover</b> a card, this plays the other options.\nLose 1 Durability.",
+        "cost": 3,
+        "attack": null,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f097595b845c6b9b4f475b2c0a86c3c471ed56d82473d631d501dda3ffd197a1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_460t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_029",
+        "dbf_id": 71841,
+        "name": "盖亚，巨力机甲",
+        "name_en": "Gaia, the Techtonic",
+        "text": "<b>巨型+2</b>\n在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Colossal +2</b>\nAfter a friendly Mech\nattacks, deal 1 damage\nto all enemies.",
+        "cost": 8,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85858,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "f9613dc924db4b79b9bbe886715699b9e2e697f7438032367fada897e5e53990",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_029",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219",
+        "dbf_id": 73726,
+        "name": "渊狱魔犬希拉格",
+        "name_en": "Xhilag of the Abyss",
+        "text": "<b>巨型+4</b>\n在你的回合开始时，希拉格的蔓足造成的伤害提高1点。",
+        "text_en": "[x]<b>Colossal +4</b>\nAt the start of your turn,\nincrease the damage of\nXhilag's Stalks by 1.",
+        "cost": 7,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85854,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "09b1b92004b42d69d5a866ce57708073c64242b6e924f5a8718a0775252598e3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_219",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NX2_037",
+        "dbf_id": 87329,
+        "name": "冰霜女王辛达苟萨",
+        "name_en": "Frost Queen Sindragosa",
+        "text": "<b>巨型+2</b>\n在一个敌方随从被<b>冻结</b>后，将其消灭。",
+        "text_en": "<b>Colossal +2</b>\nAfter an enemy minion is <b>Frozen</b>, destroy it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 94607,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COST_FROST": 1,
+          "COLOSSAL": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fff0901d001db6a64914dca1c20187a169a798b9b416be65b1f68f9ea214440c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "NX2_037",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_000",
+        "dbf_id": 126698,
+        "name": "始源领主",
+        "name_en": "Primordial Lord",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "text_en": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion\nfrom the past.",
+        "cost": 6,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2247",
+              "name": "COLOSSAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0d0c5900d007da29a9f51752527696af1bae716689ae561c4cb8af3ec492e58f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_EVENT_000",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711",
+        "dbf_id": 75580,
+        "name": "厄祖玛特",
+        "name_en": "Ozumat",
+        "text": "<b>巨型+6</b>\n<b>亡语：</b>每有一条厄祖玛特的触须，随机消灭一个敌方随从。",
+        "text_en": "[x]<b>Colossal +6</b> \n<b>Deathrattle:</b> For each of\nOzumat's Tentacles, destroy\n   a random enemy minion.",
+        "cost": 8,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 75581,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b2f1e7047d8b728ae88a61d3698ba04d51a97dadf718dee1b581dcdb92e28109",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TID_711",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t",
+        "dbf_id": 75581,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f380170536614a1d6a4248d54dc326477d8c78737e5408253ea1576f6e0e58b5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t2",
+        "dbf_id": 85862,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c7396b148d8d25353587932a13e8a667edebade7440919bf4c9dfb91f4c0282a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t3",
+        "dbf_id": 85863,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ec7e39b7494c0b43df51a8a167587660481a858fc3d8c880187b3f5e8a8df4d1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t4",
+        "dbf_id": 85864,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d617dfd9b957f1a53d0e6debaabcaf8f59cc5d1b9e8efbca00441b6b1065cb26",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t5",
+        "dbf_id": 85865,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "01cc0815b2da0214e2c210eb89b49f3787f451e906151d4720c834763941e57b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711t6",
+        "dbf_id": 85866,
+        "name": "厄祖玛特的触须",
+        "name_en": "Ozumat's Tentacle",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a68f634c23ea252b8248180dfbb11cf4025da9c83e88f2ec6fc177981a93bd39",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_711t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "collectible_candidate_roots": [
+    "JAIL_909",
+    "JAIL_474"
+  ],
+  "necessary_cross_series_collectibles": [],
+  "necessary_noncollectibles": [
+    "TSC_029t",
+    "TSC_029t2",
+    "TSC_219t",
+    "TSC_219t2",
+    "TSC_219t3",
+    "TSC_219t4",
+    "NX2_037t",
+    "NX2_037t2"
+  ],
+  "new_definition_ids": [
+    "JAIL_909",
+    "JAIL_474",
+    "TSC_029t",
+    "TSC_029t2",
+    "TSC_219t",
+    "TSC_219t2",
+    "TSC_219t3",
+    "TSC_219t4",
+    "NX2_037t",
+    "NX2_037t2"
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_909",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\124075-zh_CN.json",
+      "response_sha256": "b7ff5dfa625ab4a2a3f371438dfdd91b6c97b2b641189d0c02415ea7068e12d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124075&locale=zh_CN",
+      "face": {
+        "id": 124075,
+        "collectible": 1,
+        "slug": "124075-defias-wannabe",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "迪菲亚跟风狗",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。 <i>（已使用 张）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec504e88b874c81ca541f798e57aad7fe06614beb79e068bdd982e17a706792e.png",
+        "imageGold": "",
+        "flavorText": "头上顶支蜡烛并不能让你更好地<i>潜行</i>。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0016661a8fcb009e61c0cf6ecf565ab59e7a3d326f0dd3c155718d52e32a9bff.png",
+        "keywordIds": [
+          13,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124075&locale=zh_CN",
+        "sha256": "b7ff5dfa625ab4a2a3f371438dfdd91b6c97b2b641189d0c02415ea7068e12d1",
+        "bytes": 854,
+        "observed_at": "2026-10-17T14:13:46.562541+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_909",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\124075-en_US.json",
+      "response_sha256": "19d6e148ecfc4763daa64242ed9894b0ae84b83493ebfe21c378a75142cef1a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124075&locale=en_US",
+      "face": {
+        "id": 124075,
+        "collectible": 1,
+        "slug": "124075-defias-wannabe",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Defias Wannabe",
+        "text": "<b>Prepare</b> <b><b>Combo</b>:</b> Gain +1/+1 for each other card played this turn. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4ffe20fae0b034b61eaa08f6abdd477a8df416a90a76591e73e2ddbf4af4cdc.png",
+        "imageGold": "",
+        "flavorText": "A candle on top of your head does NOT help with being <i>stealthy</i>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0016661a8fcb009e61c0cf6ecf565ab59e7a3d326f0dd3c155718d52e32a9bff.png",
+        "keywordIds": [
+          13,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124075&locale=en_US",
+        "sha256": "19d6e148ecfc4763daa64242ed9894b0ae84b83493ebfe21c378a75142cef1a7",
+        "bytes": 826,
+        "observed_at": "2026-10-17T14:13:46.357011+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_474",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130021-zh_CN.json",
+      "response_sha256": "4de2299546f7f55c8cad83949544966931e14d6e9e5f58db54748491fed41e61",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130021&locale=zh_CN",
+      "face": {
+        "id": 130021,
+        "collectible": 1,
+        "slug": "130021-jade-guardians",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "青玉守卫",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。 <i>（减少 点）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81eb470930e6b24879e700ac9d07b41638f471c71dd85004f9c190c75f318a86.png",
+        "imageGold": "",
+        "flavorText": "仔细想想，我还是回牢房去吧……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d953618c385a968f30fd56375fc85d4ccd391daa5d4da50ec48ef21601e90ac6.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130021&locale=zh_CN",
+        "sha256": "4de2299546f7f55c8cad83949544966931e14d6e9e5f58db54748491fed41e61",
+        "bytes": 865,
+        "observed_at": "2026-10-17T20:45:01.561984+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_474",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130021-en_US.json",
+      "response_sha256": "7dd95512f602d77a0bfadf367f916d42fa0a0df3123554d2593e5519fb041282",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130021&locale=en_US",
+      "face": {
+        "id": 130021,
+        "collectible": 1,
+        "slug": "130021-jade-guardians",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "Jade Guardians",
+        "text": "Get two random 8-Cost minions. They cost (1) less for each card you played for 2 Mana this game. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d7c12b5ce043a65ea3148e6ae3760fb9078758f1c3d66565c34ea04c5442b84.png",
+        "imageGold": "",
+        "flavorText": "On second thought! I am going back to my cell...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d953618c385a968f30fd56375fc85d4ccd391daa5d4da50ec48ef21601e90ac6.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130021&locale=en_US",
+        "sha256": "7dd95512f602d77a0bfadf367f916d42fa0a0df3123554d2593e5519fb041282",
+        "bytes": 773,
+        "observed_at": "2026-10-17T20:45:01.505847+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\80793-zh_CN.json",
+      "response_sha256": "1307fdeadd68e74966d2bae2b9e3529f5095d204788da88832d0b153bb630cf0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80793&locale=zh_CN",
+      "face": {
+        "id": 80793,
+        "collectible": 0,
+        "slug": "80793-gaias-drill",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "盖亚的钻头",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c597195a95bb668895ed5840a2ad5e4294609baeee0ca743ad251d06fabf59b9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71841,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80793&locale=zh_CN",
+        "sha256": "1307fdeadd68e74966d2bae2b9e3529f5095d204788da88832d0b153bb630cf0",
+        "bytes": 580,
+        "observed_at": "2026-10-17T21:20:45.334460+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\80793-en_US.json",
+      "response_sha256": "e60a0d9e9b1d499458d72375a37c2751a40290709e82c3fe1a766db2f3c87b2c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80793&locale=en_US",
+      "face": {
+        "id": 80793,
+        "collectible": 0,
+        "slug": "80793-gaias-drill",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Gaia's Drill",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ed163fbf60eefa83d2c9c0fe39013e692ee831ae7173e961c14daa3b3167655.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71841,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80793&locale=en_US",
+        "sha256": "e60a0d9e9b1d499458d72375a37c2751a40290709e82c3fe1a766db2f3c87b2c",
+        "bytes": 575,
+        "observed_at": "2026-10-17T21:20:45.233244+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85858-zh_CN.json",
+      "response_sha256": "7989a074d59af2c2ad979d9d106c48d6e25d27c1144b9c504816ddef8ff826da",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85858&locale=zh_CN",
+      "face": {
+        "id": 85858,
+        "collectible": 0,
+        "slug": "85858-gaias-drill",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "盖亚的钻头",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b060483e9b8b911f703ef51da67df969ed3fbc6828fc2f5248a71e2800504fcd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71841,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85858&locale=zh_CN",
+        "sha256": "7989a074d59af2c2ad979d9d106c48d6e25d27c1144b9c504816ddef8ff826da",
+        "bytes": 580,
+        "observed_at": "2026-10-17T21:20:45.256276+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85858-en_US.json",
+      "response_sha256": "e4ba220a1891ab043469a818eaf8dd1ff7d12c4fc24e93801231136699ce814f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85858&locale=en_US",
+      "face": {
+        "id": 85858,
+        "collectible": 0,
+        "slug": "85858-gaias-drill",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Gaia's Drill",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1b42006c6f7162616080cc766618d5304cea3846b2e82e9a01b727bb0a8e477.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71841,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85858&locale=en_US",
+        "sha256": "e4ba220a1891ab043469a818eaf8dd1ff7d12c4fc24e93801231136699ce814f",
+        "bytes": 575,
+        "observed_at": "2026-10-17T21:20:45.039681+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\73727-zh_CN.json",
+      "response_sha256": "ba0b4fb5b7df1c42967947b6acab9c113ea2dd0bf5ac1015ba8a5c08346a54e4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73727&locale=zh_CN",
+      "face": {
+        "id": 73727,
+        "collectible": 0,
+        "slug": "73727-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "希拉格的蔓足",
+        "text": "在你的回合结束时，随机对一个敌人造成 点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46c2671909c1270d01ff90c7ef2c93b03aa531aa55bb38b6f3f51206efc1c737.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73727&locale=zh_CN",
+        "sha256": "ba0b4fb5b7df1c42967947b6acab9c113ea2dd0bf5ac1015ba8a5c08346a54e4",
+        "bytes": 622,
+        "observed_at": "2026-10-17T21:20:45.750431+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\73727-en_US.json",
+      "response_sha256": "7d1c73613b6dacec28747f6b4e5742d31a8f676ff82f697da922c22e4103764c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73727&locale=en_US",
+      "face": {
+        "id": 73727,
+        "collectible": 0,
+        "slug": "73727-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Xhilag's Stalk",
+        "text": "At the end of your turn, deal damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c37f9766eaefa8b216e1cd067bfd2157d7e52436c6aaf555e7a088b8bbd751b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73727&locale=en_US",
+        "sha256": "7d1c73613b6dacec28747f6b4e5742d31a8f676ff82f697da922c22e4103764c",
+        "bytes": 606,
+        "observed_at": "2026-10-17T21:20:46.043893+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85853-zh_CN.json",
+      "response_sha256": "e0c3dae69285f398e0cbbeb3caf530e983a8f694f1bce3566b1fbca126c15d7b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85853&locale=zh_CN",
+      "face": {
+        "id": 85853,
+        "collectible": 0,
+        "slug": "85853-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "希拉格的蔓足",
+        "text": "在你的回合结束时，随机对一个敌人造成 点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/680f7fd53a80d4366a8bd9b7a4b35649256b5064867f634dd83bc3efcc1d34fc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85853&locale=zh_CN",
+        "sha256": "e0c3dae69285f398e0cbbeb3caf530e983a8f694f1bce3566b1fbca126c15d7b",
+        "bytes": 622,
+        "observed_at": "2026-10-17T21:20:46.463909+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85853-en_US.json",
+      "response_sha256": "4fe3f4c99e31af0123acf711ffefc01cdc209fe3a78c861d375c7d7303eb38e3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85853&locale=en_US",
+      "face": {
+        "id": 85853,
+        "collectible": 0,
+        "slug": "85853-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Xhilag's Stalk",
+        "text": "At the end of your turn, deal damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7f2b8b139d35e6a15c1ecc7bdbc27924e48dc9b0761902a6a55788d1e8082d3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85853&locale=en_US",
+        "sha256": "4fe3f4c99e31af0123acf711ffefc01cdc209fe3a78c861d375c7d7303eb38e3",
+        "bytes": 606,
+        "observed_at": "2026-10-17T21:20:46.163589+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85854-zh_CN.json",
+      "response_sha256": "8e2c98510ccaa84f7f603c90d566b509b7f34b15718d7a86f7a8794e418d2c83",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85854&locale=zh_CN",
+      "face": {
+        "id": 85854,
+        "collectible": 0,
+        "slug": "85854-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "希拉格的蔓足",
+        "text": "在你的回合结束时，随机对一个敌人造成 点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f5b71fcdd43406c91a9314d70d34b33f837ad6e9a10a76753a7755e95d4d0fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85854&locale=zh_CN",
+        "sha256": "8e2c98510ccaa84f7f603c90d566b509b7f34b15718d7a86f7a8794e418d2c83",
+        "bytes": 622,
+        "observed_at": "2026-10-17T21:20:46.740293+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85854-en_US.json",
+      "response_sha256": "ef81529e0bfa63196247d7cc1e2f1dc1939df807f7ccaff06a53b16f3274e383",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85854&locale=en_US",
+      "face": {
+        "id": 85854,
+        "collectible": 0,
+        "slug": "85854-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Xhilag's Stalk",
+        "text": "At the end of your turn, deal damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09af3242df051f43c27e1ceb266ea2c62650ec7b7894eac2d8d1c5b986d374b0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85854&locale=en_US",
+        "sha256": "ef81529e0bfa63196247d7cc1e2f1dc1939df807f7ccaff06a53b16f3274e383",
+        "bytes": 606,
+        "observed_at": "2026-10-17T21:20:47.245522+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85855-zh_CN.json",
+      "response_sha256": "59dc690344a88c920177e5d9cb7b10670b089f15d5fcf2c3dacbdba540be1ead",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85855&locale=zh_CN",
+      "face": {
+        "id": 85855,
+        "collectible": 0,
+        "slug": "85855-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "希拉格的蔓足",
+        "text": "在你的回合结束时，随机对一个敌人造成 点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37d633c1e1b29ca37418b1a889b7f60577c40dd16e61cf80943e95de0b79452f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85855&locale=zh_CN",
+        "sha256": "59dc690344a88c920177e5d9cb7b10670b089f15d5fcf2c3dacbdba540be1ead",
+        "bytes": 622,
+        "observed_at": "2026-10-17T21:20:46.877211+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85855-en_US.json",
+      "response_sha256": "5a41f35043b61db5c97e5705d17eae6a48138d550957ab1d016fa9fd0a2cd612",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85855&locale=en_US",
+      "face": {
+        "id": 85855,
+        "collectible": 0,
+        "slug": "85855-xhilags-stalk",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Xhilag's Stalk",
+        "text": "At the end of your turn, deal damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa7ece1b18e44756c85ba14450b39ee59022ebfcc48202edc93a7c8863ee2718.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 73726,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85855&locale=en_US",
+        "sha256": "5a41f35043b61db5c97e5705d17eae6a48138d550957ab1d016fa9fd0a2cd612",
+        "bytes": 606,
+        "observed_at": "2026-10-17T21:20:47.177408+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87330-zh_CN.json",
+      "response_sha256": "4d643d25b8f121deb54ceaedeba0c1c2afed3fdeaf0011964bd17811e9dd9933",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87330&locale=zh_CN",
+      "face": {
+        "id": 87330,
+        "collectible": 0,
+        "slug": "87330-sindragosas-wing",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "辛达苟萨之翼",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c63e4fe66fb6815e7d4c5b6e790d36b44c3fa41bdf76447c011e73bc90e183e5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 87329,
+        "keywordIds": [
+          10,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87330&locale=zh_CN",
+        "sha256": "4d643d25b8f121deb54ceaedeba0c1c2afed3fdeaf0011964bd17811e9dd9933",
+        "bytes": 675,
+        "observed_at": "2026-10-17T21:20:47.476286+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87330-en_US.json",
+      "response_sha256": "7421dc590db9aa3e433a224cca598783ba481956f35c8baea72da54ddee63c41",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87330&locale=en_US",
+      "face": {
+        "id": 87330,
+        "collectible": 0,
+        "slug": "87330-sindragosas-wing",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Sindragosa's Wing",
+        "text": "<b>Rush</b> <b>Freeze</b> any character damaged by this minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/927b164820c6964a0f3c5968da7df9511603e0d1ead8558f2710f3dee8a909f4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 87329,
+        "keywordIds": [
+          10,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87330&locale=en_US",
+        "sha256": "7421dc590db9aa3e433a224cca598783ba481956f35c8baea72da54ddee63c41",
+        "bytes": 669,
+        "observed_at": "2026-10-17T21:20:48.119184+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\94607-zh_CN.json",
+      "response_sha256": "90903533aec7e6c21284ac09c12f2e4fbd5135c129fa7d55a78905a93ead0c92",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=94607&locale=zh_CN",
+      "face": {
+        "id": 94607,
+        "collectible": 0,
+        "slug": "94607-sindragosas-wing",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "辛达苟萨之翼",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/947b476a5bffbc41f2ad4ab77875c948e1ab53a4707ddbee5f528845ebe9ec88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 87329,
+        "keywordIds": [
+          10,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=94607&locale=zh_CN",
+        "sha256": "90903533aec7e6c21284ac09c12f2e4fbd5135c129fa7d55a78905a93ead0c92",
+        "bytes": 675,
+        "observed_at": "2026-10-17T21:20:47.885547+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\94607-en_US.json",
+      "response_sha256": "bc9eb622957435c896508afd550e32c9d087c02beab985dd30b1d230b66ceb02",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=94607&locale=en_US",
+      "face": {
+        "id": 94607,
+        "collectible": 0,
+        "slug": "94607-sindragosas-wing",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Sindragosa's Wing",
+        "text": "<b>Rush</b> <b>Freeze</b> any character damaged by this minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9af01e8f6359fb7fdaa01e155da5ef260cb9a5ff66d6062bddaa28ad099fd35.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 87329,
+        "keywordIds": [
+          10,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=94607&locale=en_US",
+        "sha256": "bc9eb622957435c896508afd550e32c9d087c02beab985dd30b1d230b66ceb02",
+        "bytes": 669,
+        "observed_at": "2026-10-17T21:20:47.941944+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_365",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118266-zh_CN.json",
+      "response_sha256": "76ba841bb65f3ea72bd63c8ae85172f26223cedddf541e79b507df29f2da6030",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118266&locale=zh_CN",
+      "face": {
+        "id": 118266,
+        "collectible": 1,
+        "slug": "118266-storage-scuffle",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "乱翻库存",
+        "text": "对一个随从造成 3点伤害。如果你在本回合中<b>发现</b>过，则本牌的法力值消耗为（0）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20ba17a5a97391c90c88b492dc9d78db7853003bc965b442ad28bb25aa018643.png",
+        "imageGold": "",
+        "flavorText": "翻翻找找洗洗换换，把这库存统统搞乱！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89424175335f307a2b2a083376e4c5fd1ccd4a85acb43233a4d5487720767a81.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118266&locale=zh_CN",
+        "sha256": "76ba841bb65f3ea72bd63c8ae85172f26223cedddf541e79b507df29f2da6030",
+        "bytes": 827,
+        "observed_at": "2026-10-17T21:20:48.178052+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_365",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118266-en_US.json",
+      "response_sha256": "1e5e5761603558d9625f610cde682899caf58e82ea821865e92ab57e33558660",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118266&locale=en_US",
+      "face": {
+        "id": 118266,
+        "collectible": 1,
+        "slug": "118266-storage-scuffle",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Storage Scuffle",
+        "text": "Deal 3 damage to a minion. Costs (0) if you've <b>Discovered</b> this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab0bb5dd15479981c5f1736f17f798ea59bb89c8f82ed064178b2737ec24b85c.png",
+        "imageGold": "",
+        "flavorText": "Flip and file! Mix and shuffle! Sort and swap! Do the Storage Scuffle!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89424175335f307a2b2a083376e4c5fd1ccd4a85acb43233a4d5487720767a81.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118266&locale=en_US",
+        "sha256": "1e5e5761603558d9625f610cde682899caf58e82ea821865e92ab57e33558660",
+        "bytes": 800,
+        "observed_at": "2026-10-17T21:20:48.609725+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_462",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118199-zh_CN.json",
+      "response_sha256": "f961e4077fe5e9793cedb9aff58efaf8b111ae574a9a6a69bf2b2f262144294f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=zh_CN",
+      "face": {
+        "id": 118199,
+        "collectible": 1,
+        "slug": "118199-unearthed-artifacts",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "出土神器",
+        "text": "随机召唤一个法力值消耗为（2）的随从。如果你在本回合中<b><b>发现</b>过</b>，改为随机召唤一个法力值消耗为（4）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/458a2f4ab4d9dd6647b9e3d4e9af9a9132db239294e02a7df296a5296bcb6f28.png",
+        "imageGold": "",
+        "flavorText": "始祖龟的寿命太长了，他们甚至能挖到原本就属于属于自己的古代神器！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52c3e2f886599e2a08aea0b480b4042629128c3119247ea9c6889fd4cc483381.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=zh_CN",
+        "sha256": "f961e4077fe5e9793cedb9aff58efaf8b111ae574a9a6a69bf2b2f262144294f",
+        "bytes": 902,
+        "observed_at": "2026-10-17T21:20:48.651833+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_462",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118199-en_US.json",
+      "response_sha256": "ad62ecc54567cf2b8d52487875dea4f43bcee7bb738067095254ef5ef4ff0beb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=en_US",
+      "face": {
+        "id": 118199,
+        "collectible": 1,
+        "slug": "118199-unearthed-artifacts",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "Unearthed Artifacts",
+        "text": "Summon a random 2-Cost minion. If you've <b><b>Discover</b>ed</b> this turn, summon a random 4-Cost minion instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2cbc306a31c2c35a56fd7b49a545eb9296f95115759a61640d54cd9b526747e9.png",
+        "imageGold": "",
+        "flavorText": "The Tortollans live so long they're unearthing their OWN artifacts!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52c3e2f886599e2a08aea0b480b4042629128c3119247ea9c6889fd4cc483381.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=en_US",
+        "sha256": "ad62ecc54567cf2b8d52487875dea4f43bcee7bb738067095254ef5ef4ff0beb",
+        "bytes": 829,
+        "observed_at": "2026-10-17T21:20:48.848416+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_483",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120582-zh_CN.json",
+      "response_sha256": "f10d49e6450f5d502e6cebc5c0c3b398bd101f11df1348395dd0fb926c1025b9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120582&locale=zh_CN",
+      "face": {
+        "id": 120582,
+        "collectible": 1,
+        "slug": "120582-vault-breaker",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "宝库闯入者",
+        "text": "在你<b>发现</b>一张卡牌后，使其法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b215a760c5835fe5eb91b6323fd9060c870745e2bdb84b7c6ec612b70686b6d8.png",
+        "imageGold": "",
+        "flavorText": "都跟他讲过三次了——推！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4c0e8ec75a2b4d1f83c1a514202950ba8749a34f23fbaff1188bef51548c840.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120582&locale=zh_CN",
+        "sha256": "f10d49e6450f5d502e6cebc5c0c3b398bd101f11df1348395dd0fb926c1025b9",
+        "bytes": 774,
+        "observed_at": "2026-10-17T21:20:48.907810+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_483",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120582-en_US.json",
+      "response_sha256": "d60f369f1b021809a92087672dd4705764267b37094dd22a11ed37a3f88cdae9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120582&locale=en_US",
+      "face": {
+        "id": 120582,
+        "collectible": 1,
+        "slug": "120582-vault-breaker",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Vault Breaker",
+        "text": "After you <b>Discover</b> a card, reduce its Cost by (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/200dcdae68b353c4a4d9c29c39bcd5f2de9c80b4d2269311b8deba7e8d39e3ab.png",
+        "imageGold": "",
+        "flavorText": "I've already told him 3 times to PUSH.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4c0e8ec75a2b4d1f83c1a514202950ba8749a34f23fbaff1188bef51548c840.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120582&locale=en_US",
+        "sha256": "d60f369f1b021809a92087672dd4705764267b37094dd22a11ed37a3f88cdae9",
+        "bytes": 754,
+        "observed_at": "2026-10-17T21:20:49.357667+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118183-zh_CN.json",
+      "response_sha256": "3634975707396269b8f4710f3c8842a14a0bf5b915e921d9882d08ac460e90a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=zh_CN",
+      "face": {
+        "id": 118183,
+        "collectible": 1,
+        "slug": "118183-the-forbidden-sequence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "禁忌序列",
+        "text": "<b>任务：</b><b>发现</b>8张牌。<b>奖励：</b>源生之石。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64bf8a5222103eead24d35aaa4612884c7389219c139eae1ca07f69d4c466adc.png",
+        "imageGold": "",
+        "flavorText": "第9天。迎接我们的不是温暖的怀抱，而是冰冷的长矛。好在埃舒头领体谅我们，屏退了卫兵。有个泰坦考据学家听说了伊莉斯的专业能力，把她请到了图书馆。而安布拉又在城里消失了……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dffdd2abaa1e45db06b1015839b1304cdf363900642c365a58d6247ce77d00ca.png",
+        "childIds": [
+          118191
+        ],
+        "keywordIds": [
+          21,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=zh_CN",
+        "sha256": "3634975707396269b8f4710f3c8842a14a0bf5b915e921d9882d08ac460e90a7",
+        "bytes": 984,
+        "observed_at": "2026-10-17T21:20:49.360985+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118183-en_US.json",
+      "response_sha256": "0a7096d132e7422011b45cff7c152f92e9b07cc048d0dcd1b84a610893b59e2d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=en_US",
+      "face": {
+        "id": 118183,
+        "collectible": 1,
+        "slug": "118183-the-forbidden-sequence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "The Forbidden Sequence",
+        "text": "<b>Quest:</b> <b>Discover</b> 8 cards. <b>Reward:</b> The Origin Stone.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3425fb55a2b4c2828dd5e31af658f24532508b9de207353279783b850e90d11f.png",
+        "imageGold": "",
+        "flavorText": "Day 9. We were not welcomed with open arms, but with spears! Fortunately, Chief Esho took pity on us and called off the guards. Learning of Elise's expertise, a Titanographer whisked her away to the library. Umbra disappeared in the twisting streets...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dffdd2abaa1e45db06b1015839b1304cdf363900642c365a58d6247ce77d00ca.png",
+        "childIds": [
+          118191
+        ],
+        "keywordIds": [
+          21,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=en_US",
+        "sha256": "0a7096d132e7422011b45cff7c152f92e9b07cc048d0dcd1b84a610893b59e2d",
+        "bytes": 997,
+        "observed_at": "2026-10-17T21:20:49.550134+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118191-zh_CN.json",
+      "response_sha256": "6dccf9ccd9b9581e0788fb3ad47e13f4aeaa2546f59d00d18669a119cd24060e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=zh_CN",
+      "face": {
+        "id": 118191,
+        "collectible": 0,
+        "slug": "118191-the-origin-stone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "manaCost": 3,
+        "name": "源生之石",
+        "text": "在你<b>发现</b>一张牌后，本武器会使用其余选项并失去1点耐久度。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ad4b99d9d08e1f6ab658ad21d4a111b03f48c8bda95564d46de4528f1815829.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 118183,
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=zh_CN",
+        "sha256": "6dccf9ccd9b9581e0788fb3ad47e13f4aeaa2546f59d00d18669a119cd24060e",
+        "bytes": 641,
+        "observed_at": "2026-10-17T21:20:49.796096+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118191-en_US.json",
+      "response_sha256": "291f3b6a924a38fe94154ee0f8aff7fe4ab2da0fee36de65edd93b7f762c91f2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=en_US",
+      "face": {
+        "id": 118191,
+        "collectible": 0,
+        "slug": "118191-the-origin-stone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "manaCost": 3,
+        "name": "The Origin Stone",
+        "text": "After you <b>Discover</b> a card, this plays the other options. Lose 1 Durability.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/617fce83484376a025829cb09eb3ca8c23eaac1b41d1e35efa8ea41c3043a7c4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 118183,
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=en_US",
+        "sha256": "291f3b6a924a38fe94154ee0f8aff7fe4ab2da0fee36de65edd93b7f762c91f2",
+        "bytes": 638,
+        "observed_at": "2026-10-17T21:20:50.085999+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71841-zh_CN.json",
+      "response_sha256": "80996094818ebd62004c65588077517e6680ec79e3f6ad0061c26461443981f9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71841&locale=zh_CN",
+      "face": {
+        "id": 71841,
+        "collectible": 1,
+        "slug": "71841-gaia-the-techtonic",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "盖亚，巨力机甲",
+        "text": "<b>巨型+2</b> 在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c641955d8af25c830bab4193d6cbaae18371543ce84d5a5e99b7c987a69dd54.png",
+        "imageGold": "",
+        "flavorText": "伊妮总能计划在先。她料到自己会用这项发明来保护她的其他发明。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38dc59b0d89184f0afbad655599cf6d14c9e3e0b3318eb89c3f4cc6aac30f834.png",
+        "childIds": [
+          80793,
+          85858
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71841&locale=zh_CN",
+        "sha256": "80996094818ebd62004c65588077517e6680ec79e3f6ad0061c26461443981f9",
+        "bytes": 883,
+        "observed_at": "2026-10-17T21:20:50.081879+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_029",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71841-en_US.json",
+      "response_sha256": "d59a076d701649474c862160a3890b2f2e3df7488314f50a89f0a308018587c1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71841&locale=en_US",
+      "face": {
+        "id": 71841,
+        "collectible": 1,
+        "slug": "71841-gaia-the-techtonic",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "Gaia, the Techtonic",
+        "text": "<b>Colossal +2</b> After a friendly Mech attacks, deal 1 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2b1ec6b5a755ac36b988967f05016e9bb89ee8007f26baed0b0837bde4ff109.png",
+        "imageGold": "",
+        "flavorText": "Always planning ahead, Ini knew she'd need this invention to protect all her other inventions.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38dc59b0d89184f0afbad655599cf6d14c9e3e0b3318eb89c3f4cc6aac30f834.png",
+        "childIds": [
+          80793,
+          85858
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71841&locale=en_US",
+        "sha256": "d59a076d701649474c862160a3890b2f2e3df7488314f50a89f0a308018587c1",
+        "bytes": 881,
+        "observed_at": "2026-10-17T21:20:50.519275+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\73726-zh_CN.json",
+      "response_sha256": "fa835fabd9c78aa476caa6c20a75db33a0773e51c766a2c232ea0c9a3c69ee61",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73726&locale=zh_CN",
+      "face": {
+        "id": 73726,
+        "collectible": 1,
+        "slug": "73726-xhilag-of-the-abyss",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "渊狱魔犬希拉格",
+        "text": "<b>巨型+4</b> 在你的回合开始时，希拉格的蔓足造成的伤害提高1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e18123af9c41766104d07cb7b21004514d5a9a06025dbd884af099268a11302.png",
+        "imageGold": "",
+        "flavorText": "上古时代的英雄将魔犬驱赶入海，他们以为那就是结局。然而对希拉格来说，那只是个开始……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d13d31ad4ea9f2f3642283f2fd134ba85c45da29c8e423b1d6b7580c09c3581b.png",
+        "childIds": [
+          73727,
+          85853,
+          85854,
+          85855
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73726&locale=zh_CN",
+        "sha256": "fa835fabd9c78aa476caa6c20a75db33a0773e51c766a2c232ea0c9a3c69ee61",
+        "bytes": 945,
+        "observed_at": "2026-10-17T21:20:50.712799+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_219",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\73726-en_US.json",
+      "response_sha256": "ce7f53e3aaa913baafdc02783014b19707782815ed1af49e5d043e94557ade00",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73726&locale=en_US",
+      "face": {
+        "id": 73726,
+        "collectible": 1,
+        "slug": "73726-xhilag-of-the-abyss",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "Xhilag of the Abyss",
+        "text": "<b>Colossal +4</b> At the start of your turn, increase the damage of Xhilag's Stalks by 1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c53de1abdbc29611eb5901875957d25620a055b4a1f56775226a68714e07a93a.png",
+        "imageGold": "",
+        "flavorText": "When ancient heroes drove a felhunter into the sea, they thought it was the end. But for Xhilag, it was only the beginning...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d13d31ad4ea9f2f3642283f2fd134ba85c45da29c8e423b1d6b7580c09c3581b.png",
+        "childIds": [
+          73727,
+          85853,
+          85854,
+          85855
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=73726&locale=en_US",
+        "sha256": "ce7f53e3aaa913baafdc02783014b19707782815ed1af49e5d043e94557ade00",
+        "bytes": 943,
+        "observed_at": "2026-10-17T21:20:50.904686+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87329-zh_CN.json",
+      "response_sha256": "0dd9ebf2e78b621ea2eaa0ba7c5694453a5b5bde87f32d0548595005956bce54",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87329&locale=zh_CN",
+      "face": {
+        "id": 87329,
+        "collectible": 1,
+        "slug": "87329-frost-queen-sindragosa",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "冰霜女王辛达苟萨",
+        "text": "<b>巨型+2</b> 在一个敌方随从被<b>冻结</b>后，将其消灭。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc83bb380d1fb4f442857fd142feb346255137035dcf7fa0e59febd5379650ac.png",
+        "imageGold": "",
+        "flavorText": "辛达苟萨用她最后的一丝气息，诅咒她的爱侣，以及所有任由她死在冰冠冰川的生灵。当她在巫妖王的手中重生之时，她吐出了新生的第一口寒气。那是饱含痛苦的寒气。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78a1b6a79f87c5c0b23673509559635f6c076f5eb579b94a3e5faaec0c5480dc.png",
+        "childIds": [
+          87330,
+          94607
+        ],
+        "keywordIds": [
+          10,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87329&locale=zh_CN",
+        "sha256": "0dd9ebf2e78b621ea2eaa0ba7c5694453a5b5bde87f32d0548595005956bce54",
+        "bytes": 1084,
+        "observed_at": "2026-10-17T21:20:51.168152+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_037",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87329-en_US.json",
+      "response_sha256": "b352f132fe793d97ee23cf8a877d595fd8c1862442d168bc490b2fa7831bf72b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87329&locale=en_US",
+      "face": {
+        "id": 87329,
+        "collectible": 1,
+        "slug": "87329-frost-queen-sindragosa",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Frost Queen Sindragosa",
+        "text": "<b>Colossal +2</b> After an enemy minion is <b>Frozen</b>, destroy it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7513de1e1c7f0e347aad354df489ca5c84748cfa201c19f0388fd1ce6c63aa9.png",
+        "imageGold": "",
+        "flavorText": "With her final breath, Sindragosa cursed her consort and all who abandoned her to die in Icecrown. When she was reborn by the hands of the Lich King, her first freezing exhale wrought only pain.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78a1b6a79f87c5c0b23673509559635f6c076f5eb579b94a3e5faaec0c5480dc.png",
+        "childIds": [
+          87330,
+          94607
+        ],
+        "keywordIds": [
+          10,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=87329&locale=en_US",
+        "sha256": "b352f132fe793d97ee23cf8a877d595fd8c1862442d168bc490b2fa7831bf72b",
+        "bytes": 1047,
+        "observed_at": "2026-10-17T21:20:51.239479+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126698-zh_CN.json",
+      "response_sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "始源领主",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9f328bfa5489abbaad5a814d09f63aca07008bbd9a7598a47d3089b129a279d.png",
+        "imageGold": "",
+        "flavorText": "在那冰冷的黑曜石铠甲之下，他的心……如熔岩一般炽烈。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+        "sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+        "bytes": 839,
+        "observed_at": "2026-10-17T20:44:59.826333+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126698-en_US.json",
+      "response_sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "Primordial Lord",
+        "text": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/caca1940b5fb902312af15fcd0393d74ea390b70fd14d4e7f81ff7d854d53a2c.png",
+        "imageGold": "",
+        "flavorText": "Behind his cold obsidian armor, he has a heart of... molten rock.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+        "sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+        "bytes": 823,
+        "observed_at": "2026-10-17T20:45:00.047537+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "JAIL_909": {
+      "@": ""
+    },
+    "JAIL_474": {
+      "@": ""
+    },
+    "TSC_219t": {
+      "@": ""
+    },
+    "TSC_219t2": {
+      "@": ""
+    },
+    "TSC_219t3": {
+      "@": ""
+    },
+    "TSC_219t4": {
+      "@": ""
+    }
+  },
+  "already_present_fallback_definitions": {
+    "TID_711": {
+      "definition": {
+        "id": "TID_711",
+        "name": "厄祖玛特",
+        "kind": "minion",
+        "cost": 8,
+        "attack": 6,
+        "health": 5,
+        "keywords": [
+          "colossal"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": "m5.ozumat",
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "legendary",
+          "deck_identity": "TID_711",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [
+          {
+            "card_id": "TID_711t",
+            "side": "right"
+          },
+          {
+            "card_id": "TID_711t2",
+            "side": "right"
+          },
+          {
+            "card_id": "TID_711t3",
+            "side": "right"
+          },
+          {
+            "card_id": "TID_711t4",
+            "side": "right"
+          },
+          {
+            "card_id": "TID_711t5",
+            "side": "right"
+          },
+          {
+            "card_id": "TID_711t6",
+            "side": "right"
+          }
+        ],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "12767eed524334a509dfc1269451c4faac4afaee4c96b865a096c7ff88942b51"
+    },
+    "TID_711t": {
+      "definition": {
+        "id": "TID_711t",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "f69c586eedb8d1f2dcdae3751c083b81c5d40580baa07526674a950ed4019291"
+    },
+    "TID_711t2": {
+      "definition": {
+        "id": "TID_711t2",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t2",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "b0b225397182fdc9d681f8962c29da5ccbc88b160260267fd5147d6d06501b8f"
+    },
+    "TID_711t3": {
+      "definition": {
+        "id": "TID_711t3",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t3",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "ae411b9d8a4c25589e3a7dad4a6d47d97837f56905a54ab215278b4057ac2e0d"
+    },
+    "TID_711t4": {
+      "definition": {
+        "id": "TID_711t4",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t4",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "f5be7a5e9870ed0bab72bfd9c34673756c437b2842b532f2e1b094dacea6fc43"
+    },
+    "TID_711t5": {
+      "definition": {
+        "id": "TID_711t5",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t5",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "fb6bee706470da3142ebfec498255022582238ea2b6ba3a382285990679523b2"
+    },
+    "TID_711t6": {
+      "definition": {
+        "id": "TID_711t6",
+        "name": "厄祖玛特的触须",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "TID_711t6",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "58ef7484d386920628d24a45b47385d6a7f97dc5f37ae69ec782989ed4edc3a3"
+    }
+  },
+  "exact_parent_child_links": [
+    {
+      "parent": "TSC_029",
+      "child": "TSC_029t",
+      "locale": "zh_CN",
+      "dbf_id": 80793,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_029",
+      "child": "TSC_029t",
+      "locale": "en_US",
+      "dbf_id": 80793,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_029",
+      "child": "TSC_029t2",
+      "locale": "zh_CN",
+      "dbf_id": 85858,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_029",
+      "child": "TSC_029t2",
+      "locale": "en_US",
+      "dbf_id": 85858,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t",
+      "locale": "zh_CN",
+      "dbf_id": 73727,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t",
+      "locale": "en_US",
+      "dbf_id": 73727,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t2",
+      "locale": "zh_CN",
+      "dbf_id": 85853,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t2",
+      "locale": "en_US",
+      "dbf_id": 85853,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t3",
+      "locale": "zh_CN",
+      "dbf_id": 85854,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t3",
+      "locale": "en_US",
+      "dbf_id": 85854,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t4",
+      "locale": "zh_CN",
+      "dbf_id": 85855,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_219",
+      "child": "TSC_219t4",
+      "locale": "en_US",
+      "dbf_id": 85855,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "NX2_037",
+      "child": "NX2_037t",
+      "locale": "zh_CN",
+      "dbf_id": 87330,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "NX2_037",
+      "child": "NX2_037t",
+      "locale": "en_US",
+      "dbf_id": 87330,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "NX2_037",
+      "child": "NX2_037t2",
+      "locale": "zh_CN",
+      "dbf_id": 94607,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "NX2_037",
+      "child": "NX2_037t2",
+      "locale": "en_US",
+      "dbf_id": 94607,
+      "via": "parent.childIds"
+    }
+  ],
+  "named_dependency_links": [],
+  "pool_predicate_qualifications": [
+    {
+      "card_id": "TSC_029",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete old collectible Colossal metadata and verified actual child faces; candidate audit only, no exact past pool.",
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "TSC_219",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete old collectible Colossal metadata and verified actual child faces; candidate audit only, no exact past pool.",
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "NX2_037",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete old collectible Colossal metadata and verified actual child faces; candidate audit only, no exact past pool.",
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    }
+  ],
+  "unsupported_source_cards": [
+    "TLC_365",
+    "TLC_462",
+    "TLC_483",
+    "TLC_460",
+    "TLC_460t",
+    "TSC_029",
+    "TSC_219",
+    "NX2_037",
+    "CATA_EVENT_000"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Two newly executable Standard candidate roots and eight necessary noncollectible old-Colossal appendages. All seven Ozumat definitions already exist and count0new; they are independently pinned and unchanged. No source-specific past pool, executable-only filter or Wild-format certification is added.",
+    "wannabe": "Native Prepare action and actual Combo entry. At each accepted Combo context, query original committed hand plays for the current global turn, excluding only its own enclosing paid play ID when present. Countered actual plays count; summons, powers and Prepare actions do not. Frozen first acceptance and later repetition views follow the native Combo interpreter. Grant numeric growth to the original live physical source with BuffCapturedMinion.",
+    "jade": "Query original played_cards records across the game and count exact cost2 plus PaymentType.MANA. Printed2-cost reduced/free cards, health payment, hero powers, Prepare/trade and spell-only effect casts do not impersonate2-Mana hand payments. One ordinary GenerateFromPool(count2,collectibleMINION,printedCost8) freezes a complete native batch and applies the same captured cost delta to both generated cards, with ordinary minimum0.",
+    "history_boundary": "The trusted played_cards ledger is the existing committed physical hand-play contract. Generated Combo origins use their native activation without inventing paid PlayRecords; a generated source has no current paid root to subtract. This does not expand or certify unconfirmed automatic-play counting policies or M0/M6.",
+    "drills": "Two distinct exact2/3 Rush drill faces are independent complete ordinary minions. Gaia attack-reward parent remains unsupported.",
+    "stalks": "Four distinct1/2 stalks use native natural owner-end effect triggers and RandomDamage2 to a current enemy character. Base2 comes from each complete raw TAG_SCRIPT_DATA_NUM_1=2, explicitly omitted by the primary display using the existing printed-script normalization. Damage, health-rule attachments, source lifetime, native end repetition and source metadata remain public; Xhilag growth parent is not implemented or inferred.",
+    "wings": "Two exact2/1 Rush wings react only to their own original positive settled damage result. Capture the real committed health event and use InvokeHealthResult to recheck the actual damaged target allocation in fresh state; original minions use FreezeCapturedMinion and unchanged original heroes use ordinary Freeze. No same-ID reentry/face/controller replacement can borrow the old target. Source can die after dealing its actual damage; unrelated packets/zero/shield/prevention/healing do not count.",
+    "source": "Use only explicit reviewed trailing-counter omissions for JAIL_909/JAIL_474. Stalk numeric2 display attempt failed and is retained; final empty omission is already permitted for an explicitly pinned numeric script value, not a new broad normalization. Complete original rows and response bodies stay unchanged.",
+    "gaps": "Four Discovery consumer roots and Origin Stone remain unsupported. Generic choice_selected has no purpose/result and no general actual discovered-card fact or delivered-reference receipt. Board discovery history is not every Discover; no diagnostic-log scan, guessed chosen-card allocation, source-local global counter or partial Quest/reward is introduced."
+  }
+}
