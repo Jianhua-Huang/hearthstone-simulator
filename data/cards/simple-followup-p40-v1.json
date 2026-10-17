@@ -1,0 +1,250 @@
+{
+  "batch": "P40",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "END_015",
+        "dbf_id": 121157,
+        "name": "三纪暴龙",
+        "name_en": "Triennium Rex",
+        "text": "<b>延系，亡语：</b>&随机获取一张<b>亡语</b>随从牌，其法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Kindred and Deathrattle:</b>&\nGet a random <b>Deathrattle</b>\n_minion. It costs (2) less.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "KINDRED": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Uriah Voth"
+          }
+        ]
+      },
+      "record_sha256": "ebcda0cc38aaf66c3604c1a94717bad315ec1ca7c3590a34263ed5bb1940efca"
+    },
+    {
+      "record": {
+        "id": "MEND_042",
+        "dbf_id": 123485,
+        "name": "生命绽放",
+        "name_en": "Lifebloom",
+        "text": "为所有友方角色恢复#8点生命值。随机召唤两个法力值消耗为（8）的随从。",
+        "text_en": "[x]Restore #8 Health to\nall friendly characters.\nSummon two random\n8-Cost minions.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Diego Gil"
+          }
+        ]
+      },
+      "record_sha256": "8d570bd023a88f6d410b07616bdec1fa4049ef69c3e5508f99f930bb346996d4"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "reviewed_display_normalizations": {
+    "MEND_042": {
+      "#8": "8"
+    }
+  },
+  "official_observations": {
+    "checked_at": "2026-10-17T09:04:59.926237+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "END_015",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121157&locale=zh_CN",
+        "response_file": "official-END_015-zh_CN.json",
+        "response_sha256": "ed373c5161bb1a3abba46634c47c625c11f168d39febd8d7a61142747ee1541d",
+        "face": {
+          "id": 121157,
+          "collectible": 1,
+          "slug": "121157-triennium-rex",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Uriah Voth",
+          "health": 5,
+          "attack": 5,
+          "manaCost": 5,
+          "name": "三纪暴龙",
+          "text": "<b>延系，亡语：</b>&随机获取一张<b>亡语</b>随从牌，其法力值消耗减少（2）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8630e99e8569abd9ed94c98eb976b677b7e9e9d63008001c4af2caf460f8610d.png",
+          "imageGold": "",
+          "flavorText": "时间流坍缩之后，各个时空的顶级捕猎者汇聚到了时光之末，搜寻着它们的终极美餐。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ed693264ec5aea8d32fc280ffb887c00e786a40206e82a7ae12f77de78778460.png",
+          "keywordIds": [
+            12,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_015",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121157&locale=en_US",
+        "response_file": "official-END_015-en_US.json",
+        "response_sha256": "0b63de34338979ee1991580937587fef0d5ac1af4449c89139af6f0a6087930e",
+        "face": {
+          "id": 121157,
+          "collectible": 1,
+          "slug": "121157-triennium-rex",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Uriah Voth",
+          "health": 5,
+          "attack": 5,
+          "manaCost": 5,
+          "name": "Triennium Rex",
+          "text": "<b>Kindred and Deathrattle:</b>& Get a random <b>Deathrattle</b> minion. It costs (2) less.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff9ba180c600918169a03b800711efb079bfee7faa49d82d28a88354a0569c85.png",
+          "imageGold": "",
+          "flavorText": "With the collapse of the Timeways, apex predators from across aeons have converged in the End Time, insatiably searching for their final meal.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ed693264ec5aea8d32fc280ffb887c00e786a40206e82a7ae12f77de78778460.png",
+          "keywordIds": [
+            12,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_042",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123485&locale=zh_CN",
+        "response_file": "official-MEND_042-zh_CN.json",
+        "response_sha256": "962c6cb70075372f6ee71665dbcd9129e873413617a7446f9b718f7624bb8406",
+        "face": {
+          "id": 123485,
+          "collectible": 1,
+          "slug": "123485-lifebloom",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Diego Gil",
+          "manaCost": 9,
+          "name": "生命绽放",
+          "text": "为所有友方角色恢复 8点生命值。随机召唤两个法力值消耗为（8）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cecda1d63676306d322228f06c3f2f1d19fecc5c3ca3bd028acebdc17ce74469.png",
+          "imageGold": "",
+          "flavorText": "我想要绽放的生命。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49bb2d025de92a8524a89c0e40df3211183e78e1c19f1617862f101ff049354b.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_042",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123485&locale=en_US",
+        "response_file": "official-MEND_042-en_US.json",
+        "response_sha256": "e73a3956b225e2b4d5e9dc09d63a0d4381ebe39d32c4ae873b6bd11a28519637",
+        "face": {
+          "id": 123485,
+          "collectible": 1,
+          "slug": "123485-lifebloom",
+          "classId": 2,
+          "multiClassIds": [],
+          "spellSchoolId": 4,
+          "cardTypeId": 5,
+          "cardSetId": 1980,
+          "rarityId": 4,
+          "artistName": "Diego Gil",
+          "manaCost": 9,
+          "name": "Lifebloom",
+          "text": "Restore 8 Health to all friendly characters. Summon two random 8-Cost minions.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/803415fa21cc9c21e17bce6fd3461ce9818315a5c2a62710a01d4240334cdf83.png",
+          "imageGold": "",
+          "flavorText": "It's the 'bolg necessities.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49bb2d025de92a8524a89c0e40df3211183e78e1c19f1617862f101ff049354b.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Triennium Rex5mana5/5HunterBeast nativeon_play Kindred wrapper delegates kindred_request and profileactive Get; nativeDR independently calls same Get. No Battlecry declaration/tag/stub/history. False Kindred0Gets, previousownBeast1Get, originalnextKindredmax2 two independentGets; one originalpayment. Natural summon does not run onplayKindred, natural/liveDR does not rerunKindred or consume nextsource.",
+    "Get through GenerateFromPool collectibleMINION independentprinted deathrattle=True anyclass, originalphysicalcarrier source, permanent CostSpec(delta=-2,card_types=(MINION,)) withzero floor. Full eligible unknown validation/self-family exclusion before ownRNG; normalhanddelivery/burn, not discover/gift/summon.",
+    "Lifebloom9manaDruidNatureSPELL: original characters helper captures friendlyhero andordinaryactivefriendlyminions, excludesenemy/dormant. One HealBatch of8SPELLhealing each, sharedcap/multiplier/conversion/death/terminal/reaction pipeline; no directhealthsetting. Then two independent SummonFromPool printed8collectibleMINION anyclass requests, same original SummonCause captured once. Each rechecks currentcapacity/qualification/RNG at ownwindow, no preselectedbatch or reuse of firstsample.",
+    "Only reviewed#8 healingdisplay macro normalized to8 for MEND_042 facecomparison, fullrawtext/digests preserved; gameplayoperand8. No invented END_015e source/dependency.",
+    "Generatedpool requests require explicitcomplete host constructed.cards inventory/matching GenerationContext; inactiveRexKindred andnaturalsummon require none. No registered-onlycrop/privateGame/localexecutor/placeholder. Definitions/PoolCards before completecandidatecatalog; prior1320defs/1430metadata/current311identity/258families/290kernel preserved.",
+    "Internal effects only; M0 formallegal/actualreachable completepool, M6 CN implicitnativeDR/Kindred/discount/heal/quantity/acceptance windows andstage gates remainopen."
+  ]
+}
