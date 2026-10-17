@@ -592,9 +592,15 @@ class GenerateFromPool(Effect):
         validate_minion_stats(self.minion_stats)
         if self.shuffle_actor_id is not None:
             _player(self.shuffle_actor_id)
-            if (self.destination != 'deck' or self.position != 'random' or self.source_id is None or
-                    self.minion_stats is None):
-                raise ValueError('Generated numeric shuffle requires its original actor and random deck delivery')
+            if self.destination != 'deck' or self.position != 'random' or self.source_id is None:
+                raise ValueError('Generated shuffle requires its original actor and random deck delivery')
+            if self.minion_stats is None and (
+                    type(self.query) is not PoolQuery or self.query.kinds != (CardType.SPELL,) or
+                    self.query.collectible is not True or not self.replacement or self.cost is not None or
+                    self.expires_turn is not None or self.spell_repeat is not None or self.cause is not None or
+                    self.producer_profile_id is not None or self.combined_shatter or
+                    self.temporary_until_turn is not None or self.board_position is not None):
+                raise ValueError('Generated plain shuffle requires a source-bound collectible spell recipe')
         if self.minion_stats is not None:
             if (self.source_id is None or
                     self.destination not in ('hand','deck') or not self.replacement or
