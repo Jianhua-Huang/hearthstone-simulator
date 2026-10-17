@@ -131,7 +131,8 @@ def candidates(registry,basis):
         cost=card.cost if fact.jade_size is None else min(10,fact.jade_size)
         if a.card_id not in excluded and matches_metadata(basis.query,card_id=a.card_id,kind=card.kind,cost=cost,
             meta=card.metadata,spell_school=card.spell_school,keywords=card.keywords,current_class=basis.hero_class,
-            printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry):result.append(fact.reference())
+            printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry,
+            printed_attack=card.attack if fact.jade_size is None else fact.jade_size):result.append(fact.reference())
     return tuple(result)
 
 

@@ -6,7 +6,7 @@ absence from Registry.cards. These are trusted host definitions, not player inpu
 """
 from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats, DiscoveryMinionGift,
                             validate_declaration, validate_minion_grant, validate_minion_stats)
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from .construction import ids, integer, name
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice, Summon, _player, _source
@@ -83,6 +83,7 @@ class PoolCard:
     battlecry: bool | None = None
     deathrattle: bool | None = None
     choose_one: bool | None = None
+    attack: int | None = None
 
     def __post_init__(self):
         for field in ('deathrattle', 'choose_one'):
@@ -96,6 +97,10 @@ class PoolCard:
         if type(self.kind) is not CardType or type(self.metadata) is not CardMetadata:
             raise ValueError('Pool cards require explicit type and metadata')
         integer(self.cost, 'printed cost', 0)
+        if self.attack is not None:
+            integer(self.attack, 'printed minion attack', 0)
+            if self.kind != CardType.MINION:
+                raise ValueError('Printed minion attack requires a minion pool card')
         self.metadata.__post_init__()
         if self.metadata.subtypes and self.kind != CardType.MINION:
             raise ValueError('Printed subtypes require a minion pool card')
@@ -113,7 +118,8 @@ class PoolCard:
     @classmethod
     def from_definition(cls, card: CardDefinition, *, identity=None):
         return cls(card.id, card.kind, card.cost, card.metadata, card.spell_school, card.keywords, identity,
-                   card.battlecry is not None, card.deathrattle is not None, card.choose_one is not None)
+                   card.battlecry is not None, card.deathrattle is not None, card.choose_one is not None,
+                   card.attack if card.kind == CardType.MINION else None)
 
     def filter_signature(self):
         m = self.metadata
@@ -121,7 +127,7 @@ class PoolCard:
                 None if m.tribes is None else frozenset(m.tribes), self.spell_school, frozenset(self.keywords),
                 None if m.factions is None else frozenset(m.factions), self.battlecry,
                 None if m.subtypes is None else frozenset(m.subtypes), self.deathrattle, self.choose_one,
-                m.runes)
+                m.runes, self.attack)
 
 
 @dataclass(frozen=True)
@@ -188,8 +194,12 @@ class PoolQuery:
     # Common fields stay conjunctive; alternatives are a flat disjunction.
     any_of: tuple['PoolQuery', ...] = ()
     runes_any: tuple[str, ...] = ()
+    attack_parity: str | None = None
 
     def __post_init__(self):
+        if self.attack_parity is not None and (type(self.attack_parity) is not str or
+                                              self.attack_parity not in ('odd', 'even')):
+            raise ValueError('Printed minion attack parity requires odd, even or None')
         if type(self.any_of) is not tuple or any(type(q) is not PoolQuery for q in self.any_of):
             raise ValueError('Query alternatives require an immutable tuple of PoolQuery')
         if self.any_of:
@@ -242,6 +252,10 @@ def validate_pools(registry):
         row.__post_init__()
         if row.card_id in registry.cards:
             actual = PoolCard.from_definition(registry.card(row.card_id), identity=row.identity)
+            # An independent inventory may not yet attest this new scalar.
+            # Keep unknown unknown; resolve_candidates must never borrow the
+            # executable definition's value to decide eligibility.
+            if row.attack is None:actual = replace(actual, attack=None)
             if actual != row:
                 raise ValueError(f'Pool metadata differs from executable definition: {row.card_id}')
     for pool in registry.pools.values():
@@ -258,13 +272,15 @@ def validate_pools(registry):
 
 def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords, current_class=None,
                      printed_battlecry=None, current_battlecry=None,
-                     printed_deathrattle=None, printed_choose_one=None):
+                     printed_deathrattle=None, printed_choose_one=None, printed_attack=None):
     """Conjoin common facts and a flat OR; unknown is neither true nor false."""
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
     query.__post_init__()
     missing = []
     if query.kinds and kind not in query.kinds:
+        return False
+    if query.attack_parity is not None and kind != CardType.MINION:
         return False
     if query.subtypes_any and kind != CardType.MINION:
         return False
@@ -344,6 +360,13 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
                 raise ValueError(f'Invalid printed {field} identity: {card_id}')
             elif value != wanted:
                 return False
+    if query.attack_parity is not None:
+        if printed_attack is None:
+            missing.append(f'Unknown candidate printed minion attack: {card_id}')
+        else:
+            integer(printed_attack, 'printed minion attack', 0)
+            if printed_attack % 2 != (1 if query.attack_parity == 'odd' else 0):
+                return False
     if query.any_of:
         unknown_alternatives = []
         for clause in query.any_of:
@@ -351,7 +374,8 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
                 if matches_metadata(clause, card_id=card_id, kind=kind, cost=cost, meta=meta,
                         spell_school=spell_school, keywords=keywords, current_class=current_class,
                         printed_battlecry=printed_battlecry, current_battlecry=current_battlecry,
-                        printed_deathrattle=printed_deathrattle, printed_choose_one=printed_choose_one):
+                        printed_deathrattle=printed_deathrattle, printed_choose_one=printed_choose_one,
+                        printed_attack=printed_attack):
                     break
             except UnknownCardFactError as error:
                 unknown_alternatives.append(str(error))
@@ -406,7 +430,8 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
         if not matches_metadata(query, card_id=row.card_id, kind=row.kind, cost=row.cost,
                 meta=meta, spell_school=row.spell_school, keywords=row.keywords, current_class=current_class,
                 printed_battlecry=row.battlecry, current_battlecry=row.battlecry,
-                printed_deathrattle=row.deathrattle, printed_choose_one=row.choose_one):
+                printed_deathrattle=row.deathrattle, printed_choose_one=row.choose_one,
+                printed_attack=row.attack):
             continue
         from .starting_generation import eligible as starting_eligible
         if not starting_eligible(registry, context, player_id, row.card_id, row.keywords):

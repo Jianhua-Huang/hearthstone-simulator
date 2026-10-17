@@ -64,7 +64,7 @@ def minion_references(state, registry, player_id, scope=MinionScope(), source_id
             if matches_metadata(metadata_query,card_id=entity.card_id,kind=definition.kind,cost=definition.cost,
                 meta=definition.metadata,spell_school=definition.spell_school,keywords=definition.keywords,
                 current_class=hero_class,printed_battlecry=definition.battlecry is not None,
-                current_battlecry=has_battlecry(entity.abilities)):
+                current_battlecry=has_battlecry(entity.abilities),printed_attack=definition.attack):
                 if scope.tribe_basis == 'current' and query.tribes_any:
                     from .tribes import has_any_tribe
                     if not has_any_tribe(registry, entity, query.tribes_any):

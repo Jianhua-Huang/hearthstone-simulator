@@ -26,7 +26,8 @@ def register_pool(registry, baseline, metadata_from_record):
         # Freeze/Discover text are behavior descriptions, not intrinsic keyword grants.
         row=PoolCard(cid,CardType(raw['type'].lower()),raw['cost'],metadata_from_record(raw),
             spell_school=schools.get(tag),battlecry=raw['tags'].get('BATTLECRY')==1,
-            deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1)
+            deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1,
+            attack=raw['attack']if raw['type']=='MINION'else None)
         if cid in registry.pool_cards:
             if registry.pool_card(cid)!=row:
                 raise TargetValidationError('Card spell pool metadata conflicts with another inventory')

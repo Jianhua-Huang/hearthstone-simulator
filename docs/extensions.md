@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要按印刷随从攻击力筛选时，用`PoolQuery(attack_parity='odd')`等有限声明及已审`PoolCard.attack`；未知明确报错，不读当前增益，见[契约](m3-printed-attack-discovery.md)。
+
 发现印刷符文牌使用`PoolQuery(runes_any=('blood',))`等有限声明，不能用法术学派或当前英雄符文替代；地图直接复用原物理跟随，见[契约](m3-rune-discovery.md)。
 
 地图“使用本次发现的原牌后再选余项”复用`DiscoverForPlayFollowup`；首次历史筛选与原余项必须分开，见[登山地图契约](m3-hiking-trail.md)，不要另造持续效果或在奖励时重抽池。

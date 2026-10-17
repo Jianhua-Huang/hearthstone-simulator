@@ -1,7 +1,8 @@
 """Reviewed representative identity; update only after full identity-delta audit."""
 
-# K122: independent printed Deathrattle/Choose One pool facts; definitions unchanged.
-DEFAULT_REPRESENTATIVE_FINGERPRINT = 'ce7b146fc1157c37aa59bae3e92472d6028c102cebd0e20dfab1a1958df49967'
+# K169: printed minion attack pool scalar. Removing only that new field
+# reproduces the complete K122 fingerprint; definitions and programs unchanged.
+DEFAULT_REPRESENTATIVE_FINGERPRINT = '3aec897b8107fb6e26224127339b43c5154497c9655d110485a97cdd4e3e1645'
 
 # Explicit, previously reviewed whole-definition transitions. Historical input
 # files keep their original bytes; a current definition must match the complete

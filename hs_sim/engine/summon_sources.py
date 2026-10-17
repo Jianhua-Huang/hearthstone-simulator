@@ -216,7 +216,7 @@ def death_query_candidates(registry,player_id,query,records,current_class,source
                 cost=cost, meta=definition.metadata, spell_school=None,
                 keywords=record.keywords if query.keywords_at_death else definition.keywords,
                 current_class=current_class,printed_battlecry=definition.battlecry is not None,
-                current_battlecry=has_battlecry(record.abilities)):
+                current_battlecry=has_battlecry(record.abilities),printed_attack=definition.attack):
             result.append(record); costs[record.id] = cost
     if result and query.cost_extreme is not None:
         extreme = (max if query.cost_extreme == 'highest' else min)(costs.values())

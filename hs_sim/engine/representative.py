@@ -836,7 +836,8 @@ def register_combo_pool(registry, baseline, metadata_decoder=metadata_from_recor
         keywords=tuple(k for k in (Keyword.COMBO,Keyword.STEALTH) if raw['tags'].get(k.name)==1)
         row=PoolCard(cid,CardType(raw['type'].lower()),raw['cost'],metadata_decoder(raw),
             keywords=keywords,battlecry=raw['tags'].get('BATTLECRY')==1,
-            deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1)
+            deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1,
+            attack=raw['attack']if raw['type']=='MINION'else None)
         if cid in registry.pool_cards:
             if registry.pool_card(cid)!=row:
                 raise TargetValidationError('Combo pool metadata conflicts with another pinned inventory')
@@ -1766,7 +1767,8 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         else:
             raw=inventory['records'][card_id]
             registry.register_pool_card(PoolCard(card_id,CardType(raw['type'].lower()),raw['cost'],decode_metadata(raw),
-                deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1))
+                deathrattle=raw['tags'].get('DEATHRATTLE')==1,choose_one=raw['tags'].get('CHOOSE_ONE')==1,
+                attack=raw['attack']if raw['type']=='MINION'else None))
     for tier,card_id in enumerate(EXCAVATE_SHARED_SAMPLE_IDS,1):
         registry.register_pool(PoolDefinition(f'excavate.tier{tier}','representative-excavate-v1',baseline.target['target_id'],
             'experimental',(PoolMember(card_id),)))
