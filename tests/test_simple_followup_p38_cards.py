@@ -1,4 +1,5 @@
 """Real Webspinner dependency and independently accepted native Kindred summons."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -81,7 +82,7 @@ class SimpleFollowupP38Tests(unittest.TestCase):
 
     def test_default311_full_fingerprint_and_no_formal_production_pool(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
 
     def test_spiders_three_actual_named_webspinners_share_original_cast_without_pool_or_rng(self):
         g=self.game((SPIDERS,),pool=False,context=None);rng=g._rng.getstate();source=self.play(g,SPIDERS);bodies=self.bodies(g,source);self.assertEqual(len(bodies),3);self.assertEqual(len({e.id for e in bodies}),3);self.assertTrue(all((e.card_id,e.attack,e.health)==(SPINNER,1,1)for e in bodies));self.assertTrue(all(any(a.kind=='deathrattle'and a.behavior_id==PREFIX+SPINNER for a in e.abilities)for e in bodies));self.assertEqual(g._rng.getstate(),rng);self.assertEqual(g.state.players[1].mana,47);self.assertEqual(len(g.state.cast_history),1);self.assertFalse(g.state.battlecry_history);self.assertTrue(all((x.request.cause.source.entity_id,x.request.cause.origin,x.request.cause.cast_card_id)==(source,'spell_cast',SPIDERS)for x in g.state.card_summon_history));self.portable(g)
