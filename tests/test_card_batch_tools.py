@@ -140,6 +140,39 @@ class CardBatchToolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'multiple classes'):
             batch.check_face(raw, dict(face, multiClassIds=[1, 7]), 'zh_CN')
 
+    def test_client_plural_prefix_keeps_both_branches_and_all_actual_numbers(self):
+        self.assertEqual(batch.display('Cast 3 |4(spell, spells) to deal 6 damage.'),
+            batch.display('Cast 3 (spell, spells) to deal 6 damage.'))
+        for text in ('4', '|40(spell, spells)', '|4(spell)', '|4(spell, spells', '|4((a,b),c)'):
+            self.assertIn('|4' if text.startswith('|4') else '4', batch.display(text))
+        self.assertNotEqual(batch.display('Deal @ damage'), batch.display('Deal 3 damage'))
+
+    def test_plural_display_cannot_hide_changed_numbers_rules_or_removed_branches(self):
+        raw, face = self.face()
+        raw['text_en'] = 'Cast 3 |4(spell, spells) to deal 6 damage.'
+        face.update(name=raw['name_en'], text='Cast 3 (spell, spells) to deal 6 damage.')
+        batch.check_face(raw, face, 'en_US')
+        for text in ('Cast 4 (spell, spells) to deal 6 damage.',
+                'Cast 3 (spell, spells) to heal 6 Health.',
+                'Cast 3 spells to deal 6 damage.', 'Cast 3 (spell, spells) to deal 7 damage.'):
+            with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'rules drift'):
+                batch.check_face(raw, dict(face, text=text), 'en_US')
+
+    def test_two_complete_real_new_moon_faces_keep_explicit_counter_review_and_originals(self):
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/cards/simple-followup-p62-v1.json')
+        rows = {r['record']['id']:r['record'] for r in data['evidence_only']}
+        for cid in ('EDR_460', 'EDR_461'):
+            for locale in ('zh_CN', 'en_US'):
+                with self.subTest(cid=cid, locale=locale):
+                    raw = rows[cid]
+                    face = next(o['face'] for o in data['parent_observations']
+                        if (o['card_id'],o['locale'])==(cid,locale))
+                    original = deepcopy((raw,face))
+                    with self.assertRaisesRegex(ValueError, 'rules drift'):
+                        batch.check_face(raw,face,locale)
+                    batch.check_face(raw,face,locale,{'@':''})
+                    self.assertEqual((raw,face),original)
+
     def zero_minion(self):
         raw, face = self.face()
         raw.update(type='MINION', health=2)

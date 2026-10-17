@@ -101,7 +101,10 @@ def pinned_rows(task, root=ROOT):
 
 
 def display(text):
-    # Only presentation syntax is normalized. Rules, numbers and macros remain.
+    # The client plural prefix is omitted by the primary API. Keep BOTH branch
+    # texts (and every rule number); only its literal formatting prefix is gone.
+    text = re.sub(r'\|4(?=\([^()\r\n]*,[^()\r\n]*\))', '', text)
+    # Other macros and all actual rules/numbers remain strictly comparable.
     text = html.unescape(re.sub(r'<[^>]+>', '', text)).replace('[x]', '')
     return re.sub(r'\s+', '', text.translate(str.maketrans('', '', '$#&_')))
 
