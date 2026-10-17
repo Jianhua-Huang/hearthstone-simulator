@@ -6,7 +6,7 @@ All child quantities and strengths keep their existing later acceptance windows.
 from dataclasses import asdict, dataclass, fields, is_dataclass, replace
 import json
 
-from .effects import Effect, _integer
+from .effects import Effect, _integer, _player
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import GameState
 from .ordered_summon_groups import (GroupSummonEntryLink, OrderedGroupMember,
@@ -16,6 +16,7 @@ from .producer_amounts import (AcceptedProducerAmount, capture_group,
     validate as validate_amount)
 from .summon_quantities import (SummonByCard, SummonCause, SummonEntryMaterial,
     accept as accept_entry, validate_cause, validate_material)
+from .pool_summons import PoolFillCapacity
 
 
 @dataclass(frozen=True)
@@ -23,6 +24,8 @@ class SummonOrderedGroup(Effect):
     group: OrderedSummonGroupSpec
     producer_profile_id: str | None = None
     bonus_effects: bool = False
+    fill_capacity: PoolFillCapacity | None = None
+    fill_card: SummonEntryMaterial | None = None
 
     def __post_init__(self):
         if type(self.group) is not OrderedSummonGroupSpec:
@@ -32,6 +35,31 @@ class SummonOrderedGroup(Effect):
             raise ValueError('Whole group bonus policy requires bool')
         if self.producer_profile_id is not None and (type(self.producer_profile_id) is not str or not self.producer_profile_id):
             raise ValueError('Whole group amount requires an explicit named logical profile')
+        if (self.fill_capacity is None) != (self.fill_card is None):
+            raise ValueError('Named fill requires both its original capacity and card recipe')
+        if self.fill_capacity is not None:
+            if type(self.fill_capacity) is not PoolFillCapacity or type(self.fill_card) is not SummonEntryMaterial:
+                raise ValueError('Named fill requires typed original capacity and plain card')
+            self.fill_capacity.__post_init__(); self.fill_card.__post_init__()
+            exact_members=(len(self.group.members)==self.fill_capacity.remaining and
+                all(m==OrderedGroupMember('fill-'+str(i),self.fill_card) for i,m in enumerate(self.group.members)))
+            if (self.fill_card != SummonEntryMaterial(self.fill_card.card_id) or
+                    self.fill_capacity.player_id != self.group.player_id or not exact_members or
+                    self.group.extra_policy != 'none' or self.producer_profile_id is not None or self.bonus_effects):
+                raise ValueError('Named fill must retain its one plain initial-capacity occurrence group')
+
+
+@dataclass(frozen=True)
+class FillBoardWithCard(Effect):
+    player_id: int
+    card_id: str
+    cause: SummonCause
+
+    def __post_init__(self):
+        _player(self.player_id)
+        if type(self.card_id) is not str or not self.card_id or type(self.cause) is not SummonCause:
+            raise ValueError('Named fill requires an original card and typed cause')
+        self.cause.__post_init__()
 
 
 def request_profile(registry, request):
@@ -47,6 +75,9 @@ def validate_request(state, registry, request, *, closed=False):
     request.__post_init__()
     request_profile(registry, request)
     validate_cause(state, registry, request.group.cause, closed=closed)
+    if request.fill_capacity is not None:
+        request.fill_capacity.validate_in_state(state,registry,closed=closed)
+        validate_material(registry,request.fill_card)
     for member in request.group.members:
         validate_material(registry, member.material)
 
@@ -154,6 +185,8 @@ def child_request(root, index):
 
 def accept(r, effect):
     validate_request(r.state, r.registry, effect)
+    if effect.fill_capacity is not None and effect.fill_capacity != PoolFillCapacity.capture(r,effect.group.player_id):
+        raise ValueError('Named fill changed its actual original acceptance capacity')
     if len(effect.group.members) > r.rules.max_resolution_steps:
         raise ResolutionLimitExceeded('Original whole group exceeds engineering budget')
     amount = capture_group(r, effect)
@@ -299,6 +332,10 @@ def validate_frame_references(state, registry, value):
         if type(item) is SummonOrderedGroup:
             validate_request(scope, registry, item)
             return
+        if type(item) is FillBoardWithCard:
+            item.__post_init__();validate_cause(scope,registry,item.cause)
+            validate_material(registry,SummonEntryMaterial(item.card_id))
+            return
         if type(item) is SummonCause:
             validate_cause(scope, registry, item)
             return
@@ -330,7 +367,23 @@ def validate_frame_references(state, registry, value):
     visit(value, state, 0)
 
 
+def fill_board_with_card(r,effect):
+    effect.__post_init__(); validate_cause(r.state,r.registry,effect.cause)
+    material=SummonEntryMaterial(effect.card_id)
+    validate_material(r.registry,material)  # Even a full board cannot hide unknown content.
+    capacity=PoolFillCapacity.capture(r,effect.player_id)
+    if capacity.remaining > r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Original named fill exceeds engineering budget')
+    members=tuple(OrderedGroupMember('fill-'+str(i),material) for i in range(capacity.remaining))
+    request=SummonOrderedGroup(OrderedSummonGroupSpec(effect.player_id,effect.cause,members),
+        fill_capacity=capacity,fill_card=material)
+    return accept(r,request)
+
+
 def validate_boundary(game):
+    for root in game._state.ordered_group_history:
+        if root.request.fill_capacity is not None:
+            root.request.fill_capacity.validate_in_state(game._state,game.registry,limit=game.ruleset.max_board)
     frame = game._frame
     queue = (*frame.prefix, *frame.continuation) if frame else ()
     validate_queue(game._state, game.registry, queue)
@@ -363,6 +416,8 @@ def validate_closed_events(game):
             raise ValueError('Complete private original whole group event required')
         root = from_dict(OrderedGroupRecord, json.loads(data['root']))
         validate_record(state, registry, root, closed=True, children=children)
+        if root.request.fill_capacity is not None:
+            root.request.fill_capacity.validate_in_state(state,registry,limit=game.ruleset.max_board,closed=True)
         if (data['group_id'] != root.id or root.action > event.action or root.event_cursor >= event.sequence or
                 (event.source_id, event.player_id) != (root.request.group.cause.source.entity_id, root.request.group.player_id)):
             raise ValueError('Whole group event changed original producer and event window')
@@ -412,6 +467,13 @@ def from_dict(cls, value):
     if cls is SummonOrderedGroup:
         row = _row(value, cls)
         row['group'] = value_from_dict(OrderedSummonGroupSpec, row['group'])
+        if row['fill_capacity'] is not None:
+            from .allocation_facts import allocation_from_dict
+            cap=_row(row['fill_capacity'],PoolFillCapacity)
+            cap['occupants']=tuple(allocation_from_dict(x) for x in cap['occupants'])
+            row['fill_capacity']=PoolFillCapacity(**cap)
+            from .summon_quantities import from_dict as entry_from_dict
+            row['fill_card']=entry_from_dict(SummonEntryMaterial,row['fill_card'])
     elif cls is OrderedGroupRecord:
         row = _row(value, cls)
         row['request'] = from_dict(SummonOrderedGroup, row['request'])
@@ -439,3 +501,4 @@ def register(mechanics):
         mechanics.register_payload_type(cls)
     for cls, handler in ((SummonOrderedGroup, accept), (StartOrderedGroupEntry, start_entry), (FinishOrderedGroup, finish)):
         mechanics.register(cls, handler)
+    mechanics.register(FillBoardWithCard,fill_board_with_card)

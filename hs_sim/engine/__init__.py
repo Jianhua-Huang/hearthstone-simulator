@@ -399,8 +399,8 @@ from .pool_summons import PoolSummonBasis,PoolSummonEntryLink
 __all__ += ['PoolSummonBasis','PoolSummonEntryLink']
 
 from .ordered_summon_groups import OrderedGroupMember,OrderedSummonGroupSpec,GroupSummonEntryLink
-from .ordered_group_batches import SummonOrderedGroup
-__all__ += ['OrderedGroupMember','OrderedSummonGroupSpec','GroupSummonEntryLink','SummonOrderedGroup']
+from .ordered_group_batches import SummonOrderedGroup,FillBoardWithCard
+__all__ += ['OrderedGroupMember','OrderedSummonGroupSpec','GroupSummonEntryLink','SummonOrderedGroup','FillBoardWithCard']
 
 from .body_grants import BodyReference, GrantBattlecry, GrantCombo, RemoveGrantedBody, ConsumeGrantedBody
 __all__ += ['BodyReference', 'GrantBattlecry', 'GrantCombo', 'RemoveGrantedBody', 'ConsumeGrantedBody']
