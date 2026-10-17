@@ -492,8 +492,8 @@ __all__ += ['OverloadRecord', 'overloaded_crystals', 'PlayerOverloadCostSpec', '
 from .model import HeroHealthChangeRecord
 from .hero_health_history import health_change_count
 __all__ += ['HeroHealthChangeRecord', 'health_change_count']
-from .successful_summons import SuccessfulSummonRecord, summoned_minions, summon_count
-__all__ += ['SuccessfulSummonRecord', 'summoned_minions', 'summon_count']
+from .successful_summons import SuccessfulSummonRecord, summoned_minions, summon_count, successful_reborns
+__all__ += ['SuccessfulSummonRecord', 'summoned_minions', 'summon_count', 'successful_reborns']
 from .model import PlayerSummonCountCostSpec, PlayerSummonCountCostFact
 __all__ += ['PlayerSummonCountCostSpec', 'PlayerSummonCountCostFact']
 from .model import PlayerPlayedClassCostSpec, PlayerPlayedClassCostRow, PlayerPlayedClassCostFact

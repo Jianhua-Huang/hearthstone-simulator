@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要“真正复生过”的消费者读取`successful_reborns`及原死亡链接，不扫描宿主日志、当前1生命随从或死亡时关键词。保存和复活攻击的未闭合范围见[契约](m3-successful-reborn-history.md)。
+
 真实原死体入库使用完整死亡行与墓地分配事实，不把稀疏死亡ID当列表索引，也不借中间手牌、复活或新副本替代物理洗回。有限原语、语义操作计数及恢复见[契约](m3-master-dusk-dead-shuffles.md)。
 
 原具名交付后的全体生命偷取使用`original_named_reference`及`StealHealthFromOtherMinions`；不要给白板衍生物永久加战吼或逐个发送独立Buff模拟原子批次，见[契约](m3-pterrordax-egg.md)。

@@ -1,5 +1,7 @@
 # 成功随从召唤事实与纯查询
 
+实际复生发生在原记录追加可空`reborn_death_id`并提供`successful_reborns`，同时核原入场和复生事件对；没有平行计数器，见[有限复生分类](m3-successful-reborn-history.md)。下文原引入版本与字段表保留为历史。
+
 `successful_summons.py` 在原 `Resolution.emit` 发布 `minion_summoned` 时记录不可变事实，先于原监听者捕获。普通随从出牌和原效果召唤共用这个入口。它不创建或移动实体，不执行召唤主体，不增加事件、检查点、随机消费或逐玩家可变计数器；既有来源 producer、数量计划与召唤执行器继续各自负责原行为。
 
 本能力引入于 prototype-v220/core-effects-v214、schema205。`GameState` 新增 `successful_summon_history` 和 `next_successful_summon_id` 两个私有字段，旧 schema1～204、未来版本和非严格整数版本明确拒绝，不能通过补空历史重标为新保存。玩家观察74、命令11和replay1保持。实际执行结果及下一项只在[项目状态](project-status.md)和[机制清单](mechanism-backlog.md)维护。
