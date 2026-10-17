@@ -98,7 +98,8 @@ class SimpleFollowupP41Tests(unittest.TestCase):
         self.assertEqual(d['cards'][1]['record']['tags']['ENRAGED'],1);self.assertFalse(d['cn_calibrated']);self.assertFalse(d['formal_pool_complete'])
 
     def test_only_two_new_definitions_all_old_facts_default_and_pools_preserved(self):
-        before=build_registry();after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertTrue(all(asdict(c)==asdict(after.card(cid))for cid,c in before.cards.items()));self.assertEqual(dict(before.pool_cards),dict(after.pool_cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(dict(before.generation_families),dict(after.generation_families));self.assertEqual(dict(before.kindred_profiles),dict(after.kindred_profiles))
+        with patch('hs_sim.cards.simple_followup_p41_cards.register_simple_followup_p41_cards',lambda r:None):before=build_registry()
+        after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertTrue(all(asdict(c)==asdict(after.card(cid))for cid,c in before.cards.items()));self.assertEqual(dict(before.pool_cards),dict(after.pool_cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(dict(before.generation_families),dict(after.generation_families));self.assertEqual(dict(before.kindred_profiles),dict(after.kindred_profiles))
         from hs_sim.engine.representative import build_registry as default
         r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in after.pools.values()))
 
