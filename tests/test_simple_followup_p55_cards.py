@@ -380,13 +380,14 @@ class SimpleFollowupP55Tests(unittest.TestCase):
                 self.assertFalse(calls)
                 self.assertEqual(g.snapshot(), saved)
 
-    def test_gap_actual_pool_summon_cannot_accept_taunt_and_lifesteal_in_original_entry_material(self):
+    def test_historical_pool_entry_gap_is_now_satisfied_by_original_preentry_recipe(self):
         SummonEntryMaterial(YETI, keywords=(Keyword.TAUNT, Keyword.LIFESTEAL)).__post_init__()
         g = self.game((TEST + 'pool_gap',))
-        saved = g.snapshot()
-        with self.assertRaisesRegex(ResolutionError, 'only the declared Taunt recipe'):
-            self.play(g, TEST + 'pool_gap')
-        self.assertEqual(g.snapshot(), saved)
+        self.play(g, TEST + 'pool_gap')
+        root = g.state.card_summon_history[-1]
+        self.assertEqual(root.request.pool_basis.entry_keywords, (Keyword.TAUNT, Keyword.LIFESTEAL))
+        self.assertTrue(all(m.keywords == (Keyword.TAUNT, Keyword.LIFESTEAL) for m in root.request.materials))
+        self.assertIsNotNone(g.registry.card(SUMMON).battlecry)
         self.assertEqual(load_batch()['skipped'][0]['record']['id'], SUMMON)
 
 
