@@ -24,7 +24,8 @@ def validate_request(request):
         if (request.destination != 'hand' or request.discoveries != 1 or request.delivery != 'after_each'
                 or request.cause is not None or request.cost is not None or request.expires_turn is not None
                 or request.spell_repeat is not None or request.minion_grant is not None
-                or request.temporary_until_turn is not None or request.gift_copy_to_hand):
+                or request.temporary_until_turn is not None or request.gift_copy_to_hand
+                or request.shuffle_unselected_into_deck):
             raise ValueError('Hand followup requires one plain hand delivery')
     elif (request.zone != Zone.DECK or request.owner_id != request.player_id
           or request.operation not in ('copy_base', 'copy_current', 'take', 'draw')):

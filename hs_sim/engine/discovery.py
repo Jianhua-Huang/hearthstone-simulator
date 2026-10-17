@@ -75,7 +75,7 @@ class ResolvePoolDiscovery(Effect):
                 len({g.id for g in self.offered_gifts}) != len(self.offered_gifts)):
             raise ValueError('Gift discovery requires different gifts bound to every offered card')
         if self.choice_result is not None:
-            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost and self.batch.spec.summon_copy_stats is None):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
+            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost and self.batch.spec.summon_copy_stats is None and not self.batch.spec.shuffle_unselected_into_deck):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
                 len(self.batch.selections) >= self.batch.spec.discoveries):
@@ -266,7 +266,7 @@ def validate_selection(registry, context, effect):
             validate_pick_gift(registry,spec,DiscoveryPick(cid,effect.selection.hero_class,effect.selection.source_card_id,gift))
         if effect.selection.gift != effect.offered_gifts[offered.index(effect.selection.card_id)]:
             raise ValueError('Selected gift belongs to another offered minion')
-    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost or spec.summon_copy_stats is not None):
+    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost or spec.summon_copy_stats is not None or spec.shuffle_unselected_into_deck):
         result=effect.choice_result;choice=result.choice
         expected=tuple(o.item for o in options_for(registry,batch,offered,
             effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts))
@@ -351,6 +351,9 @@ def resolve_discovery(r, effect):
     if batch.producer_id is not None:
         from .discovery_summons import select_offer
         delivery=select_offer(r,effect)
+    elif spec.shuffle_unselected_into_deck:
+        from .discovery_remainders import begin
+        delivery=begin(r,effect)
     elif spec.summon_copy_stats is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
     else:delivery=deliver_pick(spec,effect.selection) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
@@ -358,6 +361,8 @@ def resolve_discovery(r, effect):
 
 
 def validate_boundary(game):
+    from .discovery_remainders import validate_boundary as validate_remainders
+    validate_remainders(game)
     frame=game._frame; choice=game._state.pending_choice
     if frame is None:return
     def visit(value,depth=0):
@@ -410,3 +415,5 @@ def register(mechanics):
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)
     mechanics.register(HealHeroFromDiscoveredSpell,heal_discovered_spell)
     mechanics.register(DeliverAndSummonDiscoveredMinion,deliver_and_summon_copy)
+    from .discovery_remainders import register as register_remainders
+    register_remainders(mechanics)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要原发现余项洗入的真实来源可用有限shuffle_unselected_into_deck声明，保留实际ChoiceResult并复用普通创建和语义洗牌，见[契约](m3-discovery-remainders.md)。
+
 固定具名填场使用FillBoardWithCard，完整初始容量与配方进入原召唤组；弃牌、数量和恢复仍沿原执行器，见[契约](m3-named-fill-story.md)。
 
 真实时光流汇需要从原场上发现结果取得手牌复制，可用有限copy_selected_to_hand声明；原选择、接受前缀与普通创建的边界见[契约](m3-conflux-locations.md)。
