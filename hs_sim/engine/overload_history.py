@@ -86,7 +86,8 @@ def commit(resolution, event, mana):
 def validate_boundary(game):
     state = game._state
     validate_state(state)
-    if tuple(event.sequence for event in game._events if event.kind == 'overload_added') != tuple(
+    from .hero_health_history import effective_events
+    if tuple(event.sequence for event in effective_events(game._events) if event.kind == 'overload_added') != tuple(
             row.event_sequence for row in state.overload_history):
         raise ValueError('Overload history lost its complete committed increment inventory')
     for row in state.overload_history:

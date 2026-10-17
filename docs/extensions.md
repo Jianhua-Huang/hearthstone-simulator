@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实固定预算召唤使用`SummonManaWorth`和原`SummonCause`，不要猜未来分配ID或扫描同来源历史。预算链接、终局及过载回溯见[契约](m3-mana-worth-summons.md)。
+
 真实手中幸运币武器减费使用`CoinHandCountCostSpec`及经完整源核对的SPELL身份分类，不按卡名或法力效果猜定；普通付款和冻结历史见[契约](m3-coin-hand-costs.md)。
 
 需要原发现余项洗入的真实来源可用有限shuffle_unselected_into_deck声明，保留实际ChoiceResult并复用普通创建和语义洗牌，见[契约](m3-discovery-remainders.md)。

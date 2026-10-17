@@ -126,7 +126,8 @@ class SummonByCard(Effect):
             from .recruit_summons import RecruitEntryLink
             from .resurrection_summons import ResurrectionEntryLink
             from .ordered_summon_groups import GroupSummonEntryLink
-            if type(self.producer_link)not in (PoolSummonEntryLink,DiscoverySummonEntryLink,RecruitEntryLink,ResurrectionEntryLink,GroupSummonEntryLink):raise ValueError('Typed original producer link required')
+            from .mana_worth_summons import ManaWorthEntryLink
+            if type(self.producer_link)not in (PoolSummonEntryLink,DiscoverySummonEntryLink,RecruitEntryLink,ResurrectionEntryLink,GroupSummonEntryLink,ManaWorthEntryLink):raise ValueError('Typed original producer link required')
             self.producer_link.__post_init__()
         if self.capacity=='preselected_attempt'and(self.selection!='first'or len(self.materials)!=1 or self.producer_link is None):raise ValueError('Preselected attempt requires one linked original batch item')
         if self.position is not None: _integer(self.position,'summon position',0)
@@ -412,6 +413,8 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
     if request.selection=='weighted':
         from .pool_summons import validate_weighted_request
         validate_weighted_request(state,registry,request,closed=closed)
+    from .mana_worth_summons import ManaWorthEntryLink,validate_recipe as validate_budget_recipe
+    if type(request.producer_link) is ManaWorthEntryLink:validate_budget_recipe(request)
 
 
 def accept(r,effect):
@@ -575,7 +578,9 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
         from .pool_summons import PoolSummonEntryLink,validate_link as validate_pool_link
         from .discovery_summons import DiscoverySummonEntryLink,validate_link as validate_discovery_link
         from .ordered_summon_groups import GroupSummonEntryLink
+        from .mana_worth_summons import ManaWorthEntryLink,validate_link as validate_budget_link
         if type(root.request.producer_link)is PoolSummonEntryLink:validate_pool_link(state,root,closed=closed)
+        elif type(root.request.producer_link)is ManaWorthEntryLink:validate_budget_link(state,registry,root,closed=closed)
         elif type(root.request.producer_link)is DiscoverySummonEntryLink:validate_discovery_link(state,root,closed=closed)
         elif type(root.request.producer_link)is GroupSummonEntryLink:
             from .ordered_group_batches import validate_link as validate_group_link
@@ -652,7 +657,8 @@ def reject_choice_control(options):
     from .recruit_summons import ContinueRecruitedMinion
     from .copy_followups import ContinueCopiedMinion
     from .named_summon_followups import ContinueNamedMinion
-    if any(type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion) for x in walk_work(options)):
+    from .mana_worth_summons import ContinueManaWorth
+    if any(type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion,ContinueManaWorth) for x in walk_work(options)):
         raise ValueError('Choice branches cannot inject summon control work')
 
 
@@ -662,6 +668,9 @@ def validate_frame_references(state,registry,value):
     from .continuations import FrameCodec
     def visit(item,scope,depth):
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Summon frame exceeds depth limit')
+        from .mana_worth_summons import ContinueManaWorth,validate_control as validate_budget_control
+        if type(item) is ContinueManaWorth:
+            validate_budget_control(scope,registry,item);return
         if type(item) is SummonByCard:
             validate_request(scope,registry,item)
             return
@@ -714,6 +723,8 @@ def validate_queue(current,registry,queue):
     from .named_summon_followups import ContinueNamedMinion,followup_record as named_followup_record
     control_types=(DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion)
     work=list(walk_work(queue))
+    from .mana_worth_summons import validate_queue as validate_budget_queue
+    validate_budget_queue(current,registry,work)
     for item in work:
         if type(item) is SummonByCard:
             validate_request(current,registry,item)
@@ -754,6 +765,7 @@ def validate_boundary(game):
     from .recruit_summons import ContinueRecruitedMinion
     from .copy_followups import ContinueCopiedMinion
     from .named_summon_followups import ContinueNamedMinion
+    from .mana_worth_summons import ContinueManaWorth
     current=game._state;frame=game._frame
     queue=(*frame.prefix,*frame.continuation) if frame is not None else ()
     validate_queue(current,game.registry,queue)
@@ -763,7 +775,7 @@ def validate_boundary(game):
         original=frame.paid_hand_choice_boundary
         if current.card_summon_history!=original.state.card_summon_history:
             raise ValueError('Summon roots differ from their complete original choice boundary')
-        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion))
+        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion,ContinueManaWorth))
         if controls(queue)!=controls(original.work):
             raise ValueError('Summon continuation differs from complete original owed work')
 
@@ -817,6 +829,8 @@ def validate_closed_events(game):
             raise ValueError('Current summon differs from its complete original event receipts')
     from .named_summon_followups import validate_events as validate_named_followup_events
     validate_named_followup_events(game,{**accepted,**closed,**current})
+    from .mana_worth_summons import validate_events as validate_budget_events
+    validate_budget_events(state,registry,{**accepted,**closed,**current})
 
 
 def material_from_dict(value):
@@ -848,7 +862,10 @@ def from_dict(cls,value):
         from .pool_summons import PoolSummonBasis,PoolSummonEntryLink,from_dict as pool_from_dict
         row['pool_basis']=None if row['pool_basis']is None else pool_from_dict(PoolSummonBasis,row['pool_basis'])
         if row['producer_link']is not None:
-            if set(row['producer_link'])=={'group_id','index'}:
+            if set(row['producer_link'])=={'budget','remaining','previous_root_id'}:
+                from .mana_worth_summons import ManaWorthEntryLink
+                row['producer_link']=ManaWorthEntryLink(**row['producer_link'])
+            elif set(row['producer_link'])=={'group_id','index'}:
                 from .ordered_summon_groups import GroupSummonEntryLink,from_dict as group_from_dict
                 row['producer_link']=group_from_dict(GroupSummonEntryLink,row['producer_link'])
             elif set(row['producer_link'])=={'batch_id','index'}:row['producer_link']=pool_from_dict(PoolSummonEntryLink,row['producer_link'])

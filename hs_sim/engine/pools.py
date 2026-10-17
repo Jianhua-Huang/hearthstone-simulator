@@ -922,8 +922,12 @@ class SummonFromPool(Effect):
             source_id=self.source_id,destination='board',policy=self.policy)
 
 
-def summon_from_pool(r,effect):
+def summon_from_pool(r,effect,*,producer_link=None):
     from .summon_quantities import reject_ambiguous
+    if producer_link is not None:
+        from .mana_worth_summons import ManaWorthEntryLink
+        if type(producer_link) is not ManaWorthEntryLink or effect.cause is None:
+            raise ValueError('Budget pool entry requires its typed original attribution and link')
     if effect.cause is None:reject_ambiguous(r)
     effect.__post_init__()
     rows=generation_candidates(r,effect.request())
@@ -934,7 +938,7 @@ def summon_from_pool(r,effect):
         from .pool_summons import PoolSummonBasis
         basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,entry_dormant_turns=effect.entry_dormant_turns)
         return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords,dormant_turns=effect.entry_dormant_turns)for m in rows),effect.cause,
-            'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis))
+            'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis,producer_link=producer_link))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='board_full')
         return ()
