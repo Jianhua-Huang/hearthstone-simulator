@@ -1,0 +1,1593 @@
+{
+  "batch": "P47",
+  "source": {
+    "file": "outputs/simple-cards-p47/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_035",
+        "dbf_id": 125660,
+        "name": "警戒哨卫",
+        "name_en": "Vigilant Sentry",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，召唤两个警戒哨卫。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If your deck has\nno Neutral cards, summon\n_two Vigilant Sentries.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "adc176405aab1cf2ba616798aa0126859e6a2310fa6cff352c1d03121cd33c0a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_035",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_507",
+        "dbf_id": 125993,
+        "name": "怨毒大厨",
+        "name_en": "Spiteful Chef",
+        "text": "<b>战吼：</b>召唤一个法力值消耗为（2）的<b>嘲讽</b>随从。如果你拥有至少10点法力值，改为召唤法力值消耗为（6）的<b>嘲讽</b>随从。",
+        "text_en": "[x]<b>Battlecry:</b> Summon a 2-Cost\n<b>Taunt</b> minion. If you have 10\nor more Mana, summon a\n6-Cost instead.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0c3ec88e2e2f13a5c4104df053983b6b3e349905ae3383c12b5682ad4022e304",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_507",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_912",
+        "dbf_id": 124079,
+        "name": "预言师",
+        "name_en": "Soothsayer",
+        "text": "<b>预备</b>。<b>嘲讽</b>。<b>亡语：</b>为你的英雄恢复#6点生命值。&随机召唤一个法力值消耗为（6）的随从。",
+        "text_en": "[x]<b>Prepare</b>, <b>Taunt</b>\n<b>Deathrattle:</b> Restore #6 Health\nto your hero.& Summon a\n_random 6-Cost minion.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1b52f767b4c19568ff0cb805ff265a3858edd5d69e9200c197c79ea3ae938425",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_912",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_879",
+        "dbf_id": 126419,
+        "name": "野兽绊索",
+        "name_en": "Beast Tripwire",
+        "text": "随机召唤一只法力值消耗为（5）的野兽。将两张法术牌洗入你的牌库，抽到该法术时会再随机\n召唤一次。",
+        "text_en": "[x]Summon a random\n5-Cost Beast. Shuffle 2\nspells into your deck that\ndo it again when drawn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126421
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "f2ca2be1f2cab237744a4444660c1c4fc8872e71243d57478773002475b3d4af",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_879",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_038",
+        "dbf_id": 120646,
+        "name": "钟表先生克劳沃斯",
+        "name_en": "Mister Clocksworth",
+        "text": "<b>回溯</b>，<b>回溯</b>，<b>回溯</b>\n<b>战吼：</b>随机召唤2个<b>传说</b>随从。",
+        "text_en": "[x]<b>Rewind</b>, <b>Rewind</b>, <b>Rewind</b>\n<b>Battlecry:</b> Summon 2 random\n<b>Legendary</b> minions.",
+        "cost": 8,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "0756c8104b17f5b31928585ffa6af00500ee57314ac4ec94fe2cac895cad7308",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_038",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_328",
+        "dbf_id": 126618,
+        "name": "血色斗士",
+        "name_en": "Scarlet Bruiser",
+        "text": "<b>亡语：</b>如果你的牌库中没有中立卡牌，&随机获取一张圣骑士牌，其法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Deathrattle:</b> If your deck\nhas no Neutral cards,& get\na random Paladin card.\nIt costs (2) less.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "d55e10842dbe52c37f2526c71a4d86e48d59b442044f4cde652aaa55e86aafee",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_328",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_941",
+        "dbf_id": 115866,
+        "name": "星涌术",
+        "name_en": "Starsurge",
+        "text": "对一个随从造成$@点伤害。<i>（每有一个在本局对战中死亡的友方随从都会提升。）</i>",
+        "text_en": "Deal $@ damage to a minion. <i>(Improved by each friendly minion that died this game.)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "ffe6a0a0f77e55446fec2c1338fd1501c546f080908918c419146ff0de5c1086",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_941",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "JAIL_326",
+        "dbf_id": 126616,
+        "name": "审判",
+        "name_en": "Judgment",
+        "text": "<b>预备</b>。选择一个友方随从，将所有随从的属性值变为与该随从相同。",
+        "text_en": "[x]<b>Prepare</b>\nChoose a friendly minion.\nSet all minions' stats\nequal to that minion's.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "DECK_ACTION_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "40116274068dff0be7be74e71ddb2d5fe939e0837ce455b82cacf7009e5459d7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_326",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TLC_521",
+        "dbf_id": 117703,
+        "name": "高空眼线",
+        "name_en": "Eyes in the Sky",
+        "text": "<b>战吼：</b>检视敌方牌库中的三张牌，选择一张置于其牌库顶。",
+        "text_en": "[x]<b>Battlecry:</b> Look at 3\ncards in your enemy's deck.\nPick one to put on top.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Danny Beck"
+          }
+        ]
+      },
+      "record_sha256": "82162d4c80fc5c72d5181625ecf1b4b851abebfcd3b0fcd6d6bd74431357bd24",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_521",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_879t",
+        "dbf_id": 126421,
+        "name": "触发的野兽绊索",
+        "name_en": "Tripped Beast Tripwire",
+        "text": "<b>抽到时施放</b>\n随机召唤一只法力值消耗为（5）的野兽。",
+        "text_en": "<b>Casts When Drawn</b>\nSummon a random\n5-Cost Beast.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1077",
+              "name": "CASTS_WHEN_DRAWN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2ea6ed5bee8710f6fc28fa5c6b64d9db000f4992dfa8dcc2f114b50c7013d066",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_879t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [
+    {
+      "record": {
+        "id": "TIME_019",
+        "dbf_id": 120011,
+        "name": "时间流具象",
+        "name_en": "Manifested Timeways",
+        "text": "<b>战吼：</b>如果你控制着光环，&对所有敌人造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> If you control\nan Aura,& deal 3 damage\nto all enemies.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "0972e80823361c2bffc0861160a136374a4ff7f31614cd6e42c060990842f7f5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_019",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "reason": "No typed controlled Paladin Aura zone instance; PlayerEffectSpec(kind=aura) is rejected. Generic stat auras and objective instances do not prove this condition."
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_035",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/125660-zh_CN.json",
+      "response_sha256": "79977bbe0acb784ca0ba05a1a3381827990e056f83bab3a33ea5d4b1bacac608",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125660&locale=zh_CN",
+      "face": {
+        "id": 125660,
+        "collectible": 1,
+        "slug": "125660-vigilant-sentry",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Dmitry Bolotov",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "警戒哨卫",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，召唤两个警戒哨卫。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12a0be934173b6eb5725ae76e67929486dae9930af93b75deb6444f1935345cd.png",
+        "imageGold": "",
+        "flavorText": "现在全达拉然都知道你来了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca8063746fe22d7e08740ab535885d5a8facfb1dfb8e2b77b787b9f01acda4e5.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125660&locale=zh_CN",
+        "sha256": "79977bbe0acb784ca0ba05a1a3381827990e056f83bab3a33ea5d4b1bacac608",
+        "bytes": 801,
+        "observed_at": "2026-10-17T03:52:53.543464+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_035",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/125660-en_US.json",
+      "response_sha256": "5a59b3592fe1f3f5ef0ea247c8bb4d32eefc5c8389e2fba2e32ff62d076aea3e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125660&locale=en_US",
+      "face": {
+        "id": 125660,
+        "collectible": 1,
+        "slug": "125660-vigilant-sentry",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Dmitry Bolotov",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Vigilant Sentry",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> If your deck has no Neutral cards, summon two Vigilant Sentries.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85eb773cedb7e44a88ae3a690f56454e95d65ccda06b6b144d3c827d5e8b14e3.png",
+        "imageGold": "",
+        "flavorText": "Now all of Dalaran knows you're here.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca8063746fe22d7e08740ab535885d5a8facfb1dfb8e2b77b787b9f01acda4e5.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125660&locale=en_US",
+        "sha256": "5a59b3592fe1f3f5ef0ea247c8bb4d32eefc5c8389e2fba2e32ff62d076aea3e",
+        "bytes": 796,
+        "observed_at": "2026-10-17T03:54:10.528622+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_507",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/125993-zh_CN.json",
+      "response_sha256": "0d3c999df4c1691733db5bb0bb4ec087100be8c9a611cfe90e02dac8036a9d44",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125993&locale=zh_CN",
+      "face": {
+        "id": 125993,
+        "collectible": 1,
+        "slug": "125993-spiteful-chef",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "怨毒大厨",
+        "text": "<b>战吼：</b>召唤一个法力值消耗为（2）的<b>嘲讽</b>随从。如果你拥有至少10点法力值，改为召唤法力值消耗为（6）的嘲讽随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cea04bac2af49bd96a21adac959559cbb7593cf5c5fe76e0a8210ef614628ca9.png",
+        "imageGold": "",
+        "flavorText": "我只是说了句多加点盐而已！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66dd53ac7148521e9c1b80be9e8195d8d56f67e9d062cb3dba95cf8d3e4d8cc4.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125993&locale=zh_CN",
+        "sha256": "0d3c999df4c1691733db5bb0bb4ec087100be8c9a611cfe90e02dac8036a9d44",
+        "bytes": 869,
+        "observed_at": "2026-10-17T03:52:53.569873+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_507",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/125993-en_US.json",
+      "response_sha256": "a14fe95fb1c2d31439ec7cc1f44dd1dc548a0b806044ec92b222a800d24b4ddb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125993&locale=en_US",
+      "face": {
+        "id": 125993,
+        "collectible": 1,
+        "slug": "125993-spiteful-chef",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Spiteful Chef",
+        "text": "<b>Battlecry:</b> Summon a 2-Cost <b>Taunt</b> minion. If you have 10 or more Mana, summon a 6-Cost instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a8f50122950882ba644914e6037c246db9098013a149d6773a83637e8eadca1.png",
+        "imageGold": "",
+        "flavorText": "All I said was that it needed a touch more salt!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66dd53ac7148521e9c1b80be9e8195d8d56f67e9d062cb3dba95cf8d3e4d8cc4.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125993&locale=en_US",
+        "sha256": "a14fe95fb1c2d31439ec7cc1f44dd1dc548a0b806044ec92b222a800d24b4ddb",
+        "bytes": 816,
+        "observed_at": "2026-10-17T03:52:53.274213+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_912",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/124079-zh_CN.json",
+      "response_sha256": "5b1b44c1c568213624a17df877a1346a7974ad1b9b2daa83faa3f6341fb92afb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124079&locale=zh_CN",
+      "face": {
+        "id": 124079,
+        "collectible": 1,
+        "slug": "124079-soothsayer",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Stefano Spagnuolo",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "预言师",
+        "text": "<b>预备</b>。<b>嘲讽</b>。<b>亡语：</b>为你的英雄恢复 6点生命值。&随机召唤一个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/012d1c4cb75802741ef07d7a3d26f2b36368f7477908d884a88f4be99b891103.png",
+        "imageGold": "",
+        "flavorText": "“精神放松。预言的……力度可以吗？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b1d134590754c9646a662d113cbf97c00d655f8676bb7ba430af9a4c7636b81.png",
+        "keywordIds": [
+          1,
+          12,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124079&locale=zh_CN",
+        "sha256": "5b1b44c1c568213624a17df877a1346a7974ad1b9b2daa83faa3f6341fb92afb",
+        "bytes": 857,
+        "observed_at": "2026-10-17T03:52:54.405697+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_912",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/124079-en_US.json",
+      "response_sha256": "9d66350b74289695bda22c3cd3dfe67e88d26d87602cbc307e2a3f5b13a03a62",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124079&locale=en_US",
+      "face": {
+        "id": 124079,
+        "collectible": 1,
+        "slug": "124079-soothsayer",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Stefano Spagnuolo",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Soothsayer",
+        "text": "<b>Prepare</b>, <b>Taunt</b> <b>Deathrattle:</b> Restore 6 Health to your hero.& Summon a random 6-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66bf82c8bad3fbfbaa75db97087ef486e24925f204932c297d124be5b7c32d93.png",
+        "imageGold": "",
+        "flavorText": "\"Sooth. Sooth. ...Sooth. Am I doing it right?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b1d134590754c9646a662d113cbf97c00d655f8676bb7ba430af9a4c7636b81.png",
+        "keywordIds": [
+          1,
+          12,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=124079&locale=en_US",
+        "sha256": "9d66350b74289695bda22c3cd3dfe67e88d26d87602cbc307e2a3f5b13a03a62",
+        "bytes": 821,
+        "observed_at": "2026-10-17T03:52:54.471267+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_879",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/126419-zh_CN.json",
+      "response_sha256": "76dd72b425c65ce085549700aea065ddb37bc471fa3bc2d1e3c5325ae2950937",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126419&locale=zh_CN",
+      "face": {
+        "id": 126419,
+        "collectible": 1,
+        "slug": "126419-beast-tripwire",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "野兽绊索",
+        "text": "随机召唤一只法力值消耗为（5）的野兽。将两张法术牌洗入你的牌库，抽到该法术时会再随机 召唤一次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86df86814115bc8b3d9510900060f7cb7135a9be9959447e14823e0a5358d9f7.png",
+        "imageGold": "",
+        "flavorText": "就在那一刻，她明白了，这是牵绊的感觉。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97186c770a3d8f6b4ca8bf06c47b8e339948508d22379fdf5641e7f6ed274fb3.png",
+        "childIds": [
+          126421
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126419&locale=zh_CN",
+        "sha256": "76dd72b425c65ce085549700aea065ddb37bc471fa3bc2d1e3c5325ae2950937",
+        "bytes": 842,
+        "observed_at": "2026-10-17T03:52:54.692309+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_879",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/126419-en_US.json",
+      "response_sha256": "50d7624e7b19b8cb6f28cc4827f6719ac73b6c60b46966f3194cccb336bbf0f3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126419&locale=en_US",
+      "face": {
+        "id": 126419,
+        "collectible": 1,
+        "slug": "126419-beast-tripwire",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "Beast Tripwire",
+        "text": "Summon a random 5-Cost Beast. Shuffle 2 spells into your deck that do it again when drawn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8027630d32ef80a6561bf1684883245c6a2766c9a6366340daf30b20974612c4.png",
+        "imageGold": "",
+        "flavorText": "And it was at that moment, she knew, she tripped up.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97186c770a3d8f6b4ca8bf06c47b8e339948508d22379fdf5641e7f6ed274fb3.png",
+        "childIds": [
+          126421
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126419&locale=en_US",
+        "sha256": "50d7624e7b19b8cb6f28cc4827f6719ac73b6c60b46966f3194cccb336bbf0f3",
+        "bytes": 789,
+        "observed_at": "2026-10-17T03:52:55.112627+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_038",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/120646-zh_CN.json",
+      "response_sha256": "764e18a537ab5bb4e05ec94c4f06a432598318583ce4f2e1e84e5fc3989609f3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120646&locale=zh_CN",
+      "face": {
+        "id": 120646,
+        "collectible": 1,
+        "slug": "120646-mister-clocksworth",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 8,
+        "name": "钟表先生克劳沃斯",
+        "text": "<b>回溯</b>，<b>回溯</b>，<b>回溯</b> <b>战吼：</b>随机召唤2个<b>传说</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/941d1c39031f8a971952fc081dda289c938aadf3a2cc18eaf26ec83f95db91ed.png",
+        "imageGold": "",
+        "flavorText": "“先生，请问您的钟表价值几何？”“时分珍贵啊，亲爱的孩子。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6657c9059012347af810abcf5d775a9450956ed8ef143778e4eda8a35550632f.png",
+        "keywordIds": [
+          8,
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120646&locale=zh_CN",
+        "sha256": "764e18a537ab5bb4e05ec94c4f06a432598318583ce4f2e1e84e5fc3989609f3",
+        "bytes": 890,
+        "observed_at": "2026-10-17T03:52:55.413052+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_038",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/120646-en_US.json",
+      "response_sha256": "1b38812abd62da973b5a7c8baef07889154f4107742f0fb342ee0c2acfff97d2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120646&locale=en_US",
+      "face": {
+        "id": 120646,
+        "collectible": 1,
+        "slug": "120646-mister-clocksworth",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 8,
+        "name": "Mister Clocksworth",
+        "text": "<b>Rewind</b>, <b>Rewind</b>, <b>Rewind</b> <b>Battlecry:</b> Summon 2 random <b>Legendary</b> minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/182a4ff8182d387bfc9d62f0df0d532ae953f25939551547e009239ce9ece6ac.png",
+        "imageGold": "",
+        "flavorText": "\"Hey Mister, what're your clocks worth?\" \"Depends on the hour, my boy.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6657c9059012347af810abcf5d775a9450956ed8ef143778e4eda8a35550632f.png",
+        "keywordIds": [
+          8,
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120646&locale=en_US",
+        "sha256": "1b38812abd62da973b5a7c8baef07889154f4107742f0fb342ee0c2acfff97d2",
+        "bytes": 872,
+        "observed_at": "2026-10-17T03:52:55.406474+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_328",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/126618-zh_CN.json",
+      "response_sha256": "be5724003753c81d1335fd46568ba7d124fddf3ce5366ab91d71bf4ee06411b4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126618&locale=zh_CN",
+      "face": {
+        "id": 126618,
+        "collectible": 1,
+        "slug": "126618-scarlet-bruiser",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "血色斗士",
+        "text": "<b>亡语：</b>如果你的牌库中没有中立卡牌，&随机获取一张圣骑士牌，其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09d347a791e76fcf43a7a781ec86e3d5d52cfe44ae00c6e6e6f79480e277da67.png",
+        "imageGold": "",
+        "flavorText": "血色的重点在于血。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d753f294ef9a48765e4c56b82e542cd0f5de30c521eb2de0ab187e57f4636082.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126618&locale=zh_CN",
+        "sha256": "be5724003753c81d1335fd46568ba7d124fddf3ce5366ab91d71bf4ee06411b4",
+        "bytes": 814,
+        "observed_at": "2026-10-17T03:52:56.139024+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_328",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/126618-en_US.json",
+      "response_sha256": "f55aef090670de8b558d0b8a9ea346df32dfc9297e716573f43142c271feb8e3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126618&locale=en_US",
+      "face": {
+        "id": 126618,
+        "collectible": 1,
+        "slug": "126618-scarlet-bruiser",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Scarlet Bruiser",
+        "text": "<b>Deathrattle:</b> If your deck has no Neutral cards,& get a random Paladin card. It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ba036331bc8f57735a03d9bf1ad14edc5f340727b6e9038afc4df115a39de51.png",
+        "imageGold": "",
+        "flavorText": "She puts the \"scar\" in scarlet.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d753f294ef9a48765e4c56b82e542cd0f5de30c521eb2de0ab187e57f4636082.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126618&locale=en_US",
+        "sha256": "f55aef090670de8b558d0b8a9ea346df32dfc9297e716573f43142c271feb8e3",
+        "bytes": 795,
+        "observed_at": "2026-10-17T03:52:56.115863+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_019",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/120011-zh_CN.json",
+      "response_sha256": "232402cd5e121134b53387e2f978ff3dd4a6e2139f556de4e3a7a67f9e24f391",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120011&locale=zh_CN",
+      "face": {
+        "id": 120011,
+        "collectible": 1,
+        "slug": "120011-manifested-timeways",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "时间流具象",
+        "text": "<b>战吼：</b>如果你控制着光环，&对所有敌人造成3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77c9bacdfc13040da18ecd9d719de31cd7444ea8444cb5fe276bb1a4e5402d55.png",
+        "imageGold": "",
+        "flavorText": "稍等，我这就把我的光环具象化。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bf7213947d606b84193037d740abfbaa0f757f213783b8644fb277e16cd0261.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120011&locale=zh_CN",
+        "sha256": "232402cd5e121134b53387e2f978ff3dd4a6e2139f556de4e3a7a67f9e24f391",
+        "bytes": 811,
+        "observed_at": "2026-10-17T03:52:56.476770+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_019",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/120011-en_US.json",
+      "response_sha256": "ee8f4335f8af1188954e20c0c22fc98cbb785003229111e7c24fabe5ec454a7c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120011&locale=en_US",
+      "face": {
+        "id": 120011,
+        "collectible": 1,
+        "slug": "120011-manifested-timeways",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Manifested Timeways",
+        "text": "<b>Battlecry:</b> If you control an Aura,& deal 3 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/660d8d6f9433133df794942267e1ce8c16582a33e430a30faaedb4ce7bb273fc.png",
+        "imageGold": "",
+        "flavorText": "Hold on, I'm manifesting my Aura.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bf7213947d606b84193037d740abfbaa0f757f213783b8644fb277e16cd0261.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120011&locale=en_US",
+        "sha256": "ee8f4335f8af1188954e20c0c22fc98cbb785003229111e7c24fabe5ec454a7c",
+        "bytes": 797,
+        "observed_at": "2026-10-17T03:52:56.950371+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_941",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/115866-zh_CN.json",
+      "response_sha256": "926eb996854ccc3bd7d2011641d06f6544a174279e5ce75109febce980af64a2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115866&locale=zh_CN",
+      "face": {
+        "id": 115866,
+        "collectible": 1,
+        "slug": "115866-starsurge",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 3,
+        "name": "星涌术",
+        "text": "对一个随从造成 点伤害。<i>（每有一个在本局对战中死亡的友方随从都会提升。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/501b99ba2567e76292669640acfe9d989f411889a0a3a73703138c41f9979ffc.png",
+        "imageGold": "",
+        "flavorText": "全称是“星星怂恿你束手送命”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8ff9167b85cceeebf64fc8266c308f618bc3bd0bdf86820134a709c511312c8.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115866&locale=zh_CN",
+        "sha256": "926eb996854ccc3bd7d2011641d06f6544a174279e5ce75109febce980af64a2",
+        "bytes": 790,
+        "observed_at": "2026-10-17T03:54:53.454631+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_941",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/115866-en_US.json",
+      "response_sha256": "8a622d0ec7f100bf5ce94fe661c0c7216e0a5cd1409d977236e297bb5f0c6459",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115866&locale=en_US",
+      "face": {
+        "id": 115866,
+        "collectible": 1,
+        "slug": "115866-starsurge",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 3,
+        "name": "Starsurge",
+        "text": "Deal damage to a minion. <i>(Improved by each friendly minion that died this game.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c7cbc0eed8c98c7b179fbade42ca5ad1e765951088c9fa02c38383222637c81.png",
+        "imageGold": "",
+        "flavorText": "\"The stars urge you to DIE.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8ff9167b85cceeebf64fc8266c308f618bc3bd0bdf86820134a709c511312c8.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115866&locale=en_US",
+        "sha256": "8a622d0ec7f100bf5ce94fe661c0c7216e0a5cd1409d977236e297bb5f0c6459",
+        "bytes": 749,
+        "observed_at": "2026-10-17T03:54:53.522561+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_326",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/126616-zh_CN.json",
+      "response_sha256": "6dc8e11dfdd1eaa5faa1a4d14e9fbfe34ee52b3f763c21c9ef4a8392bfc788a3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126616&locale=zh_CN",
+      "face": {
+        "id": 126616,
+        "collectible": 1,
+        "slug": "126616-judgment",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Juan Calle",
+        "manaCost": 6,
+        "name": "审判",
+        "text": "<b>预备</b>。选择一个友方随从，将所有随从的属性值变为与该随从相同。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f8d5a655f67afaaba9c590c35575627985dcc265233ba750e2ab19affff2a32.png",
+        "imageGold": "",
+        "flavorText": "我的天呐你的卡背图案也太过时了吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e4b936c21c25d7088476af4b6e6c455776634640af35a09f4857ac4aed747f3.png",
+        "keywordIds": [
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126616&locale=zh_CN",
+        "sha256": "6dc8e11dfdd1eaa5faa1a4d14e9fbfe34ee52b3f763c21c9ef4a8392bfc788a3",
+        "bytes": 788,
+        "observed_at": "2026-10-17T03:52:57.598279+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_326",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/126616-en_US.json",
+      "response_sha256": "a63f7156f519aab9d60a430078f06a069cc81f0f7243ebfe1d132cd8756a94ea",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126616&locale=en_US",
+      "face": {
+        "id": 126616,
+        "collectible": 1,
+        "slug": "126616-judgment",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Juan Calle",
+        "manaCost": 6,
+        "name": "Judgment",
+        "text": "<b>Prepare</b> Choose a friendly minion. Set all minions' stats equal to that minion's.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/962765b86b1de8b38fd157ca0db4f464b4d342b6d8a56fc28799e786c117f619.png",
+        "imageGold": "",
+        "flavorText": "Omg your card back is SO last season.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e4b936c21c25d7088476af4b6e6c455776634640af35a09f4857ac4aed747f3.png",
+        "keywordIds": [
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126616&locale=en_US",
+        "sha256": "a63f7156f519aab9d60a430078f06a069cc81f0f7243ebfe1d132cd8756a94ea",
+        "bytes": 766,
+        "observed_at": "2026-10-17T03:52:57.662442+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_521",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/117703-zh_CN.json",
+      "response_sha256": "64daf441acd32cbe23a435ffe75311f2e13f1e65589bd3ccbcdf14e9a5e1628c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117703&locale=zh_CN",
+      "face": {
+        "id": 117703,
+        "collectible": 1,
+        "slug": "117703-eyes-in-the-sky",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Danny Beck",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "高空眼线",
+        "text": "<b>战吼：</b>检视敌方牌库中的三张牌，选择一张置于其牌库顶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c60d93538625fd40d8a67643b53009407909815afd202c238dd4a234b5ae4752.png",
+        "imageGold": "",
+        "flavorText": "“我看到了安布拉的亡灵大军。我……我就在上面好了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce2f49fc8f2431b81ca1b1a977dce4332b655abb193ffc868bc27b7a132a8c2c.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117703&locale=zh_CN",
+        "sha256": "64daf441acd32cbe23a435ffe75311f2e13f1e65589bd3ccbcdf14e9a5e1628c",
+        "bytes": 818,
+        "observed_at": "2026-10-17T03:52:57.898351+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_521",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/117703-en_US.json",
+      "response_sha256": "9945a2e408700740332b19a11341d9fb194f98c7c5f6cef69ce0ec58af58cdb8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117703&locale=en_US",
+      "face": {
+        "id": 117703,
+        "collectible": 1,
+        "slug": "117703-eyes-in-the-sky",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Danny Beck",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Eyes in the Sky",
+        "text": "<b>Battlecry:</b> Look at 3 cards in your enemy's deck. Pick one to put on top.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95d32eb271ec284fe0e4929ae6a3fe526e549a29c0f9059a5c897a8f6dd51221.png",
+        "imageGold": "",
+        "flavorText": "\"I got eyes on Umbra's unstoppable undead army. I'll uh... stay wayyy up here.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce2f49fc8f2431b81ca1b1a977dce4332b655abb193ffc868bc27b7a132a8c2c.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117703&locale=en_US",
+        "sha256": "9945a2e408700740332b19a11341d9fb194f98c7c5f6cef69ce0ec58af58cdb8",
+        "bytes": 818,
+        "observed_at": "2026-10-17T03:52:58.298278+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_879t",
+      "locale": "zh_CN",
+      "response_file": "outputs/simple-cards-p47/cache/126421-zh_CN.json",
+      "response_sha256": "032549ae69a274d5af5f8f09dcdd75d5c573d0d98798a606e2ceb2b1c34b9115",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126421&locale=zh_CN",
+      "face": {
+        "id": 126421,
+        "collectible": 0,
+        "slug": "126421-tripped-beast-tripwire",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "触发的野兽绊索",
+        "text": "<b>抽到时施放</b> 随机召唤一只法力值消耗为（5）的野兽。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e39ddb68783de5a0158bad1fbbae0b935366601654b3f3717acc22a3cc680906.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126419,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126421&locale=zh_CN",
+        "sha256": "032549ae69a274d5af5f8f09dcdd75d5c573d0d98798a606e2ceb2b1c34b9115",
+        "bytes": 643,
+        "observed_at": "2026-10-17T03:52:58.378639+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_879t",
+      "locale": "en_US",
+      "response_file": "outputs/simple-cards-p47/cache/126421-en_US.json",
+      "response_sha256": "2f7bcf1aea1a82335ceee612db9f4227face651740ee8e59fb2c501b40838a6d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126421&locale=en_US",
+      "face": {
+        "id": 126421,
+        "collectible": 0,
+        "slug": "126421-tripped-beast-tripwire",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "Tripped Beast Tripwire",
+        "text": "<b>Casts When Drawn</b> Summon a random 5-Cost Beast.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84f658b8dc06a5587645fb5647c4791d6d1c04920173ef957ea9332039044f2a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126419,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126421&locale=en_US",
+        "sha256": "2f7bcf1aea1a82335ceee612db9f4227face651740ee8e59fb2c501b40838a6d",
+        "bytes": 619,
+        "observed_at": "2026-10-17T03:52:58.618225+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "EDR_941": {
+      "@": ""
+    }
+  },
+  "scope": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "official_faces_verified": true,
+    "behavior_verified": "scoped tests recorded separately"
+  }
+}
