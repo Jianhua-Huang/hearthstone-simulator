@@ -397,6 +397,8 @@ class Game:
             validate_event_results(game._state, registry, game._events)
             from .joust import validate_events as validate_joust_events
             validate_joust_events(game._state, registry, game._events)
+            from .deck_reveals import validate_events as validate_deck_reveal_events
+            validate_deck_reveal_events(game._state, registry, game._events)
             from .health_loss_floors import validate_event_results as validate_loss_floor_events
             validate_loss_floor_events(game._state, registry, game._events)
             from .resources import validate_armor_loss_events
@@ -601,6 +603,8 @@ class Game:
         validate_turn_schedule(self)
         from .joust import validate_boundary as validate_joust_boundary
         validate_joust_boundary(self)
+        from .deck_reveals import validate_boundary as validate_deck_reveal_boundary
+        validate_deck_reveal_boundary(self)
         from .card_creation import validate_boundary as validate_creation_boundary
         validate_creation_boundary(self)
         from .prepare import validate_boundary as validate_prepare_boundary

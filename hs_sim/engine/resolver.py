@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v441'
+CORE_EFFECTS_VERSION = 'core-effects-v442'
 
 
 class Mechanics:
@@ -2292,6 +2292,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_actions(mechanics)
     from .joust import register as register_joust
     register_joust(mechanics)
+    from .deck_reveals import register as register_deck_reveals
+    register_deck_reveals(mechanics)
     from .reveals import register as register_reveals
     register_reveals(mechanics)
     from .turn_scheduling import register as register_turn_scheduling

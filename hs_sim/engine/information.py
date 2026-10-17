@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v91'
+VIEW_VERSION = 'player-view-v92'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -52,7 +52,7 @@ PRIVATE_CARD_EVENTS = frozenset(('choose_branch_changed', 'stored_card_buffed', 
                                'card_shattered', 'cards_recombined', 'card_expired', 'hand_card_made_temporary', 'stored_keyword_granted',
                                'stored_card_transformed', 'counter_policy_added', 'card_spell_repeat_added', 'card_spell_repeat_removed',
                                'stored_spell_damage_granted'))
-EVENT_KINDS = PUBLIC_EVENTS | CHOICE_EVENTS | PRIVATE_CARD_EVENTS | {'card_revealed'}
+EVENT_KINDS = PUBLIC_EVENTS | CHOICE_EVENTS | PRIVATE_CARD_EVENTS | {'card_revealed', 'deck_card_revealed'}
 _REF = re.compile(r'e([1-9][0-9]*)\Z')
 _CHOICE = re.compile(r'c([1-9][0-9]*)\Z')
 
@@ -220,6 +220,12 @@ class Information:
                 record['source'] = record['target'] = None
             if event.kind == 'turns_scheduled':
                 record['turns'] = list(data['players'])
+            if event.kind == 'deck_card_revealed':
+                from .deck_reveals import deck_reveal_result
+                result = deck_reveal_result(event)
+                chosen = result.card
+                record['deck_reveal'] = dict(kind=result.kind.value, card=None if chosen is None else
+                    dict(player_id=result.player_id, card_id=chosen.card.card_id, cost=chosen.cost))
             if event.kind == 'joust_resolved':
                 from .joust import joust_result
                 result = joust_result(event)
@@ -687,6 +693,21 @@ def _validate_event(event, sequence, knowledge, registry, viewer):
             raise ValueError('Public turn schedule requires a nonempty player sequence')
         for player in event['turns']:
             player_id(player)
+    if type(event) is dict and event.get('kind') == 'deck_card_revealed':
+        fields += ' deck_reveal'
+        result = event.get('deck_reveal')
+        _fields(result, 'kind card', 'public deck reveal')
+        owner = player_id(event.get('player_id'))
+        if result['kind'] not in ('minion', 'spell') or event.get('target') is not None:
+            raise ValueError('Public deck reveal leaked an identity handle or changed its range')
+        face = result['card']
+        if face is not None:
+            _fields(face, 'player_id card_id cost', 'public revealed deck face')
+            if player_id(face['player_id']) != owner or registry.card(face['card_id']).kind.value != result['kind']:
+                raise ValueError('Public deck reveal changed its original owner or kind')
+            _integer(face['cost'])
+        if event.get('amount') != (0 if face is None else face['cost']):
+            raise ValueError('Public deck reveal changed its original cost')
     if type(event) is dict and event.get('kind') == 'joust_resolved':
         fields += ' joust'
         result = event.get('joust')

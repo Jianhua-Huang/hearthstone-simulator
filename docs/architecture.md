@@ -1296,3 +1296,5 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 实际战吼生成武器到独立连击的连接使用battlecry_weapon_outputs.py有限输出账本。原随机生成器与返回实际实体的公共手牌创建器共用，接收者不由后来手牌重建；完整有效事件、原物理主体/结果及待选前缀绑定见[武器输出契约](m3-generated-weapon-combo.md)。该增量使用core440/schema358，观察91保持；正式池及国服校准独立验收。
 
 真实发现后的原召唤属性设值扩展discovery_summons的既有生产者、原交付与续接接受，直接调用已有SetCapturedMinionStats，不建立另一套召唤/属性流程。完整队列、原有效事件、失败交付及待国服窗口见[属性设值契约](m3-discovered-set-stats.md)。
+
+单方牌库揭示使用deck_reveals.py和既有完整zone_candidates/local_cost；原结果进入公共解释器回调，不借用双方Joust或把DECK搬到HAND。公开卡面/费用与物理身份分离，恢复及待CN窗口见[单方揭示契约](m3-deck-reveals.md)。
