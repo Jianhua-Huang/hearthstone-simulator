@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        if type(value) is effects.SpendResource and value.requires_board_space and self.origin_state is not None:
+            from .summon_quantities import validate_cause
+            validate_cause(self.origin_state, self.registry, value.on_success[0].cause)
         from .dark_gift_generation import DiscoverDarkGift
         if type(value) is DiscoverDarkGift and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

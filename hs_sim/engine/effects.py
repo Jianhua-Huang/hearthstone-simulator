@@ -12,7 +12,7 @@ from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMin
 from dataclasses import dataclass
 from .model import HeroAttackReference
 from .model import ChoiceItem, ChoicePurpose, CostScope, CostSpec, CostAuraSpec, DamageKind, HealingKind, HealthRule, Keyword, Resource, StatReference, validate_cost_scope
-from .model import SummonStats, validate_summon_stats, CardPreview, HeroPowerReference
+from .model import SummonStats, validate_summon_stats, CardPreview, HeroPowerReference, CardType
 from .model import TimedKeywordSpec, EndTurnSpec, TriggerSpec, validate_combat_relation
 
 
@@ -390,14 +390,30 @@ class SpendResource(Effect):
     on_success: tuple[Effect, ...] = ()
     on_failure: tuple[Effect, ...] = ()
     required: bool = False
+    requires_board_space: bool = False
 
     def __post_init__(self):
         _resource_effect(self)
         if type(self.required) is not bool:
             raise ValueError('required must be boolean')
+        if type(self.requires_board_space) is not bool:
+            raise ValueError('Corpse summon capacity gate must be boolean')
         for branch in (self.on_success, self.on_failure):
             if not isinstance(branch, tuple) or any(not isinstance(e, Effect) for e in branch):
                 raise ValueError('Resource branches must be immutable tuples of effects')
+        if self.requires_board_space:
+            from .pools import SummonFromPool
+            if (self.resource != Resource.CORPSES or self.amount <= 0 or self.required or
+                    self.on_failure or len(self.on_success) != 1 or type(self.on_success[0]) is not SummonFromPool):
+                raise ValueError('Capacity gate requires one ordinary corpse-paid pool summon')
+            request = self.on_success[0]
+            request.__post_init__()
+            if (request.player_id != self.player_id or request.source_id is None or request.cause is None or
+                    request.cause.origin != 'spell_cast' or request.cause.player_id != self.player_id or
+                    request.cause.source.entity_id != request.source_id or request.position is not None or
+                    request.entry_keywords or request.entry_dormant_turns is not None or
+                    request.query.kinds != (CardType.MINION,) or request.query.collectible is not True):
+                raise ValueError('Capacity gate requires its original plain collectible spell summon')
 
 
 def _resource_effect(effect):

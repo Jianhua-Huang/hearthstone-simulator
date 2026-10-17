@@ -2,7 +2,7 @@
 from dataclasses import dataclass, fields
 
 from .effects import (GainTemporaryMana, RefreshMana, ChangeManaCrystals, SetManaCap,
-                      Overload, UnlockOverload, GainResource)
+                      Overload, UnlockOverload, GainResource, SpendResource)
 from .errors import ResolutionError
 from .model import ArmorLossResult, CardType, CorpseSpendRecord, Event, ManaConsumptionRecord, Resource, _int
 
@@ -258,6 +258,12 @@ def mana_effect(r, effect):
 
 def resource_effect(r, effect):
     player = r.player(effect.player_id)
+    if isinstance(effect, SpendResource) and effect.requires_board_space:
+        effect.__post_init__()
+        from .summon_quantities import validate_cause
+        validate_cause(r.state, r.registry, effect.on_success[0].cause)
+        if len(player.board) >= r.rules.max_board:
+            return ()
     if isinstance(effect, GainResource):
         from .corpse_gains import gain_amount
         amount = gain_amount(r.state, r.registry, player.id, effect.amount)

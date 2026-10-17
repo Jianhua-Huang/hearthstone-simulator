@@ -1,4 +1,5 @@
 # 机制扩展指南
+真实法术需按执行时容量支付残骸召唤，可用原SpendResource的有限requires_board_space声明；原来源、形状与待国服边界见[契约](m3-corpse-spell-capacity.md)。
 真实召唤后的流放奖励按原完整召唤收据交给既有关键词和本回合清理；有限原组续接见[契约](m3-outcast-original-summon.md)。
 真实英雄“免疫到下个本人开始”复用原期限和英雄附件继承，有限载体许可见[契约](m3-hero-timed-immunity.md)。
 真实普通随机法术洗入复用原抽选与语义洗牌组，有限请求及流放重复见[契约](m3-plain-spell-shuffle.md)。
