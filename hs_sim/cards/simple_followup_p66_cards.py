@@ -1,4 +1,4 @@
-"""Actual rune discoveries, native summon deliveries and guarded combat tails."""
+"""Native summons, guarded combat and actual current-type card rewards."""
 from dataclasses import asdict, replace
 from itertools import combinations
 import json
