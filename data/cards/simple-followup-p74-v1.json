@@ -1,0 +1,4182 @@
+{
+  "schema": 1,
+  "batch": "P74",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p74-20261018/manifest-03.json",
+    "sha256": "21e8a537abf4dfe2ef9f0295ed60db1ddd192a9546e8e56878a69ba94e32b7bd"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "NX2_022",
+        "dbf_id": 86660,
+        "name": "金翼巨龙",
+        "name_en": "Goldwing",
+        "text": "<b>突袭</b>。<b>战吼：</b>如果你的手牌中有机械牌，便获得<b>风怒</b>。",
+        "text_en": "[x]<b>Rush</b>\n<b>Battlecry:</b> If you're holding\na Mech, gain <b>Windfury</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1776,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "2539": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Valeria Styajkina"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "27f491d37e5036115b4bb22dc6aea940551fec39a34c342289841d9021c8f3d9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "NX2_022",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_950",
+        "dbf_id": 72935,
+        "name": "海卓拉顿",
+        "name_en": "Hydralodon",
+        "text": "<b>巨型+2</b>\n<b>战吼：</b>使你的海卓拉顿之头获得<b>突袭</b>。",
+        "text_en": "[x]<b>Colossal +2</b>\n<b>Battlecry:</b> Give your\n_Hydralodon Heads <b>Rush</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85857,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "403f3808ac72fdb5f01df17de008dee5f21aa07685f8b8150f077540c6dc1892",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_950",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_950t",
+        "dbf_id": 72937,
+        "name": "海卓拉顿之头",
+        "name_en": "Hydralodon Head",
+        "text": "<b>亡语：</b>如果你控制着海卓拉顿，召唤两个海卓拉顿之头。",
+        "text_en": "<b>Deathrattle:</b> If you control Hydralodon, summon 2 Hydralodon Heads.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2cb90a9f4a9a575c1d1bef09724921bb97250c30f448e53284b32581bac7dc62",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_950t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_950t2",
+        "dbf_id": 85857,
+        "name": "海卓拉顿之头",
+        "name_en": "Hydralodon Head",
+        "text": "<b>亡语：</b>如果你控制着海卓拉顿，召唤两个海卓拉顿之头。",
+        "text_en": "<b>Deathrattle:</b> If you control Hydralodon, summon 2 Hydralodon Heads.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b142f7f3851158a2241dd1109189d2c9f16e09a7f1dd521088f3ba6f0f7e8530",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_950t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937t",
+        "dbf_id": 72537,
+        "name": "可拉巴托亚的蟹钳",
+        "name_en": "Crabatoa's Claw",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "text_en": "<b>Rush</b>\n<b>Deathrattle:</b>  Equip a 2/1 Claw.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1d0f7ac6cc38a257f81417733e10b937038d1aa9058e925d9ba6d597a2336549",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937t2",
+        "dbf_id": 72580,
+        "name": "可拉巴托亚之钳",
+        "name_en": "Crabatoa Claw",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "c23df20a0ab2d091db147017b74dc4eead731108aebff5860563a85088ecdb9c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937t3",
+        "dbf_id": 85859,
+        "name": "可拉巴托亚的蟹钳",
+        "name_en": "Crabatoa's Claw",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "text_en": "<b>Rush</b>\n<b>Deathrattle:</b>  Equip a 2/1 Claw.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2f473f668130e0ce58bc8b9dbb6dd8c8e6f797911eb9794e2545852d17a4f446",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_026t",
+        "dbf_id": 71828,
+        "name": "可拉克的壳",
+        "name_en": "Colaque's Shell",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>获得8点护甲值。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b> Gain 8 Armor.",
+        "cost": 5,
+        "attack": null,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "cadd7591ad6b79a200ba1ab83cfc02ea5b44f71be7c1f5da86569e06e72f16da",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_026t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_712t",
+        "dbf_id": 75584,
+        "name": "耐普图隆之手",
+        "name_en": "Neptulon's Hand",
+        "text": "攻击时<b>免疫</b>。",
+        "text_en": "<b>Immune</b> while attacking.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "IMMUNE_WHILE_ATTACKING": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78ae4482d2190331ceb7c8c7ee2a5166fc724e660eabbf943ac3ec56f4d37df6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_712t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_712t2",
+        "dbf_id": 80016,
+        "name": "耐普图隆之手",
+        "name_en": "Neptulon's Hand",
+        "text": "攻击时<b>免疫</b>。",
+        "text_en": "<b>Immune</b> while attacking.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "IMMUNE_WHILE_ATTACKING": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e7f2694a6b7ee7a192c901a930a47cc73151129365b71021e7ef57003c3f7a67",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_712t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_016",
+        "dbf_id": 119964,
+        "name": "耀眼创意",
+        "name_en": "Neon Innovation",
+        "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+        "text_en": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "GEARS": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "2e0e1d341a2ac5cc1cf2725712b7c54fb172ae5bacbfdbb6b5f5658c2788e813",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_016",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_000",
+        "dbf_id": 126698,
+        "name": "始源领主",
+        "name_en": "Primordial Lord",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "text_en": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion\nfrom the past.",
+        "cost": 6,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2247",
+              "name": "COLOSSAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0d0c5900d007da29a9f51752527696af1bae716689ae561c4cb8af3ec492e58f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_EVENT_000",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937",
+        "dbf_id": 72536,
+        "name": "可拉巴托亚",
+        "name_en": "Crabatoa",
+        "text": "<b>巨型+2</b>\n你的可拉巴托亚的钳子拥有+2攻击力。",
+        "text_en": "<b>Colossal +2</b>\nYour Crabatoa Claws have +2 Attack.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85859,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "8343e0563924fb179cd07054c81f0b8734b727d587892373ce54e9fa49c44be6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_937",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_026",
+        "dbf_id": 71712,
+        "name": "可拉克",
+        "name_en": "Colaque",
+        "text": "<b>巨型+1</b>\n当你控制可拉克的壳时<b>免疫</b>。",
+        "text_en": "[x]<b>Colossal +1</b>\n <b>Immune</b> while you control\nColaque's Shell.",
+        "cost": 7,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 71828,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71828,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c0d49c58ee43885f07d0d95f41bf5d3e9ed1993c088e6538dbe0a3487d612b6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_026",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_712",
+        "dbf_id": 75583,
+        "name": "猎潮者耐普图隆",
+        "name_en": "Neptulon the Tidehunter",
+        "text": "<b>巨型+2</b>\n<b>突袭</b>，<b>风怒</b>，每当耐普图隆攻击时，如果你控制着任意耐普图隆之手，改为由手攻击。",
+        "text_en": "[x]<b>Colossal +2</b>, <b>Rush</b>, <b>Windfury</b>\nWhenever Neptulon attacks,\nif you control any Hands,\nthey attack instead.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 80016,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "60550a19f662d59f8bcf9dbcf2b2967b6fe43d5307890967aba62a902400ee0c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TID_712",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_909",
+        "dbf_id": 124075,
+        "name": "迪菲亚跟风狗",
+        "name_en": "Defias Wannabe",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。@<i>（已使用@张）</i>",
+        "text_en": "[x]<b>Prepare</b>\n<b><b>Combo</b>:</b> Gain +1/+1 for\neach other card played\nthis turn.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "ba8bd9eef9817eeabba95924975a86e6c45cc82c8c67a8dd7be12368c04e2d6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_909",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "END_009",
+        "dbf_id": 121107,
+        "name": "破碎现实",
+        "name_en": "Splintered Reality",
+        "text": "召唤两个2/2的树人。在本局对战中，每有一个友方树人死亡，使这两个树人获得+1/+1。@<i>（已\n死亡@个）</i>",
+        "text_en": "Summon two 2/2 Treants. They gain +1/+1 for each friendly Treant that died this game.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "54dc6474e0665f790f2c5199c98afdc9af7836570f8421d30ae960c3458991b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "END_009",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "JAIL_940",
+        "dbf_id": 126867,
+        "name": "不死徒刑",
+        "name_en": "Undeath Sentence",
+        "text": "随机触发本局对战中死亡的一个友方随从的<b>亡语</b>。",
+        "text_en": "[x]Trigger the <b>Deathrattle</b> of\na random friendly minion\nthat died this game.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cee0fd0988512deb58950d1e2f950a134fea287231c0e5ae3816118fdf55ab04",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_940",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "JAIL_974",
+        "dbf_id": 126874,
+        "name": "被绑的大法师",
+        "name_en": "Captured Archmage",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。@<i>（@/4）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 4 other\nCaptured Archmages die this\ngame, cast 'Fireball' at\n_a random enemy.@ <i>(@/4)</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "9ed0db46cd8cc380dece1d87a4140f541fd129a75e32fbc9e199dd088c306e18",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_974",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_474",
+        "dbf_id": 130021,
+        "name": "青玉守卫",
+        "name_en": "Jade Guardians",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。@<i>（减少@点）</i>",
+        "text_en": "[x]Get two random 8-Cost\nminions. They cost (1) less\nfor each card you played\nfor 2 Mana this game.@ <i>(@)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "ae8c989fbc0cdf045978768358e212a25e47c82f88065b11d180c9521c1aa43d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_474",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "FIR_902",
+        "dbf_id": 115626,
+        "name": "燃薪咒符",
+        "name_en": "Sigil of Cinder",
+        "text": "在你的下回合开始时，&造成$6点伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]At the start of your next\nturn,& deal $6 damage\nrandomly split among\nall enemies.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 7,
+          "SIGIL": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "f37ff565de8f6c3db096923f2c24e9a5db84ca244b5f0763bfcf1bc87c4b18f3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "FIR_902",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel"
+    },
+    {
+      "record": {
+        "id": "EDR_482",
+        "dbf_id": 115025,
+        "name": "烂苹果",
+        "name_en": "Rotten Apple",
+        "text": "为你的英雄恢复#12点生命值。在下2个回合中，每回合对你的英雄造成$3点伤害。",
+        "text_en": "Restore #12 Health to your hero. For the\nnext 2 turns, deal $3 damage to your hero.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "5e9242a6f09ad66674afba13f381263860beb4fea54b0739acea2413beb13eac",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_482",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "FIR_928",
+        "dbf_id": 115653,
+        "name": "烈焰守护者",
+        "name_en": "Keeper of Flame",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌获得+3/+3，这些牌会在3回合后摧毁。",
+        "text_en": "[x]<b>Battlecry:</b> Give all minions\nin your hand +3/+3. They\nare destroyed in 3 turns.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "c3be9536b0157ee15181c53f23a74178ce9d1f161640fb9f8f0ac7db232105b5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "FIR_928",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_044",
+        "dbf_id": 123483,
+        "name": "宁静旷林",
+        "name_en": "Tranquil Clearing",
+        "text": "使一个随从获得+2生命值和<b>嘲讽</b>。直到你的下个回合结束，该随从会陷入沉睡。",
+        "text_en": "[x]Give a minion +2\nHealth and <b>Taunt</b>.\nIt falls asleep until the\nend of your next turn.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 39,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b291a3d72cf6a122183c26a7c975cd1ec644fb8e5ae655c601d67ef47fe32f4d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "MEND_044",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "collectible_candidate_roots": [],
+  "necessary_cross_series_collectibles": [
+    "NX2_022",
+    "TSC_950"
+  ],
+  "necessary_noncollectibles": [
+    "TSC_950t",
+    "TSC_950t2",
+    "TSC_937t",
+    "TSC_937t2",
+    "TSC_937t3",
+    "TSC_026t",
+    "TID_712t",
+    "TID_712t2"
+  ],
+  "new_definition_ids": [
+    "NX2_022",
+    "TSC_950",
+    "TSC_950t",
+    "TSC_950t2",
+    "TSC_937t",
+    "TSC_937t2",
+    "TSC_937t3",
+    "TSC_026t",
+    "TID_712t",
+    "TID_712t2"
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_016",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119964-zh_CN.json",
+      "response_sha256": "713b527f1dadc05e93e72ce67ec9a554ede32d400247aad5cfd1b97f6b6b002b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=zh_CN",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "耀眼创意",
+        "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac11ba9b786880c9e2d65599a0b95ac1b381414ea2945b4a23b31398c4f23dfa.png",
+        "imageGold": "",
+        "flavorText": "“这星期你带护盾机器人来班里三次了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=zh_CN",
+        "sha256": "713b527f1dadc05e93e72ce67ec9a554ede32d400247aad5cfd1b97f6b6b002b",
+        "bytes": 784,
+        "observed_at": "2026-10-17T19:20:20.465180+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_016",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119964-en_US.json",
+      "response_sha256": "44753ce43badca80a1b7d1e90913efd215f9bc3b05cb20cd697b2341de490b81",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=en_US",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "Neon Innovation",
+        "text": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c2b7db7d6893fa5a21f1a8601ee631cd68b020d4aa71f3183be42d7a0a53ed8.png",
+        "imageGold": "",
+        "flavorText": "\"This is the third time this week you've brought Shielded Minibot to class.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=en_US",
+        "sha256": "44753ce43badca80a1b7d1e90913efd215f9bc3b05cb20cd697b2341de490b81",
+        "bytes": 793,
+        "observed_at": "2026-10-17T19:20:20.256716+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_022",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\86660-zh_CN.json",
+      "response_sha256": "75991447c108cbd7bf0e983449e3dfb57d17cf49968313d4d88fd0041eaa21ab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86660&locale=zh_CN",
+      "face": {
+        "id": 86660,
+        "collectible": 1,
+        "slug": "86660-goldwing",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "Valeria Styajkina",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "金翼巨龙",
+        "text": "<b>突袭</b>。<b>战吼：</b>如果你的手牌中有机械牌，便获得<b>风怒</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04a2d97b993c493f3f63d0eb14cc22d4a1c42ed7ee539f56af7b48ba275bbe95.png",
+        "imageGold": "",
+        "flavorText": "它肯定值好多奥术之尘，对吧？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bc2d568dcecc7660234d79e885a7220f4293de7c7aec74111f2fc9271e5dd49.png",
+        "keywordIds": [
+          8,
+          11,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86660&locale=zh_CN",
+        "sha256": "75991447c108cbd7bf0e983449e3dfb57d17cf49968313d4d88fd0041eaa21ab",
+        "bytes": 832,
+        "observed_at": "2026-10-17T20:44:55.883984+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_022",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\86660-en_US.json",
+      "response_sha256": "7a9c691964b12eed866c47ef6387893931100fe2d25da5e6d77c371b1a558a10",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86660&locale=en_US",
+      "face": {
+        "id": 86660,
+        "collectible": 1,
+        "slug": "86660-goldwing",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "Valeria Styajkina",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Goldwing",
+        "text": "<b>Rush</b> <b>Battlecry:</b> If you're holding a Mech, gain <b>Windfury</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3d02b5d294558b886753af38fac4f74b6f57663975b7159912fd24cebe05995.png",
+        "imageGold": "",
+        "flavorText": "This HAS to be worth more dust, right?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bc2d568dcecc7660234d79e885a7220f4293de7c7aec74111f2fc9271e5dd49.png",
+        "keywordIds": [
+          8,
+          11,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=86660&locale=en_US",
+        "sha256": "7a9c691964b12eed866c47ef6387893931100fe2d25da5e6d77c371b1a558a10",
+        "bytes": 808,
+        "observed_at": "2026-10-17T20:44:55.725247+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72935-zh_CN.json",
+      "response_sha256": "ce8188ace492b2ed540826b1f7311eaf7238fe18f5a5ebc7b48f32a1788fdb51",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72935&locale=zh_CN",
+      "face": {
+        "id": 72935,
+        "collectible": 1,
+        "slug": "72935-hydralodon",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "海卓拉顿",
+        "text": "<b>巨型+2</b> <b>战吼：</b>使你的海卓拉顿之头获得<b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aedaf7fdab8f05dafca1133cd557a03b4e59fb033c9f6bdbf34fd7c7f941014.png",
+        "imageGold": "",
+        "flavorText": "这条多头蛇生长在大海深处，体型极为庞大。这要归功于它稳定的饮食习惯：有什么吃什么。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5844d6d6c9325176fc7e7b7de81e04be47e513723063b96adde3ef4ffc3d45e2.png",
+        "childIds": [
+          72937,
+          85857
+        ],
+        "keywordIds": [
+          8,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72935&locale=zh_CN",
+        "sha256": "ce8188ace492b2ed540826b1f7311eaf7238fe18f5a5ebc7b48f32a1788fdb51",
+        "bytes": 903,
+        "observed_at": "2026-10-17T20:44:55.725247+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72935-en_US.json",
+      "response_sha256": "93b5e52084dc9be753c0dd7987b4a4a2569c782424f5f42a34e841d6663a0210",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72935&locale=en_US",
+      "face": {
+        "id": 72935,
+        "collectible": 1,
+        "slug": "72935-hydralodon",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "Hydralodon",
+        "text": "<b>Colossal +2</b> <b>Battlecry:</b> Give your Hydralodon Heads <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3204f5f71037e8cacb8b1cf91836b32c75fb1bb492de33602557b760ba30b441.png",
+        "imageGold": "",
+        "flavorText": "Deep beneath the waves, this hydra grew to incredible size based on a steady diet of literally anything that crossed its path.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5844d6d6c9325176fc7e7b7de81e04be47e513723063b96adde3ef4ffc3d45e2.png",
+        "childIds": [
+          72937,
+          85857
+        ],
+        "keywordIds": [
+          8,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72935&locale=en_US",
+        "sha256": "93b5e52084dc9be753c0dd7987b4a4a2569c782424f5f42a34e841d6663a0210",
+        "bytes": 899,
+        "observed_at": "2026-10-17T20:44:55.844354+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72937-zh_CN.json",
+      "response_sha256": "63d212432d3918212e258b20337e926b17f363df6e618eb6ee4de281053f9536",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72937&locale=zh_CN",
+      "face": {
+        "id": 72937,
+        "collectible": 0,
+        "slug": "72937-hydralodon-head",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "海卓拉顿之头",
+        "text": "<b>亡语：</b>如果你控制着海卓拉顿，召唤两个海卓拉顿之头。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2900cf7503666d036a8c5705571225db98a2862f2b52787e3beaaceb966d4bd9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72935,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72937&locale=zh_CN",
+        "sha256": "63d212432d3918212e258b20337e926b17f363df6e618eb6ee4de281053f9536",
+        "bytes": 656,
+        "observed_at": "2026-10-17T20:44:56.726050+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72937-en_US.json",
+      "response_sha256": "029e1bc5852aa8a3d353c4662b3488520fe821a70c7f41a7880a81a32e115480",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72937&locale=en_US",
+      "face": {
+        "id": 72937,
+        "collectible": 0,
+        "slug": "72937-hydralodon-head",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Hydralodon Head",
+        "text": "<b>Deathrattle:</b> If you control Hydralodon, summon 2 Hydralodon Heads.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7763f6feb73bd092f7d8ab154c47e88fdb9b851d2fc6560243bfe2370d2583a1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72935,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72937&locale=en_US",
+        "sha256": "029e1bc5852aa8a3d353c4662b3488520fe821a70c7f41a7880a81a32e115480",
+        "bytes": 644,
+        "observed_at": "2026-10-17T20:44:56.818054+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85857-zh_CN.json",
+      "response_sha256": "c0ccd5aba94bfb0fa29bf52732849ed2a0fbf911cc520b07c2c61dd4d76ae3f4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85857&locale=zh_CN",
+      "face": {
+        "id": 85857,
+        "collectible": 0,
+        "slug": "85857-hydralodon-head",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "海卓拉顿之头",
+        "text": "<b>亡语：</b>如果你控制着海卓拉顿，召唤两个海卓拉顿之头。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcb864c2af60db9da1ee4ccf83849252428741f7100923f37a6c21d97cbea51c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72935,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85857&locale=zh_CN",
+        "sha256": "c0ccd5aba94bfb0fa29bf52732849ed2a0fbf911cc520b07c2c61dd4d76ae3f4",
+        "bytes": 656,
+        "observed_at": "2026-10-17T20:44:56.969060+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_950t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85857-en_US.json",
+      "response_sha256": "46ae9339936e63fd1d97963868423b00a0b640b04fb5cb772e7c9379e3ce1325",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85857&locale=en_US",
+      "face": {
+        "id": 85857,
+        "collectible": 0,
+        "slug": "85857-hydralodon-head",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Hydralodon Head",
+        "text": "<b>Deathrattle:</b> If you control Hydralodon, summon 2 Hydralodon Heads.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8daa1939e65bdf5fee7d9075a446255e6944dbd8909bb230a878e998f38b916a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72935,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85857&locale=en_US",
+        "sha256": "46ae9339936e63fd1d97963868423b00a0b640b04fb5cb772e7c9379e3ce1325",
+        "bytes": 644,
+        "observed_at": "2026-10-17T20:44:57.069688+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72537-zh_CN.json",
+      "response_sha256": "23b51c888ed4124871f25e4f5946a2e041a14925120768160655f3ab30271a28",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72537&locale=zh_CN",
+      "face": {
+        "id": 72537,
+        "collectible": 0,
+        "slug": "72537-crabatoas-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "可拉巴托亚的蟹钳",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2dcc328b48b607c1e6b7517a4c73312961f76c19b9043015ceac447d7cb43964.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72537&locale=zh_CN",
+        "sha256": "23b51c888ed4124871f25e4f5946a2e041a14925120768160655f3ab30271a28",
+        "bytes": 641,
+        "observed_at": "2026-10-17T20:44:57.445990+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72537-en_US.json",
+      "response_sha256": "7ba9d67d5f34bafcad1274c8c17338b27e4651343e75588ab164da9a7e682232",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72537&locale=en_US",
+      "face": {
+        "id": 72537,
+        "collectible": 0,
+        "slug": "72537-crabatoas-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Crabatoa's Claw",
+        "text": "<b>Rush</b> <b>Deathrattle:</b> Equip a 2/1 Claw.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96ec2dabbb1b271bc10d84816153fe3c4294c5837653bbcaba73d304e0d2ec92.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72537&locale=en_US",
+        "sha256": "7ba9d67d5f34bafcad1274c8c17338b27e4651343e75588ab164da9a7e682232",
+        "bytes": 622,
+        "observed_at": "2026-10-17T20:44:57.925933+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72580-zh_CN.json",
+      "response_sha256": "c572f1e9f2f5d8693aeedf8e72e46cd263400aaf05f5748adff830953adc79e7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72580&locale=zh_CN",
+      "face": {
+        "id": 72580,
+        "collectible": 0,
+        "slug": "72580-crabatoa-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "可拉巴托亚之钳",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc506f92d54ed88315e90b507f49150de80693e50898454162495d3f91b13418.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72580&locale=zh_CN",
+        "sha256": "c572f1e9f2f5d8693aeedf8e72e46cd263400aaf05f5748adff830953adc79e7",
+        "bytes": 549,
+        "observed_at": "2026-10-17T20:44:57.969840+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72580-en_US.json",
+      "response_sha256": "a0c675fb10e65265969e6eeb6dc9761b9651fb332e0682065b0dc340c4f86e7a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72580&locale=en_US",
+      "face": {
+        "id": 72580,
+        "collectible": 0,
+        "slug": "72580-crabatoa-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Crabatoa Claw",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dfa2f49a69d57b0c0ab1e8d76b40bd9973eb3e2835c656547dc925a57507dc1f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72580&locale=en_US",
+        "sha256": "a0c675fb10e65265969e6eeb6dc9761b9651fb332e0682065b0dc340c4f86e7a",
+        "bytes": 541,
+        "observed_at": "2026-10-17T20:44:58.046421+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85859-zh_CN.json",
+      "response_sha256": "5bfc57662b0c7710d245c0fd96fcd17668e2fc1d242dd18d0fbbc6f9324e62f8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85859&locale=zh_CN",
+      "face": {
+        "id": 85859,
+        "collectible": 0,
+        "slug": "85859-crabatoas-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "可拉巴托亚的蟹钳",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e091c606436a6ead7058d482cb8322abad35c1ea8de255be14ebcec4c673246.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85859&locale=zh_CN",
+        "sha256": "5bfc57662b0c7710d245c0fd96fcd17668e2fc1d242dd18d0fbbc6f9324e62f8",
+        "bytes": 641,
+        "observed_at": "2026-10-17T20:44:58.144992+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\85859-en_US.json",
+      "response_sha256": "5744f988b25695a891cdbda924c4ce9795a471c560835266e83a142bee3f2eb7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85859&locale=en_US",
+      "face": {
+        "id": 85859,
+        "collectible": 0,
+        "slug": "85859-crabatoas-claw",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Crabatoa's Claw",
+        "text": "<b>Rush</b> <b>Deathrattle:</b> Equip a 2/1 Claw.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9796afdc100c9b69466adf559a98be00af2403e92a3dd32fb229eb74d3730ef8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 72536,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=85859&locale=en_US",
+        "sha256": "5744f988b25695a891cdbda924c4ce9795a471c560835266e83a142bee3f2eb7",
+        "bytes": 622,
+        "observed_at": "2026-10-17T20:44:58.648395+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_026t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71828-zh_CN.json",
+      "response_sha256": "dfde0ff9ad07808dd517aa671f5d6e7e2acd1eef8903ca06395e6dbe6c9df7a9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71828&locale=zh_CN",
+      "face": {
+        "id": 71828,
+        "collectible": 0,
+        "slug": "71828-colaques-shell",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 8,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "可拉克的壳",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>获得8点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af524f6d24fb9706a2e4ce6058cf98b18f19f281f5d9de9d6e1f3ad4b4f9894b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71712,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71828&locale=zh_CN",
+        "sha256": "dfde0ff9ad07808dd517aa671f5d6e7e2acd1eef8903ca06395e6dbe6c9df7a9",
+        "bytes": 626,
+        "observed_at": "2026-10-17T20:44:59.123964+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_026t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71828-en_US.json",
+      "response_sha256": "7f85df35c098aefe3bdd934b6a8efac451888c7e83d1ff598756a5286a4c21e9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71828&locale=en_US",
+      "face": {
+        "id": 71828,
+        "collectible": 0,
+        "slug": "71828-colaques-shell",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 8,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "Colaque's Shell",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b> Gain 8 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c071042ae4cbf3e2099a1ec2e8e8222dd40be08dc9f8fc30b05731b072ac17ca.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71712,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71828&locale=en_US",
+        "sha256": "7f85df35c098aefe3bdd934b6a8efac451888c7e83d1ff598756a5286a4c21e9",
+        "bytes": 618,
+        "observed_at": "2026-10-17T20:44:58.770143+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\75584-zh_CN.json",
+      "response_sha256": "5c08b624274f0f585bf191627e51dc52c2a9214f054660e732f5d0b2a4331399",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75584&locale=zh_CN",
+      "face": {
+        "id": 75584,
+        "collectible": 0,
+        "slug": "75584-neptulons-hand",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "耐普图隆之手",
+        "text": "攻击时<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b35d151e0ff2333f6170b62a823cec8323d776a99a3be80c6c6f7e96d759cf16.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75583,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75584&locale=zh_CN",
+        "sha256": "5c08b624274f0f585bf191627e51dc52c2a9214f054660e732f5d0b2a4331399",
+        "bytes": 599,
+        "observed_at": "2026-10-17T20:44:58.859556+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\75584-en_US.json",
+      "response_sha256": "64b26df5c84c2a96d7269af92a2ab5ab7a912caa153fde616d925d070bd18cca",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75584&locale=en_US",
+      "face": {
+        "id": 75584,
+        "collectible": 0,
+        "slug": "75584-neptulons-hand",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Neptulon's Hand",
+        "text": "<b>Immune</b> while attacking.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a396ca9e477e6d7428fdfb34668a570a51bfb89e853124083fc8ec949a9a0d9f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75583,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75584&locale=en_US",
+        "sha256": "64b26df5c84c2a96d7269af92a2ab5ab7a912caa153fde616d925d070bd18cca",
+        "bytes": 601,
+        "observed_at": "2026-10-17T20:44:59.348413+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\80016-zh_CN.json",
+      "response_sha256": "b33b57f457a97e84631d612b15588a56de54df209d3bc6774efc45e9a86638f0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80016&locale=zh_CN",
+      "face": {
+        "id": 80016,
+        "collectible": 0,
+        "slug": "80016-neptulons-hand",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "耐普图隆之手",
+        "text": "攻击时<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e66143251f8df62bcfe4bdfe4297152d0df0f87cc2fc90c565925a0a762d635.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75583,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80016&locale=zh_CN",
+        "sha256": "b33b57f457a97e84631d612b15588a56de54df209d3bc6774efc45e9a86638f0",
+        "bytes": 599,
+        "observed_at": "2026-10-17T20:44:59.801834+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\80016-en_US.json",
+      "response_sha256": "7a23886236a75f639412da78f41dfced8d94f7a044f7cde9c30b97bdb48b6df2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80016&locale=en_US",
+      "face": {
+        "id": 80016,
+        "collectible": 0,
+        "slug": "80016-neptulons-hand",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Neptulon's Hand",
+        "text": "<b>Immune</b> while attacking.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b04b6039a5b552482887a2805479ef67b76ec88c1f38dfdc7b8c09701db056ee.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75583,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=80016&locale=en_US",
+        "sha256": "7a23886236a75f639412da78f41dfced8d94f7a044f7cde9c30b97bdb48b6df2",
+        "bytes": 601,
+        "observed_at": "2026-10-17T20:44:59.880213+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126698-zh_CN.json",
+      "response_sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "始源领主",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9f328bfa5489abbaad5a814d09f63aca07008bbd9a7598a47d3089b129a279d.png",
+        "imageGold": "",
+        "flavorText": "在那冰冷的黑曜石铠甲之下，他的心……如熔岩一般炽烈。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+        "sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+        "bytes": 839,
+        "observed_at": "2026-10-17T20:44:59.826333+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126698-en_US.json",
+      "response_sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "Primordial Lord",
+        "text": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/caca1940b5fb902312af15fcd0393d74ea390b70fd14d4e7f81ff7d854d53a2c.png",
+        "imageGold": "",
+        "flavorText": "Behind his cold obsidian armor, he has a heart of... molten rock.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+        "sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+        "bytes": 823,
+        "observed_at": "2026-10-17T20:45:00.047537+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72536-zh_CN.json",
+      "response_sha256": "3d0931052dd8cb8d67340b6cb25b28aabc2410b342c7e6a2be2932dc3de5f2fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72536&locale=zh_CN",
+      "face": {
+        "id": 72536,
+        "collectible": 1,
+        "slug": "72536-crabatoa",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "可拉巴托亚",
+        "text": "<b>巨型+2</b> 你的可拉巴托亚的钳子拥有+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29498ed0a56ebb492444aa02082f9ee8156322f8511efab3f02cfe0fa8b1bcaa.png",
+        "imageGold": "",
+        "flavorText": "这只巨蟹喜欢弄沉整支舰队，不过饿极了的时候，一艘小艇也能凑合。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b0474cc7e7c3152fd14053e10c77384c0081ff27e02e4f08251c666a904ea05.png",
+        "childIds": [
+          72537,
+          85859,
+          72580
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72536&locale=zh_CN",
+        "sha256": "3d0931052dd8cb8d67340b6cb25b28aabc2410b342c7e6a2be2932dc3de5f2fb",
+        "bytes": 861,
+        "observed_at": "2026-10-17T20:45:00.583161+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_937",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\72536-en_US.json",
+      "response_sha256": "96f00bd3afb2b0b3066e74702cf265af97383bcf89f004380c8e680cb6ca399e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72536&locale=en_US",
+      "face": {
+        "id": 72536,
+        "collectible": 1,
+        "slug": "72536-crabatoa",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Crabatoa",
+        "text": "<b>Colossal +2</b> Your Crabatoa Claws have +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b11e1403576318a9065ca5aa8599e9c6019388467ac23f1bd90608b9cfbcf3d.png",
+        "imageGold": "",
+        "flavorText": "This giant crab loves to sink entire naval fleets, but it'll settle for a single dinghy in a pinch.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b0474cc7e7c3152fd14053e10c77384c0081ff27e02e4f08251c666a904ea05.png",
+        "childIds": [
+          72537,
+          85859,
+          72580
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=72536&locale=en_US",
+        "sha256": "96f00bd3afb2b0b3066e74702cf265af97383bcf89f004380c8e680cb6ca399e",
+        "bytes": 848,
+        "observed_at": "2026-10-17T20:45:00.585673+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_026",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71712-zh_CN.json",
+      "response_sha256": "aaa7b0f638a5fa6f61a0f521ee84422baf828d638022dee19a8ffc40ce7c4488",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71712&locale=zh_CN",
+      "face": {
+        "id": 71712,
+        "collectible": 1,
+        "slug": "71712-colaque",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "可拉克",
+        "text": "<b>巨型+1</b> 当你控制可拉克的壳时<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a93a0b7268433feeaa849d16f17a10ac48ae41d99562341b044672bb5a0e3a85.png",
+        "imageGold": "",
+        "flavorText": "一万年前，辛艾萨莉落入了海底……有一部分落到了可拉克的壳上。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd0dc37d387e9a661f29236f9897dbedf7f351977abb11925fee24f699d95f59.png",
+        "childIds": [
+          71828
+        ],
+        "keywordIds": [
+          17,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71712&locale=zh_CN",
+        "sha256": "aaa7b0f638a5fa6f61a0f521ee84422baf828d638022dee19a8ffc40ce7c4488",
+        "bytes": 838,
+        "observed_at": "2026-10-17T20:45:00.662819+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_026",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71712-en_US.json",
+      "response_sha256": "7c71b0e265f0a5d9101744e846fac43a9fd570506d68e8708e4c2a6b310549ba",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71712&locale=en_US",
+      "face": {
+        "id": 71712,
+        "collectible": 1,
+        "slug": "71712-colaque",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Colaque",
+        "text": "<b>Colossal +1</b> <b>Immune</b> while you control Colaque's Shell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92d8832d36df47e922237ccef1f41d9141e2514e9419647b7645268cb8038e43.png",
+        "imageGold": "",
+        "flavorText": "Ten thousand years ago, the city of Zin-Azshari fell to the bottom of the sea... and partially onto Colaque's shell.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd0dc37d387e9a661f29236f9897dbedf7f351977abb11925fee24f699d95f59.png",
+        "childIds": [
+          71828
+        ],
+        "keywordIds": [
+          17,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71712&locale=en_US",
+        "sha256": "7c71b0e265f0a5d9101744e846fac43a9fd570506d68e8708e4c2a6b310549ba",
+        "bytes": 867,
+        "observed_at": "2026-10-17T20:45:00.774255+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\75583-zh_CN.json",
+      "response_sha256": "282b3c1ac350ac7d861a7b25b48eb51c0be1521e447f6348f1af1108469b4c43",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75583&locale=zh_CN",
+      "face": {
+        "id": 75583,
+        "collectible": 1,
+        "slug": "75583-neptulon-the-tidehunter",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "猎潮者耐普图隆",
+        "text": "<b>巨型+2</b> <b>突袭</b>，<b>风怒</b>，每当耐普图隆攻击时，如果你控制着任意耐普图隆之手，改为由手攻击。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/443565fe21ad98bba228c908298e90446e30e923383e096ac09822b4d7b76d36.png",
+        "imageGold": "",
+        "flavorText": "耐普图隆不愿再把手塞得满满当当。他学会了放手。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c885956699830431b644b67fc5744f87b92ddd7897ee1323fd9b8b5e3ce944e.png",
+        "childIds": [
+          75584,
+          80016
+        ],
+        "keywordIds": [
+          11,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75583&locale=zh_CN",
+        "sha256": "282b3c1ac350ac7d861a7b25b48eb51c0be1521e447f6348f1af1108469b4c43",
+        "bytes": 937,
+        "observed_at": "2026-10-17T20:45:01.285838+00:00"
+      }
+    },
+    {
+      "card_id": "TID_712",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\75583-en_US.json",
+      "response_sha256": "e46b85b21043b35e555eef676eae910517616018099c07e09ddfbbf5261ad28b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75583&locale=en_US",
+      "face": {
+        "id": 75583,
+        "collectible": 1,
+        "slug": "75583-neptulon-the-tidehunter",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "Neptulon the Tidehunter",
+        "text": "<b>Colossal +2</b>, <b>Rush</b>, <b>Windfury</b> Whenever Neptulon attacks, if you control any Hands, they attack instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec87e0db531412dbb8e449e19a9312e057b549c26814b149105211da2ba7b59d.png",
+        "imageGold": "",
+        "flavorText": "Neptulon, tired of filling hands, is now throwing hands.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c885956699830431b644b67fc5744f87b92ddd7897ee1323fd9b8b5e3ce944e.png",
+        "childIds": [
+          75584,
+          80016
+        ],
+        "keywordIds": [
+          11,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=75583&locale=en_US",
+        "sha256": "e46b85b21043b35e555eef676eae910517616018099c07e09ddfbbf5261ad28b",
+        "bytes": 904,
+        "observed_at": "2026-10-17T20:45:01.580189+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_940",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126867-zh_CN.json",
+      "response_sha256": "c7ac0f208a579a7101d6544b8629b122dd57356dfc5b8034760e443bbc1244de",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126867&locale=zh_CN",
+      "face": {
+        "id": 126867,
+        "collectible": 1,
+        "slug": "126867-undeath-sentence",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "不死徒刑",
+        "text": "随机触发本局对战中死亡的一个友方随从的<b>亡语</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f06c4cb02739493c534eb23def861ec3ff9b146797f939ffc85d8d1d1944e1fc.png",
+        "imageGold": "",
+        "flavorText": "只有最冷血的罪犯，才配得上这种刑罚。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/296c5874184bfc480d5c442ebab47ae0a20748eed35754437ca7825784d50a94.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126867&locale=zh_CN",
+        "sha256": "c7ac0f208a579a7101d6544b8629b122dd57356dfc5b8034760e443bbc1244de",
+        "bytes": 780,
+        "observed_at": "2026-10-17T16:37:13.229116+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_940",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126867-en_US.json",
+      "response_sha256": "090bb58f526d63b2fad8a37cc29f1ffb0d2f49dbd8447cabda42e7854912c70d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126867&locale=en_US",
+      "face": {
+        "id": 126867,
+        "collectible": 1,
+        "slug": "126867-undeath-sentence",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "Undeath Sentence",
+        "text": "Trigger the <b>Deathrattle</b> of a random friendly minion that died this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ed83aff5d55939267bc18dbf09d4f3acb6f22010c7a9ab20192b3d0fb911748.png",
+        "imageGold": "",
+        "flavorText": "A punishment reserved for only the most cold-blooded criminals.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/296c5874184bfc480d5c442ebab47ae0a20748eed35754437ca7825784d50a94.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126867&locale=en_US",
+        "sha256": "090bb58f526d63b2fad8a37cc29f1ffb0d2f49dbd8447cabda42e7854912c70d",
+        "bytes": 799,
+        "observed_at": "2026-10-17T16:37:13.181163+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_902",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115626-zh_CN.json",
+      "response_sha256": "c9269a7af33c1fb332315f1fa2aa815fd20bbeb7ed34a2e50cd2112d983c012d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115626&locale=zh_CN",
+      "face": {
+        "id": 115626,
+        "collectible": 1,
+        "slug": "115626-sigil-of-cinder",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 2,
+        "name": "燃薪咒符",
+        "text": "在你的下回合开始时，&造成 6点伤害，随机分配到所有敌人身上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1048d458aa1ab66b9123b83f63e5efe79c280f3281f71162128a6dcea4212b72.png",
+        "imageGold": "",
+        "flavorText": "这是火季将至的征兆。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af90b422a96bac940f473365321185da215e220915e66dcb35be1f241c90f7b5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115626&locale=zh_CN",
+        "sha256": "c9269a7af33c1fb332315f1fa2aa815fd20bbeb7ed34a2e50cd2112d983c012d",
+        "bytes": 757,
+        "observed_at": "2026-10-17T20:45:01.992607+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_902",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115626-en_US.json",
+      "response_sha256": "4c6a5f2da7d4516e8eb7feb83241e900b9d9c7b71767e003420d50a813741ca8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115626&locale=en_US",
+      "face": {
+        "id": 115626,
+        "collectible": 1,
+        "slug": "115626-sigil-of-cinder",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 2,
+        "name": "Sigil of Cinder",
+        "text": "At the start of your next turn,& deal 6 damage randomly split among all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1568cd0b8faa0d8882d01fd36bbf8223be05bd2627d2a3e3ab66d126fef8a5e6.png",
+        "imageGold": "",
+        "flavorText": "It's the emblem of fire season.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af90b422a96bac940f473365321185da215e220915e66dcb35be1f241c90f7b5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115626&locale=en_US",
+        "sha256": "4c6a5f2da7d4516e8eb7feb83241e900b9d9c7b71767e003420d50a813741ca8",
+        "bytes": 754,
+        "observed_at": "2026-10-17T20:45:02.435762+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_482",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115025-zh_CN.json",
+      "response_sha256": "512c9180be5c9fc7861e14292eb0740d8bb34e0a09f743f1715f0a364b201193",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115025&locale=zh_CN",
+      "face": {
+        "id": 115025,
+        "collectible": 1,
+        "slug": "115025-rotten-apple",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Vlad Botos",
+        "manaCost": 2,
+        "name": "烂苹果",
+        "text": "为你的英雄恢复 12点生命值。在下2个回合中，每回合对你的英雄造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a7c93a1ca8f59ffd80e8f30f650b8baf1099e4e1138043c5ea09e1a531fcb67.png",
+        "imageGold": "",
+        "flavorText": "树犹如此，果何以堪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f998d649f942b30cf15a8ecb945bf032d421b7d8b74eed998384b378aa655e3a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115025&locale=zh_CN",
+        "sha256": "512c9180be5c9fc7861e14292eb0740d8bb34e0a09f743f1715f0a364b201193",
+        "bytes": 745,
+        "observed_at": "2026-10-17T20:45:02.275076+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_482",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115025-en_US.json",
+      "response_sha256": "0c53ab74648e4737af9337c965fc2880d8bccee5ab9bcb882d43feb33be5127a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115025&locale=en_US",
+      "face": {
+        "id": 115025,
+        "collectible": 1,
+        "slug": "115025-rotten-apple",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Vlad Botos",
+        "manaCost": 2,
+        "name": "Rotten Apple",
+        "text": "Restore 12 Health to your hero. For the next 2 turns, deal 3 damage to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ac4a0681c0729931e37e1bb74963b9c2e4a53a59932d0921b44b186e03ce63c.png",
+        "imageGold": "",
+        "flavorText": "The rotten apple doesn't fall far from the corrupted world tree.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f998d649f942b30cf15a8ecb945bf032d421b7d8b74eed998384b378aa655e3a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115025&locale=en_US",
+        "sha256": "0c53ab74648e4737af9337c965fc2880d8bccee5ab9bcb882d43feb33be5127a",
+        "bytes": 758,
+        "observed_at": "2026-10-17T20:45:02.298019+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_928",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115653-zh_CN.json",
+      "response_sha256": "8b3f1b0316b2dfd5ebe0accf41089dfc1dab5aee162cebb0cc552ed26973c3ea",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115653&locale=zh_CN",
+      "face": {
+        "id": 115653,
+        "collectible": 1,
+        "slug": "115653-keeper-of-flame",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "烈焰守护者",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌获得+3/+3，这些牌会在3回合后摧毁。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ef464ce621e85daea7064dbeb9a51f7f3159910e951faa01df0184897d36bf9.png",
+        "imageGold": "",
+        "flavorText": "“我把烈焰护在这儿，就藏在蹄子里。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de592bf5f001612d0e15a203ad61ac63d954b86a8031c9bf1fa5a1b45e7483d5.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115653&locale=zh_CN",
+        "sha256": "8b3f1b0316b2dfd5ebe0accf41089dfc1dab5aee162cebb0cc552ed26973c3ea",
+        "bytes": 811,
+        "observed_at": "2026-10-17T20:45:02.696974+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_928",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115653-en_US.json",
+      "response_sha256": "87eb8bdf9764d3c1adecdc19029c1394ba6720ff9c3e94936c961c52af467d1b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115653&locale=en_US",
+      "face": {
+        "id": 115653,
+        "collectible": 1,
+        "slug": "115653-keeper-of-flame",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Keeper of Flame",
+        "text": "<b>Battlecry:</b> Give all minions in your hand +3/+3. They are destroyed in 3 turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5122d7769f6d7474dd3c145fc213428cd5edaeb4851249f12215c9edddf381ea.png",
+        "imageGold": "",
+        "flavorText": "\"I keep it right here. Inside my hooves.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de592bf5f001612d0e15a203ad61ac63d954b86a8031c9bf1fa5a1b45e7483d5.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115653&locale=en_US",
+        "sha256": "87eb8bdf9764d3c1adecdc19029c1394ba6720ff9c3e94936c961c52af467d1b",
+        "bytes": 788,
+        "observed_at": "2026-10-17T20:45:02.992460+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_044",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123483-zh_CN.json",
+      "response_sha256": "797fead503d403f8d0ddcf5e3b8715059de1411dc26d358540473338014133a6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123483&locale=zh_CN",
+      "face": {
+        "id": 123483,
+        "collectible": 1,
+        "slug": "123483-tranquil-clearing",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Grace Liu",
+        "health": 2,
+        "manaCost": 2,
+        "name": "宁静旷林",
+        "text": "使一个随从获得+2生命值和<b>嘲讽</b>。直到你的下个回合结束，该随从会陷入沉睡。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfaffd76c66c71eb0dbe75ef443f683f996daebf9ad8167b7b2a3b6d9f93cbed.png",
+        "imageGold": "",
+        "flavorText": "让人心旷神怡的打卡好地方。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70baec97a80a0b6cb3325d8c7f4ace2683e6b8f826135861a4a19fe0b27a8550.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123483&locale=zh_CN",
+        "sha256": "797fead503d403f8d0ddcf5e3b8715059de1411dc26d358540473338014133a6",
+        "bytes": 796,
+        "observed_at": "2026-10-17T20:45:03.287448+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_044",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123483-en_US.json",
+      "response_sha256": "ec5242a2af68b7910c9422f18bc08dde1d5483dff0eb0ced456339ffd01fdbf2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123483&locale=en_US",
+      "face": {
+        "id": 123483,
+        "collectible": 1,
+        "slug": "123483-tranquil-clearing",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Grace Liu",
+        "health": 2,
+        "manaCost": 2,
+        "name": "Tranquil Clearing",
+        "text": "Give a minion +2 Health and <b>Taunt</b>. It falls asleep until the end of your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3427df4cbf16dd308407c5c5514c326c3ebe3ab5c919af99143448d6db6f62f.png",
+        "imageGold": "",
+        "flavorText": "A great spot to reflect on your journey to becoming the best.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70baec97a80a0b6cb3325d8c7f4ace2683e6b8f826135861a4a19fe0b27a8550.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123483&locale=en_US",
+        "sha256": "ec5242a2af68b7910c9422f18bc08dde1d5483dff0eb0ced456339ffd01fdbf2",
+        "bytes": 802,
+        "observed_at": "2026-10-17T20:45:03.175059+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TSC_026t": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {},
+  "rejected_complete_primary_observations": [
+    {
+      "card_id": "JAIL_909",
+      "locale": "zh_CN",
+      "full_row": {
+        "id": "JAIL_909",
+        "dbf_id": 124075,
+        "name": "迪菲亚跟风狗",
+        "name_en": "Defias Wannabe",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。@<i>（已使用@张）</i>",
+        "text_en": "[x]<b>Prepare</b>\n<b><b>Combo</b>:</b> Gain +1/+1 for\neach other card played\nthis turn.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/124075-zh_CN.json",
+      "body_sha256": "b7ff5dfa625ab4a2a3f371438dfdd91b6c97b2b641189d0c02415ea7068e12d1",
+      "receipt_file": "outputs/card-source-cache-cn37/official/124075-zh_CN.receipt.json",
+      "receipt_sha256": "7213020f7590a3ed827f6b09d7f4f413dddc363b85d93496671b15fb04224d85",
+      "face": {
+        "id": 124075,
+        "collectible": 1,
+        "slug": "124075-defias-wannabe",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "迪菲亚跟风狗",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。 <i>（已使用 张）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec504e88b874c81ca541f798e57aad7fe06614beb79e068bdd982e17a706792e.png",
+        "imageGold": "",
+        "flavorText": "头上顶支蜡烛并不能让你更好地<i>潜行</i>。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0016661a8fcb009e61c0cf6ecf565ab59e7a3d326f0dd3c155718d52e32a9bff.png",
+        "keywordIds": [
+          13,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_909"
+    },
+    {
+      "card_id": "JAIL_909",
+      "locale": "en_US",
+      "full_row": {
+        "id": "JAIL_909",
+        "dbf_id": 124075,
+        "name": "迪菲亚跟风狗",
+        "name_en": "Defias Wannabe",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。@<i>（已使用@张）</i>",
+        "text_en": "[x]<b>Prepare</b>\n<b><b>Combo</b>:</b> Gain +1/+1 for\neach other card played\nthis turn.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/124075-en_US.json",
+      "body_sha256": "19d6e148ecfc4763daa64242ed9894b0ae84b83493ebfe21c378a75142cef1a7",
+      "receipt_file": "outputs/card-source-cache-cn37/official/124075-en_US.receipt.json",
+      "receipt_sha256": "98cbcfc31477fa3ecc38f35eb8c13616ef85d7af2c49f482f3d0b5ac590251b5",
+      "face": {
+        "id": 124075,
+        "collectible": 1,
+        "slug": "124075-defias-wannabe",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Defias Wannabe",
+        "text": "<b>Prepare</b> <b><b>Combo</b>:</b> Gain +1/+1 for each other card played this turn. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4ffe20fae0b034b61eaa08f6abdd477a8df416a90a76591e73e2ddbf4af4cdc.png",
+        "imageGold": "",
+        "flavorText": "A candle on top of your head does NOT help with being <i>stealthy</i>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0016661a8fcb009e61c0cf6ecf565ab59e7a3d326f0dd3c155718d52e32a9bff.png",
+        "keywordIds": [
+          13,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_909"
+    },
+    {
+      "card_id": "END_009",
+      "locale": "zh_CN",
+      "full_row": {
+        "id": "END_009",
+        "dbf_id": 121107,
+        "name": "破碎现实",
+        "name_en": "Splintered Reality",
+        "text": "召唤两个2/2的树人。在本局对战中，每有一个友方树人死亡，使这两个树人获得+1/+1。@<i>（已\n死亡@个）</i>",
+        "text_en": "Summon two 2/2 Treants. They gain +1/+1 for each friendly Treant that died this game.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/121107-zh_CN.json",
+      "body_sha256": "d190db42cd0b965fc1c978ada3d22eee99781193cf55f705954f852b8c9f0734",
+      "receipt_file": "outputs/card-source-cache-cn37/official/121107-zh_CN.receipt.json",
+      "receipt_sha256": "2096bb165992dbbce435a23ee5649a56b6edb2fef856dc835ebfbc10f091399b",
+      "face": {
+        "id": 121107,
+        "collectible": 1,
+        "slug": "121107-splintered-reality",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 4,
+        "name": "破碎现实",
+        "text": "召唤两个2/2的树人。在本局对战中，每有一个友方树人死亡，使这两个树人获得+1/+1。 <i>（已 死亡 个）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/65d3faed51c810b7e1dba74f375b1777e37ed904273aa2621f6221d00ee7c848.png",
+        "imageGold": "",
+        "flavorText": "我不要这种枝篱破碎的现实。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bae9332a42815c47f8c83d893924d8904f9ea5e87cd24af4fc39345c1ebede48.png",
+        "childIds": [
+          121108
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: END_009"
+    },
+    {
+      "card_id": "END_009",
+      "locale": "en_US",
+      "full_row": {
+        "id": "END_009",
+        "dbf_id": 121107,
+        "name": "破碎现实",
+        "name_en": "Splintered Reality",
+        "text": "召唤两个2/2的树人。在本局对战中，每有一个友方树人死亡，使这两个树人获得+1/+1。@<i>（已\n死亡@个）</i>",
+        "text_en": "Summon two 2/2 Treants. They gain +1/+1 for each friendly Treant that died this game.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/121107-en_US.json",
+      "body_sha256": "3eeb4481dd406a8ba3f47262f032b143c14ff6666617e8b0218f47e4a7b42022",
+      "receipt_file": "outputs/card-source-cache-cn37/official/121107-en_US.receipt.json",
+      "receipt_sha256": "abaac712ae128b11e4baad6c55a92496cf6f8cafb1916e23f8d01a3519ded3eb",
+      "face": {
+        "id": 121107,
+        "collectible": 1,
+        "slug": "121107-splintered-reality",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 4,
+        "name": "Splintered Reality",
+        "text": "Summon two 2/2 Treants. They gain +1/+1 for each friendly Treant that died this game. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c04253d4b079c20d00c63675152a6d0b301899a3d7a856900258604eee3f0b5.png",
+        "imageGold": "",
+        "flavorText": "I want to go to a reality where I didn't get splinters.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bae9332a42815c47f8c83d893924d8904f9ea5e87cd24af4fc39345c1ebede48.png",
+        "childIds": [
+          121108
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: END_009"
+    },
+    {
+      "card_id": "JAIL_974",
+      "locale": "zh_CN",
+      "full_row": {
+        "id": "JAIL_974",
+        "dbf_id": 126874,
+        "name": "被绑的大法师",
+        "name_en": "Captured Archmage",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。@<i>（@/4）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 4 other\nCaptured Archmages die this\ngame, cast 'Fireball' at\n_a random enemy.@ <i>(@/4)</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/126874-zh_CN.json",
+      "body_sha256": "31b4ada160799b369341db5f2c193aadd918ab3926aa319c0563d4ee7b63c1b7",
+      "receipt_file": "outputs/card-source-cache-cn37/official/126874-zh_CN.receipt.json",
+      "receipt_sha256": "5ef3d76a5bbad82a0c0b3920def291652835ef5c506ea4a70ca303d3111c0d20",
+      "face": {
+        "id": 126874,
+        "collectible": 1,
+        "slug": "126874-captured-archmage",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "被绑的大法师",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。 <i>（ /4）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78409a039d6a9cb0606fdd0e84f3b1bc09ba66c23dc53e510d1ac82f2eb81f30.png",
+        "imageGold": "",
+        "flavorText": "第一步：死。第二步：去世。第三步：玩儿完。第四步：一命呜呼。第五到十步：施放火球术！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8c50409fe00bb2a400c7adc108dba8ce94dc16101b35ee9f26b16dfd53143b9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_974"
+    },
+    {
+      "card_id": "JAIL_974",
+      "locale": "en_US",
+      "full_row": {
+        "id": "JAIL_974",
+        "dbf_id": 126874,
+        "name": "被绑的大法师",
+        "name_en": "Captured Archmage",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。@<i>（@/4）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 4 other\nCaptured Archmages die this\ngame, cast 'Fireball' at\n_a random enemy.@ <i>(@/4)</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/126874-en_US.json",
+      "body_sha256": "5bf55ec795f5227a8ef6f0d48cda6896b679e2bb407120818200b5aa8f59945e",
+      "receipt_file": "outputs/card-source-cache-cn37/official/126874-en_US.receipt.json",
+      "receipt_sha256": "2652c808523be73c479f0bbb6e6973216c2f5945b1e8cc9d5a7d5e07b7d42cb6",
+      "face": {
+        "id": 126874,
+        "collectible": 1,
+        "slug": "126874-captured-archmage",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Captured Archmage",
+        "text": "<b>Deathrattle:</b> If you had 4 other Captured Archmages die this game, cast 'Fireball' at a random enemy. <i>( /4)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b94bd86b1dea1c5d7ce4153159e36166bd4fcd135a86ac7289ab8fddc495b51.png",
+        "imageGold": "",
+        "flavorText": "Step One: Die. Step Two: Perish. Step Three: Pass away. Step Four: Bite the dust. Steps Five-Ten: FIREBALL!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8c50409fe00bb2a400c7adc108dba8ce94dc16101b35ee9f26b16dfd53143b9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_974"
+    },
+    {
+      "card_id": "JAIL_474",
+      "locale": "zh_CN",
+      "full_row": {
+        "id": "JAIL_474",
+        "dbf_id": 130021,
+        "name": "青玉守卫",
+        "name_en": "Jade Guardians",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。@<i>（减少@点）</i>",
+        "text_en": "[x]Get two random 8-Cost\nminions. They cost (1) less\nfor each card you played\nfor 2 Mana this game.@ <i>(@)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/130021-zh_CN.json",
+      "body_sha256": "4de2299546f7f55c8cad83949544966931e14d6e9e5f58db54748491fed41e61",
+      "receipt_file": "outputs/card-source-cache-cn37/official/130021-zh_CN.receipt.json",
+      "receipt_sha256": "d166e2901784ca28298b2f132e12c4f7fcdc8b9c8034850be1b61bf97ae96866",
+      "face": {
+        "id": 130021,
+        "collectible": 1,
+        "slug": "130021-jade-guardians",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "青玉守卫",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。 <i>（减少 点）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81eb470930e6b24879e700ac9d07b41638f471c71dd85004f9c190c75f318a86.png",
+        "imageGold": "",
+        "flavorText": "仔细想想，我还是回牢房去吧……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d953618c385a968f30fd56375fc85d4ccd391daa5d4da50ec48ef21601e90ac6.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_474"
+    },
+    {
+      "card_id": "JAIL_474",
+      "locale": "en_US",
+      "full_row": {
+        "id": "JAIL_474",
+        "dbf_id": 130021,
+        "name": "青玉守卫",
+        "name_en": "Jade Guardians",
+        "text": "随机获取两张法力值消耗为（8）的随从牌。在本局对战中你每使用过一张消耗（2）点法力的牌，这两张牌的法力值消耗便减少（1）点。@<i>（减少@点）</i>",
+        "text_en": "[x]Get two random 8-Cost\nminions. They cost (1) less\nfor each card you played\nfor 2 Mana this game.@ <i>(@)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "body_file": "outputs/card-source-cache-cn37/official/130021-en_US.json",
+      "body_sha256": "7dd95512f602d77a0bfadf367f916d42fa0a0df3123554d2593e5519fb041282",
+      "receipt_file": "outputs/card-source-cache-cn37/official/130021-en_US.receipt.json",
+      "receipt_sha256": "6daa995e41f2f68917bebe67eacd470975ff953745009ba0c6025e44d37511bb",
+      "face": {
+        "id": 130021,
+        "collectible": 1,
+        "slug": "130021-jade-guardians",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "Jade Guardians",
+        "text": "Get two random 8-Cost minions. They cost (1) less for each card you played for 2 Mana this game. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d7c12b5ce043a65ea3148e6ae3760fb9078758f1c3d66565c34ea04c5442b84.png",
+        "imageGold": "",
+        "flavorText": "On second thought! I am going back to my cell...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d953618c385a968f30fd56375fc85d4ccd391daa5d4da50ec48ef21601e90ac6.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "strict": false,
+      "error": "Official card rules drift: JAIL_474"
+    }
+  ],
+  "existing_dependency_definition_pins": {},
+  "exact_parent_child_links": [
+    {
+      "parent": "TSC_950",
+      "child": "TSC_950t",
+      "locale": "zh_CN",
+      "dbf_id": 72937,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_950",
+      "child": "TSC_950t",
+      "locale": "en_US",
+      "dbf_id": 72937,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_950",
+      "child": "TSC_950t2",
+      "locale": "zh_CN",
+      "dbf_id": 85857,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_950",
+      "child": "TSC_950t2",
+      "locale": "en_US",
+      "dbf_id": 85857,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t",
+      "locale": "zh_CN",
+      "dbf_id": 72537,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t",
+      "locale": "en_US",
+      "dbf_id": 72537,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t2",
+      "locale": "zh_CN",
+      "dbf_id": 72580,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t2",
+      "locale": "en_US",
+      "dbf_id": 72580,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t3",
+      "locale": "zh_CN",
+      "dbf_id": 85859,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_937",
+      "child": "TSC_937t3",
+      "locale": "en_US",
+      "dbf_id": 85859,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_026",
+      "child": "TSC_026t",
+      "locale": "zh_CN",
+      "dbf_id": 71828,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TSC_026",
+      "child": "TSC_026t",
+      "locale": "en_US",
+      "dbf_id": 71828,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TID_712",
+      "child": "TID_712t",
+      "locale": "zh_CN",
+      "dbf_id": 75584,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TID_712",
+      "child": "TID_712t",
+      "locale": "en_US",
+      "dbf_id": 75584,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TID_712",
+      "child": "TID_712t2",
+      "locale": "zh_CN",
+      "dbf_id": 80016,
+      "via": "parent.childIds"
+    },
+    {
+      "parent": "TID_712",
+      "child": "TID_712t2",
+      "locale": "en_US",
+      "dbf_id": 80016,
+      "via": "parent.childIds"
+    }
+  ],
+  "named_dependency_links": [
+    {
+      "parent": "TSC_950t",
+      "child": "TSC_950t",
+      "basis": "Full printed named effect and exact complete family faces; not a direct API child edge.",
+      "execution_identity_pending_M6": true
+    },
+    {
+      "parent": "TSC_950t2",
+      "child": "TSC_950t",
+      "basis": "Full printed named effect and exact complete family faces; not a direct API child edge.",
+      "execution_identity_pending_M6": true
+    },
+    {
+      "parent": "TSC_937t",
+      "child": "TSC_937t2",
+      "basis": "Full printed named effect and exact complete family faces; not a direct API child edge.",
+      "execution_identity_pending_M6": true
+    },
+    {
+      "parent": "TSC_937t3",
+      "child": "TSC_937t2",
+      "basis": "Full printed named effect and exact complete family faces; not a direct API child edge.",
+      "execution_identity_pending_M6": true
+    }
+  ],
+  "source_tag_links": [],
+  "pool_predicate_qualifications": [
+    {
+      "card_id": "NX2_022",
+      "source": "TIME_016",
+      "qualification": "Reviewed complete printed Paladin class and Mech secondary race2539; public matches_metadata accepts the whole printed dual-tribe metadata.",
+      "printed_tribes": [
+        "dragon",
+        "mech"
+      ],
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "TSC_950",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete older printed collectible Colossal parent; leaf dependencies follow separately verified exact API edges.",
+      "printed_colossal": 1,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "TSC_937",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete older printed collectible Colossal parent; leaf dependencies follow separately verified exact API edges.",
+      "printed_colossal": 1,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "TSC_026",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete older printed collectible Colossal parent; leaf dependencies follow separately verified exact API edges.",
+      "printed_colossal": 1,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "TID_712",
+      "source": "CATA_EVENT_000",
+      "qualification": "Complete older printed collectible Colossal parent; leaf dependencies follow separately verified exact API edges.",
+      "printed_colossal": 1,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    }
+  ],
+  "unsupported_source_cards": [
+    "TIME_016",
+    "CATA_EVENT_000",
+    "TSC_937",
+    "TSC_026",
+    "TID_712",
+    "JAIL_909",
+    "END_009",
+    "JAIL_940",
+    "JAIL_974",
+    "JAIL_474",
+    "FIR_902",
+    "EDR_482",
+    "FIR_928",
+    "MEND_044"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Ten actual new definitions, zero Standard collectible roots: two necessary older collectible candidate dependencies and eight genuine forms. No Wild-format scope or exact past pool is certified. Primordial Lord and Gravitational Displacer remain unsupported; no source-specific filtered pool is added.",
+    "goldwing": "Complete printed Dragon/Mech metadata, Rush and actual Battlecry checking the current physical hand with public has_any_tribe, including all and current tribe attachments. Windfury is a captured original minion grant; source reentry cannot borrow it.",
+    "hydralodon": "Complete Colossal+2 body and two exact3/1 Heads. Original initial t/t2 left/right placement is explicit internal policy. Actual Battlecry captures every current friendly active Head and grants Rush through original references; summoned/copied bodies do not invent a Battlecry.",
+    "head_death": "Each actual Head Deathrattle rechecks a friendly active living Hydralodon in its own accepted context, then submits two attributed ordinary Head entries at the natural death slot or live-carrier right side. Both repeated Heads use the primary TSC_950t execution identity, a qualified same-named dependency pending M6 rather than a forged API child edge. Native quantity, capacity, repetition and later per-member acceptance are retained; no recursive card callback executor.",
+    "claws": "Both complete printed Rush Claws equip the exact2/1 WEAPON TSC_937t2 through ordinary EquipWeapon in their own actual Deathrattle. Weapon stats and replacement/destruction remain native; unsupported Crabatoa parent aura is not approximated.",
+    "shell": "Complete zero-Attack0/8 Taunt Shell with actual Deathrattle GainArmor8 for its accepted controller. Printed attack null is explicitly normalized to0; no Colaque conditional immunity implementation is claimed.",
+    "hands": "Two distinct complete4/2 printed Hands declare native Immune while attacking only. No Rush, Windfury or parent attack-substitution capability is inferred from Neptulon.",
+    "source_boundaries": "Four proposed counter roots remain unregistered because strict whole raw/official display comparison fails for omitted dynamic counters without an allowed pinned script-value normalization. Full eight rejected response/receipt pairs and original rows are retained separately, not counted among40 strict faces.",
+    "unimplemented": "Priority-root exact interfaces and unresolved source/timing boundaries are reported separately. No hand-deadline face-changing behavior, enemy-only automatic cast, dead-carrier activation, Treant subtype, delayed spell split or sleep window is silently approximated."
+  }
+}
