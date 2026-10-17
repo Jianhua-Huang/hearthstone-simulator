@@ -589,6 +589,8 @@ class Game:
         validate_timed_keywords(self)
         from .corpse_summon_rewards import validate_boundary as validate_corpse_summon_boundary
         validate_corpse_summon_boundary(self)
+        from .summon_keyword_groups import validate_boundary as validate_outcast_summon_boundary
+        validate_outcast_summon_boundary(self)
         from .turn_scheduling import validate_boundary as validate_turn_schedule
         validate_turn_schedule(self)
         from .joust import validate_boundary as validate_joust_boundary

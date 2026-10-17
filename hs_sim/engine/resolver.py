@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v419'
+CORE_EFFECTS_VERSION = 'core-effects-v420'
 
 
 class Mechanics:
@@ -2558,6 +2558,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_source_stat_summons(mechanics)
     from .summon_attack_groups import register as register_summon_attack_groups
     register_summon_attack_groups(mechanics)
+    from .summon_keyword_groups import register as register_summon_keyword_groups
+    register_summon_keyword_groups(mechanics)
     from .effects import RandomBuff
     mechanics.register(RandomBuff,random_buff)
     from .turn_start_draws import register as register_turn_start_draws

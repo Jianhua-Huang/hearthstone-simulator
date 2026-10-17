@@ -1,0 +1,484 @@
+{
+  "batch": "K130-native-outcast-summon",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "version": "37.0.0.255026",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_136",
+        "dbf_id": 118503,
+        "name": "盛宴之角",
+        "name_en": "Horn of Feasting",
+        "text": "召唤三只2/1并具有<b>突袭</b>的迅猛龙。<b>流放：</b>使其在本回合中获得攻击时<b>免疫</b>。",
+        "text_en": "Summon three\n2/1 Raptors with <b>Rush</b>.\n<b>Outcast:</b> Give them <b>Immune</b>\nwhile attacking this turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "OUTCAST": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4907ca8476bfeadb3e740a063f48ce81f0ed0e0989f08cc33895067ee9b62cf8"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DINO_136t",
+        "dbf_id": 118502,
+        "name": "贪婪的迅猛龙",
+        "name_en": "Ravenous Raptor",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "ba7baaa6bc802ba3b449a260b00b1c0b2ccd57f5fa4a352aeec5e7444e617123"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DINO_136e",
+        "dbf_id": 126207,
+        "name": "进食",
+        "name_en": "Feasting",
+        "text": "攻击时<b>免疫</b>。",
+        "text_en": "<b>Immune</b> while attacking.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5eb6733210706a45c2434bdbc12da29be4020cf912051c11836b6279f01c64d7"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T03:02:19.612478+00:00",
+    "cards": [
+      {
+        "record": {
+          "id": "DINO_136",
+          "dbf_id": 118503,
+          "name": "盛宴之角",
+          "name_en": "Horn of Feasting",
+          "text": "召唤三只2/1并具有<b>突袭</b>的迅猛龙。<b>流放：</b>使其在本回合中获得攻击时<b>免疫</b>。",
+          "text_en": "Summon three\n2/1 Raptors with <b>Rush</b>.\n<b>Outcast:</b> Give them <b>Immune</b>\nwhile attacking this turn.",
+          "cost": 4,
+          "attack": null,
+          "health": null,
+          "type": "SPELL",
+          "collectible": true,
+          "tags": {
+            "COST": 4,
+            "CARD_SET": 1952,
+            "CLASS": 14,
+            "CARDTYPE": 5,
+            "RARITY": 1,
+            "COLLECTIBLE": 1,
+            "OUTCAST": 1,
+            "MINI_SET": 1
+          },
+          "card_set_id": 1952,
+          "source_entity_version": "2",
+          "reference_tags": [],
+          "power_keyword_tags": [],
+          "related_dbf_ids": [],
+          "xml_card_references": [],
+          "unmapped_xml_nodes": [
+            {
+              "tag": "Tag",
+              "attributes": {
+                "enumID": "342",
+                "name": "ARTISTNAME",
+                "type": "String"
+              },
+              "text": "Ramzy Kamen"
+            },
+            {
+              "tag": "ReferencedTag",
+              "attributes": {
+                "enumID": "240",
+                "name": "IMMUNE",
+                "type": "Int",
+                "value": "1"
+              }
+            },
+            {
+              "tag": "ReferencedTag",
+              "attributes": {
+                "enumID": "791",
+                "name": "RUSH",
+                "type": "Int",
+                "value": "1"
+              }
+            }
+          ]
+        },
+        "record_sha256": "4907ca8476bfeadb3e740a063f48ce81f0ed0e0989f08cc33895067ee9b62cf8"
+      },
+      {
+        "record": {
+          "id": "DINO_136t",
+          "dbf_id": 118502,
+          "name": "贪婪的迅猛龙",
+          "name_en": "Ravenous Raptor",
+          "text": "<b>突袭</b>",
+          "text_en": "<b>Rush</b>",
+          "cost": 2,
+          "attack": 2,
+          "health": 1,
+          "type": "MINION",
+          "collectible": false,
+          "tags": {
+            "HEALTH": 1,
+            "ATK": 2,
+            "COST": 2,
+            "CARD_SET": 1952,
+            "CLASS": 14,
+            "CARDRACE": 20,
+            "CARDTYPE": 4,
+            "RUSH": 1,
+            "MINI_SET": 1
+          },
+          "card_set_id": 1952,
+          "source_entity_version": "2",
+          "reference_tags": [],
+          "power_keyword_tags": [],
+          "related_dbf_ids": [],
+          "xml_card_references": [],
+          "unmapped_xml_nodes": [
+            {
+              "tag": "Tag",
+              "attributes": {
+                "enumID": "342",
+                "name": "ARTISTNAME",
+                "type": "String"
+              },
+              "text": "Ramzy Kamen"
+            }
+          ]
+        },
+        "record_sha256": "ba7baaa6bc802ba3b449a260b00b1c0b2ccd57f5fa4a352aeec5e7444e617123"
+      },
+      {
+        "record": {
+          "id": "DINO_136e",
+          "dbf_id": 126207,
+          "name": "进食",
+          "name_en": "Feasting",
+          "text": "攻击时<b>免疫</b>。",
+          "text_en": "<b>Immune</b> while attacking.",
+          "cost": null,
+          "attack": null,
+          "health": null,
+          "type": "ENCHANTMENT",
+          "collectible": false,
+          "tags": {
+            "CARD_SET": 1952,
+            "CARDTYPE": 6,
+            "TAG_ONE_TURN_EFFECT": 1
+          },
+          "card_set_id": 1952,
+          "source_entity_version": "2",
+          "reference_tags": [],
+          "power_keyword_tags": [],
+          "related_dbf_ids": [],
+          "xml_card_references": [],
+          "unmapped_xml_nodes": [
+            {
+              "tag": "ReferencedTag",
+              "attributes": {
+                "enumID": "240",
+                "name": "IMMUNE",
+                "type": "Int",
+                "value": "1"
+              }
+            }
+          ]
+        },
+        "record_sha256": "5eb6733210706a45c2434bdbc12da29be4020cf912051c11836b6279f01c64d7"
+      }
+    ],
+    "observations": [
+      {
+        "card_id": "DINO_136",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118503&locale=zh_CN",
+        "response_file": "official-DINO_136-zh_CN.json",
+        "response_sha256": "d2d6fbc80f1e12a35d62ee3126182820f25d7f30a3979a26f811b5b829891ac1",
+        "face": {
+          "id": 118503,
+          "collectible": 1,
+          "slug": "118503-horn-of-feasting",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "manaCost": 4,
+          "name": "盛宴之角",
+          "text": "召唤三只2/1并具有<b>突袭</b>的迅猛龙。<b>流放：</b>使其在本回合中获得攻击时<b>免疫</b>。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/234aee142b62c34a740810182e36ded90410a22551358516948272fa650d3c2b.png",
+          "imageGold": "",
+          "flavorText": "生的熟的半生半熟的都有。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2961f66f343882115cb27aaaca3cd1434d42d4e87bed185dc6203ed43fb549b8.png",
+          "childIds": [
+            118502
+          ],
+          "keywordIds": [
+            17,
+            53,
+            86
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DINO_136",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118503&locale=en_US",
+        "response_file": "official-DINO_136-en_US.json",
+        "response_sha256": "68b4c6bd2762e8ef9a310f4c08d6179e5e4c7ba07610bbfd6fb19e02cb8dff21",
+        "face": {
+          "id": 118503,
+          "collectible": 1,
+          "slug": "118503-horn-of-feasting",
+          "classId": 14,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 1,
+          "artistName": "Ramzy Kamen",
+          "manaCost": 4,
+          "name": "Horn of Feasting",
+          "text": "Summon three 2/1 Raptors with <b>Rush</b>. <b>Outcast:</b> Give them <b>Immune</b> while attacking this turn.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc72824f2454c627689f3804edc59b7d33419fa3bc045c09765352f114272f2a.png",
+          "imageGold": "",
+          "flavorText": "Good flavor text is a rare medium well done.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2961f66f343882115cb27aaaca3cd1434d42d4e87bed185dc6203ed43fb549b8.png",
+          "childIds": [
+            118502
+          ],
+          "keywordIds": [
+            17,
+            53,
+            86
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DINO_136t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118502&locale=zh_CN",
+        "response_file": "official-DINO_136t-zh_CN.json",
+        "response_sha256": "8e76a7687247a4d3b8e0829e9432654c9fa364e204307ab572aea2d0716ff54f",
+        "face": {
+          "id": 118502,
+          "collectible": 0,
+          "slug": "118502-ravenous-raptor",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Ramzy Kamen",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "贪婪的迅猛龙",
+          "text": "<b>突袭</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9869df39acc666304e22d59052dc58f7781def9e75416efcb3374b8b11aef95b.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 118503,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "DINO_136t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118502&locale=en_US",
+        "response_file": "official-DINO_136t-en_US.json",
+        "response_sha256": "c26422e03f79ed87071f9db57850c619946caf65d007eed9c839a0c2ae66478b",
+        "face": {
+          "id": 118502,
+          "collectible": 0,
+          "slug": "118502-ravenous-raptor",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1952,
+          "rarityId": null,
+          "artistName": "Ramzy Kamen",
+          "health": 1,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Ravenous Raptor",
+          "text": "<b>Rush</b>",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c3fc51d878e71c9c39e04045dd5084a95b7e30259b33a59cd957b8354b3434e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 118503,
+          "keywordIds": [
+            53
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "derived_metadata": {
+      "DINO_136": {
+        "classes": [
+          "demon_hunter"
+        ],
+        "tribes": [],
+        "school": null
+      },
+      "DINO_136t": {
+        "classes": [
+          "demon_hunter"
+        ],
+        "tribes": [
+          "beast"
+        ],
+        "school": null
+      }
+    },
+    "confirmed_dependency": "DINO_136t/118502 explicitly in both official root childIds, no dependency inferred from prefix alone",
+    "evidence_only": [
+      "DINO_136e"
+    ],
+    "implemented": false,
+    "managed_methods_executed": 0,
+    "game_commands_executed": 0,
+    "cn_calibrated": false,
+    "formal_pool_complete": false
+  },
+  "policy": {
+    "scope": "internal-experimental-source",
+    "group": "Three original SummonByCard fixed requests plus native continuation; shared complete original request/delivery/successful-entry joins, including actual quantity extra bodies, exclude old/nested/later entries.",
+    "reward": "Original accepted Outcast only; after all three requests and ordinary summon reactions, one atomic group grant through existing original-entry residence guard and GrantKeyword(IMMUNE_WHILE_ATTACKING,expires_turn=currentTurn). Follow same-residence transform/control, skip dead/left/reentered; no preinstalled reward or later name scan.",
+    "lifetime": "This turn is current global turn end, including off-turn body execution; do not bind to caster next own end. Base token is2mana2/1DHBeastRush, no immunity; raw DINO_136e is evidence only.",
+    "calibration": "Exact CN group/quantity/reactions/recipient transform-control/atomic grant and expiry windows remain M6; fixed card text/childIds alone do not prove server timing."
+  },
+  "full_card_support": false,
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}

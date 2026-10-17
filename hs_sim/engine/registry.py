@@ -159,6 +159,7 @@ class Registry:
         self._corpse_summon_profiles = {}
         self._corpse_gain_profiles = {}
         self._summon_attack_profiles = {}
+        self._outcast_summon_profiles = {}
         self._summon_producer_profiles: dict[str, SummonProducerProfile] = {}
         self._end_turn_profiles: dict[str, EndTurnActivationProfile] = {
             'end_turn.effect': EndTurnActivationProfile('end_turn.effect'),
@@ -305,6 +306,16 @@ class Registry:
 
     @property
     def summon_attack_profiles(self):return MappingProxyType(self._summon_attack_profiles)
+
+    @property
+    def outcast_summon_profiles(self):return MappingProxyType(self._outcast_summon_profiles)
+
+    def register_outcast_summon_profile(self,profile):
+        self._require_mutable()
+        from .summon_keyword_groups import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._outcast_summon_profiles:raise ValueError('Duplicate native Outcast summon profile')
+        self._outcast_summon_profiles[profile.card_id]=profile
 
     def register_summon_attack_profile(self,profile):
         self._require_mutable()
@@ -1550,6 +1561,8 @@ class Registry:
         for profile in self._kindred_target_profiles.values():validate_kindred_target_profile(self,profile)
         from .summon_attack_groups import validate_profile as validate_summon_attack_profile
         for profile in self._summon_attack_profiles.values():validate_summon_attack_profile(self,profile)
+        from .summon_keyword_groups import validate_profile as validate_outcast_summon_profile
+        for profile in self._outcast_summon_profiles.values():validate_outcast_summon_profile(self,profile)
         from .corpse_gains import validate_profile as validate_corpse_gain_profile
         for profile in self._corpse_gain_profiles.values():validate_corpse_gain_profile(self, profile)
         from .corpse_summon_rewards import validate_profile as validate_corpse_summon_profile
@@ -1858,6 +1871,8 @@ class Registry:
             payload['corpse_gain_profiles']=[asdict(self._corpse_gain_profiles[k])for k in sorted(self._corpse_gain_profiles)]
         if self._summon_attack_profiles:
             payload['summon_attack_profiles']=[asdict(self._summon_attack_profiles[k])for k in sorted(self._summon_attack_profiles)]
+        if self._outcast_summon_profiles:
+            payload['outcast_summon_profiles']=[asdict(self._outcast_summon_profiles[k])for k in sorted(self._outcast_summon_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
         if self._invoke_profile is not None:
