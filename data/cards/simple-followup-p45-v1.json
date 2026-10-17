@@ -1,0 +1,300 @@
+{
+  "batch": "P45",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_878",
+        "dbf_id": 126299,
+        "name": "警卫犬",
+        "name_en": "Guard Dog",
+        "text": "<b>亡语：</b>&随机召唤一个法力值消耗为（1）的<b>亡语</b>随从。",
+        "text_en": "[x]<b>Deathrattle:</b>& Summon\na random 1-Cost\n_<b>Deathrattle</b> minion.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "0133bc8db06a71350ff8539d1d23e2b50a64fc7d1cc6ecfc638e5ff23b98a5fc"
+    },
+    {
+      "record": {
+        "id": "JAIL_876",
+        "dbf_id": 126294,
+        "name": "掘壁求生",
+        "name_en": "Dig for Freedom",
+        "text": "使一个友方随从获得“<b>亡语：</b>随机召唤两个法力值消耗为（4）的随从。”",
+        "text_en": "[x]Give a friendly\nminion \"<b>Deathrattle:</b>\nSummon two random\n4-Cost minions.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trent Kaniuga"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bf7dc3e6fc3c15a88bd24d030bd925cb89be1702b6a4fec0c9514922dcf3723c"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_876e",
+        "dbf_id": 127325,
+        "name": "壁中穿行",
+        "name_en": "In the Tunnels",
+        "text": "<b>亡语：</b>随机召唤两个法力值消耗为（4）的随从。",
+        "text_en": "<b>Deathrattle:</b> Summon two random 4-Cost minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "626ca9dd6bed42e8a35043b9452d5a993ea00ed1d9a28d3f5c2c9ab1f51c132b"
+    }
+  ],
+  "skipped": [],
+  "derived_metadata": {
+    "JAIL_878": {
+      "classes": [
+        "hunter"
+      ],
+      "tribes": [
+        "beast"
+      ],
+      "school": null
+    },
+    "JAIL_876": {
+      "classes": [
+        "hunter"
+      ],
+      "tribes": [],
+      "school": null
+    }
+  },
+  "official_observations": {
+    "checked_at": "2026-10-17T10:45:59.822640+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "JAIL_878",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126299&locale=zh_CN",
+        "response_file": "official-JAIL_878-zh_CN.json",
+        "response_sha256": "515684d080b6d2f52be3316d00c1510ec8267f9ccea769b53a136401868cf2ce",
+        "face": {
+          "id": 126299,
+          "collectible": 1,
+          "slug": "126299-guard-dog",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Gabor Szikszai",
+          "health": 1,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "警卫犬",
+          "text": "<b>亡语：</b>&随机召唤一个法力值消耗为（1）的<b>亡语</b>随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37946c4d97146f8bdbc9b213544c3a3c0609b652950c9d9982500a0583bd13d4.png",
+          "imageGold": "",
+          "flavorText": "挡道好狗。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca15f50016530bb6ae134cd273893026b7a31a8abf4371d6cbe5112efc6318f.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_878",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126299&locale=en_US",
+        "response_file": "official-JAIL_878-en_US.json",
+        "response_sha256": "5ede822ef2224c5b91dcaf4cfe89ef4dcbfb3db4a548899f2acd3173d0ffbf8e",
+        "face": {
+          "id": 126299,
+          "collectible": 1,
+          "slug": "126299-guard-dog",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Gabor Szikszai",
+          "health": 1,
+          "attack": 3,
+          "manaCost": 2,
+          "name": "Guard Dog",
+          "text": "<b>Deathrattle:</b>& Summon a random 1-Cost <b>Deathrattle</b> minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e4c4b0e93e1cf0cd4416250cdd60a1cf9179920cb235f046eb7366c7d84d4db.png",
+          "imageGold": "",
+          "flavorText": "Updog",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca15f50016530bb6ae134cd273893026b7a31a8abf4371d6cbe5112efc6318f.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_876",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126294&locale=zh_CN",
+        "response_file": "official-JAIL_876-zh_CN.json",
+        "response_sha256": "bf7a740b79d8ebacaa8338783fef0e79bd697e7c1d093186ad1280375f2093aa",
+        "face": {
+          "id": 126294,
+          "collectible": 1,
+          "slug": "126294-dig-for-freedom",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Trent Kaniuga",
+          "manaCost": 4,
+          "name": "掘壁求生",
+          "text": "使一个友方随从获得“<b>亡语：</b>随机召唤两个法力值消耗为（4）的随从。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d866f4dc7a1b1c18cbc84530b46f0856a6f4865fc81ddf6da0b222f5ee7a9e82.png",
+          "imageGold": "",
+          "flavorText": "他爬过了一段肮脏的路，出来时身上干干净净。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0bf9ecc6b8a0397393a5d2a8535b039d8cbb34628e5ccd3ad7ae51d0a861197.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_876",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126294&locale=en_US",
+        "response_file": "official-JAIL_876-en_US.json",
+        "response_sha256": "827a79706519436bbd2be76808452fd019fe21b37d64bd32057f9c5f5b174353",
+        "face": {
+          "id": 126294,
+          "collectible": 1,
+          "slug": "126294-dig-for-freedom",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1988,
+          "rarityId": 3,
+          "artistName": "Trent Kaniuga",
+          "manaCost": 4,
+          "name": "Dig for Freedom",
+          "text": "Give a friendly minion \"<b>Deathrattle:</b> Summon two random 4-Cost minions.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2966f434ad5ef91a5e38d36bca8892fc30484478815f4a801083142a197456bf.png",
+          "imageGold": "",
+          "flavorText": "He crawled through a tunnel of filth, only to come out clean on the other side.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0bf9ecc6b8a0397393a5d2a8535b039d8cbb34628e5ccd3ad7ae51d0a861197.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context_only_for_actual_dr": true,
+  "internal_policy": [
+    "Guard Dog Hunter2mana3/1Beast, nativeDRonly. SummonFromPool anyclasscollectibleMINION printed1/deathrattle=True independentnativefact, actualDRcarrier source/originalSummonCause/deathrattle_position. No Battlecry/onplaybonus or keywordDRinvented.",
+    "Dig forFreedom Hunter4unschooledSPELL normalrequiredfriendlyBOARD/MINION target. ExactlyGrantDeathrattle withactualspellsource; no Buff/SetStats/keyword, no +4/+4. Grantedbody GenerateFromPool count2,destinationboard, anyclasscollectibleprinted4MINION, actualDRcarrier/cause/originaldeathslot orlivecarrier-right batchstart. Two originalsamplespreselectedbypublicbatch thenordered currentcapacity deliveries; no nonexistentSummonFromPool.count orlocalexecutor.",
+    "Originalgrant/lifecycle/native+grantedDR/controller/sourceexclusion/death/currentstate/copy/capacity/RNG policies inherited. OnlyactualDRneeds explicitcompletehost constructed.cards GenerationContext; unknowncompleteeligible candidates failbeforeRNG evenfullboard, notcropped.",
+    "Full2roots+JAIL_876e raw/4cachedcompleteprimaryfaces preserved. BothHunter/noschool, dogBeast fromexistingreviewedmapping/derivedmetadata. JAIL_876e completeenchantment sourceonlyevidence, notphysicaldefinition/PoolCard/guessedrelation ordependency. No JAIL_878e invented.",
+    "PriorP44deferral commit/evidence retained inGit/ignoredoutputs butnotcarriedontoP45baseline.0P44support/rootregistrar. TIME_021/heroIMMUNE/END_005/DINO_136/allpublicwork main-owned; M0/M6/formalstandard/completeactualreachability remainopen."
+  ]
+}
