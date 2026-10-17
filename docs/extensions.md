@@ -1072,6 +1072,8 @@ M4-01b-03a 新增 `GrantRandomBonusEffects` 与 `SummonFromCandidates`，分别�
 
 ## 巨型及存储卡召唤
 
+普通`SummonByCard`的印刷`SummonEntryMaterial`和带归因池/有限候选召唤可沿原执行器展开巨型；支持已有池的TAUNT、TAUNT/LIFESTEAL入场声明，授予仅属于主体。不要自行生成附肢或以存储移动代替生成。公共纯验证器默认保持非组合材料，显式启用范围及未支持的附加材料见[带归因巨型契约](m3-attributed-colossal-entry.md)。
+
 
 
 CardDefinition 使用 `Keyword.COLOSSAL` 和有序 `colossal=(AppendageSpec(card_id, side), ...)`；附肢必须注册为普通物理随从，支持同名不同 ID，禁止递归/组合模板。不要在战吼里手写巨型附肢；公共入场会负责分步容量、反应和恢复。`SummonStoredCard(CardReference.capture(entity), player_id, position)` 移动手牌/牌库中的同一实体，保留属性，失败不公开暗牌；它不是复活池或自动施法。更多来源、生命周期和时序假设见 [巨型契约](m5-colossal.md)。

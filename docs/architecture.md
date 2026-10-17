@@ -866,6 +866,8 @@ magnetic.py 从出牌位置解析宿主，合法性/枚举/执行共用规则；
 
 ## 巨型分步入场
 
+原生带归因的普通新建/池召唤以显式材料资格接到同一分步执行器；真实FIR_907与TLC_452t20的六费池不能裁去CATA_139。限制性默认仍供复制/招募等原配置使用，未新增执行器或状态布局。具体入口、既有关键词范围和校准边界见[带归因巨型契约](m3-attributed-colossal-entry.md)，实际进度只在原两份台账。
+
 
 
 colossal.py 统一处理打出、直接/候选召唤、复制、复生与变形后的附肢展开；SummonStoredCard 补充手牌/牌库原实体召唤。ColossalRecord 保存来源与进度，队列中的 SummonAppendage/FinishColossal/ColossalBattlecry 可序列化，每条之间允许触发、死亡和选择；恢复验证余下步骤。主体/附肢仍是独立实体，生命周期不会共同重置。详见 [巨型契约](m5-colossal.md)。

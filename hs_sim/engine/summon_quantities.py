@@ -152,7 +152,7 @@ def validate_face(card):
         raise ValueError('Summon quantity requires an ordinary physical carrier')
 
 
-def validate_material(registry,material):
+def validate_material(registry,material,*,allow_colossal=False):
     if type(material) is PhysicalReplayEntryMaterial:
         from .replay_entry_material import validate_material as validate_primary_material
         validate_primary_material(registry, material); return
@@ -167,9 +167,17 @@ def validate_material(registry,material):
         from .copy_materials import validate_material as validate_copy_material
         validate_copy_material(registry,material);return
     material.__post_init__(); card=registry.card(material.card_id)
-    if (card.kind!=CardType.MINION or card.choice_only or card.starship_for or card.colossal or
+    if (card.kind!=CardType.MINION or card.choice_only or card.starship_for or card.colossal and not allow_colossal or
             Keyword.MAGNETIC in card.keywords or Keyword.STARSHIP_PIECE in card.keywords):
         raise ValueError('This entry profile requires an ordinary non-composite minion')
+    # Random generation can select a printed Colossal (for example FIR_907 at
+    # six mana selects CATA_139). Delivery already delegates each new body to
+    # colossal.enter_minion; keep its ordinary plain recipe instead of pruning
+    # the candidate or routing through a different stored/copy summon profile.
+    if card.colossal and (material.stats is not None or material.deathrattles or
+            material.keywords not in ((),(Keyword.TAUNT,),(Keyword.TAUNT,Keyword.LIFESTEAL)) or
+            material.dormant_turns is not None or material.on_summon is not None):
+        raise ValueError('Attributed Colossal entry requires plain material or its supported pool keywords')
     if material.dormant_turns is not None and card.permanent_dormancy:
         raise ValueError('Forced timed entry for a permanent dormant carrier is unsupported')
     for s in material.deathrattles: registry.behavior(s)
@@ -389,7 +397,7 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         if type(material) is PhysicalReplayEntryMaterial:
             from .replay_entry_material import validate_scope
             validate_scope(state, registry, request, material)
-        validate_material(registry,material)
+        validate_material(registry,material,allow_colossal=type(material)is SummonEntryMaterial)
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)

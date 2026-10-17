@@ -72,7 +72,7 @@ def validate_basis(state,registry,basis,*,closed=False):
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
         exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
-    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns))
+    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns),allow_colossal=True)
 
 
 def choose_weighted(rng,materials,weights):
@@ -363,7 +363,7 @@ def validate_frame_references(state,registry,value):
             validate_cause(scope,registry,item.cause)
             if item.source_id is not None and item.source_id not in scope.entities:raise ValueError('Queued attributed producer has an unknown original query source')
             if type(item)is SummonFromCandidates:
-                for card_id in item.card_ids:validate_material(registry,SummonEntryMaterial(card_id))
+                for card_id in item.card_ids:validate_material(registry,SummonEntryMaterial(card_id),allow_colossal=True)
             return
         if type(item)is SummonCause:validate_cause(scope,registry,item);return
         if type(item)is PoolSummonBasis:validate_basis(scope,registry,item);return
