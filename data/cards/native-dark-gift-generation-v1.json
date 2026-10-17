@@ -1,0 +1,702 @@
+{
+  "batch": "K120",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_102",
+        "dbf_id": 113822,
+        "name": "狡诈拷问者",
+        "name_en": "Treacherous Tormentor",
+        "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的<b>传说</b>随从牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a <b>Legendary</b> minion\nwith a <b>Dark Gift</b>.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "4050": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Allan Arello"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "caf763ef03fc418d99f96e9db23e1b5bb83c1699fb10296a38ce586c3c3937a6"
+    },
+    {
+      "record": {
+        "id": "END_013",
+        "dbf_id": 121153,
+        "name": "戮屠末日巨口",
+        "name_en": "Brutish Endmaw",
+        "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的法力值消耗为（1）的随从牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a\n1-Cost minion with a <b>Dark_Gift</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MULTIPLE_CLASSES": 20,
+          "MINI_SET": 1,
+          "4050": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trent Kaniuga"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "930f67044bf3f28b977342ba2bb39a31724e63fd379fa38f8a0f72baadab038a"
+    }
+  ],
+  "existing_gift_sources": [
+    {
+      "record": {
+        "id": "EDR_100t",
+        "dbf_id": 113796,
+        "name": "起床怒气",
+        "name_en": "Waking Terror",
+        "text": "+3攻击力和<b>吸血</b>。",
+        "text_en": "+3 Attack and <b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7aaeac4360e6a733a803ceb0a68712d033bb16bcc163831da5a04a4efbfdf416"
+    },
+    {
+      "record": {
+        "id": "EDR_100t1",
+        "dbf_id": 113797,
+        "name": "休憩饱足",
+        "name_en": "Well Rested",
+        "text": "+2/+2和<b>扰魔</b>。",
+        "text_en": "+2/+2 and <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77a37754e7200e2e5bd6e273fab175900dcdadb46d71c86df003be6fc2ab09ea"
+    },
+    {
+      "record": {
+        "id": "EDR_100t2",
+        "dbf_id": 113798,
+        "name": "短小利爪",
+        "name_en": "Short Claws",
+        "text": "法力值消耗减少（2）点，但拥有-2攻击力。",
+        "text_en": "Costs (2) less,\nbut has -2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "153de59aebe10d2e2c1d31506547046733b757a7990f337d4fcd5db09dd83b5d"
+    },
+    {
+      "record": {
+        "id": "EDR_100t3",
+        "dbf_id": 113799,
+        "name": "衣甲厚实",
+        "name_en": "Bundled Up",
+        "text": "+4生命值和<b>嘲讽</b>。",
+        "text_en": "+4 Health and <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "642ddf4056febfe342c6663451fe521a696be5f6b6a2c330761b2aba9bbc12cc"
+    },
+    {
+      "record": {
+        "id": "EDR_100t5",
+        "dbf_id": 113801,
+        "name": "活体梦魇",
+        "name_en": "Living Nightmare",
+        "text": "当你使用本牌时，召唤一个它的2/2的复制。",
+        "text_en": "When you play this minion, summon a 2/2 copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "68ca9af88e086ccad315c418b42edc57b84872c2284cd0912bfe8dece93bb8db"
+    },
+    {
+      "record": {
+        "id": "EDR_100t6",
+        "dbf_id": 113802,
+        "name": "梦境行者",
+        "name_en": "Sleepwalker",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CHARGE": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "19087fb6b451a2457fc5ebe6e1ff401c1b79ca68b8fb58725008c4a7dace0205"
+    },
+    {
+      "record": {
+        "id": "EDR_100t7",
+        "dbf_id": 113882,
+        "name": "粗暴唤醒",
+        "name_en": "Rude Awakening",
+        "text": "本随从的<b>战吼</b>会触发两次。",
+        "text_en": "[x]This minion's\n<b>Battlecries</b> trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c3ea8dc124ea80027f757a243e3e80fa0eec745e951d3c60be8be5472b7523e"
+    },
+    {
+      "record": {
+        "id": "EDR_100t8",
+        "dbf_id": 113884,
+        "name": "甜美梦境",
+        "name_en": "Sweet Dreams",
+        "text": "+4/+5。\n将本牌置于你的\n牌库顶。",
+        "text_en": "+4/+5. Place this card on top of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9d947867293a59287b73570ba5ac1b828c147294dcd4e9ade889c30ce285e9c8"
+    },
+    {
+      "record": {
+        "id": "EDR_100t9",
+        "dbf_id": 113886,
+        "name": "回荡恐怖",
+        "name_en": "Persisting Horror",
+        "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+        "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "REBORN": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d539898708e8764e6fc98f9c8facfe2f5e3838d86136562659be918debe39fba"
+    },
+    {
+      "record": {
+        "id": "EDR_100t13",
+        "dbf_id": 120225,
+        "name": "鹰身人之爪",
+        "name_en": "Harpy's Talons",
+        "text": "<b>圣盾</b>，<b>风怒</b>",
+        "text_en": "<b>Divine Shield</b>, <b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "983eb77d4c8a3eac0d1684927000d9b5ace4239bad0455098586de37b3a87edf"
+    }
+  ],
+  "gift_version": "constructed-dark-gifts-32.2-v1",
+  "gift_recipes_sha256": "d38026afb5e74d345f28238c65b26c2b028adb6b1d984bf55ded7127f67a68dc",
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "EDR_102",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113822&locale=en_US",
+        "response_file": "official-EDR_102-en_US.json",
+        "response_sha256": "b9a59c804d53c818ca7fdc1a9861e05ae62ce3bb77a2677bcc919f55d56c5172",
+        "face": {
+          "id": 113822,
+          "collectible": 1,
+          "slug": "113822-treacherous-tormentor",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Allan Arello",
+          "health": 4,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "Treacherous Tormentor",
+          "text": "<b>Battlecry:</b>& <b>Discover</b> a <b>Legendary</b> minion with a <b>Dark Gift</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/991359191acf28135b7d1b31c02fee1cd55ccea850ad90dff13959f5e1916dd2.png",
+          "imageGold": "",
+          "flavorText": "He's so mean, he leaves you on red.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b2d503301ac3123655975a012e44395a48aba22e3361738105c1e27f4dd0ed9.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225,
+            115323
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_102",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113822&locale=zh_CN",
+        "response_file": "official-EDR_102-zh_CN.json",
+        "response_sha256": "7802f4c0ab965f3bd7244d3bb1cecb6289b4f8adc1374e8debbc115a5048afce",
+        "face": {
+          "id": 113822,
+          "collectible": 1,
+          "slug": "113822-treacherous-tormentor",
+          "classId": 12,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Allan Arello",
+          "health": 4,
+          "attack": 5,
+          "manaCost": 4,
+          "name": "狡诈拷问者",
+          "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的<b>传说</b>随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53ef61bfb7eaed4bd0d1e3ad5a586005c604cc6693f365625758c470f1d9f163.png",
+          "imageGold": "",
+          "flavorText": "他太坏了，你看你都快红温了。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b2d503301ac3123655975a012e44395a48aba22e3361738105c1e27f4dd0ed9.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225,
+            115323
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_013",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121153&locale=en_US",
+        "response_file": "official-END_013-en_US.json",
+        "response_sha256": "450801e2859612c8de894687cb3d6c7a0f066c03c4c916fb49119eb3175db304",
+        "face": {
+          "id": 121153,
+          "collectible": 1,
+          "slug": "121153-brutish-endmaw",
+          "classId": null,
+          "multiClassIds": [
+            3,
+            5
+          ],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Trent Kaniuga",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Brutish Endmaw",
+          "text": "<b>Battlecry:</b>& <b>Discover</b> a 1-Cost minion with a <b>Dark Gift</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4796fa9f2c28bbd7c03e19c428de0ac1d105629c3af9baa8c70386e4825ff1a.png",
+          "imageGold": "",
+          "flavorText": "Et tu, Brute?",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3af198893e1f676d14258b382a47ee41ede07b5ef9f24e7c47a622bb2e49539.png",
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "END_013",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121153&locale=zh_CN",
+        "response_file": "official-END_013-zh_CN.json",
+        "response_sha256": "57b28668151fe8543b94427f0a793b2e288734acb59e4003aef47c99a442ff4b",
+        "face": {
+          "id": 121153,
+          "collectible": 1,
+          "slug": "121153-brutish-endmaw",
+          "classId": null,
+          "multiClassIds": [
+            3,
+            5
+          ],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Trent Kaniuga",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "戮屠末日巨口",
+          "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的法力值消耗为（1）的随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37644b4cf67ed09e985c78b6f293cbbe80d8e46409cd70df21df0574517666f7.png",
+          "imageGold": "",
+          "flavorText": "不，戮屠，你也在内吗？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3af198893e1f676d14258b382a47ee41ede07b5ef9f24e7c47a622bb2e49539.png",
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "required_generation_context": true,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": [
+    "EDR_102 neutral4mana5/4Demon nativeBattlecry: Discover collectible Legendary MINION, currenthero+neutral, with one eligible Dark Gift. END_013 Hunter/Paladin3mana3/3Beast nativeBattlecry: Discover printed1cost collectible MINION, currenthero+neutral, with one eligible Dark Gift. Fullraw and original multi-class metadata retained; no name-based class inference.",
+    "Finite DiscoverDarkGift binds the actual host GenerationContext target/mode in the engine and delegates existing DiscoverFromPool with complete10gift inventory. Card callbacks do not read private Game or fabricate an experimental target. Original3offers, distinct feasible gift assignment, original selected pairing, choice waiting, random, ordinary creation costs/grants and deck-top gift delivery all remain owned by existing discovery.",
+    "All10completegift source rows exactly match fixed37.0 source; legacy recipe SHA/version retained. No new gift recipes, keyword programs, special executors or invented combination machinery. Unknown eligible minions fail before RNG and are not filtered by executable coverage. No production formal Standard or constructed.cards pool is created.",
+    "Gift eligibility, empty pool behavior, source exclusion, paired sampling and creation timing follow existing internal contracts pending preciseCN calibration. Formal generation pool and fullreachablecontent remain open; internal executable definitions are not official Standard support."
+  ]
+}

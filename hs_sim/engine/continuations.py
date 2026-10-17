@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .dark_gift_generation import DiscoverDarkGift
+        if type(value) is DiscoverDarkGift and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         from .discovery import HealHeroFromDiscoveredSpell,validate_cost_healing
         if type(value)is HealHeroFromDiscoveredSpell:validate_cost_healing(self.registry,value)
         from .discovery import DeliverAndSummonDiscoveredMinion,validate_selected_copy
