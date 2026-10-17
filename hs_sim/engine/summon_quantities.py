@@ -10,7 +10,7 @@ import json
 from random import Random
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .effects import Effect, _integer, _player, _source
+from .effects import Effect, _behavior, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import attachment_id
 from .entry_strength import AcceptedEntryStrength
@@ -63,13 +63,15 @@ class SummonEntryMaterial:
     deathrattles: tuple[str,...] = ()
     keywords: tuple[Keyword,...] = ()
     dormant_turns: int | None = None
+    on_summon: str | None = None
 
     def __post_init__(self):
         from .model import validate_summon_stats
         if self.dormant_turns is not None:
             _integer(self.dormant_turns, 'pre-entry dormant turns', 1)
-            if self.stats is not None or self.deathrattles or self.keywords:
+            if self.stats is not None or self.deathrattles or self.keywords or self.on_summon is not None:
                 raise ValueError('Forced dormant entry requires its plain printed minion material')
+        if self.on_summon is not None:_behavior(self.on_summon)
         if type(self.card_id) is not str or not self.card_id: raise ValueError('Summon entry requires a card')
         validate_summon_stats(self.stats)
         if type(self.deathrattles) is not tuple or any(type(s) is not str or not s for s in self.deathrattles):
@@ -171,6 +173,7 @@ def validate_material(registry,material):
     if material.dormant_turns is not None and card.permanent_dormancy:
         raise ValueError('Forced timed entry for a permanent dormant carrier is unsupported')
     for s in material.deathrattles: registry.behavior(s)
+    if material.on_summon is not None:registry.behavior(material.on_summon)
 
 
 def validate_cause(state,registry,cause,*,closed=False,original_cast_event=None):
@@ -333,7 +336,7 @@ class CardSummonRecord:
         if [x.index for x in self.deliveries]!=list(range(len(self.deliveries))) or len(self.deliveries)>self.plan.total:raise ValueError('Cropped/reordered summon delivery prefix')
         if self.selected is None and self.deliveries:raise ValueError('Unselected summon cannot deliver')
         material=None if self.selected is None else self.request.materials[self.selected]
-        has_followup=type(material)in(RecruitEntryMaterial,CopyEntryMaterial) and material.on_summon is not None
+        has_followup=type(material)in(RecruitEntryMaterial,CopyEntryMaterial,SummonEntryMaterial) and material.on_summon is not None
         if not has_followup and any(d.followup_started for d in self.deliveries):raise ValueError('Non-recruit delivery borrowed a followup acceptance')
         if has_followup and any(d.outcome=='delivered' and not d.followup_started for d in self.deliveries[:-1]):
             raise ValueError('Recruit advanced before the previous physical followup')
@@ -497,6 +500,11 @@ def deliver(r,effect):
         else:
             from .colossal import enter_minion
             continuation=tuple(enter_minion(r,entity,'summon'))
+            if type(material)is SummonEntryMaterial and material.on_summon is not None:
+                from .named_summon_followups import ContinueNamedMinion
+                from .model import BoardPresenceReference
+                continuation=(*continuation,ContinueNamedMinion(root.id,effect.index,
+                    BoardPresenceReference.capture(r.state,entity.id),material.on_summon))
     if effect.index+1<root.plan.total:continuation=(*continuation,DeliverCardSummon(root.id,effect.index+1))
     return continuation
 
@@ -632,7 +640,8 @@ def walk_work(value):
 def reject_choice_control(options):
     from .recruit_summons import ContinueRecruitedMinion
     from .copy_followups import ContinueCopiedMinion
-    if any(type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion) for x in walk_work(options)):
+    from .named_summon_followups import ContinueNamedMinion
+    if any(type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion) for x in walk_work(options)):
         raise ValueError('Choice branches cannot inject summon control work')
 
 
@@ -654,6 +663,11 @@ def validate_frame_references(state,registry,value):
             validate_grant(scope,registry,item);return
         from .recruit_summons import ContinueRecruitedMinion,followup_record
         from .copy_followups import ContinueCopiedMinion
+        from .named_summon_followups import ContinueNamedMinion,followup_record as named_followup_record
+        if type(item)is ContinueNamedMinion:
+            child,delivery=named_followup_record(scope,registry,item)
+            if child.status!='active' or delivery.followup_started:raise ValueError('Stale original named followup')
+            return
         if type(item)is ContinueRecruitedMinion:
             child,delivery=followup_record(scope,registry,item)
             if child.status!='active' or delivery.followup_started:raise ValueError('Stale original physical followup')
@@ -679,14 +693,15 @@ def validate_frame_references(state,registry,value):
 def pending_followup(root):
     if root.selected is None or not root.deliveries:return False
     material=root.request.materials[root.selected];delivery=root.deliveries[-1]
-    return type(material)in(RecruitEntryMaterial,CopyEntryMaterial) and material.on_summon is not None and (
+    return type(material)in(RecruitEntryMaterial,CopyEntryMaterial,SummonEntryMaterial) and material.on_summon is not None and (
         delivery.outcome=='delivered' and not delivery.followup_started)
 
 
 def validate_queue(current,registry,queue):
     from .recruit_summons import ContinueRecruitedMinion,followup_record
     from .copy_followups import ContinueCopiedMinion
-    control_types=(DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion)
+    from .named_summon_followups import ContinueNamedMinion,followup_record as named_followup_record
+    control_types=(DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion)
     work=list(walk_work(queue))
     for item in work:
         if type(item) is SummonByCard:
@@ -703,11 +718,15 @@ def validate_queue(current,registry,queue):
         expected=[]
         if pending_followup(root):
             material=root.request.materials[root.selected]
-            expected=[ContinueCopiedMinion if type(material)is CopyEntryMaterial else ContinueRecruitedMinion]
+            expected=[ContinueCopiedMinion if type(material)is CopyEntryMaterial else
+                ContinueNamedMinion if type(material)is SummonEntryMaterial else ContinueRecruitedMinion]
         if root.selected is not None and len(root.deliveries)<root.plan.total:expected.append(DeliverCardSummon)
         expected.append(FinishCardSummon)
         if tail!=expected:raise ValueError('Incomplete/duplicated accepted summon continuation')
         for item in controls:
+            if type(item)is ContinueNamedMinion:
+                child,delivery=named_followup_record(current,registry,item)
+                if delivery.index!=len(root.deliveries)-1 or delivery.followup_started:raise ValueError('Wrong original named followup continuation index')
             if type(item) is DeliverCardSummon and item.index!=len(root.deliveries):raise ValueError('Wrong accepted summon continuation index')
             if type(item)is ContinueRecruitedMinion:
                 child,delivery=followup_record(current,registry,item)
@@ -723,6 +742,7 @@ def validate_boundary(game):
     validate_followup_events(game)
     from .recruit_summons import ContinueRecruitedMinion
     from .copy_followups import ContinueCopiedMinion
+    from .named_summon_followups import ContinueNamedMinion
     current=game._state;frame=game._frame
     queue=(*frame.prefix,*frame.continuation) if frame is not None else ()
     validate_queue(current,game.registry,queue)
@@ -732,7 +752,7 @@ def validate_boundary(game):
         original=frame.paid_hand_choice_boundary
         if current.card_summon_history!=original.state.card_summon_history:
             raise ValueError('Summon roots differ from their complete original choice boundary')
-        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion))
+        controls=lambda work:tuple(x for x in work if type(x) in (DeliverCardSummon,FinishCardSummon,ContinueRecruitedMinion,ContinueCopiedMinion,ContinueNamedMinion))
         if controls(queue)!=controls(original.work):
             raise ValueError('Summon continuation differs from complete original owed work')
 
@@ -784,6 +804,8 @@ def validate_closed_events(game):
         if (root.id not in accepted or replace(root,deliveries=(),status='active')!=accepted[root.id] or
             root.status!='active' and closed.get(root.id)!=root or root.status=='active' and root.id in closed):
             raise ValueError('Current summon differs from its complete original event receipts')
+    from .named_summon_followups import validate_events as validate_named_followup_events
+    validate_named_followup_events(game,{**accepted,**closed,**current})
 
 
 def material_from_dict(value):
@@ -853,3 +875,5 @@ def register(mechanics):
         mechanics.register_payload_type(cls)
     for kind,handler in ((SummonByCard,accept),(GrantSummonQuantity,grant),(DeliverCardSummon,deliver),(FinishCardSummon,finish)):
         mechanics.register(kind,handler)
+    from .named_summon_followups import register as register_named_followups
+    register_named_followups(mechanics)

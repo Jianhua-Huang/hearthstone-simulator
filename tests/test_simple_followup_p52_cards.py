@@ -438,12 +438,13 @@ class SimpleFollowupP52Tests(unittest.TestCase):
                 self.assertFalse(calls)
                 self.assertEqual(g.snapshot(), saved)
 
-    def test_gap_traveler_actual_natural_death_summon_cannot_borrow_spell_group_attack_receipt(self):
+    def test_historical_traveler_probe_cannot_borrow_spell_group_but_native_deathrattle_is_registered(self):
         g = self.game((TEST + 'kill',), board=(TEST + 'traveler_gap',), enemy=(YETI,))
         saved = g.snapshot()
         with self.assertRaisesRegex((ResolutionError, ValueError), 'active physical spell'):
             self.play(g, TEST + 'kill', self.first(g, TEST + 'traveler_gap', 'board').id)
         self.assertEqual(g.snapshot(), saved)
+        self.assertIsNotNone(g.registry.card(TRAVELER).deathrattle)
 
     def test_gap_envoy_actual_stored_arbitrary_druid_pool_transform_rejects_minion_tier_only_contract(self):
         g = self.game((TEST + 'transform_gap',), deck=(FIRE,))
