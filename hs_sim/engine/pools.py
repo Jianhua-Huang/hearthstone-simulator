@@ -868,10 +868,46 @@ def summon_from_pool(r,effect):
     return (Summon(effect.player_id,card_id,position=effect.position),)
 
 
+@dataclass(frozen=True)
+class FillBoardFromPool(Effect):
+    """Capture actual free slots once, then use the attributed pool batch."""
+    player_id: int
+    pool_id: str
+    query: PoolQuery
+    source_id: int
+    cause: SummonCause
+    policy: GenerationPolicy = GenerationPolicy()
+
+    def __post_init__(self):
+        _player(self.player_id); integer(self.source_id,'fill source',1)
+        if type(self.cause)is not SummonCause:
+            raise ValueError('Pool fill requires original card attribution')
+        self.cause.__post_init__()
+        if (self.cause.source.entity_id!=self.source_id or self.cause.source.kind!=CardType.MINION
+                or self.cause.origin!='card_effect'):
+            raise ValueError('Pool fill requires its actual non-cast minion source')
+        if (type(self.query)is not PoolQuery or self.query.kinds!=(CardType.MINION,)
+                or self.query.collectible is not True):
+            raise ValueError('Pool fill requires a complete collectible minion query')
+        self.request().__post_init__()
+
+    def request(self):
+        return GenerateFromPool(self.player_id,self.pool_id,self.query,source_id=self.source_id,
+            destination='board',cause=self.cause,policy=self.policy)
+
+
+def fill_board_from_pool(r,effect):
+    effect.__post_init__()
+    request=effect.request()
+    candidates=generation_candidates(r,request)
+    from .pool_summons import accept_batch
+    return accept_batch(r,request,candidates,fill_board=True)
+
+
 def validate_summon_boundary(game):
     if game._frame is None:return
     def check(work):
-        if type(work) is not SummonFromPool:return
+        if type(work) not in(SummonFromPool,FillBoardFromPool):return
         work.__post_init__()
         if type(game._generation_context) is not GenerationContext:
             raise ValueError('Pool summon requires a generation context')
@@ -893,6 +929,7 @@ def register_generation(mechanics):
     mechanics.register(GenerateFromCandidates, generate_from_candidates)
     mechanics.register(SummonFromCandidates, summon_from_candidates)
     mechanics.register(SummonFromPool, summon_from_pool)
+    mechanics.register(FillBoardFromPool, fill_board_from_pool)
     from .discovery import register
     register(mechanics)
     from .pool_offers import register as register_offers

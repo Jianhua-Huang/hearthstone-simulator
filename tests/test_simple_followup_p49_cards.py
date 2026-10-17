@@ -244,10 +244,11 @@ class SimpleFollowupP49Tests(unittest.TestCase):
         self.assertIsNotNone(g.registry.card('JAIL_445').on_play)
         raw=next(x['record']for x in load_batch()['skipped']if x['record']['id']=='JAIL_445');self.assertEqual(raw['tags']['349'],1)
 
-    def test_real_fill_seven_probe_does_not_fill_actual_eight_capacity(self):
+    def test_historical_fixed_seven_probe_stays_distinct_from_actual_capacity_fill(self):
         g=self.game((TEST+'fill_probe',),members=(ONE,),rules=Ruleset(max_board=8));self.play(g,TEST+'fill_probe')
         self.assertEqual(len(g.state.players[2].board),7);self.assertEqual(g.ruleset.max_board,8)
-        self.assertNotIn('TIME_872',g.registry.cards)
+        self.assertIn('TIME_872',SKIPPED)  # Original P49 deferral remains historical.
+        self.assertIsNotNone(g.registry.card('TIME_872').battlecry)
 
     def test_real_native_kindred_sample_callback_drops_required_original_activation(self):
         g=self.game((TEST+'beast',TEST+'kindred_probe'),enemy=(YETI,YETI),pool=False,context=None)

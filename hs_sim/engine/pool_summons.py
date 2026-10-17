@@ -12,7 +12,7 @@ from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate
 from .producer_amounts import AcceptedProducerAmount,ProducerAmountDecision,capture as capture_amount,validate_record as validate_amount_record,request_profile
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
-from .model import CardAbilityCondition,CardClass,CardType,GameState,Keyword,Rarity,SpellSchool,validate_end_turn_rng
+from .model import CardAbilityCondition,CardClass,CardType,GameState,Keyword,Rarity,SpellSchool,Zone,validate_end_turn_rng
 from .pools import GenerationContext,GenerationPolicy,PoolMember,PoolQuery,resolve_candidates,sample_candidates
 from .summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial,accept as accept_entry,validate_cause,validate_material
 
@@ -99,6 +99,37 @@ class PoolSummonEntryLink:
 
 
 @dataclass(frozen=True)
+class PoolFillCapacity:
+    player_id:int
+    limit:int
+    occupants:tuple[SourceAllocationFact,...]
+
+    def __post_init__(self):
+        _player(self.player_id);_integer(self.limit,'original board limit',1)
+        if (type(self.occupants)is not tuple or any(type(a)is not SourceAllocationFact for a in self.occupants)
+                or len(self.occupants)>self.limit or len({a.entity_id for a in self.occupants})!=len(self.occupants)):
+            raise ValueError('Fill capacity requires its complete original physical occupants')
+        for a in self.occupants:
+            a.__post_init__()
+            if a.zone!=Zone.BOARD or a.controller!=self.player_id or a.kind not in(CardType.MINION,CardType.LOCATION):
+                raise ValueError('Fill capacity borrowed a nonoccupant or another recipient')
+
+    @property
+    def remaining(self):return self.limit-len(self.occupants)
+
+    def validate_in_state(self,state,registry,*,limit=None,closed=False):
+        self.__post_init__()
+        if limit is not None and self.limit!=limit:
+            raise ValueError('Fill capacity changed the actual ruleset board limit')
+        for a in self.occupants:validate_allocation(state,registry,a,closed=closed)
+
+    @classmethod
+    def capture(cls,r,player_id):
+        return cls(player_id,r.rules.max_board,tuple(SourceAllocationFact.capture(r.state,r.state.entities[i])
+            for i in r.player(player_id).board))
+
+
+@dataclass(frozen=True)
 class PoolSummonBatchSpec:
     cause:SummonCause
     basis:PoolSummonBasis
@@ -106,6 +137,7 @@ class PoolSummonBatchSpec:
     replacement:bool
     producer_profile_id:str|None=None
     position:int|None=None
+    fill_capacity:PoolFillCapacity|None=None
     def __post_init__(self):
         if type(self.cause)is not SummonCause or type(self.basis)is not PoolSummonBasis:raise ValueError('Typed attributed batch producer required')
         self.cause.__post_init__();self.basis.__post_init__();_integer(self.count,'original batch count',0)
@@ -114,6 +146,13 @@ class PoolSummonBatchSpec:
         if type(self.replacement)is not bool:raise ValueError('Typed batch replacement required')
         if self.producer_profile_id is not None and (type(self.producer_profile_id)is not str or not self.producer_profile_id):raise ValueError('Named logical batch profile required')
         if self.position is not None:_integer(self.position,'original pool batch board position',0)
+        if self.fill_capacity is not None:
+            if type(self.fill_capacity)is not PoolFillCapacity:
+                raise ValueError('Fill producer requires its typed original capacity')
+            self.fill_capacity.__post_init__()
+            if (self.fill_capacity.player_id!=self.basis.player_id or self.count!=self.fill_capacity.remaining
+                    or not self.replacement or self.producer_profile_id is not None or self.position is not None):
+                raise ValueError('Fill producer changed its original free-slot count or profile')
 
 
 @dataclass(frozen=True)
@@ -188,14 +227,20 @@ def emit(r,kind,root):
         amount=len(root.selected)if kind=='pool_summon_accepted'else len(root.entry_root_ids),batch_id=root.id,root=json_record(root),_capture=False)
 
 
-def accept_batch(r,effect,candidates):
+def accept_batch(r,effect,candidates,*,fill_board=False):
+    if type(fill_board)is not bool:raise ValueError('Fill policy requires a boolean')
     validate_cause(r.state,r.registry,effect.cause)
     if effect.count>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Pool summon batch exceeds engineering budget')
     basis=PoolSummonBasis.capture(r,effect,candidates);validate_basis(r.state,r.registry,basis)
+    capacity=PoolFillCapacity.capture(r,effect.player_id)if fill_board else None
+    if capacity is not None:
+        capacity.validate_in_state(r.state,r.registry,limit=r.rules.max_board)
+        if effect.producer_profile_id is not None:raise ValueError('Fill cannot borrow a logical amount profile')
     amount=capture_amount(r,effect)
-    count=effect.count if amount is None else amount.total
+    base_count=effect.count if capacity is None else capacity.remaining
+    count=base_count if amount is None else amount.total
     if count>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Derived producer amount exceeds engineering budget')
-    spec=PoolSummonBatchSpec(effect.cause,basis,effect.count,effect.replacement,effect.producer_profile_id,effect.board_position)
+    spec=PoolSummonBatchSpec(effect.cause,basis,base_count,effect.replacement,effect.producer_profile_id,effect.board_position,capacity)
     before=r.game._rng.getstate()
     selected=sample_candidates(r.game._rng,candidates,count,replacement=effect.replacement)
     root=PoolSummonBatchRecord(r.state.next_pool_summon_id,len(r.game._events),r.state.turn,r.state.action_number,
@@ -254,6 +299,7 @@ def validate_link(state,root,*,closed=False):
 def validate_record(state,registry,root,*,closed=False,children=None):
     validate_amount_record(registry,root)
     root.__post_init__();validate_cause(state,registry,root.spec.cause,closed=closed);validate_basis(state,registry,root.spec.basis,closed=closed)
+    if root.spec.fill_capacity is not None:root.spec.fill_capacity.validate_in_state(state,registry,closed=closed)
     fact=root.producer_amount
     if fact is not None and (fact.next_entity_id>state.next_entity_id or fact.next_attachment_id>state.next_attachment_id or fact.next_order>state.next_order):
         raise ValueError('Producer amount carries future original allocation counters')
@@ -305,13 +351,14 @@ def validate_queue(state,registry,queue):
 
 
 def validate_frame_references(state,registry,value):
-    from .pools import GenerateFromPool,SummonFromCandidates,SummonFromPool
+    from .pools import GenerateFromPool,SummonFromCandidates,SummonFromPool,FillBoardFromPool
     from .registry import RuleContext
     from .paid_hand_acceptance import PaidHandChoiceBoundaryProof
     from .continuations import FrameCodec
     def visit(item,scope,depth):
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Pool summon frame depth exceeded')
-        if type(item)in(GenerateFromPool,SummonFromCandidates,SummonFromPool)and item.cause is not None:
+        if type(item)in(GenerateFromPool,SummonFromCandidates,SummonFromPool,FillBoardFromPool)and item.cause is not None:
+            item.__post_init__()
             if type(item)is GenerateFromPool:request_profile(registry,item)
             validate_cause(scope,registry,item.cause)
             if item.source_id is not None and item.source_id not in scope.entities:raise ValueError('Queued attributed producer has an unknown original query source')
@@ -338,6 +385,9 @@ def validate_frame_references(state,registry,value):
 
 
 def validate_boundary(game):
+    for root in game._state.pool_summon_history:
+        if root.spec.fill_capacity is not None:
+            root.spec.fill_capacity.validate_in_state(game._state,game.registry,limit=game.ruleset.max_board)
     frame=game._frame;queue=(*frame.prefix,*frame.continuation)if frame else()
     validate_queue(game._state,game.registry,queue)
     if frame:
@@ -361,6 +411,8 @@ def validate_closed_events(game):
         data=dict(event.data)
         if set(data)!= {'batch_id','root'}or type(data['root'])is not str:raise ValueError('Complete original pool producer event required')
         root=from_dict(PoolSummonBatchRecord,json.loads(data['root']));validate_record(state,registry,root,closed=True,children=children)
+        if root.spec.fill_capacity is not None:
+            root.spec.fill_capacity.validate_in_state(state,registry,limit=game.ruleset.max_board,closed=True)
         if (data['batch_id']!=root.id or root.action>event.action or root.event_cursor>=event.sequence or
             (event.source_id,event.player_id)!=(root.spec.cause.source.entity_id,root.spec.basis.player_id)):
             raise ValueError('Pool event changed original producer/event domain')
@@ -418,6 +470,10 @@ def from_dict(cls,value):
         row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
     elif cls is PoolSummonBatchSpec:
         row['cause']=entry_from_dict(SummonCause,row['cause']);row['basis']=from_dict(PoolSummonBasis,row['basis'])
+        if row['fill_capacity']is not None:
+            cap=_row(row['fill_capacity'],PoolFillCapacity)
+            cap['occupants']=tuple(allocation_from_dict(a)for a in cap['occupants'])
+            row['fill_capacity']=PoolFillCapacity(**cap)
     elif cls is PoolSummonBatchRecord:
         row['spec']=from_dict(PoolSummonBatchSpec,row['spec']);row['selected']=tuple(row['selected']);row['entry_root_ids']=tuple(row['entry_root_ids'])
         from .producer_amounts import from_dict as amount_from_dict
@@ -432,5 +488,5 @@ def rows_from_dict(value):
 
 
 def register(mechanics):
-    for cls in (PoolSummonBasis,PoolSummonEntryLink,PoolSummonBatchSpec,PoolSummonBatchRecord,GenerationContext,AcceptedProducerAmount,ProducerAmountDecision):mechanics.register_payload_type(cls)
+    for cls in (PoolSummonBasis,PoolFillCapacity,PoolSummonEntryLink,PoolSummonBatchSpec,PoolSummonBatchRecord,GenerationContext,AcceptedProducerAmount,ProducerAmountDecision):mechanics.register_payload_type(cls)
     mechanics.register(StartPoolSummonEntry,start_entry);mechanics.register(FinishPoolSummonBatch,finish)
