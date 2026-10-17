@@ -1,0 +1,2961 @@
+{
+  "batch": "P59",
+  "assignment_version": "manifest-01",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_553",
+        "dbf_id": 122871,
+        "name": "艾比西安",
+        "name_en": "Ebyssian",
+        "text": "<b>战吼：</b>在本局对战中，你的龙拥有<b>突袭</b>。<i>（当本牌在你手中时，使用一张龙牌即可将本牌变为12/12的龙！）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Your Dragons\nhave <b>Rush</b> this game.\n<i>(While in hand, play a Dragon to\nbecome a 12/12 Dragon!)</i>",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122872,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "039182d0016780300992c0558bba87722cd1fa9b1779420b8195ba5c2e3f4dd5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_553",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_553t",
+        "dbf_id": 122872,
+        "name": "艾比西安",
+        "name_en": "Ebyssian",
+        "text": "<b>战吼：</b>在本局对战中，你的龙拥有\n<b>突袭</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Your Dragons\nhave <b>Rush</b> this game.",
+        "cost": 7,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "875f5fbfecadb92e71c3fa4f76c6b34b47392a1db44caca2a8acde88f152f4a9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_553t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_442",
+        "dbf_id": 117665,
+        "name": "淹没的地图",
+        "name_en": "Submerged Map",
+        "text": "<b>发现</b>一张鱼人牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "text_en": "[x]<b>Discover</b> a Murloc.\nIf you play it this turn, also\npick one of the others.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "4c5b1090869c27a8f04b89aca13a214070666aaa842fabc44d8c4cbfac7de4c7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_442",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_900",
+        "dbf_id": 117684,
+        "name": "虫巢地图",
+        "name_en": "Hive Map",
+        "text": "<b>发现</b>一张邪能法术牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "text_en": "[x]<b>Discover</b> a Fel spell.\nIf you play it this turn, also\npick one of the others.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "31c1d125bb59b32fb2c3b15d697655a551a0f9c1290c66fdbc3a9d2ecd70b696",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_900",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_515",
+        "dbf_id": 117697,
+        "name": "异教地图",
+        "name_en": "Cultist Map",
+        "text": "从你的牌库中<b>发现</b>一张牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "text_en": "<b>Discover</b> a card from your deck. If you play it this turn, also pick one of the others.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "be2c6786455314d92f14cac6c378195d14770e024e9c2fb675a84923a7bac6db",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_515",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "TLC_452t3",
+        "dbf_id": 121298,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "text_en": "<b>Battlecry:</b> Summon two 3/3 Undead with <b>Taunt</b>\nand <b>Reborn</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d35781aca426c6c80581b4bff54a7a0f51c42fe3c832d2e1ccdc6423e12d3c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t6",
+        "dbf_id": 121301,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "text_en": "[x]<b>Battlecry:</b> Summon\nfour 2/2 Elementals\nwith <b>Taunt</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e44430013bb264bdaa3c3dde826cfac632de1a63efe16b6daaeb804987fae525",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t28",
+        "dbf_id": 121323,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤两个6/6的地狱火。",
+        "text_en": "<b>Battlecry:</b> Summon two 6/6 Infernals.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c066fc4c7fcc6418bf1f68bd7a9c0e4c927cbf51f2e92f27926d1f1be89d89c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t28",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737t2",
+        "dbf_id": 98288,
+        "name": "兵主的仆从",
+        "name_en": "Servant of the Primus",
+        "text": "<b>嘲讽</b>，<b>复生</b>",
+        "text_en": "<b>Taunt</b>\n<b>Reborn</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "REBORN": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "5dee105ed4642872081c7f8f85aa34d2b8c64d9b8054db1edd637df8b8ae3cc4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862t4",
+        "dbf_id": 98348,
+        "name": "晶石元素",
+        "name_en": "Crystal Elemental",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "4513d5f423155944086dd6091060cb1c8fd4ee9dc9f565e8bb038abe875e0bf6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_960t5",
+        "dbf_id": 101510,
+        "name": "邪焰地狱火",
+        "name_en": "Felblaze Infernal",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1858,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "25c469fa18fe7091dec47399e2501e2ce979d2ce1ea86db82b1c723c8b41459b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_960t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_452",
+        "dbf_id": 117956,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "在你的手牌中时，\n随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "text_en": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9868e289bebe5cb9e97843a132f961f401dd0961ce29d714a886144fe14def70",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737",
+        "dbf_id": 98285,
+        "name": "兵主",
+        "name_en": "The Primus",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, <b>Discover</b> a card with that Rune.",
+        "cost": 8,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f582eb38fa16da10a658553821a004e68bb786f4b2b630bf5ee38449d71d6afb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_737",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862",
+        "dbf_id": 98344,
+        "name": "翠绿之星阿古斯",
+        "name_en": "Argus, the Emerald Star",
+        "text": "<b>泰坦</b>\n本随从左边的随从均拥有<b>突袭</b>，本随从右边的随从均拥有<b>吸血</b>。",
+        "text_en": "[x]<b>Titan</b>\nMinions to the left of this\nhave <b>Rush</b>, and ones to the\nright have <b>Lifesteal</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a8d6bd64704ba259572a62afa4784bd87148f772e811a00b784886c2cd299c08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_862",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_960",
+        "dbf_id": 97702,
+        "name": "灭世泰坦萨格拉斯",
+        "name_en": "Sargeras, the Destroyer",
+        "text": "<b>泰坦</b>\n<b>战吼：</b>打开一道传送门，每回合召唤两个3/2的小鬼。",
+        "text_en": "[x]<b>Titan</b>\n<b>Battlecry:</b> Open a portal\nthat summons two 3/2\nImps each turn.",
+        "cost": 9,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "801483b8c1a206866fd7818230741d67154443e666836bf3aea3d7c40179ac08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_960",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737t1",
+        "dbf_id": 98287,
+        "name": "邪恶符文",
+        "name_en": "Runes of the Unholy",
+        "text": "召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "text_en": "Summon two 3/3 Undead with <b>Taunt</b>\nand <b>Reborn</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "e5a4bc96af2da54714c3b6b4a10709721e87c6d7c9c7cef5776ee37ae1f3598d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862t3",
+        "dbf_id": 98347,
+        "name": "阿古尼特大军",
+        "name_en": "Argunite Army",
+        "text": "召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "text_en": "Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "66232003d7ae8f548804620661695e6b4a5ebc4fc2b305eeb1d8552e054ce82d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_960t3",
+        "dbf_id": 97708,
+        "name": "地狱火！",
+        "name_en": "Inferno!",
+        "text": "从扭曲虚空中召唤两个6/6的\n地狱火。",
+        "text_en": "Summon two 6/6 Infernals from the Twisting Nether.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "dec3996263a75a1f5a4140ebc9d98ebb55807542418ca61fda0da188ba320cea",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_960t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_553",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122871-zh_CN.json",
+      "response_sha256": "a441ee7c3e51c1f7c6e35a1ee51044a6326cc8062bcf4929835f737938bbb6bd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122871&locale=zh_CN",
+      "face": {
+        "id": 122871,
+        "collectible": 1,
+        "slug": "122871-ebyssian",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "艾比西安",
+        "text": "<b>战吼：</b>在本局对战中，你的龙拥有<b>突袭</b>。<i>（当本牌在你手中时，使用一张龙牌即可将本牌变为12/12的龙！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0afc6fbb71d60b72a4fe62c5ea900bb1fc0b6f059d35955711bb86c3a901f78f.png",
+        "imageGold": "",
+        "flavorText": "我叫什么？我叫艾，呃，嘿嘿，叫……嘿叫！对，我叫黑角。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/65b2cfe97c82621f78a9a59cd4cba385eed4bfdac071bb1f5e94fe088cdd0140.png",
+        "childIds": [
+          122872
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122871&locale=zh_CN",
+        "sha256": "a441ee7c3e51c1f7c6e35a1ee51044a6326cc8062bcf4929835f737938bbb6bd",
+        "bytes": 917,
+        "observed_at": "2026-10-17T09:51:49.232558+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_553",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122871-en_US.json",
+      "response_sha256": "9bb5221ec103dea1f81c15af0a16e43aec54414b597ff4ed4416c44628ef4271",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122871&locale=en_US",
+      "face": {
+        "id": 122871,
+        "collectible": 1,
+        "slug": "122871-ebyssian",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Ebyssian",
+        "text": "<b>Battlecry:</b> Your Dragons have <b>Rush</b> this game. <i>(While in hand, play a Dragon to become a 12/12 Dragon!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/80345548646878e824cd87ec204c9d54f5793f3713c887dcaf0783223cced883.png",
+        "imageGold": "",
+        "flavorText": "What's my name? Oh, uh, it's... Eb...onhorn. Yeah. Ebonhorn.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/65b2cfe97c82621f78a9a59cd4cba385eed4bfdac071bb1f5e94fe088cdd0140.png",
+        "childIds": [
+          122872
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122871&locale=en_US",
+        "sha256": "9bb5221ec103dea1f81c15af0a16e43aec54414b597ff4ed4416c44628ef4271",
+        "bytes": 853,
+        "observed_at": "2026-10-17T09:48:36.333288+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_553t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122872-zh_CN.json",
+      "response_sha256": "0073878f9ab442554297ba4a590674f36ce0a4b070e0156cda9657f1d506c03c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122872&locale=zh_CN",
+      "face": {
+        "id": 122872,
+        "collectible": 0,
+        "slug": "122872-ebyssian",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vlad Botos",
+        "health": 12,
+        "attack": 12,
+        "manaCost": 7,
+        "name": "艾比西安",
+        "text": "<b>战吼：</b>在本局对战中，你的龙拥有 <b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/feb1a1bf6b6c9c6f6b7b31c598633dfe37710012215993bdead064b156407bf3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122871,
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122872&locale=zh_CN",
+        "sha256": "0073878f9ab442554297ba4a590674f36ce0a4b070e0156cda9657f1d506c03c",
+        "bytes": 642,
+        "observed_at": "2026-10-17T09:51:49.194699+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_553t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122872-en_US.json",
+      "response_sha256": "0fa76feb889662e8e45953ccc4bb3fe96943e8ae61e18f1e685b5c80b771daf8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122872&locale=en_US",
+      "face": {
+        "id": 122872,
+        "collectible": 0,
+        "slug": "122872-ebyssian",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vlad Botos",
+        "health": 12,
+        "attack": 12,
+        "manaCost": 7,
+        "name": "Ebyssian",
+        "text": "<b>Battlecry:</b> Your Dragons have <b>Rush</b> this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce844afe3719502b5f4476ba38682d563eee1e91df9f88682acc465510e86ae1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122871,
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122872&locale=en_US",
+        "sha256": "0fa76feb889662e8e45953ccc4bb3fe96943e8ae61e18f1e685b5c80b771daf8",
+        "bytes": 627,
+        "observed_at": "2026-10-17T09:48:36.502465+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_442",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117665-zh_CN.json",
+      "response_sha256": "871727d544d8a501f3f12945934c008354a8d22c1542f2ed2c5fd72a85032e22",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117665&locale=zh_CN",
+      "face": {
+        "id": 117665,
+        "collectible": 1,
+        "slug": "117665-submerged-map",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 1,
+        "name": "淹没的地图",
+        "text": "<b>发现</b>一张鱼人牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57e2c7588ccdea841f8b34401b26bd299beab00cd7d85f945c005e2cbd08b374.png",
+        "imageGold": "",
+        "flavorText": "是的，这条路线直通拉特维亚。你能在水下屏气多久呢？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f02988d36a35520a4eda2fc128a9f65db608f549232cf03e852fe9a915b6fcb0.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117665&locale=zh_CN",
+        "sha256": "871727d544d8a501f3f12945934c008354a8d22c1542f2ed2c5fd72a85032e22",
+        "bytes": 817,
+        "observed_at": "2026-10-17T09:51:49.187384+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_442",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117665-en_US.json",
+      "response_sha256": "327e606d510368412f68529c92517c5ccd7286294c6a16c9a3d01d28d1119ce3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117665&locale=en_US",
+      "face": {
+        "id": 117665,
+        "collectible": 1,
+        "slug": "117665-submerged-map",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 1,
+        "name": "Submerged Map",
+        "text": "<b>Discover</b> a Murloc. If you play it this turn, also pick one of the others.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8523e014e9c3ebe4e4ac89457036eb66c3fb065bf1383093eb51c40e791c61e0.png",
+        "imageGold": "",
+        "flavorText": "Sure, it leads straight to Latorvia. How long can you hold your breath?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f02988d36a35520a4eda2fc128a9f65db608f549232cf03e852fe9a915b6fcb0.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117665&locale=en_US",
+        "sha256": "327e606d510368412f68529c92517c5ccd7286294c6a16c9a3d01d28d1119ce3",
+        "bytes": 785,
+        "observed_at": "2026-10-17T09:48:36.599274+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_900",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117684-zh_CN.json",
+      "response_sha256": "ff9edc75c22600e22cbc15a0e7a5fb773701fdf2e8edf43f39c9a2a0fa96df19",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117684&locale=zh_CN",
+      "face": {
+        "id": 117684,
+        "collectible": 1,
+        "slug": "117684-hive-map",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 1,
+        "name": "虫巢地图",
+        "text": "<b>发现</b>一张邪能法术牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/67506f975e70828b11d696d47a1d7ad8e0976934cec71b60a1818006100545c9.png",
+        "imageGold": "",
+        "flavorText": "地图本身完美，只是这个地点你永远永远永远都不会去。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7bc1dbcb98c4d056134279678eec3f566dbabe5075046950c6f26617dd4bef2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117684&locale=zh_CN",
+        "sha256": "ff9edc75c22600e22cbc15a0e7a5fb773701fdf2e8edf43f39c9a2a0fa96df19",
+        "bytes": 820,
+        "observed_at": "2026-10-17T09:51:48.939001+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_900",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117684-en_US.json",
+      "response_sha256": "ea2ff573b4b211376ff5915fa6ffda938996dd58ba2c00fbb21de45185e1254d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117684&locale=en_US",
+      "face": {
+        "id": 117684,
+        "collectible": 1,
+        "slug": "117684-hive-map",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 1,
+        "name": "Hive Map",
+        "text": "<b>Discover</b> a Fel spell. If you play it this turn, also pick one of the others.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb2c0798b6b23cf3a5ddbf0b3f03b6310f21c06198f0cb2ba6c406da96b0adc7.png",
+        "imageGold": "",
+        "flavorText": "The perfect map of where to never ever ever ever ever go.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7bc1dbcb98c4d056134279678eec3f566dbabe5075046950c6f26617dd4bef2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117684&locale=en_US",
+        "sha256": "ea2ff573b4b211376ff5915fa6ffda938996dd58ba2c00fbb21de45185e1254d",
+        "bytes": 769,
+        "observed_at": "2026-10-17T09:48:36.495477+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_515",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117697-zh_CN.json",
+      "response_sha256": "23dfb1fda6731a0a5d4572cf7413519aa115cf274bdf588bce00b01e8bee2eb9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117697&locale=zh_CN",
+      "face": {
+        "id": 117697,
+        "collectible": 1,
+        "slug": "117697-cultist-map",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 2,
+        "name": "异教地图",
+        "text": "从你的牌库中<b>发现</b>一张牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd146225dd1b8acfc2ce5c2e6bf02b995e779c5be42516ed59acb9a088d2e39d.png",
+        "imageGold": "",
+        "flavorText": "究竟是隐甲龟的侦查技艺确实精湛？还是说诅咒教派离谱过于离谱，把他们的机密地图到处乱丢？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4538ecc40108cf7b92209f159d878ea7daaaefd2a8a9da1f8039710b47461df9.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117697&locale=zh_CN",
+        "sha256": "23dfb1fda6731a0a5d4572cf7413519aa115cf274bdf588bce00b01e8bee2eb9",
+        "bytes": 903,
+        "observed_at": "2026-10-17T09:51:49.812753+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_515",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117697-en_US.json",
+      "response_sha256": "616936e8b9a034ff1461d195ecce6537b45dbb07ec13012f24ada5b7519c151a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117697&locale=en_US",
+      "face": {
+        "id": 117697,
+        "collectible": 1,
+        "slug": "117697-cultist-map",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 2,
+        "name": "Cultist Map",
+        "text": "<b>Discover</b> a card from your deck. If you play it this turn, also pick one of the others.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/299b5e7dbe4578acfb2db12de69eda108019a4ff6097e1b5de697865ec54bb0c.png",
+        "imageGold": "",
+        "flavorText": "Are the Shrouded Shells actually great trackers, or are the Cult of the Damned just REALLY bad about leaving secret maps lying around?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4538ecc40108cf7b92209f159d878ea7daaaefd2a8a9da1f8039710b47461df9.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117697&locale=en_US",
+        "sha256": "616936e8b9a034ff1461d195ecce6537b45dbb07ec13012f24ada5b7519c151a",
+        "bytes": 882,
+        "observed_at": "2026-10-17T09:48:37.037393+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121298-zh_CN.json",
+      "response_sha256": "2203b75486f3eda94f244f63b61b63c547748d0645c7eb9cc5196abcc600e8aa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=zh_CN",
+      "face": {
+        "id": 121298,
+        "collectible": 0,
+        "slug": "121298-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca663bd91469f4aa64ca01013b95be33464a53c13335e4354c452bdeb7aac034.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          78,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=zh_CN",
+        "sha256": "2203b75486f3eda94f244f63b61b63c547748d0645c7eb9cc5196abcc600e8aa",
+        "bytes": 656,
+        "observed_at": "2026-10-17T07:25:35.067555+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121298-en_US.json",
+      "response_sha256": "97168aac11be5b6951c47b41f6bd8a9ae14ed74fb777b5f9adfe0eeba61db282",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=en_US",
+      "face": {
+        "id": 121298,
+        "collectible": 0,
+        "slug": "121298-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon two 3/3 Undead with <b>Taunt</b> and <b>Reborn</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2059224db8707cab5107fcdbeaa5cb3182d5e41a5f73a43ee507129ea859ef44.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          78,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=en_US",
+        "sha256": "97168aac11be5b6951c47b41f6bd8a9ae14ed74fb777b5f9adfe0eeba61db282",
+        "bytes": 641,
+        "observed_at": "2026-10-17T07:25:35.025618+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121301-zh_CN.json",
+      "response_sha256": "10cb5f07194bdd446806ea501f150f2faae452adc7f89a9f95f234a7b21fad24",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=zh_CN",
+      "face": {
+        "id": 121301,
+        "collectible": 0,
+        "slug": "121301-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f76be7bbf925dfa143ba57405e20c38a8d14b38a0dd5d2211e735b3226e31d8c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=zh_CN",
+        "sha256": "10cb5f07194bdd446806ea501f150f2faae452adc7f89a9f95f234a7b21fad24",
+        "bytes": 637,
+        "observed_at": "2026-10-17T07:25:35.989276+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121301-en_US.json",
+      "response_sha256": "6d6672688409c4d8993f81d42fb13aeb5c52247e17d99a68a15133cb6dbdbb77",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=en_US",
+      "face": {
+        "id": 121301,
+        "collectible": 0,
+        "slug": "121301-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/11e910cb50542f1aefe31600be8b4afab7ffd987d3d1092a6c005f4143e2eb98.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=en_US",
+        "sha256": "6d6672688409c4d8993f81d42fb13aeb5c52247e17d99a68a15133cb6dbdbb77",
+        "bytes": 625,
+        "observed_at": "2026-10-17T07:25:35.930930+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t28",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121323-zh_CN.json",
+      "response_sha256": "43c897d33a859c8d37057cbc8f6ce7767232ba5c4a72be2b499f2e6bb90c432f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=zh_CN",
+      "face": {
+        "id": 121323,
+        "collectible": 0,
+        "slug": "121323-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤两个6/6的地狱火。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17c5ef289edfd14f489ae618c266064fbab7bf7205a1362cb2e891f06502e70b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=zh_CN",
+        "sha256": "43c897d33a859c8d37057cbc8f6ce7767232ba5c4a72be2b499f2e6bb90c432f",
+        "bytes": 616,
+        "observed_at": "2026-10-17T07:25:37.758209+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t28",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121323-en_US.json",
+      "response_sha256": "c4f1613441b76ca11e4c88375a0103e5c903c73b9df3f321b153ffe6dfab3065",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=en_US",
+      "face": {
+        "id": 121323,
+        "collectible": 0,
+        "slug": "121323-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon two 6/6 Infernals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a42484cbf3e612d62282b3c76ad4147a790ce16ddd6dd4f7d821b61cc5ef962.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=en_US",
+        "sha256": "c4f1613441b76ca11e4c88375a0103e5c903c73b9df3f321b153ffe6dfab3065",
+        "bytes": 603,
+        "observed_at": "2026-10-17T07:25:38.060311+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98288-zh_CN.json",
+      "response_sha256": "ee613d9fd9ede8e6573ccbe1c505329b649f76a78d2462c11e76a644dacdfb37",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=zh_CN",
+      "face": {
+        "id": 98288,
+        "collectible": 0,
+        "slug": "98288-servant-of-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "兵主的仆从",
+        "text": "<b>嘲讽</b>，<b>复生</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a0c08f63c6975135665e7adf485dd082c4460f3174ff335ea53843ae9d1f517.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=zh_CN",
+        "sha256": "ee613d9fd9ede8e6573ccbe1c505329b649f76a78d2462c11e76a644dacdfb37",
+        "bytes": 617,
+        "observed_at": "2026-10-17T09:51:49.899988+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98288-en_US.json",
+      "response_sha256": "1892881e923ce9b684424fd6c7affb627c551113edb976e3fef773ce7d5c4589",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=en_US",
+      "face": {
+        "id": 98288,
+        "collectible": 0,
+        "slug": "98288-servant-of-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Servant of the Primus",
+        "text": "<b>Taunt</b> <b>Reborn</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eefa51314c4c5c437eb91315a0f25cb16527078730ba48979b831761957ba867.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=en_US",
+        "sha256": "1892881e923ce9b684424fd6c7affb627c551113edb976e3fef773ce7d5c4589",
+        "bytes": 620,
+        "observed_at": "2026-10-17T09:50:26.852623+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98348-zh_CN.json",
+      "response_sha256": "67aea1fd761385a858df5cd7aedb4b11ac5a43e4fc3fe52babfeb3d3184e7973",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=zh_CN",
+      "face": {
+        "id": 98348,
+        "collectible": 0,
+        "slug": "98348-crystal-elemental",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "晶石元素",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aa806fcd57780107804730cebe40638f25e93078096bb8c131fea3f36844223.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=zh_CN",
+        "sha256": "67aea1fd761385a858df5cd7aedb4b11ac5a43e4fc3fe52babfeb3d3184e7973",
+        "bytes": 591,
+        "observed_at": "2026-10-17T09:51:50.415249+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98348-en_US.json",
+      "response_sha256": "e37c06332229d7f0b5b893a3d4c4b6599ddf6e5165130407edc879c13a75d52f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=en_US",
+      "face": {
+        "id": 98348,
+        "collectible": 0,
+        "slug": "98348-crystal-elemental",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Crystal Elemental",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f84889982353ea05b88cd246f5e616ff1087c91aef5b6ae81d1ae83dcfa75d85.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=en_US",
+        "sha256": "e37c06332229d7f0b5b893a3d4c4b6599ddf6e5165130407edc879c13a75d52f",
+        "bytes": 595,
+        "observed_at": "2026-10-17T09:50:27.539412+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\101510-zh_CN.json",
+      "response_sha256": "dc3e774a1f5fc5dcf1982bcb506a38020a45886563235af2e35478a2edb6a649",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101510&locale=zh_CN",
+      "face": {
+        "id": 101510,
+        "collectible": 0,
+        "slug": "101510-felblaze-infernal",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "邪焰地狱火",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3af5373c3ee7e57a0c0ec9efb239cfdf9bda477f273a1b6a0f12378454c90cc3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97702,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101510&locale=zh_CN",
+        "sha256": "dc3e774a1f5fc5dcf1982bcb506a38020a45886563235af2e35478a2edb6a649",
+        "bytes": 570,
+        "observed_at": "2026-10-17T09:51:50.396682+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\101510-en_US.json",
+      "response_sha256": "f0e874b3725e3a5d0cfb280d75bd37b6c77ffd121f958960fc22e1a7e6a4fa9c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101510&locale=en_US",
+      "face": {
+        "id": 101510,
+        "collectible": 0,
+        "slug": "101510-felblaze-infernal",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Felblaze Infernal",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a40346c2d16d74515c43feda2d5b9f214d59acb32727e389cefc48fbf044da6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97702,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101510&locale=en_US",
+        "sha256": "f0e874b3725e3a5d0cfb280d75bd37b6c77ffd121f958960fc22e1a7e6a4fa9c",
+        "bytes": 572,
+        "observed_at": "2026-10-17T09:50:27.854907+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-zh_CN.json",
+      "response_sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "在你的手牌中时， 随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20fecdc830c197b2f7aa3362acb82ec30dc174a0b4a2df7dd55a773da103623a.png",
+        "imageGold": "",
+        "flavorText": "看看这张泰坦考据图吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+        "sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+        "bytes": 1035,
+        "observed_at": "2026-10-17T07:11:19.857812+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-en_US.json",
+      "response_sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d30a2f1ceca7cf66cef3388dbaa577f60053667d5e06a113d1e5dc54dda6e4.png",
+        "imageGold": "",
+        "flavorText": "Look at this Titangraph.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+        "sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+        "bytes": 990,
+        "observed_at": "2026-10-17T07:11:20.085876+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98285-zh_CN.json",
+      "response_sha256": "9a31f7be7c824ab18a936ebd410f2c2b90dcbdbdf9471f35067fddafad65e8c2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98285&locale=zh_CN",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "兵主",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/620fd392afbc59dac779a92a14b4875fcc270181a0cdfcbad97b048f0ed57391.png",
+        "imageGold": "",
+        "flavorText": "既然存在泰坦万神殿，也就有死亡万神殿，其中包括暗影界各位强大的统治者。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98285&locale=zh_CN",
+        "sha256": "9a31f7be7c824ab18a936ebd410f2c2b90dcbdbdf9471f35067fddafad65e8c2",
+        "bytes": 893,
+        "observed_at": "2026-10-17T09:51:51.003095+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98285-en_US.json",
+      "response_sha256": "493a245ea5221b2f8d8084b215086a0961fca6a33ebe3c56739e5a3a625f8db4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98285&locale=en_US",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "The Primus",
+        "text": "<b>Titan</b> After this uses an ability, <b>Discover</b> a card with that Rune.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4aabf8d5d210271194333178ff302c184a6a1e0ae3ed22fe071fefcc8f02a1cd.png",
+        "imageGold": "",
+        "flavorText": "As there is a Pantheon of titans, so is there also a Pantheon of Death, comprised of powerful rulers in the Shadowlands.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98285&locale=en_US",
+        "sha256": "493a245ea5221b2f8d8084b215086a0961fca6a33ebe3c56739e5a3a625f8db4",
+        "bytes": 901,
+        "observed_at": "2026-10-17T09:50:35.285556+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98344-zh_CN.json",
+      "response_sha256": "0b495c3a8938d92d33f0934bf3f0e8a8ca32c8df3f652575a7bcd004f4517ffb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98344&locale=zh_CN",
+      "face": {
+        "id": 98344,
+        "collectible": 1,
+        "slug": "98344-argus-the-emerald-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "翠绿之星阿古斯",
+        "text": "<b>泰坦</b> 本随从左边的随从均拥有<b>突袭</b>，本随从右边的随从均拥有<b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a8fb7d7d1452a3202c4d322099512a86149accf608fe29206404a8bd2d2d7a8.png",
+        "imageGold": "",
+        "flavorText": "阿古斯曾是一位高傲的泰坦，命运却引他走向了黑暗的结局。萨格拉斯与麾下的恶魔腐蚀了阿古斯，将他的力量据为己有，星球也因此而破碎。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3dfe61c35c52c2accee594a200e19436b32ad7a15c6a5f264d378a52fda2ac3.png",
+        "childIds": [
+          98345,
+          98346,
+          98347,
+          98348
+        ],
+        "keywordIds": [
+          38,
+          53,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98344&locale=zh_CN",
+        "sha256": "0b495c3a8938d92d33f0934bf3f0e8a8ca32c8df3f652575a7bcd004f4517ffb",
+        "bytes": 1016,
+        "observed_at": "2026-10-17T09:51:50.881779+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98344-en_US.json",
+      "response_sha256": "db34e08705a90071ab606759c2ac003a2d14a3eff3dceb824a9885b90925c00c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98344&locale=en_US",
+      "face": {
+        "id": 98344,
+        "collectible": 1,
+        "slug": "98344-argus-the-emerald-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "Argus, the Emerald Star",
+        "text": "<b>Titan</b> Minions to the left of this have <b>Rush</b>, and ones to the right have <b>Lifesteal</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c707783db8f87d44d31d197e2f2bb8c9d06078dfeba6c024b2f4ca783b77743.png",
+        "imageGold": "",
+        "flavorText": "Once a proud titan, Argus was fated to meet a darker end. Sargeras and his demons would later corrupt and shatter Argus to use his power for themselves.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3dfe61c35c52c2accee594a200e19436b32ad7a15c6a5f264d378a52fda2ac3.png",
+        "childIds": [
+          98345,
+          98346,
+          98347,
+          98348
+        ],
+        "keywordIds": [
+          38,
+          53,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98344&locale=en_US",
+        "sha256": "db34e08705a90071ab606759c2ac003a2d14a3eff3dceb824a9885b90925c00c",
+        "bytes": 972,
+        "observed_at": "2026-10-17T09:50:34.939892+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97702-zh_CN.json",
+      "response_sha256": "1ae35035e302cabfef4bbd5f6bcaed01945a62ca3e64c381196f700ff3506ed7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97702&locale=zh_CN",
+      "face": {
+        "id": 97702,
+        "collectible": 1,
+        "slug": "97702-sargeras-the-destroyer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 9,
+        "name": "灭世泰坦萨格拉斯",
+        "text": "<b>泰坦</b> <b>战吼：</b>打开一道传送门，每回合召唤两个3/2的小鬼。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a69ea7090a3f189b164d60339bd7cbb41bc4291c3e8b5f0d7ca1fd9e2ec4d9ff.png",
+        "imageGold": "",
+        "flavorText": "他曾是万神殿的护卫者，在执行任务时心志幻灭，于是组建了燃烧军团，旨在扫平宇宙间的一切生命。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0a9a51be47c9faa87bb5b1fe32d2138d4d111d92f9ca0b5683fb6cf56b39064.png",
+        "childIds": [
+          97706,
+          97708,
+          97709,
+          97703,
+          101511,
+          101510
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97702&locale=zh_CN",
+        "sha256": "1ae35035e302cabfef4bbd5f6bcaed01945a62ca3e64c381196f700ff3506ed7",
+        "bytes": 971,
+        "observed_at": "2026-10-17T09:51:51.431294+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97702-en_US.json",
+      "response_sha256": "0aaa05258eaf643cee4f0d6c9adecdd79878be9f61247dea83f4baa9b4088aed",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97702&locale=en_US",
+      "face": {
+        "id": 97702,
+        "collectible": 1,
+        "slug": "97702-sargeras-the-destroyer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 9,
+        "name": "Sargeras, the Destroyer",
+        "text": "<b>Titan</b> <b>Battlecry:</b> Open a portal that summons two 3/2 Imps each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22b82589a3b9d14180df3edba78ef92439aef3db07c24a4c5ffd595235c1e674.png",
+        "imageGold": "",
+        "flavorText": "Formerly the Defender of the Pantheon, he became disillusioned by his mission and formed the Burning Legion to destroy all life within the universe.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0a9a51be47c9faa87bb5b1fe32d2138d4d111d92f9ca0b5683fb6cf56b39064.png",
+        "childIds": [
+          97706,
+          97708,
+          97709,
+          97703,
+          101511,
+          101510
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97702&locale=en_US",
+        "sha256": "0aaa05258eaf643cee4f0d6c9adecdd79878be9f61247dea83f4baa9b4088aed",
+        "bytes": 974,
+        "observed_at": "2026-10-17T09:50:34.937088+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98287-zh_CN.json",
+      "response_sha256": "6d563a0e7bb354905193b46ab7ec595c53306cb9d43c8f66946410af89755f6f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=zh_CN",
+      "face": {
+        "id": 98287,
+        "collectible": 0,
+        "slug": "98287-runes-of-the-unholy",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "邪恶符文",
+        "text": "召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa205e4b2d5ef00485fef419de8b022a8738845f824d16889e69b0d8c624176d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=zh_CN",
+        "sha256": "6d563a0e7bb354905193b46ab7ec595c53306cb9d43c8f66946410af89755f6f",
+        "bytes": 645,
+        "observed_at": "2026-10-17T09:51:51.139619+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98287-en_US.json",
+      "response_sha256": "96fefbf708cd89ca0fe7627d134e7cbb6b0d70fa35fc05ea6da8e2a5d9684b2d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=en_US",
+      "face": {
+        "id": 98287,
+        "collectible": 0,
+        "slug": "98287-runes-of-the-unholy",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "Runes of the Unholy",
+        "text": "Summon two 3/3 Undead with <b>Taunt</b> and <b>Reborn</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aed7f97f1ac49a16fd00db7dbe61325cc9ce2ea315664c5ea47fa9e0da05817.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=en_US",
+        "sha256": "96fefbf708cd89ca0fe7627d134e7cbb6b0d70fa35fc05ea6da8e2a5d9684b2d",
+        "bytes": 645,
+        "observed_at": "2026-10-17T09:50:26.813844+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98347-zh_CN.json",
+      "response_sha256": "1b8dd5562ca9d80381a6e388b81dd04512aa38448e4e449e69758ddafee82122",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=zh_CN",
+      "face": {
+        "id": 98347,
+        "collectible": 0,
+        "slug": "98347-argunite-army",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "manaCost": 0,
+        "name": "阿古尼特大军",
+        "text": "召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ad439f69deed9f3149f6eeebb06ed514486d2c61fe8c53f6e811d2b641c1d5c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=zh_CN",
+        "sha256": "1b8dd5562ca9d80381a6e388b81dd04512aa38448e4e449e69758ddafee82122",
+        "bytes": 572,
+        "observed_at": "2026-10-17T09:51:51.790363+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98347-en_US.json",
+      "response_sha256": "3063a548c676e6c65683a405e35d3bc955f8bd05ccdb7bdeb3164a6364879449",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=en_US",
+      "face": {
+        "id": 98347,
+        "collectible": 0,
+        "slug": "98347-argunite-army",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "manaCost": 0,
+        "name": "Argunite Army",
+        "text": "Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/113b514c1f82bb4685428a35a9fb607759dd48713d8bf10fcfcfba449781b792.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=en_US",
+        "sha256": "3063a548c676e6c65683a405e35d3bc955f8bd05ccdb7bdeb3164a6364879449",
+        "bytes": 563,
+        "observed_at": "2026-10-17T09:50:26.914534+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97708-zh_CN.json",
+      "response_sha256": "8dabf7a7a3e23e4a2adbc3eacb6ef40464ef406c069f814798bd47f293edabce",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97708&locale=zh_CN",
+      "face": {
+        "id": 97708,
+        "collectible": 0,
+        "slug": "97708-inferno",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "manaCost": 0,
+        "name": "地狱火！",
+        "text": "从扭曲虚空中召唤两个6/6的 地狱火。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffbb81450824dd5916716f8a2e069e385687e5f371a6a369bbd2823d36ef80fb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97702,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97708&locale=zh_CN",
+        "sha256": "8dabf7a7a3e23e4a2adbc3eacb6ef40464ef406c069f814798bd47f293edabce",
+        "bytes": 572,
+        "observed_at": "2026-10-17T09:51:52.003656+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_960t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97708-en_US.json",
+      "response_sha256": "7116a9ccce246ec71fa9cf9f8b41803d1edbb433771174ee38a4efcdd9f1226a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97708&locale=en_US",
+      "face": {
+        "id": 97708,
+        "collectible": 0,
+        "slug": "97708-inferno",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "manaCost": 0,
+        "name": "Inferno!",
+        "text": "Summon two 6/6 Infernals from the Twisting Nether.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a263b31d85aea6461f6a3145093ce21d1930e4e0d8531355331a055061d7b52f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97702,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=97708&locale=en_US",
+        "sha256": "7116a9ccce246ec71fa9cf9f8b41803d1edbb433771174ee38a4efcdd9f1226a",
+        "bytes": 569,
+        "observed_at": "2026-10-17T09:50:26.848923+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "CATA_553",
+      "child": "CATA_553t",
+      "dbf_id": 122872,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_553",
+      "child": "CATA_553t",
+      "dbf_id": 122872,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t3",
+      "dbf_id": 121298,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t3",
+      "dbf_id": 121298,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t6",
+      "dbf_id": 121301,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t6",
+      "dbf_id": 121301,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t28",
+      "dbf_id": 121323,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t28",
+      "dbf_id": 121323,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_737",
+      "child": "TTN_737t1",
+      "dbf_id": 98287,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_737",
+      "child": "TTN_737t1",
+      "dbf_id": 98287,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_737",
+      "child": "TTN_737t2",
+      "dbf_id": 98288,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_737",
+      "child": "TTN_737t2",
+      "dbf_id": 98288,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_862",
+      "child": "TTN_862t3",
+      "dbf_id": 98347,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_862",
+      "child": "TTN_862t3",
+      "dbf_id": 98347,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_862",
+      "child": "TTN_862t4",
+      "dbf_id": 98348,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_862",
+      "child": "TTN_862t4",
+      "dbf_id": 98348,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_960",
+      "child": "TTN_960t3",
+      "dbf_id": 97708,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_960",
+      "child": "TTN_960t3",
+      "dbf_id": 97708,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TTN_960",
+      "child": "TTN_960t5",
+      "dbf_id": 101510,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TTN_960",
+      "child": "TTN_960t5",
+      "dbf_id": 101510,
+      "locale": "en_US"
+    }
+  ],
+  "numeric_normalizations": {
+    "TTN_737t1": {
+      "cost": 0
+    },
+    "TTN_862t3": {
+      "cost": 0
+    },
+    "TTN_960t3": {
+      "cost": 0
+    }
+  },
+  "token_mapping_basis": [
+    {
+      "form": "TLC_452t3",
+      "ability": "TTN_737t1",
+      "family": "TTN_737",
+      "token": "TTN_737t2",
+      "count": 2
+    },
+    {
+      "form": "TLC_452t6",
+      "ability": "TTN_862t3",
+      "family": "TTN_862",
+      "token": "TTN_862t4",
+      "count": 4
+    },
+    {
+      "form": "TLC_452t28",
+      "ability": "TTN_960t3",
+      "family": "TTN_960",
+      "token": "TTN_960t5",
+      "count": 2
+    }
+  ],
+  "token_mapping_limit": "TLC forms do not expose a direct child edge to the token. Mappings infer copied Titan abilities from complete matching summon bodies plus primary Titan child links and exact token faces; this is an explicit internal identity policy pending CN calibration, not a claimed direct official TLC-to-token link.",
+  "collectible_candidate_roots": [
+    "CATA_553",
+    "TLC_442",
+    "TLC_900",
+    "TLC_515"
+  ],
+  "noncollectible_ids": [
+    "CATA_553t",
+    "TLC_452t3",
+    "TLC_452t6",
+    "TLC_452t28",
+    "TTN_737t2",
+    "TTN_862t4",
+    "TTN_960t5"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "parent_implemented": false,
+  "policies": {
+    "maps": "DiscoverForPlayFollowup binds original offers and physical hand residence; completed own same-turn card_played consumes once; expiry/leave-reentry/overflow follow native lifecycle. Murloc/all collectible pool and Fel SPELL collectible pool both current hero class plus Neutral, explicit internal M6 policy. No implemented-only crop.",
+    "deck_map": "ChooseFromZone owner=player DECK operation=take, explicit distinct physical entity and sample_size3. Retains original physical offer references, no card copy, requery or reroll for reward. Exact physical duplicate weighting/distinct offers and take-vs-draw policy remain M6 pending.",
+    "abyssian": "Original card_committed event uses existing entry_native dragon condition over submitted Dragon/all. Held same entity transforms to CATA_553t. Both battlecries install one public persistent Dragon Rush PlayerEffectSpec; current controller/tribe/all and native attack quota evaluated by ordinary aura layer. Duplicate contributions union; source departure/silence does not revoke player instances.",
+    "fixed_summons": "Explicit mappings only: TLC_452t3 -> TTN_737t2 twice; TLC_452t6 -> TTN_862t4 four times; TLC_452t28 -> TTN_960t5 twice. Each original request has one named material and original SummonCause; ordinary quantities, sequential delivery, board capacity, death/Reborn apply. No Titan parent/portal/hand-changing Osk behavior.",
+    "token_identity": "TLC forms do not expose a direct child edge to the token. Mappings infer copied Titan abilities from complete matching summon bodies plus primary Titan child links and exact token faces; this is an explicit internal identity policy pending CN calibration, not a claimed direct official TLC-to-token link."
+  }
+}
