@@ -1,0 +1,2230 @@
+{
+  "schema": 1,
+  "batch": "P70",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p70-20261018/manifest-02.json",
+    "sha256": "ca10e8ead4914ad88f7ae247a32dd6b1271acdaad3eb0d1c6051a8baf715ab51"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_EVENT_102",
+        "dbf_id": 130087,
+        "name": "绝境贿赂",
+        "name_en": "Desperate Bribe",
+        "text": "为每个玩家召唤两个法力值消耗为（2）的随从。将你的随从变形成为法力值消耗增加（1）点的\n随从。",
+        "text_en": "Summon two 2-Cost minions for each player. Transform your minions into ones that cost (1) more.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1941,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "ba2f8b06d88472c44e4cf820aab122b37ddb3e395799d05d27a29bfdcb5caf0a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_EVENT_102",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_005t1",
+        "dbf_id": 119433,
+        "name": "小小拉法姆",
+        "name_en": "Tiny Rafaam",
+        "text": "<b>战吼，亡语：</b>抽一张拉法姆。",
+        "text_en": "[x]<b>Battlecry and Deathrattle:</b>\nDraw a Rafaam.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "d5a7e837707a3fb1610d882b6a975491c5c36911d11375cd17f15eada8124e2a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t2",
+        "dbf_id": 119434,
+        "name": "绿色拉法姆",
+        "name_en": "Green Rafaam",
+        "text": "<b>战吼：</b>使你手牌中和战场上的其他拉法姆获得+2/+2。",
+        "text_en": "<b>Battlecry:</b> Give other Rafaams in your hand and battlefield +2/+2.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "255a126b4d9a4b21e2c1863eab2cdd312b52662af4874cb04d202fd7096cca0b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t3",
+        "dbf_id": 119441,
+        "name": "探险者拉法姆",
+        "name_en": "Explorer Rafaam",
+        "text": "<b>战吼：</b>从你的牌库中<b>发现</b>一张拉法姆。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a Rafaam from your deck.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "0282f5f10f99666da50cb6db0029043fd2adea8326feb8f71171fe5a3f3036d3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t4",
+        "dbf_id": 119443,
+        "name": "大酋长拉法姆",
+        "name_en": "Warchief Rafaam",
+        "text": "<b>战吼：</b>获得5点护甲值。如果你的手牌中有\n其他拉法姆，再获得5点。",
+        "text_en": "[x]<b>Battlecry:</b> Gain 5 Armor.\nIf you're holding another\nRafaam, gain 5 more.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "af09f7f15c5194f2e0259bc03c20a08722b55733a63d9b7a54abb3b8f2fdcfe8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t5",
+        "dbf_id": 119444,
+        "name": "夺心者拉法姆",
+        "name_en": "Mindflayer R'faam",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的手牌中有其他拉法姆，召唤一个本随从的复制。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If you're holding\nanother Rafaam, summon\na copy of this.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "57e12ae71d005c996a2b9cbb61c9f2095124007603d550c248239d83a62a0d55",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t6",
+        "dbf_id": 119445,
+        "name": "灾异拉法姆",
+        "name_en": "Calamitous Rafaam",
+        "text": "<b>战吼：</b>对所有非拉法姆随从造成6点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 6 damage to all minions that aren't Rafaam.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "030af88d0c51ab08ef2a2edb23f701215ed22ce9a183232053bfa5bc75126f04",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t8",
+        "dbf_id": 119447,
+        "name": "鱼人拉法姆",
+        "name_en": "Murloc Rafaam",
+        "text": "<b>战吼：</b>你的下一张拉法姆的法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> The next Rafaam you play costs (3) less.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "5ec91b5742edf080537ac494218b5c08c9e5e88abd8e6ab8f5f5381d11699f2b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t9",
+        "dbf_id": 119450,
+        "name": "大法师拉法姆",
+        "name_en": "Archmage Rafaam",
+        "text": "<b>战吼：</b>将所有非拉法姆随从变形成为1/1的绵羊。",
+        "text_en": "<b>Battlecry:</b> Transform all minions that aren't Rafaam into 1/1 Sheep.",
+        "cost": 9,
+        "attack": 9,
+        "health": 9,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 9,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "fd4d8b5eb7e094a6d3a5dcf16050933f57b05c56f8ea38abf5cb315cf95a1c27",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t9",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t9t",
+        "dbf_id": 119562,
+        "name": "拉法姆绵羊",
+        "name_en": "Baaaafam",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "3928": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "87ea24972ffaf0f147c5c170e3286c8a9f7e0e07711f480e675816a290bcd7f7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t9t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_005",
+        "dbf_id": 119432,
+        "name": "时空大盗拉法姆",
+        "name_en": "Timethief Rafaam",
+        "text": "<b>奇闻+</b>\n你的套牌容量为40，但其中有10张拉法姆！<b>战吼：</b>如果你使用过其余拉法姆，消灭敌方英雄。@<i>（还剩{0}个！）</i>@<i>（已经就绪！）</i>",
+        "text_en": "[x]<b>Fabled+</b>. Your deck size is 40,\nbut has 10 Rafaams! <b>Battlecry:</b>\nIf you played the rest, destroy\nthe enemy hero.@ <i>({0} left!)</i>@ <i>(Ready!)</i>",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "DECK_RULE_MOD_DECK_SIZE": 40,
+          "1724": 1,
+          "ENTITY_TAG_THRESHOLD_TAG_ID": 2,
+          "ENTITY_TAG_THRESHOLD_VALUE": 9,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "3928": 1,
+          "FABLED_PLUS": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "eedeeabd825adedfb446e071603752ca8fa3f74888ee20ef3c1015c1e0879e9c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_005t7",
+        "dbf_id": 119446,
+        "name": "巨人拉法姆",
+        "name_en": "Giant Rafaam",
+        "text": "<b>突袭</b>。在本局对战中，你每使用过一张拉法姆，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Rush</b>. Costs (1) less\nfor each Rafaam you've\nplayed this game.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3928": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3928",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3928"
+          }
+        ]
+      },
+      "record_sha256": "917db37129403d3753c58292253f848e5dcd42f8cd0b00f551c05af0726bd0df",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_005t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_014",
+        "dbf_id": 119688,
+        "name": "瞬时多重宇宙",
+        "name_en": "Instant Multiverse",
+        "text": "<b>回溯</b>。随机召唤消耗总计12点法力值的随从。<b>过载：</b>（3）",
+        "text_en": "<b>Rewind</b>\nSummon 12 Mana worth of random minions.\n<b>Overload:</b> (3)",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "0fb5d98441e1e967a22ad1520ec90d21836290c35dbd999ba3549e218f8ef37c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_014",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_014",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119688-zh_CN.json",
+      "response_sha256": "5b14818dd2f290b4126103ea05947e1327395b966a3f0621ff5e3f8efa950e54",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119688&locale=zh_CN",
+      "face": {
+        "id": 119688,
+        "collectible": 1,
+        "slug": "119688-instant-multiverse",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 6,
+        "name": "瞬时多重宇宙",
+        "text": "<b>回溯</b>。随机召唤消耗总计12点法力值的随从。<b>过载：</b>（3）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34e5ac865431e38aa3b928d663e2d33e62dd573cfd2f91a777fca257683f730e.png",
+        "imageGold": "",
+        "flavorText": "呃，真让人兽不了……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43f533a28f44b1e22c299a3437683aaacd3fd5034867a96a77772b187a58b715.png",
+        "keywordIds": [
+          14,
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119688&locale=zh_CN",
+        "sha256": "5b14818dd2f290b4126103ea05947e1327395b966a3f0621ff5e3f8efa950e54",
+        "bytes": 769,
+        "observed_at": "2026-10-17T17:49:01.941877+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_014",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119688-en_US.json",
+      "response_sha256": "a1055bbb762191c5bdcf5ae9af04edb72f477d857873e7f8bb9a87d6a84d301a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119688&locale=en_US",
+      "face": {
+        "id": 119688,
+        "collectible": 1,
+        "slug": "119688-instant-multiverse",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 6,
+        "name": "Instant Multiverse",
+        "text": "<b>Rewind</b> Summon 12 Mana worth of random minions. <b>Overload:</b> (3)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e51bb5895a2bebb3623741f885f256e3f68970994124eb61d4c02e90fdca0aba.png",
+        "imageGold": "",
+        "flavorText": "Well, this is orcward…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43f533a28f44b1e22c299a3437683aaacd3fd5034867a96a77772b187a58b715.png",
+        "keywordIds": [
+          14,
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119688&locale=en_US",
+        "sha256": "a1055bbb762191c5bdcf5ae9af04edb72f477d857873e7f8bb9a87d6a84d301a",
+        "bytes": 748,
+        "observed_at": "2026-10-17T17:49:01.736482+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_102",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130087-zh_CN.json",
+      "response_sha256": "2e14115b52d894420bfd0e178e791cd7843c596d1012bb608cdbed7f285c321b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130087&locale=zh_CN",
+      "face": {
+        "id": 130087,
+        "collectible": 1,
+        "slug": "130087-desperate-bribe",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Alex Stone",
+        "manaCost": 3,
+        "name": "绝境贿赂",
+        "text": "为每个玩家召唤两个法力值消耗为（2）的随从。将你的随从变形成为法力值消耗增加（1）点的 随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e7152dc1f4e233786acdd388348b8deccae67abbe4bb172864b49e346e877297.png",
+        "imageGold": "",
+        "flavorText": "这笔钱您收好！！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5deb519a28ff0fdcb9c40344b485244b95e9109a826601646a4a0e58e055660.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130087&locale=zh_CN",
+        "sha256": "2e14115b52d894420bfd0e178e791cd7843c596d1012bb608cdbed7f285c321b",
+        "bytes": 775,
+        "observed_at": "2026-10-17T17:49:01.919421+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_102",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130087-en_US.json",
+      "response_sha256": "4ec61abd851574d56b714fd6723455a7e87f875444ab8f48122031edd6156fb4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130087&locale=en_US",
+      "face": {
+        "id": 130087,
+        "collectible": 1,
+        "slug": "130087-desperate-bribe",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Alex Stone",
+        "manaCost": 3,
+        "name": "Desperate Bribe",
+        "text": "Summon two 2-Cost minions for each player. Transform your minions into ones that cost (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ed8e1ed25ce99c18a3a6b084af326bca5ec2b0549ad444493967b17025a39e8.png",
+        "imageGold": "",
+        "flavorText": "TAKE MY MONEY!!!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5deb519a28ff0fdcb9c40344b485244b95e9109a826601646a4a0e58e055660.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130087&locale=en_US",
+        "sha256": "4ec61abd851574d56b714fd6723455a7e87f875444ab8f48122031edd6156fb4",
+        "bytes": 730,
+        "observed_at": "2026-10-17T17:49:01.739249+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119433-zh_CN.json",
+      "response_sha256": "17e7f7e370c06ed07da59432c416b975802fbbe5d695217503191e0997d8c3e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119433&locale=zh_CN",
+      "face": {
+        "id": 119433,
+        "collectible": 0,
+        "slug": "119433-tiny-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "小小拉法姆",
+        "text": "<b>战吼，亡语：</b>抽一张拉法姆。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0bbf4c8733b44cec683015a263be21a4f50723f334197e151b2363d5d43f1b3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119433&locale=zh_CN",
+        "sha256": "17e7f7e370c06ed07da59432c416b975802fbbe5d695217503191e0997d8c3e0",
+        "bytes": 608,
+        "observed_at": "2026-10-17T17:49:02.466549+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119433-en_US.json",
+      "response_sha256": "eea7cfcd2e4abadf65687199dc23120dc8863e26b658b30a6e0bb89c7d854c6b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119433&locale=en_US",
+      "face": {
+        "id": 119433,
+        "collectible": 0,
+        "slug": "119433-tiny-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Tiny Rafaam",
+        "text": "<b>Battlecry and Deathrattle:</b> Draw a Rafaam.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/632123eca5606c9a142a68223b6eb4c32a695cfbb41acab090918a8620f8c0f6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119433&locale=en_US",
+        "sha256": "eea7cfcd2e4abadf65687199dc23120dc8863e26b658b30a6e0bb89c7d854c6b",
+        "bytes": 606,
+        "observed_at": "2026-10-17T17:49:02.502250+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119434-zh_CN.json",
+      "response_sha256": "868a0a3e8d4cf15aa4991d956704ddb7ef98f68f1bafb0a2758084302a427c8f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119434&locale=zh_CN",
+      "face": {
+        "id": 119434,
+        "collectible": 0,
+        "slug": "119434-green-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "绿色拉法姆",
+        "text": "<b>战吼：</b>使你手牌中和战场上的其他拉法姆获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a46d1939ca1b04b48463f072ebe7cc973303911b9a0f6a987520a8fa86521f40.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119434&locale=zh_CN",
+        "sha256": "868a0a3e8d4cf15aa4991d956704ddb7ef98f68f1bafb0a2758084302a427c8f",
+        "bytes": 642,
+        "observed_at": "2026-10-17T17:49:02.646413+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119434-en_US.json",
+      "response_sha256": "ff21b51bf0013eac91c68f6b2269bd76b3e60f9cf240be9accf3332b9705d212",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119434&locale=en_US",
+      "face": {
+        "id": 119434,
+        "collectible": 0,
+        "slug": "119434-green-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Green Rafaam",
+        "text": "<b>Battlecry:</b> Give other Rafaams in your hand and battlefield +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0f4d8c54ee87ed0867f1829daad513e599f1583be9ef62597b3a03a7e37ea8f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119434&locale=en_US",
+        "sha256": "ff21b51bf0013eac91c68f6b2269bd76b3e60f9cf240be9accf3332b9705d212",
+        "bytes": 636,
+        "observed_at": "2026-10-17T17:49:02.972729+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119441-zh_CN.json",
+      "response_sha256": "cdef5badf6c5089a17d4270b85f42e112b8768b0b18d0d0e9f8c314b693b8b14",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119441&locale=zh_CN",
+      "face": {
+        "id": 119441,
+        "collectible": 0,
+        "slug": "119441-explorer-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "探险者拉法姆",
+        "text": "<b>战吼：</b>从你的牌库中<b>发现</b>一张拉法姆。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e492f950c104f5eaf7d04d79bda5ef1b70f96a31c1e262326e999bbeae9ad767.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119441&locale=zh_CN",
+        "sha256": "cdef5badf6c5089a17d4270b85f42e112b8768b0b18d0d0e9f8c314b693b8b14",
+        "bytes": 634,
+        "observed_at": "2026-10-17T17:49:03.353111+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119441-en_US.json",
+      "response_sha256": "52a6da9ade73e23bb0cfa74e32d60c45a3a186295cb3517299d614f8b34c7be4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119441&locale=en_US",
+      "face": {
+        "id": 119441,
+        "collectible": 0,
+        "slug": "119441-explorer-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Explorer Rafaam",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a Rafaam from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6ed1637ff770e2c371776a5f6242df0c48ee51faa99a61835eb3feb1f26f69c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119441&locale=en_US",
+        "sha256": "52a6da9ade73e23bb0cfa74e32d60c45a3a186295cb3517299d614f8b34c7be4",
+        "bytes": 624,
+        "observed_at": "2026-10-17T17:49:03.660240+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119443-zh_CN.json",
+      "response_sha256": "7f2a37784f7eb9a929662c6b00625bdb9410b4c3564fde7a4ac5e2fe49315b07",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119443&locale=zh_CN",
+      "face": {
+        "id": 119443,
+        "collectible": 0,
+        "slug": "119443-warchief-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ian Ameling",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "大酋长拉法姆",
+        "text": "<b>战吼：</b>获得5点护甲值。如果你的手牌中有 其他拉法姆，再获得5点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/114d7ebb0284810a9017cf52186971fd8568eb0a810135442c34a17ab091df01.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119443&locale=zh_CN",
+        "sha256": "7f2a37784f7eb9a929662c6b00625bdb9410b4c3564fde7a4ac5e2fe49315b07",
+        "bytes": 664,
+        "observed_at": "2026-10-17T17:49:03.532857+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119443-en_US.json",
+      "response_sha256": "5832ba841f18c6b6aef4161f5a4b5c2f4bd3adbfe8a56a3effdd5b726645391c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119443&locale=en_US",
+      "face": {
+        "id": 119443,
+        "collectible": 0,
+        "slug": "119443-warchief-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ian Ameling",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Warchief Rafaam",
+        "text": "<b>Battlecry:</b> Gain 5 Armor. If you're holding another Rafaam, gain 5 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f6ac46f9182e3efcd0c74e89842d785107839f39b4c3171b4a97bea058d2bd6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119443&locale=en_US",
+        "sha256": "5832ba841f18c6b6aef4161f5a4b5c2f4bd3adbfe8a56a3effdd5b726645391c",
+        "bytes": 642,
+        "observed_at": "2026-10-17T17:49:03.687903+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119444-zh_CN.json",
+      "response_sha256": "8a08105782fca5402b10557599a9875497b554be75e07996f64f6661ceda584c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119444&locale=zh_CN",
+      "face": {
+        "id": 119444,
+        "collectible": 0,
+        "slug": "119444-mindflayer-rfaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "夺心者拉法姆",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的手牌中有其他拉法姆，召唤一个本随从的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd4710b252520988f0dbf0ff14104f7fd564ba37a2305c50e1591b80c3553d02.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119444&locale=zh_CN",
+        "sha256": "8a08105782fca5402b10557599a9875497b554be75e07996f64f6661ceda584c",
+        "bytes": 677,
+        "observed_at": "2026-10-17T17:49:04.252215+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119444-en_US.json",
+      "response_sha256": "7ad0de1bd9c895effc063ed95bd27d324845edfc05590a161d643e9d7d199c9b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119444&locale=en_US",
+      "face": {
+        "id": 119444,
+        "collectible": 0,
+        "slug": "119444-mindflayer-rfaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Mindflayer R'faam",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> If you're holding another Rafaam, summon a copy of this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e25c94ddce2275616074925582b2f7f6c43292363709eec33f09851067899ff7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119444&locale=en_US",
+        "sha256": "7ad0de1bd9c895effc063ed95bd27d324845edfc05590a161d643e9d7d199c9b",
+        "bytes": 656,
+        "observed_at": "2026-10-17T17:49:04.249295+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119445-zh_CN.json",
+      "response_sha256": "22fd77862ad13fab5f2be37fd42f43b6c19a959e6c55fdcd09fd49ce925b1ebe",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119445&locale=zh_CN",
+      "face": {
+        "id": 119445,
+        "collectible": 0,
+        "slug": "119445-calamitous-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Luca Zontini",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "灾异拉法姆",
+        "text": "<b>战吼：</b>对所有非拉法姆随从造成6点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e2cc6e6db7682b8985bc15ec838e6c13bf9f3f3e81e46f2932770b95c17b105.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119445&locale=zh_CN",
+        "sha256": "22fd77862ad13fab5f2be37fd42f43b6c19a959e6c55fdcd09fd49ce925b1ebe",
+        "bytes": 647,
+        "observed_at": "2026-10-17T17:49:04.405239+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119445-en_US.json",
+      "response_sha256": "2e076266e621a4b7aa5aecefd72fa0d367f7fd56b5f654a3cfa6e6ccc257f164",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119445&locale=en_US",
+      "face": {
+        "id": 119445,
+        "collectible": 0,
+        "slug": "119445-calamitous-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Luca Zontini",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Calamitous Rafaam",
+        "text": "<b>Battlecry:</b> Deal 6 damage to all minions that aren't Rafaam.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa6a6f268d4cccc82cdb0c372e0974141bcde389741359c1a677a0e2455851fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119445&locale=en_US",
+        "sha256": "2e076266e621a4b7aa5aecefd72fa0d367f7fd56b5f654a3cfa6e6ccc257f164",
+        "bytes": 653,
+        "observed_at": "2026-10-17T17:49:04.672276+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t8",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119447-zh_CN.json",
+      "response_sha256": "08c93e5190c9a5aa05bf1920f7353af213d68fcb88608bdf67ef521d2387dd5b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119447&locale=zh_CN",
+      "face": {
+        "id": 119447,
+        "collectible": 0,
+        "slug": "119447-murloc-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "鱼人拉法姆",
+        "text": "<b>战吼：</b>你的下一张拉法姆的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f0d8a1a58525ccd49e01250aecc7d9bfe56ddb164352c9284aae7676206a754a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119447&locale=zh_CN",
+        "sha256": "08c93e5190c9a5aa05bf1920f7353af213d68fcb88608bdf67ef521d2387dd5b",
+        "bytes": 663,
+        "observed_at": "2026-10-17T17:49:05.083528+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t8",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119447-en_US.json",
+      "response_sha256": "43bb2b6aaf47891b3e9916d29b70d80a3600a84be0e9cce5157253af5a8e1272",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119447&locale=en_US",
+      "face": {
+        "id": 119447,
+        "collectible": 0,
+        "slug": "119447-murloc-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Murloc Rafaam",
+        "text": "<b>Battlecry:</b> The next Rafaam you play costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd3a8f79a530873c86fa39ccf3422e958980e73a627f6a559b9de90c9a5da801.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119447&locale=en_US",
+        "sha256": "43bb2b6aaf47891b3e9916d29b70d80a3600a84be0e9cce5157253af5a8e1272",
+        "bytes": 642,
+        "observed_at": "2026-10-17T17:49:04.956791+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t9",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119450-zh_CN.json",
+      "response_sha256": "6e5d9eb3d9f50ca75257c8897e7218846ba80b413b3ae8f1f6d729176eccaef7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119450&locale=zh_CN",
+      "face": {
+        "id": 119450,
+        "collectible": 0,
+        "slug": "119450-archmage-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 9,
+        "attack": 9,
+        "manaCost": 9,
+        "name": "大法师拉法姆",
+        "text": "<b>战吼：</b>将所有非拉法姆随从变形成为1/1的绵羊。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/32cb39ebabd89d500810671115ee9a201bbae7e6b2ec52da48b39eec7849f6f8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119450&locale=zh_CN",
+        "sha256": "6e5d9eb3d9f50ca75257c8897e7218846ba80b413b3ae8f1f6d729176eccaef7",
+        "bytes": 641,
+        "observed_at": "2026-10-17T17:49:05.227184+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t9",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119450-en_US.json",
+      "response_sha256": "59196621fdc63b733d05bb00500dc3f30cf6d0a895416c5e3d102df7d2c847bd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119450&locale=en_US",
+      "face": {
+        "id": 119450,
+        "collectible": 0,
+        "slug": "119450-archmage-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 9,
+        "attack": 9,
+        "manaCost": 9,
+        "name": "Archmage Rafaam",
+        "text": "<b>Battlecry:</b> Transform all minions that aren't Rafaam into 1/1 Sheep.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/324dafa72d0cf53bb54d9affb93a2fffa217cf052a8621a6b06232e153f220c7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119450&locale=en_US",
+        "sha256": "59196621fdc63b733d05bb00500dc3f30cf6d0a895416c5e3d102df7d2c847bd",
+        "bytes": 642,
+        "observed_at": "2026-10-17T17:49:05.373123+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t9t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119562-zh_CN.json",
+      "response_sha256": "70b809849b4653ec4b7a98c83493a2012a8a9054c4291b19f9a061b8f32bd1df",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119562&locale=zh_CN",
+      "face": {
+        "id": 119562,
+        "collectible": 0,
+        "slug": "119562-baaaafam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "拉法姆绵羊",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0953407102c8a4632611a25524c8b0430d0701f6d5f16cd152eba567654f57c1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119562&locale=zh_CN",
+        "sha256": "70b809849b4653ec4b7a98c83493a2012a8a9054c4291b19f9a061b8f32bd1df",
+        "bytes": 557,
+        "observed_at": "2026-10-17T17:49:13.138074+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t9t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119562-en_US.json",
+      "response_sha256": "66abfe9c9e8a897afa12fa06f18ddfbfdb53993ca004d44bd98f47b27ba7a20e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119562&locale=en_US",
+      "face": {
+        "id": 119562,
+        "collectible": 0,
+        "slug": "119562-baaaafam",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Baaaafam",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0154a6b181be9974161e7797823051fb251f683e53887995866dc415cd929c7a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119562&locale=en_US",
+        "sha256": "66abfe9c9e8a897afa12fa06f18ddfbfdb53993ca004d44bd98f47b27ba7a20e",
+        "bytes": 550,
+        "observed_at": "2026-10-17T17:49:13.310019+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119432-zh_CN.json",
+      "response_sha256": "2153f4f0fe51190e366ba603819471c0d0e8b3c08ad465ddb226d8b3dd483ee5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119432&locale=zh_CN",
+      "face": {
+        "id": 119432,
+        "collectible": 1,
+        "slug": "119432-timethief-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "时空大盗拉法姆",
+        "text": "<b>奇闻+</b> 你的套牌容量为40，但其中有10张拉法姆！<b>战吼：</b>如果你使用过其余拉法姆，消灭敌方英雄。 <i>（还剩 个！）</i> <i>（已经就绪！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/066230b5fbd693382edf96bb0a9c756863ffda87fefde840ea9593ab54d44268.png",
+        "imageGold": "",
+        "flavorText": "时空大盗拉法姆纠集了各个平行世界的自己，意图统治所有的时空！姆诺兹多不过是一时之间的小小障碍……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/696363dfb0adcfb418f65d02290ed6fab90b8c1b3d400a56f6951f963df89b40.png",
+        "childIds": [
+          119433,
+          119434,
+          119441,
+          119443,
+          119444,
+          119445,
+          119446,
+          119447,
+          119450,
+          119562
+        ],
+        "keywordIds": [
+          8,
+          357
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119433,
+          119434,
+          119447,
+          119441,
+          119443,
+          119445,
+          119444,
+          119446,
+          119450
+        ],
+        "deckSizeMod": 40
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119432&locale=zh_CN",
+        "sha256": "2153f4f0fe51190e366ba603819471c0d0e8b3c08ad465ddb226d8b3dd483ee5",
+        "bytes": 1233,
+        "observed_at": "2026-10-17T17:49:05.933450+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119432-en_US.json",
+      "response_sha256": "973f8a1d97898937037a92ded37b6199ddc0838fcc03858c030e5547bdd3d056",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119432&locale=en_US",
+      "face": {
+        "id": 119432,
+        "collectible": 1,
+        "slug": "119432-timethief-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Timethief Rafaam",
+        "text": "<b>Fabled+</b>. Your deck size is 40, but has 10 Rafaams! <b>Battlecry:</b> If you played the rest, destroy the enemy hero. <i>( left!)</i> <i>(Ready!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f792c4face923e7528859a9370385c44557ac34205e146aa902f327eb6a55bf1.png",
+        "imageGold": "",
+        "flavorText": "Timethief Rafaam has recruited himself from every universe to RULE ALL OF TIME! Murozond is just a temporary obstacle…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/696363dfb0adcfb418f65d02290ed6fab90b8c1b3d400a56f6951f963df89b40.png",
+        "childIds": [
+          119433,
+          119434,
+          119441,
+          119443,
+          119444,
+          119445,
+          119446,
+          119447,
+          119450,
+          119562
+        ],
+        "keywordIds": [
+          8,
+          357
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119433,
+          119434,
+          119447,
+          119441,
+          119443,
+          119445,
+          119444,
+          119446,
+          119450
+        ],
+        "deckSizeMod": 40
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119432&locale=en_US",
+        "sha256": "973f8a1d97898937037a92ded37b6199ddc0838fcc03858c030e5547bdd3d056",
+        "bytes": 1160,
+        "observed_at": "2026-10-17T17:49:06.090595+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t7",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119446-zh_CN.json",
+      "response_sha256": "776668cdfc0d016b7faa37e47575562c8505c8650424e26af8cc582171b38134",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119446&locale=zh_CN",
+      "face": {
+        "id": 119446,
+        "collectible": 0,
+        "slug": "119446-giant-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "巨人拉法姆",
+        "text": "<b>突袭</b>。在本局对战中，你每使用过一张拉法姆，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdf2e64be1d39973b516047dcbd4e16463f14df74af13090226a9d41659d5989.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119446&locale=zh_CN",
+        "sha256": "776668cdfc0d016b7faa37e47575562c8505c8650424e26af8cc582171b38134",
+        "bytes": 681,
+        "observed_at": "2026-10-17T17:20:07.161560+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_005t7",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119446-en_US.json",
+      "response_sha256": "4ab06fdd09a914990d9a9dbce3db8a623793fba8abd5e0594658950e31ca166a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119446&locale=en_US",
+      "face": {
+        "id": 119446,
+        "collectible": 0,
+        "slug": "119446-giant-rafaam",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Giant Rafaam",
+        "text": "<b>Rush</b>. Costs (1) less for each Rafaam you've played this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/191d2c5a59258d34aad9b4d6f9a24e38a7d737a521a20dc3b802d4c2766c7cbf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119432,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119446&locale=en_US",
+        "sha256": "4ab06fdd09a914990d9a9dbce3db8a623793fba8abd5e0594658950e31ca166a",
+        "bytes": 630,
+        "observed_at": "2026-10-17T17:20:07.980347+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "TIME_005": {
+      "@": "",
+      "{0}": ""
+    }
+  },
+  "numeric_normalizations": {},
+  "collectible_candidate_roots": [
+    "JAIL_EVENT_102"
+  ],
+  "noncollectible_ids": [
+    "TIME_005t1",
+    "TIME_005t2",
+    "TIME_005t3",
+    "TIME_005t4",
+    "TIME_005t5",
+    "TIME_005t6",
+    "TIME_005t8",
+    "TIME_005t9",
+    "TIME_005t9t"
+  ],
+  "rafaam_family_ids": [
+    "TIME_005",
+    "TIME_005t1",
+    "TIME_005t2",
+    "TIME_005t3",
+    "TIME_005t4",
+    "TIME_005t5",
+    "TIME_005t6",
+    "TIME_005t7",
+    "TIME_005t8",
+    "TIME_005t9",
+    "TIME_005t9t"
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t1",
+      "dbf_id": 119433,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t2",
+      "dbf_id": 119434,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t3",
+      "dbf_id": 119441,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t4",
+      "dbf_id": 119443,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t5",
+      "dbf_id": 119444,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t6",
+      "dbf_id": 119445,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t8",
+      "dbf_id": 119447,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t9",
+      "dbf_id": 119450,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t9t",
+      "dbf_id": 119562,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t7",
+      "dbf_id": 119446,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t1",
+      "dbf_id": 119433,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t2",
+      "dbf_id": 119434,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t3",
+      "dbf_id": 119441,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t4",
+      "dbf_id": 119443,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t5",
+      "dbf_id": 119444,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t6",
+      "dbf_id": 119445,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t8",
+      "dbf_id": 119447,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t9",
+      "dbf_id": 119450,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t9t",
+      "dbf_id": 119562,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_005",
+      "child": "TIME_005t7",
+      "dbf_id": 119446,
+      "locale": "en_US"
+    }
+  ],
+  "unsupported_parent_ids": [
+    "TIME_005"
+  ],
+  "unsupported_dependency_ids": [
+    "TIME_005t7",
+    "TIME_014"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "bribe": "Native attributed two-minion generation for the caster then opponent, followed by one native own-board transform batch with printed Cost+1 and no retained original cost. Complete pool queries, captured physical minions, ordinary transformations and current capacity are reused. Caster/opponent order and transform acceptance remain M6.",
+    "rafaams": "Exactly eleven fixed-source3928 identities, including Baaaafam, form the finite named family. The full parent and Giant price gap remain unsupported; no Fabled or deck-size declaration is registered. Eight complete companion bodies plus their real Sheep are independent reachable content. No class or name-substring substitute.",
+    "draw": "Tiny and Explorer use the exact finite named family complement over the final immutable registry, evaluated at each actual body. Every physical deck entity already requires a complete executable definition; no family member is excluded by implementation status. Tiny uses native physical DrawMatching with explicit skip; Explorer uses native sampled own-deck take without fabricated draw. Native physical entity weighting, distinct offers and take-vs-draw remain M6. The positive DrawMatching card_ids codec requires all referenced definitions and is therefore not used while parent/Giant remain unsupported.",
+    "stats": "Green captures other friendly hand and active board Rafaams once, then native guarded stored/board buffs. Archmage captures all current active non-Rafaam minions on both boards before ordinary transformations; original reentry cannot adopt delayed work. Family-current-face and transformation windows remain M6.",
+    "rewards": "Warchief performs5 Armor then checks the actual hand after first Armor reactions for another5. Mindflayer uses an original current-copy request only while holding another Rafaam, no Battlecry on copy. Calamitous uses one MINION_ABILITY DamageBatch. Murloc installs a native one-use next-price modifier with all eleven exact card_ids, lifetime and payment unchanged.",
+    "unsupported_multiverse": "TIME_014 complete original raw and both strict faces retained as evidence only. Native first attempt and keep succeeded, but real Rewind retry after actual Overload3 fails the existing overload-history committed-increment boundary. Entire card and its budget composition are excluded from final registration; original frozen-01 and complete failed special-01 retained for main review."
+  },
+  "named_dependency_links": [
+    {
+      "parent": "TIME_005t9",
+      "child": "TIME_005t9t",
+      "basis": "Full printed Archmage 1/1 Sheep; unique full1/1 Sheep face in the same exact primary parent bundle. Both full primary Sheep faces and raw3928 identity retained. The API does not declare a direct Archmage child edge.",
+      "exact_api_parent": "TIME_005",
+      "execution_identity_pending_M6": true
+    }
+  ]
+}
