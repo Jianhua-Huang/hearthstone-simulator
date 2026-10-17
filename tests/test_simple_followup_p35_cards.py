@@ -9,7 +9,7 @@ from hs_sim.cards.simple_followup_p35_cards import STAND,ACOLYTES,IDOL,SPARK,MIN
 from hs_sim.engine import CardClass,CardDefinition,CardMetadata,CardType,Game,IllegalAction,PlayCard,PlayerSetup,Scenario,SelectChoice,SpellSchool,TargetSpec,Zone
 from hs_sim.engine.effects import ChoiceOption,CopyMinion,Destroy,InvokeBehavior,RequestChoice,ReturnToHand,Silence,Summon,TriggerDeathrattles
 from hs_sim.engine.errors import ResolutionError
-from hs_sim.engine.model import LimitedTriggerSpec
+from hs_sim.engine.model import LimitedTriggerSpec,Rarity
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,resolve_candidates,sample_candidates
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.zones import CardReference,DiscardCard
@@ -18,6 +18,7 @@ from hs_sim.targets import canonical_digest
 TEST='p35.test.';YETI='CORE_CS2_182';FOUR='CORE_CS2_179';ONE='JAIL_460';TWO='CORE_GVG_085';FIRE='CORE_CS2_029';NATURE='EX1_164';DUAL='END_025';NEUTRAL='TIME_EVENT_999';DORMANT='BT_156'
 MEMBERS=(*ROOTS,YETI,FOUR,ONE,TWO,FIRE,NATURE,DUAL,NEUTRAL)
 CONTEXT=GenerationContext('p35-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
+UNKNOWN_BEAST=TEST+'unimplemented_beast'
 
 def batch_registry():
     with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
@@ -27,7 +28,10 @@ def batch_registry():
 def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
     for cid in members:
-        if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
+        if cid==UNKNOWN_BEAST:
+            r.register_pool_card(PoolCard(cid,CardType.MINION,3,CardMetadata(True,(CardClass.NEUTRAL,),Rarity.COMMON,
+                tribes=('beast',),factions=(),subtypes=())))
+        elif cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p35-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
     def discard(c):
         eid=next(i for i in c.state.players[c.player_id].hand if c.state.entities[i].card_id==ACOLYTES)
@@ -189,7 +193,7 @@ class SimpleFollowupP35Tests(unittest.TestCase):
                 self.assertEqual(g.snapshot(),saved)
 
     def test_unknown_discovery_candidate_rejects_before_rng_and_paid_branch_rolls_back(self):
-        for cid,branch,unknown,hero in((IDOL,MINION,'CORE_EDR_004_2026','HERO_08'),(IDOL,SPELL,'DINO_414','HERO_08'),(SPARK,MAGE,'DINO_414','HERO_01'),(SPARK,DRUID,'EDR_273','HERO_01')):
+        for cid,branch,unknown,hero in((IDOL,MINION,UNKNOWN_BEAST,'HERO_08'),(IDOL,SPELL,'DINO_414','HERO_08'),(SPARK,MAGE,'DINO_414','HERO_01'),(SPARK,DRUID,'EDR_273','HERO_01')):
             with self.subTest(cid=cid,branch=branch):
                 g=self.game((cid,),members=(YETI,FIRE,NATURE,unknown),hero=hero);saved=g.snapshot();self.assertNotIn(unknown,g.registry.cards)
                 with patch.object(random.Random,'randrange',side_effect=AssertionError('Unknown sampled'))as calls:

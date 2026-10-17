@@ -372,8 +372,11 @@ class NativeDarkGiftGenerationTests(unittest.TestCase):
         with self.assertRaises(TypeError):
             DiscoverDarkGift(1, POOL_ID, QUERIES[TORMENTOR], 1, destination='board')
         g = self.game()
-        self.assertEqual(g.snapshot()['schema_version'], 330)
-        self.assertEqual(SNAPSHOT_SCHEMA_VERSION, 330)
+        self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
+        saved = g.snapshot()
+        saved['schema_version'] = SNAPSHOT_SCHEMA_VERSION - 1
+        with self.assertRaises(SnapshotError):
+            Game.from_snapshot(saved, registry())
         self.assertIn('hs_sim.engine.dark_gift_generation.DiscoverDarkGift', g.mechanics.signature['effect_types'])
 
     def test_player_boundary_hides_private_pairing_from_opponent_and_internal_inventory_from_both(self):

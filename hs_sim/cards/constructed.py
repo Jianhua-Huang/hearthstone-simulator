@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v166"
+CONTENT_VERSION = "constructed-cn37-preview-v167"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -383,6 +383,8 @@ def build_registry():
     register_native_dark_gift_generation_cards(registry)
     from .simple_followup_p36_cards import register_simple_followup_p36_cards
     register_simple_followup_p36_cards(registry)
+    from .kindred_dark_gift_cards import register_kindred_dark_gift_cards
+    register_kindred_dark_gift_cards(registry)
     register_reviewed_pool_metadata(registry)
     from .candidate_generation_catalog import register_candidate_pool_metadata
     register_candidate_pool_metadata(registry)
