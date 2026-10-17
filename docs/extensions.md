@@ -1675,3 +1675,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 生命仪式用有限 summon_copy_stats 手续把原实际生成手牌连接到2/3复制召唤；原ChoiceResult、真实创建对象、材料/数量接受窗与满手政策见[发现手牌复制契约](m3-discovered-minion-copy.md)。
 
 实际战吼需把其随机手牌武器连接到独立连击时，用GenerateBattlecryWeapon绑定context.battlecry.id和普通GenerateFromPool请求，再用combo_weapon(context, registry)取得原HAND CardReference，交给BuffStoredCard。有限请求只支持一张可收藏武器，不借用实体游标或其他族batch_id；真实物理主体、空/烧牌、原连续驻留及待CN重复政策见[武器输出契约](m3-generated-weapon-combo.md)。
+
+发现并直接召唤后给原对象设值可用DiscoverFromPool.set_summoned_stats=SummonStats(attack,health)。该有限请求仅用于一次普通带原因的场上随从发现，默认None；不要用summon_copy_stats替代、不要搜索后来同名战场对象。实际原交付、连续驻留、属性层及待CN政策见[契约](m3-discovered-set-stats.md)。

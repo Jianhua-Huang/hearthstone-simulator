@@ -77,6 +77,7 @@ class DiscoverySummonRecord:
     exhausted:bool=False
     status:str='active'
     freeze_acceptances:tuple[int,...]=()
+    stat_acceptances:tuple[int,...]=()
 
     def __post_init__(self):
         for n,floor in (('id',1),('event_cursor',0),('turn',1),('action',0)):_integer(getattr(self,n),'discovery producer '+n,floor)
@@ -97,6 +98,11 @@ class DiscoverySummonRecord:
                 len(self.freeze_acceptances)>len(self.entry_root_ids)or
                 not self.spec.freeze_summoned and self.freeze_acceptances):
             raise ValueError('Discovery lost its ordered original freeze acceptances')
+        if (type(self.stat_acceptances) is not tuple or any(type(i) is not int for i in self.stat_acceptances) or
+                self.stat_acceptances != tuple(range(len(self.stat_acceptances))) or
+                len(self.stat_acceptances) > len(self.entry_root_ids) or
+                self.spec.set_summoned_stats is None and self.stat_acceptances):
+            raise ValueError('Discovery lost its ordered original stat-setting acceptances')
         picks=sum(o.result is not None for o in self.offers)
         if len(self.entry_root_ids)>picks:raise ValueError('Discovery delivered an unselected entry')
         if self.phase not in ('discovering','delivering')or type(self.exhausted)is not bool or self.status not in ('active','completed','interrupted'):
@@ -108,6 +114,8 @@ class DiscoverySummonRecord:
         if self.status=='completed'and(self.phase!='delivering'or len(self.entry_root_ids)!=picks):raise ValueError('Incomplete original discovery close')
         if self.status=='completed'and self.spec.freeze_summoned and len(self.freeze_acceptances)!=len(self.entry_root_ids):
             raise ValueError('Discovery closed before its original freeze')
+        if self.status == 'completed' and self.spec.set_summoned_stats is not None and len(self.stat_acceptances) != len(self.entry_root_ids):
+            raise ValueError('Discovery closed before its original stat setting')
 
 
 @dataclass(frozen=True)
@@ -132,7 +140,16 @@ class FreezeDiscoveredMinion(Effect):
         _integer(self.producer_id,'freeze discovery producer',1);_integer(self.index,'freeze selected entry',0)
 
 
-CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion)
+@dataclass(frozen=True)
+class SetDiscoveredMinionStats(Effect):
+    producer_id:int
+    index:int
+    def __post_init__(self):
+        _integer(self.producer_id,'stat-setting discovery producer',1)
+        _integer(self.index,'stat-setting selected entry',0)
+
+
+CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion,SetDiscoveredMinionStats)
 
 
 def record(state,producer_id):
@@ -247,6 +264,8 @@ def start_entry(r,effect):
     root=update(r.state,root,entry_root_ids=(*root.entry_root_ids,child_id));emit(r,'discovery_summon_entry',root)
     if root.spec.freeze_summoned:
         continuation=(*continuation,FreezeDiscoveredMinion(root.id,effect.index))
+    if root.spec.set_summoned_stats is not None:
+        continuation=(*continuation,SetDiscoveredMinionStats(root.id,effect.index))
     if root.phase=='delivering'and len(root.entry_root_ids)<len(chosen):
         continuation=(*continuation,StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)))
     return continuation
@@ -272,6 +291,26 @@ def freeze_discovered_minion(r,effect):
     from .effects import Freeze
     from .resolver import freeze_character
     freeze_character(r,Freeze(ref.entity_id,root.spec.source_id));return ()
+
+
+def set_discovered_minion_stats(r,effect):
+    from .summon_quantities import record as child_record
+    from .sacrifice import MinionReference, SetCapturedMinionStats, set_captured_minion_stats
+    effect.__post_init__(); root=record(r.state,effect.producer_id)
+    if (root.status != 'active' or root.spec.set_summoned_stats is None or
+            effect.index != len(root.stat_acceptances) or effect.index >= len(root.entry_root_ids)):
+        raise ResolutionError('Stale or foreign original discovery stat setting')
+    child=child_record(r.state,root.entry_root_ids[effect.index]); validate_child(root,effect.index,child)
+    if child.status not in ('completed','skipped'):
+        raise ResolutionError('Discovery stat setting preceded complete selected entry')
+    root=update(r.state,root,stat_acceptances=(*root.stat_acceptances,effect.index))
+    emit(r,'discovery_summon_stats_started',root)
+    if not child.deliveries or child.deliveries[0].entity is None:
+        return ()
+    fact=child.deliveries[0].entity
+    ref=MinionReference(fact.entity_id,fact.controller,fact.card_id,fact.zone_epoch,fact.entered_order)
+    stats=root.spec.set_summoned_stats
+    return set_captured_minion_stats(r,SetCapturedMinionStats(ref,stats.attack,stats.health,root.spec.source_id))
 
 
 def finish(r,effect):
@@ -373,7 +412,8 @@ def validate_queue(state,registry,queue):
             continue
         chosen=picks(root);need_entry=len(root.entry_root_ids)<len(chosen)and(root.spec.delivery=='after_each'or root.phase=='delivering')
         freeze=(FreezeDiscoveredMinion(root.id,len(root.freeze_acceptances)),)if root.spec.freeze_summoned and len(root.freeze_acceptances)<len(root.entry_root_ids)else()
-        expected=freeze+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
+        stats=(SetDiscoveredMinionStats(root.id,len(root.stat_acceptances)),)if root.spec.set_summoned_stats is not None and len(root.stat_acceptances)<len(root.entry_root_ids)else()
+        expected=freeze+stats+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
         if tuple(controls)!=expected:raise ValueError('Discovery lost original owed entry/finish tail')
         pending=bool(root.offers and root.offers[-1].offered and root.offers[-1].result is None)
         if len(advances)!=(int(root.phase=='discovering'and not pending)):raise ValueError('Discovery lost original next offer continuation')
@@ -449,7 +489,7 @@ def validate_closed_events(game):
         if event.kind=='card_summon_finished':
             child=entry_from_dict(CardSummonRecord,json.loads(dict(event.data)['root']))
             finished[child.id]=(child,event.sequence)
-    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_finished')
+    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_stats_started','discovery_summon_finished')
     for event in events:
         if event.kind not in kinds:continue
         data=dict(event.data)
@@ -460,7 +500,7 @@ def validate_closed_events(game):
             raise ValueError('Discovery event changed original identity/domain')
         previous=latest.get(root.id)
         if event.kind=='discovery_summon_accepted':
-            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
+            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.stat_acceptances or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
                 raise ValueError('Invalid/duplicate original discovery acceptance')
         else:
             if previous is None or previous.status!='active':raise ValueError('Discovery transition has no original active producer')
@@ -490,6 +530,14 @@ def validate_closed_events(game):
                 if done is None or done[0].status not in('completed','skipped')or done[1]>=event.sequence:
                     raise ValueError('Discovery freeze lost its original completed child')
                 validate_child(root,index,done[0]);expected=replace(previous,freeze_acceptances=root.freeze_acceptances)
+            elif event.kind=='discovery_summon_stats_started':
+                index=len(previous.stat_acceptances)
+                if root.spec.set_summoned_stats is None or root.stat_acceptances != (*previous.stat_acceptances,index) or index >= len(root.entry_root_ids):
+                    raise ValueError('Discovery changed original stat-setting acceptance')
+                done=finished.get(root.entry_root_ids[index])
+                if done is None or done[0].status not in ('completed','skipped') or done[1] >= event.sequence:
+                    raise ValueError('Discovery stat setting lost its original completed child')
+                validate_child(root,index,done[0]); expected=replace(previous,stat_acceptances=root.stat_acceptances)
             elif event.kind=='discovery_summon_finished':
                 if root.status=='active':raise ValueError('Discovery has no final status')
                 expected=replace(previous,status=root.status)
@@ -516,6 +564,9 @@ def spec_from_dict(value):
     row=_row(value,DiscoverFromPool);row['query']=query_from_dict(row['query'])
     policy=_row(row['policy'],GenerationPolicy);policy['allowed_special']=tuple(Keyword(k)for k in policy['allowed_special'])
     row['policy']=GenerationPolicy(**policy);row['cause']=entry_from_dict(SummonCause,row['cause'])
+    if row['set_summoned_stats'] is not None:
+        from .model import SummonStats
+        row['set_summoned_stats']=SummonStats(**_row(row['set_summoned_stats'],SummonStats))
     return DiscoverFromPool(**row)
 
 
@@ -532,6 +583,7 @@ def from_dict(cls,value):
     elif cls is DiscoverySummonRecord:
         row['spec']=spec_from_dict(row['spec']);row['offers']=tuple(from_dict(DiscoverySummonOffer,x)for x in row['offers'])
         row['entry_root_ids']=tuple(row['entry_root_ids']);row['freeze_acceptances']=tuple(row['freeze_acceptances'])
+        row['stat_acceptances']=tuple(row['stat_acceptances'])
     return cls(**row)
 
 
@@ -544,3 +596,4 @@ def register(mechanics):
     for cls in (DiscoverySummonEntryLink,DiscoverySummonOffer,DiscoverySummonRecord):mechanics.register_payload_type(cls)
     mechanics.register(StartDiscoverySummonEntry,start_entry);mechanics.register(FinishDiscoverySummon,finish)
     mechanics.register(FreezeDiscoveredMinion,freeze_discovered_minion)
+    mechanics.register(SetDiscoveredMinionStats,set_discovered_minion_stats)
