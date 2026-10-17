@@ -2,6 +2,10 @@
 from .model import CardAbilityCondition
 
 
+class UnknownCardFactError(ValueError):
+    """A required structural fact is missing; it is not a negative match."""
+
+
 def matches_ability_values(condition, *, printed, current):
     """Match explicit structural facts; None is unknown, never absent."""
     if type(condition) is not CardAbilityCondition:
@@ -12,7 +16,7 @@ def matches_ability_values(condition, *, printed, current):
             raise ValueError('Ability presence requires boolean or unknown')
     present = printed if condition.basis == 'printed' else current
     if present is None:
-        raise ValueError('Unknown candidate Battlecry identity')
+        raise UnknownCardFactError('Unknown candidate Battlecry identity')
     return present == condition.present
 
 

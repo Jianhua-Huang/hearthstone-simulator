@@ -12,7 +12,7 @@ from .construction import ids, integer, name
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice, Summon, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import CardAbilityCondition, CardClass, CardDefinition, CardMetadata, CardType, CostSpec, Keyword, Rarity, SpellSchool, SummonStats, validate_minion_subtypes
-from .card_conditions import matches_ability_values
+from .card_conditions import UnknownCardFactError, matches_ability_values
 from .summon_quantities import SummonCause
 
 SPECIAL_GENERATION_KEYWORDS = frozenset((Keyword.TITAN, Keyword.OLD_GOD, Keyword.QUEST, Keyword.QUESTLINE))
@@ -184,8 +184,21 @@ class PoolQuery:
     subtypes_any: tuple[str, ...] = ()
     deathrattle: bool | None = None
     choose_one: bool | None = None
+    # Common fields stay conjunctive; alternatives are a flat disjunction.
+    any_of: tuple['PoolQuery', ...] = ()
 
     def __post_init__(self):
+        if type(self.any_of) is not tuple or any(type(q) is not PoolQuery for q in self.any_of):
+            raise ValueError('Query alternatives require an immutable tuple of PoolQuery')
+        if self.any_of:
+            if len(self.any_of) < 2:
+                raise ValueError('Query alternatives require at least two clauses')
+            for clause in self.any_of:
+                if clause.any_of or clause.exclude_source or clause.exclude_card_ids:
+                    raise ValueError('Query alternatives are flat metadata predicates; exclusions belong to the outer query')
+                clause.__post_init__()
+            if len(set(self.any_of)) != len(self.any_of):
+                raise ValueError('Duplicate query alternative')
         for field in ('deathrattle', 'choose_one'):
             if getattr(self, field) is not None and type(getattr(self, field)) is not bool:
                 raise ValueError(f'Pool {field} filter requires boolean or None')
@@ -239,10 +252,11 @@ def validate_pools(registry):
 def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords, current_class=None,
                      printed_battlecry=None, current_battlecry=None,
                      printed_deathrattle=None, printed_choose_one=None):
-    """Printed metadata plus explicit ability facts from the caller's context."""
+    """Conjoin common facts and a flat OR; unknown is neither true nor false."""
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
     query.__post_init__()
+    missing = []
     if query.kinds and kind not in query.kinds:
         return False
     if query.subtypes_any and kind != CardType.MINION:
@@ -253,57 +267,86 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
     needs_meta = (query.collectible is not None or query.class_mode != 'any' or not query.include_neutral
                   or query.rarities or query.tribes_any or query.factions_any or query.subtypes_any)
     if meta is None and needs_meta:
-        raise ValueError(f'Unknown candidate metadata: {card_id}')
-    if query.collectible is not None and meta.collectible != query.collectible:
-        return False
-    neutral = meta is not None and meta.classes == (CardClass.NEUTRAL,)
-    if neutral:
-        if not query.include_neutral:
-            return False
-    elif ((query.class_mode == 'current' and current_class not in meta.classes) or
-          (query.class_mode == 'other' and current_class in meta.classes) or
-          (query.class_mode == 'specified' and not set(query.classes).intersection(meta.classes))):
-        return False
+        missing.append(f'Unknown candidate metadata: {card_id}')
+    if meta is not None:
+        if query.collectible is not None:
+            if meta.collectible is None:
+                missing.append(f'Unknown candidate collectibility: {card_id}')
+            elif meta.collectible != query.collectible:
+                return False
+        if query.class_mode != 'any' or not query.include_neutral:
+            if meta.classes is None:
+                missing.append(f'Unknown candidate classes: {card_id}')
+            else:
+                neutral = meta.classes == (CardClass.NEUTRAL,)
+                if neutral:
+                    if not query.include_neutral:
+                        return False
+                elif query.class_mode in ('current', 'other') and (
+                        type(current_class) is not CardClass or current_class == CardClass.NEUTRAL):
+                    missing.append(f'Unknown current hero class: {card_id}')
+                elif ((query.class_mode == 'current' and current_class not in meta.classes) or
+                      (query.class_mode == 'other' and current_class in meta.classes) or
+                      (query.class_mode == 'specified' and not set(query.classes).intersection(meta.classes))):
+                    return False
     if query.spell_schools and spell_school not in query.spell_schools:
         return False
     if not set(query.keywords_all).issubset(keywords):
         return False
-    if query.rarities:
-        if meta.rarity is None:
-            raise ValueError(f'Unknown candidate rarity: {card_id}')
-        if meta.rarity not in query.rarities:
-            return False
-    if query.tribes_any:
-        if meta.tribes is None:
-            raise ValueError(f'Unknown candidate tribes: {card_id}')
-        if 'all' not in meta.tribes and not set(query.tribes_any).intersection(meta.tribes):
-            return False
-    if query.factions_any:
-        if meta.factions is None:
-            raise ValueError(f'Unknown candidate factions: {card_id}')
-        if not set(query.factions_any).intersection(meta.factions):
-            return False
-    if query.subtypes_any:
-        if meta.subtypes is None:
-            raise ValueError(f'Unknown candidate minion subtypes: {card_id}')
-        if not set(query.subtypes_any).intersection(meta.subtypes):
-            return False
-    if query.ability is not None and not matches_ability_values(query.ability,
-            printed=printed_battlecry, current=current_battlecry):
-        return False
+    if meta is not None:
+        if query.rarities:
+            if meta.rarity is None:
+                missing.append(f'Unknown candidate rarity: {card_id}')
+            elif meta.rarity not in query.rarities:
+                return False
+        if query.tribes_any:
+            if meta.tribes is None:
+                missing.append(f'Unknown candidate tribes: {card_id}')
+            elif 'all' not in meta.tribes and not set(query.tribes_any).intersection(meta.tribes):
+                return False
+        if query.factions_any:
+            if meta.factions is None:
+                missing.append(f'Unknown candidate factions: {card_id}')
+            elif not set(query.factions_any).intersection(meta.factions):
+                return False
+        if query.subtypes_any:
+            if meta.subtypes is None:
+                missing.append(f'Unknown candidate minion subtypes: {card_id}')
+            elif not set(query.subtypes_any).intersection(meta.subtypes):
+                return False
+    if query.ability is not None:
+        try:
+            if not matches_ability_values(query.ability, printed=printed_battlecry, current=current_battlecry):
+                return False
+        except UnknownCardFactError as error:
+            missing.append(str(error))
     facts = (('deathrattle', printed_deathrattle), ('choose_one', printed_choose_one))
-    # A known nonmatch can exclude a row. Absence of an executable definition
-    # cannot supply a negative printed fact or remove an otherwise eligible row.
     for field, value in facts:
         wanted = getattr(query, field)
-        if wanted is not None and value is not None:
-            if type(value) is not bool:
+        if wanted is not None:
+            if value is None:
+                missing.append(f'Unknown candidate printed {field} identity: {card_id}')
+            elif type(value) is not bool:
                 raise ValueError(f'Invalid printed {field} identity: {card_id}')
-            if value != wanted:
+            elif value != wanted:
                 return False
-    for field, value in facts:
-        if getattr(query, field) is not None and value is None:
-            raise ValueError(f'Unknown candidate printed {field} identity: {card_id}')
+    if query.any_of:
+        unknown_alternatives = []
+        for clause in query.any_of:
+            try:
+                if matches_metadata(clause, card_id=card_id, kind=kind, cost=cost, meta=meta,
+                        spell_school=spell_school, keywords=keywords, current_class=current_class,
+                        printed_battlecry=printed_battlecry, current_battlecry=current_battlecry,
+                        printed_deathrattle=printed_deathrattle, printed_choose_one=printed_choose_one):
+                    break
+            except UnknownCardFactError as error:
+                unknown_alternatives.append(str(error))
+        else:
+            if not unknown_alternatives:
+                return False
+            missing.extend(unknown_alternatives)
+    if missing:
+        raise UnknownCardFactError(missing[0])
     return True
 
 
@@ -320,7 +363,7 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
     if player_id is not None:
         _player(player_id)
     pool = registry.pool(pool_id, context)
-    if query.class_mode in ('current', 'other') and (type(current_class) is not CardClass or current_class == CardClass.NEUTRAL):
+    if any(q.class_mode in ('current', 'other') for q in (query, *query.any_of)) and (type(current_class) is not CardClass or current_class == CardClass.NEUTRAL):
         raise ValueError('Generation requires a known current playable hero class')
     excluded = set(pool.excluded_card_ids) | set(query.exclude_card_ids)
     excluded_identities = {registry.pool_card(i).generation_identity for i in excluded if i in registry.pool_cards}

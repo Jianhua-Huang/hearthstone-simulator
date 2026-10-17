@@ -386,6 +386,16 @@ def query_from_dict(value):
         raise ValueError('Pool subtype filter requires an array or tuple')
     for name in ('tribes_any','exclude_card_ids','factions_any','subtypes_any'):row[name]=tuple(row[name])
     row['ability']=None if row['ability']is None else CardAbilityCondition(**_row(row['ability'],CardAbilityCondition))
+    alternatives=row['any_of']
+    if type(alternatives) not in (list,tuple):
+        raise ValueError('Pool query alternatives require an array or tuple')
+    # Reject nested input before recursion, including forged JSON with arbitrary
+    # depth. The shared query contract permits only one flat alternative layer.
+    for clause in alternatives:
+        fields=_row(clause,PoolQuery)
+        if type(fields['any_of']) not in (list,tuple) or fields['any_of']:
+            raise ValueError('Pool query alternatives must be flat')
+    row['any_of']=tuple(query_from_dict(clause) for clause in alternatives)
     return PoolQuery(**row)
 
 
