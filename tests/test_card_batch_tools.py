@@ -1,0 +1,176 @@
+"""Reject stale, incomplete, out-of-scope or drifting batch evidence."""
+from copy import deepcopy
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+
+from tools import card_batch as batch
+
+
+class CardBatchToolTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.run = self.root / 'outputs/related-01'
+        self.group = self.run / 'groups/000-test_sample'
+        self.group.mkdir(parents=True)
+        self.guard = {'hs_sim/engine/game.py': 'original'}
+        self.ids = ['test_sample.Case.test_effect', 'test_sample.Case.test_privacy']
+        inputs = dict(full_discovery=False, source_sha256=self.guard, selected=self.ids)
+        result = dict(success=True, source_guard=True, exactly_once_coverage=True,
+                      selected=2, executed=2, failures=[], errors=[], skipped=[], seconds=0.1)
+        for path in (self.run, self.group):
+            self.write(path / 'inputs.json', inputs)
+            self.write(path / 'result.json', result)
+        self.write(self.run / 'groups.json', [dict(module='test_sample', output=str(self.group), passed=True, exit_code=0)])
+        (self.group / 'test-times.jsonl').write_text(''.join(json.dumps(dict(test=x, status='passed')) + '\n'
+                                                          for x in self.ids), encoding='utf-8')
+
+    def write(self, path, value):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(value), encoding='utf-8')
+
+    def check(self, guard=None):
+        return batch.verify_run(self.root, self.run, ['test_sample'], self.guard if guard is None else guard, self.ids)
+
+    def test_complete_scoped_run_accepts_exact_current_source(self):
+        receipt = self.check()
+        self.assertEqual((receipt['methods'], receipt['full_regression_runs']), (2, 0))
+        self.assertEqual(receipt['result_sha256'], batch.sha(self.run / 'result.json'))
+
+    def test_green_run_from_changed_engine_cannot_be_inherited(self):
+        with self.assertRaisesRegex(ValueError, 'different source'):
+            self.check({'hs_sim/engine/game.py': 'modified'})
+
+    def test_missing_or_repeated_method_is_not_complete_coverage(self):
+        path = self.group / 'test-times.jsonl'
+        path.write_text(json.dumps(dict(test=self.ids[0], status='passed')) + '\n', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'per-method'):
+            self.check()
+        path.write_text((json.dumps(dict(test=self.ids[0], status='passed')) + '\n') * 2, encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'per-method'):
+            self.check()
+
+    def test_failed_skipped_or_full_discovery_run_cannot_claim_acceptance(self):
+        original = batch.read(self.run / 'result.json')
+        for key, value in [('success', False), ('errors', ['error']), ('skipped', ['skip'])]:
+            self.write(self.run / 'result.json', dict(original, **{key: value}))
+            with self.assertRaises(ValueError):
+                self.check()
+        self.write(self.run / 'result.json', original)
+        data = batch.read(self.run / 'inputs.json')
+        self.write(self.run / 'inputs.json', dict(data, full_discovery=True))
+        with self.assertRaisesRegex(ValueError, 'scoped'):
+            self.check()
+
+    def test_group_guard_cannot_differ_from_successful_parent(self):
+        data = batch.read(self.group / 'inputs.json')
+        self.write(self.group / 'inputs.json', dict(data, source_sha256={'hs_sim/engine/game.py': 'different'}))
+        with self.assertRaisesRegex(ValueError, 'different source'):
+            self.check()
+
+    def test_group_path_must_belong_to_original_run(self):
+        self.write(self.run / 'groups.json', [dict(module='test_sample', output=str(self.root), passed=True, exit_code=0)])
+        with self.assertRaisesRegex(ValueError, 'escaped'):
+            self.check()
+
+    def test_empty_or_overlapping_selection_is_rejected(self):
+        data = batch.read(self.run / 'inputs.json')
+        for ids in ([], self.ids + self.ids[:1]):
+            self.write(self.run / 'inputs.json', dict(data, selected=ids))
+            with self.assertRaisesRegex(ValueError, 'Selected methods'):
+                self.check()
+
+    def test_manifest_partition_and_three_file_scope_cannot_be_forged(self):
+        manifest = dict(schema=1, roots=['A', 'B'], effect_groups=[dict(cards=['A', 'B'])],
+                        source_sha256='0' * 64, allowed_files=['data/cards/new.json', 'hs_sim/cards/new.py', 'tests/test_new.py'])
+        path = self.root / 'task.json'
+        self.write(path, manifest)
+        self.assertEqual(batch.load_manifest(path)['roots'], ['A', 'B'])
+        for changes in (dict(dependencies=['A']), dict(effect_groups=[dict(cards=['A', 'A'])]),
+                        dict(allowed_files=['data/cards/new.json', 'hs_sim/engine/game.py', 'tests/test_new.py'])):
+            self.write(path, dict(manifest, **changes))
+            with self.assertRaises(ValueError):
+                batch.load_manifest(path)
+
+    def test_commit_must_add_only_the_three_assigned_files(self):
+        task = dict(allowed_files=['data/cards/new.json', 'hs_sim/cards/new.py', 'tests/test_new.py'])
+        valid = '\n'.join('A\t' + x for x in task['allowed_files'])
+        with patch.object(batch.subprocess, 'check_output', return_value=valid):
+            self.assertEqual(len(batch.check_commit(self.root, 'commit', task)['added_files']), 3)
+        for invalid in (valid.replace('A\t', 'M\t', 1), valid + '\nA\ths_sim/engine/game.py'):
+            with patch.object(batch.subprocess, 'check_output', return_value=invalid), self.assertRaises(ValueError):
+                batch.check_commit(self.root, 'commit', task)
+
+    def face(self):
+        raw = dict(id='A', dbf_id=101, name='卡牌', name_en='Card', text='<b>造成</b>$3点伤害。',
+                   text_en='Deal $3 damage.', cost=2, attack=None, health=None, collectible=True,
+                   tags=dict(CLASS=4, CARDTYPE=5, CARD_SET=1, RARITY=3))
+        face = dict(id=101, name='卡牌', text='<b>造成</b>3点伤害。', manaCost=2, classId=4,
+                    cardTypeId=5, cardSetId=1, rarityId=3, collectible=1)
+        return raw, face
+
+    def test_full_official_face_rejects_numeric_rules_and_identity_drift(self):
+        raw, face = self.face()
+        batch.check_face(raw, face, 'zh_CN')
+        for changes in (dict(id=102), dict(text='造成4点伤害。'), dict(manaCost=3), dict(classId=7), dict(collectible=0)):
+            with self.assertRaises(ValueError):
+                batch.check_face(raw, dict(face, **changes), 'zh_CN')
+        self.assertNotEqual(batch.display('Deal @ damage'), batch.display('Deal 3 damage'))
+
+    def test_reviewed_dynamic_display_is_bound_to_complete_printed_script_value(self):
+        raw, face = self.face()
+        raw['text'] = '造成$@点伤害。'
+        raw['tags']['TAG_SCRIPT_DATA_NUM_1'] = 3
+        batch.check_face(raw, face, 'zh_CN', {'@': '3'})
+        batch.check_face(raw, dict(face, text='造成点伤害。'), 'zh_CN', {'@': ''})
+        for mapping in ({'@': '4'}, {'伤害': '治疗'}, {'@': 'unreviewed'}):
+            with self.assertRaises(ValueError):
+                batch.check_face(raw, face, 'zh_CN', mapping)
+
+    def test_multiple_classes_are_checked_without_guessing_a_single_class(self):
+        raw, face = self.face()
+        raw['tags'].pop('CLASS')
+        raw['tags']['MULTIPLE_CLASSES'] = 8193
+        face['multiClassIds'] = [1, 14]
+        batch.check_face(raw, face, 'zh_CN')
+        with self.assertRaisesRegex(ValueError, 'multiple classes'):
+            batch.check_face(raw, dict(face, multiClassIds=[1, 7]), 'zh_CN')
+
+    def test_offline_cache_requires_full_body_receipt_and_checks_hash(self):
+        raw, face = self.face()
+        cache = self.root / 'cache'
+        cache.mkdir()
+        body = cache / '101-zh_CN.json'
+        self.write(body, dict(cards=[face]))
+        receipt = body.with_suffix('.receipt.json')
+        self.write(receipt, dict(url='https://hearthstone.blizzard.com/en-us/api/cards?card=101&locale=zh_CN', sha256=batch.sha(body)))
+        self.assertEqual(batch.official(raw, 'zh_CN', cache, offline=True)['face'], face)
+        self.write(body, dict(cards=[dict(face, manaCost=3)]))
+        with self.assertRaisesRegex(ValueError, 'cache body/receipt'):
+            batch.official(raw, 'zh_CN', cache, offline=True)
+
+    def test_preservation_rejects_old_pool_change_and_engine_edit(self):
+        before = dict(definitions={'A': {'cost': 1}}, pool_cards={'A': {'cost': 1}}, families={}, pools=[],
+                      default_fingerprint='stable', default_snapshot={'turn': 1},
+                      source_guard={'hs_sim/engine/game.py': 'same', 'hs_sim/cards/constructed.py': 'before'})
+        after = deepcopy(before)
+        after['definitions']['B'] = {'cost': 2}
+        after['pool_cards']['B'] = {'cost': 2}
+        after['source_guard']['hs_sim/cards/constructed.py'] = 'after'
+        self.assertEqual(batch.check_preservation(before, after, [], ['B'])['old_pool_cards'], 1)
+        altered = deepcopy(after)
+        altered['pool_cards']['A']['cost'] = 9
+        with self.assertRaisesRegex(ValueError, 'pool metadata'):
+            batch.check_preservation(before, altered, [], ['B'])
+        altered = deepcopy(after)
+        altered['source_guard']['hs_sim/engine/game.py'] = 'different'
+        with self.assertRaisesRegex(ValueError, 'existing Python'):
+            batch.check_preservation(before, altered, [], ['B'])
+
+
+if __name__ == '__main__':
+    unittest.main()
