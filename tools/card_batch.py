@@ -118,6 +118,14 @@ def validate_numeric_normalizations(values):
 def check_face(row, face, locale, display_normalizations=None, *, numeric_normalizations=None):
     chinese = locale == 'zh_CN'
     require(locale in ('zh_CN', 'en_US'), 'Unreviewed face locale')
+    if display_normalizations is not None:
+        require(type(display_normalizations) is dict, 'Display declarations must be mappings')
+        locales = {'zh_CN', 'en_US'}
+        if set(display_normalizations) & locales:
+            require(set(display_normalizations) <= locales and
+                    all(type(v) is dict for v in display_normalizations.values()),
+                    'Locale display declarations cannot mix marker and locale keys')
+            display_normalizations = display_normalizations.get(locale)
     require(face['id'] == row['dbf_id'], 'Official response selected another DBF identity')
     require(face['name'] == row['name' if chinese else 'name_en'], 'Official card name drift')
     raw_text = row['text' if chinese else 'text_en']
@@ -128,6 +136,8 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                         all(re.fullmatch(r'\s*<i>.*</i>\s*', s, flags=re.S) for s in states[1:]) and
                         tuple(display(s) for s in states[1:]) == progress_labels)
     for marker, replacement in (display_normalizations or {}).items():
+        require(type(marker) is str and type(replacement) is str,
+                'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
@@ -138,9 +148,15 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         elif marker == '{0}':
             require(progress_display and replacement == '',
                     'Only exact trailing progress-left/ready labels may omit their display counter')
+        elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
+            require(chinese and row.get('type') == 'MINION' and
+                    type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and
+                    raw_text.startswith(marker) and raw_text.count(marker) == 1 and
+                    replacement == marker[:-1],
+                    'Only an explicit leading Chinese Colossal separator may be omitted')
         else:
             require(marker == '~GAMEPLAY_ASPROXY_' + row['id'] and replacement == '',
-                    'Only explicit numeric displays and the original proxy suffix may be normalized')
+                    'Unreviewed display normalization')
         raw_text = raw_text.replace(marker, replacement)
     require(display(face['text']) == display(raw_text),
             'Official card rules drift: ' + row['id'])

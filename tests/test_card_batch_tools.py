@@ -158,6 +158,63 @@ class CardBatchToolTests(unittest.TestCase):
             with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'rules drift'):
                 batch.check_face(raw, dict(face, text=text), 'en_US')
 
+    def colossal_face(self):
+        raw, face = self.face()
+        raw.update(type='MINION', attack=4, health=6,
+            text='<b>巨型+3</b>。恢复3点生命值。', text_en='<b>Colossal +3.</b> Restore 3 Health.')
+        raw['tags'].update(CARDTYPE=4, COLOSSAL=1)
+        face.update(attack=4, health=6, cardTypeId=4, text='<b>巨型+3</b> 恢复3点生命值。')
+        return raw, face, {'zh_CN': {'<b>巨型+3</b>。': '<b>巨型+3</b>'}}
+
+    def test_explicit_colossal_separator_is_locale_scoped_and_keeps_all_rule_numbers(self):
+        raw, face, mapping = self.colossal_face()
+        batch.check_face(raw, face, 'zh_CN', mapping)
+        english = dict(face, name=raw['name_en'], text=raw['text_en'])
+        batch.check_face(raw, english, 'en_US', mapping)
+        for text in ('<b>巨型+2</b> 恢复3点生命值。', '<b>巨型+3</b> 恢复4点生命值。',
+                     '<b>巨型+3</b> 造成3点伤害。', '<b>巨型+3</b> 恢复3点生命值'):
+            with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'rules drift'):
+                batch.check_face(raw, dict(face, text=text), 'zh_CN', mapping)
+
+    def test_colossal_separator_cannot_normalize_untyped_nonleading_or_repeated_rules(self):
+        raw, face, mapping = self.colossal_face()
+        candidates = [dict(raw, type='SPELL'), dict(raw, text='先' + raw['text']),
+            dict(raw, text=raw['text'] * 2)]
+        for tag in (None, True, 0, 2):
+            candidate = deepcopy(raw)
+            candidate['tags']['COLOSSAL'] = tag
+            candidates.append(candidate)
+        for candidate in candidates:
+            with self.subTest(candidate=candidate), self.assertRaises(ValueError):
+                batch.check_face(candidate, face, 'zh_CN', mapping)
+        for declaration in ([], {'zh_CN': []}, dict(mapping, **{'@': ''}),
+                {'zh_CN': {'<b>巨型+3</b>。': '<b>巨型+2</b>'}},
+                {'zh_CN': {'<b>巨型+3</b>。': ''}}):
+            with self.subTest(declaration=declaration), self.assertRaises(ValueError):
+                batch.check_face(raw, face, 'zh_CN', declaration)
+        with self.assertRaises(ValueError):
+            batch.check_face(raw, dict(face, name=raw['name_en']), 'en_US', mapping['zh_CN'])
+
+    def test_real_black_blood_bilingual_faces_require_explicit_separator_and_preserve_originals(self):
+        root = Path(__file__).resolve().parents[1]
+        evidence = batch.read(root / 'outputs/card-parallel-p62-20261017/worker-230af709/preaudit-source-rejections-01.json')
+        mapping = {'zh_CN': {'<b>巨型+3</b>。': '<b>巨型+3</b>'}}
+        cache = root / 'outputs/card-integration-20261014/tool-plural-primary-original'
+        checks = [c for c in evidence['checks'] if c['card_id'] == 'CATA_300']
+        self.assertEqual({c['locale'] for c in checks}, {'zh_CN', 'en_US'})
+        for check in checks:
+            row, locale = check['record'], check['locale']
+            original = deepcopy(row)
+            body = cache / f"{row['dbf_id']}-{locale}.json"
+            original_body = body.read_bytes()
+            self.assertEqual(batch.canonical(row), check['record_sha256'])
+            if locale == 'zh_CN':
+                with self.assertRaisesRegex(ValueError, 'rules drift'):
+                    batch.official(row, locale, cache, offline=True)
+            observed = batch.official(row, locale, cache, offline=True, display_normalizations=mapping)
+            self.assertEqual(observed['face'], check['face'])
+            self.assertEqual((row, body.read_bytes()), (original, original_body))
+
     def test_two_complete_real_new_moon_faces_keep_explicit_counter_review_and_originals(self):
         data = batch.read(Path(__file__).resolve().parents[1]/'data/cards/simple-followup-p62-v1.json')
         rows = {r['record']['id']:r['record'] for r in data['evidence_only']}
