@@ -1,0 +1,256 @@
+{
+  "batch": "P41",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_049",
+        "dbf_id": 120944,
+        "name": "危险的异变体",
+        "name_en": "Dangerous Variant",
+        "text": "在你的回合开始时，&随机变形成为一个法力值消耗为（5）的随从。",
+        "text_en": "At the start of your turn,& transform into a random 5-Cost minion.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1,
+          "4548": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "3bf1c0c100f0fc941353a6a1a70726c7156f9cbafecf16a3b44dfb9d1e3c423e"
+    },
+    {
+      "record": {
+        "id": "TIME_055",
+        "dbf_id": 120958,
+        "name": "未知旅客",
+        "name_en": "Unknown Voyager",
+        "text": "在本随从受到伤害并存活下来后，随机变形成为一个法力值消耗为（7）的随从。",
+        "text_en": "After this survives damage, transform into a random 7-Cost minion.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "ENRAGED": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "b7cc3231552d81f90ba8e22b4b9c0827008aace6ad8a4c5f4261877cee33ed10"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T09:26:58.604530+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "TIME_049",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120944&locale=zh_CN",
+        "response_file": "official-TIME_049-zh_CN.json",
+        "response_sha256": "87ac546645a684a2ed0006aadd9329225726ae8808b6932618a890ae558c74df",
+        "face": {
+          "id": 120944,
+          "collectible": 1,
+          "slug": "120944-dangerous-variant",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "危险的异变体",
+          "text": "在你的回合开始时，&随机变形成为一个法力值消耗为（5）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4afc7a382ea1ec9932a3cf7e53eb0842fa5b97569611cd4c3813265c0a7b6da.png",
+          "imageGold": "",
+          "flavorText": "我觉得我是<i>改良</i>的异变体。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/752ad46661dbfaf0eeba754b7075aadaa97cce3f08ee9e6d266619120263e455.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_049",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120944&locale=en_US",
+        "response_file": "official-TIME_049-en_US.json",
+        "response_sha256": "bed783decff783530eb44d78f8d51e55e26a30a40906d62931a99ba884f9ad31",
+        "face": {
+          "id": 120944,
+          "collectible": 1,
+          "slug": "120944-dangerous-variant",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 1,
+          "artistName": "Matt Dixon",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 2,
+          "name": "Dangerous Variant",
+          "text": "At the start of your turn,& transform into a random 5-Cost minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ef8e568d2c1bf842a208d50069de355c9921f3cf50df5e4924d9f768d5b4a1c.png",
+          "imageGold": "",
+          "flavorText": "I prefer to think of myself as the <i>improved</i> variant.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/752ad46661dbfaf0eeba754b7075aadaa97cce3f08ee9e6d266619120263e455.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_055",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120958&locale=zh_CN",
+        "response_file": "official-TIME_055-zh_CN.json",
+        "response_sha256": "101b25a31253a8a9ce4dce9a30c70badefb081e41f1d7bf48cf8868b2706d2ee",
+        "face": {
+          "id": 120958,
+          "collectible": 1,
+          "slug": "120958-unknown-voyager",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Brian Despain",
+          "health": 5,
+          "attack": 4,
+          "manaCost": 5,
+          "name": "未知旅客",
+          "text": "在本随从受到伤害并存活下来后，随机变形成为一个法力值消耗为（7）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c64ed0437893444090fa1189a298f7ab0655872bf17dcd85159a0954a7568e02.png",
+          "imageGold": "",
+          "flavorText": "仔细一想，我们都是来自过去的时空旅人。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f9b1f3be28cbb13640b98e6cef63338d0d0929bf746bbd6ffe09995b50b8bea.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TIME_055",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120958&locale=en_US",
+        "response_file": "official-TIME_055-en_US.json",
+        "response_sha256": "d6ed7953b016afde7182c543b6182b3debacb0e44a8ddfd4803f9f01d6e41686",
+        "face": {
+          "id": 120958,
+          "collectible": 1,
+          "slug": "120958-unknown-voyager",
+          "classId": 12,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1957,
+          "rarityId": 3,
+          "artistName": "Brian Despain",
+          "health": 5,
+          "attack": 4,
+          "manaCost": 5,
+          "name": "Unknown Voyager",
+          "text": "After this survives damage, transform into a random 7-Cost minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3446b9c038032c3ff5e9f9e9297d79c6cefa39917cdc91d722fb992015d16865.png",
+          "imageGold": "",
+          "flavorText": "If you think about it, we're all time travelers from the past.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f9b1f3be28cbb13640b98e6cef63338d0d0929bf746bbd6ffe09995b50b8bea.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Dangerous Variant native owner turn_started, living original carrier: captured MinionReference plus TransformMinionFromPool printed2+3 gives fixed5. Unknown Voyager original health_resolved HealthResult, positive actual damage to this exact original living presence with actual survival: printed5+2 gives fixed7. ENRAGED raw tag is retained, no invented keyword.",
+    "Anyclass collectible MINION query, original printed cost independent of modified cost, no retained old cost. Explicit complete host constructed.cards GenerationContext required only for actual transforms. Complete unknown eligible effects fail before RNG, no registered-coverage crop or local sampler.",
+    "Captured original reference protects source card/controller/zone_epoch/entered_order across queued reactions, departure/reentry/changedface. Public transformation preserves physical entity/slot and resets full old body, damage, attachments, native triggers; no new summon, old deathrattle or new Battlecry.",
+    "No public kernel/registration/identity/ledger modifications. Full official rows and four cached faces reused byte verified. M0 formal standard/reachable inventory and M6 CN windows remain open."
+  ]
+}
