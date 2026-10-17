@@ -1,0 +1,277 @@
+{
+  "batch": "P43",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_904",
+        "dbf_id": 115628,
+        "name": "邪火爆焰",
+        "name_en": "Felfire Blaze",
+        "text": "在你施放一个邪能法术后，&消灭本随从并对所有敌人造成2点伤害。",
+        "text_en": "[x]After you cast a Fel spell,&\ndestroy this and deal 2\ndamage to all enemies.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "b983d3f8805cbbe70d7660b1780d0b6afed17c67b335b3ca47fa04fedbd5154b"
+    },
+    {
+      "record": {
+        "id": "TLC_477",
+        "dbf_id": 119587,
+        "name": "蛇颈龙骑手的祝福",
+        "name_en": "Threshrider's Blessing",
+        "text": "使一个友方随从获得+4/+4和“<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。”",
+        "text_en": "Give a friendly minion +4/+4 and \"<b>Deathrattle:</b> Summon a random 4-Cost minion.\"",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Danny Beck"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9ccca31189b500050e6c6881fb8404b9f29ac0014e0d6fcf8d692e049be24a5d"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_477e",
+        "dbf_id": 119679,
+        "name": "蛇颈龙鞍座",
+        "name_en": "Thresher Saddle",
+        "text": "+4/+4和<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。",
+        "text_en": "+4/+4 and <b>Deathrattle:</b> Summon a random 4-Cost minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0d52b51a79516d7dbd1645f38e9adbb6355517f5f769a1226bda22316f391945"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T10:05:19.371978+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "FIR_904",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115628&locale=zh_CN",
+        "response_file": "official-FIR_904-zh_CN.json",
+        "response_sha256": "5d705ada1efc63002a82bb05095be112c4314f63059a45bd84208bf67b75af5b",
+        "face": {
+          "id": 115628,
+          "collectible": 1,
+          "slug": "115628-felfire-blaze",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Alex Stone",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "邪火爆焰",
+          "text": "在你施放一个邪能法术后，&消灭本随从并对所有敌人造成2点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7aa0e8f1fbf28dab51d92fdb26dee3f9825feb8c6f2c8e5c60665e854daa1df.png",
+          "imageGold": "",
+          "flavorText": "像邪能，那火焰，它使我受熬煎。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/086057ac0c86806c66148a113778b20a2656e4bd1a84d40a2b6fe30c87a2f2ad.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_904",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115628&locale=en_US",
+        "response_file": "official-FIR_904-en_US.json",
+        "response_sha256": "60d5f2e4e13688fe8057e700837dc92ad552190014e74407a2e0cca375ae5189",
+        "face": {
+          "id": 115628,
+          "collectible": 1,
+          "slug": "115628-felfire-blaze",
+          "classId": 14,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Alex Stone",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Felfire Blaze",
+          "text": "After you cast a Fel spell,& destroy this and deal 2 damage to all enemies.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b5d1db4bcc1fbdfaec10198ed1009f17d5876a8d0d65f37683a98f2d80b8799.png",
+          "imageGold": "",
+          "flavorText": "Like fire, felfire, this fire in my skin.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/086057ac0c86806c66148a113778b20a2656e4bd1a84d40a2b6fe30c87a2f2ad.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_477",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119587&locale=zh_CN",
+        "response_file": "official-TLC_477-zh_CN.json",
+        "response_sha256": "5ddeee6fe0f18b6a27f801362905ac78d9ffa205171c5afa9587b399beeeb687",
+        "face": {
+          "id": 119587,
+          "collectible": 1,
+          "slug": "119587-threshriders-blessing",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Danny Beck",
+          "manaCost": 5,
+          "name": "蛇颈龙骑手的祝福",
+          "text": "使一个友方随从获得+4/+4和“<b>亡语：</b>随机召唤一个法力值消耗为（4）的随从。”",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1cf7cc4cfc5709a17c5143a698780b744c66fa2bb2e2e7c1783c39c6c68b678d.png",
+          "imageGold": "",
+          "flavorText": "祝福",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57f98e283e2648024b2ed9c5fcfb6ed830432926f26198eacadcb50d03ae7103.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_477",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119587&locale=en_US",
+        "response_file": "official-TLC_477-en_US.json",
+        "response_sha256": "ff9cad4d2d2845056d33b41f6d22ada67c55d2f0a639f67cf4c1b6a754b8c54e",
+        "face": {
+          "id": 119587,
+          "collectible": 1,
+          "slug": "119587-threshriders-blessing",
+          "classId": 5,
+          "multiClassIds": [],
+          "spellSchoolId": 5,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 4,
+          "artistName": "Danny Beck",
+          "manaCost": 5,
+          "name": "Threshrider's Blessing",
+          "text": "Give a friendly minion +4/+4 and \"<b>Deathrattle:</b> Summon a random 4-Cost minion.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aff058c622f311d81a165ea94b77ec815dce1f0eeb548408c3143df0e537e3f7.png",
+          "imageGold": "",
+          "flavorText": "Blessed",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57f98e283e2648024b2ed9c5fcfb6ed830432926f26198eacadcb50d03ae7103.png",
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context_only_for_actual_granted_dr": true,
+  "internal_policy": [
+    "Felfire Blaze DH2mana2/3Elemental: original successful spell_cast_finished/cast_record exactsource/player/target linkage, completedpayload/no failure/interruption, ownFel andoriginal liveactive listener. OrdinaryDestroy(self) thenInvokeBehavior accepts CURRENT enemyhero+ordinaryactiveminions afteralldeathreactions. DamageBatch2MINION_ABILITY usesoriginalallocatedsource eveningrave, no newliveguard or destruction-success condition, no spellpower scaling/localexecutor.",
+    "Threshriders Blessing Paladin5HolySPELL: normal requiredfriendlyBOARD/MINION target, ordinaryBuff4/4 thenGrantDeathrattle with actualspellsource. One grantedbody SummonFromPool anyclasscollectibleMINION printed4, currentDRcarrier source, originalSummonCause/deathrattle_position naturaldeathslot orlivingcarrierrightside. Existinggrant/sourceexclusion/copy/lifecycle/checkpoints retained, no new atomicgrant/copy executor.",
+    "Only actual grantedDR needs matchingcompletehost constructed.cards GenerationContext. Wholeeligible unknowns validated beforeRNG evenfullboard; empty/capacity/currentcontroller/sharedrandomrules unchanged. No candidatecrop/placeholder/new dependency. TLC_477e fullraw onlyevidence, notphysicaldefinition/PoolCard/guessedchild link.",
+    "Two roots+onefullenchantmentrow/four completecached officialfaces verified. Task prose incorrectly callsBlessingHunter/Nature; classId5/rawCLASS5 mapsPALADIN through existingmetadata; allthree raw/officialschoolfacts are5 andexistingreviewedSCHOOLS[5]=HOLY, so implementation usesHoly ratherthan rewritingevidence. metadata_from_record decodes DHElemental andPaladinHoly, referencedDeathrattle notnativeSpellDR. Default/olddefinitions/pools/engine unchanged; main ownscentralassembly/identity/ledgers/publicwork. M0/M6 formalstandard/exactCNwindows remainopen."
+  ]
+}
