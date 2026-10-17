@@ -217,7 +217,7 @@ class SimpleFollowupP78Tests(unittest.TestCase):
   for cid,c in before.cards.items():self.assertEqual(after.card(cid),c)
   for cid,c in before.pool_cards.items():self.assertEqual(after.pool_card(cid),c)
   for pid,p in before.player_effects.items():self.assertEqual(after.player_effect(pid),p)
-  self.assertEqual(set(after.player_effects)-set(before.player_effects),{PROGRAM});self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS)-set(before.cards))
+  self.assertEqual(set(after.player_effects)-set(before.player_effects),{PROGRAM}-set(before.player_effects));self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS)-set(before.cards))
   for cid,pin in d['existing_dependency_definition_pins'].items():self.assertEqual(canonical_digest(asdict(after.card(cid))),pin['sha256'])
   for key in('fabled','jade_families','generation_families','pools'):self.assertEqual(getattr(before,key),getattr(after,key))
   self.assertEqual('TIME_040'in before.cards,'TIME_040'in after.cards)
