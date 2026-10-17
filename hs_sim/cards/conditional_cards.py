@@ -116,7 +116,7 @@ def spider(c,amount,next_card=None):
 SCRIPTS={
     'poison':poison,
     'tracking':lambda c,r:(ChooseFromZone(c.player_id,c.player_id,Zone.DECK,
-        operation='take',distinct='entity',source_id=c.source_id,prompt='从牌库中发现一张牌'),),
+        operation='take',distinct='entity',source_id=c.source_id,prompt='从牌库中发现一张牌',discovery=True),),
     'bananas':lambda c,r:named_hand(c,'EX1_014t',2,True),
     'banana_buff':lambda c,r:(Buff(c.target_id,1,1,c.source_id),),
     'hand_health':lambda c,r:(Buff(c.source_id,health=len(c.state.players[c.player_id].hand),source_id=c.source_id),),

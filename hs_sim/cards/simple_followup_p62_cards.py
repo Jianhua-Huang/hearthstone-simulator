@@ -94,7 +94,7 @@ def register_simple_followup_p62_cards(registry):
 
     bodies = {FRAME: frame, 'destroy_pair': destroy_pair,
         'enemy_deck_top': lambda c: (ChooseFromZone(c.player_id, 3-c.player_id, Zone.DECK,
-            PoolQuery(kinds=(CardType.MINION,)), operation='top', distinct='entity', source_id=c.source_id),),
+            PoolQuery(kinds=(CardType.MINION,)), operation='top', distinct='entity', source_id=c.source_id,discovery=True),),
         TYPHOON: typhoon, 'shuffle_ready': shuffle_ready, 'shuffle_selected': shuffle_selected,
         PRAYER: lambda c: (Damage(c.target_id, 6, c.source_id, DamageKind.SPELL),),
         RITUAL: lambda c: (GenerateFromPool(c.player_id, POOL_ID, PoolQuery(kinds=(CardType.MINION,),

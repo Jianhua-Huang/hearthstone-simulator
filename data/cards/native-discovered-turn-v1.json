@@ -1,0 +1,471 @@
+{
+  "schema": 1,
+  "batch": "K170",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_462",
+        "dbf_id": 118199,
+        "name": "出土神器",
+        "name_en": "Unearthed Artifacts",
+        "text": "随机召唤一个法力值消耗为（2）的随从。如果你在本回合中<b><b>发现</b>过</b>，改为随机召唤一个法力值消耗为（4）的随从。",
+        "text_en": "[x]Summon a random 2-Cost\nminion. If you've <b><b>Discover</b>ed</b>\nthis turn, summon a random\n4-Cost minion instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d4d99ca65d29fce514082f1ded1aa2e71c4804ba97d3ce973332a86aca5f4078",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_462",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_365",
+        "dbf_id": 118266,
+        "name": "乱翻库存",
+        "name_en": "Storage Scuffle",
+        "text": "对一个随从造成$3点伤害。如果你在本回合中<b>发现</b>过，则本牌的法力值消耗为（0）点。",
+        "text_en": "Deal $3 damage\nto a minion. Costs (0)\nif you've <b>Discovered</b>\nthis turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0c58112422d886c905af5b6948abde172c2e9326e293ba50e476282077283e5c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_365",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "TLC_483",
+        "dbf_id": 120582,
+        "name": "宝库闯入者",
+        "name_en": "Vault Breaker",
+        "text": "在你<b>发现</b>一张卡牌后，使其法力值消耗减少（1）点。",
+        "text_en": "After you <b>Discover</b> a card, reduce its Cost by (1).",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "dc87f9e292899e139a2f33aa03c4d1d00e73f4d02136efd8d9ebb3fdd2cd9070",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_483",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_460",
+        "dbf_id": 118183,
+        "name": "禁忌序列",
+        "name_en": "The Forbidden Sequence",
+        "text": "<b>任务：</b><b>发现</b>8张牌。<b>奖励：</b>源生之石。",
+        "text_en": "[x]<b>Quest:</b> <b>Discover</b> 8 cards.\n<b>Reward:</b> The Origin Stone.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 118191,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "43327c776ec2d16d72533017087975969e54d876f8a685e36b7afc7dad3f51cc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_460",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_460t",
+        "dbf_id": 118191,
+        "name": "源生之石",
+        "name_en": "The Origin Stone",
+        "text": "在你<b>发现</b>一张牌后，本武器会使用其余选项并失去1点耐久度。",
+        "text_en": "After you <b>Discover</b> a card, this plays the other options.\nLose 1 Durability.",
+        "cost": 3,
+        "attack": null,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f097595b845c6b9b4f475b2c0a86c3c471ed56d82473d631d501dda3ffd197a1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_460t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_462",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118199-zh_CN.json",
+      "response_sha256": "f961e4077fe5e9793cedb9aff58efaf8b111ae574a9a6a69bf2b2f262144294f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=zh_CN",
+      "face": {
+        "id": 118199,
+        "collectible": 1,
+        "slug": "118199-unearthed-artifacts",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "出土神器",
+        "text": "随机召唤一个法力值消耗为（2）的随从。如果你在本回合中<b><b>发现</b>过</b>，改为随机召唤一个法力值消耗为（4）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/458a2f4ab4d9dd6647b9e3d4e9af9a9132db239294e02a7df296a5296bcb6f28.png",
+        "imageGold": "",
+        "flavorText": "始祖龟的寿命太长了，他们甚至能挖到原本就属于属于自己的古代神器！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52c3e2f886599e2a08aea0b480b4042629128c3119247ea9c6889fd4cc483381.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=zh_CN",
+        "sha256": "f961e4077fe5e9793cedb9aff58efaf8b111ae574a9a6a69bf2b2f262144294f",
+        "bytes": 902,
+        "observed_at": "2026-10-17T22:20:26.622816+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_462",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118199-en_US.json",
+      "response_sha256": "ad62ecc54567cf2b8d52487875dea4f43bcee7bb738067095254ef5ef4ff0beb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=en_US",
+      "face": {
+        "id": 118199,
+        "collectible": 1,
+        "slug": "118199-unearthed-artifacts",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "Unearthed Artifacts",
+        "text": "Summon a random 2-Cost minion. If you've <b><b>Discover</b>ed</b> this turn, summon a random 4-Cost minion instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2cbc306a31c2c35a56fd7b49a545eb9296f95115759a61640d54cd9b526747e9.png",
+        "imageGold": "",
+        "flavorText": "The Tortollans live so long they're unearthing their OWN artifacts!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52c3e2f886599e2a08aea0b480b4042629128c3119247ea9c6889fd4cc483381.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118199&locale=en_US",
+        "sha256": "ad62ecc54567cf2b8d52487875dea4f43bcee7bb738067095254ef5ef4ff0beb",
+        "bytes": 829,
+        "observed_at": "2026-10-17T22:20:26.596921+00:00"
+      }
+    }
+  ],
+  "source_verified": true,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

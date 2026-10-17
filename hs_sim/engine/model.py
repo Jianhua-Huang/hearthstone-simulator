@@ -9212,6 +9212,7 @@ class ChoicePurpose(StrEnum):
     REWIND = 'rewind'
     DREDGE = 'dredge'
     POOL_DISCOVERY = 'pool_discovery'
+    CARD_DISCOVERY = 'card_discovery'
     ASSEMBLE = 'assemble'
 
 
@@ -9250,6 +9251,9 @@ class PendingChoice:
         _int(self.max_count, 'choice max_count', 0)
         if not self.min_count <= self.max_count <= len(self.options):
             raise ValueError('Invalid choice cardinality')
+        if self.purpose in (ChoicePurpose.POOL_DISCOVERY, ChoicePurpose.CARD_DISCOVERY):
+            if self.min_count != 1 or self.max_count != 1 or any(o.card_id is None for o in self.options):
+                raise ValueError('Card discovery requires one actual card from complete card offers')
 
 
 @dataclass(frozen=True)
@@ -9273,6 +9277,30 @@ class ChoiceResult:
     @property
     def selected(self):
         return tuple(o for o in self.choice.options if o.id in self.selected_ids)
+
+
+@dataclass(frozen=True)
+class CardDiscoveryRecord:
+    """An actual card selection, separate from its producer's later delivery."""
+    id: int
+    turn: int
+    action: int
+    owner_turn_id: int
+    selection_event: int
+    publication_event: int
+    result: ChoiceResult
+
+    def __post_init__(self):
+        for key in ('id', 'turn', 'owner_turn_id', 'selection_event', 'publication_event'):
+            _int(getattr(self, key), 'card discovery ' + key, 1)
+        _int(self.action, 'card discovery action', 0)
+        if type(self.result) is not ChoiceResult:
+            raise ValueError('Card discovery requires its complete actual result')
+        self.result.__post_init__()
+        if self.result.choice.purpose not in (ChoicePurpose.POOL_DISCOVERY, ChoicePurpose.CARD_DISCOVERY):
+            raise ValueError('An ordinary choice is not a card discovery')
+        if len(self.result.selected_ids) != 1 or self.selection_event >= self.publication_event:
+            raise ValueError('Card discovery lost its original selection or publication')
 
 
 @dataclass(frozen=True)
@@ -9811,6 +9839,7 @@ class GameState:
     resurrection_history: list[ResurrectionRecord] = field(default_factory=list)
     next_choice_id: int = 1
     pending_choice: PendingChoice | None = None
+    card_discovery_history: list[CardDiscoveryRecord] = field(default_factory=list)
     opening: OpeningState | None = None
     starship_history: list[StarshipLaunchRecord] = field(default_factory=list)
     next_resource_operation_id: int = 1
@@ -10758,6 +10787,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_rewind_outcomes(state, registry)
     from .hand_history import validate_hand_history
     validate_hand_history(state, registry)
+    from .card_discoveries import validate_history as validate_card_discovery_history
+    validate_card_discovery_history(state, registry)
     from .temporary_cards import validate_lifetimes
     validate_lifetimes(state, registry)
     from .magnetic import validate_magnetic_history

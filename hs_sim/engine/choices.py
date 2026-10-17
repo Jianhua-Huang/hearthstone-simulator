@@ -35,7 +35,7 @@ def request_choice(r, effect):
         result = ChoiceResult(choice, ())
         remember_choice(r.state, result)
         r.emit('choice_skipped', source_id=choice.source_id, player_id=choice.player_id, choice_id=choice.id)
-        return choice_effects(result, options, effect.on_select, kindred=effect.kindred)
+        return choice_effects(r, result, options, effect.on_select, kindred=effect.kindred)
     from .discovery_summons import bind_choice
     bind_choice(r,choice,options)
     from .hand_choice_followups import bind_choice as bind_hand_followup
@@ -60,12 +60,12 @@ def request_choice(r, effect):
     remembered = remembered_choice(r.state, choice)
     if remembered is not None:
         result = ChoiceResult(choice, remembered)
-        return choice_effects(result, options, effect.on_select)
+        return choice_effects(r, result, options, effect.on_select)
     if choice.max_count == 0:
         result = ChoiceResult(choice, ())
         remember_choice(r.state, result)
         r.emit('choice_skipped', source_id=choice.source_id, player_id=choice.player_id, choice_id=choice.id)
-        return choice_effects(result, options, effect.on_select)
+        return choice_effects(r, result, options, effect.on_select)
     r.state.pending_choice = choice
     r._choice_request = replace(effect, options=options, sample_size=None)
     r.emit('choice_requested', source_id=choice.source_id, player_id=choice.player_id,
@@ -74,7 +74,9 @@ def request_choice(r, effect):
            _choice_paid_boundary=True)
 
 
-def choice_effects(result, options, on_select, *, kindred=None):
+def choice_effects(r, result, options, on_select, *, kindred=None, selection_event=None):
+    from .card_discoveries import commit
+    commit(r, result, selection_event)
     from .resolver import ResolveChoiceResult
     callback = [ResolveChoiceResult(result, on_select, kindred)] if on_select is not None else []
     from .discovery import ResolvePoolDiscovery
@@ -121,11 +123,11 @@ def resume_choice(r, action):
     r.game._frame = None
     r._paid_hand_choice_boundary = None
     r.state.pending_choice = None
-    r.emit('choice_selected', source_id=choice.source_id, player_id=choice.player_id,
-           choice_id=choice.id, option_ids=result.selected_ids)
+    selected = r.emit('choice_selected', source_id=choice.source_id, player_id=choice.player_id,
+           choice_id=choice.id, option_ids=result.selected_ids, purpose=choice.purpose.value)
     triggers, r._captured = r._captured, []
     from .hero_lethal_windows import resume_work
-    r.run(resume_work(r,frame,triggers,choice_effects(result,frame.options,frame.on_select)))
+    r.run(resume_work(r,frame,triggers,choice_effects(r,result,frame.options,frame.on_select,selection_event=selected)))
 
 
 def random_choice_effects(r, choice, options, on_select, event_kind, **provenance):
@@ -133,6 +135,6 @@ def random_choice_effects(r, choice, options, on_select, event_kind, **provenanc
     count = choice.min_count if choice.min_count == choice.max_count else r.game._rng.randint(choice.min_count,choice.max_count)
     selected = set(r.game._rng.sample([o.id for o in options],count)) if count else set()
     result = ChoiceResult(choice,tuple(o.id for o in options if o.id in selected))
-    r.emit(event_kind,source_id=choice.source_id,player_id=choice.player_id,
-        option_ids=result.selected_ids,**provenance)
-    return choice_effects(result,options,on_select)
+    selected_event = r.emit(event_kind,source_id=choice.source_id,player_id=choice.player_id,
+        choice_id=choice.id,purpose=choice.purpose.value,option_ids=result.selected_ids,**provenance)
+    return choice_effects(r,result,options,on_select,selection_event=selected_event)

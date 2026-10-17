@@ -8,7 +8,7 @@ from hs_sim.engine.dark_gift_generation import DiscoverDarkGift
 from hs_sim.engine.deck_shuffles import shuffled
 from hs_sim.engine.effects import ChoiceOption, RequestChoice, SpendResource
 from hs_sim.engine.errors import ResolutionError
-from hs_sim.engine.model import (CardClass, CardDefinition, CardType, HandActionSpec, Keyword,
+from hs_sim.engine.model import (CardClass, CardDefinition, CardType, ChoicePurpose, HandActionSpec, Keyword,
     OpeningHook, Rarity, Resource, SpellSchool, TargetMode, TargetSpec, Zone)
 from hs_sim.engine.nondeath_removal import RemoveFromGame
 from hs_sim.engine.pools import DiscoverFromPool, GenerateFromPool, PoolCard, PoolQuery, SummonFromPool
@@ -58,7 +58,7 @@ def load_batch():
 
 def register_simple_followup_p56_cards(registry):
     def copy_zone(c, owner, zone):
-        return ChooseFromZone(c.player_id, owner, zone, operation='copy_current', distinct='card', source_id=c.source_id)
+        return ChooseFromZone(c.player_id, owner, zone, operation='copy_current', distinct='card', source_id=c.source_id,discovery=True)
 
     def ysondre(c):
         count = sum(d.card_id == YSONDRE for d in death_candidates(c.state, registry, c.player_id, source_id=c.source_id))
@@ -74,7 +74,8 @@ def register_simple_followup_p56_cards(registry):
         options = tuple(ChoiceOption(str(d.id), registry.card(d.card_id).name,
             (ResurrectMinion(c.player_id, d.id, source_id=c.source_id, cause=SummonCause.capture(c)),), card_id=d.card_id)
             for d in unique.values())
-        return (RequestChoice(c.player_id, options, c.source_id, sample_size=min(3, len(options))),) if options else ()
+        return (RequestChoice(c.player_id, options, c.source_id, sample_size=min(3, len(options)),
+            purpose=ChoicePurpose.CARD_DISCOVERY),) if options else ()
 
     def rite(c):
         return (SpendResource(c.player_id, Resource.CORPSES, 2,

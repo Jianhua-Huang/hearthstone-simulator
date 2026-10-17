@@ -7,7 +7,7 @@ from .dark_gifts import DARK_GIFTS, GrantDarkGift
 from .discovery import sample_eligible_gifts
 from .effects import ChoiceOption, Effect, RequestChoice, _integer, _player
 from .errors import ResolutionLimitExceeded
-from .model import CardPreview, CardType, Zone
+from .model import CardPreview, CardType, ChoicePurpose, Zone
 from .pools import PoolQuery
 from .zones import CardReference, MoveCard, reference_entity, source_exists, zone_candidates
 
@@ -105,7 +105,8 @@ def discover(r, effect):
     gifts = sample_eligible_gifts(r, DARK_GIFTS, tuple(eligible_face(face, cry) for face, cry in zip(faces, cries)))
     offered = tuple(StoredGiftOffer(card, face, cry, gift.id) for card, face, cry, gift in zip(cards, faces, cries, gifts))
     return (RequestChoice(effect.player_id, options_for(r.registry, effect, offered),
-                          source_id=effect.source_id, prompt=PROMPT),)
+                          source_id=effect.source_id, prompt=PROMPT,
+                          purpose=ChoicePurpose.CARD_DISCOVERY),)
 
 
 def select(r, effect):
@@ -126,6 +127,7 @@ def validate_choice(game):
     if len(branches) != len(frame.options) or not branches: raise ValueError('Stored gift choice lost a physical branch')
     first = branches[0]; first.__post_init__()
     if (len(branches) != len(first.offered) or choice.min_count != 1 or choice.max_count != 1 or
+            choice.purpose != ChoicePurpose.CARD_DISCOVERY or
             choice.repeat_key is not None or frame.on_select is not None or
             (choice.player_id, choice.source_id, choice.prompt) != (first.request.player_id, first.request.source_id, PROMPT)):
         raise ValueError('Stored gift choice disagrees with its original request')

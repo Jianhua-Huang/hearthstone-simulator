@@ -168,7 +168,8 @@ def request_choice(root, phase, registry):
     return RequestChoice(root.request.player_id, tuple(ChoiceOption(o.id, registry.card(o.card_id).name,
         (ResolveHandFollowupChoice(root.id, phase, o.id),), card_id=o.card_id)
         for o in phase_options(root, phase)), root.request.source_id,
-        prompt=root.request.prompt, purpose=ChoicePurpose.EFFECT)
+        prompt=root.request.prompt,
+        purpose=ChoicePurpose.CARD_DISCOVERY if phase == 'initial' else ChoicePurpose.EFFECT)
 
 
 def sample_zone(request, cards, rng):
@@ -222,7 +223,7 @@ def bind_choice(r, choice, options):
     expected = request_choice(root, first.phase, r.registry)
     if (tuple(options) != expected.options or (choice.player_id, choice.source_id, choice.prompt,
             choice.min_count, choice.max_count, choice.purpose) !=
-            (expected.player_id, expected.source_id, expected.prompt, 1, 1, ChoicePurpose.EFFECT)):
+            (expected.player_id, expected.source_id, expected.prompt, 1, 1, expected.purpose)):
         raise ResolutionError('Hand choice differs from its original private offer')
     if root.status != ('offered' if first.phase == 'initial' else 'reward_offered'):
         raise ResolutionError('Hand choice has already been consumed')
@@ -401,7 +402,8 @@ def validate_shape(state):
                 if tuple(o.id for o in choice.options) != ids or choice.id >= state.next_choice_id:
                     raise ValueError('Hand choice changed its original ordered options')
                 if (choice.player_id, choice.source_id, choice.prompt, choice.min_count, choice.max_count, choice.purpose) != (
-                        root.request.player_id, root.request.source_id, root.request.prompt, 1, 1, ChoicePurpose.EFFECT):
+                        root.request.player_id, root.request.source_id, root.request.prompt, 1, 1,
+                        ChoicePurpose.CARD_DISCOVERY if phase == 'initial' else ChoicePurpose.EFFECT):
                     raise ValueError('Hand choice changed its original owner or source')
                 if tuple(o.card_id for o in choice.options) != tuple(o.card_id for o in phase_options(root, phase)):
                     raise ValueError('Hand choice changed its original printed options')

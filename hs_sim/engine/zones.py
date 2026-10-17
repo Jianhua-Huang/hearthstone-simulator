@@ -611,10 +611,13 @@ class ChooseFromZone(Effect):
     distinct: str = 'card'
     source_id: int | None = None
     prompt: str = '选择一张牌'
+    discovery: bool = False
 
     def __post_init__(self):
         _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
         filter_value(self.query); _source(self.source_id); name(self.prompt, 'choice prompt')
+        if type(self.discovery) is not bool:
+            raise ValueError('Zone discovery requires explicit genuine-card intent')
         if self.operation not in ('copy_base', 'copy_current', 'take', 'draw', 'discard', 'top', 'bottom'):
             raise ValueError('Unsupported zone choice operation')
         if self.sample_size is not None:
@@ -1058,7 +1061,9 @@ def choose_from_zone(r, effect):
             r.game._information.players[effect.player_id].remember(r.state.entities[card.entity_id])
         options.append(ChoiceOption(f'zone-{index}', r.registry.card(card.card_id).name, (operation,),
                                    card_id=card.card_id, entity_id=card.entity_id if card.zone == Zone.HAND else None))
-    return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id, prompt=effect.prompt),)
+    from .model import ChoicePurpose
+    return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id, prompt=effect.prompt,
+        purpose=ChoicePurpose.CARD_DISCOVERY if effect.discovery else ChoicePurpose.EFFECT),)
 
 
 def copy_matching(r, effect):

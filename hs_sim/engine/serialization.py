@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 374
+SNAPSHOT_SCHEMA_VERSION = 375
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1088,6 +1088,8 @@ def _spell_cast_from_dict(value):
 
 def state_from_dict(value: dict) -> GameState:
     value = _row(deepcopy(value), GameState)
+    from .card_discoveries import rows_from_dict as discovery_rows_from_dict
+    discovery_rows_from_dict(value)
     from .battlecry_weapon_outputs import from_dict as weapon_output_from_dict
     value['battlecry_weapon_outputs'] = [weapon_output_from_dict(row) for row in
         _list(value['battlecry_weapon_outputs'], 'Battlecry weapon outputs')]

@@ -1330,3 +1330,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 单方牌库揭示使用deck_reveals.py和既有完整zone_candidates/local_cost；原结果进入公共解释器回调，不借用双方Joust或把DECK搬到HAND。公开卡面/费用与物理身份分离，恢复及待CN窗口见[单方揭示契约](m3-deck-reveals.md)。
 
 实际银月城三形态只组合原目标抽选、原LocationFaceReference升级及公共健康分流；DamageExcessToHero新增有限kind=EFFECT并要求真实LOCATION，默认SPELL和同批SOURCE/TARGET规则保持。版本、最后一耐久及待CN窗口见[地标契约](m3-silvermoon-locations.md)。
+
+
+真实发现记录在原共有选择边界提交完整 ChoiceResult，普通菜单与原获取/交付保持独立。状态查询不扫诊断；私密发布、回溯有效事件与保存验证见[发现事实契约](m3-card-discovery-facts.md)，不能据此声称已具有原收件实体或after-Discover游戏触发。

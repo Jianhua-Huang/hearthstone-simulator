@@ -76,7 +76,7 @@ def register_simple_followup_p70_cards(registry):
 
     def explorer(c):
         return (ChooseFromZone(c.player_id, c.player_id, Zone.DECK, family_query(), operation='take',
-            distinct='entity', source_id=c.source_id),)
+            distinct='entity', source_id=c.source_id,discovery=True),)
 
     def mindflayer(c):
         return (CopyMinion(BoardPresenceReference.capture(c.state, c.source_id), c.player_id,

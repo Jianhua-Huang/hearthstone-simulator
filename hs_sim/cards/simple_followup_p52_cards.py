@@ -104,7 +104,7 @@ def register_simple_followup_p52_cards(registry):
         if not c.state.players[c.player_id].deck:
             return (BuffCapturedMinion(MinionReference.capture(c.source), 4, 4, c.source_id),)
         return (ChooseFromZone(c.player_id, c.player_id, Zone.DECK, operation='take',
-            distinct='entity', source_id=c.source_id),)
+            distinct='entity', source_id=c.source_id, discovery=True),)
 
     def crook(c):
         return (SpendMana(c.player_id, None, c.source_id, PREFIX + 'spent'),)
