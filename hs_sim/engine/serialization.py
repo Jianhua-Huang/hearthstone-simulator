@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 355
+SNAPSHOT_SCHEMA_VERSION = 356
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -656,6 +656,10 @@ def _cost_contribution_from_dict(value):
             original['face'] = _played_face_from_dict(original['face'])
             rows.append(PlayerPlayedClassCostRow(**original))
         first['rows'] = tuple(rows)
+        first['tribes_any'] = tuple(_list(first['tribes_any'], 'first-play original tribe qualifier'))
+        if first['tribal_inputs'] is not None:
+            first['tribal_inputs'] = tuple(_cost_quote_input_from_dict(x)
+                for x in _list(first['tribal_inputs'], 'first-play original submitted inputs'))
         if first['cast_rows'] is not None:
             first['cast_rows'] = tuple(_player_spell_count_cost_row_from_dict(x)
                 for x in _list(first['cast_rows'], 'periodic spell original cast prefix'))

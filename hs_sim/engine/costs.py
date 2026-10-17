@@ -286,7 +286,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         None, modifier=m)) for m in player.cost_modifiers if m.scope == CostScope.CARD]
     sources = [i for owner in state.players.values()
                for i in (*owner.board, *([owner.weapon_id] if owner.weapon_id is not None else []))]
-    first_rows = cast_rows = None
+    first_rows = cast_rows = tribal_inputs = None
     from .native_conditions import matches as native_provider_matches
     for source_id in sources:
         source = state.entities[source_id]
@@ -317,9 +317,15 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
                         validate_history(state, registry)
                         cast_rows = tuple(row_for(c, registry) for c in state.cast_history)
                     spells = cast_rows
+                original_inputs = None
+                if ability.cost_aura.tribes_any:
+                    if tribal_inputs is None:
+                        tribal_inputs = tuple(p.submitted_cost.quote.quote_input for p in state.play_history)
+                    original_inputs = tribal_inputs
                 first = FirstPlayCostFact(player_id, definition.kind, state.turn,
                     state.action_number, state.next_entity_id, len(rows), rows,
-                    spells, None if spells is None else len(spells))
+                    spells, None if spells is None else len(spells),
+                    ability.cost_aura.tribes_any, original_inputs)
             contribution = CostContribution('cost_aura', source.controller, source.id,
                                             ability=ability, first_play=first)
             modifiers.append((ability.id, ability.cost_aura.cost, contribution))
@@ -367,6 +373,15 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
             from .registry import UnsupportedDefinitionError
             raise UnsupportedDefinitionError('Unknown current tribe set: '+definition.id)
         if not current.matches_any(contribution.modifier.tribes_any):return False
+    aura_tribes = () if contribution.ability is None else contribution.ability.cost_aura.tribes_any
+    current_tribes = None
+    if aura_tribes:
+        from .tribes import tribe_state_for
+        current_tribes = tribe_state_for(registry, definition.id,
+            tuple(e for e in enchantments if e.tribe_change is not None), basis='current')
+        # A known unrelated recipient needs no first-matching history verdict.
+        if current_tribes is not None and not current_tribes.matches_any(aura_tribes):
+            return False
     if contribution.first_play is not None:
         from .owner_turns import validate_face
         for row in contribution.first_play.rows:
@@ -380,14 +395,9 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
             return False
         if aura.every_nth_per_turn is not None and contribution.first_play.ordinal % aura.every_nth_per_turn:
             return False
-    if contribution.ability is not None and contribution.ability.cost_aura.tribes_any:
-        from .tribes import tribe_state_for
-        current = tribe_state_for(registry, definition.id,
-            tuple(e for e in enchantments if e.tribe_change is not None), basis='current')
-        if current is None:
-            from .registry import UnsupportedDefinitionError
-            raise UnsupportedDefinitionError('Unknown current tribe set: ' + definition.id)
-        return current.matches_any(contribution.ability.cost_aura.tribes_any)
+    if aura_tribes and current_tribes is None:
+        from .registry import UnsupportedDefinitionError
+        raise UnsupportedDefinitionError('Unknown current tribe set: ' + definition.id)
     return True
 
 
@@ -402,6 +412,9 @@ def validate_first_play_cost_prefix(state, registry, fact):
             fact.action > state.action_number or len(fact.rows) > len(rows) or
             fact.rows != rows[:len(fact.rows)]):
         raise ValueError('First-play price rewrote its complete original paid-hand prefix')
+    if fact.tribal_inputs is not None and fact.tribal_inputs != tuple(
+            p.submitted_cost.quote.quote_input for p in state.play_history[:fact.play_history_length]):
+        raise ValueError('First-tribe price rewrote its original submitted current-tribe operands')
     if fact.cast_rows is not None:
         from .spell_casts import validate_history
         from .player_spell_count_costs import row_for

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+首张当前种族的费用应沿[原提交附件筛选](m2-first-tribe-turn-cost-aura.md)表达，不读取后来场上实体，也不安装新的逐卡计数。间接起源仍须按真实来源接受政策处理。
+
 奖励只能兑现一次时，使用完整原实例的`ConsumePlayerEffect`，不要排列“移除＋独立奖励”来模拟条件成功；接受窗、来源和恢复边界见[契约](m3-once-player-effect-reward.md)。
 
 需要0/0初始召唤时直接使用非负 `SummonStats`，不要先创建正生命再设值，也不要强制消灭可能被光环保住的实体；原具名交付可继续原驻留攻击，见[契约](m3-zero-health-summon-entry.md)。

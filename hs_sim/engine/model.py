@@ -602,13 +602,15 @@ class CostAuraSpec:
                 raise ValueError('Periodic turn auras require one independent friendly ordinary card type')
         if self.first_per_turn and (self.relation != 'friendly' or
                 self.cost.card_types not in ((CardType.MINION,), (CardType.SPELL,)) or
-                self.tribes_any or self.cost.card_ids or self.cost.ability is not None or
+                self.cost.card_ids or self.cost.ability is not None or
                 self.cost.payment is not None or self.cost.minimum != 0 or
                 not (self.cost.delta < 0 or self.cost.set_to is not None)):
             raise ValueError('First-per-turn auras require one friendly ordinary card type')
         if self.tribes_any and (self.relation != 'friendly' or
-                self.cost.card_types != (CardType.MINION,) or self.cost.delta >= 0 or
-                self.cost.set_to is not None or self.cost.minimum != 0 or
+                self.cost.card_types != (CardType.MINION,) or
+                not (self.cost.delta < 0 and self.cost.set_to is None or
+                    self.first_per_turn and self.cost.delta == 0 and self.cost.set_to is not None) or
+                self.cost.minimum != 0 or
                 self.cost.payment is not None or self.cost.card_ids or self.cost.ability is not None):
             raise ValueError('Tribal cost auras require a friendly minion reduction')
 
@@ -5705,6 +5707,8 @@ class FirstPlayCostFact:
     rows: tuple[PlayerPlayedClassCostRow, ...]
     cast_rows: tuple[PlayerSpellCountCostRow, ...] | None = None
     cast_history_length: int | None = None
+    tribes_any: tuple[str, ...] = ()
+    tribal_inputs: tuple[CostQuoteInput, ...] | None = None
 
     def __post_init__(self):
         if type(self.player_id) is not int or self.player_id not in (1, 2):
@@ -5723,6 +5727,21 @@ class FirstPlayCostFact:
                     not last_turn <= row.turn <= self.turn or not last_action < row.action <= self.action):
                 raise ValueError('First-play price changed its original ordered allocation window')
             last_turn, last_action = row.turn, row.action
+
+        TribeChangeSpec('set', self.tribes_any).__post_init__()
+        if self.tribes_any:
+            if (self.kind != CardType.MINION or self.cast_rows is not None or
+                    type(self.tribal_inputs) is not tuple or len(self.tribal_inputs) != len(self.rows)):
+                raise ValueError('First-tribe price requires the complete original hand-input prefix')
+            for row, original in zip(self.rows, self.tribal_inputs):
+                if type(original) is not CostQuoteInput:
+                    raise ValueError('First-tribe price requires typed submitted cost inputs')
+                original.__post_init__()
+                if (original.source_id, original.player_id, original.card_id, original.kind) != (
+                        row.face.source_id, row.face.player_id, row.face.card_id, row.face.kind):
+                    raise ValueError('First-tribe price changed an original submitted physical face')
+        elif self.tribal_inputs is not None:
+            raise ValueError('Unfiltered first-play price cannot invent tribal operands')
 
         if self.cast_rows is None:
             if self.cast_history_length is not None:
@@ -5753,6 +5772,22 @@ class FirstPlayCostFact:
         if self.cast_rows is not None:
             return 1 + sum(row.player_id == self.player_id and row.turn == self.turn and
                            row.payload_started and row.failure is None for row in self.cast_rows)
+        if self.tribes_any:
+            from .tribes import normalized, apply_change
+            from .registry import UnsupportedDefinitionError
+            count = 0
+            for row, original in zip(self.rows, self.tribal_inputs):
+                if (row.face.player_id, row.face.kind, row.turn) != (self.player_id, self.kind, self.turn):
+                    continue
+                metadata = row.face.metadata
+                current = None if metadata is None or metadata.tribes is None else normalized(metadata.tribes)
+                for change in original.enchantments:
+                    if change.tribe_change is not None:
+                        current = apply_change(current, change.tribe_change)
+                if current is None:
+                    raise UnsupportedDefinitionError('Unknown originally submitted tribe set: '+row.face.card_id)
+                count += current.matches_any(self.tribes_any)
+            return 1 + count
         return 1 + sum((row.face.player_id, row.face.kind, row.turn) ==
                        (self.player_id, self.kind, self.turn) for row in self.rows)
 
@@ -5802,6 +5837,8 @@ class CostContribution:
             self.first_play.__post_init__()
             if self.ability.cost_aura.cost.card_types != (self.first_play.kind,):
                 raise ValueError('First-play price history changed its card-type qualifier')
+            if self.first_play.tribes_any != self.ability.cost_aura.tribes_any:
+                raise ValueError('First-play price history changed its native tribe qualifier')
             physical_spells = (self.ability.cost_aura.every_nth_per_turn is not None and
                                self.first_play.kind == CardType.SPELL)
             if physical_spells != (self.first_play.cast_rows is not None):

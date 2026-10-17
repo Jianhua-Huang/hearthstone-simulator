@@ -89,7 +89,8 @@ class FirstPlayTurnCostTests(unittest.TestCase):
 
     def test_strict_native_qualifier_rejects_unreviewed_filters_and_grants(self):
         self.assertFalse(CostAuraSpec(CostSpec()).first_per_turn)
-        for fields in ({'first_per_turn':1},{'relation':'enemy'},{'tribes_any':('mech',)},
+        for fields in ({'first_per_turn':1},{'relation':'enemy'},
+                {'tribes_any':('mech',),'cost':CostSpec(delta=-1,card_types=(CardType.SPELL,))},
                 {'cost':CostSpec(delta=-1)},{'cost':CostSpec(delta=-1,card_types=(CardType.MINION,),card_ids=('plain',))}):
             with self.subTest(fields=fields),self.assertRaises(ValueError): replace(AURA,**fields)
         with self.assertRaises(ValueError): GrantCostAura(3,AURA)
