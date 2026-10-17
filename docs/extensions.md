@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+普通卡池的已选进度用`DiscoveryPick.result`保存完整原选择，必须与原`card_discovery_history`一致；待选分支不得预填结果。原交付、实际收件和发现后通知分别处理，见[原始选择契约](m3-pool-discovery-receipts.md)。
+
 需要按印刷随从攻击力筛选时，用`PoolQuery(attack_parity='odd')`等有限声明及已审`PoolCard.attack`；未知明确报错，不读当前增益，见[契约](m3-printed-attack-discovery.md)。
 
 发现印刷符文牌使用`PoolQuery(runes_any=('blood',))`等有限声明，不能用法术学派或当前英雄符文替代；地图直接复用原物理跟随，见[契约](m3-rune-discovery.md)。

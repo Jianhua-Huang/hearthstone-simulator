@@ -188,7 +188,7 @@ def emit(r,kind,root):
 
 def picks(root):
     from .discovery import DiscoveryPick
-    return tuple(DiscoveryPick(selected(o),o.basis.hero_class,None if o.basis.source is None else o.basis.source.card_id)
+    return tuple(DiscoveryPick(selected(o),o.basis.hero_class,None if o.basis.source is None else o.basis.source.card_id,result=o.result)
         for o in root.offers if o.result is not None)
 
 

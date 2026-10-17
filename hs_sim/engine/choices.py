@@ -87,7 +87,7 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
             return replace(effect,result=result)
         if type(effect) is ResolveHandFollowupChoice:
             return replace(effect, result=result)
-        if type(effect)is ResolvePoolDiscovery and (effect.batch.producer_id is not None or effect.batch.spec.gift_pool is not None or effect.batch.spec.heal_hero_by_printed_cost or effect.batch.spec.summon_copy_stats is not None or effect.batch.spec.shuffle_unselected_into_deck):
+        if type(effect)is ResolvePoolDiscovery:
             return replace(effect,choice_result=result)
         return effect
     return [*callback, *(selected_effect(effect) for option in options if option.id in result.selected_ids for effect in option.effects)]

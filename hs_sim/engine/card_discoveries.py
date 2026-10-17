@@ -63,6 +63,17 @@ def discovered_this_turn(state, player_id):
     return bool(discovered_cards(state, player_id, turn=state.turn))
 
 
+def require_original_result(state, result):
+    """Bind producer work to its real immutable selection, never a later entity."""
+    if type(state) is not GameState or type(result) is not ChoiceResult:
+        raise ValueError('Discovery work requires its actual typed selection result')
+    result.__post_init__()
+    rows = [row for row in state.card_discovery_history if row.result.choice.id == result.choice.id]
+    if len(rows) != 1 or rows[0].result != result:
+        raise ValueError('Discovery work lost its complete original committed selection')
+    return rows[0]
+
+
 def capture_turn_match(state, player_id):
     return CardDiscoveredTurnMatch(player_id, state.turn, state.action_number,
         tuple(state.card_discovery_history), discovered_this_turn(state, player_id))

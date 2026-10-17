@@ -18,6 +18,7 @@ class DiscoveryPick:
     hero_class: CardClass | None = None
     source_card_id: str | None = None
     gift: DiscoveryMinionGift | None = None
+    result: ChoiceResult | None = None
 
     def __post_init__(self):
         name(self.card_id, 'discovered card')
@@ -27,6 +28,13 @@ class DiscoveryPick:
         if self.gift is not None:
             if type(self.gift) is not DiscoveryMinionGift:raise ValueError('Expected immutable discovery gift receipt')
             self.gift.__post_init__()
+        if self.result is not None:
+            if type(self.result) is not ChoiceResult:
+                raise ValueError('Committed discovery progress requires a complete typed result')
+            self.result.__post_init__()
+            if (self.result.choice.purpose != ChoicePurpose.POOL_DISCOVERY or
+                    len(self.result.selected) != 1 or self.result.selected[0].card_id != self.card_id):
+                raise ValueError('Discovery progress changed its original selected card')
 
 
 @dataclass(frozen=True)
@@ -66,6 +74,8 @@ class ResolvePoolDiscovery(Effect):
             raise ValueError('Invalid offered discovery count')
         if type(self.selection) is not DiscoveryPick: raise ValueError('Expected discovery receipt')
         self.selection.__post_init__()
+        if self.selection.result is not None:
+            raise ValueError('An offered discovery branch cannot preclaim committed progress')
         if type(self.offered_gifts) is not tuple or any(type(g) is not DiscoveryMinionGift for g in self.offered_gifts):
             raise ValueError('Expected complete ordered discovery gift bindings')
         for gift in self.offered_gifts:gift.__post_init__()
@@ -75,7 +85,7 @@ class ResolvePoolDiscovery(Effect):
                 len({g.id for g in self.offered_gifts}) != len(self.offered_gifts)):
             raise ValueError('Gift discovery requires different gifts bound to every offered card')
         if self.choice_result is not None:
-            if type(self.choice_result)is not ChoiceResult or (self.batch.producer_id is None and self.batch.spec.gift_pool is None and not self.batch.spec.heal_hero_by_printed_cost and self.batch.spec.summon_copy_stats is None and not self.batch.spec.shuffle_unselected_into_deck):raise ValueError('Actual result requires attributed discovery or a declared selected outcome')
+            if type(self.choice_result)is not ChoiceResult:raise ValueError('Discovery requires its actual typed result')
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
                 len(self.batch.selections) >= self.batch.spec.discoveries):
@@ -238,15 +248,36 @@ def eligible(registry, context, spec, pick):
 
 
 def validate_batch(registry, context, batch):
-    batch.__post_init__(); used=set()
+    batch.__post_init__(); used=set(); prior_choice=0
     for pick in batch.selections:
+        if pick.result is None:
+            raise ValueError('Committed discovery progress lost its original complete result')
+        choice=pick.result.choice;spec=batch.spec
+        if ((choice.player_id,choice.source_id,choice.prompt,choice.repeat_key)!=
+                (spec.player_id,spec.source_id,spec.prompt,None) or choice.id<=prior_choice):
+            raise ValueError('Discovery progress reordered or borrowed another original choice')
+        offered=tuple(o.card_id for o in choice.options)
+        if (any(o.entity_id is not None for o in choice.options) or pick.card_id not in offered or
+                pick.result.selected_ids!=(f'generated-{offered.index(pick.card_id)+1}',)):
+            raise ValueError('Discovery progress changed the original ordered offer or selection')
         if pick.card_id not in {m.card_id for m in eligible(registry,context,batch.spec,pick)}:
             raise ValueError('Prior discovery is not a valid captured candidate')
         identity=registry.pool_card(pick.card_id).generation_identity
         if not batch.spec.replacement and identity in used:
             raise ValueError('Non-replacement discovery repeats an identity')
         used.add(identity)
+        prior_choice=choice.id
     return used
+
+
+def validate_receipt_history(state, batch, result=None):
+    from .card_discoveries import require_original_result
+    for pick in batch.selections:
+        require_original_result(state,pick.result)
+    if result is not None:
+        require_original_result(state,result)
+        if batch.selections and result.choice.id<=batch.selections[-1].result.choice.id:
+            raise ValueError('Discovery selection precedes its committed original progress')
 
 
 def validate_selection(registry, context, effect):
@@ -266,7 +297,7 @@ def validate_selection(registry, context, effect):
             validate_pick_gift(registry,spec,DiscoveryPick(cid,effect.selection.hero_class,effect.selection.source_card_id,gift))
         if effect.selection.gift != effect.offered_gifts[offered.index(effect.selection.card_id)]:
             raise ValueError('Selected gift belongs to another offered minion')
-    if effect.choice_result is not None and(spec.gift_pool is not None or spec.heal_hero_by_printed_cost or spec.summon_copy_stats is not None or spec.shuffle_unselected_into_deck):
+    if effect.choice_result is not None:
         result=effect.choice_result;choice=result.choice
         expected=tuple(o.item for o in options_for(registry,batch,offered,
             effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts))
@@ -302,11 +333,12 @@ def continue_discovery(r, batch):
         from .summon_quantities import reject_ambiguous
         reject_ambiguous(r)
     used=validate_batch(r.registry,r.game._generation_context,batch); spec=batch.spec
+    validate_receipt_history(r.state,batch)
     if len(batch.selections)==spec.discoveries:
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
-        return deliver_generated(spec,tuple(x.card_id for x in batch.selections)) if spec.delivery=='after_all' else ()
+        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick)) if spec.delivery=='after_all' else ()
     candidates=generation_candidates(r,spec)
     validate_gift_candidates(r.registry,r.game._generation_context,spec,candidates)
     from .costs import validate_creation_cost
@@ -322,7 +354,7 @@ def continue_discovery(r, batch):
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
-        return deliver_generated(spec,tuple(x.card_id for x in batch.selections)) if spec.delivery=='after_all' else ()
+        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick)) if spec.delivery=='after_all' else ()
     hero_class=r.player(spec.player_id).hero_class if spec.query.class_mode in ('current','other') else None
     source_card=r.state.entities[spec.source_id].card_id if spec.source_id is not None else None
     options=options_for(r.registry,batch,offered,hero_class,source_card,sample_gifts(r,spec,offered))
@@ -336,6 +368,9 @@ def resolve_discovery(r, effect):
         reject_ambiguous(r)
     validate_selection(r.registry,r.game._generation_context,effect)
     batch=effect.batch; spec=batch.spec
+    if effect.choice_result is None:
+        raise ValueError('Executed discovery requires its actual complete choice result')
+    validate_receipt_history(r.state,batch,effect.choice_result)
     if spec.summon_copy_stats is not None and effect.choice_result is None:
         raise ValueError('Discovered copy requires the actual complete choice result')
     if spec.heal_hero_by_printed_cost and effect.choice_result is None:
@@ -347,7 +382,8 @@ def resolve_discovery(r, effect):
             choice_id=effect.choice_result.choice.id,card_id=effect.selection.card_id,gift_id=effect.selection.gift.id,
             receipt=json.dumps(FrameCodec(r.game.mechanics,r.registry).encode(effect),ensure_ascii=False,
                 sort_keys=True,separators=(',',':')),_capture=False)
-    continued=ContinuePoolDiscovery(spec,(*batch.selections,effect.selection),batch.producer_id)
+    committed=replace(effect.selection,result=effect.choice_result)
+    continued=ContinuePoolDiscovery(spec,(*batch.selections,committed),batch.producer_id)
     if batch.producer_id is not None:
         from .discovery_summons import select_offer
         delivery=select_offer(r,effect)
@@ -355,7 +391,7 @@ def resolve_discovery(r, effect):
         from .discovery_remainders import begin
         delivery=begin(r,effect)
     elif spec.summon_copy_stats is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
-    else:delivery=deliver_pick(spec,effect.selection) if spec.delivery=='after_each' else ()
+    else:delivery=deliver_pick(spec,committed) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)
 
@@ -368,13 +404,23 @@ def validate_boundary(game):
     def visit(value,depth=0):
         from .continuations import FrameCodec
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Discovery outcome frame depth exceeded')
+        if type(value)is ContinuePoolDiscovery:
+            validate_batch(game.registry,game._generation_context,value)
+            validate_receipt_history(game._state,value)
+            return
+        if type(value)is ResolvePoolDiscovery:
+            validate_selection(game.registry,game._generation_context,value)
+            validate_receipt_history(game._state,value.batch,value.choice_result)
+            return
         if type(value)is HealHeroFromDiscoveredSpell:
             validate_cost_healing(game.registry,value)
+            validate_receipt_history(game._state,value.discovery.batch,value.discovery.choice_result)
             if value.context!=game._generation_context or value.discovery.batch.spec.source_id not in game._state.entities:
                 raise ValueError('Discovered healing context or source differs from its queued outcome')
             return
         if type(value)is DeliverAndSummonDiscoveredMinion:
             validate_selected_copy(game.registry,value)
+            validate_receipt_history(game._state,value.discovery.batch,value.discovery.choice_result)
             if value.context!=game._generation_context:raise ValueError('Discovered copy context differs from queued outcome')
             from .summon_quantities import validate_cause
             validate_cause(game._state,game.registry,value.discovery.batch.spec.cause)
