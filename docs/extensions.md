@@ -1714,3 +1714,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 需要“本回合发现过”时用 card_discoveries.discovered_this_turn(state, player_id)。真实非卡池卡牌发现显式用 CARD_DISCOVERY，真实区域发现用 ChooseFromZone(discovery=True)；默认普通菜单不计。原实际收件实体和发现后触发不能从布尔查询推断，见[发现事实契约](m3-card-discovery-facts.md)。
+
+
+真实“本回合发现过则零费”用固定 card_discovered_this_turn / discovery.card-this-turn-v1 的 IntrinsicCostSpec(set_to=0)，不缓存实体费用或消耗发现次数；原完整报价及历史前缀见[契约](m3-discovery-turn-costs.md)。

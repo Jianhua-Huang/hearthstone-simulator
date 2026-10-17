@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 375
+SNAPSHOT_SCHEMA_VERSION = 376
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -878,6 +878,16 @@ def _intrinsic_stage_from_dict(value):
             condition['selected_ids']=tuple(_list(condition['selected_ids'],'original selected shuffle operations'))
             conditions.append(DeckShuffleCostMatch(**condition))
         row['condition_facts']=tuple(conditions)
+    elif row['rules'] and row['rules'][0].condition == 'card_discovered_this_turn':
+        from .model import CardDiscoveredTurnMatch
+        from .card_discoveries import record_from_dict
+        conditions = []
+        for value in _list(row['condition_facts'], 'original discovery price conditions'):
+            condition = _row(value, CardDiscoveredTurnMatch)
+            condition['records'] = tuple(record_from_dict(v)
+                for v in _list(condition['records'], 'original discovery price prefix'))
+            conditions.append(CardDiscoveredTurnMatch(**condition))
+        row['condition_facts'] = tuple(conditions)
     elif row['rules'] and row['rules'][0].condition == 'hero_healed_this_turn':
         from .model import HeroHealedTurnMatch
         from .healing_history import record_from_dict

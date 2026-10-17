@@ -5,7 +5,7 @@ do not announce an after-Discover trigger or identify an acquired entity.
 """
 from dataclasses import asdict
 
-from .model import CardDiscoveryRecord, ChoicePurpose, ChoiceResult, GameState, _int
+from .model import CardDiscoveryRecord, CardDiscoveredTurnMatch, ChoicePurpose, ChoiceResult, GameState, _int
 
 PURPOSES = (ChoicePurpose.POOL_DISCOVERY, ChoicePurpose.CARD_DISCOVERY)
 PURPOSE_VALUES = frozenset(p.value for p in PURPOSES)
@@ -61,6 +61,30 @@ def discovered_cards(state, player_id, *, turn=None):
 
 def discovered_this_turn(state, player_id):
     return bool(discovered_cards(state, player_id, turn=state.turn))
+
+
+def capture_turn_match(state, player_id):
+    return CardDiscoveredTurnMatch(player_id, state.turn, state.action_number,
+        tuple(state.card_discovery_history), discovered_this_turn(state, player_id))
+
+
+def validate_turn_match(match, registry):
+    if type(match) is not CardDiscoveredTurnMatch:
+        raise ValueError('Discovery price requires its complete typed selection prefix')
+    match.__post_init__()
+    for row in match.records:
+        for option in row.result.choice.options:
+            if not registry.card(option.card_id).hand_playable:
+                raise ValueError('Discovery price changed an original offered card face')
+
+
+def validate_turn_prefix(match, state, registry):
+    validate_turn_match(match, registry)
+    rows = tuple(state.card_discovery_history)
+    if (match.turn > state.turn or match.action > state.action_number or
+            rows[:len(match.records)] != match.records or
+            any(row.action < match.action for row in rows[len(match.records):])):
+        raise ValueError('Discovery price lost its complete original selection prefix')
 
 
 def validate_history(state, registry):
@@ -140,14 +164,17 @@ def validate_boundary(game):
             raise ValueError('Actual card discovery selection lost its receipt')
 
 
-def rows_from_dict(value):
+def record_from_dict(value):
     from .serialization import _row, _list, choice_from_dict
-    rows = []
-    for item in _list(value['card_discovery_history'], 'card discovery history'):
-        row = _row(item, CardDiscoveryRecord)
-        result = _row(row['result'], ChoiceResult)
-        result['choice'] = choice_from_dict(result['choice'])
-        result['selected_ids'] = tuple(_list(result['selected_ids'], 'discovered card selection'))
-        row['result'] = ChoiceResult(**result)
-        rows.append(CardDiscoveryRecord(**row))
-    value['card_discovery_history'] = rows
+    row = _row(value, CardDiscoveryRecord)
+    result = _row(row['result'], ChoiceResult)
+    result['choice'] = choice_from_dict(result['choice'])
+    result['selected_ids'] = tuple(_list(result['selected_ids'], 'discovered card selection'))
+    row['result'] = ChoiceResult(**result)
+    return CardDiscoveryRecord(**row)
+
+
+def rows_from_dict(value):
+    from .serialization import _list
+    value['card_discovery_history'] = [record_from_dict(row)
+        for row in _list(value['card_discovery_history'], 'card discovery history')]

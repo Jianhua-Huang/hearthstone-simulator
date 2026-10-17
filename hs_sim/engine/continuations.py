@@ -223,6 +223,9 @@ class FrameCodec:
         if type(value) is model.HandOtherClassMatch:
             from .hand_conditions import validate_hand_other_class_match
             validate_hand_other_class_match(value,self.registry)
+        if type(value) is model.CardDiscoveredTurnMatch:
+            from .card_discoveries import validate_turn_match
+            validate_turn_match(value, self.registry)
         if type(value) is model.CostPresenceMatch:
             from .cost_presence import validate_match
             validate_match(value,self.registry)

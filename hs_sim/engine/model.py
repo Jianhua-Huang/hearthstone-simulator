@@ -4824,7 +4824,7 @@ class IntrinsicCostSpec:
         if type(self.condition) is not str or self.condition not in (
                 'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
                 'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
-                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count'):
+                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count', 'card_discovered_this_turn'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
         if self.condition == 'current_deck_count':
             _int(self.card_count, 'intrinsic current deck threshold', 0)
@@ -4850,6 +4850,8 @@ class IntrinsicCostSpec:
             raise ValueError('Finite conditional price requires one fixed assignment')
         if self.condition == 'own_deck_shuffle_count' and (self.delta != -1 or self.set_to is not None or self.minimum != 0):
             raise ValueError('Shuffle count requires the finite one-per-operation discount')
+        if self.condition == 'card_discovered_this_turn' and (self.delta != 0 or self.set_to != 0 or self.minimum != 0):
+            raise ValueError('Discovery price supports the real conditional zero-cost assignment')
         history = ('deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
                    'deck.current-count-v1' if self.condition == 'current_deck_count' else
                    'mana.permanent-crystals-v1' if self.condition == 'permanent_mana_at_least' else
@@ -4860,7 +4862,8 @@ class IntrinsicCostSpec:
                    'board.current-dormant-minion-v1' if self.condition == 'board_dormant_minion' else
                    'board.current-no-minions-v1' if self.condition == 'board_no_minions' else
                    'cast.current-turn-holy-shadow-v1' if self.condition == 'turn_holy_and_shadow' else
-                   'healing.hero-this-turn-v1' if self.condition == 'hero_healed_this_turn' else 'owner-turn.latest-closed-v1')
+                   'healing.hero-this-turn-v1' if self.condition == 'hero_healed_this_turn' else
+                   'discovery.card-this-turn-v1' if self.condition == 'card_discovered_this_turn' else 'owner-turn.latest-closed-v1')
         for name, value in (('history_profile_id', history),
                             ('profile_id', 'cost.intrinsic.before-local-v1')):
             if type(getattr(self, name)) is not str or getattr(self, name) != value:
@@ -5144,6 +5147,40 @@ class HeroHealedTurnMatch:
             raise ValueError('Hero-healed aggregate differs from its complete actual target history')
 
 
+@dataclass(frozen=True)
+class CardDiscoveredTurnMatch:
+    """Full actual discovery prefix at one original intrinsic quotation."""
+    player_id: int
+    turn: int
+    action: int
+    records: tuple[CardDiscoveryRecord, ...]
+    matched: bool
+
+    def __post_init__(self):
+        if type(self.player_id) is not int or self.player_id not in (1, 2):
+            raise ValueError('Discovery price requires its actual quotation player')
+        _int(self.turn, 'discovery price turn', 1)
+        _int(self.action, 'discovery price action', 0)
+        _bool(self.matched, 'discovery price aggregate')
+        if type(self.records) is not tuple:
+            raise ValueError('Discovery price requires the complete immutable prefix')
+        last_turn = last_action = last_choice = last_publication = 0
+        matched = False
+        for index, row in enumerate(self.records, 1):
+            if type(row) is not CardDiscoveryRecord:
+                raise ValueError('Discovery price requires actual card discovery receipts')
+            row.__post_init__()
+            if (row.id != index or not last_turn <= row.turn <= self.turn or
+                    not last_action <= row.action <= self.action or
+                    row.result.choice.id <= last_choice or row.selection_event <= last_publication):
+                raise ValueError('Discovery price changed its complete original chronology')
+            matched |= row.turn == self.turn and row.result.choice.player_id == self.player_id
+            last_turn, last_action = row.turn, row.action
+            last_choice, last_publication = row.result.choice.id, row.publication_event
+        if self.matched != matched:
+            raise ValueError('Discovery price bool differs from its complete actual history')
+
+
 PRESENCE_COST_CONDITIONS = ('hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
                             'hand_edge', 'controlled_legendary')
 CONTROLLED_PLAY_ZONES = (Zone.HERO, Zone.HERO_POWER, Zone.BOARD, Zone.WEAPON, Zone.SECRET, Zone.QUEST)
@@ -5277,7 +5314,7 @@ class IntrinsicCostStageFact:
     amount: int
     boundary: OwnerTurnQueryBoundaryFact
     rules: tuple[IntrinsicCostSpec, ...]
-    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch, ...]
+    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
     hand_cards: HandCountCostFact | CoinHandCountCostFact | None = None
@@ -5549,6 +5586,7 @@ class IntrinsicCostStageFact:
         if type(self.rules) is not tuple or any(type(rule) is not IntrinsicCostSpec for rule in self.rules):
             raise ValueError('Intrinsic stage requires complete immutable rules')
         condition_cls = (DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
+                         CardDiscoveredTurnMatch if self.rules and self.rules[0].condition == 'card_discovered_this_turn' else
                          CurrentDeckCountMatch if self.rules and self.rules[0].condition == 'current_deck_count' else
                          PermanentManaMatch if self.rules and self.rules[0].condition == 'permanent_mana_at_least' else
                          HandOtherClassMatch if self.rules and self.rules[0].condition == 'hand_other_class' else
@@ -5612,6 +5650,17 @@ class IntrinsicCostStageFact:
         if any(f.player_id != self.player_id for f in self.condition_facts):
             raise ValueError('Intrinsic stage borrowed another payer history')
         for condition in self.condition_facts:
+            if type(condition) is CardDiscoveredTurnMatch:
+                if (self.kind != CardType.SPELL or len(self.rules) != 1 or
+                        (condition.turn, condition.action) != (self.boundary.turn, self.boundary.action) or
+                        any(row.owner_turn_id > self.boundary.owner_history_length for row in condition.records) or
+                        any(getattr(self, name) is not None for name in ('board_minions', 'hand_cards', 'hero_missing_health', 'player_spells',
+                                'player_hero_powers', 'player_spell_mana', 'minion_deaths', 'player_overload',
+                                'player_played_class', 'hero_health_changes', 'player_draws', 'weapon_attack',
+                                'player_armor', 'player_summons', 'player_elemental_streak', 'player_corpses',
+                                'hero_damage_taken', 'player_spell_damage', 'player_character_attacks'))):
+                    raise ValueError('Discovery price changed its sole Spell rule or original window')
+                continue
             if type(condition) is DeckShuffleCostMatch:
                 if self.kind != CardType.MINION or len(self.rules) != 1 or (condition.turn,condition.action) != (self.boundary.turn,self.boundary.action):
                     raise ValueError('Shuffle pricing changed its original physical Minion window')
