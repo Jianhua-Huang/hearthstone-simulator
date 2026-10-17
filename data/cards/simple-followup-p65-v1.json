@@ -1,0 +1,2200 @@
+{
+  "schema": 1,
+  "batch": "P65",
+  "numeric_normalizations": {
+    "DINO_412": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {},
+  "existing_dependency_definition_pins": {
+    "TIME_610t2": "63090236cea93de186aac6860883cf226218dd364f697ff726a96f5a6cad68d4"
+  },
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "BE_036",
+        "dbf_id": 128132,
+        "name": "纯净圣母",
+        "name_en": "M.O.T.H.E.R.",
+        "text": "<b>战吼：</b>使你手牌中一张牌的法力值消耗减少（5）点。向左侧和右侧继续此效果，每次减少的量降低（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Reduce the Cost of\na card in your hand by (5). This\ncontinues to the left and right\nwith (1) less reduction.",
+        "cost": 9,
+        "attack": 9,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 9,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "9fd1a30cff7831f509cf11f687b57b084e94f8b498a21299fb18efd3debfd606",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_036",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_401",
+        "dbf_id": 118404,
+        "name": "伟岸的德拉克雷斯",
+        "name_en": "The Great Dracorex",
+        "text": "<b>突袭</b>。在本随从攻击一个敌方随从后，还会对所有其他敌方随从造成伤害。",
+        "text_en": "[x]<b>Rush</b>\nAfter this attacks an enemy\nminion, it damages ALL\nother enemy minions.",
+        "cost": 8,
+        "attack": 5,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 12,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "2523": 1,
+          "4128": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2523",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2523"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "a82f4415277203affe7b6dd33c8e4168896e188f8597e5fab2b97f8c63ef8739",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "DINO_401",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_412",
+        "dbf_id": 118500,
+        "name": "始祖龟图腾",
+        "name_en": "Tortotem",
+        "text": "在你的回合结束时，随机获取一张具有多类型的随从牌。",
+        "text_en": "[x]At the end of your turn,\nget a random minion with\nmultiple minion types.",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "aeeb1e7c3b0fc2eb81b9076876d3d467aad17575c3824d7dff522492c4594142",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_412",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "totem"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_415",
+        "dbf_id": 118555,
+        "name": "安布拉的故事",
+        "name_en": "Story of Umbra",
+        "text": "<b>发现</b>一个法力值消耗大于或等于（5）点的<b>亡语</b>随从，召唤该随从并触发其<b>亡语</b>。",
+        "text_en": "[x]<b>Discover</b> a <b>Deathrattle</b>\nminion that costs (5) or\nmore. Summon it and\ntrigger its <b>Deathrattle</b>.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "MINI_SET": 1,
+          "4128": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b1728a48434083b4acc6f55ded390a1e7a026da6778eaeb7b3cf6fa0b801ad5a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_415",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_515",
+        "dbf_id": 126478,
+        "name": "暗影轮射",
+        "name_en": "Shadow Rounds",
+        "text": "对一个敌方随从造成$2点伤害。如果该随从死亡，随机对另一个敌方随从施放本法术。",
+        "text_en": "[x]Deal $2 damage to an\nenemy minion. If it dies,\ncast this on another\nrandom enemy minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "e559cd8a9170881ce7b62a878504c436f93e50f619a078bca39325fbbddc8eaf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_515",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "TIME_213",
+        "dbf_id": 120437,
+        "name": "始源监督者",
+        "name_en": "Primordial Overseer",
+        "text": "<b>战吼：</b>如果你在本牌在你手中时施放过自然法术，&获得+1/+1并抽一张牌。",
+        "text_en": "[x]<b>Battlecry:</b> If you've cast a\nNature spell while holding\nthis,& gain +1/+1 and\ndraw a card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kati Sarin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "db4f17d74f1a40d30b00217856215d7021fec903e95345da7559e7d833fcaa25",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_213",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_602",
+        "dbf_id": 120501,
+        "name": "虫洞",
+        "name_en": "Wormhole",
+        "text": "<b>回溯</b>。随机召唤一只法力值消耗为（3）的野兽并使其攻击随机敌人。",
+        "text_en": "<b>Rewind</b>\nSummon a random\n3-Cost Beast. It attacks\na random enemy.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "16a014339cf8b353cdedfa5e518377f8a3820ce8e723dd508b10516652a4000a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_602",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_610",
+        "dbf_id": 120530,
+        "name": "昨日之影",
+        "name_en": "Shadows of Yesterday",
+        "text": "<b>回溯</b>。召唤四个3/2的影子，每个影子分别随机获得两项<b>额外效果</b>。",
+        "text_en": "<b>Rewind</b>\nSummon four 3/2 Shades. They each gain two\nrandom <b>Bonus Effects</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "COST_UNHOLY": 2,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "edd8afbf79f2948ef1ab2c484713f994dda007ee14fdb10b10cdd24dc04346e2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_610",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "BE_EVENT_102",
+        "dbf_id": 132673,
+        "name": "裂地黑暗",
+        "name_en": "Dark Terraforming",
+        "text": "对一个随从造成$5点伤害。向左侧和右侧继续此效果，每次伤害减少1点。",
+        "text_en": "Deal $5 damage to a minion. This continues to the left and right with\n1 less damage.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1941,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "baba95b5e158470f4657d764e7b4c833c084c10367c6735a268c51df28c50b62",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_EVENT_102",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "TLC_452t34",
+        "dbf_id": 121329,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>迫使每个敌方随从分别随机攻击一个敌方随从。",
+        "text_en": "[x]<b>Battlecry:</b> Force each\nenemy minion to attack a\nrandom enemy minion.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "af01874c3adfe53c9c342603476c93c07e316ae88259b4dd2253708c2e64d717",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t34",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_610t2",
+        "dbf_id": 121462,
+        "name": "畸变之影",
+        "name_en": "Anomalous Shade",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "e1d11a0ec0d047ac79feb79588157951b03667ba7a127fc7cfdb5d56a7cf6c6f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_610t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_036e2",
+        "dbf_id": 132907,
+        "name": "圣母的爱",
+        "name_en": "M.O.T.H.E.R.'s Love",
+        "text": "法力值消耗减少。",
+        "text_en": "Reduced Cost.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f0bccbf6e9a1e757622c7ee0a7c2e7735e2bc38a41d9fb910bf1d61e15bc52fe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_036e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452",
+        "dbf_id": 117956,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "在你的手牌中时，\n随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "text_en": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9868e289bebe5cb9e97843a132f961f401dd0961ce29d714a886144fe14def70",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_443",
+        "dbf_id": 120990,
+        "name": "怒火狱犬",
+        "name_en": "Hounds of Fury",
+        "text": "召唤两个3/2的恶魔。如果你的牌库中没有随从牌，使其攻击生命值最低的敌人。",
+        "text_en": "[x]Summon two 3/2\nDemons. If your deck has\nno minions, they attack\nthe lowest Health enemy.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "1d33c18061ff68a8416bafcc4d8f3cfc351805698918477a06cd3bb41400e2d3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_443",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_443t",
+        "dbf_id": 121021,
+        "name": "萨格拉斯的地狱犬",
+        "name_en": "Sargeran Felhound",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "7fe1d21af7c5c40ad03da956e72c233e2130f666b832dcb1c7f870ed6af466ab",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_443t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_443t2",
+        "dbf_id": 122715,
+        "name": "萨格拉斯的地狱犬",
+        "name_en": "Sargeran Felhound",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "11436a55aacaba887a3ca75d35d6bd763cee30caa04a9c8b3a38b124b3885074",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_443t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_036",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128132-zh_CN.json",
+      "response_sha256": "799301245d291ab2534b6adf9fd0173ee8e14cbe824642ed37936588c5e75a0e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128132&locale=zh_CN",
+      "face": {
+        "id": 128132,
+        "collectible": 1,
+        "slug": "128132-mother",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 7,
+        "attack": 9,
+        "manaCost": 9,
+        "name": "纯净圣母",
+        "text": "<b>战吼：</b>使你手牌中一张牌的法力值消耗减少（5）点。向左侧和右侧继续此效果，每次减少的量降低（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d45126958a2015d70d9be26f8d20863f0a3dc94d390e6d1d6b7c323420e4d085.png",
+        "imageGold": "",
+        "flavorText": "圣母来了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5552cd0697c2a38d1831d476ba0793783629ebfbfe0ea229161e3c23cba5803.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128132&locale=zh_CN",
+        "sha256": "799301245d291ab2534b6adf9fd0173ee8e14cbe824642ed37936588c5e75a0e",
+        "bytes": 812,
+        "observed_at": "2026-10-17T13:35:17.793539+00:00"
+      }
+    },
+    {
+      "card_id": "BE_036",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128132-en_US.json",
+      "response_sha256": "bf42dd0a54ffc18e72a57fe2957f0dee7119698f3e6a24677e20e46e3fcf81b5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128132&locale=en_US",
+      "face": {
+        "id": 128132,
+        "collectible": 1,
+        "slug": "128132-mother",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 7,
+        "attack": 9,
+        "manaCost": 9,
+        "name": "M.O.T.H.E.R.",
+        "text": "<b>Battlecry:</b> Reduce the Cost of a card in your hand by (5). This continues to the left and right with (1) less reduction.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a625b2213978b61b7ce606c103f36b40e40a6dce1a7deedf64bc9aa031985e6.png",
+        "imageGold": "",
+        "flavorText": "M.O.T.H.E.R HAS ARRIVED!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5552cd0697c2a38d1831d476ba0793783629ebfbfe0ea229161e3c23cba5803.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128132&locale=en_US",
+        "sha256": "bf42dd0a54ffc18e72a57fe2957f0dee7119698f3e6a24677e20e46e3fcf81b5",
+        "bytes": 797,
+        "observed_at": "2026-10-17T13:35:18.037766+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_401",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118404-zh_CN.json",
+      "response_sha256": "1b0abeb6cb0f5914c23b8e58336344ad310e25bfde653af705352ad0069dda5e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118404&locale=zh_CN",
+      "face": {
+        "id": 118404,
+        "collectible": 1,
+        "slug": "118404-the-great-dracorex",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          24
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mike Sass",
+        "health": 12,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "伟岸的德拉克雷斯",
+        "text": "<b>突袭</b>。在本随从攻击一个敌方随从后，还会对所有其他敌方随从造成伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8baa62b36d0d66604736ee52e110eedfee5691761d34e872c64cf3b8f1518a48.png",
+        "imageGold": "",
+        "flavorText": "你们满脑子想着能不能这么做，却没有停下来想想该不该这么做。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaeb42a8b22c4bea6f5bfd933665bcd89dc2f9ef2e61ddfa3fa0a4aa274d49fe.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118404&locale=zh_CN",
+        "sha256": "1b0abeb6cb0f5914c23b8e58336344ad310e25bfde653af705352ad0069dda5e",
+        "bytes": 903,
+        "observed_at": "2026-10-17T13:35:17.636490+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_401",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118404-en_US.json",
+      "response_sha256": "71561b8356cf929f992277f74e352d49cafa0ea4047b4b8cd746d9b71195f913",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118404&locale=en_US",
+      "face": {
+        "id": 118404,
+        "collectible": 1,
+        "slug": "118404-the-great-dracorex",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          24
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mike Sass",
+        "health": 12,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "The Great Dracorex",
+        "text": "<b>Rush</b> After this attacks an enemy minion, it damages ALL other enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebbc8e697c389b148d3a9425c4ff22c3f6369ff2e3bbdf87e337d9697d16cc71.png",
+        "imageGold": "",
+        "flavorText": "You were so preoccupied with whether or not you could, you didn't stop to think if you should.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaeb42a8b22c4bea6f5bfd933665bcd89dc2f9ef2e61ddfa3fa0a4aa274d49fe.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118404&locale=en_US",
+        "sha256": "71561b8356cf929f992277f74e352d49cafa0ea4047b4b8cd746d9b71195f913",
+        "bytes": 881,
+        "observed_at": "2026-10-17T13:35:17.647788+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_412",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118500-zh_CN.json",
+      "response_sha256": "3f4f48c9e901a676ecade07133c39e833efdc2e9025f4c8e55fb023e8fc727ab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118500&locale=zh_CN",
+      "face": {
+        "id": 118500,
+        "collectible": 1,
+        "slug": "118500-tortotem",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 21,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Studio Hive",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "始祖龟图腾",
+        "text": "在你的回合结束时，随机获取一张具有多类型的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/208a3ac5b6b3c30039f5d2e4b292861cdeaf6368ebc3b368701227dd18d19b0e.png",
+        "imageGold": "",
+        "flavorText": "要是你把它弄翻了，就要受到7年的厄运诅咒。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e0d7dd9d2853c5b152f79df1dc5c58a7894ad0fe49b2ae1b27d1c4896806cde.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118500&locale=zh_CN",
+        "sha256": "3f4f48c9e901a676ecade07133c39e833efdc2e9025f4c8e55fb023e8fc727ab",
+        "bytes": 789,
+        "observed_at": "2026-10-17T13:35:18.357799+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_412",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118500-en_US.json",
+      "response_sha256": "6e84fed577718cb44dc176bd86275fa6539155fc7a289b6ce6efad6500065921",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118500&locale=en_US",
+      "face": {
+        "id": 118500,
+        "collectible": 1,
+        "slug": "118500-tortotem",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 21,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Studio Hive",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Tortotem",
+        "text": "At the end of your turn, get a random minion with multiple minion types.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54c6bd455412db86524dbccf58eb06342e3285ef914bc42727b7deffb8ca552c.png",
+        "imageGold": "",
+        "flavorText": "If you tip it over, you're cursed with 7 years of bad luck.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e0d7dd9d2853c5b152f79df1dc5c58a7894ad0fe49b2ae1b27d1c4896806cde.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118500&locale=en_US",
+        "sha256": "6e84fed577718cb44dc176bd86275fa6539155fc7a289b6ce6efad6500065921",
+        "bytes": 777,
+        "observed_at": "2026-10-17T13:35:18.495272+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_415",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118555-zh_CN.json",
+      "response_sha256": "302827dba030842adbe166c0c90abe0e547b52a8bdf491ce65adee900040f502",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118555&locale=zh_CN",
+      "face": {
+        "id": 118555,
+        "collectible": 1,
+        "slug": "118555-story-of-umbra",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Vika Yarova",
+        "manaCost": 7,
+        "name": "安布拉的故事",
+        "text": "<b>发现</b>一个法力值消耗大于或等于（5）点的<b>亡语</b>随从，召唤该随从并触发其<b>亡语</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf7f5f721f636dfda4e399dd3a9c0049a921d6561e9f710fb91a3c4244f08ffa.png",
+        "imageGold": "",
+        "flavorText": "“她想把这座隐秘之城的秘密告诉外人，于是我们把她逐出了这座隐秘之城，让她长长记性！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ffbc6b0a4850167ccb6d5e6f63f42bf1953bd35778dde7d1f6572f2612715b8.png",
+        "keywordIds": [
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118555&locale=zh_CN",
+        "sha256": "302827dba030842adbe166c0c90abe0e547b52a8bdf491ce65adee900040f502",
+        "bytes": 896,
+        "observed_at": "2026-10-17T13:35:18.799543+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_415",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118555-en_US.json",
+      "response_sha256": "b5fc17ff802b84361d5737e0ccdf27e1db5ce97930ff5abd70efb9b06d4ca931",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118555&locale=en_US",
+      "face": {
+        "id": 118555,
+        "collectible": 1,
+        "slug": "118555-story-of-umbra",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Vika Yarova",
+        "manaCost": 7,
+        "name": "Story of Umbra",
+        "text": "<b>Discover</b> a <b>Deathrattle</b> minion that costs (5) or more. Summon it and trigger its <b>Deathrattle</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b5f4d1beec8d01ad82cf2bc21a76d3ebcac4b4de83412bb33b37c1c9a2cdaad.png",
+        "imageGold": "",
+        "flavorText": "\"She tried to tell people about our secret city, so we kicked her out of our secret city. That'll show her!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ffbc6b0a4850167ccb6d5e6f63f42bf1953bd35778dde7d1f6572f2612715b8.png",
+        "keywordIds": [
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118555&locale=en_US",
+        "sha256": "b5fc17ff802b84361d5737e0ccdf27e1db5ce97930ff5abd70efb9b06d4ca931",
+        "bytes": 862,
+        "observed_at": "2026-10-17T13:35:18.741511+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_515",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126478-zh_CN.json",
+      "response_sha256": "488060711b1fba23affcd74afa43a3eb27ae14e7835b189a19848ac0e17a762a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126478&locale=zh_CN",
+      "face": {
+        "id": 126478,
+        "collectible": 1,
+        "slug": "126478-shadow-rounds",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "暗影轮射",
+        "text": "对一个敌方随从造成 2点伤害。如果该随从死亡，随机对另一个敌方随从施放本法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/117a5f55db21492263a11056e7a74bd6fe9424ce0f06316c596fc1ee9c8304c2.png",
+        "imageGold": "",
+        "flavorText": "这一轮就有你！还有你！还有你！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d1b40d59ca754ed6c13bf61a560776eefb66b194bd09b281635816a63b37fb0.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126478&locale=zh_CN",
+        "sha256": "488060711b1fba23affcd74afa43a3eb27ae14e7835b189a19848ac0e17a762a",
+        "bytes": 791,
+        "observed_at": "2026-10-17T13:35:19.080669+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_515",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126478-en_US.json",
+      "response_sha256": "f6a00946437aab60a9f4dcf99bd632689ed2dec7319bee58c7f89a47f3db9abb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126478&locale=en_US",
+      "face": {
+        "id": 126478,
+        "collectible": 1,
+        "slug": "126478-shadow-rounds",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "Shadow Rounds",
+        "text": "Deal 2 damage to an enemy minion. If it dies, cast this on another random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2391083b346841b24a311b27e56dfac36d64be7e85f990679d17ab3ff0ef08bd.png",
+        "imageGold": "",
+        "flavorText": "This rounds on you, and you, AND YOU!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d1b40d59ca754ed6c13bf61a560776eefb66b194bd09b281635816a63b37fb0.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126478&locale=en_US",
+        "sha256": "f6a00946437aab60a9f4dcf99bd632689ed2dec7319bee58c7f89a47f3db9abb",
+        "bytes": 758,
+        "observed_at": "2026-10-17T13:35:19.334727+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_213",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120437-zh_CN.json",
+      "response_sha256": "1a689b94eb1dbdecd4fc39bf2e2251f07b037765dbe3ec19efb84717a5c4453b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120437&locale=zh_CN",
+      "face": {
+        "id": 120437,
+        "collectible": 1,
+        "slug": "120437-primordial-overseer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kati Sarin",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "始源监督者",
+        "text": "<b>战吼：</b>如果你在本牌在你手中时施放过自然法术，&获得+1/+1并抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee06d97d859b9407850005527790eb98f021c24a9417750c58bdb70b1a8a93c5.png",
+        "imageGold": "",
+        "flavorText": "在这条时间线中，矮人一族在图腾雕刻方面展现出了非凡的创意。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09d23e655038fcdc46df5dd10b0d7d54249d5f2a0188b41a09e568d22fecf396.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120437&locale=zh_CN",
+        "sha256": "1a689b94eb1dbdecd4fc39bf2e2251f07b037765dbe3ec19efb84717a5c4453b",
+        "bytes": 852,
+        "observed_at": "2026-10-17T13:35:19.446287+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_213",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120437-en_US.json",
+      "response_sha256": "595f8246ed78afa35d5183200b2ea925fba6d2baf45e92c6390262cf36143b77",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120437&locale=en_US",
+      "face": {
+        "id": 120437,
+        "collectible": 1,
+        "slug": "120437-primordial-overseer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kati Sarin",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Primordial Overseer",
+        "text": "<b>Battlecry:</b> If you've cast a Nature spell while holding this,& gain +1/+1 and draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29dbf366d35fdbf4882eafbb890004697520c83a9f3f5e9e8a0768d1e27bee30.png",
+        "imageGold": "",
+        "flavorText": "In this timeline, dwarves got very creative with their totem carvings.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09d23e655038fcdc46df5dd10b0d7d54249d5f2a0188b41a09e568d22fecf396.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120437&locale=en_US",
+        "sha256": "595f8246ed78afa35d5183200b2ea925fba6d2baf45e92c6390262cf36143b77",
+        "bytes": 832,
+        "observed_at": "2026-10-17T13:35:19.917676+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_602",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120501-zh_CN.json",
+      "response_sha256": "d28edd9c681425ab086a53d73adcec61e5f14c0f604e3b582a00c0df97084dd8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120501&locale=zh_CN",
+      "face": {
+        "id": 120501,
+        "collectible": 1,
+        "slug": "120501-wormhole",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 3,
+        "name": "虫洞",
+        "text": "<b>回溯</b>。随机召唤一只法力值消耗为（3）的野兽并使其攻击随机敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07f602710989fe5e2108b672bfab8125f90df521e08a67e6819f22e75effa3a5.png",
+        "imageGold": "",
+        "flavorText": "大个子山姆鱼饵专营店出品，生产过程中没有虫子受到虐待。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb02ad47ce196ccc5e028474381a4b4ba882b01e805ea5e0dac62cfe6681b7ea.png",
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120501&locale=zh_CN",
+        "sha256": "d28edd9c681425ab086a53d73adcec61e5f14c0f604e3b582a00c0df97084dd8",
+        "bytes": 806,
+        "observed_at": "2026-10-17T13:35:21.060378+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_602",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120501-en_US.json",
+      "response_sha256": "fe701c0b19a85d92c7fa0a4f8372c865c789023840ff923f006c1833f93459a9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120501&locale=en_US",
+      "face": {
+        "id": 120501,
+        "collectible": 1,
+        "slug": "120501-wormhole",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 3,
+        "name": "Wormhole",
+        "text": "<b>Rewind</b> Summon a random 3-Cost Beast. It attacks a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6664011630a7fd410170e68a845173ba3608e28c4afb36d0385975f0c4766767.png",
+        "imageGold": "",
+        "flavorText": "Worms sourced cruelty free from Gigantic Sam's Bait Shoppe.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb02ad47ce196ccc5e028474381a4b4ba882b01e805ea5e0dac62cfe6681b7ea.png",
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120501&locale=en_US",
+        "sha256": "fe701c0b19a85d92c7fa0a4f8372c865c789023840ff923f006c1833f93459a9",
+        "bytes": 758,
+        "observed_at": "2026-10-17T13:38:54.014521+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120530-zh_CN.json",
+      "response_sha256": "e2200678195589f59dcd3d4c08976617244fd0e1a7aa7970955cc66a557ad242",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=zh_CN",
+      "face": {
+        "id": 120530,
+        "collectible": 1,
+        "slug": "120530-shadows-of-yesterday",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "昨日之影",
+        "text": "<b>回溯</b>。召唤四个3/2的影子，每个影子分别随机获得两项<b>额外效果</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6fd1cfb8275ce61b03888eb0fc3fcdaa5959860f2d150d8fe82ac43c68f2c5e.png",
+        "imageGold": "",
+        "flavorText": "昨日的旧事往往会在明天拖下长长的阴影。比方说，选择<b>回溯</b>。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49dd6b974a27046e199a7125274ca3dc38e5b2d0f829f816dd6016215caf55fe.png",
+        "childIds": [
+          121462
+        ],
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=zh_CN",
+        "sha256": "e2200678195589f59dcd3d4c08976617244fd0e1a7aa7970955cc66a557ad242",
+        "bytes": 922,
+        "observed_at": "2026-10-17T06:45:34.185491+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120530-en_US.json",
+      "response_sha256": "c130ddd47096d292be331cca1b93e22e6f61c5200b4e2a64afe9c6f7be96ff97",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=en_US",
+      "face": {
+        "id": 120530,
+        "collectible": 1,
+        "slug": "120530-shadows-of-yesterday",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "Shadows of Yesterday",
+        "text": "<b>Rewind</b> Summon four 3/2 Shades. They each gain two random <b>Bonus Effects</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b6c9171fccbe7898d842cf8772c52b68da3853bbef76d5d7002fb3fe4a61b5c.png",
+        "imageGold": "",
+        "flavorText": "Our actions today haunt us tomorrow. Like choosing to <b>Rewind</b>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49dd6b974a27046e199a7125274ca3dc38e5b2d0f829f816dd6016215caf55fe.png",
+        "childIds": [
+          121462
+        ],
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=en_US",
+        "sha256": "c130ddd47096d292be331cca1b93e22e6f61c5200b4e2a64afe9c6f7be96ff97",
+        "bytes": 891,
+        "observed_at": "2026-10-17T06:45:34.374559+00:00"
+      }
+    },
+    {
+      "card_id": "BE_EVENT_102",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\132673-zh_CN.json",
+      "response_sha256": "79deac39033219750c9ab5474f0e0f7b235bdf6e048519674feb7321b581fba7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132673&locale=zh_CN",
+      "face": {
+        "id": 132673,
+        "collectible": 1,
+        "slug": "132673-dark-terraforming",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Ian Ameling",
+        "manaCost": 5,
+        "name": "裂地黑暗",
+        "text": "对一个随从造成 5点伤害。向左侧和右侧继续此效果，每次伤害减少1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aed9bd40447029d3d143d1d0ce01daa3e46bd3e0a850a2ccb014971b578a1152.png",
+        "imageGold": "",
+        "flavorText": "嗯……你知道还缺了点什么吗？那边那个角上还缺一座方尖碑。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1a843b2e60b42760c79e27b1810cb1f56167d5cab896b9ff6773bdf3f55354d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132673&locale=zh_CN",
+        "sha256": "79deac39033219750c9ab5474f0e0f7b235bdf6e048519674feb7321b581fba7",
+        "bytes": 817,
+        "observed_at": "2026-10-17T13:38:54.718724+00:00"
+      }
+    },
+    {
+      "card_id": "BE_EVENT_102",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\132673-en_US.json",
+      "response_sha256": "2dcf91e19abb109769a7da40324c970ebab1df5b93e440417610377261fba540",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132673&locale=en_US",
+      "face": {
+        "id": 132673,
+        "collectible": 1,
+        "slug": "132673-dark-terraforming",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Ian Ameling",
+        "manaCost": 5,
+        "name": "Dark Terraforming",
+        "text": "Deal 5 damage to a minion. This continues to the left and right with 1 less damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b97299fceb0aa9ac14edf267dd2fca28d3d339e00b5ee46a5cf9bd6d1d83be01.png",
+        "imageGold": "",
+        "flavorText": "Hmm, you know what it's missing? Another Obelisk right in that corner over there.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1a843b2e60b42760c79e27b1810cb1f56167d5cab896b9ff6773bdf3f55354d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132673&locale=en_US",
+        "sha256": "2dcf91e19abb109769a7da40324c970ebab1df5b93e440417610377261fba540",
+        "bytes": 806,
+        "observed_at": "2026-10-17T13:40:03.512877+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t34",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121329-zh_CN.json",
+      "response_sha256": "f344b9bf95429452f94b33dde2cc426a6025fd3cab033f7536282ea0511367b0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121329&locale=zh_CN",
+      "face": {
+        "id": 121329,
+        "collectible": 0,
+        "slug": "121329-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>迫使每个敌方随从分别随机攻击一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeb8e8787da49cca26844046e75fff2835fa8b8774a9e36f090aa20678c7ede3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121329&locale=zh_CN",
+        "sha256": "f344b9bf95429452f94b33dde2cc426a6025fd3cab033f7536282ea0511367b0",
+        "bytes": 649,
+        "observed_at": "2026-10-17T13:40:03.683382+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t34",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121329-en_US.json",
+      "response_sha256": "fe50a486b8c3d01a8e8149a79f1e6a8dfa4a08e7ed017a2e31dfa5bcf5c03563",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121329&locale=en_US",
+      "face": {
+        "id": 121329,
+        "collectible": 0,
+        "slug": "121329-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Force each enemy minion to attack a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a245589ec2d9be71153a17147abc05299e8cd91db0cebaaa0d8a7364d6b993b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121329&locale=en_US",
+        "sha256": "fe50a486b8c3d01a8e8149a79f1e6a8dfa4a08e7ed017a2e31dfa5bcf5c03563",
+        "bytes": 634,
+        "observed_at": "2026-10-17T13:38:55.429882+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121462-zh_CN.json",
+      "response_sha256": "8624e46a525f314329b357ab1baa60dd716d4052ca005923533279623b2151ae",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=zh_CN",
+      "face": {
+        "id": 121462,
+        "collectible": 0,
+        "slug": "121462-anomalous-shade",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "畸变之影",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2950cb5b61ebbcb96bda8fb40477e9b11e387b5e624d91c294ccc217153b11d6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120530,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=zh_CN",
+        "sha256": "8624e46a525f314329b357ab1baa60dd716d4052ca005923533279623b2151ae",
+        "bytes": 569,
+        "observed_at": "2026-10-17T06:45:33.123935+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121462-en_US.json",
+      "response_sha256": "66e4bfddaa61d3e736b7f1d028545526244d6c32b44d5410107516b7f5925568",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=en_US",
+      "face": {
+        "id": 121462,
+        "collectible": 0,
+        "slug": "121462-anomalous-shade",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Anomalous Shade",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c8aeedbe54fad0282d3e82c4e5faa9ba868025bc8e0056eb70272c51d570657.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120530,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=en_US",
+        "sha256": "66e4bfddaa61d3e736b7f1d028545526244d6c32b44d5410107516b7f5925568",
+        "bytes": 572,
+        "observed_at": "2026-10-17T06:45:33.078177+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-zh_CN.json",
+      "response_sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "在你的手牌中时， 随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20fecdc830c197b2f7aa3362acb82ec30dc174a0b4a2df7dd55a773da103623a.png",
+        "imageGold": "",
+        "flavorText": "看看这张泰坦考据图吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+        "sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+        "bytes": 1035,
+        "observed_at": "2026-10-17T07:11:19.857812+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-en_US.json",
+      "response_sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d30a2f1ceca7cf66cef3388dbaa577f60053667d5e06a113d1e5dc54dda6e4.png",
+        "imageGold": "",
+        "flavorText": "Look at this Titangraph.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+        "sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+        "bytes": 990,
+        "observed_at": "2026-10-17T07:11:20.085876+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_443",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120990-zh_CN.json",
+      "response_sha256": "a201dd3852a7b7a6940ca52b0d73d393ccd8e3407f1a5388c4c4f072135d84e2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=zh_CN",
+      "face": {
+        "id": 120990,
+        "collectible": 1,
+        "slug": "120990-hounds-of-fury",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 4,
+        "name": "怒火狱犬",
+        "text": "召唤两个3/2的恶魔。如果你的牌库中没有随从牌，使其攻击生命值最低的敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a67f8d0a1fba6e06040a180a884ec2c374d421c7a1320b68f926023c1ffa8315.png",
+        "imageGold": "",
+        "flavorText": "这样的狗狗摸不得！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8420b761561491871394b09af8e4cb474d1f571c9db3717475fdffa3cedf3f5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=zh_CN",
+        "sha256": "a201dd3852a7b7a6940ca52b0d73d393ccd8e3407f1a5388c4c4f072135d84e2",
+        "bytes": 754,
+        "observed_at": "2026-10-17T13:35:19.829665+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_443",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120990-en_US.json",
+      "response_sha256": "d6bad6f1e6329f7c6a6ed52f8ba0da462ca6745601cd0ced52be0dd045a45c54",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=en_US",
+      "face": {
+        "id": 120990,
+        "collectible": 1,
+        "slug": "120990-hounds-of-fury",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 4,
+        "name": "Hounds of Fury",
+        "text": "Summon two 3/2 Demons. If your deck has no minions, they attack the lowest Health enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ce10aabe1b5f9e946ee363b8170eae9664ff099eff7a8f1d5d1faaeac3080af.png",
+        "imageGold": "",
+        "flavorText": "No, you can't pet the dogs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8420b761561491871394b09af8e4cb474d1f571c9db3717475fdffa3cedf3f5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=en_US",
+        "sha256": "d6bad6f1e6329f7c6a6ed52f8ba0da462ca6745601cd0ced52be0dd045a45c54",
+        "bytes": 739,
+        "observed_at": "2026-10-17T13:35:20.072189+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "TIME_610",
+      "child": "TIME_610t2",
+      "dbf_id": 121462,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_610",
+      "child": "TIME_610t2",
+      "dbf_id": 121462,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t34",
+      "dbf_id": 121329,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t34",
+      "dbf_id": 121329,
+      "locale": "en_US"
+    }
+  ],
+  "collectible_candidate_roots": [
+    "BE_036",
+    "DINO_401",
+    "DINO_412",
+    "DINO_415",
+    "JAIL_515",
+    "TIME_213",
+    "TIME_602",
+    "TIME_610",
+    "BE_EVENT_102"
+  ],
+  "noncollectible_ids": [
+    "TLC_452t34"
+  ],
+  "policies": {
+    "cost_neighbors": "Original complete physical hand order frozen at Battlecry acceptance; chosen original card gets -5, then original left/right distance d gets -(5-d), while positive. No collapsing slots or later acquired cards; native reference guards and cost layers.",
+    "held_nature": "Native held event progress once for own accepted physical Nature spell. Current copies preserve, base/acquired-mid-payload start fresh. A body without its original held-progress declaration errors rather than inferring unsupported history.",
+    "drakrest": "Original completed minion-versus-minion attack. Guard original attacker residence, then read current Attack and complete current enemy minion group at the explicit fresh execution window. Exclude only the original defender residence, so a genuinely reentered body is different. Native simultaneous MINION_ABILITY damage.",
+    "recursive_shot": "Native actual health result plus exact original damage/poison death cause, after death reactions via InvokeHealthResult. Recast a new physical spell through CastSpell only if actual legal random enemy target exists; every cast has independent native facts/payment/origin.",
+    "multi_tribes": "Pure metadata composition of ordinary PoolQuery: exclude only known printed sets with fewer than two distinct tribes and no all marker. Any-of tribe operand uses all currently declared metadata tokens plus all, requiring native known tribe metadata. ALL qualifies without deriving a finite universe from implemented cards. No executable-definition filtering; weights and unknown eligible content stay native.",
+    "delivery_lookup": "Post-producer callbacks retain active physical spell identity and join exactly one completed native discovery, pool, or ordered-group record by its actual SummonCause cast_id, source entity and causing player, then read complete entry_root_ids and every original delivered fact. No guessed allocator id, current hand/board scan, or later same-name body. Unexpected missing/ambiguous/orphan producer errors.",
+    "umbras_tale": "Native current-class plus neutral board Discover of collectible cost>=5 printed Deathrattle minion; after actual producer completion trigger original living delivered minions, including actual quantity extras. No extra hand acquisition.",
+    "wormhole": "Native Rewind plus one random collectible cost3 Beast board producer; after its actual completion each original surviving delivered minion attacks a native random current enemy character. No inferred just-generated board ids.",
+    "shades": "Native Rewind plus original ordered four-member group. After all original entries complete, two native random Bonus Effects per original recipient, in original delivery order; revalidate its exact MinionReference before every pick, so departure/reentry never borrows the second reward.",
+    "unknowns": "Complete native pool metadata/eligibility and executable checks remain; no removal by implementation coverage. Formal pool/M0 and CN/M6 remain separate.",
+    "distance_damage": "Original full physical target-controller board order and residences freeze at actual spell-body acceptance. Initial budget is base 5 plus the original native spell_bonus (same quote policy as ordinary declining waves); primary then each original left/right distance d receives quoted_budget-d when positive, with Damage spell_bonus_multiplier=0. Other health rules remain native per packet. Non-minion/inactive physical slots are not collapsed; stale residences skip without admitting replacements. Exact adjacency/range timing is explicit internal M6 policy.",
+    "hysteria": "Original enemy attacker group frozen once. At each original attacker window, validate its exact MinionReference, then sample one complete current other enemy minion residence relative to original causing player, and native ForceAttack with friendly_minions relation. Newly arrived minions may be current defenders but never new attackers; original departures skip without RNG."
+  },
+  "api_review": "outputs/card-parallel-p65-20261017/api-review-04.json",
+  "withdrawn_ids": [
+    "TIME_443",
+    "TIME_443t",
+    "TIME_443t2"
+  ],
+  "parents_implemented": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}
