@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+整批复活后的攻击使用`Resurrect(death_ids=..., attack_after_all=True, cause=...)`，精确原死亡子集与整批窗口见[契约](m3-actual-reborn-resurrection-attacks.md)；不要用逐体`on_summon`替代整批结束，也不要重新实现随机攻击器。
+
 需要“真正复生过”的消费者读取`successful_reborns`及原死亡链接，不扫描宿主日志、当前1生命随从或死亡时关键词。保存和复活攻击的未闭合范围见[契约](m3-successful-reborn-history.md)。
 
 真实原死体入库使用完整死亡行与墓地分配事实，不把稀疏死亡ID当列表索引，也不借中间手牌、复活或新副本替代物理洗回。有限原语、语义操作计数及恢复见[契约](m3-master-dusk-dead-shuffles.md)。

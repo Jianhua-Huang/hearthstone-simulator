@@ -219,7 +219,7 @@ def candidates(registry,basis):
     return death_query_candidates(registry,basis.player_id,basis.query,basis.inventory,basis.hero_class,None if basis.source is None else basis.source.card_id)
 
 
-def validate_basis(state,registry,basis,*,closed=False):
+def validate_basis(state,registry,basis,*,closed=False,death_ids=None):
     basis.__post_init__()
     if basis.turn>state.turn or basis.action>state.action_number or basis.next_death_id>state.next_death_id or basis.next_entity_id>state.next_entity_id:raise ValueError('Future original resurrection candidate window')
     if basis.source is not None:validate_allocation(state,registry,basis.source,closed=closed)
@@ -227,6 +227,12 @@ def validate_basis(state,registry,basis,*,closed=False):
         validate_death(state,registry,death,closed=closed)
         if death.id>=basis.next_death_id or death.entity_id>=basis.next_entity_id:raise ValueError('Original death query included a future record')
     result=candidates(registry,basis)
+    if death_ids is not None:
+        # Exact native materials are checked by the existing entry profile when
+        # selected. Unselected composite deaths must not veto this subset.
+        ids=tuple(x.id for x in result)
+        if set(death_ids)-set(ids):raise ValueError('Exact resurrection death is outside the complete original query')
+        return tuple(i for i in ids if i in death_ids)
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain
     for death in result:
         if death.components:raise ValueError('Composite death quantity material is unsupported by ordinary profile')
@@ -268,6 +274,7 @@ class ResurrectionBatch:
     candidates:tuple[int,...]
     picks:tuple[ResurrectionPick,...]=()
     status:str='active'
+    attacks:object=None
     def __post_init__(self):
         from .summon_sources import Resurrect
         for n in('id','turn'):_integer(getattr(self,n),'resurrection batch '+n,1)
@@ -286,6 +293,10 @@ class ResurrectionBatch:
         if ids!=sorted(set(ids)):raise ValueError('Reordered/duplicated resurrection child identities')
         if self.status not in('active','completed','empty','board_full','interrupted'):raise ValueError('Unknown resurrection batch status')
         if self.status=='completed'and(len(self.picks)!=self.spec.count or any(x.entry_root_id is None for x in self.picks)):raise ValueError('Resurrection completed before original iterations finished')
+        if self.attacks is not None:
+            from .resurrection_attacks import ResurrectionAttacks
+            if type(self.attacks)is not ResurrectionAttacks:raise ValueError('Typed original resurrection attacks required')
+            self.attacks.__post_init__()
 
 
 @dataclass(frozen=True)
@@ -309,7 +320,13 @@ def emit_root(r,kind,root):
         resurrection_batch_id=root.id,root=encoded(root),_capture=False)
 
 
-def close(r,root,status):emit_root(r,'resurrection_batch_finished',update(r.state,root,status=status))
+def close(r,root,status):
+    root=update(r.state,root,status=status)
+    if root.spec.attack_after_all and status!='interrupted':
+        from .resurrection_attacks import initial,ContinueResurrectionAttacks
+        root=update(r.state,root,attacks=initial(root,{x.id:x for x in r.state.card_summon_history}))
+    emit_root(r,'resurrection_batch_finished',root)
+    return (ContinueResurrectionAttacks(root.id),)if root.attacks is not None and root.attacks.status=='active'else()
 
 
 def start(r,spec):
@@ -318,11 +335,11 @@ def start(r,spec):
     full=len(r.player(spec.player_id).board)>=r.rules.max_board
     basis=None if full or not spec.count else ResurrectionBasis(spec.player_id,spec.query,None if spec.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[spec.source_id]),
         r.player(spec.player_id).hero_class,tuple(r.state.death_history),r.state.turn,r.state.action_number,r.state.next_death_id,r.state.next_entity_id)
-    ids=()if basis is None else validate_basis(r.state,r.registry,basis)
+    ids=()if basis is None else validate_basis(r.state,r.registry,basis,death_ids=spec.death_ids)
     root=ResurrectionBatch(r.state.next_resurrection_summon_id,len(r.game._events),r.state.turn,r.state.action_number,spec,basis,ids)
     r.state.next_resurrection_summon_id+=1;r.state.resurrection_summon_history.append(root);emit_root(r,'resurrection_batch_accepted',root)
-    if not spec.count:close(r,root,'completed');return()
-    if full:close(r,root,'board_full');return()
+    if not spec.count:return close(r,root,'completed')
+    if full:return close(r,root,'board_full')
     # Original Resurrect always returned ContinueResurrection, including empty pools.
     return(ContinueDeathResurrection(root.id),)
 
@@ -353,9 +370,9 @@ def continue_batch(r,effect):
         from .summon_quantities import record as child_record
         if child_record(r.state,child_id).status=='active':raise ResolutionError('Resurrection advanced before accepted extras and followups')
     available=remaining(root)
-    if len(root.picks)==root.spec.count:close(r,root,'completed');return()
-    if not available:close(r,root,'empty');return()
-    if len(r.player(root.spec.player_id).board)>=r.rules.max_board:close(r,root,'board_full');return()
+    if len(root.picks)==root.spec.count:return close(r,root,'completed')
+    if not available:return close(r,root,'empty')
+    if len(r.player(root.spec.player_id).board)>=r.rules.max_board:return close(r,root,'board_full')
     before=r.game._rng.getstate();selected=choose(r.game._rng,root,available)
     pick=ResurrectionPick(len(root.picks),available,selected,before,r.game._rng.getstate());root=update(r.state,root,picks=(*root.picks,pick))
     r.emit('resurrection_pick_accepted',resurrection_batch_id=root.id,pick=encoded(pick),_capture=False)
@@ -372,11 +389,12 @@ def bind_entry(r,link,child_id):
 
 
 def validate_effect(state,registry,effect):
-    from .summon_sources import ResurrectMinion
+    from .summon_sources import Resurrect,ResurrectMinion
     from .summon_quantities import validate_cause
     effect.__post_init__();validate_cause(state,registry,effect.cause)
     if effect.source_id is not None and effect.source_id not in state.entities:raise ValueError('Unknown original resurrection effect source')
     if effect.on_summon is not None:registry.behavior(effect.on_summon)
+    if type(effect)is Resurrect and effect.death_ids is not None and set(effect.death_ids)-{x.id for x in state.death_history}:raise ValueError('Exact resurrection lost an original actual death')
     if type(effect)is ResurrectMinion:
         if effect.death_id>=state.next_death_id:raise ValueError('Queued resurrection has future death identity')
         if effect.producer_link is not None:
@@ -409,11 +427,11 @@ def validate_record(state,registry,root,*,closed=False,children=None):
     if root.id>=state.next_resurrection_summon_id or root.turn>state.turn or root.action>state.action_number or root.spec.cause.turn>root.turn or root.spec.cause.action>root.action:raise ValueError('Future death batch acceptance')
     if root.basis is not None:
         b=root.basis
-        if (b.player_id,b.query,b.turn,b.action)!=(root.spec.player_id,root.spec.query,root.turn,root.action)or(None if b.source is None else b.source.entity_id)!=root.spec.source_id or validate_basis(state,registry,b,closed=closed)!=root.candidates:raise ValueError('Death batch lost complete original query basis')
+        if (b.player_id,b.query,b.turn,b.action)!=(root.spec.player_id,root.spec.query,root.turn,root.action)or(None if b.source is None else b.source.entity_id)!=root.spec.source_id or validate_basis(state,registry,b,closed=closed,death_ids=root.spec.death_ids)!=root.candidates:raise ValueError('Death batch lost complete original query basis')
     if root.status=='active'and root.basis is None and not closed:raise ValueError('Active death batch lost original query')
     if not closed and root.status=='interrupted'and state.status=='playing':raise ValueError('Playing death batch cannot be terminal interrupted')
     children={x.id:x for x in state.card_summon_history}if children is None else children
-    prior=replace(root,picks=(),status='active')if root.basis is not None else None
+    prior=replace(root,picks=(),status='active',attacks=None)if root.basis is not None else None
     for pick in root.picks:
         available=remaining(prior);local=Random();local.setstate(pick.rng_before)
         if pick.available!=available or choose(local,root,available)!=pick.selected or local.getstate()!=pick.rng_after:raise ValueError('Death selection/RNG differs from original candidate and grouping policy')
@@ -424,6 +442,8 @@ def validate_record(state,registry,root,*,closed=False,children=None):
             if(pick is not root.picks[-1]or root.status in('completed','empty','board_full'))and child.status=='active':raise ValueError('Death batch advanced before full entry completion')
         prior=replace(prior,picks=(*prior.picks,pick))
     if root.status=='empty'and(root.basis is None or remaining(root)):raise ValueError('Death batch exhausted before frozen identities were used')
+    from .resurrection_attacks import validate_plan
+    validate_plan(state,registry,root,children,closed=closed)
 
 
 def validate_history(state,registry):
@@ -457,9 +477,13 @@ def interrupt(r):
         if binding.status=='pending':finish_body(r,binding,'interrupted')
     for root in tuple(r.state.resurrection_summon_history):
         if root.status=='active':close(r,root,'interrupted')
+    from .resurrection_attacks import interrupt as interrupt_attacks
+    interrupt_attacks(r)
 
 
 def validate_queue(state,registry,queue):
+    from .resurrection_attacks import validate_queue as validate_attacks_queue
+    validate_attacks_queue(state,queue)
     from .summon_sources import ResurrectMinion
     from .summon_quantities import FinishCardSummon
     for work in queue:
@@ -493,6 +517,8 @@ def validate_queue(state,registry,queue):
 def reject_choice_control(options):
     from .summon_sources import ResurrectMinion,ContinueResurrection
     from .summon_quantities import walk_work
+    from .resurrection_attacks import CONTROLS
+    if any(type(w)in CONTROLS for w in walk_work(options)):raise ValueError('Choice cannot inject original resurrection attack controls')
     if any(type(w)in(ContinueDeathResurrection,ContinueQuantityResurrection)or type(w)is ResurrectMinion and w.producer_link is not None or type(w)is ContinueResurrection and w.spec.cause is not None for w in walk_work(options)):raise ValueError('Choice cannot inject death resurrection control')
 
 
@@ -503,6 +529,8 @@ def validate_frame_references(state,registry,value):
     from .continuations import FrameCodec
     def visit(item,scope,depth):
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Death resurrection frame depth exceeded')
+        from .resurrection_attacks import CONTROLS,validate_control
+        if type(item)in CONTROLS:validate_control(scope,item);return
         if type(item)in(Resurrect,ResurrectMinion)and item.cause is not None:validate_effect(scope,registry,item);return
         if type(item)is ContinueDeathResurrection:
             if record(scope,item.resurrection_batch_id).status!='active':raise ValueError('Stale death batch continuation')
@@ -552,8 +580,10 @@ def from_dict(cls,value):
         for n in('rng_before','rng_after'):row[n]=end_turn_rng_from_json(row[n])
     elif cls is ResurrectionBatch:
         spec=_row(row['spec'],Resurrect);q=_row(spec['query'],DeathQuery);q['cards']=query_from_dict(q['cards']);q['exclude_entity_ids']=tuple(q['exclude_entity_ids']);spec['query']=DeathQuery(**q)
-        spec['stats']=None if spec['stats']is None else SummonStats(**_row(spec['stats'],SummonStats));spec['cause']=cause_from_dict(SummonCause,spec['cause']);row['spec']=Resurrect(**spec)
+        spec['stats']=None if spec['stats']is None else SummonStats(**_row(spec['stats'],SummonStats));spec['cause']=cause_from_dict(SummonCause,spec['cause']);spec['death_ids']=None if spec['death_ids']is None else tuple(spec['death_ids']);row['spec']=Resurrect(**spec)
         row['basis']=None if row['basis']is None else from_dict(ResurrectionBasis,row['basis']);row['candidates']=tuple(row['candidates']);row['picks']=tuple(from_dict(ResurrectionPick,x)for x in row['picks'])
+        from .resurrection_attacks import from_dict as attacks_from_dict
+        row['attacks']=None if row['attacks']is None else attacks_from_dict(row['attacks'])
     return cls(**row)
 
 
@@ -601,20 +631,22 @@ def validate_closed_events(game):
         root=from_dict(ResurrectionBatch,json.loads(data['root']));validate_record(state,registry,root,closed=True,children=children)
         if data['resurrection_batch_id']!=root.id or(event.source_id,event.player_id,event.amount)!=(root.spec.cause.source.entity_id,root.spec.player_id,root.spec.count)or root.action>event.action or root.event_cursor>=event.sequence:raise ValueError('Death batch event changed original chronology/domain')
         if event.kind=='resurrection_batch_accepted':
-            if root.id in accepted or root.picks or root.status!='active'or root.event_cursor!=event.sequence-1:raise ValueError('Duplicate/invalid death batch acceptance')
+            if root.id in accepted or root.picks or root.attacks is not None or root.status!='active'or root.event_cursor!=event.sequence-1:raise ValueError('Duplicate/invalid death batch acceptance')
             accepted[root.id]=root
         else:
-            if root.id in closed or root.status=='active'or replace(root,picks=(),status='active')!=accepted.get(root.id):raise ValueError('Death batch close changed original basis/request')
+            if root.id in closed or root.status=='active'or replace(root,picks=(),status='active',attacks=None)!=accepted.get(root.id):raise ValueError('Death batch close changed original basis/request')
             closed[root.id]=root
         if root.id not in current and not any(e.kind=='timeline_rewound'and e.sequence>event.sequence and type(dict(e.data).get('event_start'))is int and dict(e.data)['event_start']<=root.event_cursor for e in events):raise ValueError('Death batch vanished without actual Retry')
     parents={**closed,**current}
     for root in parents.values():
-        if replace(root,picks=(),status='active')!=accepted.get(root.id)or root.status!='active'and closed.get(root.id)!=root:raise ValueError('Death batch differs from original complete event receipts')
+        if replace(root,picks=(),status='active',attacks=None)!=accepted.get(root.id)or root.status!='active'and(root.id not in closed or replace(root,attacks=None)!=replace(closed[root.id],attacks=None)):raise ValueError('Death batch differs from original complete event receipts')
         for pick in root.picks:
             if pick!=(bound if pick.entry_root_id is not None else picked).get((root.id,pick.index)):raise ValueError('Death batch cropped/changed original pick or binding')
     for identity in picked:
         parent=parents.get(identity[0])
         if parent is None or identity[1]>=len(parent.picks):raise ValueError('Death selection lost complete original prefix')
+    from .resurrection_attacks import validate_events
+    validate_events(game,children,closed,current)
     current_bodies={x.entity_id:x for x in state.resurrection_history}
     for child in children.values():
         if type(child.request.producer_link)is ResurrectionEntryLink:
@@ -638,6 +670,8 @@ def rows_from_dict(value):
 
 
 def register(mechanics):
+    from .resurrection_attacks import register as register_attacks
+    register_attacks(mechanics)
     for cls in(ResurrectionEntryMaterial,ResurrectionBasis,ResurrectionEntryLink,ResurrectionPick,ResurrectionBatch,ResurrectionBodyBinding):mechanics.register_payload_type(cls)
     mechanics.register(ContinueDeathResurrection,continue_batch)
     mechanics.register(ContinueQuantityResurrection,continue_body)

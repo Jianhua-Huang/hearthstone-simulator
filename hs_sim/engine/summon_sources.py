@@ -344,8 +344,18 @@ class Resurrect(Effect):
     stats: SummonStats | None = None
     on_summon: str | None = None
     cause: object = None
+    death_ids: tuple[int, ...] | None = None
+    attack_after_all: bool = False
 
     def __post_init__(self):
+        if type(self.attack_after_all) is not bool:
+            raise ValueError('Resurrection group attack policy must be explicit')
+        if self.death_ids is not None:
+            if type(self.death_ids) is not tuple or len(set(self.death_ids)) != len(self.death_ids):
+                raise ValueError('Exact resurrection deaths require distinct original identities')
+            for identity in self.death_ids: _integer(identity, 'exact resurrection death', 1)
+        if (self.death_ids is not None or self.attack_after_all) and self.cause is None:
+            raise ValueError('Exact/group resurrection requires its attributed native batch')
         if self.cause is not None:
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed original resurrection cause required')
