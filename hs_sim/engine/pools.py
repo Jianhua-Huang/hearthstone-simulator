@@ -120,7 +120,8 @@ class PoolCard:
         return (self.kind, self.cost, m.collectible, frozenset(m.classes), m.rarity,
                 None if m.tribes is None else frozenset(m.tribes), self.spell_school, frozenset(self.keywords),
                 None if m.factions is None else frozenset(m.factions), self.battlecry,
-                None if m.subtypes is None else frozenset(m.subtypes), self.deathrattle, self.choose_one)
+                None if m.subtypes is None else frozenset(m.subtypes), self.deathrattle, self.choose_one,
+                m.runes)
 
 
 @dataclass(frozen=True)
@@ -186,6 +187,7 @@ class PoolQuery:
     choose_one: bool | None = None
     # Common fields stay conjunctive; alternatives are a flat disjunction.
     any_of: tuple['PoolQuery', ...] = ()
+    runes_any: tuple[str, ...] = ()
 
     def __post_init__(self):
         if type(self.any_of) is not tuple or any(type(q) is not PoolQuery for q in self.any_of):
@@ -229,6 +231,9 @@ class PoolQuery:
         ids(self.factions_any, 'factions_any', unique=True)
         validate_minion_subtypes(self.subtypes_any)
         ids(self.exclude_card_ids, 'query exclusions', unique=True)
+        ids(self.runes_any, 'printed rune filters', unique=True)
+        if not set(self.runes_any) <= {'blood', 'frost', 'unholy'}:
+            raise ValueError('Printed rune filters require blood, frost or unholy')
 
 
 def validate_pools(registry):
@@ -267,7 +272,7 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
             (query.max_cost is not None and cost > query.max_cost)):
         return False
     needs_meta = (query.collectible is not None or query.class_mode != 'any' or not query.include_neutral
-                  or query.rarities or query.tribes_any or query.factions_any or query.subtypes_any)
+                  or query.rarities or query.tribes_any or query.factions_any or query.subtypes_any or query.runes_any)
     if meta is None and needs_meta:
         missing.append(f'Unknown candidate metadata: {card_id}')
     if meta is not None:
@@ -315,6 +320,13 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
             if meta.subtypes is None:
                 missing.append(f'Unknown candidate minion subtypes: {card_id}')
             elif not set(query.subtypes_any).intersection(meta.subtypes):
+                return False
+        if query.runes_any:
+            if meta.runes is None:
+                if meta.classes is not None and CardClass.DEATH_KNIGHT not in meta.classes:
+                    return False
+                missing.append(f'Unknown candidate printed rune requirements: {card_id}')
+            elif not any(getattr(meta.runes, rune) > 0 for rune in query.runes_any):
                 return False
     if query.ability is not None:
         try:

@@ -443,7 +443,9 @@ def query_from_dict(value):
         row[name]=tuple(kind(v)for v in row[name])
     if type(row['subtypes_any']) not in (list,tuple):
         raise ValueError('Pool subtype filter requires an array or tuple')
-    for name in ('tribes_any','exclude_card_ids','factions_any','subtypes_any'):row[name]=tuple(row[name])
+    if type(row['runes_any']) not in (list,tuple):
+        raise ValueError('Pool rune filter requires an array or tuple')
+    for name in ('tribes_any','exclude_card_ids','factions_any','subtypes_any','runes_any'):row[name]=tuple(row[name])
     row['ability']=None if row['ability']is None else CardAbilityCondition(**_row(row['ability'],CardAbilityCondition))
     alternatives=row['any_of']
     if type(alternatives) not in (list,tuple):

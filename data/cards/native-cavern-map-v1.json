@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "batch": "K168",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_435",
+        "dbf_id": 117431,
+        "name": "地窟地图",
+        "name_en": "Crypt Map",
+        "text": "<b>发现</b>一张冰霜符文牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "text_en": "<b>Discover</b> a Frost Rune card. If you play it this turn, also pick one\nof the others.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "COST_FROST": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "45b5455ee64c9da7cb962053d56d19e880eca5d58de5b2d513a6bcca95e2c57c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_435",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CORE_RLK_066",
+        "dbf_id": 111320,
+        "name": "鲜血魔术师",
+        "name_en": "Hematurge",
+        "text": "<b>战吼：</b>消耗一份<b>残骸</b>，&<b>发现</b>一张鲜血符文牌。~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "text_en": "<b>Battlecry:</b> Spend a\n<b>Corpse</b> to& <b>Discover</b> a\nBlood Rune card.~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 78356,
+          "USE_DISCOVER_VISUALS": 1,
+          "COST_BLOOD": 1,
+          "CORPSE_SPENDER": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dez Bencosme"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78356",
+              "type": "Int",
+              "value": "78356"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e4704ed5f2f54578a44300a4e836c4f8e06155ba93b88319550f8feffb9f2630",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_RLK_066",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_116",
+        "dbf_id": 111328,
+        "name": "死灵殡葬师",
+        "name_en": "Necrotic Mortician",
+        "text": "<b>战吼：</b>如果在你的上回合之后有友方亡灵死亡，<b>发现</b>一张邪恶符文牌。",
+        "text_en": "<b>Battlecry:</b> If a friendly Undead died after your\nlast turn, <b>Discover</b> an Unholy Rune card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80083,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80083",
+              "type": "Int",
+              "value": "80083"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3531788beb06e50febab39a0ee41b17918fc0283b5d6012cbde34cd5a37bc536",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_RLK_116",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_025",
+        "dbf_id": 78325,
+        "name": "冰霜打击",
+        "name_en": "Frost Strike",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，<b>发现</b>一张冰霜符文牌。",
+        "text_en": "Deal $3 damage to a minion. If it dies, <b>Discover</b> a Frost\nRune card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e3d801469f4d925a84715d707289c9fa17bd1c2b0066fbc2cd809db68e2c64e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_025",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_435",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117431-zh_CN.json",
+      "response_sha256": "e64b6a04d60f1e60f454d91a976382b887d5a6f27d8b1d08b722aa1fc4582ad2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117431&locale=zh_CN",
+      "face": {
+        "id": 117431,
+        "collectible": 1,
+        "slug": "117431-crypt-map",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Grafit Studio",
+        "manaCost": 1,
+        "name": "地窟地图",
+        "text": "<b>发现</b>一张冰霜符文牌，如果你在本回合中使用该牌，再从其余选项中选择一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f02f671502f72a7aa412aba368ea4d9e0db313e9f591cefdf5466ed17af8759.png",
+        "imageGold": "",
+        "flavorText": "走迷宫很简单。只要贴着左手边的墙一直走，而且别被恐龙吃掉就好了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/046f51f6822c3fed10a0d8d120c630f316b51baa20e4739d532949b8843560fd.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117431&locale=zh_CN",
+        "sha256": "e64b6a04d60f1e60f454d91a976382b887d5a6f27d8b1d08b722aa1fc4582ad2",
+        "bytes": 883,
+        "observed_at": "2026-10-17T21:17:49.944153+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_435",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117431-en_US.json",
+      "response_sha256": "da47901918201520d7bca2026b26c232fc857d9d5213ba283919fff9a3f51aa3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117431&locale=en_US",
+      "face": {
+        "id": 117431,
+        "collectible": 1,
+        "slug": "117431-crypt-map",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Grafit Studio",
+        "manaCost": 1,
+        "name": "Crypt Map",
+        "text": "<b>Discover</b> a Frost Rune card. If you play it this turn, also pick one of the others.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8f39b5441cf084669c0bdc2c22c6695093636999665d731a8a21f5dea52aae6.png",
+        "imageGold": "",
+        "flavorText": "Solving a maze is easy. Just hug the left wall and don't get eaten by dinosaurs!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/046f51f6822c3fed10a0d8d120c630f316b51baa20e4739d532949b8843560fd.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117431&locale=en_US",
+        "sha256": "da47901918201520d7bca2026b26c232fc857d9d5213ba283919fff9a3f51aa3",
+        "bytes": 841,
+        "observed_at": "2026-10-17T21:17:50.412411+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "filter": "Any positive printed Frost Rune requirement, irrespective of spell school or current hero class.",
+    "class_mode": "any",
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "other_reviewed_sources_not_implemented": [
+      "CORE_RLK_066",
+      "CORE_RLK_116",
+      "RLK_025"
+    ]
+  }
+}

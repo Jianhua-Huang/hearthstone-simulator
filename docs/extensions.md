@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+发现印刷符文牌使用`PoolQuery(runes_any=('blood',))`等有限声明，不能用法术学派或当前英雄符文替代；地图直接复用原物理跟随，见[契约](m3-rune-discovery.md)。
+
 地图“使用本次发现的原牌后再选余项”复用`DiscoverForPlayFollowup`；首次历史筛选与原余项必须分开，见[登山地图契约](m3-hiking-trail.md)，不要另造持续效果或在奖励时重抽池。
 
 查询原使用的随从类型使用`submitted_minion_types`或`played_minion_type_facts`，不读取实体后来的种族；任务中的有限类型匹配及其原起源范围见[契约](m3-played-minion-types.md)。
