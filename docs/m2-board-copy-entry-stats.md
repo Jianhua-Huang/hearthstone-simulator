@@ -6,7 +6,7 @@
 CopyMinion(target_id, player_id, stats=SummonStats(attack=1, health=1))
 ```
 
-`stats` 追加在原位置、模式、归因参数之后，默认为 `None`，旧位置调用保持。只接受原严格 `SummonStats`：至少设一个属性，攻击非负、生命为正，布尔和字典不是数值/声明。没有新增 Entity/Player/GameState 字段、复制执行器或泛化授予。
+`stats` 追加在原位置、模式、归因参数之后，默认为 `None`，旧位置调用保持。只接受严格 `SummonStats`：至少设一个属性，攻击和生命均非负，布尔和字典不是数值/声明。零生命材料按[原入场光环与死亡管线](m3-zero-health-summon-entry.md)执行。没有新增 Entity/Player/GameState 字段、复制执行器或泛化授予。
 
 复制仍按原 `current` / `base` 材料规则创建独立物理实体和附件；普通本地状态复制完成后，再安装原可沉默的 `summon_stats` 设值附件，随后刷新接收者光环、冻结期限并发布入场。指定生命值按原召唤规则清除复制的伤害；只指定攻击不清伤害。`None` 保持旧行为。外部光环与持续关系继续沿原层序，不作为永久材料复制。
 

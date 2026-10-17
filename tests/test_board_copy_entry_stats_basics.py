@@ -114,7 +114,8 @@ class BoardCopyEntryStatsBasicsTests(unittest.TestCase):
         self.assertEqual(CopyMinion(1,1,None,'base',None,FIXED).stats,FIXED)
         for value in ({'attack':1,'health':1},True,(1,1)):
             with self.subTest(value=value),self.assertRaises(ValueError):CopyMinion(1,1,stats=value)
-        with self.assertRaises(ValueError):SummonStats(1,0)
+        self.assertEqual(SummonStats(1,0).health,0)
+        with self.assertRaises(ValueError):SummonStats(1,-1)
         with self.assertRaises(ValueError):SummonStats(True,1)
 
     def test_real_battlecry_copies_either_side_without_replaying_source_battlecry(self):

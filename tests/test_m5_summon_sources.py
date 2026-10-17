@@ -442,7 +442,7 @@ class SummonSourceDefinitionTests(unittest.TestCase):
         for ids in ((1,1),(True,),[1]):
             with self.assertRaises(ValueError):ContinueResurrection(Resurrect(1),ids)
     def test_summon_stats_require_valid_nonempty_overrides(self):
-        for pair in ((None,None),(-1,1),(1,0),(True,1)):
+        for pair in ((None,None),(-1,1),(1,-1),(True,1),(1,False)):
             with self.assertRaises(ValueError):SummonStats(*pair)
         for effect in (SummonFromZone,Resurrect):
             with self.assertRaises(ValueError):effect(1,stats={})

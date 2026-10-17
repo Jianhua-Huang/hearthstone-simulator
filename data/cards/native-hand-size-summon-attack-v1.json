@@ -1,0 +1,364 @@
+{
+  "batch": "K148",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_511",
+        "dbf_id": 126129,
+        "name": "孤守晶塔",
+        "name_en": "Spire of Solitude",
+        "text": "召唤一个属性值等同于你的手牌数量的恶魔，并使其随机攻击一个敌方随从。",
+        "text_en": "[x]Summon a Demon\nwith stats equal to your\nhand size. It attacks a\nrandom enemy minion.",
+        "cost": 5,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 2,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 39,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "ae536509b2efde7832d7720a2efe34ae8a1fd2ea306eacb442d7a54c0260a5f7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_511",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_511t",
+        "dbf_id": 126476,
+        "name": "破坏魔渗透者",
+        "name_en": "Shivarra Infiltrator",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "35f02798c22eb93be95c39f67ab667a4913f878a08088d643ea9711f17f35684",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_511t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_511e",
+        "dbf_id": 126130,
+        "name": "孤守",
+        "name_en": "Solitary",
+        "text": "在本回合中<b>免疫</b>。",
+        "text_en": "<b>Immune</b> this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "09769a8879e3205471e988e5550e5f2b7423c4b2ea23f05505b5cee1096f5b61",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_511e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "raw_only_evidence_ids": [
+    "JAIL_511e"
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_511",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k148-official\\126129-zh_CN.json",
+      "response_sha256": "57156ad56e0a04aa9403b39b711ea67f3a8c7471a9d81971254976f8bb211be7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126129&locale=zh_CN",
+      "face": {
+        "id": 126129,
+        "collectible": 1,
+        "slug": "126129-spire-of-solitude",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "health": 2,
+        "manaCost": 5,
+        "name": "孤守晶塔",
+        "text": "召唤一个属性值等同于你的手牌数量的恶魔，并使其随机攻击一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ab455be986337d70768f32ca90e76f878067034a60b653c2cde166fd73d3121.png",
+        "imageGold": "",
+        "flavorText": "I人的梦中情塔。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c05250d9ed2b9625a8cafe88ae7f7af38a10435679800923bb69decdac58fcf3.png",
+        "childIds": [
+          126476
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126129&locale=zh_CN",
+        "sha256": "57156ad56e0a04aa9403b39b711ea67f3a8c7471a9d81971254976f8bb211be7",
+        "bytes": 775,
+        "observed_at": "2026-10-17T11:10:25.428354+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_511",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k148-official\\126129-en_US.json",
+      "response_sha256": "bca8d2a178dc4784d0da4807986eb5aeb548d41906e9f8e8e37a2b9f02f7d2d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126129&locale=en_US",
+      "face": {
+        "id": 126129,
+        "collectible": 1,
+        "slug": "126129-spire-of-solitude",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "health": 2,
+        "manaCost": 5,
+        "name": "Spire of Solitude",
+        "text": "Summon a Demon with stats equal to your hand size. It attacks a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb9b60e80796d42977acef57e78b032e5782e516a88e82851b30182ed2d2ba06.png",
+        "imageGold": "",
+        "flavorText": "Ah, an introvert's dream!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c05250d9ed2b9625a8cafe88ae7f7af38a10435679800923bb69decdac58fcf3.png",
+        "childIds": [
+          126476
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126129&locale=en_US",
+        "sha256": "bca8d2a178dc4784d0da4807986eb5aeb548d41906e9f8e8e37a2b9f02f7d2d1",
+        "bytes": 765,
+        "observed_at": "2026-10-17T11:10:25.639821+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_511t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k148-official\\126476-zh_CN.json",
+      "response_sha256": "7a766079c2de2402dd7455740a205c8e98906528f5b58227ffdb80ba0e94d31d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126476&locale=zh_CN",
+      "face": {
+        "id": 126476,
+        "collectible": 0,
+        "slug": "126476-shivarra-infiltrator",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "破坏魔渗透者",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf036d1c4bceb709dda156a2e5d0b02207a72f2cf65112c7a3fff270494bf730.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126129,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126476&locale=zh_CN",
+        "sha256": "7a766079c2de2402dd7455740a205c8e98906528f5b58227ffdb80ba0e94d31d",
+        "bytes": 577,
+        "observed_at": "2026-10-17T11:10:25.529580+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_511t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k148-official\\126476-en_US.json",
+      "response_sha256": "96a4f77d759af160ca9d96f180761c94d3ae94e1a4c8f23caa9ce56e30ab0dbe",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126476&locale=en_US",
+      "face": {
+        "id": 126476,
+        "collectible": 0,
+        "slug": "126476-shivarra-infiltrator",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Shivarra Infiltrator",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d50383a53bb7628520627bae86cb3be205f3dd26972781dfeb7e7cb4e64b2b6e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126129,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126476&locale=en_US",
+        "sha256": "96a4f77d759af160ca9d96f180761c94d3ae94e1a4c8f23caa9ce56e30ab0dbe",
+        "bytes": 579,
+        "observed_at": "2026-10-17T11:10:25.430520+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "JAIL_511",
+      "child": "JAIL_511t",
+      "dbf_id": 126476,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_511",
+      "child": "JAIL_511t",
+      "dbf_id": 126476,
+      "locale": "en_US"
+    }
+  ],
+  "policies": {
+    "entry": "At actual original native location body capture current owner hand size once, before any summon entry reactions. SummonByCard uses fixed real token1/1 with SummonStats(n,n), including0. First notification sees final local stats plus ordinary auras. Existing death checkpoints, corpses and summon history own zero-health death; never substitute Destroy or post-entry SetStats.",
+    "followup": "Reuse SummonEntryMaterial.on_summon and original_named_reference with existing AttackRandomEnemyMinion. Each successful ordinary quantity delivery has its own bound continuation; no callback on failed delivery. Dead, dormant, controlled-away or reentered original body skips. Enemy candidates at actual attack execution; no new random or forced-combat interpreter.",
+    "activation": "Ordinary native Location activation/payment/durability/cooldown and full-board summon failure follow existing profile; no extra board-space gate added without CN evidence.",
+    "unprinted_enchantment": "JAIL_511e fullraw only, no verified primary face and no executable grant. Do not infer Immune from isolated obsolete/unlinked raw text.",
+    "calibration": "Hand-size acceptance, entry-reaction timing, quantity and full-board use remain existing internal policies pending CN M6."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

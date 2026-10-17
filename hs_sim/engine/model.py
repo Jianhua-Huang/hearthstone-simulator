@@ -3195,7 +3195,7 @@ class SummonStats:
         if self.attack is None and self.health is None:
             raise ValueError('Summon stats must override at least one attribute')
         if self.attack is not None: _int(self.attack, 'summon attack', 0)
-        if self.health is not None: _int(self.health, 'summon health', 1)
+        if self.health is not None: _int(self.health, 'summon health', 0)
 
 
 def validate_summon_stats(value):
