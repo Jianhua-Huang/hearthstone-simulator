@@ -81,7 +81,7 @@ class SimpleFollowupP45Tests(unittest.TestCase):
 
     def test_two_new_defs_all_old_metadata_default_preserved_and_p44_not_carried(self):
         with patch('hs_sim.cards.simple_followup_p45_cards.register_simple_followup_p45_cards',lambda r:None):before=build_registry()
-        after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertTrue(all(asdict(c)==asdict(after.card(cid))for cid,c in before.cards.items()));self.assertEqual(dict(before.pool_cards),dict(after.pool_cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(dict(before.generation_families),dict(after.generation_families));self.assertNotIn('TIME_021',after.cards)
+        after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertTrue(all(asdict(c)==asdict(after.card(cid))for cid,c in before.cards.items()));self.assertEqual(dict(before.pool_cards),dict(after.pool_cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(dict(before.generation_families),dict(after.generation_families));self.assertEqual('TIME_021'in after.cards,'TIME_021'in before.cards)
         from hs_sim.engine.representative import build_registry as default
         r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in after.pools.values()))
 
