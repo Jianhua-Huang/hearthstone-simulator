@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原存储卡牌的完整随机池选面复用普通跨类型重置；原引用、完整候选和私有抽样/变形收据见[契约](m3-stored-pool-transforms.md)。
+
 原随机法术结果的费用治疗使用来源绑定的有限请求、普通生成交付和共享健康批次；等待、回溯及私有收据边界见[契约](m3-generated-spell-healing.md)。
 RandomSplitDamage可显式声明spell_bonus_multiplier=0，仅忽略外层法强预算；法术归因与单位管线保持，见[契约](m3-immune-spell-split.md)。
 有限触发授予可通过GrantLimitedTrigger.recipient保存原随从引用；成功后仍沿普通附件生命周期，原施法玩家的结束条件可独立于当前控制者，见[契约](m3-original-finite-grants.md)。

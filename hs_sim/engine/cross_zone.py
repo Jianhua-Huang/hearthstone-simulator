@@ -659,10 +659,14 @@ def transform_pool_target(r, effect):
 
 
 def validate_boundary(game):
+    from .stored_pool_transforms import TransformStoredFromPool, validate_events, validate_pending
+    validate_events(game)
     validate_native_pool_events(game)
     if game._frame is None:return
     def check(work):
-        if type(work) is TransformPoolTarget:
+        if type(work) is TransformStoredFromPool:
+            validate_pending(game, work)
+        elif type(work) is TransformPoolTarget:
             candidates(game.registry,game._generation_context,work)
         elif type(work) is TransformMinionFromPool:
             if type(game._generation_context) is not GenerationContext:
@@ -714,6 +718,8 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    from .stored_pool_transforms import register as register_stored_pool
+    register_stored_pool(mechanics)
     mechanics.register_payload_type(MinionScope)
     mechanics.register_payload_type(DefiningHandTransformDraw)
     mechanics.register(BuffMinionsInZones,buff_minions)
