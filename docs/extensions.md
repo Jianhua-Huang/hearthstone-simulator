@@ -1,4 +1,5 @@
 # 机制扩展指南
+有限触发授予可通过GrantLimitedTrigger.recipient保存原随从引用；成功后仍沿普通附件生命周期，原施法玩家的结束条件可独立于当前控制者，见[契约](m3-original-finite-grants.md)。
 原驻留强制攻击可直接使用既有BoardPresenceReference；窗口与合法改向共同保护原防守方，见[契约](m3-original-attack-defender.md)。
 真实已使用任务条件复用原提交记录和本人quests_played_total输入；原目标、间接执行和恢复边界见[契约](m3-played-quest-targets.md)。
 原生圣骑士光环可用明确的aura种类、对手时钟和独立费用贡献；来源、恢复与待国服边界见[契约](m3-native-paladin-aura.md)。

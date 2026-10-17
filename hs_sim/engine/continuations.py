@@ -160,6 +160,11 @@ class FrameCodec:
             value.validate_in_state(self.origin_state)
             if value.recipient is not None and self.registry.card(value.recipient.card_id).kind != CardType.MINION:
                 raise ValueError('Captured attack recipient requires a minion definition')
+        from .limited_triggers import GrantLimitedTrigger
+        if type(value)is GrantLimitedTrigger and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+            if value.recipient is not None and self.registry.card(value.recipient.card_id).kind!=CardType.MINION:
+                raise ValueError('Captured finite trigger recipient requires a minion definition')
         from .stored_spell_damage import GrantStoredSpellDamage,DrawMatchingSpellDamage
         if type(value) in (GrantStoredSpellDamage,DrawMatchingSpellDamage) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

@@ -7,6 +7,7 @@ from .errors import ResolutionError
 from .lifecycle import active_abilities, attachment_id, refresh_entity
 from .model import AbilityInstance, CardType, Event, Keyword, LimitedTriggerSpec, TriggerCandidate, Zone, _int, _optional_id
 from .registry import RuleContext
+from .sacrifice import MinionReference,reference_value,live_minion
 
 
 def supports_carrier(kind, spec):
@@ -87,6 +88,7 @@ class GrantLimitedTrigger(Effect):
     spec: LimitedTriggerSpec
     source_id: int | None = None
     expires_turn: int | None = None
+    recipient: MinionReference | None = None
 
     def __post_init__(self):
         _int(self.target_id,'trigger target',1)
@@ -94,6 +96,19 @@ class GrantLimitedTrigger(Effect):
         if type(self.spec) is not LimitedTriggerSpec:
             raise ValueError('GrantLimitedTrigger requires a specification')
         self.spec.__post_init__()
+        if self.recipient is not None:
+            reference_value(self.recipient)
+            if self.recipient.entity_id!=self.target_id:
+                raise ValueError('Finite trigger grant must identify its original recipient')
+
+    def validate_in_state(self,state):
+        self.__post_init__()
+        if self.recipient is None:return
+        ref=self.recipient;entity=state.entities.get(ref.entity_id)
+        if entity is None or ref.zone_epoch>entity.zone_epoch or ref.entered_order>=state.next_order:
+            raise ValueError('Finite trigger grant borrowed an unknown or future recipient')
+        if self.source_id is not None and self.source_id not in state.entities:
+            raise ValueError('Finite trigger grant has an unknown original source')
 
 
 def capture(r, entity, ability, event, spell_candidates):
@@ -151,7 +166,13 @@ def check(r, effect):
 
 
 def grant(r, effect):
+    effect.validate_in_state(r.state)
     r.registry.validate_limited_trigger(effect.spec)
+    if effect.recipient is not None:
+        if r.registry.card(effect.recipient.card_id).kind!=CardType.MINION:
+            raise ValueError('Captured finite trigger recipient requires a minion definition')
+        if live_minion(r.state,effect.recipient)is None:
+            r.stale(effect,effect.target_id);return
     entity=r.state.entities.get(effect.target_id)
     if entity is None or not live_source(entity):return
     if effect.source_id is not None and effect.source_id not in r.state.entities:

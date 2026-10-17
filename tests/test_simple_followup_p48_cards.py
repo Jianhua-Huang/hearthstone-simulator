@@ -314,14 +314,15 @@ class SimpleFollowupP48Tests(unittest.TestCase):
             with self.assertRaises(ResolutionError):self.play(g,TEST+'bounce',self.first(g,HARBINGER,'board').id)
         self.assertFalse(calls);self.assertEqual(g.snapshot(),saved)
 
-    def test_real_ceremony_primitive_probe_rebinds_bare_trigger_to_same_id_new_residence(self):
+    def test_historical_bare_trigger_probe_retains_explicit_current_id_semantics(self):
         g=self.game((TEST+'ceremony_probe',),board=(YETI,TWO),mode='reentry',pool=False,context=None)
         old=self.first(g,TWO,'board');presence=old.board_presence_id;self.play(g,TEST+'ceremony_probe')
         current=g.state.entities[old.id];self.assertNotEqual(current.board_presence_id,presence)
         self.assertEqual((current.attack,current.health),(1,2));self.assertNotIn(Keyword.RUSH,current.keywords)
         self.assertTrue(any(a.kind=='limited_trigger'and a.limited_trigger.behavior_id==TEST+'due'for a in current.abilities))
         g.apply(EndTurn(1));self.assertEqual(g.state.entities[old.id].zone,Zone.GRAVEYARD)
-        self.assertNotIn('DINO_417',g.registry.cards)
+        self.assertIn('DINO_417',SKIPPED)  # Original P48 deferral remains historical.
+        self.assertIsNotNone(g.registry.card('DINO_417').on_play)
 
     def test_historical_quest_deferral_retains_source_and_current_public_fact_is_available(self):
         g=self.game((TEST+'quest',TEST+'remove_quest',TEST+'quest_probe'),enemy=(YETI,),pool=False,context=None)
