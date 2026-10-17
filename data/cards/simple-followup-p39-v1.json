@@ -1,0 +1,590 @@
+{
+  "batch": "P39",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_271",
+        "dbf_id": 115809,
+        "name": "林地塑型者",
+        "name_en": "Grove Shaper",
+        "text": "在你施放一个自然法术后，召唤一个2/2并具有“<b>亡语：</b>随机获取一张自然法术牌”的树人。",
+        "text_en": "[x]After you cast a Nature spell,\nsummon a 2/2 Treant with\n\"<b>Deathrattle:</b> Get a random\nNature spell.\"",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3d2835d6e5e36891777c3e6058905b103fc42d9b7688cbc7986ad4d96d431255"
+    },
+    {
+      "record": {
+        "id": "EDR_463",
+        "dbf_id": 114310,
+        "name": "暮光侵扰",
+        "name_en": "Twilight Influence",
+        "text": "<b>抉择：</b>消灭一个攻击力小于或等于3的随从；或者随机召唤一个法力值消耗为（2）的随从。",
+        "text_en": "<b>Choose One -</b> Destroy a minion with 3 or less Attack; or Summon a random 2-Cost minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "321183cb515950c0574e3207ed27806967ff83cc4fa66e3849755d3670cc8e77"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_271t",
+        "dbf_id": 117400,
+        "name": "生机树人",
+        "name_en": "Treant of Life",
+        "text": "<b>亡语：</b>随机获取一张自然法术牌。",
+        "text_en": "<b>Deathrattle:</b> Get a\nrandom Nature spell.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "b3b440381e1bbe9b430ea838365d352e024cad142560e6fa8cfc0b18ca3d0940"
+    },
+    {
+      "record": {
+        "id": "EDR_463a",
+        "dbf_id": 114311,
+        "name": "操纵荆棘",
+        "name_en": "Constricting Thorns",
+        "text": "消灭一个攻击力小于或等于3的随从。",
+        "text_en": "Destroy a minion with\n3 or less Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "f94fad0387143df0987bb417e7f413685dec3abe240fb3a305d2ebfbf58f8324"
+    },
+    {
+      "record": {
+        "id": "EDR_463b",
+        "dbf_id": 114312,
+        "name": "控制藤蔓",
+        "name_en": "Controlling Vines",
+        "text": "随机召唤一个法力值消耗为（2）的随从。",
+        "text_en": "Summon a random\n2-Cost minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "ac9697b5c42fbbdd460b4dd4343868e7c410c9f321cf87a13cd8537d0b03655c"
+    }
+  ],
+  "choice_only_ids": [
+    "EDR_463a",
+    "EDR_463b"
+  ],
+  "explicit_official_children": {
+    "EDR_271": [
+      "EDR_271t"
+    ],
+    "EDR_463": [
+      "EDR_463a",
+      "EDR_463b"
+    ]
+  },
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T08:52:15.629131+08:00",
+    "source": "Ten complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "EDR_271",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115809&locale=zh_CN",
+        "response_file": "official-EDR_271-zh_CN.json",
+        "response_sha256": "5c857f26ff1d0e7017988d6b37379430924d480c7c9820519f0c1f03a7199edf",
+        "face": {
+          "id": 115809,
+          "collectible": 1,
+          "slug": "115809-grove-shaper",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Tee Fuyuan",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "林地塑型者",
+          "text": "在你施放一个自然法术后，召唤一个2/2并具有“<b>亡语：</b>随机获取一张自然法术牌”的树人。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d5ea7b6c31fb905e670081e0fc4f922d7d9dfe782ebfca72920c942731575ec.png",
+          "imageGold": "",
+          "flavorText": "无限自然法术bug。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b10e19e37bc3141672397d7d15e10754558797d9daebd188551e439c7568bd8.png",
+          "childIds": [
+            117400
+          ],
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_271",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115809&locale=en_US",
+        "response_file": "official-EDR_271-en_US.json",
+        "response_sha256": "ebbc9b6fac93d9c0b184ae122f676aef220cd045043a1d6c412b67093082b6ae",
+        "face": {
+          "id": 115809,
+          "collectible": 1,
+          "slug": "115809-grove-shaper",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 4,
+          "artistName": "Tee Fuyuan",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 5,
+          "name": "Grove Shaper",
+          "text": "After you cast a Nature spell, summon a 2/2 Treant with \"<b>Deathrattle:</b> Get a random Nature spell.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9e20a3cfd32bdb504b961bbe5e5dccd60181ffa7411c2035149339b632c6e9d.png",
+          "imageGold": "",
+          "flavorText": "Infinite Nature spell glitch.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b10e19e37bc3141672397d7d15e10754558797d9daebd188551e439c7568bd8.png",
+          "childIds": [
+            117400
+          ],
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114310&locale=zh_CN",
+        "response_file": "official-EDR_463-zh_CN.json",
+        "response_sha256": "94e333f37d892a4fb8be5feb274406eab8b3558ae6eeefe4a282a26ccbef97be",
+        "face": {
+          "id": 114310,
+          "collectible": 1,
+          "slug": "114310-twilight-influence",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "暮光侵扰",
+          "text": "<b>抉择：</b>消灭一个攻击力小于或等于3的随从；或者随机召唤一个法力值消耗为（2）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b27c633962ad976c08fff4d2dc9cafe5a75c8401be0b39c4b6d68df8ae49ccf.png",
+          "imageGold": "",
+          "flavorText": "“一定……要读……吸血鬼小说……”",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e6cdf5e283db0445d6fcf8fb4816998e9240b049457466f256ed571ff4fdf64.png",
+          "childIds": [
+            114311,
+            114312
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114310&locale=en_US",
+        "response_file": "official-EDR_463-en_US.json",
+        "response_sha256": "ffc9b34458a2d6fc1d1cd5f0ee388f27706f72152a8f5b10fb4e34b36b3d7bcc",
+        "face": {
+          "id": 114310,
+          "collectible": 1,
+          "slug": "114310-twilight-influence",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "Twilight Influence",
+          "text": "<b>Choose One -</b> Destroy a minion with 3 or less Attack; or Summon a random 2-Cost minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/759a476438b12205f145bbdbdd26850ab9d118c2cd6935e85b920a34550e71ef.png",
+          "imageGold": "",
+          "flavorText": "\"M-must... read... y-young adult... vampire novels...\"",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e6cdf5e283db0445d6fcf8fb4816998e9240b049457466f256ed571ff4fdf64.png",
+          "childIds": [
+            114311,
+            114312
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_271t",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117400&locale=zh_CN",
+        "response_file": "official-EDR_271t-zh_CN.json",
+        "response_sha256": "fb27ea89064350f081ee200c5871402b8bf3a0d85bf63e88915abb260815025a",
+        "face": {
+          "id": 117400,
+          "collectible": 0,
+          "slug": "117400-treant-of-life",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "生机树人",
+          "text": "<b>亡语：</b>随机获取一张自然法术牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8f3bc587b7efb4e712cc1e327d07010e9d686336ab78f2fe2fdc181dde50f5e.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115809,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_271t",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117400&locale=en_US",
+        "response_file": "official-EDR_271t-en_US.json",
+        "response_sha256": "09b691bec6bb7b685e1c055c829f796f8654457cae583dc8fb2ca5ea521e2c20",
+        "face": {
+          "id": 117400,
+          "collectible": 0,
+          "slug": "117400-treant-of-life",
+          "classId": 2,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Tee Fuyuan",
+          "health": 2,
+          "attack": 2,
+          "manaCost": 1,
+          "name": "Treant of Life",
+          "text": "<b>Deathrattle:</b> Get a random Nature spell.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0e3e1a358e768b7d34dc1f8d51349ccd07190b8af568620b3e7cf60a7742621.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 115809,
+          "keywordIds": [
+            12
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463a",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114311&locale=zh_CN",
+        "response_file": "official-EDR_463a-zh_CN.json",
+        "response_sha256": "cfb83689552f0f8eb6d78d4fce7616721ad274eaeab6b245856ee12144a2f71b",
+        "face": {
+          "id": 114311,
+          "collectible": 0,
+          "slug": "114311-constricting-thorns",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "操纵荆棘",
+          "text": "消灭一个攻击力小于或等于3的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1693fb19a0db42366b103b4acf176ed6b46a98b1673d01d3f415abfed951ccd1.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114310,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463a",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114311&locale=en_US",
+        "response_file": "official-EDR_463a-en_US.json",
+        "response_sha256": "0739f02b027004dc23ecd2a6baf99665b4b3e9d54e83d93e4eb35ae3e1d38d93",
+        "face": {
+          "id": 114311,
+          "collectible": 0,
+          "slug": "114311-constricting-thorns",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "Constricting Thorns",
+          "text": "Destroy a minion with 3 or less Attack.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3f5f9fc681b951d3dcc09392515b4704e0403f5a8c6c2b8ee8f8018ddc231bf.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114310,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463b",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114312&locale=zh_CN",
+        "response_file": "official-EDR_463b-zh_CN.json",
+        "response_sha256": "e1a5b078f3734e5faccb18fd395cb9443ac04d0d537bb9afeaadf83eeb121ec7",
+        "face": {
+          "id": 114312,
+          "collectible": 0,
+          "slug": "114312-controlling-vines",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "控制藤蔓",
+          "text": "随机召唤一个法力值消耗为（2）的随从。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d09ee9cead403b9a929169ef29bbc5ce460283c6608891f61e93d7b2fb21e22.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114310,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_463b",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114312&locale=en_US",
+        "response_file": "official-EDR_463b-en_US.json",
+        "response_sha256": "f0609fc10ce4ff426d0900302b4d777c65e8f0ceca2074534c470c55d114f167",
+        "face": {
+          "id": 114312,
+          "collectible": 0,
+          "slug": "114312-controlling-vines",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": null,
+          "artistName": "Ivan Fomin",
+          "manaCost": 2,
+          "name": "Controlling Vines",
+          "text": "Summon a random 2-Cost minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fbbe43190fec224b67112bc722631666b707cf2f4826be322f552531fb2c658.png",
+          "imageGold": "",
+          "flavorText": "",
+          "cropImage": null,
+          "parentId": 114310,
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Grove Shaper5mana3/6 Druid minion listens to successful spell_cast_finished. Validate actual cast_record source/player/target and completed/payload_started/no failure/no interruption; require living current owner source and executedcardNature school. Owner effectcasts qualify, foreignowner/nonNature/countered/nonliving do not. Fixed actual2/2 EDR_271t through one attributed SummonByCard; source is Shaper, not fabricated original spellcaster.",
+    "Treant of Life1mana2/2 uncollectible Druid token native deathrattle GenerateFromPool collectibleSPELL Nature anyclass hand. Get is not draw/discover/summon. Printed2831 and subtype/tribe facts come solely from shared original metadata decoder, no name inference.",
+    "Twilight Influence2mana PriestShadow ordinary ChooseOneSpec: official EDR_463a required currentattack<=3 activeBOARDMINION target either side via existing declarative TargetPredicateSpec attack_max3 and shared target domain; publicDestroy. EDR_463b unfiltered collectibleprinted2 MINION anyclass via attributedSummonFromPool. Root pays/casts once, no physical branch cards.",
+    "Ordinary combined branch uses existing IF_AVAILABLE BOARDMINION attackmax3 target contract: when eligible target exists requireone, otherwise allowNone and still summon; execute destruction before summon. Complete own body/order/target domain declared, no dedicated combination mechanism or speculative public API.",
+    "Two real choice-only dependency faces retain complete raw2mana rows and ordinary descriptor0cost contract; no executableonplay/pool/deck membership. Explicit official childIds/parentId associations retained for all three dependencies.",
+    "All generatedpool requests require complete explicit host constructed.cards inventory and GenerationContext, completeunknowneligible errors before ownRNG. Fixed token summon needs none. No registered-only fallback, crop, private mutation, placeholder or local executor; definitions/PoolCards before full candidatecatalog. Only internal effects, M0/M6/formallegal/actualreachable/stage gates open.",
+    "New baselineK122 nativeDR/ChooseOne pool facts/core413/schema332 are preserved; default311 full definitions preserved and current fingerprint read from existing reviewed identity fixture in tests, old batches untouched."
+  ]
+}
