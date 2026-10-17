@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .adapt_memory import AdaptAndRemember, validate_request as validate_adapt_memory
+        if type(value) is AdaptAndRemember:
+            validate_adapt_memory(value, self.registry, self.origin_state)
         from .resolver import BehaviorCall
         if type(value) is BehaviorCall:
             from .named_summon_followups import validate_call as validate_named_call

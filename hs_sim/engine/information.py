@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v90'
+VIEW_VERSION = 'player-view-v91'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -259,6 +259,8 @@ class Information:
             if event.kind.startswith('player_effect_'):
                 record['player_effect'] = {key: data[key] for key in (
                     'effect_key', 'card_id', 'effect_kind', 'remaining_turns')}
+                if 'adaptations' in data:
+                    record['player_effect']['adaptations'] = list(data['adaptations'])
             if event.kind == 'limited_trigger_used':
                 record['trigger_keyword'] = data['trigger_keyword']
             if event.kind in ('counter_policy_added', 'counter_policy_used'):
@@ -839,8 +841,16 @@ def validate_combo_modifier_view(value, event_kind):
 
 
 def validate_player_effect_view(value, registry, event_kind):
-    _fields(value, 'effect_key card_id effect_kind remaining_turns', 'public player effect')
+    _fields(value, 'effect_key card_id effect_kind remaining_turns' +
+            (' adaptations' if 'adaptations' in value else ''), 'public player effect')
     spec = registry.player_effect(value['effect_key'])
+    if (spec.kind == 'adaptations') != ('adaptations' in value):
+        raise ValueError('Public Adaptation material differs from its player-effect kind')
+    if spec.kind == 'adaptations':
+        from .model import validate_adaptations
+        if type(value['adaptations']) not in (tuple, list):
+            raise ValueError('Public Adaptations require their ordered fixed choices')
+        validate_adaptations(tuple(value['adaptations']))
     if value['card_id'] != spec.card_id or value['effect_kind'] != spec.kind:
         raise ValueError('Invalid public player effect definition')
     remaining = value['remaining_turns']

@@ -7608,6 +7608,16 @@ class PlayerKeywordAuraSpec:
             raise ValueError('Player keyword aura requires an explicit tribe selector')
 
 
+ADAPTATION_CHOICES = ('UNG_999t3', 'UNG_999t4', 'UNG_999t14', 'UNG_999t6', 'UNG_999t7',
+                      'UNG_999t8', 'UNG_999t13', 'UNG_999t5', 'UNG_999t10', 'UNG_999t2')
+
+
+def validate_adaptations(value, *, empty=False):
+    if (type(value) is not tuple or len(value) not in ((0, 2) if empty else (2,)) or
+            any(type(cid) is not str or cid not in ADAPTATION_CHOICES for cid in value)):
+        raise ValueError('An Adaptation program requires exactly two original fixed choices')
+
+
 @dataclass(frozen=True)
 class PlayerEffectSpec:
     """Public, source-independent rule definition, frozen with the registry."""
@@ -7646,6 +7656,10 @@ class PlayerEffectSpec:
         if self.kind=='next_kindred'and any((self.duration,self.tick_event,self.on_expire,self.triggers,self.spell_damage,self.auras,
                 self.deathrattle_repeats,self.end_turn_repeats,self.producer_quantities,self.keyword_auras,self.target_policy,self.allowed_card_types)):
             raise ValueError('Next-Kindred instances are one independent native repeat source')
+        if self.kind == 'adaptations' and any((self.duration, self.tick_event, self.on_expire, self.triggers,
+                self.spell_damage, self.auras, self.deathrattle_repeats, self.end_turn_repeats,
+                self.producer_quantities, self.keyword_auras, self.target_policy, self.allowed_card_types)):
+            raise ValueError('Remembered Adaptations require one independent permanent program')
         if self.kind == 'next_spell_damage':
             _int(self.spell_damage, 'next-spell damage amount', 1)
             if any((self.triggers,self.auras,self.deathrattle_repeats,self.end_turn_repeats,
@@ -7679,9 +7693,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:
@@ -7728,8 +7742,13 @@ class PlayerEffect:
     source_allocation: tuple[tuple[str, int | str | CardType | Zone], ...] | None = None
     source_player_id: int | None = None
     cost_modifier_id: int | None = None
+    adaptations: tuple[str, ...] = ()
 
     def __post_init__(self):
+        validate_adaptations(self.adaptations, empty=True)
+        if self.adaptations and any(v is not None for v in
+                (self.remaining_turns, self.source_allocation, self.source_player_id, self.cost_modifier_id)):
+            raise ValueError('Remembered Adaptations cannot borrow timed, health or cost material')
         _optional_id(self.cost_modifier_id, 'Aura cost modifier')
         for name in ('id', 'source_id', 'created_turn', 'entered_order'):
             _int(getattr(self, name), name, 1)
@@ -10209,6 +10228,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             effect.__post_init__()
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()
+            if (spec.kind == 'adaptations') != bool(effect.adaptations):
+                raise ValueError('Player effect Adaptation material differs from its registered kind')
             from .player_effects import validate_cost_binding
             validate_cost_binding(state, registry, player.id, effect)
             if spec.kind in ('turn_rule','next_spell_damage') and effect.created_turn != state.turn:

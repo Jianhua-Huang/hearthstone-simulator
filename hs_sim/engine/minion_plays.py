@@ -53,6 +53,8 @@ def resolve(r, effect):
     if host is not None and host_eligible(r.state, r.registry, entity, host):
         from .costs import install_paid_minion_keywords
         install_paid_minion_keywords(r, record, entity)
+        from .adapt_memory import install_paid
+        install_paid(r, record, entity)
         merge(r, entity, host, record)
         update_play(r.state, record.id, minion_result='magnetized')
         r.emit('minion_play_accepted', source_id=entity.id, target_id=host.id,
@@ -70,6 +72,8 @@ def resolve(r, effect):
         return canceled_combos(r,play_record(r.state,record.id),'board_full')
     from .costs import install_paid_minion_keywords
     install_paid_minion_keywords(r, record, entity)
+    from .adapt_memory import install_paid
+    install_paid(r, record, entity)
     r.move(entity, Zone.BOARD, record.position, controller_id=board_player_id)
     update_play(r.state, record.id, minion_result='summoned')
     r.refresh_auras()

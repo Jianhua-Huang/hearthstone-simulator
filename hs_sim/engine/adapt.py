@@ -10,11 +10,10 @@ from pathlib import Path
 from hs_sim.targets import canonical_digest
 from .effects import (Buff, ChoiceOption, GrantDeathrattle, GrantKeyword,
                       RequestChoice, Summon, _integer, _player, _source)
-from .model import CardClass, CardDefinition, CardMetadata, CardType, Keyword, TimedKeywordSpec, Zone
+from .model import ADAPTATION_CHOICES, CardClass, CardDefinition, CardMetadata, CardType, Keyword, TimedKeywordSpec, Zone
 
 VERSION = 'adapt-options-v1'
-CHOICE_IDS = ('UNG_999t3', 'UNG_999t4', 'UNG_999t14', 'UNG_999t6', 'UNG_999t7',
-              'UNG_999t8', 'UNG_999t13', 'UNG_999t5', 'UNG_999t10', 'UNG_999t2')
+CHOICE_IDS = ADAPTATION_CHOICES
 PLANT_ID = 'UNG_999t2t1'
 SPORES_BEHAVIOR = 'adapt.living_spores.v1'
 PIN = 'ce578d34a829b2de078bd288a0681488c952fa2f179bdd1c14ea594e8988c2c3'

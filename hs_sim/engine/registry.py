@@ -1682,6 +1682,11 @@ class Registry:
                 validate_source_declaration(self, repeat, allow_source=False)
             if self.card(spec.card_id).choice_only:
                 raise ValueError('Player effects require a physical display card')
+            if spec.kind == 'adaptations':
+                from .adapt_memory import validate_options
+                if self.card(spec.card_id).kind != CardType.MINION:
+                    raise ValueError('Remembered Adaptations require their physical minion display')
+                validate_options(self)
             if spec.kind == 'aura':
                 card = self.card(spec.card_id)
                 if (card.kind != CardType.SPELL or card.metadata is None or

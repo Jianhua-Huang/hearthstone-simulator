@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v438'
+CORE_EFFECTS_VERSION = 'core-effects-v439'
 
 
 class Mechanics:
@@ -1207,6 +1207,14 @@ def buff(r, effect):
     if entity is None:
         r.stale(effect, effect.target_id)
         return
+    _buff_to(r, effect, entity)
+
+
+def _buff_to(r, effect, entity, *, notify=True):
+    """One attachment installer; trusted entry material can precede announcement."""
+    effect.__post_init__()
+    if entity.id != effect.target_id:
+        raise ResolutionError('Buff material changed its physical recipient')
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     from .hero_health_history import snapshot as hero_health_snapshot
     health_before = hero_health_snapshot(entity)
@@ -1218,9 +1226,10 @@ def buff(r, effect):
                               owner_turn_expiry=expiry)
     entity.enchantments.append(enchantment)
     refresh_entity(entity)
-    r.emit('stats_changed', source_id=effect.source_id, target_id=entity.id,
-           enchantment_id=enchantment.id, attack_delta=effect.attack, health_delta=effect.health,
-           _hero_health_before=health_before)
+    if notify:
+        r.emit('stats_changed', source_id=effect.source_id, target_id=entity.id,
+               enchantment_id=enchantment.id, attack_delta=effect.attack, health_delta=effect.health,
+               _hero_health_before=health_before)
 
 
 def destroy(r, effect):
@@ -1790,11 +1799,19 @@ def grant_ability(r, effect):
         if isinstance(effect, (GrantKeyword, GrantSpellDamage)):
             r.stale(effect, effect.target_id)
         return
+    _grant_to(r, effect, entity)
+
+
+def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None):
+    """Install ordinary ability material after the caller binds the recipient."""
+    validate_attachment_source(r, effect.source_id, effect.expires_turn)
+    if entity.id != effect.target_id or pending and (entity.kind != CardType.MINION or entity.zone != Zone.PLAY):
+        raise ResolutionError('Ability material changed its original pending recipient')
     fields = dict(source_id=effect.source_id, expires_turn=effect.expires_turn)
     if isinstance(effect, GrantKeyword):
         if effect.duration is not None:
             from .timed_keywords import deadline, supports_grant
-            if not supports_grant(entity, effect.duration, effect.source_id):
+            if not (pending or supports_grant(entity, effect.duration, effect.source_id)):
                 raise ResolutionError('Timed keyword grants require board minions or source-bound next-turn hero immunity')
             fields['timed_keyword'] = effect.duration
             fields['keyword_expiry'] = deadline(r.state, entity.controller, effect.duration)
@@ -1809,7 +1826,8 @@ def grant_ability(r, effect):
         kind, fields['spell_damage'] = 'spell_damage', effect.amount
     elif isinstance(effect, GrantDeathrattle):
         kind, fields['behavior_id'] = 'deathrattle', effect.behavior_id
-        fields['deathrattle_grant_card_id'] = r.state.entities[effect.source_id].card_id if effect.source_id else None
+        fields['deathrattle_grant_card_id'] = (grant_card_id if grant_card_id is not None else
+            r.state.entities[effect.source_id].card_id if effect.source_id else None)
     elif isinstance(effect, GrantTrigger):
         kind, fields['behavior_id'], fields['event'] = 'trigger', effect.behavior_id, effect.event
         fields['end_turn']=effect.end_turn
@@ -1823,8 +1841,9 @@ def grant_ability(r, effect):
     ability = AbilityInstance(attachment_id(r.state), kind, **fields)
     entity.abilities.append(ability)
     r.refresh_auras()
-    r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
-           ability_id=ability.id, ability_kind=kind)
+    if notify:
+        r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
+               ability_id=ability.id, ability_kind=kind)
 
 
 def remove_enchantment(r, effect):
@@ -2282,6 +2301,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_minion_abilities(mechanics)
     register_quests(mechanics)
     register_player_effects(mechanics)
+    from .adapt_memory import register as register_adapt_memory
+    register_adapt_memory(mechanics)
     from .void_decks import register as register_void_decks
     register_void_decks(mechanics)
     register_secrets(mechanics)

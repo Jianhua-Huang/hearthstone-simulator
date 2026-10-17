@@ -5,7 +5,7 @@ beneficiary or attaches to a later incarnation that happens to reuse its ID.
 """
 from dataclasses import dataclass
 
-from .effects import Buff, Destroy, Effect, GrantKeyword, SetStats, Transform, _behavior, _integer, _player, _source
+from .effects import Buff, Destroy, Effect, GrantDeathrattle, GrantKeyword, SetStats, Transform, _behavior, _integer, _player, _source
 from .errors import ResolutionError
 from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, LimitedTriggerSpec, StatReference, TimedKeywordSpec, Zone
 
@@ -234,6 +234,28 @@ def grant_captured_keyword(r, effect):
 
 
 @dataclass(frozen=True)
+class GrantCapturedDeathrattle(Effect):
+    beneficiary: MinionReference
+    behavior_id: str
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        GrantDeathrattle(self.beneficiary.entity_id, self.behavior_id, self.source_id)
+
+
+def grant_captured_deathrattle(r, effect):
+    from .resolver import grant_ability, validate_attachment_source
+    effect.__post_init__(); validate_request(r, effect)
+    validate_attachment_source(r, effect.source_id, None)
+    r.registry.behavior(effect.behavior_id)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    grant_ability(r, GrantDeathrattle(effect.beneficiary.entity_id, effect.behavior_id, effect.source_id))
+
+
+@dataclass(frozen=True)
 class GrantDeckSacrificeAura(Effect):
     target_id: int
     spec: DeckSacrificeSpec
@@ -436,4 +458,5 @@ def register(mechanics):
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(TransformCapturedMinion, transform_captured_minion)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
+    mechanics.register(GrantCapturedDeathrattle, grant_captured_deathrattle)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

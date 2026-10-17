@@ -23,8 +23,11 @@ def activation_error(state, registry, rules, player_id, card_id):
 def public_effect(registry, effect):
     spec = registry.player_effect(effect.spec_id)
     # No global attachment IDs or original hidden entity identities in this DTO.
-    return dict(effect_key=spec.id, card_id=spec.card_id, effect_kind=spec.kind,
-                remaining_turns=effect.remaining_turns)
+    result = dict(effect_key=spec.id, card_id=spec.card_id, effect_kind=spec.kind,
+                  remaining_turns=effect.remaining_turns)
+    if effect.adaptations:
+        result['adaptations'] = list(effect.adaptations)
+    return result
 
 
 @dataclass(frozen=True)
@@ -116,12 +119,23 @@ def consume(r, effect):
     return effect.on_success
 
 
-def add(r, effect):
+def add(r, effect, *, adaptations=(), adaptation_source=None):
     player = r.player(effect.player_id)
     spec = r.registry.player_effect(effect.spec_id)
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
+    if spec.kind == 'adaptations':
+        from .allocation_facts import SourceAllocationFact, validate_allocation
+        from .model import validate_adaptations
+        validate_adaptations(adaptations)
+        if (type(adaptation_source) is not SourceAllocationFact or
+                adaptation_source.entity_id != effect.source_id or adaptation_source.kind != CardType.MINION or
+                effect.capture_health_source):
+            raise ResolutionError('Adaptations require their original physical Battlecry source')
+        validate_allocation(r.state, r.registry, adaptation_source)
+    elif adaptations or adaptation_source is not None:
+        raise ResolutionError('Only an Adaptation program may carry selected Adaptations')
     if spec.kind == 'aura' and (source.card_id != spec.card_id or
             source.kind != CardType.SPELL or source.controller != player.id):
         raise ResolutionError('Native Aura requires its own actual controlled spell source')
@@ -139,9 +153,10 @@ def add(r, effect):
         remaining = 2 if player.id == r.state.active_player and not r.ending_turn else 1
     instance_id = attachment_id(r.state)
     modifier_id = r.state.next_attachment_id if spec.opponent_spell_cost else None
-    instance = PlayerEffect(instance_id, spec.id, source.id, source.card_id,
+    instance = PlayerEffect(instance_id, spec.id, source.id,
+                            adaptation_source.card_id if adaptation_source is not None else source.card_id,
                             r.state.turn, r.state.next_order, remaining,allocation,
-                            effect.player_id if allocation is not None else None, modifier_id)
+                            effect.player_id if allocation is not None else None, modifier_id, adaptations)
     r.state.next_order += 1
     player.player_effects.append(instance)
     if modifier_id is not None:

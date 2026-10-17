@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+阿沙隆使用`remember_adaptations(context, spec_id)`捕获两轮原驻留选择，注册的`adaptations`玩家效果只接受完整两项程序；实际后续出牌、磁力和孢子交公共入口，见[契约](m3-ashalon-adaptations.md)。不要在`card_played`完成回调给本次战吼刚安装的程序重新找受益者。
+
 首张当前种族的费用应沿[原提交附件筛选](m2-first-tribe-turn-cost-aura.md)表达，不读取后来场上实体，也不安装新的逐卡计数。间接起源仍须按真实来源接受政策处理。
 
 奖励只能兑现一次时，使用完整原实例的`ConsumePlayerEffect`，不要排列“移除＋独立奖励”来模拟条件成功；接受窗、来源和恢复边界见[契约](m3-once-player-effect-reward.md)。

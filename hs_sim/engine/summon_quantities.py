@@ -455,6 +455,9 @@ def deliver(r,effect):
             entry_dormant_turns=material.dormant_turns if type(material)is SummonEntryMaterial else None)
         if type(material) is PhysicalReplayEntryMaterial:
             entity.origin_entity_id = root.request.cause.source.entity_id
+            if effect.index == 0:
+                from .adapt_memory import install_generated
+                install_generated(r, root, entity)
         if type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import apply as apply_death_material
             apply_death_material(r,material,entity,root.id,effect.index)
