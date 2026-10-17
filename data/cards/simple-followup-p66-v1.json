@@ -1,0 +1,2235 @@
+{
+  "schema": 1,
+  "batch": "P66",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p66-20261017/manifest-03.json",
+    "sha256": "9a2b55b88f74e39e16924d1edb1f31ba03eca56c8746ff4ec5cb59d1ff9b6010"
+  },
+  "frozen_at": "2026-10-17T14:39:29.739598+00:00",
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_422",
+        "dbf_id": 118620,
+        "name": "甲龙",
+        "name_en": "Ankylodon",
+        "text": "<b><b>嘲讽</b>。亡语：</b>随机召唤两只法力值消耗为（3）的野兽，并使其攻击随机敌人。",
+        "text_en": "[x]<b><b>Taunt</b>. Deathrattle:</b> Summon\ntwo random 3-Cost Beasts.\n_They attack random enemies._",
+        "cost": 6,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "c713d5317609b8a59d8d41491d985c165b99b299658190da7aff566dadb610d6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_422",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "FIR_953",
+        "dbf_id": 115751,
+        "name": "熔岩猎犬",
+        "name_en": "Magma Hound",
+        "text": "<b>突袭</b>。在本随从攻击随从并存活下来后，&造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Rush</b>. After this attacks a\nminion and survives,& deal this\nminion's Attack damage split\namong all enemies.",
+        "cost": 8,
+        "attack": 5,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 5,
+          "COST": 8,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "2540": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          }
+        ]
+      },
+      "record_sha256": "db6966b7bebe73c152746288c4248474555b98a1062538cb8729ace387d98dde",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "FIR_953",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_842",
+        "dbf_id": 114844,
+        "name": "亵渎之矛",
+        "name_en": "Defiled Spear",
+        "text": "在你的英雄攻击\n一个敌人后，随机对另一个敌人造成等同于你的英雄攻击力的伤害。",
+        "text_en": "[x]After your hero attacks an\n enemy, deal your hero's\nAttack damage to another\nrandom enemy.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "6224daa3487024f73813d8ad1dff0d4a7d67ec68d38099f487795a411ddb28bf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_842",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_850",
+        "dbf_id": 126600,
+        "name": "典狱官玛维",
+        "name_en": "Warden Maiev",
+        "text": "在你使用一张随从牌后，使其获得+3/+3并使其<b>休眠</b>1回合。",
+        "text_en": "[x]After you play a minion,\ngive it +3/+3 and make it\n_go <b>Dormant</b> for 1 turn.",
+        "cost": 2,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Joseph Weston"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d620f4af601c28e2012000cd5a46fb551ecfa3712b641864bc277d4003c2052e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_850",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_465",
+        "dbf_id": 118241,
+        "name": "绞缠血藤",
+        "name_en": "Stranglevine",
+        "text": "<b>亡语：</b>使一个随机友方随从获得一项随机<b>额外效果</b>以及此<b>亡语</b>。",
+        "text_en": "<b>Deathrattle:</b> Give a random\nfriendly minion a random\n<b>Bonus Effect</b> and this <b>Deathrattle</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "caf6d389187d6beb8f1f20c51fb6bd52305ae6f8000de19d63605fb835b88e1c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_465",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_810",
+        "dbf_id": 117231,
+        "name": "高阶教徒赫雷恩",
+        "name_en": "High Cultist Herenn",
+        "text": "<b>战吼：</b>从你的牌库中召唤两个<b>亡语</b>随从，并使其互相攻击！",
+        "text_en": "[x]<b>Battlecry:</b> Summon two\n<b>Deathrattle</b> minions from\nyour deck. They fight!",
+        "cost": 8,
+        "attack": 8,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "371a27f0e740aef7d59f9e1b2d96eeab3184f1fb8a1933d87f5bac946a39dd2e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_810",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_BT_120",
+        "dbf_id": 127474,
+        "name": "战槌挑战者",
+        "name_en": "Warmaul Challenger",
+        "text": "<b>战吼：</b>\n选择一个敌方随从。与其战斗至死！",
+        "text_en": "<b>Battlecry:</b> Choose\nan enemy minion.\nBattle it to the death!",
+        "cost": 3,
+        "attack": 1,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 56507,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56507
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56507",
+              "type": "Int",
+              "value": "56507"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "7d07c60c4eca54197bd2f955adf811216ccc00855490983e12fab106ee60cdfe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_BT_120",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_122",
+        "dbf_id": 126353,
+        "name": "米尔牢斯·法力风暴",
+        "name_en": "Jailhouse Manastorm",
+        "text": "<b>战吼：</b>在本局对战中，在你施放一个法术后，随机召唤一个法力值消耗相同的随从。",
+        "text_en": "[x]<b>Battlecry:</b> After you cast a\nspell this game, summon\na random minion of the\nsame Cost.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4818": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4818"
+          }
+        ]
+      },
+      "record_sha256": "c647657ad69d4be1dff69a06f9b2caa1475bdc00dc4ac2b9be20304bd2c3667b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_122",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_979",
+        "dbf_id": 123848,
+        "name": "咒术专家",
+        "name_en": "Conjuration Specialist",
+        "text": "<b>战吼：</b>选择你手牌中的一张法术牌，将其拆分为两张法力值消耗与其相同的随机法术牌。",
+        "text_en": "<b>Battlecry:</b> Choose a spell\nin your hand. Split it into\ntwo random spells of the same Cost.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "e17f2289d573d9752d6659cd40e48be3f1b80afc2849d40053e3c1f7347fbad1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_979",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_WON_141",
+        "dbf_id": 120352,
+        "name": "展馆茶杯",
+        "name_en": "Menagerie Mug",
+        "text": "<b>战吼：</b>随机使三个不同类型的友方随从获得+1/+1。",
+        "text_en": "[x]<b>Battlecry:</b> Give 3 random\nfriendly minions of different\nminion types +1/+1.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 102687,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 102687
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi & C. Luechaiwattasopon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "102687",
+              "type": "Int",
+              "value": "102687"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "54e5745fea6822795bb482ded06b69d2a8c2a83a63225cf9dfd31fb153f6efe6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_WON_141",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_254",
+        "dbf_id": 118257,
+        "name": "讲故事的始祖龟",
+        "name_en": "Tortollan Storyteller",
+        "text": "在你的回合结束时，&使每个不同类型的各一个友方随从获得+1/+1。",
+        "text_en": "[x]At the end of your turn,&\ngive +1/+1 to each friendly\nminion of a different type.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "b9d6e39b98009afd1e4d2052d7f6b3c072a2dd3cb6fc6090dfbe3acfcbf63762",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_254",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BT_120",
+        "dbf_id": 56507,
+        "name": "战槌挑战者",
+        "name_en": "Warmaul Challenger",
+        "text": "<b>战吼：</b>\n选择一个敌方随从。与其战斗至死！",
+        "text_en": "<b>Battlecry:</b> Choose\nan enemy minion.\nBattle it to the death!",
+        "cost": 3,
+        "attack": 1,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "fe24e05cabab27acc79c7958e4069561ae079776dfad04dfad8f5a6f859f667e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BT_120",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_141",
+        "dbf_id": 102687,
+        "name": "展馆茶杯",
+        "name_en": "Menagerie Mug",
+        "text": "<b>战吼：</b>随机使三个不同类型的友方随从获得+1/+1。",
+        "text_en": "[x]<b>Battlecry:</b> Give 3 random\nfriendly minions of different\nminion types +1/+1.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1898,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi & C. Luechaiwattasopon"
+          }
+        ]
+      },
+      "record_sha256": "0b74bae7b32735e8d4c7469c15c50dd456af5e091bf256fb9650eba903c11fb9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_141",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_066",
+        "dbf_id": 111320,
+        "name": "鲜血魔术师",
+        "name_en": "Hematurge",
+        "text": "<b>战吼：</b>消耗一份<b>残骸</b>，&<b>发现</b>一张鲜血符文牌。~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "text_en": "<b>Battlecry:</b> Spend a\n<b>Corpse</b> to& <b>Discover</b> a\nBlood Rune card.~GAMEPLAY_ASPROXY_CORE_RLK_066",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 78356,
+          "USE_DISCOVER_VISUALS": 1,
+          "COST_BLOOD": 1,
+          "CORPSE_SPENDER": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dez Bencosme"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78356",
+              "type": "Int",
+              "value": "78356"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e4704ed5f2f54578a44300a4e836c4f8e06155ba93b88319550f8feffb9f2630",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_RLK_066",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_RLK_116",
+        "dbf_id": 111328,
+        "name": "死灵殡葬师",
+        "name_en": "Necrotic Mortician",
+        "text": "<b>战吼：</b>如果在你的上回合之后有友方亡灵死亡，<b>发现</b>一张邪恶符文牌。",
+        "text_en": "<b>Battlecry:</b> If a friendly Undead died after your\nlast turn, <b>Discover</b> an Unholy Rune card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 80083,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "80083",
+              "type": "Int",
+              "value": "80083"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3531788beb06e50febab39a0ee41b17918fc0283b5d6012cbde34cd5a37bc536",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_RLK_116",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_025",
+        "dbf_id": 78325,
+        "name": "冰霜打击",
+        "name_en": "Frost Strike",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，<b>发现</b>一张冰霜符文牌。",
+        "text_en": "Deal $3 damage to a minion. If it dies, <b>Discover</b> a Frost\nRune card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "COST_FROST": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e3d801469f4d925a84715d707289c9fa17bd1c2b0066fbc2cd809db68e2c64e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_025",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "JAIL_909",
+        "dbf_id": 124075,
+        "name": "迪菲亚跟风狗",
+        "name_en": "Defias Wannabe",
+        "text": "<b>预备</b>。<b><b>连击</b>：</b>在本回合中，你每使用一张其他牌，便获得+1/+1。@<i>（已使用@张）</i>",
+        "text_en": "[x]<b>Prepare</b>\n<b><b>Combo</b>:</b> Gain +1/+1 for\neach other card played\nthis turn.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "PREPARE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "ba8bd9eef9817eeabba95924975a86e6c45cc82c8c67a8dd7be12368c04e2d6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_909",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_974",
+        "dbf_id": 126874,
+        "name": "被绑的大法师",
+        "name_en": "Captured Archmage",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。@<i>（@/4）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 4 other\nCaptured Archmages die this\ngame, cast 'Fireball' at\n_a random enemy.@ <i>(@/4)</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "9ed0db46cd8cc380dece1d87a4140f541fd129a75e32fbc9e199dd088c306e18",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_974",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "DINO_422",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118620-zh_CN.json",
+      "response_sha256": "a07150707d695685d5274ebe871b19fc1dcad24cdd95f5b4ea7d0ea0d47ba8ac",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118620&locale=zh_CN",
+      "face": {
+        "id": 118620,
+        "collectible": 1,
+        "slug": "118620-ankylodon",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Gabor Szikszai",
+        "health": 5,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "甲龙",
+        "text": "<b><b>嘲讽</b>。亡语：</b>随机召唤两只法力值消耗为（3）的野兽，并使其攻击随机敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2b61c7bd3e21866c89481d28720964f2ede7d3a660af69a45640729566684c1.png",
+        "imageGold": "",
+        "flavorText": "低劣的甲龙一般被称为“破甲龙”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bf365be6aa26b0831a9416cb6150a35222a948cc06e2c0d70aa3b0be56a8880.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118620&locale=zh_CN",
+        "sha256": "a07150707d695685d5274ebe871b19fc1dcad24cdd95f5b4ea7d0ea0d47ba8ac",
+        "bytes": 833,
+        "observed_at": "2026-10-17T14:16:27.748363+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_422",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118620-en_US.json",
+      "response_sha256": "97f369b8a73b9518e1cc707d7d8fd7a2d9e6da2d2b1b27abfe91c5aed57446c5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118620&locale=en_US",
+      "face": {
+        "id": 118620,
+        "collectible": 1,
+        "slug": "118620-ankylodon",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Gabor Szikszai",
+        "health": 5,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "Ankylodon",
+        "text": "<b><b>Taunt</b>. Deathrattle:</b> Summon two random 3-Cost Beasts. They attack random enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fa8c4f6ebe356412e3096b5574496c5ccda5a36a89fa496d0ba696a08bc48a3.png",
+        "imageGold": "",
+        "flavorText": "Babies are known as \"Break-Your-Ankles-O-Don\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bf365be6aa26b0831a9416cb6150a35222a948cc06e2c0d70aa3b0be56a8880.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118620&locale=en_US",
+        "sha256": "97f369b8a73b9518e1cc707d7d8fd7a2d9e6da2d2b1b27abfe91c5aed57446c5",
+        "bytes": 812,
+        "observed_at": "2026-10-17T14:16:27.534098+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_953",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\115751-zh_CN.json",
+      "response_sha256": "1948bee42970f9a071e04c7f56f5fda13d554d2b3a84562fcf71073a745981b4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115751&locale=zh_CN",
+      "face": {
+        "id": 115751,
+        "collectible": 1,
+        "slug": "115751-magma-hound",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Juan Calle",
+        "health": 8,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "熔岩猎犬",
+        "text": "<b>突袭</b>。在本随从攻击随从并存活下来后，&造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bfc3defc7dc7ac1c029c7863285063272b831a9be0dcf4265c707ca059f3c99.png",
+        "imageGold": "",
+        "flavorText": "千万不要提起零食，不然他的熔涎肯定淌得到处都是。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a1688a16dcdbe6002819342ec43d58c18d0c027763bb154e310cfcb3e622e74.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115751&locale=zh_CN",
+        "sha256": "1948bee42970f9a071e04c7f56f5fda13d554d2b3a84562fcf71073a745981b4",
+        "bytes": 905,
+        "observed_at": "2026-10-17T14:16:28.622865+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_953",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\115751-en_US.json",
+      "response_sha256": "39e670fd80a1247e2bda3464e964b527b516792d108380656350550d6151cf3b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115751&locale=en_US",
+      "face": {
+        "id": 115751,
+        "collectible": 1,
+        "slug": "115751-magma-hound",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Juan Calle",
+        "health": 8,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "Magma Hound",
+        "text": "<b>Rush</b>. After this attacks a minion and survives,& deal this minion's Attack damage split among all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b0505ac6ed110f9eda4b9397481a7a0877d4771b2ab0c85fa86455711d94f5e.png",
+        "imageGold": "",
+        "flavorText": "Don't say T.R.E.A.T. or he'll drool lava everywhere.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a1688a16dcdbe6002819342ec43d58c18d0c027763bb154e310cfcb3e622e74.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115751&locale=en_US",
+        "sha256": "39e670fd80a1247e2bda3464e964b527b516792d108380656350550d6151cf3b",
+        "bytes": 854,
+        "observed_at": "2026-10-17T14:16:28.266880+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_842",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\114844-zh_CN.json",
+      "response_sha256": "3e8eba055efd21ed1b9b5fe529bfe60cbb1d6f21abba73722c4e975a2f0be8c3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114844&locale=zh_CN",
+      "face": {
+        "id": 114844,
+        "collectible": 1,
+        "slug": "114844-defiled-spear",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "亵渎之矛",
+        "text": "在你的英雄攻击 一个敌人后，随机对另一个敌人造成等同于你的英雄攻击力的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70b69e21e7b4e865a669eb3d5beedb93df33c4e843cda2cbe76108ba6e213942.png",
+        "imageGold": "",
+        "flavorText": "脸黑的吃我一矛！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e690748305ff3078248c8deb5be810c2903ec5f7d9ec859365d313e9eba4e41.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114844&locale=zh_CN",
+        "sha256": "3e8eba055efd21ed1b9b5fe529bfe60cbb1d6f21abba73722c4e975a2f0be8c3",
+        "bytes": 774,
+        "observed_at": "2026-10-17T14:16:28.450841+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_842",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\114844-en_US.json",
+      "response_sha256": "dae1a3a7f2d5c1a06386052672bfc7eddf8e74f5b513b92da5761aacd594a0d6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114844&locale=en_US",
+      "face": {
+        "id": 114844,
+        "collectible": 1,
+        "slug": "114844-defiled-spear",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Defiled Spear",
+        "text": "After your hero attacks an enemy, deal your hero's Attack damage to another random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17ee655f0d2d2c762b5381b9c6a7a1a49ba35d811a1cf3d570d7015f71084210.png",
+        "imageGold": "",
+        "flavorText": "TOGETHAAA",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e690748305ff3078248c8deb5be810c2903ec5f7d9ec859365d313e9eba4e41.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114844&locale=en_US",
+        "sha256": "dae1a3a7f2d5c1a06386052672bfc7eddf8e74f5b513b92da5761aacd594a0d6",
+        "bytes": 737,
+        "observed_at": "2026-10-17T14:16:28.641751+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_850",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\126600-zh_CN.json",
+      "response_sha256": "eb77bdf35bb7e88a4df32ea1674a23de99fc4686dcaf5a608af612c1602777da",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126600&locale=zh_CN",
+      "face": {
+        "id": 126600,
+        "collectible": 1,
+        "slug": "126600-warden-maiev",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Joseph Weston",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "典狱官玛维",
+        "text": "在你使用一张随从牌后，使其获得+3/+3并使其<b>休眠</b>1回合。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2469b305806abccbcae8f707b796ca1e7e6236129dc7f1548057ad11e6fdbb9.png",
+        "imageGold": "",
+        "flavorText": "玛维坚持采用禁闭威吓手段管理囚犯。对于大多数随从来说，一回合就够了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61851267d6dfe10d048d3035e4ddbca2c109657a4990a388e56bd63f6c3dda91.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126600&locale=zh_CN",
+        "sha256": "eb77bdf35bb7e88a4df32ea1674a23de99fc4686dcaf5a608af612c1602777da",
+        "bytes": 826,
+        "observed_at": "2026-10-17T14:16:29.154520+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_850",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\126600-en_US.json",
+      "response_sha256": "abaea5dfaee35ef175782386c81500c3ef83cf8b63bfe423987ea9dfa421bd92",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126600&locale=en_US",
+      "face": {
+        "id": 126600,
+        "collectible": 1,
+        "slug": "126600-warden-maiev",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Joseph Weston",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Warden Maiev",
+        "text": "After you play a minion, give it +3/+3 and make it go <b>Dormant</b> for 1 turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/451bc6470d55c5701fe3a1c9560f2da0620a7325766c2bed7497eb8eed3a93cb.png",
+        "imageGold": "",
+        "flavorText": "Maiev believes in scared straight tactics. For most minions, one turn is enough.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61851267d6dfe10d048d3035e4ddbca2c109657a4990a388e56bd63f6c3dda91.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126600&locale=en_US",
+        "sha256": "abaea5dfaee35ef175782386c81500c3ef83cf8b63bfe423987ea9dfa421bd92",
+        "bytes": 799,
+        "observed_at": "2026-10-17T14:16:29.174516+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_465",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118241-zh_CN.json",
+      "response_sha256": "cac3221dc637ceb3562dfc66a15cfc15f646f9c327904d720f9aef97a5d32ad3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118241&locale=zh_CN",
+      "face": {
+        "id": 118241,
+        "collectible": 1,
+        "slug": "118241-stranglevine",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "绞缠血藤",
+        "text": "<b>亡语：</b>使一个随机友方随从获得一项随机<b>额外效果</b>以及此<b>亡语</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70b5383e6251d5fffb4533392ba62381d2a6851f6a3b7e785bef0969b0fe83bd.png",
+        "imageGold": "",
+        "flavorText": "“哇，这个人伸着脑袋，刚好能装进我的嘴里。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9bc53c102ad52c5d1f411034b9d17ed184d55dafc68640b4d556b215d8f55a9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118241&locale=zh_CN",
+        "sha256": "cac3221dc637ceb3562dfc66a15cfc15f646f9c327904d720f9aef97a5d32ad3",
+        "bytes": 826,
+        "observed_at": "2026-10-17T14:16:29.800983+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_465",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118241-en_US.json",
+      "response_sha256": "373a1ba5358f0634922d37c7ad311ae09c735890e26d015bda0f536d8c6f4ced",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118241&locale=en_US",
+      "face": {
+        "id": 118241,
+        "collectible": 1,
+        "slug": "118241-stranglevine",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Stranglevine",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion a random <b>Bonus Effect</b> and this <b>Deathrattle</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbc0b9585f404cd16430dec51511ba33906e6d51932e85f48d7a9c7329b04dba.png",
+        "imageGold": "",
+        "flavorText": "\"Wow, this human's head is perfectly mouth-shaped.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9bc53c102ad52c5d1f411034b9d17ed184d55dafc68640b4d556b215d8f55a9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118241&locale=en_US",
+        "sha256": "373a1ba5358f0634922d37c7ad311ae09c735890e26d015bda0f536d8c6f4ced",
+        "bytes": 815,
+        "observed_at": "2026-10-17T14:16:29.376454+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_810",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\117231-zh_CN.json",
+      "response_sha256": "6bd3a922d8f4256663969e3977da9dc9d8b4aaa8e3c4a1f1c94064e2ab71487e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117231&locale=zh_CN",
+      "face": {
+        "id": 117231,
+        "collectible": 1,
+        "slug": "117231-high-cultist-herenn",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 6,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "高阶教徒赫雷恩",
+        "text": "<b>战吼：</b>从你的牌库中召唤两个<b>亡语</b>随从，并使其互相攻击！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d921efabeb9ee66c96c88e0768cb1fb17ee4a3af4ddcbb4445c3d5239951c4c.png",
+        "imageGold": "",
+        "flavorText": "“高！”——阶教徒赫雷恩",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c30379a67b9ea98b90aface7c04dac826383fcad8e821841539bf9070310865.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117231&locale=zh_CN",
+        "sha256": "6bd3a922d8f4256663969e3977da9dc9d8b4aaa8e3c4a1f1c94064e2ab71487e",
+        "bytes": 802,
+        "observed_at": "2026-10-17T14:16:30.168529+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_810",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\117231-en_US.json",
+      "response_sha256": "b71ee901f8acc0747565b33712f390d6005fa2b47ce193243694830bc6d9eb91",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117231&locale=en_US",
+      "face": {
+        "id": 117231,
+        "collectible": 1,
+        "slug": "117231-high-cultist-herenn",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 6,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "High Cultist Herenn",
+        "text": "<b>Battlecry:</b> Summon two <b>Deathrattle</b> minions from your deck. They fight!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7f1b2fccaa3758c8accfd3da38e738c47476e81479698a32b44231f20daf5a3.png",
+        "imageGold": "",
+        "flavorText": "\"Hello.\" - Cultist Herenn",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c30379a67b9ea98b90aface7c04dac826383fcad8e821841539bf9070310865.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117231&locale=en_US",
+        "sha256": "b71ee901f8acc0747565b33712f390d6005fa2b47ce193243694830bc6d9eb91",
+        "bytes": 782,
+        "observed_at": "2026-10-17T14:16:29.916202+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_120",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\127474-zh_CN.json",
+      "response_sha256": "4601b122ce790fa5659a37c9a374d0d3a6a26c959c513ac900767118b0d1b251",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127474&locale=zh_CN",
+      "face": {
+        "id": 127474,
+        "collectible": 1,
+        "slug": "127474-warmaul-challenger",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Ursula Dorada",
+        "health": 10,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "战槌挑战者",
+        "text": "<b>战吼：</b> 选择一个敌方随从。与其战斗至死！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4aa18ae97a23709aaa7da70d0248ce23eca0db66b5a5ec538e7aba0ebc93d0e5.png",
+        "imageGold": "",
+        "flavorText": "角斗老规矩：谁先死谁输。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          56507
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127474&locale=zh_CN",
+        "sha256": "4601b122ce790fa5659a37c9a374d0d3a6a26c959c513ac900767118b0d1b251",
+        "bytes": 674,
+        "observed_at": "2026-10-17T14:16:30.104707+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_120",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\127474-en_US.json",
+      "response_sha256": "ff93dc4d5446d20d68297f611e7497d770493000c320649a5bc11f8014350a49",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127474&locale=en_US",
+      "face": {
+        "id": 127474,
+        "collectible": 1,
+        "slug": "127474-warmaul-challenger",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Ursula Dorada",
+        "health": 10,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "Warmaul Challenger",
+        "text": "<b>Battlecry:</b> Choose an enemy minion. Battle it to the death!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/254aa5ec49fffbc4968881a8b929d847cf49971be83ee55163690d9528b7fc6e.png",
+        "imageGold": "",
+        "flavorText": "Old gladiator rules: first one to die loses.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          56507
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127474&locale=en_US",
+        "sha256": "ff93dc4d5446d20d68297f611e7497d770493000c320649a5bc11f8014350a49",
+        "bytes": 685,
+        "observed_at": "2026-10-17T14:16:30.502077+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_122",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\126353-zh_CN.json",
+      "response_sha256": "dc58a60891dc65c6312e02848aa9e67b86e55c2c0a4e80f6274e65cce35d7894",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126353&locale=zh_CN",
+      "face": {
+        "id": 126353,
+        "collectible": 1,
+        "slug": "126353-jailhouse-manastorm",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "米尔牢斯·法力风暴",
+        "text": "<b>战吼：</b>在本局对战中，在你施放一个法术后，随机召唤一个法力值消耗相同的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10a73d2864eabd38b733b019fc14c66835054fa65954901f8b2d26b64d1d3da7.png",
+        "imageGold": "",
+        "flavorText": "“米尔豪斯·法力风暴！看我收拾你！”自从他妻子逃离了紫罗兰监狱，这句话就一直在他耳边回荡。某天晚上，他在穿过传送门时听到了一阵奇怪的声响，继而发现自己回到了约十年前——他来到了米尔菲斯那间冰冷的牢房。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ce55f90ec0ad62813157bb9adc20abf0c11630254e9d6a43935c92aea76d468.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126353&locale=zh_CN",
+        "sha256": "dc58a60891dc65c6312e02848aa9e67b86e55c2c0a4e80f6274e65cce35d7894",
+        "bytes": 1094,
+        "observed_at": "2026-10-17T14:16:30.658781+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_122",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\126353-en_US.json",
+      "response_sha256": "f6bac89868489ef9fe17c33a392f37aee39182595215fbb61af3c4b3f04d7bff",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126353&locale=en_US",
+      "face": {
+        "id": 126353,
+        "collectible": 1,
+        "slug": "126353-jailhouse-manastorm",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Jailhouse Manastorm",
+        "text": "<b>Battlecry:</b> After you cast a spell this game, summon a random minion of the same Cost.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41759715471112afb7ea53e78f3ec63a33b75b16e8c9e6652268b6634148bc1f.png",
+        "imageGold": "",
+        "flavorText": "“Millhouse Manastorm, I'm coming for you!” His wife’s words haunted him ever since she escaped from Violet Hold. One night, he heard a strange ZAP! as he stepped through a portal, and found himself nearly a decade in the past - Millificent’s cold cell waiting for him.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ce55f90ec0ad62813157bb9adc20abf0c11630254e9d6a43935c92aea76d468.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126353&locale=en_US",
+        "sha256": "f6bac89868489ef9fe17c33a392f37aee39182595215fbb61af3c4b3f04d7bff",
+        "bytes": 1038,
+        "observed_at": "2026-10-17T14:16:30.835028+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_979",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\123848-zh_CN.json",
+      "response_sha256": "cc152bf3d2ad00bc4a3ce9d5cc58c5d211d4fd8fcc90f4a49291b60394287453",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123848&locale=zh_CN",
+      "face": {
+        "id": 123848,
+        "collectible": 1,
+        "slug": "123848-conjuration-specialist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "咒术专家",
+        "text": "<b>战吼：</b>选择你手牌中的一张法术牌，将其拆分为两张法力值消耗与其相同的随机法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dc49786007fd501d11a1061a37e17f6e2463616b8eb8683fa732235dc39f442.png",
+        "imageGold": "",
+        "flavorText": "所谓“专家”不过是“只懂一个法术”的高情商说法。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96ee25212ffa18ce8662709c0fa2407569ed86ef6f1f2adb28d5f3786d3ff553.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123848&locale=zh_CN",
+        "sha256": "cc152bf3d2ad00bc4a3ce9d5cc58c5d211d4fd8fcc90f4a49291b60394287453",
+        "bytes": 862,
+        "observed_at": "2026-10-17T14:37:00.626445+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_979",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\123848-en_US.json",
+      "response_sha256": "cb18f2308381aff118318b41d673172c01fdd964c531501e00050096452faa75",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123848&locale=en_US",
+      "face": {
+        "id": 123848,
+        "collectible": 1,
+        "slug": "123848-conjuration-specialist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Conjuration Specialist",
+        "text": "<b>Battlecry:</b> Choose a spell in your hand. Split it into two random spells of the same Cost.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c3896d16887cf702e60199b819235227e842f244f35e3067998faac98b02bdf.png",
+        "imageGold": "",
+        "flavorText": "Specialist is a very polite way of saying she only knows one spell.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96ee25212ffa18ce8662709c0fa2407569ed86ef6f1f2adb28d5f3786d3ff553.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123848&locale=en_US",
+        "sha256": "cb18f2308381aff118318b41d673172c01fdd964c531501e00050096452faa75",
+        "bytes": 839,
+        "observed_at": "2026-10-17T14:37:00.731873+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WON_141",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\120352-zh_CN.json",
+      "response_sha256": "04ace4e32f0614d53eca90292855ffe528cdbdb439a7f3989148833744b28c78",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120352&locale=zh_CN",
+      "face": {
+        "id": 120352,
+        "collectible": 1,
+        "slug": "120352-menagerie-mug",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ludo Lullabi & C. Luechaiwattasopon",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "展馆茶杯",
+        "text": "<b>战吼：</b>随机使三个不同类型的友方随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75af73dea04d6dda663601fc5fd8ffc12477a635b873a1b2ad6e7fd5efa77257.png",
+        "imageGold": "",
+        "flavorText": "和他家的老壶像是一个模子扣出来的。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          102687
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120352&locale=zh_CN",
+        "sha256": "04ace4e32f0614d53eca90292855ffe528cdbdb439a7f3989148833744b28c78",
+        "bytes": 710,
+        "observed_at": "2026-10-17T14:37:00.621271+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WON_141",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\120352-en_US.json",
+      "response_sha256": "dce53fb138b9b219ed056948889e7eb4daf9b00fd51f57af2f93d1e09fec3183",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120352&locale=en_US",
+      "face": {
+        "id": 120352,
+        "collectible": 1,
+        "slug": "120352-menagerie-mug",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ludo Lullabi & C. Luechaiwattasopon",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Menagerie Mug",
+        "text": "<b>Battlecry:</b> Give 3 random friendly minions of different minion types +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef3ba91912b1795d31430510a8a7be6403e65e1d10ff7a0206e1617de03a44c9.png",
+        "imageGold": "",
+        "flavorText": "He's a chip off the old jug.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          102687
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120352&locale=en_US",
+        "sha256": "dce53fb138b9b219ed056948889e7eb4daf9b00fd51f57af2f93d1e09fec3183",
+        "bytes": 697,
+        "observed_at": "2026-10-17T14:37:00.687488+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_254",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118257-zh_CN.json",
+      "response_sha256": "b69fdae1b0c56a052a13ad40dd92adb2216ad3ce64a76cd0c4f55bf47b130f0e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118257&locale=zh_CN",
+      "face": {
+        "id": 118257,
+        "collectible": 1,
+        "slug": "118257-tortollan-storyteller",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Max Grecke",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "讲故事的始祖龟",
+        "text": "在你的回合结束时，&使每个不同类型的各一个友方随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9abbd1b2628745908d09ba661e69df9acfe675f59bb70f691e3279be7a01ecf6.png",
+        "imageGold": "",
+        "flavorText": "“后来，又一只海龟成功入水！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d91c24764fbb58c0f6cc79f8e4bedd5720aaa389a7d0c37575f115f4e5e67be9.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118257&locale=zh_CN",
+        "sha256": "b69fdae1b0c56a052a13ad40dd92adb2216ad3ce64a76cd0c4f55bf47b130f0e",
+        "bytes": 786,
+        "observed_at": "2026-10-17T14:37:01.489538+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_254",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\118257-en_US.json",
+      "response_sha256": "ddb2f9f8875e4fde774b4fc90cf2add0a717131242b3603da828f973c2311e50",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118257&locale=en_US",
+      "face": {
+        "id": 118257,
+        "collectible": 1,
+        "slug": "118257-tortollan-storyteller",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Max Grecke",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Tortollan Storyteller",
+        "text": "At the end of your turn,& give +1/+1 to each friendly minion of a different type.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a12828bd8657a622cab9e628df474507ead6e65135da5663f6b842515adeccbc.png",
+        "imageGold": "",
+        "flavorText": "\"And then a turtle made it to the water!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d91c24764fbb58c0f6cc79f8e4bedd5720aaa389a7d0c37575f115f4e5e67be9.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118257&locale=en_US",
+        "sha256": "ddb2f9f8875e4fde774b4fc90cf2add0a717131242b3603da828f973c2311e50",
+        "bytes": 778,
+        "observed_at": "2026-10-17T14:37:01.338862+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "CORE_RLK_066": {
+      "~GAMEPLAY_ASPROXY_CORE_RLK_066": ""
+    }
+  },
+  "existing_dependency_definition_pins": {},
+  "exact_parent_child_links": [],
+  "collectible_candidate_roots": [
+    "DINO_422",
+    "FIR_953",
+    "EDR_842",
+    "JAIL_850",
+    "TLC_465",
+    "TLC_810",
+    "CORE_BT_120",
+    "JAIL_122",
+    "CATA_979",
+    "CORE_WON_141",
+    "TLC_254"
+  ],
+  "noncollectible_ids": [],
+  "api_review": "outputs/card-parallel-p66-20261017/api-review-final-06.json",
+  "withdrawn_ids": [
+    "JAIL_909",
+    "JAIL_974",
+    "CORE_RLK_066",
+    "CORE_RLK_116",
+    "RLK_025"
+  ],
+  "policies": {
+    "ankylodon": "Native ordered random pool count2, original death position. After the complete original producer, every actual delivered recipient, including quantity extras, attacks a fresh random current enemy character. Original refs skip death/control/face change/reentry.",
+    "herenn": "Two sequential shared physical-candidate summon requests. At each selection read the complete current physical deck, retain every minion with an actual unconsumed Deathrattle attachment, then let the native uniform selection/capacity/attributed summon execute. Join each completed child by original cause, new-history difference and original candidate CardReference; after both requests the index0 actual delivered recipient from each selected request fights once via friendly_minions. Extras remain independent bodies.",
+    "challenger": "Repeat ordinary original-residence guarded forced combat against the chosen original enemy until either leaves or dies. Only a real completed newly accepted attack schedules the next combat. Native interpreter budget, combat, redirects and checkpoints apply; no synthetic health or attack-count mutation.",
+    "magma": "After its own completed minion attack, guard original living attacker then read current Attack. Native NON_SPELL split damage handles all current enemies and per-packet reactions.",
+    "spear": "After own hero completed attack, current hero Attack budget; exclude only original delivered enemy defender residence, then native random non-Spell damage. Last-charge trigger window reuses native captured weapon listeners.",
+    "maiev": "After actual own minion play, capture original surviving controlled minion, grant3/3 and after its reactions recheck original reference before ordinary one-turn dormancy.",
+    "stranglevine": "Native uniform one-target physical random selection; bonus effect first, then guard the same original recipient before granting exactly this stateless registered Deathrattle body. Other Deathrattles on the dying carrier are not copied.",
+    "manastorm": "Independent permanent public player-effect instances. Every own successful completed actual spell, across origins, creates a native random collectible minion whose printed cost equals the actual executed spell face printed cost; no payment/cast fabricated. Duplicate effects stack. Summon cause is the independent original effect source, not a fake spell cast.",
+    "split": "Choose one original hand SPELL, freeze its actual current quote at the offer. Native DestroyStoredCard retires exactly that original residence without discard/death/corpse and gates two native ordinary weighted spell generations of the frozen same cost on successful retirement. Empty hand is RNG neutral; original retirement/creation windows are explicit M6 policy.",
+    "different_types": "Original living friendly minion current TribeStates, including ALL and exclusions, with complete independently pinned constructed race table plus any explicit current types. Uniformly select one physical subset of maximum possible distinct-type matching size (Mug up to3, Storyteller uncapped up to actual board); alternative assignments do not add physical weight. Apply1/1 to original guarded refs once, no replacement after a reward reaction. Current/printed, selection distribution and exact assignment are pending CN calibration."
+  },
+  "parents_implemented": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "race_metadata_pin": {
+    "path": "data/cards/race-metadata-v1.json",
+    "sha256": "24b69c567d42b44502c69ee44745575f5ec449daf618101df83639667a860ae4"
+  }
+}
