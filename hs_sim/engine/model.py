@@ -9795,6 +9795,7 @@ class GameState:
     hero_power_payload_history: list[HeroPowerPayloadRecord] = field(default_factory=list)
     battlecry_batches: list[BattlecryBatchRecord] = field(default_factory=list)
     battlecry_history: list[BattlecryRecord] = field(default_factory=list)
+    battlecry_weapon_outputs: list = field(default_factory=list)
     indirect_body_sequences: list[object] = field(default_factory=list)
     historical_body_invocations: list[object] = field(default_factory=list)
     combo_history: list[ComboRecord] = field(default_factory=list)
@@ -10736,6 +10737,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_battlecry_history(state, registry)
     from .combos import validate_history as validate_combo_history
     validate_combo_history(state, registry)
+    from .battlecry_weapon_outputs import validate_history as validate_weapon_output_history
+    validate_weapon_output_history(state, registry)
     from .deathrattles import validate_history as validate_deathrattle_history
     validate_deathrattle_history(state,registry)
     from .end_turns import validate_history as validate_end_turn_history

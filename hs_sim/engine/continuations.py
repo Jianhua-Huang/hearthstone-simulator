@@ -69,6 +69,12 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .battlecry_weapon_outputs import (GenerateBattlecryWeapon, validate_work as validate_weapon_work,
+                                              validate_context as validate_weapon_context)
+        if type(value) is GenerateBattlecryWeapon:
+            validate_weapon_work(value, self.registry, self.origin_state)
+        if type(value) is RuleContext and self.origin_state is not None and self.origin_events is not None:
+            validate_weapon_context(value, self.origin_state, self.origin_events)
         from .adapt_memory import AdaptAndRemember, validate_request as validate_adapt_memory
         if type(value) is AdaptAndRemember:
             validate_adapt_memory(value, self.registry, self.origin_state)

@@ -1673,3 +1673,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 真实冰川急冻使用有限 DiscoverFromPool.freeze_summoned 声明，把原选中召唤请求的第0次实际交付连接到公共冻结。原队列、收据、连续驻留及待国服窗口见[发现后原召唤冻结契约](m3-discovered-summon-freeze.md)。
 
 生命仪式用有限 summon_copy_stats 手续把原实际生成手牌连接到2/3复制召唤；原ChoiceResult、真实创建对象、材料/数量接受窗与满手政策见[发现手牌复制契约](m3-discovered-minion-copy.md)。
+
+实际战吼需把其随机手牌武器连接到独立连击时，用GenerateBattlecryWeapon绑定context.battlecry.id和普通GenerateFromPool请求，再用combo_weapon(context, registry)取得原HAND CardReference，交给BuffStoredCard。有限请求只支持一张可收藏武器，不借用实体游标或其他族batch_id；真实物理主体、空/烧牌、原连续驻留及待CN重复政策见[武器输出契约](m3-generated-weapon-combo.md)。

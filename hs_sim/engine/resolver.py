@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v439'
+CORE_EFFECTS_VERSION = 'core-effects-v440'
 
 
 class Mechanics:
@@ -2278,6 +2278,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_ordered_choices(mechanics)
     register_opening(mechanics)
     register_generation(mechanics)
+    from .battlecry_weapon_outputs import register as register_battlecry_weapon_outputs
+    register_battlecry_weapon_outputs(mechanics)
     register_zones(mechanics)
     from .dredge import register as register_dredge
     register_dredge(mechanics)

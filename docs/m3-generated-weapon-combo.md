@@ -1,0 +1,17 @@
+# 实际生成武器与独立连击
+
+TLC_516尼斐塞特武器匠的完整战吼先从另一职业获取一把随机武器，独立连击再使该武器攻击力+2。普通随机候选、RNG、创建、满手烧牌和存储武器属性均复用原执行器。来源与完整双语资料见[data/cards/native-generated-weapon-combo-v1.json](../data/cards/native-generated-weapon-combo-v1.json)。本契约描述有限表达，实际验收和下一项仅见原两份台账；不认证正式标准池或国服时序。
+
+`GenerateBattlecryWeapon(battlecry_id, request)`只接受一张可收藏武器的普通手牌生成请求，绑定正在实际执行的原BattlecryRecord、原来源与接收玩家。同一实际战吼最多写入一个输出。原`generate_from_pool`核全部合格成员并抽选；原`opening.create_hand_card`返回真正创建的实体，在任何排队反应执行前捕获SourceAllocationFact。没有通过后来的手牌、实体分配游标或名称重新寻找受益者。
+
+GameState.battlecry_weapon_outputs保存有序的BattlecryWeaponOutput：单调输出ID、实际战吼ID、原完整创建事实及绑定事件位置。空完整池保存None且不消费RNG；烧牌保存实际GRAVEYARD创建事实。普通AddToHand、GenerateFromPool和BattlecryRecord的字段、返回协议保持。新的请求原子地组合现有选择与创建，不实现第二套随机或交付逻辑。
+
+连击从自身真实ComboRecord读取原物理主体。手动来源按同一原hand play、声明、来源/玩家及结果遍数连接；自动全卡来源按独立physical_child_id连接，不伪造付款记录，不把两族各自的batch_id混作共同身份。每次连击仅交给BuffStoredCard一个原HAND CardReference；原卡面/zone_epoch失效时跳过，不转向另一把同名武器。
+
+重复战吼全部完成后，选择该物理主体最后一次成功原生战吼的输出。最后输出为空或烧掉时不回退早一把；重复连击可再次给同一输出+2。此处“最后一次”以及原手牌连续驻留要求是明确的本地政策，仍待国服校准。武器离手、离手后重入、转移或变形不重新绑定；来源载体在接受后死亡等不撤销独立连击。
+
+保存格式新增严格输出列表和payload。原状态不变量核实际战吼、原分配、唯一性和顺序；Game稳定边界核实际有效时间线的完整私有绑定事件，事件数量、位置及完整材料须一致。回溯撤销尝试的诊断事件不充当当前输出。连击挂起上下文还须保存其开始事件以前的完整输出前缀，避免删掉原材料后悄悄选择其他对象。原事务处理异常回滚、waiting、clone及回放。
+
+`battlecry_weapon_bound`是内部来源证明，不加入玩家事件白名单；玩家仍只见原创建/获取和普通存储属性变化投影。宿主日志、输出账本和原分配事实不能透传给玩家。散列及关联检查用于拒绝损坏/不一致材料，不声称为任意重写整个存档提供来源认证。
+
+本增量使用core440、schema358；旧schema1～357须原引擎。观察91、命令12和replay1布局保持。正式M0池、CN37热修集、M6校准及其他消费者依赖仍分别验收，不从一个代表推断所有战吼生成协议已支持。
