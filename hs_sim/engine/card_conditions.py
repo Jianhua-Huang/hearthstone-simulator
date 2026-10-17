@@ -1,5 +1,5 @@
 """Shared structural card predicates for real instances and fresh candidates."""
-from .model import CardAbilityCondition
+from .model import CardAbilityCondition, Keyword
 
 
 class UnknownCardFactError(ValueError):
@@ -16,7 +16,7 @@ def matches_ability_values(condition, *, printed, current):
             raise ValueError('Ability presence requires boolean or unknown')
     present = printed if condition.basis == 'printed' else current
     if present is None:
-        raise UnknownCardFactError('Unknown candidate Battlecry identity')
+        raise UnknownCardFactError('Unknown candidate '+condition.ability.capitalize()+' identity')
     return present == condition.present
 
 
@@ -33,7 +33,8 @@ def matches_ability(condition, definition, entity=None):
         raise ValueError('Card condition instance and definition disagree')
     # A generated candidate represents a fresh instance. Current and printed
     # identities coincide until lifecycle operations alter its attachments.
-    printed = definition.battlecry is not None
+    printed = (Keyword.OUTCAST in definition.keywords if condition.ability == 'outcast'
+               else definition.battlecry is not None)
     # Structural presence differs from activation eligibility (e.g. dormancy).
-    current = printed if entity is None else has_battlecry(entity.abilities)
+    current = printed if condition.ability == 'outcast' or entity is None else has_battlecry(entity.abilities)
     return matches_ability_values(condition, printed=printed, current=current)

@@ -419,11 +419,12 @@ def validate_first_play_cost_prefix(state, registry, fact):
 
 
 def matches_cost_values(spec, definition, current_battlecry):
-    from .card_conditions import matches_ability_values
+    from .card_conditions import matches_ability, matches_ability_values
     return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids)
-            and (spec.ability is None or matches_ability_values(spec.ability,
+            and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability == 'outcast'
+                else matches_ability_values(spec.ability,
                 printed=definition.battlecry is not None,
-                current=definition.battlecry is not None if current_battlecry is None else current_battlecry)))
+                current=definition.battlecry is not None if current_battlecry is None else current_battlecry))))
 
 
 def _quote_card(state, registry, player_id, card_id, amount, payment, entity_id, minimum_cost):

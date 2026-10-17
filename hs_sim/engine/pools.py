@@ -206,6 +206,8 @@ class PoolQuery:
             if type(self.ability) is not CardAbilityCondition:
                 raise ValueError('Pool ability filter requires CardAbilityCondition')
             self.ability.__post_init__()
+            if self.ability.ability != 'battlecry':
+                raise ValueError('Pool structural ability filter supports Battlecry; printed Outcast uses keywords_all')
         for field, kind in (('kinds', CardType), ('classes', CardClass), ('rarities', Rarity),
                             ('spell_schools', SpellSchool), ('keywords_all', Keyword)):
             enum_tuple(getattr(self, field), kind, field)
