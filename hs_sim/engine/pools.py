@@ -967,6 +967,8 @@ def register_generation(mechanics):
     mechanics.register(SummonFromCandidates, summon_from_candidates)
     mechanics.register(SummonFromPool, summon_from_pool)
     mechanics.register(FillBoardFromPool, fill_board_from_pool)
+    from .generated_spell_healing import register as register_generated_spell_healing
+    register_generated_spell_healing(mechanics)
     from .discovery import register
     register(mechanics)
     from .pool_offers import register as register_offers

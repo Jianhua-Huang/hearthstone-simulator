@@ -552,6 +552,8 @@ class Game:
         validate_resurrection_boundary(self)
         from .discovery import validate_boundary as validate_discovery_boundary
         validate_discovery_boundary(self)
+        from .generated_spell_healing import validate_boundary as validate_generated_healing_boundary
+        validate_generated_healing_boundary(self)
         from .assemble_offers import validate_boundary as validate_assembly_boundary
         validate_assembly_boundary(self)
         from .pool_offers import validate_boundary as validate_offer_boundary
