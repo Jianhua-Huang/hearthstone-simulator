@@ -807,6 +807,12 @@ def summon_from_candidates(r, effect):
     return (Summon(effect.player_id, card_id),)
 
 
+def validate_pool_entry_keywords(value):
+    recipes = ((), (Keyword.TAUNT,), (Keyword.TAUNT, Keyword.LIFESTEAL))
+    if (type(value) is not tuple or any(type(k) is not Keyword for k in value) or value not in recipes):
+        raise ValueError('Pool entry keywords require a reviewed plain, Taunt or Taunt/Lifesteal recipe')
+
+
 @dataclass(frozen=True)
 class SummonFromPool(Effect):
     """One capacity-aware summon, without the preselection semantics of a batch."""
@@ -827,9 +833,7 @@ class SummonFromPool(Effect):
             if self.cause is None or self.source_id is None or self.entry_keywords:
                 raise ValueError('Dormant pool entry requires a source-bound plain summon material')
         if self.position is not None:integer(self.position,'pool summon board position',0)
-        if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
-                any(type(k)is not Keyword for k in self.entry_keywords)):
-            raise ValueError('Pool entry keywords support only the declared Taunt recipe')
+        validate_pool_entry_keywords(self.entry_keywords)
         if self.entry_keywords and(self.cause is None or self.source_id is None):
             raise ValueError('Pool entry keywords require original source and summon attribution')
         if self.cause is not None:

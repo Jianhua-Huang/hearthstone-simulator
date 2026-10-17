@@ -13,7 +13,7 @@ from .producer_amounts import AcceptedProducerAmount,ProducerAmountDecision,capt
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
 from .model import CardAbilityCondition,CardClass,CardType,GameState,Keyword,Rarity,SpellSchool,Zone,validate_end_turn_rng
-from .pools import GenerationContext,GenerationPolicy,PoolMember,PoolQuery,resolve_candidates,sample_candidates
+from .pools import GenerationContext,GenerationPolicy,PoolMember,PoolQuery,resolve_candidates,sample_candidates,validate_pool_entry_keywords
 from .summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial,accept as accept_entry,validate_cause,validate_material
 
 
@@ -36,9 +36,9 @@ class PoolSummonBasis:
             _integer(self.entry_dormant_turns,'original pool dormant turns',1)
             if self.source is None or self.entry_keywords:
                 raise ValueError('Dormant pool entry requires a source and plain printed material')
-        if (type(self.entry_keywords)is not tuple or self.entry_keywords not in((),(Keyword.TAUNT,)) or
-                any(type(k)is not Keyword for k in self.entry_keywords) or self.entry_keywords and self.source is None):
-            raise ValueError('Original pool entry requires its finite typed Taunt declaration and source')
+        validate_pool_entry_keywords(self.entry_keywords)
+        if self.entry_keywords and self.source is None:
+            raise ValueError('Original pool entry requires its finite typed declaration and source')
         _player(self.player_id)
         for name in ('pool_id','pool_version'):
             if type(getattr(self,name))is not str or not getattr(self,name):raise ValueError('Unknown pool summon identity')
