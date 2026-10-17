@@ -1679,3 +1679,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 发现并直接召唤后给原对象设值可用DiscoverFromPool.set_summoned_stats=SummonStats(attack,health)。该有限请求仅用于一次普通带原因的场上随从发现，默认None；不要用summon_copy_stats替代、不要搜索后来同名战场对象。实际原交付、连续驻留、属性层及待CN政策见[契约](m3-discovered-set-stats.md)。
 
 单方揭示可用RevealRandomDeckCard(player_id, kind=CardType.SPELL, source_id=..., on_result=...)；奖励用deck_reveal_result(context.event)读取原牌/费用，不重查后来牌库。不要给玩家传原物理引用，也不要用手牌报价推断牌库费用；有限范围、空池、公开卡面及待国服政策见[契约](m3-deck-reveals.md)。
+
+地标原生过量给英雄可用DamageExcessToHero(minion_ref, amount, source_id, kind=DamageKind.EFFECT)，来源必须是真实LOCATION；默认SPELL仍须真实法术。不创建CastSpell或cast_id，不用事后已受伤害猜分流。三形态原随机/最低剩余生命抽选及原实体升级见[契约](m3-silvermoon-locations.md)。

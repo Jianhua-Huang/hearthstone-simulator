@@ -1298,3 +1298,5 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 真实发现后的原召唤属性设值扩展discovery_summons的既有生产者、原交付与续接接受，直接调用已有SetCapturedMinionStats，不建立另一套召唤/属性流程。完整队列、原有效事件、失败交付及待国服窗口见[属性设值契约](m3-discovered-set-stats.md)。
 
 单方牌库揭示使用deck_reveals.py和既有完整zone_candidates/local_cost；原结果进入公共解释器回调，不借用双方Joust或把DECK搬到HAND。公开卡面/费用与物理身份分离，恢复及待CN窗口见[单方揭示契约](m3-deck-reveals.md)。
+
+实际银月城三形态只组合原目标抽选、原LocationFaceReference升级及公共健康分流；DamageExcessToHero新增有限kind=EFFECT并要求真实LOCATION，默认SPELL和同批SOURCE/TARGET规则保持。版本、最后一耐久及待CN窗口见[地标契约](m3-silvermoon-locations.md)。

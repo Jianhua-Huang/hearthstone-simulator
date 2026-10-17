@@ -251,12 +251,13 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
                          source_keywords=source_packet.source_keywords, school=source_packet.school)
     if partition_source is not None:
         if (type(partition_source) is not PreparedHealth or type(instruction) is not Damage or
-                instruction.kind != DamageKind.SPELL or instruction.source_id != partition_source.source_id or
+                instruction.kind != partition_source.damage_kind or instruction.source_id != partition_source.source_id or
                 partition_source.original_flow != HealthFlow.DAMAGE or
-                partition_source.damage_kind != DamageKind.SPELL or from_lifesteal or
+                partition_source.damage_kind not in (DamageKind.SPELL, DamageKind.EFFECT) or
+                definition is None or definition.kind != (CardType.SPELL if partition_source.damage_kind == DamageKind.SPELL else CardType.LOCATION) or from_lifesteal or
                 source_packet is not None or split_link is not None or rules is None or
                 any(row[3].layer != HealthLayer.TARGET for row in rules)):
-            raise ResolutionError('Partition delivery requires its quoted SPELL source and only recipient rules')
+            raise ResolutionError('Partition delivery requires its quoted spell/location source and only recipient rules')
         # This is an atomic batch-local value, never a suspended raw packet.
         # The assigned base amount already contains its share of the quoted
         # source budget; Spell Damage and source numeric rules must not run again.

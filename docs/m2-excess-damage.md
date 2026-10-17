@@ -28,3 +28,5 @@
 [2025年圣盾一手报告](https://us.forums.blizzard.com/en/hearthstone/t/explosive-runes-vs-divine-shield/143361)描述随从圣盾保留其生命而英雄承受余量。[2023年法伤报告及回应](https://us.forums.blizzard.com/en/hearthstone/t/prestors-pyromancer-explosive-runes-bugged-interaction/102323)区分触发时仍存在的场上法伤和部署施法已经消费的临时下一火焰法伤。[2022年承受倍率讨论](https://us.forums.blizzard.com/en/hearthstone/t/enchanter-and-arcane-overflow/99878)支持先分配、后承受倍率。这些是社区亲历或解释，不是Blizzard当前国服规则声明。
 
 完整raw保留未映射349/ImmuneToSpellpower标签，不据客户端标签名称把真实触发伤害静默改成免法伤，也不据卡面文字自动执行。当前明确按触发时法伤与上述内部契约实现；准确国服数值、SOURCE复杂筛选/转换、路由和整批死亡/反应窗口仍需M6校准。这个有限入口只表示过量给英雄，不能冒充过量召唤、相邻继续分配或所有同名机制已完整支持。
+
+2026-10-17有限来源扩展：DamageExcessToHero增加kind字段，默认SPELL语义保持；EFFECT只允许真实LOCATION分配，SOURCE预算和TARGET分流继续共用原执行器。该字段使用core443/schema361，无新Effect/payload类型；真实银月城三形态、原最后一耐久及待CN政策见[地标契约](m3-silvermoon-locations.md)。上文仅SPELL的说明保留为原批次默认契约。
