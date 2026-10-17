@@ -1,0 +1,3406 @@
+{
+  "schema": 1,
+  "batch": "P68",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p68-20261017/manifest-03.json",
+    "sha256": "7002d2570a5551eba506b432dfcf5f47c51f54e5ef181882bc58f12d95d97626"
+  },
+  "frozen_at": "2026-10-17T16:14:13.512319+00:00",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_732",
+        "dbf_id": 126662,
+        "name": "虚空灵魂",
+        "name_en": "Void Soul",
+        "text": "随机召唤一个法力值消耗为（@）的恶魔。提升你此后的虚空灵魂效果。",
+        "text_en": "[x]Summon a random\n@-Cost Demon. Improve\nyour future Void Souls.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "9f7f702abe043f88b069bb74bbadc954a32bf553bfc1d273baf6f5b05a022bdf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_732",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "JAIL_730",
+        "dbf_id": 126660,
+        "name": "星尘之镰",
+        "name_en": "Stardust Scythe",
+        "text": "在你的英雄攻击后，&获取一张虚空灵魂。",
+        "text_en": "After your hero attacks,& get a Void Soul.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126662,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1,
+          "4931": 1,
+          "4932": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          }
+        ]
+      },
+      "record_sha256": "5fb760fb362f8d824752a206e0d9bc0b8f8e6e4410304dce0103ba467a0faa0f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_730",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_733",
+        "dbf_id": 126663,
+        "name": "邪恶的虚鳞纳迦",
+        "name_en": "Vicious Voidscale",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&获取一张虚空灵魂。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b>& Get\na Void Soul.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126662,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4931": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          }
+        ]
+      },
+      "record_sha256": "e2ee8ef11d7d41a5431a8c04a526199f0377d487d33e39d892aea4e01a5910db",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_733",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "naga"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_891",
+        "dbf_id": 127157,
+        "name": "虚空冲击",
+        "name_en": "Void Blast",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，获取一张虚空灵魂。",
+        "text_en": "Deal $3 damage to a minion. If it dies,\nget a Void Soul.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126662,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "f873ba94e74ae0d4a283a9d24ca635194a559535c81082b11086d99390ea6ac4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_891",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "FIR_907",
+        "dbf_id": 115631,
+        "name": "阿梅达希尔",
+        "name_en": "Amirdrassil",
+        "text": "召唤一个法力值消耗为（@）的随从。获得@点护甲值。抽@张牌。复原@个法力水晶。<i>（每使用此效果一次都会提升！）</i>",
+        "text_en": "[x]Summon a @-Cost minion.\nGain @ Armor. Draw @ |4(card, cards).\nRefresh @ Mana |4(Crystal, Crystals).\n<i>(Improves each use!)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 39,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4128": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "a1581c410ebf5ab09aa0d8574a273fc1a65e86c6b0946ec4e5ca03fd738c5699",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "FIR_907",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139",
+        "dbf_id": 122976,
+        "name": "柳牙",
+        "name_en": "Wickerfang",
+        "text": "<b>巨型+4</b>\n在柳牙的腿获得属性值后，本随从也会\n获得。",
+        "text_en": "<b>Colossal +4</b>\nAfter one of Wickerfang's Legs gains stats, this gains them too.",
+        "cost": 6,
+        "attack": null,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 128061,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 128061,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "21a5b984d6d29741b0df8a4a50ae56211023de44f8f145fc99a45ba5c146092a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_139",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_426",
+        "dbf_id": 117341,
+        "name": "潜入葛拉卡",
+        "name_en": "Dive the Golakka Depths",
+        "text": "<b>可重复任务：</b>召唤6个鱼人。<b>奖励：</b>你召唤的鱼人获得+1/+1。",
+        "text_en": "<b>Repeatable Quest:</b> Summon 6 Murlocs.\n<b>Reward:</b> Murlocs you summon gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 121956,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "REPEATABLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          }
+        ]
+      },
+      "record_sha256": "f5e24bad73e5410d38a20e03c3b27de70bd660570c5e886dd3130f9d2809516a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_426",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_426t",
+        "dbf_id": 121956,
+        "name": "神圣洞窟",
+        "name_en": "The Sacred Cave",
+        "text": "每当你召唤一个鱼人，使其获得+1/+1。",
+        "text_en": "[x]Whenever you summon\na Murloc, give it +1/+1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ad6babbe71185e55241b7bad30b8f5cfdd40cdb8bb944799c459a0296cd54698",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_426t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t1",
+        "dbf_id": 120714,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "text_en": "<b>Battlecry:</b> Destroy\nan enemy minion.\nThis minion and your\nhero gain its Health.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f8c11a29dece4a562a23810762038c16f57778844fb558dac3e51478e62412e5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t33",
+        "dbf_id": 121328,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>用1/1的混乱触须填满你的手牌。",
+        "text_en": "[x]<b>Battlecry:</b> Fill your hand\nwith 1/1 Chaotic Tendrils.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "916ab9baca9861a8b110f7bc8884c35714324fe1edfa2e6f5b2277d0ab26cae8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t33",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "YOG_514",
+        "dbf_id": 101021,
+        "name": "混乱触须",
+        "name_en": "Chaotic Tendril",
+        "text": "<b>战吼：</b>随机施放一个法力值消耗为（@）的法术。提升你此后的混乱触须的效果。",
+        "text_en": "<b>Battlecry:</b> Cast a\nrandom @-Cost spell.\nImprove your future\nChaotic Tendrils.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "be709ca7a9519fec2de3a1afc7c2213121bfc246a424dede01c4fa75ac027690",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "YOG_514",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_139t",
+        "dbf_id": 122977,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e31e8b9113bb9f48f67f6b08001a3bb9e960d26e077042c5b09aa9a2423d65f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t2",
+        "dbf_id": 128060,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "705056637ec3b7406de27926baef232c27b5f6d4cfdc987408aa21204863ea43",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t3",
+        "dbf_id": 128061,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4ab56c2310a68bd98a3d4710bc21f8987428c146cc25adb2f73f70e561762488",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t4",
+        "dbf_id": 128062,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c0b4b9018b900f929c6fe25e085b64a0adf95412eaf35e01c4702b83625739f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_452",
+        "dbf_id": 117956,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "在你的手牌中时，\n随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "text_en": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9868e289bebe5cb9e97843a132f961f401dd0961ce29d714a886144fe14def70",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139e",
+        "dbf_id": 123336,
+        "name": "共生",
+        "name_en": "Symbiotic",
+        "text": "属性值提高。",
+        "text_en": "Increased Stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "188c5a6abe8fac3fc8f2c57a128ae513400706fa7582117dc9656781e8dcb2ad",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_131",
+        "dbf_id": 122967,
+        "name": "费伍德树人",
+        "name_en": "Felwood Treant",
+        "text": "<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（还剩{0}点！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（已经就绪！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。",
+        "text_en": "[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent 4\nMana while holding this, it's\n___permanent. <i>({0} left!)</i>@[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent 4\nMana while holding this, it's\n___permanent. <i>(Ready!)</i>@[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent\n4 Mana while holding this,\nit's permanent.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 4,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "e9a7d2b538912965186fc3d807fe700b6ccde73f85c9320c1919067a3950f861",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_131",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_132",
+        "dbf_id": 122968,
+        "name": "护巢龙",
+        "name_en": "Broodwatcher",
+        "text": "<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。<i>（还剩{0}点！）</i>@<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。<i>（已经就绪！）</i>@<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。",
+        "text_en": "[x]<b>Battlecry:</b> Get two 3/3\nWhelps with <b>Taunt</b>. If you spent\n8 Mana while holding this,\nsummon them. <i>({0} left!)</i>@[x]<b>Battlecry:</b> Get two 3/3\nWhelps with <b>Taunt</b>. If you spent\n8 Mana while holding this,\nsummon them. <i>(Ready!)</i>@[x]<b>Battlecry:</b> Get two 3/3\nWhelps with <b>Taunt</b>. If you\nspent 8 Mana while holding\nthis, summon them.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 8,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5d37a46b6346219f9eb47526f047261d3abf2db828b12ca5246189fe9f75d750",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_132",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_140",
+        "dbf_id": 122978,
+        "name": "梦境之龙麦琳瑟拉",
+        "name_en": "Merithra of the Dream",
+        "text": "<b>战吼：</b>用随机的龙牌填满你的手牌。如果你在本牌在你手中时消耗过25点法力值，这些龙牌的法力值消耗为（1）点。<i>（还剩{0}点！）</i>@<b>战吼：</b>用随机的龙牌填满你的手牌。如果你在本牌在你手中时消耗过25点法力值，这些龙牌的法力值消耗为（1）点。<i>（已经就绪！）</i>@<b>战吼：</b>用随机的龙牌填满你的手牌。如果你在本牌在你手中时消耗过25点法力值，这些龙牌的法力值消耗为（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Fill your hand with\nrandom Dragons. If you spent\n25 Mana while holding this,\nthey cost (1). <i>({0} left!)</i>@[x]<b>Battlecry:</b> Fill your hand with\nrandom Dragons. If you spent\n25 Mana while holding this,\nthey cost (1). <i>(Ready!)</i>@[x]<b>Battlecry:</b> Fill your hand with\nrandom Dragons. If you spent\n25 Mana while holding\nthis, they cost (1).",
+        "cost": 8,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 25,
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "7d8c3376f950335e2f6ac3058a1b1a3affcb89f3c1881b5db6bf4f22ea85eeb8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_140",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_732",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126662-zh_CN.json",
+      "response_sha256": "cc89d02e51ba8d1adee3fb45d204eea43c502ae4cc72aa0b6eef7cbc3486ff32",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126662&locale=zh_CN",
+      "face": {
+        "id": 126662,
+        "collectible": 1,
+        "slug": "126662-void-soul",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 1,
+        "name": "虚空灵魂",
+        "text": "随机召唤一个法力值消耗为（ ）的恶魔。提升你此后的虚空灵魂效果。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5f0dce2704c18c528098e7ce331c2e7ebfc45e5246cb36a87444875c3cc32a7.png",
+        "imageGold": "",
+        "flavorText": "警告：灵魂受伤，便会空虚。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/859bbd2911c79ff49430a437a242b80a0268908ea4c3e9f9f8259d79c81cdb1a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126662&locale=zh_CN",
+        "sha256": "cc89d02e51ba8d1adee3fb45d204eea43c502ae4cc72aa0b6eef7cbc3486ff32",
+        "bytes": 762,
+        "observed_at": "2026-10-17T16:07:01.011257+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_732",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126662-en_US.json",
+      "response_sha256": "120fef052b49d718dad691dfd2abfea590b535555ca6f36dd54f88f5f887fb7f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126662&locale=en_US",
+      "face": {
+        "id": 126662,
+        "collectible": 1,
+        "slug": "126662-void-soul",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 1,
+        "name": "Void Soul",
+        "text": "Summon a random -Cost Demon. Improve your future Void Souls.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff89c2549fcfdfec47d2b0ba116533990ada07f63a137e3ddfc3fd4976c1ca57.png",
+        "imageGold": "",
+        "flavorText": "WARNING: Soul void if damaged.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/859bbd2911c79ff49430a437a242b80a0268908ea4c3e9f9f8259d79c81cdb1a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126662&locale=en_US",
+        "sha256": "120fef052b49d718dad691dfd2abfea590b535555ca6f36dd54f88f5f887fb7f",
+        "bytes": 716,
+        "observed_at": "2026-10-17T16:06:07.604978+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_730",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126660-zh_CN.json",
+      "response_sha256": "51fc2224acb1cf4aad9826b5b828ff13507b47658bd54286d9170fcfa012ae21",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126660&locale=zh_CN",
+      "face": {
+        "id": 126660,
+        "collectible": 1,
+        "slug": "126660-stardust-scythe",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Dmitry Bolotov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "星尘之镰",
+        "text": "在你的英雄攻击后，&获取一张虚空灵魂。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92acd47c94c31a047b20465770f092233827ba745ae5935eda27683719d408f8.png",
+        "imageGold": "",
+        "flavorText": "所有的尘，本质上不都是星体的余尘？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b71a11c004b2f69d0b438fd9b7cd41f4ac83e2c279d8e4e535c5207130076d25.png",
+        "childIds": [
+          126662
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126660&locale=zh_CN",
+        "sha256": "51fc2224acb1cf4aad9826b5b828ff13507b47658bd54286d9170fcfa012ae21",
+        "bytes": 769,
+        "observed_at": "2026-10-17T16:11:38.480265+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_730",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126660-en_US.json",
+      "response_sha256": "4b8dd502fb2826ec22ccad9141316b61665628c07a25bcdb7c1bf2ebe490f776",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126660&locale=en_US",
+      "face": {
+        "id": 126660,
+        "collectible": 1,
+        "slug": "126660-stardust-scythe",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Dmitry Bolotov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Stardust Scythe",
+        "text": "After your hero attacks,& get a Void Soul.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/479f46b2f342ede91be87947590eafcda273ac2b1336814c5804ec62f349393c.png",
+        "imageGold": "",
+        "flavorText": "Isn't ALL dust, stardust?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b71a11c004b2f69d0b438fd9b7cd41f4ac83e2c279d8e4e535c5207130076d25.png",
+        "childIds": [
+          126662
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126660&locale=en_US",
+        "sha256": "4b8dd502fb2826ec22ccad9141316b61665628c07a25bcdb7c1bf2ebe490f776",
+        "bytes": 733,
+        "observed_at": "2026-10-17T16:11:38.677712+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_733",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126663-zh_CN.json",
+      "response_sha256": "53f05929ecfd2189f43190860bc749ad428cccab07c71200f3de605993ec26ab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126663&locale=zh_CN",
+      "face": {
+        "id": 126663,
+        "collectible": 1,
+        "slug": "126663-vicious-voidscale",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "邪恶的虚鳞纳迦",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&获取一张虚空灵魂。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b366598776252a3c4186b51f0f737d02156293bc3475857d11d019891310f38c.png",
+        "imageGold": "",
+        "flavorText": "一看就很邪恶，这还用说！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c58c5567d1478ac9e87983aff1223fe5ce786de49e54600aab7b00ca3456057.png",
+        "childIds": [
+          126662
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126663&locale=zh_CN",
+        "sha256": "53f05929ecfd2189f43190860bc749ad428cccab07c71200f3de605993ec26ab",
+        "bytes": 812,
+        "observed_at": "2026-10-17T16:11:38.678955+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_733",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126663-en_US.json",
+      "response_sha256": "ce433010727f4a7f9e96b9f68e90a33fa630ef423d79cae90715fc5bed61ed7a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126663&locale=en_US",
+      "face": {
+        "id": 126663,
+        "collectible": 1,
+        "slug": "126663-vicious-voidscale",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Vicious Voidscale",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b>& Get a Void Soul.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76e9da75a6e912bad69591a982b286495acd90b3358bd08b9e5030818c497267.png",
+        "imageGold": "",
+        "flavorText": "He's the bad guy, DUH!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c58c5567d1478ac9e87983aff1223fe5ce786de49e54600aab7b00ca3456057.png",
+        "childIds": [
+          126662
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126663&locale=en_US",
+        "sha256": "ce433010727f4a7f9e96b9f68e90a33fa630ef423d79cae90715fc5bed61ed7a",
+        "bytes": 784,
+        "observed_at": "2026-10-17T16:11:38.670933+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_891",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127157-zh_CN.json",
+      "response_sha256": "434add4847712926b25122754b65c7c23321b5d4847c12e09005d89903f908e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127157&locale=zh_CN",
+      "face": {
+        "id": 127157,
+        "collectible": 1,
+        "slug": "127157-void-blast",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 2,
+        "name": "虚空冲击",
+        "text": "对一个随从造成 3点伤害。如果该随从死亡，获取一张虚空灵魂。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b88f44ce928a5457cafbda2dcf741b2116cdd6f1cf7150df3e74868e61b4569a.png",
+        "imageGold": "",
+        "flavorText": "好像打在了虚空上。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cee656478e719635e8080c921b210afc58cc41de924d79f04f9a2b8309af1ee8.png",
+        "childIds": [
+          126662
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127157&locale=zh_CN",
+        "sha256": "434add4847712926b25122754b65c7c23321b5d4847c12e09005d89903f908e0",
+        "bytes": 766,
+        "observed_at": "2026-10-17T16:11:39.361126+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_891",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127157-en_US.json",
+      "response_sha256": "3c0d1bb1b8aa68b606eb7a5f2a4187394ca2338b7aae4af5e3f02ba0f19b81d8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127157&locale=en_US",
+      "face": {
+        "id": 127157,
+        "collectible": 1,
+        "slug": "127157-void-blast",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 2,
+        "name": "Void Blast",
+        "text": "Deal 3 damage to a minion. If it dies, get a Void Soul.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53d36f7e8f92ccd31b5273e9ede4964f83de7fe2cce99833ea0d2705e7581659.png",
+        "imageGold": "",
+        "flavorText": "More like A-void Blast, amirite?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cee656478e719635e8080c921b210afc58cc41de924d79f04f9a2b8309af1ee8.png",
+        "childIds": [
+          126662
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127157&locale=en_US",
+        "sha256": "3c0d1bb1b8aa68b606eb7a5f2a4187394ca2338b7aae4af5e3f02ba0f19b81d8",
+        "bytes": 738,
+        "observed_at": "2026-10-17T16:11:39.376400+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_907",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115631-zh_CN.json",
+      "response_sha256": "4ffcf296b9a9bf6e38cc36ca8dedee6e01129683037e3a685fd167438ab97edd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115631&locale=zh_CN",
+      "face": {
+        "id": 115631,
+        "collectible": 1,
+        "slug": "115631-amirdrassil",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Grace Liu",
+        "health": 3,
+        "manaCost": 5,
+        "name": "阿梅达希尔",
+        "text": "召唤一个法力值消耗为（ ）的随从。获得 点护甲值。抽 张牌。复原 个法力水晶。<i>（每使用此效果一次都会提升！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3329c907f1a4a92e113725d4757b293f590c04b0bf6fc5ae67fd21eca45f5abd.png",
+        "imageGold": "",
+        "flavorText": "泰达希尔大火中的亡魂不会被遗忘。如今，他们寄身于这棵新的世界之树：“宁和之冠”阿梅达希尔。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5157ab0bab7490fca2ba2e03e3cde122cb3dd83eafac81b947036a3e9f3742f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115631&locale=zh_CN",
+        "sha256": "4ffcf296b9a9bf6e38cc36ca8dedee6e01129683037e3a685fd167438ab97edd",
+        "bytes": 922,
+        "observed_at": "2026-10-17T16:07:01.744554+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_907",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115631-en_US.json",
+      "response_sha256": "22bea338392ec999923793744e15693e74d6c2057d84920419889503c7b5bc7b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115631&locale=en_US",
+      "face": {
+        "id": 115631,
+        "collectible": 1,
+        "slug": "115631-amirdrassil",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Grace Liu",
+        "health": 3,
+        "manaCost": 5,
+        "name": "Amirdrassil",
+        "text": "Summon a -Cost minion. Gain Armor. Draw (card, cards). Refresh Mana |4(Crystal, Crystals). <i>(Improves each use!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28c6fc3b53740fb14c5419a7fb49d9408622df36baae8ed4eb5c9272bcdf3ecf.png",
+        "imageGold": "",
+        "flavorText": "The spirits burned at Teldrassil shall not be forgotten. They live on within a new world tree, the Crown of Harmony.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5157ab0bab7490fca2ba2e03e3cde122cb3dd83eafac81b947036a3e9f3742f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115631&locale=en_US",
+        "sha256": "22bea338392ec999923793744e15693e74d6c2057d84920419889503c7b5bc7b",
+        "bytes": 856,
+        "observed_at": "2026-10-17T16:06:08.316942+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122976-zh_CN.json",
+      "response_sha256": "0e5b5838958e4a854b02781eaaddaa9217183cf23a18f79b93b97d6ceeb7a22e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=zh_CN",
+      "face": {
+        "id": 122976,
+        "collectible": 1,
+        "slug": "122976-wickerfang",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 6,
+        "name": "柳牙",
+        "text": "<b>巨型+4</b> 在柳牙的腿获得属性值后，本随从也会 获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd1fb24b37ceba831bb6970d5581f40171b75a531e73f7b8a5b7f98cbe34ac35.png",
+        "imageGold": "",
+        "flavorText": "危急时刻，梦境之龙麦琳瑟拉带领木喉熊怪举行了仪式，唤起了费伍德森林中最古老的树木。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/994f181f56979d8936d4dd85d9f55f77e4a0eea6531544c1895a0e53560edcad.png",
+        "childIds": [
+          122977,
+          128062,
+          128061,
+          128060
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=zh_CN",
+        "sha256": "0e5b5838958e4a854b02781eaaddaa9217183cf23a18f79b93b97d6ceeb7a22e",
+        "bytes": 888,
+        "observed_at": "2026-10-17T06:44:44.039801+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122976-en_US.json",
+      "response_sha256": "0d203b80fa4811787a16baf967e4f4b466b65e7f4519919d0c8e9b8f82074162",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=en_US",
+      "face": {
+        "id": 122976,
+        "collectible": 1,
+        "slug": "122976-wickerfang",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 6,
+        "name": "Wickerfang",
+        "text": "<b>Colossal +4</b> After one of Wickerfang's Legs gains stats, this gains them too.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5e9db9a068e93479d51557e9f34a727dbccb673d1b1c7623eb33df417ff140b.png",
+        "imageGold": "",
+        "flavorText": "In their time of need, Merithra of the Dream led the Timbermaw furbolgs in a ritual that animated the Felwood's oldest tree.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/994f181f56979d8936d4dd85d9f55f77e4a0eea6531544c1895a0e53560edcad.png",
+        "childIds": [
+          122977,
+          128062,
+          128061,
+          128060
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=en_US",
+        "sha256": "0d203b80fa4811787a16baf967e4f4b466b65e7f4519919d0c8e9b8f82074162",
+        "bytes": 899,
+        "observed_at": "2026-10-17T06:44:44.035859+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_426",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117341-zh_CN.json",
+      "response_sha256": "b4d7b463c86e02e00b8f3dbee4ac3b8198ef72bc5f353f44ff2bb8a2e4a110f5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117341&locale=zh_CN",
+      "face": {
+        "id": 117341,
+        "collectible": 1,
+        "slug": "117341-dive-the-golakka-depths",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 1,
+        "name": "潜入葛拉卡",
+        "text": "<b>可重复任务：</b>召唤6个鱼人。<b>奖励：</b>你召唤的鱼人获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dddda8026e9b9e6e2159ab1c203851d118b103c31320ac095b2f09eab7965282.png",
+        "imageGold": "",
+        "flavorText": "第5天。伊莉斯有个预感，失落之城就在葛拉卡温泉的深处。尼利潜了下去，发现了一个美丽的洞窟！也许鱼人不知道失落之城的入口，但它们身上肯定还有秘密。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec83cc81ce94e32f75951111ca7691486322bba9db9b1249bd13587ba96f86a8.png",
+        "childIds": [
+          121956
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117341&locale=zh_CN",
+        "sha256": "b4d7b463c86e02e00b8f3dbee4ac3b8198ef72bc5f353f44ff2bb8a2e4a110f5",
+        "bytes": 975,
+        "observed_at": "2026-10-17T16:11:39.381673+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_426",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117341-en_US.json",
+      "response_sha256": "c16a87a9f2ba62b245826d71bbd98c8924f4521d33e44bb9e6cae3467dba75a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117341&locale=en_US",
+      "face": {
+        "id": 117341,
+        "collectible": 1,
+        "slug": "117341-dive-the-golakka-depths",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 1,
+        "name": "Dive the Golakka Depths",
+        "text": "<b>Repeatable Quest:</b> Summon 6 Murlocs. <b>Reward:</b> Murlocs you summon gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/281e8382f66dfffd6d07410e8cdd1a8e7d67220f1b5fee1c6cd016c03c219153.png",
+        "imageGold": "",
+        "flavorText": "Day 5. Elise had a hunch that the Lost City may be hidden deep beneath the Golakka Hot Springs. Niri swam down and discovered a beautiful cavern! The Murlocs may not be hiding an entrance to the city, but it seems they do have a few secrets.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec83cc81ce94e32f75951111ca7691486322bba9db9b1249bd13587ba96f86a8.png",
+        "childIds": [
+          121956
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117341&locale=en_US",
+        "sha256": "c16a87a9f2ba62b245826d71bbd98c8924f4521d33e44bb9e6cae3467dba75a7",
+        "bytes": 1006,
+        "observed_at": "2026-10-17T16:06:10.668375+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_426t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121956-zh_CN.json",
+      "response_sha256": "c9ef74bc5cf07e79fb8bb34fb6bea9f28be4421f7e984c89aa3eb94b44088808",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121956&locale=zh_CN",
+      "face": {
+        "id": 121956,
+        "collectible": 0,
+        "slug": "121956-the-sacred-cave",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "神圣洞窟",
+        "text": "每当你召唤一个鱼人，使其获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45e1e66a341bd44fdb4a816da3fb1fd7823344132bca8557233e2ed73311f24a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117341,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121956&locale=zh_CN",
+        "sha256": "c9ef74bc5cf07e79fb8bb34fb6bea9f28be4421f7e984c89aa3eb94b44088808",
+        "bytes": 563,
+        "observed_at": "2026-10-17T16:11:39.869206+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_426t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121956-en_US.json",
+      "response_sha256": "ab6dc040cde51a787068fdf65c8f1545f62bf52bf3d5807f93178badc9fea9ec",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121956&locale=en_US",
+      "face": {
+        "id": 121956,
+        "collectible": 0,
+        "slug": "121956-the-sacred-cave",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "The Sacred Cave",
+        "text": "Whenever you summon a Murloc, give it +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1a4de49144680bff8c5ff7163355a242a0d07577c53bf3649ab452804479061.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117341,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121956&locale=en_US",
+        "sha256": "ab6dc040cde51a787068fdf65c8f1545f62bf52bf3d5807f93178badc9fea9ec",
+        "bytes": 560,
+        "observed_at": "2026-10-17T16:11:40.069415+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-zh_CN.json",
+      "response_sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120714&locale=zh_CN",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6701a1cb518f71420ac0dd47a4d4e1bd826a7c7c002255c2d40eaa4e8d4c1cab.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120714&locale=zh_CN",
+        "sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+        "bytes": 658,
+        "observed_at": "2026-10-17T16:11:40.200189+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-en_US.json",
+      "response_sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120714&locale=en_US",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. This minion and your hero gain its Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56516a2b9032e328041a12e6bf6388e1dcc490043addc7d23e9be1d90aeaefb6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120714&locale=en_US",
+        "sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+        "bytes": 645,
+        "observed_at": "2026-10-17T16:11:40.090681+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t33",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121328-zh_CN.json",
+      "response_sha256": "4f27242933e210bf94bbc35ceb4d27bed3948bc1b8eb4129da0d549773dcf382",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121328&locale=zh_CN",
+      "face": {
+        "id": 121328,
+        "collectible": 0,
+        "slug": "121328-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>用1/1的混乱触须填满你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d361eec18ec48292b64b3a7cc8617c06b2cee2b97804e7cbdfd928d2e66792d1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121328&locale=zh_CN",
+        "sha256": "4f27242933e210bf94bbc35ceb4d27bed3948bc1b8eb4129da0d549773dcf382",
+        "bytes": 628,
+        "observed_at": "2026-10-17T16:11:48.189375+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t33",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121328-en_US.json",
+      "response_sha256": "90187c00dec88833c2f9555f59e7592818ba007bc59507b93de7df71309eb21d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121328&locale=en_US",
+      "face": {
+        "id": 121328,
+        "collectible": 0,
+        "slug": "121328-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Fill your hand with 1/1 Chaotic Tendrils.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73a22d0d1e932270c2bf09c7c0d788064d04895a10f9c8dc67784152945cd10d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121328&locale=en_US",
+        "sha256": "90187c00dec88833c2f9555f59e7592818ba007bc59507b93de7df71309eb21d",
+        "bytes": 619,
+        "observed_at": "2026-10-17T16:12:14.495605+00:00"
+      }
+    },
+    {
+      "card_id": "YOG_514",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\101021-zh_CN.json",
+      "response_sha256": "bff7bf23e65089735a3f275d4f11f3d0e64903b75d7846bae970535deb1a74a2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101021&locale=zh_CN",
+      "face": {
+        "id": 101021,
+        "collectible": 1,
+        "slug": "101021-chaotic-tendril",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "混乱触须",
+        "text": "<b>战吼：</b>随机施放一个法力值消耗为（ ）的法术。提升你此后的混乱触须的效果。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97d4cb3dfe9654803d0cf3937ce5ca20b28e5ae1ef4282d43747072540bfbc96.png",
+        "imageGold": "",
+        "flavorText": "“你是善良，邪恶，还是中立？”“我只有混乱。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58d0fb306d152b366c9fa804766698be495356651470fff2a6d8b096caf16847.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101021&locale=zh_CN",
+        "sha256": "bff7bf23e65089735a3f275d4f11f3d0e64903b75d7846bae970535deb1a74a2",
+        "bytes": 839,
+        "observed_at": "2026-10-17T16:12:14.514446+00:00"
+      }
+    },
+    {
+      "card_id": "YOG_514",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\101021-en_US.json",
+      "response_sha256": "98fff34db3b25d54c64248d788290ce65fc12df47cfeae50ab0d07189b72c22f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101021&locale=en_US",
+      "face": {
+        "id": 101021,
+        "collectible": 1,
+        "slug": "101021-chaotic-tendril",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Chaotic Tendril",
+        "text": "<b>Battlecry:</b> Cast a random -Cost spell. Improve your future Chaotic Tendrils.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e92e896cb4d84afa1e6ee52dc087cea9ee27c043fb6b37f702dd4ca75d54252.png",
+        "imageGold": "",
+        "flavorText": "\"So are you good, evil, or neutral?\" \"Just chaotic.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58d0fb306d152b366c9fa804766698be495356651470fff2a6d8b096caf16847.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=101021&locale=en_US",
+        "sha256": "98fff34db3b25d54c64248d788290ce65fc12df47cfeae50ab0d07189b72c22f",
+        "bytes": 798,
+        "observed_at": "2026-10-17T16:12:14.565913+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122977-zh_CN.json",
+      "response_sha256": "547d937e1678835a3b84d39f10a8e9aacfb82aab6236819c514a3f769829f0c6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=zh_CN",
+      "face": {
+        "id": 122977,
+        "collectible": 0,
+        "slug": "122977-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24e5ef43bf753cfc8e7824b2818ef2a9b8eea04e35ac38bb5731b40525b44bac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=zh_CN",
+        "sha256": "547d937e1678835a3b84d39f10a8e9aacfb82aab6236819c514a3f769829f0c6",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:45.733174+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122977-en_US.json",
+      "response_sha256": "71ea559932d62b0308a532ad84f2d64eea525fa2c466ff6ab95c06ffdc9cdc96",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=en_US",
+      "face": {
+        "id": 122977,
+        "collectible": 0,
+        "slug": "122977-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddbaba5ac1abef803d4246de3394728eae87df76146445a8e653c0bd4c3ab7fc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=en_US",
+        "sha256": "71ea559932d62b0308a532ad84f2d64eea525fa2c466ff6ab95c06ffdc9cdc96",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.006703+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128060-zh_CN.json",
+      "response_sha256": "2bf9a9a469f82fcc6c808aeb8bbe60ff926a5f77806b0d4aa4f3bfef306fa462",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=zh_CN",
+      "face": {
+        "id": 128060,
+        "collectible": 0,
+        "slug": "128060-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c38740379c0196968a14e572e43f6797746af55c7053adb39a3b602ccac31444.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=zh_CN",
+        "sha256": "2bf9a9a469f82fcc6c808aeb8bbe60ff926a5f77806b0d4aa4f3bfef306fa462",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:46.217444+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128060-en_US.json",
+      "response_sha256": "cbfe0b96a588654b3e81b69c88cbc4e551b26ffdb596eaa074833bf140ac20a5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=en_US",
+      "face": {
+        "id": 128060,
+        "collectible": 0,
+        "slug": "128060-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6600c631c7b33b7a1be983dfe2bf2e98cf005c3ccb97959a4434b38061c1307b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=en_US",
+        "sha256": "cbfe0b96a588654b3e81b69c88cbc4e551b26ffdb596eaa074833bf140ac20a5",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.741417+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128061-zh_CN.json",
+      "response_sha256": "b4594d13b7ab7372a650d28629e96c0db3f168e4567d7dcbccb0bb88191e18d6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=zh_CN",
+      "face": {
+        "id": 128061,
+        "collectible": 0,
+        "slug": "128061-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f1cbba282ca96acfd7081200788800d0e38e20c357decd365048c60d0f68e2f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=zh_CN",
+        "sha256": "b4594d13b7ab7372a650d28629e96c0db3f168e4567d7dcbccb0bb88191e18d6",
+        "bytes": 576,
+        "observed_at": "2026-10-17T05:21:06.706986+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128061-en_US.json",
+      "response_sha256": "3d4afbb1d6b4173f04c5065ba2404b5ee775e0f8f55c61b121b09a5630870a28",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=en_US",
+      "face": {
+        "id": 128061,
+        "collectible": 0,
+        "slug": "128061-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75c1f795f9ae613f3707ad59474d526a237ce22411908a64b1d59b1ee79f2c06.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=en_US",
+        "sha256": "3d4afbb1d6b4173f04c5065ba2404b5ee775e0f8f55c61b121b09a5630870a28",
+        "bytes": 575,
+        "observed_at": "2026-10-17T05:21:06.758538+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128062-zh_CN.json",
+      "response_sha256": "fdadf59090176f718a93129c78599c6fa944236aeeeda3e35254f3bcb06a251b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=zh_CN",
+      "face": {
+        "id": 128062,
+        "collectible": 0,
+        "slug": "128062-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98c927463fc68130edd7f4c6e29db54352c11f1ab1b5e78f637b79a11f58d577.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=zh_CN",
+        "sha256": "fdadf59090176f718a93129c78599c6fa944236aeeeda3e35254f3bcb06a251b",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:46.685883+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128062-en_US.json",
+      "response_sha256": "9a6defb59e3f89f6edaf4fd62bf0ef61aba2cb8b010e11380a3ee0312d2f2c56",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=en_US",
+      "face": {
+        "id": 128062,
+        "collectible": 0,
+        "slug": "128062-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/520cc1d379219dae394e8fc1ad0b35fc6fed4edb96335aa7ef7d7e2c4d85a0e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=en_US",
+        "sha256": "9a6defb59e3f89f6edaf4fd62bf0ef61aba2cb8b010e11380a3ee0312d2f2c56",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.705087+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-zh_CN.json",
+      "response_sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "在你的手牌中时， 随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20fecdc830c197b2f7aa3362acb82ec30dc174a0b4a2df7dd55a773da103623a.png",
+        "imageGold": "",
+        "flavorText": "看看这张泰坦考据图吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+        "sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+        "bytes": 1035,
+        "observed_at": "2026-10-17T07:11:19.857812+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-en_US.json",
+      "response_sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d30a2f1ceca7cf66cef3388dbaa577f60053667d5e06a113d1e5dc54dda6e4.png",
+        "imageGold": "",
+        "flavorText": "Look at this Titangraph.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+        "sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+        "bytes": 990,
+        "observed_at": "2026-10-17T07:11:20.085876+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "JAIL_732": {
+      "@": ""
+    },
+    "FIR_907": {
+      "@": ""
+    },
+    "YOG_514": {
+      "@": ""
+    }
+  },
+  "numeric_normalizations": {
+    "CATA_139": {
+      "attack": 0
+    },
+    "CATA_139t": {
+      "attack": 0
+    },
+    "CATA_139t2": {
+      "attack": 0
+    },
+    "CATA_139t3": {
+      "attack": 0
+    },
+    "CATA_139t4": {
+      "attack": 0
+    },
+    "TLC_426t": {
+      "cost": 0
+    }
+  },
+  "existing_dependency_definition_pins": {
+    "CATA_139t": {
+      "definition": {
+        "id": "CATA_139t",
+        "name": "柳牙的腿",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "turn_ended",
+            "behavior_id": "cards.simple_followup_p53.leg",
+            "end_turn": {
+              "turn_scope": "controller",
+              "condition_id": "always"
+            }
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "druid"
+          ],
+          "rarity": "none",
+          "deck_identity": "CATA_139t",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "bf02479ac7e130063373bc214385b0a2c9a9fa37a6d176f85f75e49ad2fff1e3"
+    },
+    "CATA_139t2": {
+      "definition": {
+        "id": "CATA_139t2",
+        "name": "柳牙的腿",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "turn_ended",
+            "behavior_id": "cards.simple_followup_p53.leg",
+            "end_turn": {
+              "turn_scope": "controller",
+              "condition_id": "always"
+            }
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "druid"
+          ],
+          "rarity": "none",
+          "deck_identity": "CATA_139t2",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "9b275704744520f61a4ceb92480b3cdea2a7bdbad8e8f40a813ffe3ef818bcce"
+    },
+    "CATA_139t3": {
+      "definition": {
+        "id": "CATA_139t3",
+        "name": "柳牙的腿",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "turn_ended",
+            "behavior_id": "cards.simple_followup_p53.leg",
+            "end_turn": {
+              "turn_scope": "controller",
+              "condition_id": "always"
+            }
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "druid"
+          ],
+          "rarity": "none",
+          "deck_identity": "CATA_139t3",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "e9614d4b5692248fb444553d16315164e8010e698969182a0220abf19cb6e94a"
+    },
+    "CATA_139t4": {
+      "definition": {
+        "id": "CATA_139t4",
+        "name": "柳牙的腿",
+        "kind": "minion",
+        "cost": 1,
+        "attack": 0,
+        "health": 2,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "turn_ended",
+            "behavior_id": "cards.simple_followup_p53.leg",
+            "end_turn": {
+              "turn_scope": "controller",
+              "condition_id": "always"
+            }
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "druid"
+          ],
+          "rarity": "none",
+          "deck_identity": "CATA_139t4",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "e2bb09840f6b21941d383111d38e022c829b9c0fb0406fe08534dd6ec4506e03"
+    }
+  },
+  "exact_parent_child_links": [
+    {
+      "parent": "JAIL_730",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_730",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_733",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_733",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_891",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_891",
+      "child": "JAIL_732",
+      "dbf_id": 126662,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t",
+      "dbf_id": 122977,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t2",
+      "dbf_id": 128060,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t3",
+      "dbf_id": 128061,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t4",
+      "dbf_id": 128062,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t",
+      "dbf_id": 122977,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t2",
+      "dbf_id": 128060,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t3",
+      "dbf_id": 128061,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t4",
+      "dbf_id": 128062,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_426",
+      "child": "TLC_426t",
+      "dbf_id": 121956,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_426",
+      "child": "TLC_426t",
+      "dbf_id": 121956,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t1",
+      "dbf_id": 120714,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t33",
+      "dbf_id": 121328,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t1",
+      "dbf_id": 120714,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TLC_452",
+      "child": "TLC_452t33",
+      "dbf_id": 121328,
+      "locale": "en_US"
+    }
+  ],
+  "named_dependency_links": [
+    {
+      "parent": "TLC_452t33",
+      "dependency": "YOG_514",
+      "printed_name": "Chaotic Tendrils",
+      "source": "Complete printed parent text and unique actual Tendril face. DISPLAY117956 is Osk, not Tendril."
+    }
+  ],
+  "collectible_candidate_roots": [
+    "JAIL_732",
+    "JAIL_730",
+    "JAIL_733",
+    "JAIL_891",
+    "FIR_907",
+    "CATA_139",
+    "TLC_426"
+  ],
+  "noncollectible_ids": [
+    "TLC_426t",
+    "TLC_452t1",
+    "TLC_452t33"
+  ],
+  "necessary_cross_format_collectibles": [
+    "YOG_514"
+  ],
+  "policies": {
+    "progress": "Independent native persistent PlayerEffect instances count successful actual uses after the complete printed body. Void Souls and Tendrils start at explicit raw script1 and use local maximum10. Amirdrassil uses uncapped printed +1 progression with one frozen value for all four operations. Original owner progress survives source removal. Exact caps and recursive/notification windows remain M6 policies, not official calibration.",
+    "void": "Native complete Demon pool and exact printed-cost query, with no fallback or deletion of unknown eligible definitions. Stardust uses actual completed own hero attack, including final durability. Voidscale has only its printed Deathrattle at this fixed patch. Void Blast retains the actual HealthResult and original matching death cause to gate one Soul.",
+    "wickerfang": "Native Colossal and four complete existing leg faces. Original surviving friendly named legs positive stat-change contributions are copied via BuffCapturedMinion to the original body. Buff deltas and SetStats positive original-to-new max-stat differences are separate event shapes; negative-only changes and health damage do not grant. Exact named/linked scope and stat-operation windows remain M6.",
+    "murlocs": "Native repeatable QuestSpec goal6, actual own minion_summoned and current Murloc/ALL tribes. Rewards add independent persistent Sacred Cave instances. Native triggers capture before reward installation, so the completing summon is not retroactively buffed; new quest instance guards prevent old-cycle progress reuse. Current/printed tribes and reward checkpoints remain M6.",
+    "cave": "The complete actual noncollectible zero-cost SPELL reward face installs its persistent effect when played. The Quest directly installs that same native effect with its original quest source, without fabricating a reward spell cast or physical card.",
+    "osk_health": "Original chosen enemy MinionReference and remaining Health freeze on actual Battlecry. Successful native DestroyCapturedMinion gates original surviving Osk health gain and ordinary Hero GainMaxHealth. Later reentry cannot replace the original body. Health assignment and notification windows remain M6.",
+    "osk_tendrils": "FillHandWithCard uses actual native capacity and creates complete YOG_514 faces. YOG_514 is a required cross-series collectible dependency, not a Standard candidate root. CastFromPool uses the complete spell pool and ordinary automatic casts; no cached mutable state or virtual cast history.",
+    "limits": "TLC_452 base hand form and full variant rotation remain unimplemented. Only the two explicitly listed actual reachable faces are added. Formal pools, M0, M6 and full reachability remain open."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "parents_implemented": false,
+  "cap_evidence": {
+    "raw_initial_script1": [
+      "JAIL_732",
+      "FIR_907",
+      "YOG_514"
+    ],
+    "official_cards_do_not_prove_caps": true,
+    "secondary_observation_links": [
+      "https://stormraige.substack.com/p/back-to-basics",
+      "https://us.forums.blizzard.com/en/hearthstone/t/chaotic-tendril/125544"
+    ],
+    "calibration": false
+  }
+}
