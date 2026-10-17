@@ -1,0 +1,356 @@
+{
+  "batch": "P46",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_311",
+        "dbf_id": 126104,
+        "name": "顽强的防御者",
+        "name_en": "Scrappy Defender",
+        "text": "<b>嘲讽</b>。如果你的牌库中有25张或以上的牌，拥有+5攻击力。",
+        "text_en": "[x]<b>Taunt</b>\nHas +5 Attack if your deck\nhas 25 or more cards.",
+        "cost": 4,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trent Kaniuga"
+          }
+        ]
+      },
+      "record_sha256": "f763c916eb2973b82033e544de94cab09745b05cacd25895ffcf9555973e6e5b"
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_781",
+        "dbf_id": 120463,
+        "name": "收集者沙库尔",
+        "name_en": "Shaku, the Collector",
+        "text": "<b>潜行</b>。每当本随从攻击时，&将一张另一职业的牌置入你的手牌。",
+        "text_en": "[x]<b>Stealth</b>\nWhenever this attacks,&\n add a card from another\nclass to your hand.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 40905,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 40905,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4975": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40905",
+              "type": "Int",
+              "value": "40905"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "0d1dd7aa644f22da105b3ba13c41eb5bccf725f8fedc977fb4bbd50d8f2198fa"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CFM_781",
+        "dbf_id": 40905,
+        "name": "收集者沙库尔",
+        "name_en": "Shaku, the Collector",
+        "text": "<b>潜行</b>。每当本随从攻击时，&将一张另一职业的牌置入你的手牌。",
+        "text_en": "[x]<b>Stealth</b>\nWhenever this attacks,&\n add a card from another\nclass to your hand.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 25,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4975": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4975",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4975"
+          }
+        ]
+      },
+      "record_sha256": "da3809525f64b3342fe435a63a613f678d2c335aaaafdbca563d50aee0fdf85a"
+    }
+  ],
+  "skipped": [],
+  "derived_metadata": {
+    "JAIL_311": {
+      "classes": [
+        "warrior"
+      ],
+      "tribes": [],
+      "rarity": "common",
+      "school": null
+    },
+    "CORE_CFM_781": {
+      "classes": [
+        "rogue"
+      ],
+      "tribes": [],
+      "rarity": "legendary",
+      "school": null
+    }
+  },
+  "official_observations": {
+    "checked_at": "2026-10-17T11:01:46.898136+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "JAIL_311",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126104&locale=zh_CN",
+        "response_file": "official-JAIL_311-zh_CN.json",
+        "response_sha256": "150cbef6477b335b699162d3ac967a5fd3c83c65e7ffdcc689e822845edbb4e3",
+        "face": {
+          "id": 126104,
+          "collectible": 1,
+          "slug": "126104-scrappy-defender",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Trent Kaniuga",
+          "health": 7,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "顽强的防御者",
+          "text": "<b>嘲讽</b>。如果你的牌库中有25张或以上的牌，拥有+5攻击力。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ef1242f89185d1213da3680ef5dde3860b0156d3519f49c70b8211d5b5b0d6c.png",
+          "imageGold": "",
+          "flavorText": "食人魔伸士总会伸手为他人顶住一扇门。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b000a840d950efcb90bef6af31aa9e7bb1a175a4e4f8adec9272eb4c4a168d8f.png",
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "JAIL_311",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126104&locale=en_US",
+        "response_file": "official-JAIL_311-en_US.json",
+        "response_sha256": "de7e6f1f5a299a97fdf8e77e2d4f3a3ad72b1a8561eac04f430c6113595450b5",
+        "face": {
+          "id": 126104,
+          "collectible": 1,
+          "slug": "126104-scrappy-defender",
+          "classId": 10,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1988,
+          "rarityId": 1,
+          "artistName": "Trent Kaniuga",
+          "health": 7,
+          "attack": 2,
+          "manaCost": 4,
+          "name": "Scrappy Defender",
+          "text": "<b>Taunt</b> Has +5 Attack if your deck has 25 or more cards.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3c9866e9396cd919082f3f3905aa18ef406baf338ead2e5980102e690673a83.png",
+          "imageGold": "",
+          "flavorText": "What a gentle-ogre! Always gets the door for others.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b000a840d950efcb90bef6af31aa9e7bb1a175a4e4f8adec9272eb4c4a168d8f.png",
+          "keywordIds": [
+            1
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_CFM_781",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120463&locale=zh_CN",
+        "response_file": "official-CORE_CFM_781-zh_CN.json",
+        "response_sha256": "6be49934814e40f53a4697d3b60493da9aa0a0d643264bdeca3098e6a7789fbe",
+        "face": {
+          "id": 120463,
+          "collectible": 1,
+          "slug": "120463-shaku-the-collector",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 5,
+          "artistName": "James Ryman",
+          "health": 4,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "收集者沙库尔",
+          "text": "<b>潜行</b>。每当本随从攻击时，&将一张另一职业的牌置入你的手牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3370b0b8cde4d3ca63ec49315ef0616c522b267eef3964f02f731a5a596f02c2.png",
+          "imageGold": "",
+          "flavorText": "艾雅曾调查过沙库尔，看看他有没有私藏什么好东西。",
+          "cropImage": null,
+          "keywordIds": [
+            6
+          ],
+          "copyOfCardId": [
+            40905
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_CFM_781",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120463&locale=en_US",
+        "response_file": "official-CORE_CFM_781-en_US.json",
+        "response_sha256": "2c0b81ebb0d788dc376535846e039c137bc277d6fc12a4314abd9b6ff9843998",
+        "face": {
+          "id": 120463,
+          "collectible": 1,
+          "slug": "120463-shaku-the-collector",
+          "classId": 7,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1637,
+          "rarityId": 5,
+          "artistName": "James Ryman",
+          "health": 4,
+          "attack": 2,
+          "manaCost": 3,
+          "name": "Shaku, the Collector",
+          "text": "<b>Stealth</b> Whenever this attacks,& add a card from another class to your hand.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/099f9acbcf3eea702a06ec09db88296e783d592c81de7e2315c033afc9e48541.png",
+          "imageGold": "",
+          "flavorText": "Aya even staged an intervention once, but Shaku still insists that he is not a hoarder.",
+          "cropImage": null,
+          "keywordIds": [
+            6
+          ],
+          "copyOfCardId": [
+            40905
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "metadata_identity_exception": {
+    "CORE_CFM_781": "CFM_781"
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "internal_policy": [
+    "ScrappyDefender Warrior4mana2/7Common/norace/noschool/nativeTaunt. ExactlyexistingStatRelationSpec(CONTROLLER_DECK_COUNT,CONDITIONAL_ATTACK,amount5,card_count25,at_least). Currentcontroller allphysicalDECK count, commonlayer/normalization/control/silence/zone rules, no onplay/BC/cache/listener/manualstat mutation.",
+    "Shaku currentCORE_CFM_781 Rogue3mana2/4Legendary/norace/noschool/nativeStealth. Originalown attack_declared source+window_id bindsuniquecharacter_attack_history declaration source/target/player/eventcursor+1; GenerateFromPool count1 collectibleallcardtypes class_modeother/include_neutralFalse, currentheroClass throughcommonpolicy, originalsource/player. No combat executor/localRNG orafterattack substitution.",
+    "Uniqueexplicitidentityexception: actualCardDefinition.id remainsCORE_CFM_781, metadata.deck_identity=CFM_781 andcorrespondingPoolCard.from_definition. Fulllegacy40905 row/raw858/DECK_RULE_COUNT_AS_COPY_OF_CARD_ID40905/officialcopyOfCardId40905 proveidentity. No legacyexecutable/extraaliases, no genericmetadata/family change; allother oldpoolfields/rows andolddefs unchanged.",
+    "Complete3raw/4primaryfaces/SHAverified,reusedcachedresponses, derivedclass/race/rarity/schoolfromreviewedmapping. Completeunknowneligibleeffect validation beforeRNG; actualShakuGet requires explicitcompletehost constructed.cards context. Empty/burn/source-exclusion/normalattackandstealth/checkpoints/recovery/privacy inherited, no executablecoverage crop.",
+    "Mainownscentralassembly/identity/ledgers/DINO_136/END_005/allpublicmechanisms. TIME_021 andJAIL_892 alreadyaccepted remainunchanged. M0 formalstandard/actualreachable closure andM6 exactCNdeckthreshold/attackclass/generation/cancellation windows remainopen."
+  ]
+}
