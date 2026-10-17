@@ -23,8 +23,12 @@ def activation_error(state, registry, rules, player_id, card_id):
     return None
 
 
+def completed_plays(state):
+    return tuple(play.id for play in state.play_history if play.completed)
+
+
 def activate(r, entity):
-    entity.quest_progress = QuestProgress(attachment_id(r.state))
+    entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state))
     r.move(entity, Zone.QUEST)
     r.emit('quest_started', source_id=entity.id, player_id=entity.controller,
            **public_progress(r.registry, entity))
@@ -115,9 +119,11 @@ def reset(r, effect):
     if entity is None or entity.quest_progress.completing:
         return
     if entity.quest_progress.value:
-        entity.quest_progress = replace(entity.quest_progress, value=0, keys=())
+        entity.quest_progress = replace(entity.quest_progress, value=0, keys=(), completed_before=completed_plays(r.state))
         r.emit('quest_progress_reset', source_id=entity.id, player_id=entity.controller,
                **public_progress(r.registry, entity))
+    else:
+        entity.quest_progress = replace(entity.quest_progress, completed_before=completed_plays(r.state))
 
 
 def complete(r, effect):
@@ -143,7 +149,7 @@ def finish(r, effect):
                **public_progress(r.registry, entity))
         # The physical quest and slot stay installed. A fresh instance makes
         # already-captured progress/reset/finish effects from the old cycle stale.
-        entity.quest_progress = QuestProgress(attachment_id(r.state))
+        entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state))
         r.emit('quest_stage_started', source_id=entity.id, player_id=entity.controller,
                **public_progress(r.registry, entity))
     elif effect.stage + 1 == len(spec.stages):
@@ -152,7 +158,7 @@ def finish(r, effect):
         entity.quest_progress = None
         r.move(entity, Zone.GRAVEYARD)
     else:
-        entity.quest_progress = QuestProgress(effect.instance_id, effect.stage + 1)
+        entity.quest_progress = QuestProgress(effect.instance_id, effect.stage + 1, completed_before=completed_plays(r.state))
         r.emit('quest_stage_started', source_id=entity.id, player_id=entity.controller,
                **public_progress(r.registry, entity))
 
@@ -168,6 +174,8 @@ def remove(r, effect):
 
 
 def register_quests(mechanics):
+    from .minion_type_history import register
+    register(mechanics)
     for effect, handler in ((AdvanceQuest, advance), (ResetQuestProgress, reset),
                             (CompleteQuestStage, complete), (FinishQuestStage, finish), (RemoveQuest, remove)):
         mechanics.register(effect, handler)

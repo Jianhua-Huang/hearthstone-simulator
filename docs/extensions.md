@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+查询原使用的随从类型使用`submitted_minion_types`或`played_minion_type_facts`，不读取实体后来的种族；任务中的有限类型匹配及其原起源范围见[契约](m3-played-minion-types.md)。
+
 整批复活后的攻击使用`Resurrect(death_ids=..., attack_after_all=True, cause=...)`，精确原死亡子集与整批窗口见[契约](m3-actual-reborn-resurrection-attacks.md)；不要用逐体`on_summon`替代整批结束，也不要重新实现随机攻击器。
 
 需要“真正复生过”的消费者读取`successful_reborns`及原死亡链接，不扫描宿主日志、当前1生命随从或死亡时关键词。保存和复活攻击的未闭合范围见[契约](m3-successful-reborn-history.md)。

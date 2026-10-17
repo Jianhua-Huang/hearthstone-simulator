@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 371
+SNAPSHOT_SCHEMA_VERSION = 372
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1590,6 +1590,7 @@ def entity_from_dict(row):
     if row['quest_progress'] is not None:
         progress = _row(row['quest_progress'], QuestProgress)
         progress['keys'] = tuple(_list(progress['keys'], 'quest keys'))
+        progress['completed_before'] = tuple(_list(progress['completed_before'], 'quest original completed plays'))
         row['quest_progress'] = QuestProgress(**progress)
     if row['dormancy'] is not None:
         row['dormancy'] = DormancyState(**_row(row['dormancy'], DormancyState))

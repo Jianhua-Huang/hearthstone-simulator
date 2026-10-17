@@ -559,3 +559,6 @@ __all__ += ['TransferWeapon','EquippedWeaponReference']
 
 from .model import NativeSourceCondition
 __all__ += ['NativeSourceCondition']
+
+from .minion_type_history import submitted_minion_types, played_minion_type_facts, match_minion_type_plays
+__all__ += ['submitted_minion_types', 'played_minion_type_facts', 'match_minion_type_plays']

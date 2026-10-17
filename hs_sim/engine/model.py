@@ -3445,12 +3445,16 @@ class QuestProgress:
     value: int = 0
     keys: tuple[str, ...] = ()
     completing: bool = False
+    completed_before: tuple[int, ...] = ()
 
     def __post_init__(self):
         _int(self.id, 'quest instance', 1)
         _int(self.stage, 'quest stage', 0)
         _int(self.value, 'quest progress', 0)
         _bool(self.completing, 'quest completing')
+        if type(self.completed_before) is not tuple or list(self.completed_before) != sorted(set(self.completed_before)):
+            raise ValueError('Quest activation requires its ordered original completed-play inventory')
+        for identity in self.completed_before: _int(identity, 'quest original completed play', 1)
         if type(self.keys) is not tuple or len(set(self.keys)) != len(self.keys):
             raise ValueError('Quest keys must be a unique immutable tuple')
         for key in self.keys:
@@ -10362,6 +10366,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             if type(progress) is not QuestProgress or spec is None:
                 raise ValueError('Invalid quest progress or definition')
             progress.__post_init__()
+            if any(identity > len(state.play_history) or not state.play_history[identity-1].completed for identity in progress.completed_before):
+                raise ValueError('Quest activation borrowed an unknown or incomplete original play')
             if progress.stage >= len(spec.stages):
                 raise ValueError('Invalid quest stage')
             goal = spec.stages[progress.stage].goal

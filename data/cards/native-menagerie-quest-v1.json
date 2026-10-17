@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "batch": "K166",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_229",
+        "dbf_id": 117538,
+        "name": "群山之灵",
+        "name_en": "Spirit of the Mountain",
+        "text": "<b>任务：</b>使用6个不同类型的随从牌。<b>奖励：</b>阿沙隆。",
+        "text_en": "<b>Quest:</b> Play 6 minions\nof unique types.\n<b>Reward:</b> Ashalon.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 120778,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "3268c2e421f1e7fff75c27584f6deffb09741b5a954dfdb4804ac0d64d78fb2a"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_229t14",
+        "dbf_id": 120778,
+        "name": "阿沙隆，山巅守卫",
+        "name_en": "Ashalon, Ridge Guardian",
+        "text": "<b>突袭</b>。<b>战吼：</b><b>进化</b>两次。在本局对战的剩余时间内，使你使用的随从获得这些<b><b>进化</b>选项</b>。",
+        "text_en": "[x]<b>Rush</b>. <b>Battlecry:</b> <b>Adapt</b> twice.\nFor the rest of the game,\ngive minions you play\nthose <b><b>Adapt</b>ations</b>.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "RUSH": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "546",
+              "name": "ADAPT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6c76e86bc73ff5330691d29d2fdc77c3373388925b2d02cff8af40876695bda1"
+    }
+  ],
+  "existing_definition_pins": {
+    "TLC_229t14": "a216a4dd7bf9491b77586c7f5df1ff7efb71600ddfa5e5ff156b4d185625ccad"
+  },
+  "types": [
+    "beast",
+    "demon",
+    "draenei",
+    "dragon",
+    "elemental",
+    "mech",
+    "murloc",
+    "naga",
+    "pirate",
+    "quilboar",
+    "totem",
+    "undead"
+  ],
+  "race_source": {
+    "path": "data/cards/race-metadata-v1.json",
+    "canonical_sha256": "b0a09a7dc1226dd962ebe5b3bdb66986de2ee4bb9a2d6d8101b132f2cc322d32",
+    "mapping": {
+      "2": "draenei",
+      "11": "undead",
+      "14": "murloc",
+      "15": "demon",
+      "17": "mech",
+      "18": "elemental",
+      "20": "beast",
+      "21": "totem",
+      "23": "pirate",
+      "24": "dragon",
+      "26": "all",
+      "43": "quilboar",
+      "92": "naga"
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "TLC_229",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k151-official\\117538-zh_CN.json",
+      "response_sha256": "ee4179b5d9e61351d5102f7973f2f123b241476af8644449caa38932f5627036",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117538&locale=zh_CN",
+      "face": {
+        "id": 117538,
+        "collectible": 1,
+        "slug": "117538-spirit-of-the-mountain",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 1,
+        "name": "群山之灵",
+        "text": "<b>任务：</b>使用6个不同类型的随从牌。<b>奖励：</b>阿沙隆。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/340b57ae66158154ed573a45689c19294c2f27707c0c600790fc8f3b6f521e9e.png",
+        "imageGold": "",
+        "flavorText": "第10天。有个叫布拉玛的始祖龟把尼利，伊莉斯和我带到了山体内的深处。她给我们展示了“熔岩渠”系统，始祖龟就是用它把岩浆运到高处。山里居然还住着一群火山龙！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4d4a65aa66ed776dd7ba6a4009f8352add783c0957807957fed0bc8979af25a.png",
+        "childIds": [
+          120778
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117538&locale=zh_CN",
+        "sha256": "ee4179b5d9e61351d5102f7973f2f123b241476af8644449caa38932f5627036",
+        "bytes": 973,
+        "observed_at": "2026-10-17T12:24:05.854957+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_229",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k151-official\\117538-en_US.json",
+      "response_sha256": "adb3705bfc174ff3871aa1e58164910d89b3209eebb438b0c6184f55c71069a4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117538&locale=en_US",
+      "face": {
+        "id": 117538,
+        "collectible": 1,
+        "slug": "117538-spirit-of-the-mountain",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 1,
+        "name": "Spirit of the Mountain",
+        "text": "<b>Quest:</b> Play 6 minions of unique types. <b>Reward:</b> Ashalon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8eb71bfde5bd0ec937dc4a94acd9b8d513a04f64f37a5647b3e435a76ccffb15.png",
+        "imageGold": "",
+        "flavorText": "Day 10. A Tortollan named Bralma took Niri, Elise, and I deep into the mountain. She showed us how the Tortollans move lava up from the base of the volcano through a system of “lavaqueducts.” I was shocked to find a pack of Volcanosaurs living there!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4d4a65aa66ed776dd7ba6a4009f8352add783c0957807957fed0bc8979af25a.png",
+        "childIds": [
+          120778
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117538&locale=en_US",
+        "sha256": "adb3705bfc174ff3871aa1e58164910d89b3209eebb438b0c6184f55c71069a4",
+        "bytes": 998,
+        "observed_at": "2026-10-17T12:24:05.854416+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_229t14",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k151-official\\120778-zh_CN.json",
+      "response_sha256": "d3e92a1adf56785d81d20896d85423476518fb98c0aa145cfc33fca4ebb2f2c2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120778&locale=zh_CN",
+      "face": {
+        "id": 120778,
+        "collectible": 0,
+        "slug": "120778-ashalon-ridge-guardian",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Dmitry Bolotov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "阿沙隆，山巅守卫",
+        "text": "<b>突袭</b>。<b>战吼：</b><b>进化</b>两次。在本局对战的剩余时间内，使你使用的随从获得这些<b><b>进化</b>选项</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dda907ec13fec0b69083addeefc257bd6305a0a25e7ac4e243c4b86178772081.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117538,
+        "keywordIds": [
+          8,
+          34,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120778&locale=zh_CN",
+        "sha256": "d3e92a1adf56785d81d20896d85423476518fb98c0aa145cfc33fca4ebb2f2c2",
+        "bytes": 779,
+        "observed_at": "2026-10-17T12:24:06.026253+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_229t14",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k151-official\\120778-en_US.json",
+      "response_sha256": "8d867903e5152d31de1f88bb68b80070dd9c6425ae10a0edcba967f21033aac7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120778&locale=en_US",
+      "face": {
+        "id": 120778,
+        "collectible": 0,
+        "slug": "120778-ashalon-ridge-guardian",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Dmitry Bolotov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Ashalon, Ridge Guardian",
+        "text": "<b>Rush</b>. <b>Battlecry:</b> <b>Adapt</b> twice. For the rest of the game, give minions you play those <b><b>Adapt</b>ations</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d96376ef166830a252255eba1bcc3ba55059a6af5a5eea060fe597174dd78f79.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117538,
+        "keywordIds": [
+          8,
+          34,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120778&locale=en_US",
+        "sha256": "8d867903e5152d31de1f88bb68b80070dd9c6425ae10a0edcba967f21033aac7",
+        "bytes": 757,
+        "observed_at": "2026-10-17T12:24:05.984607+00:00"
+      }
+    }
+  ],
+  "policy": "At most one distinct assigned type per completed physical play; maximum matching of original submitted current tribes; explicit finite client type universe; CN calibration pending"
+}
