@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 342
+SNAPSHOT_SCHEMA_VERSION = 343
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1433,9 +1433,10 @@ def state_from_dict(value: dict) -> GameState:
     windows=[]
     for item in _list(value['action_windows'], 'action windows'):
         row=_row(item,ActionWindow)
-        if row['attack_source_presence'] is not None:
-            from .model import BoardPresenceReference
-            row['attack_source_presence'] = BoardPresenceReference(**_row(row['attack_source_presence'], BoardPresenceReference))
+        for name in ('attack_source_presence', 'attack_target_presence'):
+            if row[name] is not None:
+                from .model import BoardPresenceReference
+                row[name] = BoardPresenceReference(**_row(row[name], BoardPresenceReference))
         row['spellburst_candidates']=tuple(TriggerCandidate(**_row(c,TriggerCandidate))
             for c in _list(row['spellburst_candidates'],'Spellburst candidates'))
         windows.append(ActionWindow(**row))

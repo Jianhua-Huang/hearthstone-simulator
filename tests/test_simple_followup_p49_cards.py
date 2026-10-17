@@ -262,12 +262,13 @@ class SimpleFollowupP49Tests(unittest.TestCase):
         with self.assertRaisesRegex(ResolutionError,'Insertion names an unknown shuffle operation'):self.choose(g,'retry')
         self.assertEqual(g.snapshot(),saved);self.assertNotIn(KNOCKBACK,g.registry.cards)
 
-    def test_real_forced_window_defender_reference_does_not_survive_same_id_reentry(self):
+    def test_historical_defender_gap_is_now_guarded_through_the_actual_attack_window(self):
         g=self.game((TEST+'force_pair',),board=(YETI,),enemy=(YETI,),mode='defender_reentry',pool=False,context=None)
         old=self.first(g,YETI,'board',2);self.play(g,TEST+'force_pair');current=g.state.entities[old.id]
         self.assertNotEqual(current.board_presence_id,old.board_presence_id)
-        self.assertEqual(current.health,1)  # Observed counterexample: fresh body should retain 5.
-        self.assertNotIn(HOUND,g.registry.cards);self.assertNotIn(SABER,g.registry.cards)
+        self.assertEqual(current.health,5)
+        self.assertIn(HOUND,SKIPPED);self.assertIn(SABER,SKIPPED)  # Original P49 deferrals remain historical.
+        self.assertIsNotNone(g.registry.card(HOUND).battlecry);self.assertIsNotNone(g.registry.card(SABER).battlecry)
 
     def test_watchman_first_damage_wave_wait_restore_and_replay_keeps_second_wave_once(self):
         g=self.game((WATCHMAN,),board=(YETI,),mode='watch_damage',pool=False,context=None);self.play(g,WATCHMAN)

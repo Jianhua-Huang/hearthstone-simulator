@@ -1,0 +1,383 @@
+{
+  "batch": "K134",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_435",
+        "dbf_id": 126136,
+        "name": "狂乱的猎犬",
+        "name_en": "Rampaging Hound",
+        "text": "<b>预备</b>。<b>战吼：</b>&迫使所有敌方随从攻击本随从。",
+        "text_en": "[x]<b>Prepare</b>\n<b>Battlecry:</b>& Force all enemy\nminions to attack this.",
+        "cost": 7,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "2540": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1,
+          "4548": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "64bdaf4af20bf93b1f712241bab8159a55a9eb088f197d5396b7e6f73daba1b8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_435",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "public_gap": "ForceAttack initially accepts original BoardPresenceReference but loses defender residence after opening the attack window. At attack_declared, the defending Hound returns/reenters under the same ID; the fresh 12-health body wrongly takes 4 damage (8 observed, 12 required). Whole card deferred."
+    },
+    {
+      "record": {
+        "id": "EDR_014",
+        "dbf_id": 113371,
+        "name": "茏葱梦刃豹",
+        "name_en": "Verdant Dreamsaber",
+        "text": "<b>战吼：</b>如果本牌的法力值消耗小于或等于（3）点，&随机攻击两个敌方随从。",
+        "text_en": "<b>Battlecry:</b> If this costs (3)\nor less,& attack two random enemy minions.",
+        "cost": 5,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "03e538f9bdbccc34940dee8529620bec9ee60fa8f582152adc49a163302df692",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_014",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "public_gap": "Paid discount and actual indirect current-cost entry were executed successfully, but the shared forced-window defender binding is unsafe. The selected original enemy returns/reenters at attack_declared and the new 5-health body wrongly takes 4 damage (1 observed, 5 required). Whole card deferred."
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_435",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/126136-zh_CN.json",
+      "response_sha256": "9425dc663a1c37535be733ec281a56a07935c67be023d9827db4b389c53ee716",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126136&locale=zh_CN",
+      "face": {
+        "id": 126136,
+        "collectible": 1,
+        "slug": "126136-rampaging-hound",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Jaemin Kim",
+        "health": 12,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "狂乱的猎犬",
+        "text": "<b>预备</b>。<b>战吼：</b>&迫使所有敌方随从攻击本随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c301d631d6de0a9ab052f4f3c52082b4eb5d87681d2060a603ccb9010316667d.png",
+        "imageGold": "",
+        "flavorText": "让你铺场！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95c03ee97d34f9446d6a814bbc1da476c9c3bf001790d2196fa2a61209d089c7.png",
+        "keywordIds": [
+          8,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126136&locale=zh_CN",
+        "sha256": "9425dc663a1c37535be733ec281a56a07935c67be023d9827db4b389c53ee716",
+        "bytes": 792,
+        "observed_at": "2026-10-17T04:51:50.306385+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_435",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/126136-en_US.json",
+      "response_sha256": "a4d522033ccb65c32bf029e2e4d8622332b2bd2e1b67ab6d381e28276d8931fc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126136&locale=en_US",
+      "face": {
+        "id": 126136,
+        "collectible": 1,
+        "slug": "126136-rampaging-hound",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Jaemin Kim",
+        "health": 12,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "Rampaging Hound",
+        "text": "<b>Prepare</b> <b>Battlecry:</b>& Force all enemy minions to attack this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b687949ed1d0ebcc72eab4252b85a98008a6e70d0df5c2c7bcfb450e291c6ad.png",
+        "imageGold": "",
+        "flavorText": "Made you over-extend!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95c03ee97d34f9446d6a814bbc1da476c9c3bf001790d2196fa2a61209d089c7.png",
+        "keywordIds": [
+          8,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126136&locale=en_US",
+        "sha256": "a4d522033ccb65c32bf029e2e4d8622332b2bd2e1b67ab6d381e28276d8931fc",
+        "bytes": 796,
+        "observed_at": "2026-10-17T04:51:04.192227+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_014",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/113371-zh_CN.json",
+      "response_sha256": "df1e2bb59483ea4cce5e682768db681a74af9ca629b34b7d3f09307906a8bf6d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113371&locale=zh_CN",
+      "face": {
+        "id": 113371,
+        "collectible": 1,
+        "slug": "113371-verdant-dreamsaber",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Jason Kang",
+        "health": 7,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "茏葱梦刃豹",
+        "text": "<b>战吼：</b>如果本牌的法力值消耗小于或等于（3）点，&随机攻击两个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeb65cf0b374f4999515dbab9c16a33f1171b723123affee5acaa3db18a28d05.png",
+        "imageGold": "",
+        "flavorText": "至少卡牌边框是茏葱的绿色。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0ac70f1796d5b18908d4bee3097badcc4f98cd811fa0432a3bd53174483637.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113371&locale=zh_CN",
+        "sha256": "df1e2bb59483ea4cce5e682768db681a74af9ca629b34b7d3f09307906a8bf6d",
+        "bytes": 826,
+        "observed_at": "2026-10-17T04:51:06.729851+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_014",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/113371-en_US.json",
+      "response_sha256": "2c587db60632fe271d3013782f84ca4465490e6b1fdfe9e8774f082a9470b535",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113371&locale=en_US",
+      "face": {
+        "id": 113371,
+        "collectible": 1,
+        "slug": "113371-verdant-dreamsaber",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Jason Kang",
+        "health": 7,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Verdant Dreamsaber",
+        "text": "<b>Battlecry:</b> If this costs (3) or less,& attack two random enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c905af399b5699d05147ea82bd61e1039cd2faa408fe1996ca4a846e63eb157.png",
+        "imageGold": "",
+        "flavorText": "Hey, at least the card frame is verdant.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0ac70f1796d5b18908d4bee3097badcc4f98cd811fa0432a3bd53174483637.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113371&locale=en_US",
+        "sha256": "2c587db60632fe271d3013782f84ca4465490e6b1fdfe9e8774f082a9470b535",
+        "bytes": 800,
+        "observed_at": "2026-10-17T04:51:07.595712+00:00"
+      }
+    }
+  ],
+  "internal_policy": {
+    "hound": "Capture all current active living enemy minion residences and the actual source residence at body acceptance. Enemies are relative to current source controller; each ordinary forced combat rechecks current relation, no retarget after stale source/target.",
+    "saber": "Paid hand Battlecry uses its actual immutable paid cost; independent indirect activation queries current physical cost. If <=3, sample up to two distinct original current enemy residences once and execute ordinary forced attacks in sampled order.",
+    "window": "Every real declared attack captures original minion defender residence, including ordinary attacks. Explicit redirects capture the genuinely selected replacement; same-ID exit/reentry cancels the old attack. Transform/control within the same physical residence retain identity but ordinary current combat relation still applies."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

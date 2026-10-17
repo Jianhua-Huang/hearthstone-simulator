@@ -12,9 +12,11 @@ def open_window(r, kind, player_id, source_id, target_id=None, forced=False, pla
     candidates=spellburst_candidates(r.state,player_id) if kind=='spell' else ()
     presence = (BoardPresenceReference.capture(r.state, source_id)
                 if kind == 'attack' and r.state.entities[source_id].kind == CardType.MINION else None)
+    target_presence = (BoardPresenceReference.capture(r.state, target_id)
+                if kind == 'attack' and r.state.entities[target_id].kind == CardType.MINION else None)
     window = ActionWindow(r.state.next_window_id, kind, player_id, source_id, target_id, forced,
                           play_id=play_id, spellburst_candidates=candidates, combat_relation=combat_relation,
-                          attack_source_presence=presence)
+                          attack_source_presence=presence, attack_target_presence=target_presence)
     r.state.next_window_id += 1
     r.state.action_windows.append(window)
     return window
@@ -29,9 +31,24 @@ def attack_live(state, window):
         return False
     attacker, defender = state.entities[window.source_id], state.entities[window.target_id]
     from .combat import combat_relation_matches
+    from .board_presence import resolve_board_presence
+    if any(ref is not None and resolve_board_presence(state, ref) is None
+           for ref in (window.attack_source_presence, window.attack_target_presence)):
+        return False
     return (all(e.active and e.is_character and e.zone in (Zone.BOARD, Zone.HERO) and e.health > 0 and not e.doomed
                 for e in (attacker, defender)) and
             combat_relation_matches(attacker, defender, window.combat_relation))
+
+
+def replaced_combatant(state, window):
+    """Keep existing left-play handling; an old window never hits a new resident."""
+    from .board_presence import resolve_board_presence
+    for label, reference in (('attacker', window.attack_source_presence),
+                             ('defender', window.attack_target_presence)):
+        if reference is not None and state.entities[reference.entity_id].zone == Zone.BOARD and \
+                resolve_board_presence(state, reference) is None:
+            return label + '_left_original_board_residence'
+    return None
 
 
 def close_window(r, window_id):
@@ -180,17 +197,14 @@ def resolve_attack(r, effect):
     work = CombatDamage(window.source_id, window.target_id, window.forced,
                         combat_relation=window.combat_relation, hero_attack=link,
                         attack_window_id=character_window)
-    if window.attack_source_presence is not None:
-        from .board_presence import resolve_board_presence
-        if (r.state.entities[window.source_id].zone == Zone.BOARD and
-                resolve_board_presence(r.state, window.attack_source_presence) is None):
-            from .hero_attack_history import cancel
-            cancel(r, work, 'attacker_left_original_board_residence')
-            from .character_attacks import cancel as cancel_character_attack
-            cancel_character_attack(r, work, 'attacker_left_original_board_residence')
-            r.emit('attack_cancelled', source_id=window.source_id, target_id=window.target_id,
-                   reason='attacker_left_original_board_residence')
-            return []
+    reason = replaced_combatant(r.state, window)
+    if reason is not None:
+        from .hero_attack_history import cancel
+        cancel(r, work, reason)
+        from .character_attacks import cancel as cancel_character_attack
+        cancel_character_attack(r, work, reason)
+        r.emit('attack_cancelled', source_id=window.source_id, target_id=window.target_id, reason=reason)
+        return []
     return [work]
 
 
@@ -202,8 +216,11 @@ def redirect(r, effect):
             target.zone not in (Zone.BOARD, Zone.HERO) or target.health <= 0 or target.doomed or
             not combat_relation_matches(r.state.entities[window.source_id], target, window.combat_relation)):
         return
-    r.state.action_windows[r.state.action_windows.index(window)] = replace(window, target_id=target.id)
-    r.emit('attack_redirected', source_id=window.source_id, target_id=target.id, player_id=window.player_id)
+    presence = BoardPresenceReference.capture(r.state, target.id) if target.kind == CardType.MINION else None
+    r.state.action_windows[r.state.action_windows.index(window)] = replace(window, target_id=target.id,
+        attack_target_presence=presence)
+    r.emit('attack_redirected', source_id=window.source_id, target_id=target.id, player_id=window.player_id,
+           window_id=window.id, target_presence_id=None if presence is None else presence.presence_id)
 
 
 def redirect_spell(r, effect):

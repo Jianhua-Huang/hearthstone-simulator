@@ -136,7 +136,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v423'
+CORE_EFFECTS_VERSION = 'core-effects-v424'
 
 
 class Mechanics:
@@ -1586,7 +1586,8 @@ def begin_attack(r, effect):
     from .hero_attack_history import declare
     declare(r, window)
     r.emit('attack_declared', source_id=action.attacker_id, target_id=action.defender_id,
-           player_id=action.player_id, window_id=window.id)
+           player_id=action.player_id, window_id=window.id,
+           target_presence_id=None if window.attack_target_presence is None else window.attack_target_presence.presence_id)
     return [ResolveAttack(window.id)]
 
 
@@ -1615,7 +1616,8 @@ def force_attack(r, effect):
     from .character_attacks import declare as declare_character_attack
     declare_character_attack(r, window)
     r.emit('attack_declared', source_id=attacker.id, target_id=defender.id,
-           player_id=attacker.controller, forced=True, window_id=window.id)
+           player_id=attacker.controller, forced=True, window_id=window.id,
+           target_presence_id=None if window.attack_target_presence is None else window.attack_target_presence.presence_id)
     return [ResolveAttack(window.id)]
 
 
@@ -1641,7 +1643,15 @@ def combat_damage(r, effect):
     from .hero_attack_history import require_link, cancel
     require_link(r.state,effect.attacker_id,effect.defender_id,effect.forced,effect.combat_relation,effect.hero_attack)
     from .character_attacks import require_link as require_character_link, cancel as cancel_character_attack
-    require_character_link(r.state, effect)
+    original = require_character_link(r.state, effect)
+    if original is not None:
+        from .interrupts import replaced_combatant
+        reason = replaced_combatant(r.state, original.delivery)
+        if reason is not None:
+            cancel(r,effect,reason)
+            cancel_character_attack(r,effect,reason)
+            r.emit('attack_cancelled',source_id=effect.attacker_id,target_id=effect.defender_id,reason=reason)
+            return
     attacker, defender = r.live_character(effect.attacker_id), r.live_character(effect.defender_id)
     if attacker is None or defender is None:
         cancel(r,effect,'combatant_left_play')

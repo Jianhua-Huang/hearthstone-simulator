@@ -7462,6 +7462,7 @@ class ActionWindow:
     counter_phase: bool = False
     combat_relation: str = 'opponent'
     attack_source_presence: BoardPresenceReference | None = None
+    attack_target_presence: BoardPresenceReference | None = None
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
@@ -7470,6 +7471,11 @@ class ActionWindow:
                     self.attack_source_presence.entity_id != self.source_id):
                 raise ValueError('Attack presence must reference its original minion source')
             self.attack_source_presence.__post_init__()
+        if self.attack_target_presence is not None:
+            if (self.kind != 'attack' or type(self.attack_target_presence) is not BoardPresenceReference or
+                    self.attack_target_presence.entity_id != self.target_id):
+                raise ValueError('Attack target presence must reference its original selected minion')
+            self.attack_target_presence.__post_init__()
         if self.combat_relation != 'opponent' and (self.kind != 'attack' or not self.forced):
             raise ValueError('Friendly combat requires a forced attack window')
         for name in ('id', 'player_id', 'source_id'):
@@ -9568,7 +9574,8 @@ class HeroAttackTerminalFact(HeroAttackDeclarationFact):
     def __post_init__(self):
         super().__post_init__()
         reasons = {'completed': ('intrinsic_finish',),
-                   'cancelled': ('combatant_left_play', 'combatants_became_friendly', 'attacker_frozen'),
+                   'cancelled': ('combatant_left_play', 'combatants_became_friendly', 'attacker_frozen',
+                                 'defender_left_original_board_residence'),
                    'interrupted': ('game_terminal',)}
         if self.outcome not in reasons or self.reason not in reasons[self.outcome]:
             raise ValueError('Unknown hero attack terminal outcome/reason')
@@ -9894,6 +9901,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 raise ValueError('Minion attack window requires its original board presence')
             if window.attack_source_presence is not None and window.attack_source_presence.presence_id >= state.next_order:
                 raise ValueError('Attack source presence has not been allocated')
+            minion_target = state.entities[window.target_id].kind == CardType.MINION
+            if minion_target != (window.attack_target_presence is not None):
+                raise ValueError('Minion attack target requires its original board presence')
+            if window.attack_target_presence is not None and window.attack_target_presence.presence_id >= state.next_order:
+                raise ValueError('Attack target presence has not been allocated')
         previous_window = window.id
     if state.pending_choice is not None:
         if not isinstance(state.pending_choice, PendingChoice):

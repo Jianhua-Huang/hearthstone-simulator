@@ -31,7 +31,7 @@ def validate_record(row):
         if type(row.delivery) is not ActionWindow:
             raise ValueError('Character attack delivery requires its original typed window')
         row.delivery.__post_init__()
-        if replace(w, target_id=row.delivery.target_id) != row.delivery:
+        if replace(w, target_id=row.delivery.target_id, attack_target_presence=row.delivery.attack_target_presence) != row.delivery:
             raise ValueError('Character delivery changed more than the actual selected target')
         _int(row.delivery_action, 'character delivery action', action)
         _int(row.delivery_event_cursor, 'character delivery event cursor', cursor)
@@ -176,6 +176,13 @@ def validate_history(state, registry=None, event_limit=None):
                 raise ValueError('Character declaration changed its original card kind')
         if row.delivery is not None and row.delivery.target_id not in state.entities:
             raise ValueError('Character delivery lost its original target')
+        for window in (w, *(() if row.delivery is None else (row.delivery,))):
+            target = state.entities[window.target_id]
+            reference = window.attack_target_presence
+            if (target.kind == CardType.MINION) != (reference is not None):
+                raise ValueError('Character attack lost its original minion target presence')
+            if reference is not None and reference.presence_id >= state.next_order:
+                raise ValueError('Character attack target borrowed a future residence')
         if row.combat is not None:
             c = row.combat
             if c.source_zone_epoch > source.zone_epoch or c.source_entered_order >= state.next_order or c.target_id not in state.entities:
@@ -215,7 +222,8 @@ def validate_tails(state, work):
         windows = [w for w in state.action_windows if w.id == row.declaration.id]
         if bool(windows) != (row.delivery is None and row.terminal is None):
             raise ValueError('Character attack original window lifecycle mismatch')
-        if windows and replace(row.declaration, target_id=windows[0].target_id) != windows[0]:
+        if windows and replace(row.declaration, target_id=windows[0].target_id,
+                attack_target_presence=windows[0].attack_target_presence) != windows[0]:
             raise ValueError('Character window changed its original source or policy')
 
 
@@ -223,19 +231,45 @@ def validate_boundary(game):
     validate_history(game._state, game.registry, len(game._events))
     from .hero_health_history import effective_events
     effective = effective_events(game._events)
+    by_sequence = {event.sequence:event for event in effective}
+    redirects = {}
+    window_ids = {row.declaration.id for row in game._state.character_attack_history}
+    for event in effective:
+        if event.kind == 'attack_redirected':
+            ident = dict(event.data).get('window_id')
+            if type(ident) is not int or ident not in window_ids:
+                raise ValueError('Character redirect names an unknown original window')
+            redirects.setdefault(ident,[]).append(event)
     declared = [dict(event.data).get('window_id') for event in effective if event.kind == 'attack_declared']
     if any(type(ident) is not int for ident in declared) or declared != [row.declaration.id for row in game._state.character_attack_history]:
         raise ValueError('Character history lost a complete original declaration')
     for row in game._state.character_attack_history:
         w = row.declaration
-        event = next((e for e in effective if e.sequence == row.declaration_event_cursor+1), None)
+        event = by_sequence.get(row.declaration_event_cursor+1)
         if (event is None or event.kind != 'attack_declared' or
                 (event.source_id, event.target_id, event.player_id) != (w.source_id, w.target_id, w.player_id) or
                 event.action != row.declaration_action or dict(event.data).get('window_id') != w.id or
                 type(dict(event.data).get('forced', False)) is not bool or dict(event.data).get('forced', False) != w.forced):
             raise ValueError('Character attack lost its original declaration event')
+        presence = None if w.attack_target_presence is None else w.attack_target_presence.presence_id
+        declared_presence = dict(event.data).get('target_presence_id')
+        if type(declared_presence) is not type(presence) or declared_presence != presence:
+            raise ValueError('Character declaration changed its original target residence')
+        target_id, selected = w.target_id, w.attack_target_presence
+        for changed in redirects.get(w.id,()):
+            if (changed.sequence <= row.declaration_event_cursor or
+                    row.delivery_event_cursor is not None and changed.sequence > row.delivery_event_cursor or
+                    (changed.source_id,changed.player_id) != (w.source_id,w.player_id)):
+                raise ValueError('Character redirect borrowed a closed or foreign original window')
+            from .model import BoardPresenceReference
+            ident = dict(changed.data).get('target_presence_id')
+            target_id = changed.target_id
+            selected = None if ident is None else BoardPresenceReference(target_id,ident)
+        actual = row.delivery or next((x for x in game._state.action_windows if x.id == w.id),None)
+        if actual is not None and (actual.target_id,actual.attack_target_presence) != (target_id,selected):
+            raise ValueError('Character attack changed its selected target without an original redirect')
         if row.terminal is not None and row.terminal.status != 'interrupted':
-            event = next((e for e in effective if e.sequence == row.terminal.event_cursor+1), None)
+            event = by_sequence.get(row.terminal.event_cursor+1)
             kind = 'attack_finished' if row.terminal.status == 'completed' else 'attack_cancelled'
             if (event is None or event.kind != kind or
                     (event.source_id, event.target_id, event.action) != (w.source_id, row.delivery.target_id, row.terminal.action)):
@@ -315,8 +349,9 @@ def record_from_dict(value):
     from .model import BoardPresenceReference, TriggerCandidate
     def window(raw):
         fields = _row(raw, ActionWindow)
-        if fields['attack_source_presence'] is not None:
-            fields['attack_source_presence'] = BoardPresenceReference(**_row(fields['attack_source_presence'], BoardPresenceReference))
+        for name in ('attack_source_presence','attack_target_presence'):
+            if fields[name] is not None:
+                fields[name] = BoardPresenceReference(**_row(fields[name], BoardPresenceReference))
         fields['spellburst_candidates'] = tuple(TriggerCandidate(**_row(item, TriggerCandidate))
             for item in _list(fields['spellburst_candidates'], 'original attack Spellburst candidates'))
         return ActionWindow(**fields)
