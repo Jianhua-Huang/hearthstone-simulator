@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "card": "JAIL_735",
+  "record": {
+    "id": "JAIL_735",
+    "dbf_id": 126841,
+    "name": "紫罗兰条令",
+    "name_en": "Code Violet",
+    "text": "<b>预备</b>。召唤一个法力值消耗为（8）的随从。在本回合中，如果你施放过3个其他法术，重复一次。@<i>（还剩{0}个！）</i>@<i>（已经就绪！）</i>",
+    "text_en": "[x]<b>Prepare.</b> Summon an\n8-Cost minion. If you've\ncast 3 other spells this\nturn, do it again.@ <i>({0} left!)</i> @ <i>(Ready!)</i>",
+    "cost": 7,
+    "attack": null,
+    "health": null,
+    "type": "SPELL",
+    "collectible": true,
+    "tags": {
+      "COST": 7,
+      "CARD_SET": 1988,
+      "CLASS": 4,
+      "CARDTYPE": 5,
+      "RARITY": 4,
+      "COLLECTIBLE": 1,
+      "SPELL_SCHOOL": 1,
+      "DECK_ACTION_COST": 1,
+      "ENTITY_TAG_THRESHOLD_TAG_ID": 2,
+      "ENTITY_TAG_THRESHOLD_VALUE": 3,
+      "PREPARE": 1
+    },
+    "card_set_id": 1988,
+    "source_entity_version": "2",
+    "reference_tags": [],
+    "power_keyword_tags": [],
+    "related_dbf_ids": [],
+    "xml_card_references": [],
+    "unmapped_xml_nodes": [
+      {
+        "tag": "Tag",
+        "attributes": {
+          "enumID": "342",
+          "name": "ARTISTNAME",
+          "type": "String"
+        },
+        "text": "Edgar Hidalgo"
+      }
+    ]
+  },
+  "record_sha256": "f01b7302e8dd5397428a3bc111635adfd8069223e0257d4c7c221bd811240088",
+  "observations": [
+    {
+      "locale": "zh_CN",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126841&locale=zh_CN",
+      "response_sha256": "004b90af11bcdf79bb95d98f50a480cc1c813dda62e1cfdd01ff691a87398d4b",
+      "observed_at": "2026-10-17T08:55:53.448482+00:00",
+      "face": {
+        "id": 126841,
+        "collectible": 1,
+        "slug": "126841-code-violet",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 7,
+        "name": "紫罗兰条令",
+        "text": "<b>预备</b>。召唤一个法力值消耗为（8）的随从。在本回合中，如果你施放过3个其他法术，重复一次。 <i>（还剩 个！）</i> <i>（已经就绪！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afef578ff7294ab067d2541fea6b522499ecaa0b8b4f96f1c22c245795df41a3.png",
+        "imageGold": "",
+        "flavorText": "条令介于红罗兰与紫外罗兰之间。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b2f1fe49186078920f2864ae2f8dbce2020bc9e6644070f06c6be8eb7e1ef5b.png",
+        "keywordIds": [
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    },
+    {
+      "locale": "en_US",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126841&locale=en_US",
+      "response_sha256": "955bf24800d67087793d6ba38954c00adafec02d28c8044a4c59e0ac24cc810b",
+      "observed_at": "2026-10-17T08:55:53.603168+00:00",
+      "face": {
+        "id": 126841,
+        "collectible": 1,
+        "slug": "126841-code-violet",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 7,
+        "name": "Code Violet",
+        "text": "<b>Prepare.</b> Summon an 8-Cost minion. If you've cast 3 other spells this turn, do it again. <i>( left!)</i> <i>(Ready!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/817acc89d4f8392d35ecff7b6b64da5c9d10025afa4037595c750710c6122145.png",
+        "imageGold": "",
+        "flavorText": "Above Code Red but just below Code Ultraviolet.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b2f1fe49186078920f2864ae2f8dbce2020bc9e6644070f06c6be8eb7e1ef5b.png",
+        "keywordIds": [
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      }
+    }
+  ],
+  "full_source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "policy": "Only explicitly requested elision of exact trailing italic progress-left/ready labels; original main rules and typed/numeric fields remain strict. Source only, no executable card definition."
+}

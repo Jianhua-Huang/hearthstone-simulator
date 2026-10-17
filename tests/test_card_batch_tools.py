@@ -245,6 +245,47 @@ class CardBatchToolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'existing Python'):
             batch.check_preservation(before, altered, [], ['B'])
 
+    def progress_fixture(self):
+        from hs_sim.targets import canonical_digest
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-progress-labels-v1.json')
+        self.assertEqual(canonical_digest(data), '8078f410dca34a1bfd9b8acaac003d2b4caa441e3482c412147a8f093ee84a43')
+        self.assertEqual(canonical_digest(data['record']), data['record_sha256'])
+        return data
+
+    def test_explicit_trailing_progress_elision_matches_both_complete_primary_faces_without_mutation(self):
+        data = self.progress_fixture(); original = deepcopy(data)
+        for o in data['observations']:
+            batch.check_face(data['record'], o['face'], o['locale'], {'@': '', '{0}': ''})
+        self.assertEqual(data, original)
+
+    def test_progress_elision_is_not_implicit_or_available_through_partial_declarations(self):
+        data = self.progress_fixture()
+        for o in data['observations']:
+            for declaration in (None, {'@': ''}, {'{0}': ''}, {'@': '', '{0}': '3'}):
+                with self.subTest(locale=o['locale'], declaration=declaration), self.assertRaises(ValueError):
+                    batch.check_face(data['record'], o['face'], o['locale'], declaration)
+
+    def test_progress_profile_cannot_remove_rule_counters_or_arbitrary_trailing_effects(self):
+        data = self.progress_fixture(); o = next(o for o in data['observations'] if o['locale'] == 'en_US')
+        original = data['record']['text_en']
+        for text in ('{0} '+original, original.replace('(Ready!)', '(Gain 5 Armor!)'),
+                original.replace('@', '', 1), original.replace('<i>({0} left!)</i>', '{0}')):
+            raw = dict(data['record'], text_en=text)
+            with self.subTest(text=text), self.assertRaises(ValueError):
+                batch.check_face(raw, o['face'], 'en_US', {'@': '', '{0}': ''})
+
+    def test_progress_profile_keeps_main_rules_numbers_and_every_typed_field_strict(self):
+        data = self.progress_fixture(); o = next(o for o in data['observations'] if o['locale'] == 'en_US')
+        face = o['face']
+        changes = [('text', face['text'].replace('8-Cost', '9-Cost')),
+                   ('text', face['text'].replace('3 other spells', '4 other spells')),
+                   ('manaCost', 8), ('id', face['id']+1), ('classId', face['classId']+1),
+                   ('collectible', 0), ('attack', 0)]
+        for key, value in changes:
+            self.assertNotEqual(face.get(key), value)
+            with self.subTest(field=key, value=value), self.assertRaises(ValueError):
+                batch.check_face(data['record'], dict(face, **{key:value}), 'en_US', {'@': '', '{0}': ''})
+
 
 if __name__ == '__main__':
     unittest.main()

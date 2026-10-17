@@ -118,13 +118,23 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     require(face['id'] == row['dbf_id'], 'Official response selected another DBF identity')
     require(face['name'] == row['name' if chinese else 'name_en'], 'Official card name drift')
     raw_text = row['text' if chinese else 'text_en']
+    states = raw_text.split('@')
+    progress_labels = ('（还剩{0}个！）', '（已经就绪！）') if chinese else ('({0}left!)', '(Ready!)')
+    progress_display = (display_normalizations == {'@': '', '{0}': ''} and len(states) == 3 and
+                        '{0}' not in states[0] and
+                        all(re.fullmatch(r'\s*<i>.*</i>\s*', s, flags=re.S) for s in states[1:]) and
+                        tuple(display(s) for s in states[1:]) == progress_labels)
     for marker, replacement in (display_normalizations or {}).items():
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(printed) is int and type(replacement) is str and
-                    (replacement == '' or replacement.isdigit() and printed == int(replacement)),
+            require(type(replacement) is str and (progress_display and replacement == '' or
+                    type(printed) is int and
+                    (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
+        elif marker == '{0}':
+            require(progress_display and replacement == '',
+                    'Only exact trailing progress-left/ready labels may omit their display counter')
         else:
             require(marker == '~GAMEPLAY_ASPROXY_' + row['id'] and replacement == '',
                     'Only explicit numeric displays and the original proxy suffix may be normalized')
