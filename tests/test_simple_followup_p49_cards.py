@@ -170,6 +170,15 @@ class SimpleFollowupP49Tests(unittest.TestCase):
         rows=[r.health_result for r in g.state.damage_history];self.assertTrue(all((r.base_amount,r.spell_bonus)==(4,1)for r in rows))
         g=self.game((DECIMATION,),pool=False,context=None);self.play(g,DECIMATION);self.assertFalse(g.state.damage_history)
 
+    def test_decimation_dormant_minion_counts_as_board_presence_without_becoming_a_damage_target(self):
+        g=self.game((DECIMATION,),board=(YETI,'BT_004'),enemy=(YETI,),pool=False,context=None)
+        dormant=self.first(g,'BT_004','board');self.assertFalse(dormant.active);self.play(g,DECIMATION)
+        rows=[r.health_result for r in g.state.damage_history]
+        self.assertEqual(len(rows),2);self.assertTrue(all(r.base_amount==4 for r in rows))
+        self.assertNotIn(dormant.id,[r.target_id for r in rows])
+        self.assertEqual(g.state.entities[dormant.id].health,dormant.health)
+        self.assertFalse(g.state.entities[dormant.id].active)
+
 
 
     def test_scullery_uses_complete_actual_hero_combat_history_not_minion_attacks_or_other_turn_counters(self):

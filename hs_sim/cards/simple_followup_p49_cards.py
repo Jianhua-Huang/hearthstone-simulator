@@ -17,7 +17,7 @@ from .metadata import metadata_from_record
 from .native_followup_cards import minions
 
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/simple-followup-p49-v1.json'
-BATCH_HASH='efcb9a78ea5051a3b02f2817c4d8b11c2a3421ae6041b1ea6f7dc2e974e8e720'
+BATCH_HASH='a524f6fcca6901a2db674f05a69a53b8a3357f5bb5e5de33e06c0220ec33ca07'
 DECIMATION='CATA_581';KNOCKBACK='TLC_517';SCULLERY='JAIL_200';DISCIPLE='TIME_EVENT_301'
 WATCHMAN='JAIL_455';HOUND='JAIL_435';SABER='EDR_014'
 ROOTS=(DECIMATION,SCULLERY,DISCIPLE,WATCHMAN)
@@ -39,7 +39,9 @@ def register_simple_followup_p49_cards(registry):
     data=load_batch();raws={x['record']['id']:x['record']for x in data['cards']}
     def all_minions(c):return tuple(i for p in(1,2)for i in minions(c,registry,p))
     def decimation(c):
-        ids=all_minions(c);amount=raws[DECIMATION]['tags']['TAG_SCRIPT_DATA_NUM_1']+len(ids)
+        ids=all_minions(c)
+        count=sum(c.state.entities[i].kind==CardType.MINION for p in(1,2)for i in c.state.players[p].board)
+        amount=raws[DECIMATION]['tags']['TAG_SCRIPT_DATA_NUM_1']+count
         return(DamageBatch(tuple(Damage(i,amount,c.source_id,DamageKind.SPELL)for i in ids)),)
     def scullery(c):
         validate_history(c.state,registry)
