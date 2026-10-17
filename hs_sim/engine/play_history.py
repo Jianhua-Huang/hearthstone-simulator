@@ -45,6 +45,12 @@ def spell_schools_from_plays(records):
         key=lambda school: school.value))
 
 
+def quests_from_plays(records, registry):
+    """Original committed native Quest faces; progress is never another play."""
+    return tuple(record for record in records if record.kind == CardType.SPELL and
+        registry.card(record.played_face.card_id).quest is not None)
+
+
 def matches_played_class(face, card_class, *, registry=None):
     """Pure original printed-class membership, independent of hero/current face."""
     from .model import FrozenPlayedFaceFact

@@ -1,4 +1,5 @@
 # 机制扩展指南
+真实已使用任务条件复用原提交记录和本人quests_played_total输入；原目标、间接执行和恢复边界见[契约](m3-played-quest-targets.md)。
 原生圣骑士光环可用明确的aura种类、对手时钟和独立费用贡献；来源、恢复与待国服边界见[契约](m3-native-paladin-aura.md)。
 真实法术需按执行时容量支付残骸召唤，可用原SpendResource的有限requires_board_space声明；原来源、形状与待国服边界见[契约](m3-corpse-spell-capacity.md)。
 真实召唤后的流放奖励按原完整召唤收据交给既有关键词和本回合清理；有限原组续接见[契约](m3-outcast-original-summon.md)。

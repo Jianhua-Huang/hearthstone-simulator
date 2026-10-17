@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v89'
+VIEW_VERSION = 'player-view-v90'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -423,7 +423,7 @@ class Information:
             return result
 
         players = []
-        from .play_history import played_cards, spell_schools_from_plays
+        from .play_history import played_cards, spell_schools_from_plays, quests_from_plays
         from .herald import herald_count, herald_multiplier
         from .excavate import progress as excavation_progress
         from .imbue import progress as imbue_progress
@@ -467,6 +467,7 @@ class Information:
             if player.id == viewer:
                 item['spell_schools_played_this_turn'] = [school.value for school in
                     spell_schools_from_plays(played_cards(state, player.id, turn=state.turn))]
+                item['quests_played_total'] = len(quests_from_plays(played_cards(state, player.id), game.registry))
             if game.registry.invoke_profile is not None and player.id == viewer:
                 from .invoke import invoke_count
                 item['invoke_count'] = invoke_count(state, player.id)

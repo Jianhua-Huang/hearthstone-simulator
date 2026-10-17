@@ -1,0 +1,173 @@
+{
+  "batch": "K133",
+  "source": {
+    "file": "outputs/simple-cards-p48/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_987",
+        "dbf_id": 118177,
+        "name": "任务助理",
+        "name_en": "Questing Assistant",
+        "text": "<b>战吼：</b>如果你在本局对战中使用过<b>任务</b>牌，对一个敌方随从造成3点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> If you played\na <b>Quest</b> this game,\ndeal 3 damage to an\nenemy minion.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "462",
+              "name": "QUEST",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "eee7971ca26b674524cfb0f4b048145d66ef0eab19ddd6232f6e1d0b800efbac",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_987",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "public_gap": "Public player target inputs have no complete historical Quest-play fact. Current quests or known graveyard cannot distinguish played, completed/countered, and discarded/destroyed unplayed quests. Omniscient State access in player legality is forbidden."
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_987",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/118177-zh_CN.json",
+      "response_sha256": "53163e0b2c90ea1cd9d8010762c16ca0c27e66e6f898f87bfe572367baafdde9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118177&locale=zh_CN",
+      "face": {
+        "id": 118177,
+        "collectible": 1,
+        "slug": "118177-questing-assistant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Stefano Spagnuolo",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "任务助理",
+        "text": "<b>战吼：</b>如果你在本局对战中使用过<b>任务</b>牌，对一个敌方随从造成3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f43564ae168ef9e594ea01ae95befa1232cdab005da1d7f5630eed92240ae21.png",
+        "imageGold": "",
+        "flavorText": "别管什么任务了。我们最新的任务就是先保证他的安全。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b40ed7f5bd15faa10969ff55e9e74dceb9a2ef840022e2c66063041d284b496f.png",
+        "keywordIds": [
+          8,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118177&locale=zh_CN",
+        "sha256": "53163e0b2c90ea1cd9d8010762c16ca0c27e66e6f898f87bfe572367baafdde9",
+        "bytes": 855,
+        "observed_at": "2026-10-17T04:18:44.837049+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_987",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/118177-en_US.json",
+      "response_sha256": "da286d65409d70747232910d3406ee602fdf0e88df9c95007a361380bfe30e18",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118177&locale=en_US",
+      "face": {
+        "id": 118177,
+        "collectible": 1,
+        "slug": "118177-questing-assistant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Stefano Spagnuolo",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Questing Assistant",
+        "text": "<b>Battlecry:</b> If you played a <b>Quest</b> this game, deal 3 damage to an enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e97fef249d91e04a6b20cadbbbc08b9f33e1dd3ad23008e3c8eaa847c2fb3638.png",
+        "imageGold": "",
+        "flavorText": "Forget the Quest. Our new Quest is to make sure no harm ever comes to him.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b40ed7f5bd15faa10969ff55e9e74dceb9a2ef840022e2c66063041d284b496f.png",
+        "keywordIds": [
+          8,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118177&locale=en_US",
+        "sha256": "da286d65409d70747232910d3406ee602fdf0e88df9c95007a361380bfe30e18",
+        "bytes": 840,
+        "observed_at": "2026-10-17T04:18:45.144675+00:00"
+      }
+    }
+  ],
+  "internal_policy": {
+    "quests": "All original committed hand SPELL faces with a native QuestSpec, including its four typed kinds. A Questline stage advance or repeatable reward cycle is not another hand play. Exact CN family matching remains M6.",
+    "plays": "Countered committed hand plays count, invalid/unplayed/discarded roots and ordinary effect casts do not; use original immutable submitted face/player, not current quest slots or physical graveyard.",
+    "target": "If own complete historical Quest-play count positive, IF_AVAILABLE enemy active minion target; native MINION_ABILITY Damage3, no spell power. Ordinary summons do not activate Battlecry; indirect activation uses its actual controller and live public predicate."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

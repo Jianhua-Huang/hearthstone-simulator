@@ -323,13 +323,13 @@ class SimpleFollowupP48Tests(unittest.TestCase):
         g.apply(EndTurn(1));self.assertEqual(g.state.entities[old.id].zone,Zone.GRAVEYARD)
         self.assertNotIn('DINO_417',g.registry.cards)
 
-    def test_real_quest_history_target_probe_cannot_read_required_fact_from_public_context(self):
+    def test_historical_quest_deferral_retains_source_and_current_public_fact_is_available(self):
         g=self.game((TEST+'quest',TEST+'remove_quest',TEST+'quest_probe'),enemy=(YETI,),pool=False,context=None)
         self.play(g,TEST+'quest');self.play(g,TEST+'remove_quest');own=next(p for p in g.for_player(1).observe()['observation']['players']if p['id']==1)
         self.assertEqual(own['quests'],[]);self.assertTrue(any(p.card_id==TEST+'quest'for p in g.state.play_history))
-        self.assertNotIn('quests_played_total',own);saved=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'Quest-play fact absent'):
-            self.play(g,TEST+'quest_probe',self.first(g,YETI,'board',2).id)
-        self.assertEqual(g.snapshot(),saved);self.assertNotIn('TLC_987',g.registry.cards)
+        self.assertEqual(own['quests_played_total'],1)
+        self.play(g,TEST+'quest_probe',self.first(g,YETI,'board',2).id)
+        self.assertIn('TLC_987',SKIPPED)  # P48's original evidence and deferral remain historical.
+        self.assertIsNotNone(g.registry.card('TLC_987').battlecry)
 
 if __name__=='__main__':unittest.main()
