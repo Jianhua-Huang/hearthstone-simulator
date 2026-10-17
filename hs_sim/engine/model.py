@@ -3636,6 +3636,63 @@ class HandCountCostFact:
 
 
 @dataclass(frozen=True)
+class CoinHandCountCostSpec:
+    """Pinned Coin spell identities for the real friendly-hand weapon formula."""
+    card_ids: tuple[str, ...]
+    profile_id: str = 'cost.coin-hand-count-v1'
+
+    def __post_init__(self):
+        if type(self.card_ids) is not tuple or not self.card_ids:
+            raise ValueError('Coin hand pricing requires its complete immutable family')
+        for card_id in self.card_ids: _name(card_id, 'Coin hand price face')
+        if tuple(sorted(set(self.card_ids))) != self.card_ids:
+            raise ValueError('Coin hand price family must be unique and canonically ordered')
+        if type(self.profile_id) is not str or self.profile_id != 'cost.coin-hand-count-v1':
+            raise ValueError('Unsupported Coin hand count cost policy')
+
+
+@dataclass(frozen=True)
+class CoinHandCountCostFact:
+    spec: CoinHandCountCostSpec
+    player_id: int
+    next_entity_id: int
+    hands: tuple[tuple[int, ...], tuple[int, ...]]
+    subject_id: int | None
+    quantity: int
+    before: int
+    after: int
+    faces: tuple[tuple[object, ...], tuple[object, ...]]
+
+    def __post_init__(self):
+        from .zones import CardReference
+        if type(self.spec) is not CoinHandCountCostSpec:
+            raise ValueError('Coin hand count requires its complete family declaration')
+        self.spec.__post_init__()
+        _int(self.player_id, 'Coin hand price payer', 1)
+        if self.player_id not in (1, 2): raise ValueError('Unknown Coin hand price payer')
+        if type(self.hands) is not tuple or len(self.hands) != 2 or any(type(h) is not tuple for h in self.hands):
+            raise ValueError('Coin hand count requires both complete physical inventories')
+        # Reuse all existing physical-ID, allocator and subject membership checks.
+        quantity = len(self.hands[self.player_id - 1]) - int(self.subject_id in self.hands[self.player_id - 1])
+        HandCountCostFact(HandCountCostSpec(), self.player_id, self.next_entity_id,
+            self.hands, self.subject_id, quantity, self.before, max(0, self.before - quantity))
+        if type(self.faces) is not tuple or len(self.faces) != 2 or any(type(h) is not tuple for h in self.faces):
+            raise ValueError('Coin hand count requires both complete original card-face inventories')
+        for pid, hand in enumerate(self.faces, 1):
+            for ref in hand:
+                if type(ref) is not CardReference: raise ValueError('Typed original hand card faces required')
+                ref.__post_init__()
+                if (ref.player_id, ref.zone) != (pid, Zone.HAND):
+                    raise ValueError('Coin price face differs from its original hand and player')
+            if tuple(ref.entity_id for ref in hand) != self.hands[pid - 1]:
+                raise ValueError('Coin price lost or reordered an original physical card face')
+        for name in ('quantity', 'after'): _int(getattr(self, name), 'Coin hand count ' + name, 0)
+        count = sum(ref.card_id in self.spec.card_ids for ref in self.faces[self.player_id - 1])
+        if self.quantity != count or self.after != max(0, self.before - count):
+            raise ValueError('Coin price result differs from its complete original family count')
+
+
+@dataclass(frozen=True)
 class HeroMissingHealthCostSpec:
     profile_id: str = 'cost.hero-missing-health-v1'
 
@@ -5219,7 +5276,7 @@ class IntrinsicCostStageFact:
     condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
-    hand_cards: HandCountCostFact | None = None
+    hand_cards: HandCountCostFact | CoinHandCountCostFact | None = None
     hero_missing_health: HeroMissingHealthCostFact | None = None
     player_spells: PlayerSpellCountCostFact | None = None
     player_hero_powers: PlayerHeroPowerCountCostFact | None = None
@@ -5263,7 +5320,7 @@ class IntrinsicCostStageFact:
             if (self.board_minions.player_id, self.board_minions.before) != (self.player_id, self.base_cost):
                 raise ValueError('Board count differs from the intrinsic payer or original base')
         if self.hand_cards is not None:
-            if type(self.hand_cards) is not HandCountCostFact:
+            if type(self.hand_cards) not in (HandCountCostFact, CoinHandCountCostFact):
                 raise ValueError('Intrinsic stage requires a typed original hand count')
             self.hand_cards.__post_init__()
             if (self.hand_cards.player_id, self.hand_cards.before) != (self.player_id, self.base_cost):
@@ -8874,7 +8931,7 @@ class CardDefinition:
     disguised: bool = False
     interactable: InteractableSpec | None = None
     board_minion_cost: BoardMinionCostSpec | None = None
-    hand_count_cost: HandCountCostSpec | None = None
+    hand_count_cost: HandCountCostSpec | CoinHandCountCostSpec | None = None
     hero_missing_health_cost: HeroMissingHealthCostSpec | None = None
     player_spell_count_cost: PlayerSpellCountCostSpec | None = None
     player_hero_power_count_cost: PlayerHeroPowerCountCostSpec | None = None

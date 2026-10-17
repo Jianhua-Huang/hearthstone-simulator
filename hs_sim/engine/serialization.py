@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 365
+SNAPSHOT_SCHEMA_VERSION = 366
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -902,10 +902,8 @@ def _intrinsic_stage_from_dict(value):
             for v in _list(b, 'board price rows')) for b in _list(board['boards'], 'board price inventories'))
         row['board_minions'] = BoardMinionCostFact(**board)
     if row['hand_cards'] is not None:
-        hand = _row(row['hand_cards'], HandCountCostFact)
-        hand['spec'] = HandCountCostSpec(**_row(hand['spec'], HandCountCostSpec))
-        hand['hands'] = tuple(tuple(_list(ids, 'hand count physical IDs')) for ids in _list(hand['hands'], 'hand count inventories'))
-        row['hand_cards'] = HandCountCostFact(**hand)
+        from .hand_count_costs import fact_from_dict
+        row['hand_cards'] = fact_from_dict(row['hand_cards'])
     if row['hero_missing_health'] is not None:
         hero = _row(row['hero_missing_health'], HeroMissingHealthCostFact)
         hero['spec'] = HeroMissingHealthCostSpec(**_row(hero['spec'], HeroMissingHealthCostSpec))

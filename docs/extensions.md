@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实手中幸运币武器减费使用`CoinHandCountCostSpec`及经完整源核对的SPELL身份分类，不按卡名或法力效果猜定；普通付款和冻结历史见[契约](m3-coin-hand-costs.md)。
+
 需要原发现余项洗入的真实来源可用有限shuffle_unselected_into_deck声明，保留实际ChoiceResult并复用普通创建和语义洗牌，见[契约](m3-discovery-remainders.md)。
 
 固定具名填场使用FillBoardWithCard，完整初始容量与配方进入原召唤组；弃牌、数量和恢复仍沿原执行器，见[契约](m3-named-fill-story.md)。

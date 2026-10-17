@@ -1,0 +1,3108 @@
+{
+  "schema": 1,
+  "batch": "K161",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_503",
+        "dbf_id": 125988,
+        "name": "黑掌的链镖",
+        "name_en": "Blackpaw's Whip",
+        "text": "你手牌中每有一张幸运币，本牌的法力值消耗便减少（1）点。<b>亡语：</b>抽一张牌。",
+        "text_en": "Costs (1) less for each Coin you're holding.  <b>Deathrattle:</b> Draw a card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "bc249a73af9ec9314eb3032a1de997637724ccb8188595938f57d042995bce6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_503",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "GAME_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504t2",
+        "dbf_id": 127153,
+        "name": "污手幸运币",
+        "name_en": "Grimy Coin",
+        "text": "在本回合中，获得一个法力水晶。随机对一个敌方随从造成$2点伤害。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Deal $2 damage to a random enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "53a3ef5191b55b05386e78edebae246758c56bb7a6c5c1611f9e0cc5687b8634",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_definition_pins": {
+    "GAME_005": "5b05f02f3a2254615b67000bd0fe9e6c2db332c4e5cfb2386000008faa03aa30",
+    "JAIL_504t2": "13b44dd8a92499f0414da092825049ee076e6a8659ec2aec32d22cd9d616cc1f"
+  },
+  "official_observations": [
+    {
+      "card_id": "JAIL_503",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\125988-zh_CN.json",
+      "response_sha256": "ab0bfa9f57b32803aef82de9757edb29159d14833fd858e9fc033bfd6cd49749",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125988&locale=zh_CN",
+      "face": {
+        "id": 125988,
+        "collectible": 1,
+        "slug": "125988-blackpaws-whip",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "黑掌的链镖",
+        "text": "你手牌中每有一张幸运币，本牌的法力值消耗便减少（1）点。<b>亡语：</b>抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08b76d1f60ab29f78bd4197972781a7452429513189fb3202ae4e1c4ab2eb107.png",
+        "imageGold": "",
+        "flavorText": "硬币，链镖，可以投了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10d4cb4aabcf86f02c7b888d5f14d29d5a6844134008c15d3006af301fd36008.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125988&locale=zh_CN",
+        "sha256": "ab0bfa9f57b32803aef82de9757edb29159d14833fd858e9fc033bfd6cd49749",
+        "bytes": 805,
+        "observed_at": "2026-10-17T17:39:38.258715+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_503",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\125988-en_US.json",
+      "response_sha256": "01b25773074a94dbbd1d0ecf573c95b7f7aef999652a1895b6255a1bad67f5a6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125988&locale=en_US",
+      "face": {
+        "id": 125988,
+        "collectible": 1,
+        "slug": "125988-blackpaws-whip",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Blackpaw's Whip",
+        "text": "Costs (1) less for each Coin you're holding. <b>Deathrattle:</b> Draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f795e78c2731bab91f39af48bd6d6538f173b1e9eafe7a71429ae358390352cb.png",
+        "imageGold": "",
+        "flavorText": "Coin-Whip-Concede.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10d4cb4aabcf86f02c7b888d5f14d29d5a6844134008c15d3006af301fd36008.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=125988&locale=en_US",
+        "sha256": "01b25773074a94dbbd1d0ecf573c95b7f7aef999652a1895b6255a1bad67f5a6",
+        "bytes": 754,
+        "observed_at": "2026-10-17T17:39:38.091800+00:00"
+      }
+    },
+    {
+      "card_id": "GAME_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1746-zh_CN.json",
+      "response_sha256": "d50a0d308c8493423cea0f59abaea3d1d5871c07cc79d73d48c4ff5352207227",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=zh_CN",
+      "face": {
+        "id": 1746,
+        "collectible": 0,
+        "slug": "1746-the-coin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": null,
+        "artistName": "Ben Thompson",
+        "manaCost": 0,
+        "name": "幸运币",
+        "text": "在本回合中，获得一个 法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6f1b1c388f6548077088b713b918f871edfb2891f36d8d259882ecf084555bc.png",
+        "imageGold": "",
+        "flavorText": "不管你是花掉它还是留在手里，总有一枚幸运币留给后手的你。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=zh_CN",
+        "sha256": "d50a0d308c8493423cea0f59abaea3d1d5871c07cc79d73d48c4ff5352207227",
+        "bytes": 738,
+        "observed_at": "2026-10-17T09:02:18.250250+00:00"
+      }
+    },
+    {
+      "card_id": "GAME_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1746-en_US.json",
+      "response_sha256": "9d2890a85caba0ad81e095b78948d7b6c291945558df0696f54f4602a954c66a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=en_US",
+      "face": {
+        "id": 1746,
+        "collectible": 0,
+        "slug": "1746-the-coin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": null,
+        "artistName": "Ben Thompson",
+        "manaCost": 0,
+        "name": "The Coin",
+        "text": "Gain 1 Mana Crystal this turn only.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cea40f4b0bf4e1b972706783f6d8f83639869990f9a3e6f09aa70bdc7467bdbd.png",
+        "imageGold": "",
+        "flavorText": "Whether you spend it or save it, it's always there for a second.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=en_US",
+        "sha256": "9d2890a85caba0ad81e095b78948d7b6c291945558df0696f54f4602a954c66a",
+        "bytes": 706,
+        "observed_at": "2026-10-17T09:02:18.426595+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127153-zh_CN.json",
+      "response_sha256": "d3308e8be7bcc6f59998a7b7bb117d78488dd264d643d1d1e8666ae8fdecbe67",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=zh_CN",
+      "face": {
+        "id": 127153,
+        "collectible": 0,
+        "slug": "127153-grimy-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 0,
+        "name": "污手幸运币",
+        "text": "在本回合中，获得一个法力水晶。随机对一个敌方随从造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce82b2a1e4fb654c93b8793fd51e1124fc057e114dbdddd167d71a5ca891e5ef.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=zh_CN",
+        "sha256": "d3308e8be7bcc6f59998a7b7bb117d78488dd264d643d1d1e8666ae8fdecbe67",
+        "bytes": 614,
+        "observed_at": "2026-10-17T17:39:38.084179+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127153-en_US.json",
+      "response_sha256": "58d6f74a6969cd3cddc696541cf5a8e3ea97c2dd650a30ddb0ff08d903afff1a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=en_US",
+      "face": {
+        "id": 127153,
+        "collectible": 0,
+        "slug": "127153-grimy-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 0,
+        "name": "Grimy Coin",
+        "text": "Gain 1 Mana Crystal this turn only. Deal 2 damage to a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a43cf0c09fd60f8d51b649e442372a91915a8ccee4d97b2ea98c580096e5f71d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=en_US",
+        "sha256": "58d6f74a6969cd3cddc696541cf5a8e3ea97c2dd650a30ddb0ff08d903afff1a",
+        "bytes": 592,
+        "observed_at": "2026-10-17T17:39:38.105250+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "GAME_005": {
+      "cost": 0
+    },
+    "JAIL_504t2": {
+      "cost": 0
+    }
+  },
+  "coin_family_records": [
+    {
+      "record": {
+        "id": "AT_COIN",
+        "dbf_id": 97908,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 15,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "e27317389328fa0d7861d817f246593e3c67c46f6a1eca1e8bda61c347fa3c3c"
+    },
+    {
+      "record": {
+        "id": "AV_COIN1",
+        "dbf_id": 80547,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1626,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "a2bd3e8d1b87da198cf74605138385094e8c8f66fd125d2e4c65f4e2c7b74812"
+    },
+    {
+      "record": {
+        "id": "AV_COIN2",
+        "dbf_id": 80549,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1626,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "1c5c5321c259626c50525faacddb0fdb537a8c27c6af5d8a16d63b1d8b5f45ae"
+    },
+    {
+      "record": {
+        "id": "BAR_COIN1",
+        "dbf_id": 66957,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabe Gonzalez"
+          }
+        ]
+      },
+      "record_sha256": "22c2949d4beb86716ac31e0f8cb1faba622eeab8fa41329d75842764ebc53c2c"
+    },
+    {
+      "record": {
+        "id": "BAR_COIN2",
+        "dbf_id": 66958,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "b2e86ca71ca04c8153b891b8a3037f5b276890cce9cab23c80b9e18d2195e17b"
+    },
+    {
+      "record": {
+        "id": "BAR_COIN3",
+        "dbf_id": 66959,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "David Kang"
+          }
+        ]
+      },
+      "record_sha256": "bb1a9d26bc61a8dc1f260cb853c2ae43769db3d943d714128a3f03c095816cbd"
+    },
+    {
+      "record": {
+        "id": "BE_COIN1",
+        "dbf_id": 134812,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "f25143fbc714f48d5186384fe64cd63a54dca1ba3d3161ac08524f597cfe1810"
+    },
+    {
+      "record": {
+        "id": "BE_COIN2",
+        "dbf_id": 134813,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0d49556a970d5b9fa10866eef6a96af7356a08d0321dc212c560d5431eb78a02"
+    },
+    {
+      "record": {
+        "id": "BE_COIN3",
+        "dbf_id": 135085,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "676bf4607e2d9ebd0859eed2754f7688b84eebc98a98ae8709859f84b55eb0b2"
+    },
+    {
+      "record": {
+        "id": "BT_COIN",
+        "dbf_id": 73369,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Yewon Park"
+          }
+        ]
+      },
+      "record_sha256": "5689abecf7924c09862b592c65806dcad53fb36f257a17ef0baa72cf6061f152"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN1",
+        "dbf_id": 128000,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "19faadce4811cb7f4253c8d49cfa9ec05bfe360cb175c7fedc414f933ea24e54"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN2",
+        "dbf_id": 128002,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "3057dd9ef320f03147bdf2d7da5c50b30e9ce523668a27deae1ef4a12bb01a95"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN3",
+        "dbf_id": 130979,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b5dc6b25f3f4b8b4d76cb7e49e6ddfcb0922b1602f6299002d589486ede023d0"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN4",
+        "dbf_id": 129483,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "9d22ce1534f8e532513ea2d8c0755d33ee31b90f98365a6d9618958edff5f86b"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN5",
+        "dbf_id": 130518,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "ce48ec116278cf9dff9648c71cafcf6adf62bdd2df13b72f6c3a212aaa4d2a73"
+    },
+    {
+      "record": {
+        "id": "CATA_COIN6",
+        "dbf_id": 130740,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "d47bd15c362aa468d79f7f170da59bc3c38f92c372a236e73cc5a1ba53315f07"
+    },
+    {
+      "record": {
+        "id": "DAL_COIN",
+        "dbf_id": 73372,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "SARIYA"
+          }
+        ]
+      },
+      "record_sha256": "766e10e8205de9ae69e5ea61a6fc5f633274aca67e926eb0aac429704cda406c"
+    },
+    {
+      "record": {
+        "id": "DFT_ALEX_COIN1",
+        "dbf_id": 126504,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Thunder Fire Studio"
+          }
+        ]
+      },
+      "record_sha256": "f29f89cf39c75767c562caf0a2e079182fd827fb1ca76281e8e9fbc4959027a6"
+    },
+    {
+      "record": {
+        "id": "DINO_COIN1",
+        "dbf_id": 123590,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "a2b956f11bd59d88035f4b025952215aeff875123c7a1cd20fad71ea4356a863"
+    },
+    {
+      "record": {
+        "id": "DINO_COIN2",
+        "dbf_id": 123591,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "bf19c5d4b620b838aa93a8261df703488414bec1e5f0c57998b2c86b007e2a6d"
+    },
+    {
+      "record": {
+        "id": "DMF_COIN1",
+        "dbf_id": 64827,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "e8c303fa85b8bf37d20bf0bdcfccb23a09a6590d78fef73d165223a8ce5bcec9"
+    },
+    {
+      "record": {
+        "id": "DMF_COIN2",
+        "dbf_id": 64828,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tiffany Chiu"
+          }
+        ]
+      },
+      "record_sha256": "6124ba63f92d900439eb673717ddcf499d22a678485070a98b9f63c4ea77fd81"
+    },
+    {
+      "record": {
+        "id": "DRG_COIN",
+        "dbf_id": 73370,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1347,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Braddock"
+          }
+        ]
+      },
+      "record_sha256": "0b77452188ddea83abc3ecf56fe070ea5d02c4d438fe75348c5ab53cd098af63"
+    },
+    {
+      "record": {
+        "id": "EDR_COIN1",
+        "dbf_id": 118814,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "9df42f14988262da73b44b1ac2ffed903fc587f4105ed3fa041fecc415d4d4d8"
+    },
+    {
+      "record": {
+        "id": "EDR_COIN2",
+        "dbf_id": 118815,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "e2de4beac364a6e042745b40d05eca9623f41a7171efa62d465e4518a2f0c793"
+    },
+    {
+      "record": {
+        "id": "ETC_COIN1",
+        "dbf_id": 102103,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1809,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "a466e01b3bd772a40db5ebdb19f1af68fb0db24c6eddeee25e791c41fed3875e"
+    },
+    {
+      "record": {
+        "id": "ETC_COIN2",
+        "dbf_id": 102104,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1809,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "86f6cd19b23484b97853fbe5ac675a48dc44646e585647e839dd2fa6b12e05c0"
+    },
+    {
+      "record": {
+        "id": "FP1_COIN",
+        "dbf_id": 97906,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 12,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "d5aa6f17439b4538bdd71e740517bfd988a064b8b0a2f8efa164a284bafbf51f"
+    },
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8"
+    },
+    {
+      "record": {
+        "id": "GDB_COIN1",
+        "dbf_id": 114074,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "7d47e95f1c39bf8ff4634cf3286e757be5d5d85f68442cbcb2de2d30f96e1f28"
+    },
+    {
+      "record": {
+        "id": "GDB_COIN2",
+        "dbf_id": 114075,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "14eb161f61cd3009c93116f7ec262ac6e83ef1807c6cfa654e9de41d53fe58e8"
+    },
+    {
+      "record": {
+        "id": "GVG_COIN",
+        "dbf_id": 97907,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b45456b1cfa200eaa3247722e681b12348f7ff1020dec2710a686bb526f72515"
+    },
+    {
+      "record": {
+        "id": "JAIL_504t",
+        "dbf_id": 127152,
+        "name": "玉莲幸运币",
+        "name_en": "Jade Coin",
+        "text": "在本回合中，获得一个法力水晶。召唤一个{0}的<b>青玉魔像</b>。@在本回合中，获得一个法力水晶。召唤一个<b>青玉魔像</b>。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Summon a{1} {0} <b>Jade Golem</b>.@Gain 1 Mana Crystal this turn only. Summon a <b>Jade Golem</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cc68b154cb60375019f76676875ed9f66a95b66e67c44919cfd6730d8b6c3af9"
+    },
+    {
+      "record": {
+        "id": "JAIL_504t2",
+        "dbf_id": 127153,
+        "name": "污手幸运币",
+        "name_en": "Grimy Coin",
+        "text": "在本回合中，获得一个法力水晶。随机对一个敌方随从造成$2点伤害。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Deal $2 damage to a random enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "53a3ef5191b55b05386e78edebae246758c56bb7a6c5c1611f9e0cc5687b8634"
+    },
+    {
+      "record": {
+        "id": "JAIL_504t3",
+        "dbf_id": 127154,
+        "name": "暗金幸运币",
+        "name_en": "Kabal Coin",
+        "text": "在本回合中，获得一个法力水晶。随机获取一张法力值消耗为（1）的卡扎库斯药水。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Get a random 1-Cost Kazakus Potion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "5dcc7ae28c8df5487e1be7b887a01dd0e8064b7628cf7ca31b3a0021bc72126c"
+    },
+    {
+      "record": {
+        "id": "JAIL_COIN1",
+        "dbf_id": 130273,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "9cdb27ee9cc6ef8b207a332311cc8a637b75b0deaaf2ff53381c7255a7ccb80f"
+    },
+    {
+      "record": {
+        "id": "JAIL_COIN2",
+        "dbf_id": 130274,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          }
+        ]
+      },
+      "record_sha256": "3cd533f93641e199157418e49bb9e4058d3cefe643659d3e5bea0d1d0970c693"
+    },
+    {
+      "record": {
+        "id": "JAIL_COIN3",
+        "dbf_id": 132539,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "7d565151ec0a4d80edc3ba5c5b2877898670f7461a5430fe4f109a969d746bd8"
+    },
+    {
+      "record": {
+        "id": "JAIL_COIN5",
+        "dbf_id": 135106,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "778c155de3ffa932bc433ab9c70d2301a81db7597d7b0abd86a7da5b452944b2"
+    },
+    {
+      "record": {
+        "id": "JAIL_EVENT_COIN",
+        "dbf_id": 130275,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "d5b4b95329e53dcdafd452fec60c4a72953cff47b4fb60be140a6d7e8fe348a9"
+    },
+    {
+      "record": {
+        "id": "LOE_COIN",
+        "dbf_id": 97909,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 20,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "David Kang"
+          }
+        ]
+      },
+      "record_sha256": "9c6108fd656ffbb17eef4e15c41a317a362b19ba7ecb37f18bc3e0f737e8d3c3"
+    },
+    {
+      "record": {
+        "id": "MONK_COIN",
+        "dbf_id": 134862,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2ceccae3b8b2cf879fd45519c386107e3f84bd5ef395327417bd0ecef36fd4a5"
+    },
+    {
+      "record": {
+        "id": "MUDAN_COIN1",
+        "dbf_id": 117582,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dez Bencosme"
+          }
+        ]
+      },
+      "record_sha256": "0038a5b9839098bd794e0c54231787dcbd339784e00f6fefa740a561623ee014"
+    },
+    {
+      "record": {
+        "id": "REV_COIN1",
+        "dbf_id": 95003,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "881cd65e5cc58cf1e86670f37855db674dfe1ea44ac9574e531535c36f10188d"
+    },
+    {
+      "record": {
+        "id": "REV_COIN2",
+        "dbf_id": 95004,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "7902b8654124798f1f9c3cfa2176d5afaba4d2fb3e540ab9ebf47b82e890a525"
+    },
+    {
+      "record": {
+        "id": "RLK_COIN1",
+        "dbf_id": 97904,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "399e8f4bf5d90b03c512d4a2df593224b566d9c4805f89adf90c3aa8c1cc8b51"
+    },
+    {
+      "record": {
+        "id": "RLK_COIN2",
+        "dbf_id": 97905,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "94743872dc9470822d5dc81e39e8d1d231d9ae3d17dda776e8598d9d312fb68f"
+    },
+    {
+      "record": {
+        "id": "SW_COIN1",
+        "dbf_id": 73367,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Yewon Park"
+          }
+        ]
+      },
+      "record_sha256": "3edbd8e32e7bc8b810cdce3036c84d0c4f906b4cbbf2da37e26eb55d82652b45"
+    },
+    {
+      "record": {
+        "id": "SW_COIN2",
+        "dbf_id": 73368,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "David Kang"
+          }
+        ]
+      },
+      "record_sha256": "5d8489e1bdec541693162b454a4fbae78ed4230cc5ab5894b19a29abead5170d"
+    },
+    {
+      "record": {
+        "id": "TIME_COIN1",
+        "dbf_id": 121673,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "8459897134377956aea28931ee8942fd7f80a5e913b0030b228c8b6ab6549e90"
+    },
+    {
+      "record": {
+        "id": "TIME_COIN2",
+        "dbf_id": 121674,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "bcbc8f7f9d09ab3079b7e6af2cd6b0690586dc83426d7d7307c86a8c9d7bf9c2"
+    },
+    {
+      "record": {
+        "id": "TIME_COIN3",
+        "dbf_id": 123319,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5b7a3a869b8c66850e78d96eedf8b8e37e0c59d521fb715d95d3d776f8ef57f4"
+    },
+    {
+      "record": {
+        "id": "TIME_COIN4",
+        "dbf_id": 123650,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Thunder Fire Studio"
+          }
+        ]
+      },
+      "record_sha256": "f0286d04240e9d2c28791a68acd6230c37a8329a1f7138f6cc9813a3d86289ea"
+    },
+    {
+      "record": {
+        "id": "TIME_EVENT_COIN",
+        "dbf_id": 121677,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f1fcd71ffcbe283d791bc299622946f36c94a7e48cefe5bb0cce90f08c44ff6c"
+    },
+    {
+      "record": {
+        "id": "TLC_COIN1",
+        "dbf_id": 122529,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "a28c164dcedf0d947944cd097d4afaaddf9a446d172879412750bf1fdb2e1062"
+    },
+    {
+      "record": {
+        "id": "TLC_COIN2",
+        "dbf_id": 122530,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "ce5b2ea5ed755c81cefaf3eee0234a2e9fe2a0eb7e058139e44b0a7c8c9791e3"
+    },
+    {
+      "record": {
+        "id": "TOY_COIN1",
+        "dbf_id": 111744,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "9a26137d9d29098b22df41e20cb97d190e224c4e152b0333d1f8d850a1fd286b"
+    },
+    {
+      "record": {
+        "id": "TOY_COIN2",
+        "dbf_id": 111745,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "ec99de73d95c2f63d27dd07f060e5fa871a946d55b100a4a9905ded5f8938b47"
+    },
+    {
+      "record": {
+        "id": "TOY_COIN3",
+        "dbf_id": 111604,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "0461ff43cace4618e6c6b6f5a328c8ff3fd03b3d79fe137f3f07f760522e6314"
+    },
+    {
+      "record": {
+        "id": "TSC_COIN1",
+        "dbf_id": 85100,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejiarasaes"
+          }
+        ]
+      },
+      "record_sha256": "63d3a8a081f364bc31f86e89cd36dcaff9236f93cc49b4499bafaf487a5a141f"
+    },
+    {
+      "record": {
+        "id": "TSC_COIN2",
+        "dbf_id": 85103,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejiarasaes"
+          }
+        ]
+      },
+      "record_sha256": "21b8b99529992b36c3230101b3fab5b2e2ef96e679cac341589fbb47c1ac40d9"
+    },
+    {
+      "record": {
+        "id": "TTN_COIN1",
+        "dbf_id": 102178,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1858,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "802a6f2b939a084ef6f52d1e8c2644067013c138ccedcae88862410de24e1e03"
+    },
+    {
+      "record": {
+        "id": "TTN_COIN2",
+        "dbf_id": 102179,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1858,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "8da4e41afd19c110868985726fee723fe46d198f8ce6a36cc18d549615fd13c6"
+    },
+    {
+      "record": {
+        "id": "ULD_COIN",
+        "dbf_id": 73371,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1158,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabe Gonzalez"
+          }
+        ]
+      },
+      "record_sha256": "fa975b80ab3aa928c231d4ada9f4dc39ec9a585a92d6c2452c9adf9f5d562d99"
+    },
+    {
+      "record": {
+        "id": "VAC_COIN1",
+        "dbf_id": 114503,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "f14bb06917fd403c326e205f3e45721aa835e85d6cea482b8e1c18ca3d5425f4"
+    },
+    {
+      "record": {
+        "id": "VAC_COIN2",
+        "dbf_id": 114504,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "a5f83f342ff94f76937ed95d018381e4e729aa822dc3bab04cabf2af30c81e57"
+    },
+    {
+      "record": {
+        "id": "WW_COIN1",
+        "dbf_id": 104872,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "42732a0dc6d45e2cd5b3904e077c61317b78f6ed1ddfe91db786836acde9fc4a"
+    },
+    {
+      "record": {
+        "id": "WW_COIN2",
+        "dbf_id": 104873,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "6d5ee963dfa606e4880685053034aff542a70b51adddcb4307edaea50c31637f"
+    }
+  ],
+  "coin_nonhand_evidence": [
+    {
+      "record": {
+        "id": "GAME_005e",
+        "dbf_id": 1747,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "63aa14803d9809714beedad265ae4f38c5b20c55a630513b41cca38020b884f7"
+    }
+  ],
+  "coin_spell_ids": [
+    "AT_COIN",
+    "AV_COIN1",
+    "AV_COIN2",
+    "BAR_COIN1",
+    "BAR_COIN2",
+    "BAR_COIN3",
+    "BE_COIN1",
+    "BE_COIN2",
+    "BE_COIN3",
+    "BT_COIN",
+    "CATA_COIN1",
+    "CATA_COIN2",
+    "CATA_COIN3",
+    "CATA_COIN4",
+    "CATA_COIN5",
+    "CATA_COIN6",
+    "DAL_COIN",
+    "DFT_ALEX_COIN1",
+    "DINO_COIN1",
+    "DINO_COIN2",
+    "DMF_COIN1",
+    "DMF_COIN2",
+    "DRG_COIN",
+    "EDR_COIN1",
+    "EDR_COIN2",
+    "ETC_COIN1",
+    "ETC_COIN2",
+    "FP1_COIN",
+    "GAME_005",
+    "GDB_COIN1",
+    "GDB_COIN2",
+    "GVG_COIN",
+    "JAIL_504t",
+    "JAIL_504t2",
+    "JAIL_504t3",
+    "JAIL_COIN1",
+    "JAIL_COIN2",
+    "JAIL_COIN3",
+    "JAIL_COIN5",
+    "JAIL_EVENT_COIN",
+    "LOE_COIN",
+    "MONK_COIN",
+    "MUDAN_COIN1",
+    "REV_COIN1",
+    "REV_COIN2",
+    "RLK_COIN1",
+    "RLK_COIN2",
+    "SW_COIN1",
+    "SW_COIN2",
+    "TIME_COIN1",
+    "TIME_COIN2",
+    "TIME_COIN3",
+    "TIME_COIN4",
+    "TIME_EVENT_COIN",
+    "TLC_COIN1",
+    "TLC_COIN2",
+    "TOY_COIN1",
+    "TOY_COIN2",
+    "TOY_COIN3",
+    "TSC_COIN1",
+    "TSC_COIN2",
+    "TTN_COIN1",
+    "TTN_COIN2",
+    "ULD_COIN",
+    "VAC_COIN1",
+    "VAC_COIN2",
+    "WW_COIN1",
+    "WW_COIN2"
+  ],
+  "policies": {
+    "classification": "COIN_CARD=1 physical SPELL identities from the complete fixed source, excluding one retained ENCHANTMENT row. These are source family declarations, not new executable definitions.",
+    "price": "Count actual current friendly HAND Coin faces, including both existing gameplay variants; no card-name, gain-mana, all-hand or ordinary-Coin-only substitute.",
+    "window": "Existing intrinsic before-local stage, actual physical card-face inventories and unchanged ordinary weapon payment.",
+    "boundary": "Complete original hand references, kind checks and original face/residence in frozen facts; retained prices use old facts, new quotes see current hands. Exact CN identity/copy/normalization and layer details remain M6."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

@@ -249,7 +249,7 @@ def validate_intrinsic_stage_fact(registry, fact):
     from .board_minion_costs import validate_fact as validate_board_fact
     validate_board_fact(registry, definition, fact.board_minions)
     from .hand_count_costs import validate_fact as validate_hand_fact
-    validate_hand_fact(definition, fact.hand_cards)
+    validate_hand_fact(definition, fact.hand_cards, registry)
     from .hero_missing_health_costs import validate_fact as validate_hero_fact
     validate_hero_fact(registry, definition, fact.hero_missing_health)
     from .player_spell_count_costs import validate_fact as validate_personal_fact
@@ -423,6 +423,10 @@ def validate_intrinsic_history_prefix(fact, state, registry):
             any(eid not in state.entities for ids in hand.hands for eid in ids) or
             (hand.subject_id is not None and hand.subject_id not in state.entities)):
         raise ValueError('Hand count lost its original physical allocation prefix')
+    from .model import CoinHandCountCostFact
+    if type(hand) is CoinHandCountCostFact and any(ref.zone_epoch > state.entities[ref.entity_id].zone_epoch
+            for rows in hand.faces for ref in rows):
+        raise ValueError('Coin price contains a future original hand residence')
     hero = fact.hero_missing_health
     if hero is not None and (hero.next_entity_id > state.next_entity_id or hero.hero_id not in state.entities):
         raise ValueError('Hero price lost its original physical allocation prefix')

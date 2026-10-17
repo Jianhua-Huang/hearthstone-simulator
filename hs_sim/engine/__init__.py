@@ -473,6 +473,8 @@ from .model import BoardMinionCostSpec, BoardMinionCostRow, BoardMinionCostFact
 __all__ += ['BoardMinionCostSpec', 'BoardMinionCostRow', 'BoardMinionCostFact']
 from .model import HandCountCostSpec, HandCountCostFact
 __all__ += ['HandCountCostSpec', 'HandCountCostFact']
+from .model import CoinHandCountCostSpec, CoinHandCountCostFact
+__all__ += ['CoinHandCountCostSpec', 'CoinHandCountCostFact']
 from .model import HeroMissingHealthCostSpec, HeroMissingHealthCostFact
 __all__ += ['HeroMissingHealthCostSpec', 'HeroMissingHealthCostFact']
 from .model import PlayerSpellCountCostSpec, PlayerSpellCountCostRow, PlayerSpellCountCostFact
