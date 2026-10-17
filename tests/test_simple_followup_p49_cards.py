@@ -236,11 +236,12 @@ class SimpleFollowupP49Tests(unittest.TestCase):
 
 
 
-    def test_real_split_spell_power_immunity_gap_probe_preserves_whole_bone_flurry_missing(self):
+    def test_historical_ordinary_split_keeps_spell_bonus_and_immune_card_is_separate(self):
         g=self.game((TEST+'split_probe',),board=('CORE_EX1_012',),pool=False,context=None);self.play(g,TEST+'split_probe')
         self.assertEqual(g.state.entities[g.state.players[2].hero_id].health,26)
         root,=g.state.split_damage_history;self.assertEqual((root.quote.spell_bonus,root.quote.budget),(1,4))
-        self.assertNotIn('JAIL_445',g.registry.cards)
+        self.assertIn('JAIL_445',SKIPPED)  # Original P49 deferral remains historical.
+        self.assertIsNotNone(g.registry.card('JAIL_445').on_play)
         raw=next(x['record']for x in load_batch()['skipped']if x['record']['id']=='JAIL_445');self.assertEqual(raw['tags']['349'],1)
 
     def test_real_fill_seven_probe_does_not_fill_actual_eight_capacity(self):

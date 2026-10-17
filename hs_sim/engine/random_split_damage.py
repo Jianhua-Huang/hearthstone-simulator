@@ -1,7 +1,7 @@
 """Whole SPELL budget, dynamic unit packets, and real interpreter tails.
 
 The numeric profile is explicit local policy. CN multiplier/conversion timing
-still needs calibration; no real-card adapter is supplied here.
+still needs calibration. Native card recipes reuse these same interpreter tails.
 """
 from copy import deepcopy
 from dataclasses import asdict, dataclass, fields, replace
@@ -36,18 +36,22 @@ class RandomSplitDamage(Effect):
     on_complete: str | None = None
     profile: str = PROFILE
     kind: DamageKind = DamageKind.SPELL
+    spell_bonus_multiplier: int = 1
     def __post_init__(self):
         _player(self.player_id)
         if type(self.kind)is not DamageKind:raise ValueError('Split damage requires an exact damage kind')
         _integer(self.source_id,'source_id',1)
         _integer(self.amount,'whole split base budget',0)
+        if type(self.spell_bonus_multiplier)is not int or self.spell_bonus_multiplier not in(0,1):
+            raise ValueError('Split Spell Damage policy supports only ordinary or immune budgets')
         if type(self.scope) is not SplitDamageScope: raise ValueError('Split scope requires exact typed declaration')
         self.scope.__post_init__()
         if self.profile == PROFILE:
             _integer(self.cast_id,'cast_id',1)
             if self.kind != DamageKind.SPELL: raise ValueError('SPELL split requires its real cast and damage kind')
         elif self.profile == NON_SPELL_PROFILE:
-            if self.cast_id is not None or type(self.kind)is not DamageKind or self.kind not in (DamageKind.MINION_ABILITY,DamageKind.EFFECT):
+            if (self.cast_id is not None or type(self.kind)is not DamageKind or self.kind not in (DamageKind.MINION_ABILITY,DamageKind.EFFECT)
+                    or self.spell_bonus_multiplier!=1):
                 raise ValueError('Non-spell split requires its explicit non-cast minion/location profile')
         else: raise ValueError('Unsupported whole split profile')
         for name in ('on_result','on_complete'):
@@ -188,6 +192,8 @@ class SplitDamageRoot:
         if type(self.request) is not RandomSplitDamage or type(self.quote) is not SplitBudgetQuote:
             raise ValueError('Split root requires full original request and budget quote')
         self.request.__post_init__(); self.quote.__post_init__()
+        if self.request.spell_bonus_multiplier==0 and(self.quote.contributions or self.quote.spell_bonus):
+            raise ValueError('Immune split budget cannot include Spell Damage contributions')
         spell = self.request.profile == PROFILE
         if (self.quote.budget != self.request.amount+self.quote.spell_bonus or
                 self.request.source_id != self.quote.source.entity_id or
@@ -290,8 +296,9 @@ def quote_budget(state,registry,request,root_action,event_cursor):
     if source is None or cast!=active_cast(state,request.source_id,request.player_id):
         raise ResolutionError('Split budget needs its real current active CAST')
     definition=registry.card(source.card_id)
-    contributions=tuple(SplitBonusContribution(SourceAllocationFact.capture(state,e) if e is not None else None,a,p,amount)
+    contributions=(tuple(SplitBonusContribution(SourceAllocationFact.capture(state,e) if e is not None else None,a,p,amount)
         for e,a,p,amount in spell_damage_sources(state,request.player_id,registry,definition.spell_school,cast_id=cast.id))
+        if request.spell_bonus_multiplier else ())
     bonus=sum(c.amount for c in contributions)
     return SplitBudgetQuote(cast,SourceAllocationFact.capture(state,source),
         tuple(sorted(source.keywords,key=lambda k:k.value)),definition.spell_school,tuple(contributions),

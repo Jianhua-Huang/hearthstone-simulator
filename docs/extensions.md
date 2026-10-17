@@ -1,4 +1,5 @@
 # 机制扩展指南
+RandomSplitDamage可显式声明spell_bonus_multiplier=0，仅忽略外层法强预算；法术归因与单位管线保持，见[契约](m3-immune-spell-split.md)。
 有限触发授予可通过GrantLimitedTrigger.recipient保存原随从引用；成功后仍沿普通附件生命周期，原施法玩家的结束条件可独立于当前控制者，见[契约](m3-original-finite-grants.md)。
 原驻留强制攻击可直接使用既有BoardPresenceReference；窗口与合法改向共同保护原防守方，见[契约](m3-original-attack-defender.md)。
 真实已使用任务条件复用原提交记录和本人quests_played_total输入；原目标、间接执行和恢复边界见[契约](m3-played-quest-targets.md)。
