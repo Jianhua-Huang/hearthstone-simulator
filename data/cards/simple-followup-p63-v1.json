@@ -1,0 +1,2851 @@
+{
+  "schema": 1,
+  "batch": "P63",
+  "display_normalizations": {
+    "EDR_460": {
+      "@": ""
+    },
+    "EDR_461": {
+      "@": ""
+    },
+    "FIR_918": {
+      "@": ""
+    },
+    "JAIL_801": {
+      "@": ""
+    },
+    "JAIL_805": {
+      "@": ""
+    },
+    "FIR_927": {
+      "~GAMEPLAY_ASPROXY_FIR_927": ""
+    }
+  },
+  "numeric_normalizations": {},
+  "existing_dependency_definition_pins": {
+    "EDR_460t": "bb417f4fb2ac6977d4b7854b76151bb0ce6544be39604a3f6254cbfb79813561",
+    "EDR_461t": "abfd58ede7594d5a4a658e7112b5546a16177dcd9033631e01df1a4308c3836b",
+    "JAIL_801t": "71ca2152968f392270ddd1244e6831d4f2730edf58644da9458ed4139baf3ca4",
+    "JAIL_805t": "e0a20d3d51a20eef7e82edba29aafb1cea06e361b28be2da69e0d5ae2342e875",
+    "CS2_101t": "c465bf114ee5f2b6e8fd3581621e11cc9540af2f226a291ca2fca7e02007264b"
+  },
+  "silver_hand_recipient_ids": [
+    "CS2_101t",
+    "CS2_101t2",
+    "CS2_101t3",
+    "CS2_101t4",
+    "CS2_101t5",
+    "CS2_101t6",
+    "CS2_101t7",
+    "CS2_101t8",
+    "VAN_CS2_101t"
+  ],
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_460",
+        "dbf_id": 114299,
+        "name": "新月祈愿",
+        "name_en": "Wish of the New Moon",
+        "text": "对一个随从\n造成$6点伤害。\n<i>（施放@个法术\n以获得<b>吸血</b>。）</i>",
+        "text_en": "Deal $6 damage to a minion. <i>(Cast @ |4(spell, spells) to gain <b>Lifesteal</b>.)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6bfadc613ad1135577fa0f92cddf78be78a5c3a9af574a37c67bf3eb7c802e3a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_460",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "EDR_461",
+        "dbf_id": 114300,
+        "name": "新月仪式",
+        "name_en": "Ritual of the New Moon",
+        "text": "随机召唤两个法力值消耗为（3）的随从。<i>（施放@个法术以改为召唤法力值消耗为6的随从。）</i>",
+        "text_en": "[x]Summon two\nrandom 3-Cost minions.\n<i>(Cast @ |4(spell, spells) to summon\n6-Cost minions instead.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "6eec4d9420b997b4399c918412ee60a1b802c5338295d3e3f8eb11228f894a32",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_461",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "FIR_918",
+        "dbf_id": 115642,
+        "name": "新月辉光",
+        "name_en": "Light of the New Moon",
+        "text": "使一个随从获得+3/+3。<i>（施放@个法术，即可在使用时将本牌移回你的手牌）</i>",
+        "text_en": "[x]Give a minion +3/+3.\n<i>(Cast @ |4(spell, spells) to return this\nto your hand when played.)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "077656555e690b5b7393985231d7505278233957e069f4bc7af95250fa143ddf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "FIR_918",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "FIR_918t",
+        "dbf_id": 115643,
+        "name": "满月辉光",
+        "name_en": "Light of the Full Moon",
+        "text": "使一个随从获得+3/+3。将一张新月辉光置入你的手牌。",
+        "text_en": "Give a minion +3/+3. Add a Light of the New Moon to your hand.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "db32f74e31010ce124981578a9c1835620123446da14955efe627a1c51bae7ba",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "FIR_918t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "JAIL_801",
+        "dbf_id": 126407,
+        "name": "熔炼黄金",
+        "name_en": "Molten Gold",
+        "text": "造成$4点伤害。<i>（施放@个法术以变为随从牌！）</i>",
+        "text_en": "Deal $4 damage.\n<i>(Cast @ |4(spell, spells) to turn into a minion!)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126408,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126408,
+          "SPELL_SCHOOL": 2,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "ec1874fc95bb55ec9391dbb66e582bc5c3aaad2167d6cd6128c7e744d855cff6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_801",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "JAIL_805",
+        "dbf_id": 126413,
+        "name": "风暴怒火",
+        "name_en": "Stormfury",
+        "text": "<b>吸血</b>。对所有敌方随从造成$2点伤害。<i>（施放@个法术以变为随从牌！）</i>",
+        "text_en": "[x]<b>Lifesteal</b>. Deal $2 damage\nto all enemy minions.\n<i>(Cast @ |4(spell, spells) to turn\ninto a minion!)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126414,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126414,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "86987fb240c4f159ed0868fb3b403ec0311568d276f0d3072706f103977d15ef",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_805",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TLC_109",
+        "dbf_id": 117889,
+        "name": "遗宝挖掘工",
+        "name_en": "Relic Miner",
+        "text": "<b>战吼：</b>摧毁你牌库顶的牌，<b>发现</b>一张稀有度与其相同的牌。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy the top\ncard of your deck. <b>Discover</b> a\ncard of the same Rarity.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "d7172be65c214a7051700ddcfa156bd7896be50339ccb334e9769209f37857a9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_109",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_036",
+        "dbf_id": 120534,
+        "name": "王室线人",
+        "name_en": "Royal Informant",
+        "text": "<b>战吼：</b>检视你对手最右边的手牌。获取该牌的一张复制，或者使其法力值消耗增加（2）点。",
+        "text_en": "[x]<b>Battlecry:</b> Look at the right-\nmost card in your opponent's\nhand. Either get a copy of it or\nincrease its Cost by (2).",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "d7f05f2db2ef7168d8c0ff46ad009efb6afa6dacf0c57fe7a665b0dd7cc279cf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_036",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_804",
+        "dbf_id": 123624,
+        "name": "救赎者阿拉托尔",
+        "name_en": "Arator the Redeemer",
+        "text": "<b>战吼：</b>使所有友方白银之手新兵的属性值翻倍并使其获得<b>嘲讽</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Double the\nstats of all friendly\nSilver Hand Recruits\nand give them <b>Taunt</b>.",
+        "cost": 5,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b575a797bbad6d98b0819bc0dd094719b317bf02ee9fac36ef253e11bf552fa8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "MEND_804",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "FIR_927",
+        "dbf_id": 115656,
+        "name": "烬鳞雏龙",
+        "name_en": "Emberscarred Whelp",
+        "text": "<b>战吼：</b><b>发现</b>一张法力值消耗为（5）的牌。&仅在下回合，获得1个法力水晶。~GAMEPLAY_ASPROXY_FIR_927",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a\n5-Cost card.& Gain 1 Mana\nCrystal next turn only.~GAMEPLAY_ASPROXY_FIR_927",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "MINI_SET": 1,
+          "WHELP": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "dae5bdf9b51522189be5d1517c93404a1204a5a0e916821aeff176df10408f33",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "FIR_927",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": [
+          "whelp"
+        ]
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_460t",
+        "dbf_id": 114297,
+        "name": "满月祈愿",
+        "name_en": "Wish of the Full Moon",
+        "text": "<b>吸血</b>\n对一个随从造成$6点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal $6 damage\nto a minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "90360fbfc674c69ee2774f8ecf286b5c999c40a4be19f4f7f74eb194eeda2cdc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_460t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "EDR_461t",
+        "dbf_id": 114493,
+        "name": "满月仪式",
+        "name_en": "Ritual of the Full Moon",
+        "text": "随机召唤两个法力值消耗为（6）的随从。",
+        "text_en": "Summon two random 6-Cost minions.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "70c0f48b05fa84eacf30404b5bc11ece29bf8170a5514fed6e54830bf0c00ceb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_461t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "JAIL_801t",
+        "dbf_id": 126408,
+        "name": "熔炼黄金元素",
+        "name_en": "Molten Gold Elemental",
+        "text": "<b>战吼：</b>造成4点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 4 damage.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "277a519a418cd98c0f2b7e3e3a280d98fcdff0efd82c04320561bdecae28fd00",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_801t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_805t",
+        "dbf_id": 126414,
+        "name": "风暴怒火元素",
+        "name_en": "Stormfury Elemental",
+        "text": "<b>吸血</b>\n<b>战吼：</b>对所有敌方随从造成2点伤害。",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Battlecry:</b> Deal 2 damage\nto all enemy minions.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "c3d6ea712bfdace2eb8ac2ea2a36c4926a6aaf0cd03e52de51337da61e56690f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_805t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t",
+        "dbf_id": 1652,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "d6e11cb6245a7dca1c68d31adbd57b33e9dcc2d48de091e5471736cae9df12ea",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CS2_101t2",
+        "dbf_id": 105917,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "d1d496a16849c17ff534c6ca64da96cad86df94ec640833d84e0413c79618449",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t3",
+        "dbf_id": 105918,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "19603d1b0f5a577e28e21b6cbcddf62aa1ad05af50aba4ec3b5ea115ea7df91f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t4",
+        "dbf_id": 105919,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "623beff66363ab184362a7e0656c77b3107b0657c641896b0cd4564e68cf0a92",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t5",
+        "dbf_id": 105920,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "512fc548105c788904c43499072228007cd9d1f0aca05eb2c44c07174c5a9b97",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t6",
+        "dbf_id": 105921,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "297f436d9fdcc42945f410f00dc3d089d537eb7dd89fbd78a66bf478b8f7e063",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t7",
+        "dbf_id": 105922,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "ab4c40ca8445a09e8f7ca791ce049b10f324d2915b3baa39437259ea339bf579",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t8",
+        "dbf_id": 105923,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "aeb337a86b595f619b053da80ed87154b280d4ddd74cdf225afb92738b8101bc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAN_CS2_101t",
+        "dbf_id": 71409,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "356aa08c3831d30fe663c5ce1c44d223e17abe000222d1fc4afa619422a9a017",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "VAN_CS2_101t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "EDR_460",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114299-zh_CN.json",
+      "response_sha256": "45591ce0ebbc066e82902beb6d039d31547104cf5762480633ea0c0f041583e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114299&locale=zh_CN",
+      "face": {
+        "id": 114299,
+        "collectible": 1,
+        "slug": "114299-wish-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 3,
+        "name": "新月祈愿",
+        "text": "对一个随从 造成 6点伤害。 <i>（施放 个法术 以获得<b>吸血</b>。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e1660801ab23dc57ed7d5bbc07e55c5aea241beb62d2bdc74b4ac655ff17d43.png",
+        "imageGold": "",
+        "flavorText": "对着星星祈愿，那是上个扩展包的事了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5c4b0b036b59e5a25c397ee159ec2345a60eff31f40a2db26a3917c0a3cba80.png",
+        "childIds": [
+          114297
+        ],
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114299&locale=zh_CN",
+        "sha256": "45591ce0ebbc066e82902beb6d039d31547104cf5762480633ea0c0f041583e0",
+        "bytes": 824,
+        "observed_at": "2026-10-17T11:44:51.369574+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_460",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114299-en_US.json",
+      "response_sha256": "0dab8dff31883228352d3195d989a744cd839c3e2742f7f0daed1df0330f75dc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114299&locale=en_US",
+      "face": {
+        "id": 114299,
+        "collectible": 1,
+        "slug": "114299-wish-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 3,
+        "name": "Wish of the New Moon",
+        "text": "Deal 6 damage to a minion. <i>(Cast (spell, spells) to gain <b>Lifesteal</b>.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6bf6daf55b8f632359bac70f834455c8d9980e625ee3f0c898e7565a76edeab2.png",
+        "imageGold": "",
+        "flavorText": "Because wishing upon a star was soooo last expansion.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5c4b0b036b59e5a25c397ee159ec2345a60eff31f40a2db26a3917c0a3cba80.png",
+        "childIds": [
+          114297
+        ],
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114299&locale=en_US",
+        "sha256": "0dab8dff31883228352d3195d989a744cd839c3e2742f7f0daed1df0330f75dc",
+        "bytes": 821,
+        "observed_at": "2026-10-17T11:44:51.359293+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_461",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114300-zh_CN.json",
+      "response_sha256": "44c52a1ffe312a2ef69be0ce468a95187c8c99dec11a0820f48fd10ba7d244a1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114300&locale=zh_CN",
+      "face": {
+        "id": 114300,
+        "collectible": 1,
+        "slug": "114300-ritual-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "新月仪式",
+        "text": "随机召唤两个法力值消耗为（3）的随从。<i>（施放 个法术以改为召唤法力值消耗为6的随从。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/55ffa455858075661d1458f0f4cfeb497e2d40bcd2f7b966fdd7ca1e63bb2b2a.png",
+        "imageGold": "",
+        "flavorText": "这种仪式没有任何作用。只有社交功能。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b49b1cd9d41ba0e9d2dc5d2f6e74530c38e28f3234cc386014ba5d4cbf1ed4d3.png",
+        "childIds": [
+          114493
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114300&locale=zh_CN",
+        "sha256": "44c52a1ffe312a2ef69be0ce468a95187c8c99dec11a0820f48fd10ba7d244a1",
+        "bytes": 852,
+        "observed_at": "2026-10-17T11:44:51.415619+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_461",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114300-en_US.json",
+      "response_sha256": "f8e2f3e41f6dde87b86276505a1a6364622fc6e1b5e2321f0ba55141173c03be",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114300&locale=en_US",
+      "face": {
+        "id": 114300,
+        "collectible": 1,
+        "slug": "114300-ritual-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "Ritual of the New Moon",
+        "text": "Summon two random 3-Cost minions. <i>(Cast (spell, spells) to summon 6-Cost minions instead.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7c617340ef3dc5bdc83f5dbb4ee727b632d3ada09b8ee64901ca737c4da9ee7.png",
+        "imageGold": "",
+        "flavorText": "This ritual does nothing, but they do it anyway for the social connection.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b49b1cd9d41ba0e9d2dc5d2f6e74530c38e28f3234cc386014ba5d4cbf1ed4d3.png",
+        "childIds": [
+          114493
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114300&locale=en_US",
+        "sha256": "f8e2f3e41f6dde87b86276505a1a6364622fc6e1b5e2321f0ba55141173c03be",
+        "bytes": 849,
+        "observed_at": "2026-10-17T11:44:51.716848+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_918",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115642-zh_CN.json",
+      "response_sha256": "e0ab5ca7f6c42151ae8b2cd658f8c7d9c9c0b6fa0178f463182a0c102a1622fd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115642&locale=zh_CN",
+      "face": {
+        "id": 115642,
+        "collectible": 1,
+        "slug": "115642-light-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 3,
+        "name": "新月辉光",
+        "text": "使一个随从获得+3/+3。<i>（施放 个法术，即可在使用时将本牌移回你的手牌）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9c5f2dceb2ff02bdf4a9d9b151ea6d19a7bfc91c3da2154718eacb7f6b41b79.png",
+        "imageGold": "",
+        "flavorText": "嗯，实际上这应该叫做残月。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1950d55277676ad8b5c9384e3d67497c6190ef0e59c7aca4f87586cd35ba1526.png",
+        "childIds": [
+          115643
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115642&locale=zh_CN",
+        "sha256": "e0ab5ca7f6c42151ae8b2cd658f8c7d9c9c0b6fa0178f463182a0c102a1622fd",
+        "bytes": 806,
+        "observed_at": "2026-10-17T11:44:52.246560+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_918",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115642-en_US.json",
+      "response_sha256": "ab9c4b861543a369add98d54a5194f2307828ef455e7ad11aa65ebb77476cea5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115642&locale=en_US",
+      "face": {
+        "id": 115642,
+        "collectible": 1,
+        "slug": "115642-light-of-the-new-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 3,
+        "name": "Light of the New Moon",
+        "text": "Give a minion +3/+3. <i>(Cast (spell, spells) to return this to your hand when played.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/acddb436fdd22e1379c4ed15316e3e13b60154becc6353558efd8233c2842895.png",
+        "imageGold": "",
+        "flavorText": "UM ACTUALLY THAT’S A WANING CRESCENT",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1950d55277676ad8b5c9384e3d67497c6190ef0e59c7aca4f87586cd35ba1526.png",
+        "childIds": [
+          115643
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115642&locale=en_US",
+        "sha256": "ab9c4b861543a369add98d54a5194f2307828ef455e7ad11aa65ebb77476cea5",
+        "bytes": 799,
+        "observed_at": "2026-10-17T11:44:52.136563+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_918t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115643-zh_CN.json",
+      "response_sha256": "d65482082ea5121bc6e0ab4a4384d4295de860334bf61259053160e618962a87",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115643&locale=zh_CN",
+      "face": {
+        "id": 115643,
+        "collectible": 0,
+        "slug": "115643-light-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 3,
+        "name": "满月辉光",
+        "text": "使一个随从获得+3/+3。将一张新月辉光置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb592517b29ac69ca99865185e871885eb6bd9dccf9351df64531738ef9d3801.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115643&locale=zh_CN",
+        "sha256": "d65482082ea5121bc6e0ab4a4384d4295de860334bf61259053160e618962a87",
+        "bytes": 615,
+        "observed_at": "2026-10-17T11:44:52.723489+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_918t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115643-en_US.json",
+      "response_sha256": "3adf182aaacf0be5c1438fe99c9b32313d7b70794fcfba2f8ab69fa0602d863b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115643&locale=en_US",
+      "face": {
+        "id": 115643,
+        "collectible": 0,
+        "slug": "115643-light-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 3,
+        "name": "Light of the Full Moon",
+        "text": "Give a minion +3/+3. Add a Light of the New Moon to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cc7657c71be6e9ea82c83803464c7ebece62d516fe68cf237900267c9f41db3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115643&locale=en_US",
+        "sha256": "3adf182aaacf0be5c1438fe99c9b32313d7b70794fcfba2f8ab69fa0602d863b",
+        "bytes": 616,
+        "observed_at": "2026-10-17T11:44:52.421370+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_801",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126407-zh_CN.json",
+      "response_sha256": "1cfcdedd34123834e57e52e08e235185f7462f347a0971e0355f6d0bb9cbe527",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126407&locale=zh_CN",
+      "face": {
+        "id": 126407,
+        "collectible": 1,
+        "slug": "126407-molten-gold",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 3,
+        "name": "熔炼黄金",
+        "text": "造成 4点伤害。<i>（施放 个法术以变为随从牌！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3795ab4b7f76b3ff61a31c2d031702b35a89ac1ac478092d2d40154db3788fa.png",
+        "imageGold": "",
+        "flavorText": "报酬的时候到了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07f12b06053504d0e4df55ea7b4c38c44578fad2c39c0489467a51cfba17ea5f.png",
+        "childIds": [
+          126408
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126407&locale=zh_CN",
+        "sha256": "1cfcdedd34123834e57e52e08e235185f7462f347a0971e0355f6d0bb9cbe527",
+        "bytes": 752,
+        "observed_at": "2026-10-17T05:25:00.918910+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_801",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126407-en_US.json",
+      "response_sha256": "018ffa69ef1072a66d60287cf728f6257dcdaeacb949a9512e7903bf1de027df",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126407&locale=en_US",
+      "face": {
+        "id": 126407,
+        "collectible": 1,
+        "slug": "126407-molten-gold",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 3,
+        "name": "Molten Gold",
+        "text": "Deal 4 damage. <i>(Cast (spell, spells) to turn into a minion!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3cfcada8df3c8a4dfc92fb14585f7a4ee1c2a3c269bdf63df5a1c5be47eab96d.png",
+        "imageGold": "",
+        "flavorText": "Looks like it's time for a little PAYBACK!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07f12b06053504d0e4df55ea7b4c38c44578fad2c39c0489467a51cfba17ea5f.png",
+        "childIds": [
+          126408
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126407&locale=en_US",
+        "sha256": "018ffa69ef1072a66d60287cf728f6257dcdaeacb949a9512e7903bf1de027df",
+        "bytes": 766,
+        "observed_at": "2026-10-17T05:25:00.789715+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_805",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126413-zh_CN.json",
+      "response_sha256": "ad0892dad4b1bf272b8d60cbee0f433fc1070a87c8b4b42b839800986a327fde",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126413&locale=zh_CN",
+      "face": {
+        "id": 126413,
+        "collectible": 1,
+        "slug": "126413-stormfury",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 7,
+        "name": "风暴怒火",
+        "text": "<b>吸血</b>。对所有敌方随从造成 2点伤害。<i>（施放 个法术以变为随从牌！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f339d4b9b65bd660b2307009118122fdcdd473d488a78fcc0396b5bbb9edac5f.png",
+        "imageGold": "",
+        "flavorText": "威力无穷！！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/378a78fba7fd7b252a950834dc3c761da96424b71707d41955e9120f1c19f828.png",
+        "childIds": [
+          126414
+        ],
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126413&locale=zh_CN",
+        "sha256": "ad0892dad4b1bf272b8d60cbee0f433fc1070a87c8b4b42b839800986a327fde",
+        "bytes": 797,
+        "observed_at": "2026-10-17T05:25:00.972845+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_805",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126413-en_US.json",
+      "response_sha256": "f4f3cdec8c655b006edd1a29a4d72c8b6db3979459b5fd393d32468609f52e82",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126413&locale=en_US",
+      "face": {
+        "id": 126413,
+        "collectible": 1,
+        "slug": "126413-stormfury",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 7,
+        "name": "Stormfury",
+        "text": "<b>Lifesteal</b>. Deal 2 damage to all enemy minions. <i>(Cast (spell, spells) to turn into a minion!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d53ca2d4f43c8ef6755e7ef5e44bcd86bacc26fdf19c5c4c90da9a96fcaccad.png",
+        "imageGold": "",
+        "flavorText": "UNLIMITED POWER!!!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/378a78fba7fd7b252a950834dc3c761da96424b71707d41955e9120f1c19f828.png",
+        "childIds": [
+          126414
+        ],
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126413&locale=en_US",
+        "sha256": "f4f3cdec8c655b006edd1a29a4d72c8b6db3979459b5fd393d32468609f52e82",
+        "bytes": 793,
+        "observed_at": "2026-10-17T05:25:01.507631+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_109",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117889-zh_CN.json",
+      "response_sha256": "10cadcaa5df409811f18ae19fb63d5b2d2d1edcb36e12d6d1b9a45d87cd8a42a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117889&locale=zh_CN",
+      "face": {
+        "id": 117889,
+        "collectible": 1,
+        "slug": "117889-relic-miner",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "遗宝挖掘工",
+        "text": "<b>战吼：</b>摧毁你牌库顶的牌，<b>发现</b>一张稀有度与其相同的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e06561a2fe269589b5eafbc5d79b0c6ceaf5a186ac89f62408b4b2d71b2367c.png",
+        "imageGold": "",
+        "flavorText": "“我镐到了黄金！不——！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/299a66ad8cf9fd4943494c38df67804ca0c2121967bc8aec4993480451745107.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117889&locale=zh_CN",
+        "sha256": "10cadcaa5df409811f18ae19fb63d5b2d2d1edcb36e12d6d1b9a45d87cd8a42a",
+        "bytes": 793,
+        "observed_at": "2026-10-17T12:12:14.236617+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_109",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117889-en_US.json",
+      "response_sha256": "27750da6fb474c98c11010860717d3684cff468fb16ce4c46ee9a9cef8dcdadf",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117889&locale=en_US",
+      "face": {
+        "id": 117889,
+        "collectible": 1,
+        "slug": "117889-relic-miner",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Relic Miner",
+        "text": "<b>Battlecry:</b> Destroy the top card of your deck. <b>Discover</b> a card of the same Rarity.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efeb5f6da9e247302877f03adb2adc892ea854aaba5eeeec50eedca8e8f18481.png",
+        "imageGold": "",
+        "flavorText": "\"I struck gold! NOOOOOOOO!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/299a66ad8cf9fd4943494c38df67804ca0c2121967bc8aec4993480451745107.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117889&locale=en_US",
+        "sha256": "27750da6fb474c98c11010860717d3684cff468fb16ce4c46ee9a9cef8dcdadf",
+        "bytes": 782,
+        "observed_at": "2026-10-17T12:12:14.322343+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_036",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120534-zh_CN.json",
+      "response_sha256": "c3ff586942439f0745a9bb41867f03510e92dd9e757e7d26c7663399ac1633e7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120534&locale=zh_CN",
+      "face": {
+        "id": 120534,
+        "collectible": 1,
+        "slug": "120534-royal-informant",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Ursula Dorada",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "王室线人",
+        "text": "<b>战吼：</b>检视你对手最右边的手牌。获取该牌的一张复制，或者使其法力值消耗增加（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ad34db7945066881c992053a34466dddb49944068844ff9ebd09508cb45b2ba.png",
+        "imageGold": "",
+        "flavorText": "“嘘，保密……那个戴着王冠的人，是国王。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/203df519fe8733a8ab7b16ffc348c89752ac0a21941110db24b7f3f5684d7c1c.png",
+        "childIds": [
+          122962
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120534&locale=zh_CN",
+        "sha256": "c3ff586942439f0745a9bb41867f03510e92dd9e757e7d26c7663399ac1633e7",
+        "bytes": 869,
+        "observed_at": "2026-10-17T12:12:14.566949+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_036",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120534-en_US.json",
+      "response_sha256": "f6297745736117e4561144ed4164776cb008eff8de006b0b8601589b8982da24",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120534&locale=en_US",
+      "face": {
+        "id": 120534,
+        "collectible": 1,
+        "slug": "120534-royal-informant",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Ursula Dorada",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Royal Informant",
+        "text": "<b>Battlecry:</b> Look at the right- most card in your opponent's hand. Either get a copy of it or increase its Cost by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2849fc68701f9d0679aa6ddb081d607ad661dd1fd7738f7626c936c54b3b0472.png",
+        "imageGold": "",
+        "flavorText": "\"Psst... that person wearing the crown is the King.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/203df519fe8733a8ab7b16ffc348c89752ac0a21941110db24b7f3f5684d7c1c.png",
+        "childIds": [
+          122962
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120534&locale=en_US",
+        "sha256": "f6297745736117e4561144ed4164776cb008eff8de006b0b8601589b8982da24",
+        "bytes": 859,
+        "observed_at": "2026-10-17T12:12:14.357900+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_804",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123624-zh_CN.json",
+      "response_sha256": "d178f1f4f847cccba27949361e13f5c54ed1d8896259f6b814940079aaf5c7b3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123624&locale=zh_CN",
+      "face": {
+        "id": 123624,
+        "collectible": 1,
+        "slug": "123624-arator-the-redeemer",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "救赎者阿拉托尔",
+        "text": "<b>战吼：</b>使所有友方白银之手新兵的属性值翻倍并使其获得<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/acb32ed8b0e5f869956a5f9ef90804621245b3548de727c422759663e9114c4a.png",
+        "imageGold": "",
+        "flavorText": "多开朗的小伙子啊！肯定不会变成什么苦大仇深的阴郁少年。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4511a2ed73205c39ca9cba75dfd2d1bb64f90b86a246616f1aaecd7ea549c7e9.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123624&locale=zh_CN",
+        "sha256": "d178f1f4f847cccba27949361e13f5c54ed1d8896259f6b814940079aaf5c7b3",
+        "bytes": 869,
+        "observed_at": "2026-10-17T12:12:14.486661+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_804",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123624-en_US.json",
+      "response_sha256": "2681d102d4e7f03b49fbe333944adebaa98c48b4b61fa18a82901723b3771f3f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123624&locale=en_US",
+      "face": {
+        "id": 123624,
+        "collectible": 1,
+        "slug": "123624-arator-the-redeemer",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Arator the Redeemer",
+        "text": "<b>Battlecry:</b> Double the stats of all friendly Silver Hand Recruits and give them <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffb14513914c24e58d8881977102d684d10ad455e666200235d2362293268574.png",
+        "imageGold": "",
+        "flavorText": "What an upbeat guy! I'm sure nothing will ever change that.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4511a2ed73205c39ca9cba75dfd2d1bb64f90b86a246616f1aaecd7ea549c7e9.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123624&locale=en_US",
+        "sha256": "2681d102d4e7f03b49fbe333944adebaa98c48b4b61fa18a82901723b3771f3f",
+        "bytes": 846,
+        "observed_at": "2026-10-17T12:12:14.505400+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_927",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115656-zh_CN.json",
+      "response_sha256": "d46086d458dcec2ea9a1fb50646333ac588c2f4090e0991b3984c8796f08353c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115656&locale=zh_CN",
+      "face": {
+        "id": 115656,
+        "collectible": 1,
+        "slug": "115656-emberscarred-whelp",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "烬鳞雏龙",
+        "text": "<b>战吼：</b><b>发现</b>一张法力值消耗为（5）的牌。 仅在下回合，获得1个法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/65134a25d595ed38db7bbdee0be2104684b730a25756a0b36ffb70900e13a0ae.png",
+        "imageGold": "",
+        "flavorText": "我不爱你！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c9d1dd6d84e496b19e5ff32151ea21ec24368bf0f60ec492bb13574beb67c02.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115656&locale=zh_CN",
+        "sha256": "d46086d458dcec2ea9a1fb50646333ac588c2f4090e0991b3984c8796f08353c",
+        "bytes": 807,
+        "observed_at": "2026-10-17T12:12:15.225314+00:00"
+      }
+    },
+    {
+      "card_id": "FIR_927",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115656-en_US.json",
+      "response_sha256": "a458e8bda9c9ca2849300629f3c4ba78c0584c1d1e28002dc66aa9cbf89ac0fe",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115656&locale=en_US",
+      "face": {
+        "id": 115656,
+        "collectible": 1,
+        "slug": "115656-emberscarred-whelp",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Emberscarred Whelp",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a 5-Cost card. Gain 1 Mana Crystal next turn only.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88e394824960bc27563fa19069b82108b4261dace792e8789a59ed69ddb0787b.png",
+        "imageGold": "",
+        "flavorText": "I LOVE YOU NOT!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c9d1dd6d84e496b19e5ff32151ea21ec24368bf0f60ec492bb13574beb67c02.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115656&locale=en_US",
+        "sha256": "a458e8bda9c9ca2849300629f3c4ba78c0584c1d1e28002dc66aa9cbf89ac0fe",
+        "bytes": 784,
+        "observed_at": "2026-10-17T12:12:15.422222+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_460t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114297-zh_CN.json",
+      "response_sha256": "6c26f833fe283ac6075ecba87ef8d2242f156443dac12ce993b6c339822df7ff",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114297&locale=zh_CN",
+      "face": {
+        "id": 114297,
+        "collectible": 0,
+        "slug": "114297-wish-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 3,
+        "name": "满月祈愿",
+        "text": "<b>吸血</b> 对一个随从造成 6点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa794fb3a390e370bf7a3d3d0c91e9b33b16561dca58b8681134243dfe13bcdc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114299,
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114297&locale=zh_CN",
+        "sha256": "6c26f833fe283ac6075ecba87ef8d2242f156443dac12ce993b6c339822df7ff",
+        "bytes": 610,
+        "observed_at": "2026-10-17T11:44:51.429158+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_460t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114297-en_US.json",
+      "response_sha256": "7fda5b9bf817b9dc8549adc6389dfd65a94f257261e4c02b6e3b451ce64838a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114297&locale=en_US",
+      "face": {
+        "id": 114297,
+        "collectible": 0,
+        "slug": "114297-wish-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 3,
+        "name": "Wish of the Full Moon",
+        "text": "<b>Lifesteal</b> Deal 6 damage to a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12c45e204e3732c8ed2162249afc0c21bf468cbfe6bd5509de0e3a403ced3024.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114299,
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114297&locale=en_US",
+        "sha256": "7fda5b9bf817b9dc8549adc6389dfd65a94f257261e4c02b6e3b451ce64838a7",
+        "bytes": 613,
+        "observed_at": "2026-10-17T11:44:51.674793+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_461t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114493-zh_CN.json",
+      "response_sha256": "b295ad5e3141fa0d9d345dbe8a6dcaa18f8c930e0b05f15208bd27be405cd1dc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114493&locale=zh_CN",
+      "face": {
+        "id": 114493,
+        "collectible": 0,
+        "slug": "114493-ritual-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "满月仪式",
+        "text": "随机召唤两个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/566db5c529065735af58d802e185a8ba67630906883a8139c8cb3dc63d2f66f3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114300,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114493&locale=zh_CN",
+        "sha256": "b295ad5e3141fa0d9d345dbe8a6dcaa18f8c930e0b05f15208bd27be405cd1dc",
+        "bytes": 606,
+        "observed_at": "2026-10-17T11:44:52.109520+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_461t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\114493-en_US.json",
+      "response_sha256": "647a126ca5e1102c12eb8de20603dc1c5d852ad5bcd55c228481137fc9773e75",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114493&locale=en_US",
+      "face": {
+        "id": 114493,
+        "collectible": 0,
+        "slug": "114493-ritual-of-the-full-moon",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 5,
+        "name": "Ritual of the Full Moon",
+        "text": "Summon two random 6-Cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7bad6a85c24a0d81d5416f512497e805241f61d61ad834e602b006d3d3d10eeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114300,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114493&locale=en_US",
+        "sha256": "647a126ca5e1102c12eb8de20603dc1c5d852ad5bcd55c228481137fc9773e75",
+        "bytes": 595,
+        "observed_at": "2026-10-17T11:44:52.190211+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_801t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126408-zh_CN.json",
+      "response_sha256": "c04e648694c17b6b49f47610f177fd0f9dd73484cecd4a7b7e99a404ae1cc976",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126408&locale=zh_CN",
+      "face": {
+        "id": 126408,
+        "collectible": 0,
+        "slug": "126408-molten-gold-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "熔炼黄金元素",
+        "text": "<b>战吼：</b>造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de141274ad328e2ac6b0be01791b2bab0da6423380b10b6e934982d25e9cc8a9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126407,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126408&locale=zh_CN",
+        "sha256": "c04e648694c17b6b49f47610f177fd0f9dd73484cecd4a7b7e99a404ae1cc976",
+        "bytes": 633,
+        "observed_at": "2026-10-17T05:22:49.965049+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_801t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126408-en_US.json",
+      "response_sha256": "2dd2587e5a5e3411d6c16580a095d6eb50d59e2302bfe0ec0e1c7e34327eb856",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126408&locale=en_US",
+      "face": {
+        "id": 126408,
+        "collectible": 0,
+        "slug": "126408-molten-gold-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Molten Gold Elemental",
+        "text": "<b>Battlecry:</b> Deal 4 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31d75a1cde09b8bd34a669d412fe8a2f7bae62363657d7db7487cb47b3838a6d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126407,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126408&locale=en_US",
+        "sha256": "2dd2587e5a5e3411d6c16580a095d6eb50d59e2302bfe0ec0e1c7e34327eb856",
+        "bytes": 633,
+        "observed_at": "2026-10-17T05:22:49.754305+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_805t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126414-zh_CN.json",
+      "response_sha256": "b348cb4939f68ff30400a4bb3c6fb82c174fb2adf30b8805c0a110fc0264ff5b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126414&locale=zh_CN",
+      "face": {
+        "id": 126414,
+        "collectible": 0,
+        "slug": "126414-stormfury-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "风暴怒火元素",
+        "text": "<b>吸血</b> <b>战吼：</b>对所有敌方随从造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4f2a39a377983c24ced42a4ed9fd94f434a57073ce2cde467a7017509167f54.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126413,
+        "keywordIds": [
+          8,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126414&locale=zh_CN",
+        "sha256": "b348cb4939f68ff30400a4bb3c6fb82c174fb2adf30b8805c0a110fc0264ff5b",
+        "bytes": 667,
+        "observed_at": "2026-10-17T05:22:50.584107+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_805t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126414-en_US.json",
+      "response_sha256": "1ab0db7f1e9332595782d5cf6c5abc1d89899f01920341cc2539d4a5ff2e691e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126414&locale=en_US",
+      "face": {
+        "id": 126414,
+        "collectible": 0,
+        "slug": "126414-stormfury-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Stormfury Elemental",
+        "text": "<b>Lifesteal</b> <b>Battlecry:</b> Deal 2 damage to all enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c78460ef5fcd70860cdc42104d030921fe84ce8e77a7880c772e3b0a5572d68.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126413,
+        "keywordIds": [
+          8,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126414&locale=en_US",
+        "sha256": "1ab0db7f1e9332595782d5cf6c5abc1d89899f01920341cc2539d4a5ff2e691e",
+        "bytes": 668,
+        "observed_at": "2026-10-17T05:22:50.462422+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_101t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1652-zh_CN.json",
+      "response_sha256": "c52dc2b397e51aa0a5a0db43e86b9e1e113a38852db807eb3e18b008b221d5aa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1652&locale=zh_CN",
+      "face": {
+        "id": 1652,
+        "collectible": 0,
+        "slug": "1652-silver-hand-recruit",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "白银之手新兵",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48d3de22ecaccf5e0b92f9026af5dc19f69911553c0143a8f27637cac316a44e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "copyOfCardId": [
+          71409,
+          105917,
+          105918,
+          105919,
+          105920,
+          105922,
+          105923
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1652&locale=zh_CN",
+        "sha256": "c52dc2b397e51aa0a5a0db43e86b9e1e113a38852db807eb3e18b008b221d5aa",
+        "bytes": 701,
+        "observed_at": "2026-10-17T12:12:15.528691+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_101t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1652-en_US.json",
+      "response_sha256": "1c7e387797f34043077062fe563545133b7e5da57e891b6b98d73132b2d2b128",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1652&locale=en_US",
+      "face": {
+        "id": 1652,
+        "collectible": 0,
+        "slug": "1652-silver-hand-recruit",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Silver Hand Recruit",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f192a172a98d578105ac24ccfb1cd87f94480a2117b8c5902aba050ff2693ae3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "copyOfCardId": [
+          71409,
+          105917,
+          105918,
+          105919,
+          105920,
+          105922,
+          105923
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1652&locale=en_US",
+        "sha256": "1c7e387797f34043077062fe563545133b7e5da57e891b6b98d73132b2d2b128",
+        "bytes": 702,
+        "observed_at": "2026-10-17T12:12:15.304900+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "EDR_460",
+      "child": "EDR_460t",
+      "dbf_id": 114297,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "EDR_460",
+      "child": "EDR_460t",
+      "dbf_id": 114297,
+      "locale": "en_US"
+    },
+    {
+      "parent": "EDR_461",
+      "child": "EDR_461t",
+      "dbf_id": 114493,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "EDR_461",
+      "child": "EDR_461t",
+      "dbf_id": 114493,
+      "locale": "en_US"
+    },
+    {
+      "parent": "FIR_918",
+      "child": "FIR_918t",
+      "dbf_id": 115643,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "FIR_918",
+      "child": "FIR_918t",
+      "dbf_id": 115643,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_801",
+      "child": "JAIL_801t",
+      "dbf_id": 126408,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_801",
+      "child": "JAIL_801t",
+      "dbf_id": 126408,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_805",
+      "child": "JAIL_805t",
+      "dbf_id": 126414,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_805",
+      "child": "JAIL_805t",
+      "dbf_id": 126414,
+      "locale": "en_US"
+    },
+    {
+      "parent": "MEND_804",
+      "child": "CS2_101t",
+      "dbf_id": 1652,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "MEND_804",
+      "child": "CS2_101t",
+      "dbf_id": 1652,
+      "locale": "en_US"
+    }
+  ],
+  "collectible_candidate_roots": [
+    "EDR_460",
+    "EDR_461",
+    "FIR_918",
+    "JAIL_801",
+    "JAIL_805",
+    "TLC_109",
+    "TIME_036",
+    "MEND_804",
+    "FIR_927"
+  ],
+  "noncollectible_ids": [
+    "FIR_918t"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "api_review": "outputs/card-parallel-p63-20261017/api-review-01.json",
+    "hand_progress": "Three own accepted real spell casts while physically held; native cost preservation and face epochs. New base copy from full moon begins at zero.",
+    "miner": "Capture original top physical card and printed rarity; discover collectible current class plus neutral only after actual destruction. Unknown rarity errors.",
+    "informant": "Capture original rightmost physical hand reference and immutable current copy material; reveal to actor only. Copy retains inspected material, tax guards original physical hand residency.",
+    "recruits": "Exact fixed-source named identities, freeze original live friendly references and current attack/remaining health; no tribe or runtime name inference.",
+    "whelp": "Independent persistent promise per actual battlecry; strict next owner turn start, atomically consume original instance then gain one temporary mana. Source departure does not revoke."
+  }
+}
