@@ -3,11 +3,12 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.deck_conditions import CheckDeckCondition, DeckCondition
-from hs_sim.engine.effects import Damage, Heal, SetStats
+from hs_sim.engine.effects import Damage, Heal
 from hs_sim.engine.model import (CardClass, CardDefinition, CardType, CastWhenDrawnSpec,
     CostSpec, DamageKind, HandActionSpec, Keyword, RewindSpec, TargetSpec, Zone)
 from hs_sim.engine.pools import GenerateFromPool, PoolCard, PoolQuery, SummonFromPool
 from hs_sim.engine.summon_quantities import SummonByCard, SummonCause, SummonEntryMaterial
+from hs_sim.engine.sacrifice import MinionReference, SetCapturedMinionStats
 from hs_sim.engine.zones import ChooseFromZone
 from hs_sim.targets import TargetValidationError, canonical_digest
 from .health_cards import SCHOOLS
@@ -72,7 +73,7 @@ def register_simple_followup_p47_cards(registry):
     def judgment(c):
         selected=c.state.entities[c.target_id]
         attack,health=selected.attack,selected.health
-        return tuple(SetStats(i,attack,health,c.source_id)
+        return tuple(SetCapturedMinionStats(MinionReference.capture(c.state.entities[i]),attack,health,c.source_id)
             for p in (1,2) for i in minions(c,registry,p))
     def eyes(c):
         return (ChooseFromZone(c.player_id,3-c.player_id,Zone.DECK,operation='top',

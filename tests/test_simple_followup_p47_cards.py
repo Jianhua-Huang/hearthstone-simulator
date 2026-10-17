@@ -255,6 +255,40 @@ class SimpleFollowupP47Tests(unittest.TestCase):
             moved=[e for e in g.player_events(p)if e['kind']=='card_moved_to_deck'];self.assertEqual(len(moved),1)
             self.assertIsNone(moved[0]['target']);self.assertNotIn('card_id',moved[0])
 
+    def test_judgment_waiting_stat_reaction_cannot_rebind_same_entity_after_return_and_reentry(self):
+        from hs_sim.engine.colossal import SummonStoredCard
+        from hs_sim.engine.effects import ReturnToHand
+        from hs_sim.engine.zones import CardReference
+        def fresh():
+            r=registry(pool=False)
+            def reenter(c):
+                return(SummonStoredCard(CardReference.capture(c.state.entities[c.target_id]),c.player_id),)
+            def original(c):
+                return c.event.source_id is not None and c.state.entities[c.event.source_id].card_id==JUDGMENT
+            def watch(c):
+                target=next(i for i in c.state.players[1].board if c.state.entities[i].card_id==TWO)
+                return(RequestChoice(1,(ChoiceOption('reenter','Return then reenter',(
+                    ReturnToHand(target),InvokeBehavior(TEST+'review_reenter',c.source_id,1,target))),),c.source_id),)
+            r.register_behavior(TEST+'review_reenter',reenter);r.register_behavior(TEST+'review_watch',watch)
+            r.register_trigger_condition(TEST+'review_original',original)
+            r.register_card(CardDefinition(TEST+'review_watch','One real stat reaction',CardType.MINION,health=9,
+                metadata=META,limited_triggers=(LimitedTriggerSpec('stats_changed',TEST+'review_watch',
+                    condition_id=TEST+'review_original',uses=1),)))
+            r.validate();return r
+        g=Game.from_scenario(Scenario((PlayerSetup('HERO_04',hand=(JUDGMENT,),board=(YETI,TWO,TEST+'review_watch'),
+            mana=10,max_mana=10),PlayerSetup('HERO_08'))),fresh())
+        old=g.state.players[1].board[1];presence=g.state.entities[old].board_presence_id
+        self.play(g,JUDGMENT,g.state.players[1].board[0]);self.assertIsNotNone(g.state.pending_choice)
+        saved=json.loads(json.dumps(g.snapshot()));other=Game.from_snapshot(saved,fresh())
+        self.assertEqual(g.clone().snapshot(),saved);self.assertEqual(replay(build_replay(g),fresh()).snapshot(),saved)
+        for x in(g,other):
+            self.choose(x,'reenter');e=x.state.entities[old]
+            self.assertNotEqual(e.board_presence_id,presence)
+            self.assertEqual((e.attack,e.health),(1,2))
+            self.assertEqual(x.state.players[1].board[-1],old)
+        self.assertEqual(g.snapshot(),other.snapshot())
+        self.assertEqual(replay(build_replay(g),fresh()).snapshot(),g.snapshot())
+
     def test_eyes_duplicate_physical_weights_empty_and_short_decks(self):
         for deck in((),(YETI,),(YETI,YETI,TWO,BEAST,SIX)):
             with self.subTest(deck=deck):
