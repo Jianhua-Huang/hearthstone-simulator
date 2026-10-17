@@ -1,0 +1,4651 @@
+{
+  "schema": 1,
+  "batch": "P64",
+  "display_normalizations": {
+    "CATA_300": {
+      "zh_CN": {
+        "<b>巨型+3</b>。": "<b>巨型+3</b>"
+      }
+    }
+  },
+  "numeric_normalizations": {},
+  "existing_dependency_definition_pins": {
+    "CATA_300t1": "367a76d5e7e695364a3ec6b005adff987ee4798cbe9b7fbdace06e806b2f7d97",
+    "CATA_300t2": "fe68895f0978c652163cee4e60825edd91cd47cf12a13f276ea7e246f6e095e6",
+    "CATA_300t3": "3c231c02be773c29c5ba3bafec79e7abf7e8d2fa4bfa2b27dd087b271b3e9fbc"
+  },
+  "printed_colossal_ids": [
+    "CATA_139",
+    "CATA_150",
+    "CATA_151",
+    "CATA_153",
+    "CATA_154",
+    "CATA_155",
+    "CATA_300",
+    "CATA_432",
+    "CATA_488",
+    "CATA_550",
+    "CATA_726",
+    "NX2_037",
+    "Story_11_BlackwaterBehemoth",
+    "Story_11_Gaia",
+    "TID_711",
+    "TID_712",
+    "TSC_026",
+    "TSC_029",
+    "TSC_030",
+    "TSC_216",
+    "TSC_219",
+    "TSC_639",
+    "TSC_660",
+    "TSC_937",
+    "TSC_950",
+    "TSC_962"
+  ],
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_300",
+        "dbf_id": 122755,
+        "name": "黑血",
+        "name_en": "The Black Blood",
+        "text": "<b>巨型+3</b>。在你为一个角色恢复生命值后，&随机攻击一个敌方随从。",
+        "text_en": "[x]<b>Colossal +3. </b>\nAfter you restore Health\nto a character,& attack a\nrandom enemy minion.",
+        "cost": 7,
+        "attack": 5,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 9,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122756,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122756,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1,
+          "4548": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "22913caee95c3c6ce58c330235cbdcbd545423de45e563898cbb16d0d550c1a7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_300",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CAP_000",
+        "dbf_id": 127011,
+        "name": "军情七处杀手",
+        "name_en": "SI:7 Slayer",
+        "text": "<b><b>潜行</b>。</b>每当一个<b><b>潜行</b>的</b>友方随从攻击，使其获得+2/+2。",
+        "text_en": "[x]<b><b>Stealth</b>.</b> Whenever a\nfriendly <b><b>Stealth</b>ed</b> minion\nattacks, give it +2/+2.",
+        "cost": 3,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SI_7": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "a13d5958fa06427ab57f565abd035fcec96a2cadbfac3292c839eb63824ccddc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "CAP_000",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CAP_001",
+        "dbf_id": 127028,
+        "name": "静默打击",
+        "name_en": "Silent Strike",
+        "text": "使一个随从\n获得+3攻击力。如果该随从<b><b>潜行</b></b>，随机对一个敌方随从造成等同于该潜行随从攻击力的伤害。",
+        "text_en": "Give a minion +3 Attack. If it's <b><b>Stealth</b>ed</b>, deal its Attack damage to a random enemy minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "317b764ec42bd08dc86f1a017fcaeee8994dd08af80832393b510e2bbccf8245",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CAP_001",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "CAP_005",
+        "dbf_id": 127056,
+        "name": "马迪亚斯·肖尔",
+        "name_en": "Mathias Shaw",
+        "text": "<b><b>潜行</b>。</b>每当一个<b><b>潜行</b>的</b>友方随从攻击，&随机使你手牌中一张牌的法力值消耗减少（3）点。",
+        "text_en": "[x]<b><b>Stealth</b>.</b> Whenever a friendly\n<b><b>Stealth</b>ed</b> minion attacks,&\nreduce the Cost of a random\n___card in your hand by (3).",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "d478545b2e14ec1395025711bc0de96601f44e84023adbd5893c74ceaf8983a1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CAP_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CAP_006",
+        "dbf_id": 127073,
+        "name": "嫁祸诀窍",
+        "name_en": "Tricks of the Trade",
+        "text": "造成$1点伤害。如果在本牌在你手中时有<b><b>潜行</b>的</b>随从攻击过，改为造成$3点。",
+        "text_en": "[x]Deal $1 damage.\nIf a <b><b>Stealth</b>ed</b> minion\nattacked while holding\nthis, deal $3 instead.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b6a81a8055ca536b88a6178cefc574e250b8f0589e1c375cd4e31f32a4f349f2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CAP_006",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_875",
+        "dbf_id": 126243,
+        "name": "诡计法杖",
+        "name_en": "Staff of Trickery",
+        "text": "在你的英雄攻击后，<b>发现</b>一张德鲁伊牌，并使其法力值消耗减少，减少的量等同于你的英雄的攻击力。",
+        "text_en": "[x]After your hero attacks,\n<b>Discover</b> a Druid card.\nReduce its Cost by\nyour hero's Attack.",
+        "cost": 4,
+        "attack": 1,
+        "health": 4,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "23b1abb3fb171b1788cd1646cb96206828ba82110e6c8d7ea934396ac630c283",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_875",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_609",
+        "dbf_id": 119707,
+        "name": "游侠将军希尔瓦娜斯",
+        "name_en": "Ranger General Sylvanas",
+        "text": "<b>奇闻</b>\n<b>战吼：</b>对所有敌人造成2点伤害。如果你使用过奥蕾莉亚或温蕾萨，每使用过一位，重复一次。",
+        "text_en": "[x]<b>Fabled</b>. <b>Battlecry:</b> Deal 2\ndamage to all enemies.\n____If you've played Alleria or____\n__Vereesa, repeat for each.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "a577e494d922f60da578fef389b923f845a633e35a44eb3c3e01051ead1696a2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_609",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_609t1",
+        "dbf_id": 119705,
+        "name": "游侠队长奥蕾莉亚",
+        "name_en": "Ranger Captain Alleria",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。如果你使用过希尔瓦娜斯或温蕾萨，每使用过一位，重复一次。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a spell.\nIf you've played Sylvanas or\nVereesa, repeat for each.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Caroline Gariba"
+          }
+        ]
+      },
+      "record_sha256": "0dbcaf5003719cdfd7935193c3f1ab063c3a8a30ec18807c733618b81721bc85",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_609t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_609t2",
+        "dbf_id": 119706,
+        "name": "游侠新兵温蕾萨",
+        "name_en": "Ranger Initiate Vereesa",
+        "text": "<b>战吼：</b>使你牌库中的随从牌获得+1/+1。如果你使用过奥蕾莉亚或希尔瓦娜斯，每使用过一位，重复一次。",
+        "text_en": "[x]<b>Battlecry:</b> Give minions in\nyour deck +1/+1. If you've\nplayed Alleria or Sylvanas,\nrepeat for each.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "ed18e1911dbeada9e100d05ad077a375ffbf3168c9344eb4cea292c4347af0bf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_609t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_428",
+        "dbf_id": 118649,
+        "name": "巨鳗面具",
+        "name_en": "Behemoth Mask",
+        "text": "将一个随从的属性值变为8/10并使其获得<b>吸血</b>。随机迫使一个敌方随从攻击该随从。",
+        "text_en": "[x]Set a minion's stats to\n8/10 and give it <b>Lifesteal</b>.\nForce a random enemy\nminion to attack it.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c10ed09601afcc3afc7f7dd1af5a56a689e0445c5f76688f25613a2cc44a1f28",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_428",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_527",
+        "dbf_id": 122772,
+        "name": "奈瑟匹拉，蒙难古灵",
+        "name_en": "Nespirah, Enthralled",
+        "text": "造成1点伤害。在你施放一个邪能法术后，重新开启。<b>亡语：</b>召唤奈瑟匹拉，脱困古灵。",
+        "text_en": "[x]Deal 1 damage. After you\ncast a Fel spell, reopen.\n<b>Deathrattle:</b> Summon\nNespirah, Unshackled.",
+        "cost": 3,
+        "attack": null,
+        "health": 5,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDTYPE": 39,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122845,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122845
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          }
+        ]
+      },
+      "record_sha256": "576900f84f7d880247a20b4cd91aaa60e4f955b222a948068624a9513ce4de60",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_527",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_527t2",
+        "dbf_id": 122845,
+        "name": "奈瑟匹拉，脱困古灵",
+        "name_en": "Nespirah, Unshackled",
+        "text": "在你施放一个邪能法术后，随机获取一张非<b>巨型</b>的纳迦牌，其法力值消耗为（1）点。",
+        "text_en": "After you cast a Fel spell, get a random non-<b>Colossal</b> Naga. It costs (1).",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          }
+        ]
+      },
+      "record_sha256": "387908111814a8056eb469c32e053c17610390a0d4d922f496ccf333a321297e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_527t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_300t1",
+        "dbf_id": 122756,
+        "name": "黑血黏质",
+        "name_en": "Black Blood's Body",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复#3点\n生命值。",
+        "text_en": "[x]At the end of your turn,\nrestore #3 Health to\na random damaged\n_friendly character.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "43765e9bc6fcb82433edfa590606b318cd4529bc2db4a946c2a627f3deb66943",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_300t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_300t2",
+        "dbf_id": 128030,
+        "name": "黑血黏质",
+        "name_en": "Black Blood's Body",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复#3点\n生命值。",
+        "text_en": "[x]At the end of your turn,\nrestore #3 Health to\na random damaged\n_friendly character.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4977c0d2e971ae34b84ddeff6acb0265a246266ee79b6b2bb818d256aedad833",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_300t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_300t3",
+        "dbf_id": 128031,
+        "name": "黑血黏质",
+        "name_en": "Black Blood's Body",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复#3点\n生命值。",
+        "text_en": "[x]At the end of your turn,\nrestore #3 Health to\na random damaged\n_friendly character.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d0b5ceff0e3a05e79690c7903cc65ff5fcb8135b115d545aeb619efe374d2944",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_300t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_609t2e",
+        "dbf_id": 120410,
+        "name": "风行者之誓",
+        "name_en": "Windrunner's Allegiance",
+        "text": "+1/+1。",
+        "text_en": "+1/+1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c3e41f41d176fcff9f8ed6f556aa54c35aa5b7c88a3f0dff419c49c3b9005e88",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_609t2e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139",
+        "dbf_id": 122976,
+        "name": "柳牙",
+        "name_en": "Wickerfang",
+        "text": "<b>巨型+4</b>\n在柳牙的腿获得属性值后，本随从也会\n获得。",
+        "text_en": "<b>Colossal +4</b>\nAfter one of Wickerfang's Legs gains stats, this gains them too.",
+        "cost": 6,
+        "attack": null,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 128061,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 128061,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "21a5b984d6d29741b0df8a4a50ae56211023de44f8f145fc99a45ba5c146092a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_139",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_150",
+        "dbf_id": 124110,
+        "name": "拉格纳罗斯，绝世烈火",
+        "name_en": "Ragnaros, the Great Fire",
+        "text": "<b>巨型+2</b>\n在你的回合结束时，触发你的随从的\n<b>亡语</b>。",
+        "text_en": "[x]<b>Colossal +2</b>\nAt the end of your turn, trigger\n___your minions' <b>Deathrattles</b>.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 124113,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 124113,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6b18b36fe92363995d3eefe65230d88baf74af5821b94ff44280162761b3e787",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_150",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_151",
+        "dbf_id": 124116,
+        "name": "艾萨拉，海洋之主",
+        "name_en": "Azshara, Ocean Lord",
+        "text": "<b>巨型+2</b>\n你的英雄拥有<b>风怒</b>。",
+        "text_en": "<b>Colossal +2</b>\nYour hero has <b>Windfury</b>.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125413,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125413,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c7f744a442baedc38124d83e1a3d48200a17706e267d78341631d848427b8e4a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_151",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "naga"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_153",
+        "dbf_id": 125442,
+        "name": "奥拉基尔，风暴之主",
+        "name_en": "Al'Akir, Lord of Storms",
+        "text": "<b>巨型+2\n<b>突袭。</b>风怒。</b><b>战吼：</b>获取2张法力值消耗等同于本随从攻击力的随从牌，这两张牌的法力值消耗为（1）点。",
+        "text_en": "[x]<b>Colossal +2, <b>Rush</b>, Windfury</b>\n<b>Battlecry:</b> Get 2 minions with\nCost equal to this minion's\nAttack. They cost (1).",
+        "cost": 8,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 127053,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127053,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0599e804213c05e615783c9ab68241d927194efbf83d3ed1f6a44e69640192b3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_153",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_154",
+        "dbf_id": 125450,
+        "name": "希奈丝特拉",
+        "name_en": "Sinestra",
+        "text": "<b>巨型+2</b>\n你的其他职业的法术会施放两次。",
+        "text_en": "<b>Colossal +2</b>\nYour spells from other classes cast twice.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125503,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125503,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e3260087558528c0c50de9e7bef5782f5dc44099930de2902c510835ddf79cd7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_154",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_155",
+        "dbf_id": 124138,
+        "name": "复活的奥妮克希亚",
+        "name_en": "Arisen Onyxia",
+        "text": "<b>巨型+2</b>\n当你的英雄在你的回合即将失去生命值时，改为获得等量的生命值上限。",
+        "text_en": "[x]<b>Colossal +2</b>. When your\nhero would lose Health on\nyour turn, gain that much\nmax Health instead.",
+        "cost": 9,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125416,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125416,
+          "1544": 1,
+          "1724": 1,
+          "COST_BLOOD": 2,
+          "COLOSSAL": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "33520c5ad7dc3ee68de5c0806613a971fdafb168c3ff233c21add283e2a01dac",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_155",
+        "max_copies": null,
+        "runes": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_432",
+        "dbf_id": 122401,
+        "name": "克洛玛图斯",
+        "name_en": "Chromatus",
+        "text": "<b>巨型+4</b>\n<b>嘲讽</b>。<b>吸血</b>。<b>扰魔</b>\n<b>圣盾</b>",
+        "text_en": "<b>Colossal +4</b>\n<b>Taunt</b>, <b>Lifesteal</b>, <b>Elusive</b>, <b>Divine Shield</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122402,
+          "ELUSIVE": 1,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "760176444ecd204c5cae43a3de2ea75824328fa23c1c5cb8e3a3e653a27b176d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_432",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_488",
+        "dbf_id": 123665,
+        "name": "沃坎诺斯",
+        "name_en": "Vulcanos",
+        "text": "<b>巨型+2</b>。在你的回合结束时，&对所有其他随从造成3点伤害。",
+        "text_en": "[x]<b>Colossal +2</b>\nAt the end of your turn,&\ndeal 3 damage to all\nother minions.",
+        "cost": 7,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 4,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 128032,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 128032,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "9c7a94f5b47457f8f1d2add40d8cf1430205701e193fa997a4ea38bdac67fcec",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_488",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550",
+        "dbf_id": 122865,
+        "name": "熔喉",
+        "name_en": "Magmaw",
+        "text": "<b>巨型+99</b>\n当场上有空位时，召唤剩余的肢节。@<b>巨型+99</b>\n当场上有空位时，召唤剩余的肢节。<i>（还剩{0}个！）</i>",
+        "text_en": "<b>Colossal +99</b>\nSummon any leftover appendages when there is room.@<b>Colossal +99</b>\nSummon any leftover appendages when there is room. <i>({0} left!)</i>",
+        "cost": 7,
+        "attack": 2,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 99,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 12,
+          "ATK": 2,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122866,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122866,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "440c61376f11ca2a2ed2a7fa598ea8e096f5cd20eefc374cf467c2767ac24fe1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_550",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_726",
+        "dbf_id": 125432,
+        "name": "古加尔，暮光主谋",
+        "name_en": "Cho'gall, Mastermind",
+        "text": "<b>巨型+2</b>\n你的手臂和士兵改为消灭敌方牌库中的\n随从。",
+        "text_en": "[x]<b>Colossal +2</b>\nYour Arms and Soldiers\ndestroy minions in the\n_enemy's deck instead.",
+        "cost": 9,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125435,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125435,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4538": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leroy Steinmann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4309",
+              "name": "HERALD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "db9c248973565b1145529ef86f4efa4ee5c6372cfb78f29bc251b2bf4a343e9e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_726",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NX2_037",
+        "dbf_id": 87329,
+        "name": "冰霜女王辛达苟萨",
+        "name_en": "Frost Queen Sindragosa",
+        "text": "<b>巨型+2</b>\n在一个敌方随从被<b>冻结</b>后，将其消灭。",
+        "text_en": "<b>Colossal +2</b>\nAfter an enemy minion is <b>Frozen</b>, destroy it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 94607,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COST_FROST": 1,
+          "COLOSSAL": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fff0901d001db6a64914dca1c20187a169a798b9b416be65b1f68f9ea214440c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "NX2_037",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "Story_11_BlackwaterBehemoth",
+        "dbf_id": 90545,
+        "name": "黑水巨鳗",
+        "name_en": "Blackwater Behemoth",
+        "text": "<b>巨型+1</b>\n在你的回合结束时，对没有生物荧光的敌方随从造成3点伤害。<b>亡语：</b>推进战斗。",
+        "text_en": "[x]<b>Colossal +1</b>\nAt the end of your turn, deal 3\n damage to enemy minions\nwithout Bioluminescent.\n<b>Deathrattle:</b> Advance fight.",
+        "cost": 1,
+        "attack": 4,
+        "health": 10,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 4,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "HIDE_COST": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 90647,
+          "HIDE_WATERMARK": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0a398a624d8bc74f49a0201a5d133e85de8b4f28d0c4bba5e34a260d15c0abfb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "Story_11_BlackwaterBehemoth",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "Story_11_Gaia",
+        "dbf_id": 91597,
+        "name": "盖亚，巨力机甲",
+        "name_en": "Gaia, the Techtonic",
+        "text": "<b>巨型+2</b>\n在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Colossal +2</b>\nAfter a friendly Mech\nattacks, deal 1 damage\nto all enemies.",
+        "cost": 8,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DISPLAY_CARD_ON_MOUSEOVER": 91994,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 91993,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "80df5ea64d057c214c8a6a691e98fa0e0dfdbba835181526f04931dd6de224a6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "Story_11_Gaia",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_711",
+        "dbf_id": 75580,
+        "name": "厄祖玛特",
+        "name_en": "Ozumat",
+        "text": "<b>巨型+6</b>\n<b>亡语：</b>每有一条厄祖玛特的触须，随机消灭一个敌方随从。",
+        "text_en": "[x]<b>Colossal +6</b> \n<b>Deathrattle:</b> For each of\nOzumat's Tentacles, destroy\n   a random enemy minion.",
+        "cost": 8,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 75581,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b2f1e7047d8b728ae88a61d3698ba04d51a97dadf718dee1b581dcdb92e28109",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TID_711",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TID_712",
+        "dbf_id": 75583,
+        "name": "猎潮者耐普图隆",
+        "name_en": "Neptulon the Tidehunter",
+        "text": "<b>巨型+2</b>\n<b>突袭</b>，<b>风怒</b>，每当耐普图隆攻击时，如果你控制着任意耐普图隆之手，改为由手攻击。",
+        "text_en": "[x]<b>Colossal +2</b>, <b>Rush</b>, <b>Windfury</b>\nWhenever Neptulon attacks,\nif you control any Hands,\nthey attack instead.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 80016,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "60550a19f662d59f8bcf9dbcf2b2967b6fe43d5307890967aba62a902400ee0c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TID_712",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_026",
+        "dbf_id": 71712,
+        "name": "可拉克",
+        "name_en": "Colaque",
+        "text": "<b>巨型+1</b>\n当你控制可拉克的壳时<b>免疫</b>。",
+        "text_en": "[x]<b>Colossal +1</b>\n <b>Immune</b> while you control\nColaque's Shell.",
+        "cost": 7,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 71828,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71828,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c0d49c58ee43885f07d0d95f41bf5d3e9ed1993c088e6538dbe0a3487d612b6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_026",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_029",
+        "dbf_id": 71841,
+        "name": "盖亚，巨力机甲",
+        "name_en": "Gaia, the Techtonic",
+        "text": "<b>巨型+2</b>\n在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Colossal +2</b>\nAfter a friendly Mech\nattacks, deal 1 damage\nto all enemies.",
+        "cost": 8,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85858,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "f9613dc924db4b79b9bbe886715699b9e2e697f7438032367fada897e5e53990",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_029",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_030",
+        "dbf_id": 71984,
+        "name": "海兽号",
+        "name_en": "The Leviathan",
+        "text": "<b>巨型+1</b>\n<b>突袭</b>，<b>圣盾</b>。在本随从攻击后，<b>探底</b>。",
+        "text_en": "[x]<b>Colossal +1</b>\n<b>Rush</b>, <b>Divine Shield</b>\nAfter this attacks,\n<b>Dredge</b>.",
+        "cost": 7,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 71982,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71982,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "DREDGE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "32d99842385aa57b5152eb2b0e9047f722009357cc1c94662738a3ce55ab6f45",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_030",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_216",
+        "dbf_id": 72488,
+        "name": "黑水巨鳗",
+        "name_en": "Blackwater Behemoth",
+        "text": "<b>巨型+1</b>\n<b>吸血</b>",
+        "text_en": "<b>Colossal +1</b>\n<b>Lifesteal</b>",
+        "cost": 7,
+        "attack": 8,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 8,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 6,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 72489,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 72489,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "25f3ad770dab654d649314cbdfdc90fb250ae4f7125d49b85de966f68e20cd35",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_216",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_219",
+        "dbf_id": 73726,
+        "name": "渊狱魔犬希拉格",
+        "name_en": "Xhilag of the Abyss",
+        "text": "<b>巨型+4</b>\n在你的回合开始时，希拉格的蔓足造成的伤害提高1点。",
+        "text_en": "[x]<b>Colossal +4</b>\nAt the start of your turn,\nincrease the damage of\nXhilag's Stalks by 1.",
+        "cost": 7,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85854,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "09b1b92004b42d69d5a866ce57708073c64242b6e924f5a8718a0775252598e3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_219",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_639",
+        "dbf_id": 72553,
+        "name": "暴食巨鳗格拉格",
+        "name_en": "Glugg the Gulper",
+        "text": "<b>巨型+3</b>\n在一个友方随从死亡后，获得其原始属性值。",
+        "text_en": "[x]<b>Colossal +3</b>\n After a friendly minion dies,\ngain its original stats.",
+        "cost": 7,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 72554,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "a5a00a596d3f075376b3730441c9a373b5bd887455f2ba979b1c1812b01eb56d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_639",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_660",
+        "dbf_id": 74894,
+        "name": "奈利，超巨蛇颈龙",
+        "name_en": "Nellie, the Great Thresher",
+        "text": "<b>巨型+1</b>\n<b>战吼：</b><b>发现</b>三个海盗来构成奈利的船员团队！",
+        "text_en": "[x]<b>Colossal +1</b>\n<b>Battlecry:</b> <b>Discover</b> 3 Pirates\nto crew Nellie's Ship!",
+        "cost": 7,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 74895,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 74895,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b716746b0ef3a3cc8cb1970b761e0089d531037a8b86c62c7d0e469110147350",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_660",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937",
+        "dbf_id": 72536,
+        "name": "可拉巴托亚",
+        "name_en": "Crabatoa",
+        "text": "<b>巨型+2</b>\n你的可拉巴托亚的钳子拥有+2攻击力。",
+        "text_en": "<b>Colossal +2</b>\nYour Crabatoa Claws have +2 Attack.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85859,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "8343e0563924fb179cd07054c81f0b8734b727d587892373ce54e9fa49c44be6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_937",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_950",
+        "dbf_id": 72935,
+        "name": "海卓拉顿",
+        "name_en": "Hydralodon",
+        "text": "<b>巨型+2</b>\n<b>战吼：</b>使你的海卓拉顿之头获得<b>突袭</b>。",
+        "text_en": "[x]<b>Colossal +2</b>\n<b>Battlecry:</b> Give your\n_Hydralodon Heads <b>Rush</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85857,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "403f3808ac72fdb5f01df17de008dee5f21aa07685f8b8150f077540c6dc1892",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_950",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_962",
+        "dbf_id": 74741,
+        "name": "老巨鳍",
+        "name_en": "Gigafin",
+        "text": "<b>巨型+1</b>\n<b>战吼：</b>吞食所有敌方随从。<b>亡语：</b>吐出来。",
+        "text_en": "[x]<b>Colossal +1</b>. <b>Battlecry:</b>\nDevour all enemy minions.\n<b>Deathrattle:</b> Spit them\nback out.",
+        "cost": 8,
+        "attack": 7,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 9,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 74742,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 74742,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "84fee5690f9a22c088d419ee0f4700c5ca84629164e40bb9d5f94613c478859d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_962",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_300",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122755-zh_CN.json",
+      "response_sha256": "5636d69cb82d3f04629b71c2607d5c52aaa957e80f513a24615d40a1ee44b607",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122755&locale=zh_CN",
+      "face": {
+        "id": 122755,
+        "collectible": 1,
+        "slug": "122755-the-black-blood",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vladimir Kafanov",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "黑血",
+        "text": "<b>巨型+3</b> 在你为一个角色恢复生命值后，&随机攻击一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fc108e34b523499a097d73e15614a13730bb01f0f63104a7a65c7c3a4051e20.png",
+        "imageGold": "",
+        "flavorText": "希奈丝特拉满心恨意，智谋超群。她从地底深处召唤出了黑血，用来变异并强化她的部队。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a6b99bc0c2a622948e89a2173b91839d06d0a578f42ca83f1d63bdefa82903d.png",
+        "childIds": [
+          122756,
+          128031,
+          128030
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122755&locale=zh_CN",
+        "sha256": "5636d69cb82d3f04629b71c2607d5c52aaa957e80f513a24615d40a1ee44b607",
+        "bytes": 903,
+        "observed_at": "2026-10-17T05:22:52.743915+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122755-en_US.json",
+      "response_sha256": "e400107e189df92dcc0887ddc7779b9e5aae1cefd410e75278c40dcd6f960361",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122755&locale=en_US",
+      "face": {
+        "id": 122755,
+        "collectible": 1,
+        "slug": "122755-the-black-blood",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vladimir Kafanov",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "The Black Blood",
+        "text": "<b>Colossal +3. </b> After you restore Health to a character,& attack a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e445fc26e013fc493415be12ec23b28e31b82e4f0d441ede45e6045d807ff640.png",
+        "imageGold": "",
+        "flavorText": "As cunning as she is hateful, Sinestra summoned the Black Blood from deep within the earth to mutate and empower her forces.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a6b99bc0c2a622948e89a2173b91839d06d0a578f42ca83f1d63bdefa82903d.png",
+        "childIds": [
+          122756,
+          128031,
+          128030
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122755&locale=en_US",
+        "sha256": "e400107e189df92dcc0887ddc7779b9e5aae1cefd410e75278c40dcd6f960361",
+        "bytes": 916,
+        "observed_at": "2026-10-17T05:22:52.724455+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_000",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127011-zh_CN.json",
+      "response_sha256": "23c6ed1784a1092cee080eb383514af55580590b9702ac8b60d52f1c05b9e1b1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127011&locale=zh_CN",
+      "face": {
+        "id": 127011,
+        "collectible": 1,
+        "slug": "127011-si-slayer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Juan Calle",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "军情七处杀手",
+        "text": "<b><b>潜行</b>。</b>每当一个<b><b>潜行</b>的</b>友方随从攻击，使其获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37e0d24c727227d98208d7b1d31972dfe28e3581ecc8e5ae45d61657a44a0799.png",
+        "imageGold": "",
+        "flavorText": "夜，是狼深邃眼睛。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a8733737c6227b6deb798767bc392e6c74c53fb363ac10c5a6e4f299de17d9a.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127011&locale=zh_CN",
+        "sha256": "23c6ed1784a1092cee080eb383514af55580590b9702ac8b60d52f1c05b9e1b1",
+        "bytes": 781,
+        "observed_at": "2026-10-17T12:55:21.605901+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_000",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127011-en_US.json",
+      "response_sha256": "0d51e1455dab983ee55b5e6982551a476db42de78ac26ce0d6530484498d4304",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127011&locale=en_US",
+      "face": {
+        "id": 127011,
+        "collectible": 1,
+        "slug": "127011-si-slayer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Juan Calle",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "SI:7 Slayer",
+        "text": "<b><b>Stealth</b>.</b> Whenever a friendly <b><b>Stealth</b>ed</b> minion attacks, give it +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/127b2efc0055f76b7f223610fd4ce95244c1e1c5dae312997e3d5252eb7a9f78.png",
+        "imageGold": "",
+        "flavorText": "Raining wolf from a lacerated sky.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a8733737c6227b6deb798767bc392e6c74c53fb363ac10c5a6e4f299de17d9a.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127011&locale=en_US",
+        "sha256": "0d51e1455dab983ee55b5e6982551a476db42de78ac26ce0d6530484498d4304",
+        "bytes": 779,
+        "observed_at": "2026-10-17T12:55:21.600766+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127028-zh_CN.json",
+      "response_sha256": "c805513ec5056316314f999339e72513d6208ade8787ae404163efc718177f81",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127028&locale=zh_CN",
+      "face": {
+        "id": 127028,
+        "collectible": 1,
+        "slug": "127028-silent-strike",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "静默打击",
+        "text": "使一个随从 获得+3攻击力。如果该随从<b><b>潜行</b></b>，随机对一个敌方随从造成等同于该潜行随从攻击力的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e12551e3d0f49d1fe2630f5f6b030fbdc79bf0a60472342fd72d2a4e9cb13ef.png",
+        "imageGold": "",
+        "flavorText": "务必安静……我在追猎迪菲亚。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b9164593befeb0898937bb72a26db69955f3e35b2e5ca1840c8079d98532f34.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127028&locale=zh_CN",
+        "sha256": "c805513ec5056316314f999339e72513d6208ade8787ae404163efc718177f81",
+        "bytes": 845,
+        "observed_at": "2026-10-17T12:55:21.465292+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127028-en_US.json",
+      "response_sha256": "4458fe14c28d538cfc59b6a17b469025a17386ca39048c2170eab4773190da48",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127028&locale=en_US",
+      "face": {
+        "id": 127028,
+        "collectible": 1,
+        "slug": "127028-silent-strike",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Silent Strike",
+        "text": "Give a minion +3 Attack. If it's <b><b>Stealth</b>ed</b>, deal its Attack damage to a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4df88da90a3b823da4944321e84762bed94939d5ae970b0c79f5ee0fcd37f8c3.png",
+        "imageGold": "",
+        "flavorText": "Be very very quiet... I'm hunting Defias.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b9164593befeb0898937bb72a26db69955f3e35b2e5ca1840c8079d98532f34.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127028&locale=en_US",
+        "sha256": "4458fe14c28d538cfc59b6a17b469025a17386ca39048c2170eab4773190da48",
+        "bytes": 799,
+        "observed_at": "2026-10-17T12:55:21.463617+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127056-zh_CN.json",
+      "response_sha256": "5bf7523c0136a1b4d8f5345ce99525941cf82289fd2fa9b678d23df57e7679ed",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127056&locale=zh_CN",
+      "face": {
+        "id": 127056,
+        "collectible": 1,
+        "slug": "127056-mathias-shaw",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "马迪亚斯·肖尔",
+        "text": "<b><b>潜行</b>。</b>每当一个<b><b>潜行</b>的</b>友方随从攻击，&随机使你手牌中一张牌的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe1b142c228651ec504c2bd028705c44cf64fd945079125afa6b035f05f058a1.png",
+        "imageGold": "",
+        "flavorText": "某夜，就在马迪亚斯行将放弃追查范克里夫的时候，一阵急促的敲门声传来。一只散发着紫色微光的诡异渡鸦站在他门外，盯着这位军情七处的首领，开口说道：“月溪镇。她不会发现你的。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54ed862de5713c250a6399705ed16ab97be7af421d3e1df3740a7ca690a87d83.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127056&locale=zh_CN",
+        "sha256": "5bf7523c0136a1b4d8f5345ce99525941cf82289fd2fa9b678d23df57e7679ed",
+        "bytes": 1064,
+        "observed_at": "2026-10-17T12:55:22.168375+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127056-en_US.json",
+      "response_sha256": "e6f99f322e572c465e2ac129db5e1344c17729ba61975104cc6f28320e0aec5c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127056&locale=en_US",
+      "face": {
+        "id": 127056,
+        "collectible": 1,
+        "slug": "127056-mathias-shaw",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Mathias Shaw",
+        "text": "<b><b>Stealth</b>.</b> Whenever a friendly <b><b>Stealth</b>ed</b> minion attacks,& reduce the Cost of a random card in your hand by (3).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e78f76b272a85652d7aea13adcd7e8ca6200e72ab5a2678e6398c734d1bcd66.png",
+        "imageGold": "",
+        "flavorText": "One night, when Mathias had nearly given up on finding Vancleef, there was a sharp tap on his door. An unearthly raven, shimmering violet, looked up at the SI:7 leader and spoke: “Moonbrook. She won’t know you’re coming.”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54ed862de5713c250a6399705ed16ab97be7af421d3e1df3740a7ca690a87d83.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127056&locale=en_US",
+        "sha256": "e6f99f322e572c465e2ac129db5e1344c17729ba61975104cc6f28320e0aec5c",
+        "bytes": 1020,
+        "observed_at": "2026-10-17T12:55:22.182053+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_006",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127073-zh_CN.json",
+      "response_sha256": "5d01e6074877783881cd007206e071d893d2edf244a735139bf7992067b527ce",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127073&locale=zh_CN",
+      "face": {
+        "id": 127073,
+        "collectible": 1,
+        "slug": "127073-tricks-of-the-trade",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 1,
+        "name": "嫁祸诀窍",
+        "text": "造成 1点伤害。如果在本牌在你手中时有<b><b>潜行</b>的</b>随从攻击过，改为造成 3点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/941e3296bf259e28c5f37e0615841af06df312b9ecf6d5e58fa37367c5295e9a.png",
+        "imageGold": "",
+        "flavorText": "用刀的秘诀就是鞘。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/737cb8246196bfaab4d485929cea6a3b8b1b898a43b1ffa0d2d6c25f4056a610.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127073&locale=zh_CN",
+        "sha256": "5d01e6074877783881cd007206e071d893d2edf244a735139bf7992067b527ce",
+        "bytes": 788,
+        "observed_at": "2026-10-17T12:55:22.298654+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_006",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127073-en_US.json",
+      "response_sha256": "c5b668c03ddf7a1221b6d8c19289b53a177f065a9a28be6ed860054f5f68ff87",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127073&locale=en_US",
+      "face": {
+        "id": 127073,
+        "collectible": 1,
+        "slug": "127073-tricks-of-the-trade",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 1,
+        "name": "Tricks of the Trade",
+        "text": "Deal 1 damage. If a <b><b>Stealth</b>ed</b> minion attacked while holding this, deal 3 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7daa755bb2c1c5488cc34be12349d2be6c320fb1d7f2087707a711bceedfb1f.png",
+        "imageGold": "",
+        "flavorText": "Go go gadget dagger!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/737cb8246196bfaab4d485929cea6a3b8b1b898a43b1ffa0d2d6c25f4056a610.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127073&locale=en_US",
+        "sha256": "c5b668c03ddf7a1221b6d8c19289b53a177f065a9a28be6ed860054f5f68ff87",
+        "bytes": 769,
+        "observed_at": "2026-10-17T12:55:22.303121+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_875",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126243-zh_CN.json",
+      "response_sha256": "defcd79f5a86636c59fa1de9464ae180adaa3305d5c09a804fba1c955fa38989",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126243&locale=zh_CN",
+      "face": {
+        "id": 126243,
+        "collectible": 1,
+        "slug": "126243-staff-of-trickery",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 4,
+        "name": "诡计法杖",
+        "text": "在你的英雄攻击后，<b>发现</b>一张德鲁伊牌，并使其法力值消耗减少，减少的量等同于你的英雄的攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/148a03bdf734c232da7e9ad07b7697368c47afe2575bb2e722af250d3e46b8e6.png",
+        "imageGold": "",
+        "flavorText": "大力才能出诡计！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/963f054864f897d347a6288513c9760dd3ee7572db2d97410532c7dccc61035d.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126243&locale=zh_CN",
+        "sha256": "defcd79f5a86636c59fa1de9464ae180adaa3305d5c09a804fba1c955fa38989",
+        "bytes": 835,
+        "observed_at": "2026-10-17T12:55:22.903207+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_875",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126243-en_US.json",
+      "response_sha256": "805bb3af21adce833b79d95b0d8a00edcdce5d7d6493be8a40c5dec8bdeadcbd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126243&locale=en_US",
+      "face": {
+        "id": 126243,
+        "collectible": 1,
+        "slug": "126243-staff-of-trickery",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 4,
+        "name": "Staff of Trickery",
+        "text": "After your hero attacks, <b>Discover</b> a Druid card. Reduce its Cost by your hero's Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c0959beeeb9ac52fc843f907ce065787669ee22bb571f2acb91dee8a8c9b0d8.png",
+        "imageGold": "",
+        "flavorText": "It's tricky to get a 'vate, to get a 'vate that's not too late - it's tricky!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/963f054864f897d347a6288513c9760dd3ee7572db2d97410532c7dccc61035d.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126243&locale=en_US",
+        "sha256": "805bb3af21adce833b79d95b0d8a00edcdce5d7d6493be8a40c5dec8bdeadcbd",
+        "bytes": 844,
+        "observed_at": "2026-10-17T12:55:22.911509+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119707-zh_CN.json",
+      "response_sha256": "df0ebb73032e7820c7225db4f3904d0f3b7d03bec9044cceebeb0fbe6fa70a59",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119707&locale=zh_CN",
+      "face": {
+        "id": 119707,
+        "collectible": 1,
+        "slug": "119707-ranger-general-sylvanas",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Rafael Zanchetin",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "游侠将军希尔瓦娜斯",
+        "text": "<b>奇闻</b> <b>战吼：</b>对所有敌人造成2点伤害。如果你使用过奥蕾莉亚或温蕾萨，每使用过一位，重复一次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87db46167f4a1b75e81dbe5cd904fd0561667eeba35cf2dc4f9ff24c4f4556ec.png",
+        "imageGold": "",
+        "flavorText": "无论她后来会变成什么样子，她都是抗击巫妖王时最为英勇的游侠将军，是银月城的英雄。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d9b76a167deac6aa3d11aee978db2bd61f0419e1d85f00fa51139ffa0b7f4d3.png",
+        "childIds": [
+          119705,
+          119706
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119705,
+          119706
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119707&locale=zh_CN",
+        "sha256": "df0ebb73032e7820c7225db4f3904d0f3b7d03bec9044cceebeb0fbe6fa70a59",
+        "bytes": 1037,
+        "observed_at": "2026-10-17T12:55:23.136972+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119707-en_US.json",
+      "response_sha256": "7326f90165cc52b33527cd5e4eb3a29735a7a8761c73480e7d8be76336da39ab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119707&locale=en_US",
+      "face": {
+        "id": 119707,
+        "collectible": 1,
+        "slug": "119707-ranger-general-sylvanas",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Rafael Zanchetin",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Ranger General Sylvanas",
+        "text": "<b>Fabled</b>. <b>Battlecry:</b> Deal 2 damage to all enemies. If you've played Alleria or Vereesa, repeat for each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ed9bdeba8aa916ea846113905b8bdf19bc47f83d6625f48226de9c6bf038be3b.png",
+        "imageGold": "",
+        "flavorText": "Whatever she would later become, no hero fought the Lich King so courageously as the Ranger General of Silvermoon.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d9b76a167deac6aa3d11aee978db2bd61f0419e1d85f00fa51139ffa0b7f4d3.png",
+        "childIds": [
+          119705,
+          119706
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119705,
+          119706
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119707&locale=en_US",
+        "sha256": "7326f90165cc52b33527cd5e4eb3a29735a7a8761c73480e7d8be76336da39ab",
+        "bytes": 998,
+        "observed_at": "2026-10-17T12:55:23.340363+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119705-zh_CN.json",
+      "response_sha256": "ed40ed483d3782846bee7e91c7a52e7c9f2d9a056fe0250c01a4a9d63c3daa39",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119705&locale=zh_CN",
+      "face": {
+        "id": 119705,
+        "collectible": 0,
+        "slug": "119705-ranger-captain-alleria",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Caroline Gariba",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "游侠队长奥蕾莉亚",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。如果你使用过希尔瓦娜斯或温蕾萨，每使用过一位，重复一次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1476705bd1e81c707f4592ac8a1964dea2c20991f07377ad8fe7c979d9e3094.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119707,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119705&locale=zh_CN",
+        "sha256": "ed40ed483d3782846bee7e91c7a52e7c9f2d9a056fe0250c01a4a9d63c3daa39",
+        "bytes": 718,
+        "observed_at": "2026-10-17T12:55:23.618772+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119705-en_US.json",
+      "response_sha256": "a0fe1ab0cc5e3202ca508c6811339892522cba5e830ebc5ccf3913e6d7a8fba4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119705&locale=en_US",
+      "face": {
+        "id": 119705,
+        "collectible": 0,
+        "slug": "119705-ranger-captain-alleria",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Caroline Gariba",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Ranger Captain Alleria",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a spell. If you've played Sylvanas or Vereesa, repeat for each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3460c68b414c92e00a1854d1461ae71e3d2f1f0b7887fd06994ed4f9ac816af8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119707,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119705&locale=en_US",
+        "sha256": "a0fe1ab0cc5e3202ca508c6811339892522cba5e830ebc5ccf3913e6d7a8fba4",
+        "bytes": 682,
+        "observed_at": "2026-10-17T12:55:23.786720+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119706-zh_CN.json",
+      "response_sha256": "a93102b3a07b50c603573711974ef5a6c5b05e970abf4e51a20a42c946eca104",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119706&locale=zh_CN",
+      "face": {
+        "id": 119706,
+        "collectible": 0,
+        "slug": "119706-ranger-initiate-vereesa",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "游侠新兵温蕾萨",
+        "text": "<b>战吼：</b>使你牌库中的随从牌获得+1/+1。如果你使用过奥蕾莉亚或希尔瓦娜斯，每使用过一位，重复一次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a34f4b261fd858ff5f783f4d815b19ccb691632bb8b8268d39c9ea3254daf234.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119707,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119706&locale=zh_CN",
+        "sha256": "a93102b3a07b50c603573711974ef5a6c5b05e970abf4e51a20a42c946eca104",
+        "bytes": 721,
+        "observed_at": "2026-10-17T12:55:23.852464+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_609t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119706-en_US.json",
+      "response_sha256": "fcbc37c5877138bfbdf857312564abfc87dec07988af0565cd2573ac4b2b4fae",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119706&locale=en_US",
+      "face": {
+        "id": 119706,
+        "collectible": 0,
+        "slug": "119706-ranger-initiate-vereesa",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Ranger Initiate Vereesa",
+        "text": "<b>Battlecry:</b> Give minions in your deck +1/+1. If you've played Alleria or Sylvanas, repeat for each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a1842992fb3521d421326e3ea2ea35733603b98a841dbfe882ffb65cc1b9e96.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119707,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119706&locale=en_US",
+        "sha256": "fcbc37c5877138bfbdf857312564abfc87dec07988af0565cd2573ac4b2b4fae",
+        "bytes": 684,
+        "observed_at": "2026-10-17T12:55:24.048044+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_428",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118649-zh_CN.json",
+      "response_sha256": "0bf121c33acbeb974246137c02d4a376b7fc09b6268a793b1d3ed09ed52ee1c1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118649&locale=zh_CN",
+      "face": {
+        "id": 118649,
+        "collectible": 1,
+        "slug": "118649-behemoth-mask",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 7,
+        "name": "巨鳗面具",
+        "text": "将一个随从的属性值变为8/10并使其获得<b>吸血</b>。随机迫使一个敌方随从攻击该随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75eed9b903498f61df8f36bc8de302a4c6719bd7ba6fc139d7f4e47641d502c4.png",
+        "imageGold": "",
+        "flavorText": "“更换一处海底光源，需要多少条小鱼？”“不知道，一条又一条，全都不见了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31ab7a215aa671188f62247fae8e92170ba6b2fb7359a7d0cf2ae94525682012.png",
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118649&locale=zh_CN",
+        "sha256": "0bf121c33acbeb974246137c02d4a376b7fc09b6268a793b1d3ed09ed52ee1c1",
+        "bytes": 859,
+        "observed_at": "2026-10-17T12:55:24.317686+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_428",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118649-en_US.json",
+      "response_sha256": "285798254f2fd05375e349f66f9ac1762f41c7b5f6346e46a393d647f132465b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118649&locale=en_US",
+      "face": {
+        "id": 118649,
+        "collectible": 1,
+        "slug": "118649-behemoth-mask",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 7,
+        "name": "Behemoth Mask",
+        "text": "Set a minion's stats to 8/10 and give it <b>Lifesteal</b>. Force a random enemy minion to attack it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abffb7fbcfd3a2599c05bc0bf10ba91cd83063a173b980badd035b101fac4193.png",
+        "imageGold": "",
+        "flavorText": "\"How many little fish does it take to change a light bulb?\" \"I don't know, they keep vanishing.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31ab7a215aa671188f62247fae8e92170ba6b2fb7359a7d0cf2ae94525682012.png",
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118649&locale=en_US",
+        "sha256": "285798254f2fd05375e349f66f9ac1762f41c7b5f6346e46a393d647f132465b",
+        "bytes": 833,
+        "observed_at": "2026-10-17T12:55:24.638732+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_527",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122772-zh_CN.json",
+      "response_sha256": "83409af2cf53d1057fac60e2ef14e0dc5943744cca91af546e0b4f9fd076200c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122772&locale=zh_CN",
+      "face": {
+        "id": 122772,
+        "collectible": 1,
+        "slug": "122772-nespirah-enthralled",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "manaCost": 3,
+        "name": "奈瑟匹拉，蒙难古灵",
+        "text": "造成1点伤害。在你施放一个邪能法术后，重新开启。<b>亡语：</b>召唤奈瑟匹拉，脱困古灵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33827b23ee529d3bba39e4c9ad81f535207c2bd34b09660d4de9910c2bcda8ce.png",
+        "imageGold": "",
+        "flavorText": "全家桶玩家可能会觉得它像萨尔纳加，而全家桶“老玩家”会跳出来说：那是“古伊尔纳加”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ba209aaf24d3c9a21df6ff260c1ffc9ade13aeba99f541a3b30e7a7bbb87b99.png",
+        "childIds": [
+          122845
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122772&locale=zh_CN",
+        "sha256": "83409af2cf53d1057fac60e2ef14e0dc5943744cca91af546e0b4f9fd076200c",
+        "bytes": 935,
+        "observed_at": "2026-10-17T12:55:24.565708+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_527",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122772-en_US.json",
+      "response_sha256": "db32f32fbd8b85d6e0a15770b520891add12a7cccdb69083ab4ace3c536e8dbb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122772&locale=en_US",
+      "face": {
+        "id": 122772,
+        "collectible": 1,
+        "slug": "122772-nespirah-enthralled",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "manaCost": 3,
+        "name": "Nespirah, Enthralled",
+        "text": "Deal 1 damage. After you cast a Fel spell, reopen. <b>Deathrattle:</b> Summon Nespirah, Unshackled.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1e2455d9f52ab65f9b96a2fd83bed141452566ad0b979c636b0fa068106b656.png",
+        "imageGold": "",
+        "flavorText": "Real fans know it as Nespirah, En-Go'el-ed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ba209aaf24d3c9a21df6ff260c1ffc9ade13aeba99f541a3b30e7a7bbb87b99.png",
+        "childIds": [
+          122845
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122772&locale=en_US",
+        "sha256": "db32f32fbd8b85d6e0a15770b520891add12a7cccdb69083ab4ace3c536e8dbb",
+        "bytes": 822,
+        "observed_at": "2026-10-17T12:55:24.762905+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_527t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122845-zh_CN.json",
+      "response_sha256": "f98b329e4c7d14a9b337b6874d09cceb3a455dbe6fc051d9c8ef8b1b828dfb77",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122845&locale=zh_CN",
+      "face": {
+        "id": 122845,
+        "collectible": 0,
+        "slug": "122845-nespirah-unshackled",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": "Todd Harris",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "奈瑟匹拉，脱困古灵",
+        "text": "在你施放一个邪能法术后，随机获取一张非<b>巨型</b>的纳迦牌，其法力值消耗为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e3be576a1349653e396bec2a64cffbd0119c8c31c14599782c40f3ff1be52b8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122772,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122845&locale=zh_CN",
+        "sha256": "f98b329e4c7d14a9b337b6874d09cceb3a455dbe6fc051d9c8ef8b1b828dfb77",
+        "bytes": 701,
+        "observed_at": "2026-10-17T12:55:25.031572+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_527t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122845-en_US.json",
+      "response_sha256": "cdeffb4f20f9e35541cb9a7d00096754a88f0ceebc9b146c089699cdae195945",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122845&locale=en_US",
+      "face": {
+        "id": 122845,
+        "collectible": 0,
+        "slug": "122845-nespirah-unshackled",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": "Todd Harris",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Nespirah, Unshackled",
+        "text": "After you cast a Fel spell, get a random non-<b>Colossal</b> Naga. It costs (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85df60f13fb2c43d8bb57686559a1f7ba7cd1ac91eb9732b0a395f0b7b51641b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122772,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122845&locale=en_US",
+        "sha256": "cdeffb4f20f9e35541cb9a7d00096754a88f0ceebc9b146c089699cdae195945",
+        "bytes": 655,
+        "observed_at": "2026-10-17T12:55:25.279668+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122756-zh_CN.json",
+      "response_sha256": "db48e5d4252414ac35ff67e77805f4061c9d4c69e712283e016ce31460643ee7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122756&locale=zh_CN",
+      "face": {
+        "id": 122756,
+        "collectible": 0,
+        "slug": "122756-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "黑血黏质",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复 3点 生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c56fe5e216f034e6e52ba974ad48fb00f272429d9a92062641f888943ee72ea.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122756&locale=zh_CN",
+        "sha256": "db48e5d4252414ac35ff67e77805f4061c9d4c69e712283e016ce31460643ee7",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:21:07.488875+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122756-en_US.json",
+      "response_sha256": "8328a2c25214c51d560fa00c768b01489b43be70c51c2015ef7d8fd7cd75f6a3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122756&locale=en_US",
+      "face": {
+        "id": 122756,
+        "collectible": 0,
+        "slug": "122756-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Black Blood's Body",
+        "text": "At the end of your turn, restore 3 Health to a random damaged friendly character.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ca1bc2851d6b6db80195f60203bbaba17a90688bb61031e24022a16d2dfd5ee.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122756&locale=en_US",
+        "sha256": "8328a2c25214c51d560fa00c768b01489b43be70c51c2015ef7d8fd7cd75f6a3",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:21:07.609907+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128030-zh_CN.json",
+      "response_sha256": "7daa4e334a57704e1374fe077323738cddae0476433eec8aceee43bb80198c96",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128030&locale=zh_CN",
+      "face": {
+        "id": 128030,
+        "collectible": 0,
+        "slug": "128030-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "黑血黏质",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复 3点 生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c699fbb7bc4277292e2404da10eece7041646cb85c1afcef9a575add269fd64.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128030&locale=zh_CN",
+        "sha256": "7daa4e334a57704e1374fe077323738cddae0476433eec8aceee43bb80198c96",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:55:50.906542+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128030-en_US.json",
+      "response_sha256": "a30114dacdf12b9d9a3bae9f627f8501d5b445b1a98f9c31bc7f7ffacc63aab4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128030&locale=en_US",
+      "face": {
+        "id": 128030,
+        "collectible": 0,
+        "slug": "128030-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Black Blood's Body",
+        "text": "At the end of your turn, restore 3 Health to a random damaged friendly character.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27bfdefd62f96e1df66d0750ab0a53c5618ffc86f37ea07b86653bccaad03e0e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128030&locale=en_US",
+        "sha256": "a30114dacdf12b9d9a3bae9f627f8501d5b445b1a98f9c31bc7f7ffacc63aab4",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:55:51.066816+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128031-zh_CN.json",
+      "response_sha256": "0471743af49e8a24962f69900b2f691949833432a3eceb86c33b6d2b32797458",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128031&locale=zh_CN",
+      "face": {
+        "id": 128031,
+        "collectible": 0,
+        "slug": "128031-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "黑血黏质",
+        "text": "在你的回合结束时，随机为一个受伤的友方角色恢复 3点 生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f7fa9dab5073014e2c1fc40c23bba7303b0534bbe2393a7f24bde8f1f55a931.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128031&locale=zh_CN",
+        "sha256": "0471743af49e8a24962f69900b2f691949833432a3eceb86c33b6d2b32797458",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:55:50.910414+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_300t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\128031-en_US.json",
+      "response_sha256": "02741d4449d160ef794366339a6d29d77014f727fbf358ec87790060ea8a43b9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128031&locale=en_US",
+      "face": {
+        "id": 128031,
+        "collectible": 0,
+        "slug": "128031-black-bloods-body",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Black Blood's Body",
+        "text": "At the end of your turn, restore 3 Health to a random damaged friendly character.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7976e03275695a49a99d5918d6628339e5a055fd511929ac7541622f2a9ff80d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128031&locale=en_US",
+        "sha256": "02741d4449d160ef794366339a6d29d77014f727fbf358ec87790060ea8a43b9",
+        "bytes": 624,
+        "observed_at": "2026-10-17T05:55:51.305511+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t1",
+      "dbf_id": 122756,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t3",
+      "dbf_id": 128031,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t2",
+      "dbf_id": 128030,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t1",
+      "dbf_id": 122756,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t3",
+      "dbf_id": 128031,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_300",
+      "child": "CATA_300t2",
+      "dbf_id": 128030,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_609",
+      "child": "TIME_609t1",
+      "dbf_id": 119705,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_609",
+      "child": "TIME_609t2",
+      "dbf_id": 119706,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_609",
+      "child": "TIME_609t1",
+      "dbf_id": 119705,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_609",
+      "child": "TIME_609t2",
+      "dbf_id": 119706,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_527",
+      "child": "CATA_527t2",
+      "dbf_id": 122845,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_527",
+      "child": "CATA_527t2",
+      "dbf_id": 122845,
+      "locale": "en_US"
+    }
+  ],
+  "collectible_candidate_roots": [
+    "CATA_300",
+    "CAP_000",
+    "CAP_001",
+    "CAP_005",
+    "CAP_006",
+    "JAIL_875",
+    "TIME_609",
+    "DINO_428",
+    "CATA_527"
+  ],
+  "noncollectible_ids": [
+    "TIME_609t1",
+    "TIME_609t2",
+    "CATA_527t2"
+  ],
+  "policies": {
+    "stealth_attack": "stealth_lost with reason=attack is emitted for ordinary and forced attacks before the attack window. Trigger context is a detached capture. CAP_000/005 require original friendly minion; CAP_006 accepts either player. Hand progress native event amount=one and completed once; no retroactive acquisition.",
+    "blackblood": "Actual HEALING and healed>0, source_controller=owner. Capture original BoardPresenceReference from captured trigger context; AttackRandomEnemyMinion validates original presence before RNG. No trigger from overheal, max-health gains, enemy restoration, or attempted conversion. Appendage sides are explicit local policy, M6 pending. Appendage declaration is t1 left, t2/t3 right in original order; not CN calibrated.",
+    "windrunners": "Register FabledSpec with the original two companions. Reuse existing Fabled representative policy: one repetition for each actual qualified sibling play returned by public played_cards, before current play id when present, without arbitrary two-repeat cap. Pure battlecry invocation contributes no play fact. Count accepted once; each actual damage/deck group reads fresh state. Per-play counting and cutoff remain explicit internal policy pending M6.",
+    "mask": "Original minion ref for 8/10 and Lifesteal; before attacker RNG validate original target BoardPresence. Select complete live enemy minion refs once; native ForceAttack guards both original presences.",
+    "staff": "Original completed hero attack; native Discover restricted to specified DRUID class with include_neutral=False, even under another hero class. Discount is hero Attack in original attack-finished context. Last durability follows captured native window; M6 pending.",
+    "nespirah": "Successful own FEL spell completion across physical cast origins. Refresh uses frozen LocationFaceReference and fresh automatic continuation guard; no stale residence rebinding. Natural location death/last durability summons named unshackled body. Non-Colossal Naga generation excludes exactly complete printed COLOSSAL identities from fixed full raw source; excludes no eligible candidates based on registered coverage. Cost=1 via native creation.",
+    "cache": "Independent immutable frozen writer/reader registry instances keyed complete fixture configuration and complete adapter/test/batch fingerprint; no GameState caching."
+  },
+  "api_review": "outputs/card-parallel-p64-20261017/api-review-03.json",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}
