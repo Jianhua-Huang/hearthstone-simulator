@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v447'
+CORE_EFFECTS_VERSION = 'core-effects-v448'
 
 
 class Mechanics:
@@ -1230,6 +1230,7 @@ def _buff_to(r, effect, entity, *, notify=True):
         r.emit('stats_changed', source_id=effect.source_id, target_id=entity.id,
                enchantment_id=enchantment.id, attack_delta=effect.attack, health_delta=effect.health,
                _hero_health_before=health_before)
+    return enchantment
 
 
 def destroy(r, effect):

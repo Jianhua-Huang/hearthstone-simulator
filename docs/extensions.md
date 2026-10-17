@@ -225,6 +225,8 @@ LockHandCard是有限手动资格门禁，不改变报价或支付账户；当�
 
 从敌方角色偷取生命上限用`hs_sim.engine.health_theft.StealHealthToHero`，并列原引用用`RandomStealHealthToHero`；随从传MinionReference，英雄传物理ID，来源必须实际存在。最低生命等候选政策由真实卡牌的纯主体决定，不能用伤害/治疗近似或在随机等待后重绑对象。原属性生命周期、原子提交与待CN政策见[契约](m2-character-health-theft.md)；多次结束主体若需观察前次结果，使用命名InvokeBehavior逐次取当前场面。
 
+恐怖海兽的原随从受益者用`StealHealthToMinion`与`ChooseHealthForMinion`，前者绑定两端原MinionReference，后者逐次读取当前合法敌方随从并保留同一受益者。共享普通附件与选择解释器，不用两条独立发布的Buff近似原子转移；现有英雄预算保持独立。数值、自动目标及来源边界见[契约](m2-minion-health-theft.md)。
+
 接入同文核心别名时，核对完整当前卡面与旧主体的触发入口及目标声明，再明确替换名称、身材和元数据；连击不能移成战吼。普通“治疗至满”使用目标当前max_health形成Heal请求，保留公共过量治疗/转换语义，抽牌仍接原Draw；需精确校准的政策单独登记。连续效果若后段要观察前段反应后的局面，使用命名InvokeBehavior再查询，不在首个回调中提前捕获后续候选。具体用法见[内容包](cards.md)。
 
 真实无限随从伤害用`InfiniteDamageMinion(ref, source_id)`，并列原引用组用`RandomInfiniteDamageMinion(tuple(refs), source_id)`，均从hs_sim.engine.infinite_damage导入。仅SPELL来源，原引用失效不改绑，防护仍正常执行；明确内部上限与RNG政策见[契约](m2-infinite-health.md)。不要自行传大整数、用Destroy代替或将显示“∞”门槛用于战斗，也不能据本入口宣称攻击/费用无限值已支持。

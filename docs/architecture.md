@@ -191,6 +191,8 @@ spell_targets.py仅维护随机到交付之间的原引用续接，仍由共享D
 
 敌方角色生命上限转给本方英雄由health_theft.py保原物理引用与一次抽选；英雄之间委托旧StealHeroHealth，随从减少复用普通Buff，英雄增加复用原上限投影。双方在首个事件前提交，仍交原死亡/触发/恢复，无新账本、保存字段或公开事件；core318/schema268。卡牌结束主体经命名InvokeBehavior逐个读取当前场面，见[角色转移契约](m2-character-health-theft.md)。
 
+真实恐怖海兽另用两个原随从引用、剩余生命预算及逐次目标选择，沿同一普通附件安装器在首个事件前提交两端。原英雄接口政策保持，引用、自动选择及未校准窗口见[随从生命偷取契约](m2-minion-health-theft.md)。
+
 显式无限随从伤害以infinite_damage.py的typed原引用请求进入原健康批次；仅该请求使用明确待CN校准的int32上限政策，同批PreparedHealth临时numeric_limit不持久化。防护、归因、历史和吸血共享，普通整数保持；core317/schema268，见[无限健康政策](m2-infinite-health.md)。
 
 真实攻击变形沿原TransformCapturedMinion和BOARD驻留；次回合死亡消费者关联原物理出牌/成功入场/死亡，不增时间戳缓存。带来源归因的复活材料验证实际MINION和原组件，巨型/星舰等复用原创建及入场；core316/schema268，见[反应奥秘契约](m4-reactive-secrets.md)。

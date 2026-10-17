@@ -3,7 +3,7 @@
 Ordinary minion debuffs use the existing Buff lifecycle; permanent hero changes
 use the existing maximum-health projection. No damage/healing packet is made.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from .effects import Buff, Effect, _integer, _player
 from .errors import ResolutionError
 from .health_loss import StealHeroHealth, adjust_max_health, current_living_hero, steal_hero_health
@@ -49,6 +49,35 @@ class RandomStealHealthToHero(Effect):
         ids = [reference_id(ref) for ref in self.candidates]
         if len(set(ids)) != len(ids):
             raise ValueError('Each physical health donor has one random weight')
+
+
+@dataclass(frozen=True)
+class StealHealthToMinion(Effect):
+    beneficiary: MinionReference
+    donor: MinionReference
+    amount: int
+    source_id: int
+
+    def __post_init__(self):
+        reference_value(self.beneficiary); reference_value(self.donor)
+        _integer(self.amount, 'stolen remaining minion health', 0)
+        _integer(self.source_id, 'minion health theft source', 1)
+        if self.beneficiary.player_id == self.donor.player_id or self.beneficiary.entity_id == self.donor.entity_id:
+            raise ValueError('Minion health theft requires original enemy donor and recipient')
+
+
+@dataclass(frozen=True)
+class ChooseHealthForMinion(Effect):
+    beneficiary: MinionReference
+    amount: int
+    count: int
+    source_id: int
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        _integer(self.amount, 'chosen stolen minion health', 0)
+        _integer(self.count, 'remaining minion theft choices', 0)
+        _integer(self.source_id, 'chosen minion health theft source', 1)
 
 
 def eligible(r, player_id, reference):
@@ -111,6 +140,65 @@ def choose(r, request):
     return (StealHealthToHero(request.player_id, selected, request.amount, request.source_id),)
 
 
+def deliver_to_minion(r, request):
+    """Commit both ordinary minion attachments before either notification."""
+    from .resolver import _buff_to
+    validate_source(r, request)
+    beneficiary = live_minion(r.state, request.beneficiary)
+    donor = live_minion(r.state, request.donor)
+    for ref in (request.beneficiary, request.donor):
+        card = r.registry.card(ref.card_id)
+        if card.kind != CardType.MINION or card.interactable is not None:
+            raise ResolutionError('Minion health transfer requires original ordinary minions')
+    if beneficiary is None or donor is None:
+        r.stale(request, request.donor.entity_id)
+        return ()
+    amount = min(request.amount, donor.health)
+    if not amount:
+        return ()
+    debit = _buff_to(r, Buff(donor.id, health=-amount, source_id=request.source_id), donor, notify=False)
+    credit = _buff_to(r, Buff(beneficiary.id, health=amount, source_id=request.source_id), beneficiary, notify=False)
+    r.refresh_auras()
+    for entity, enchantment, delta in ((donor, debit, -amount), (beneficiary, credit, amount)):
+        r.emit('stats_changed', source_id=request.source_id, target_id=entity.id,
+               enchantment_id=enchantment.id, attack_delta=0, health_delta=delta)
+    return ()
+
+
+def choose_for_minion(r, request):
+    """Each actual choice observes the board after the preceding theft/reactions."""
+    from .battlecries import active_battlecry
+    from .effects import ChoiceOption, RequestChoice
+    from .errors import ResolutionLimitExceeded
+    from .model import CardDefinition, TargetSpec
+    from .targeting import accepts_target
+    validate_source(r, request)
+    if request.count > r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Minion theft choices exceed resolution budget')
+    beneficiary = live_minion(r.state, request.beneficiary)
+    if beneficiary is None or not request.count or not request.amount:
+        return ()
+    # Use the common ability-target domain. Indirect automatic Battlecries keep
+    # their existing random-choice policy and automatic selectable protections.
+    definition = CardDefinition('health_theft.target', 'Enemy minion health donor',
+        CardType.MINION, health=1, targeting=TargetSpec(zones=(Zone.BOARD,),
+            kinds=(CardType.MINION,), relation='enemy'))
+    battlecry = active_battlecry(r.state, request.source_id, beneficiary.controller)
+    automatic = battlecry is not None and battlecry.choices == 'random'
+    candidates = tuple(r.state.entities[eid] for eid in sorted(r.state.entities)
+        if accepts_target(r.state, r.registry, beneficiary, definition, eid, automatic=automatic))
+    if not candidates:
+        return ()
+    continuation = (replace(request, count=request.count - 1),) if request.count > 1 else ()
+    options = tuple(ChoiceOption('target-' + str(index + 1), r.registry.card(e.card_id).name,
+        (StealHealthToMinion(request.beneficiary, MinionReference.capture(e), request.amount, request.source_id),
+            *continuation), card_id=e.card_id, entity_id=e.id) for index, e in enumerate(candidates))
+    return (RequestChoice(beneficiary.controller, options, request.source_id,
+        prompt='Choose an enemy minion to steal Health from'),)
+
+
 def register(mechanics):
     mechanics.register(StealHealthToHero, deliver)
     mechanics.register(RandomStealHealthToHero, choose)
+    mechanics.register(StealHealthToMinion, deliver_to_minion)
+    mechanics.register(ChooseHealthForMinion, choose_for_minion)
