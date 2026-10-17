@@ -641,9 +641,17 @@ class CostModifier:
     maximum_cost: int | None = None
     minion_keyword: Keyword | None = None
     minion_keyword_repetitions: int = 1
+    player_effect_id: int | None = None
 
     def __post_init__(self):
         _int(self.id, 'cost modifier ID', 1)
+        _optional_id(self.player_effect_id, 'logical cost source')
+        if self.player_effect_id is not None and (self.player_effect_id >= self.id or self.source_id is None or
+                self.uses_remaining is not None or self.expires_turn is not None or self.scope != CostScope.CARD or
+                self.spec.card_types != (CardType.SPELL,) or self.spec.delta <= 0 or self.spec.set_to is not None or
+                self.spec.minimum or self.spec.payment is not None or self.spec.card_ids or self.spec.ability is not None or
+                self.tribes_any or self.combo_only or self.temporary_only or self.maximum_cost is not None or self.minion_keyword is not None):
+            raise ValueError('Logical Aura cost source requires one original ordinary opponent spell tax')
         if type(self.minion_keyword_repetitions)is not int or self.minion_keyword_repetitions not in(1,2)or self.minion_keyword is None and self.minion_keyword_repetitions!=1:
             raise ValueError('Paid keyword repetitions require the actual finite Kindred Shield reward')
         if not isinstance(self.spec, CostSpec):
@@ -7576,8 +7584,18 @@ class PlayerEffectSpec:
     target_policy: str | None = None
     allowed_card_types: tuple[CardType, ...] = ()
     next_turn_end: bool = False
+    tick_player: str = 'controller'
+    opponent_spell_cost: int = 0
 
     def __post_init__(self):
+        if self.tick_player not in ('controller', 'opponent'):
+            raise ValueError('Unsupported player-effect clock actor')
+        _int(self.opponent_spell_cost, 'Aura opponent spell cost', 0)
+        if self.kind != 'aura' and (self.tick_player != 'controller' or self.opponent_spell_cost):
+            raise ValueError('Opponent clocks and spell tax require a native Paladin Aura')
+        if self.opponent_spell_cost and any((self.on_expire, self.triggers, self.spell_damage, self.auras,
+                self.deathrattle_repeats, self.end_turn_repeats, self.producer_quantities, self.keyword_auras)):
+            raise ValueError('Spell-tax Aura requires one independent ordinary cost contribution')
         if type(self.next_turn_end) is not bool:
             raise ValueError('Next owner-end player effect requires a boolean clock policy')
         if self.next_turn_end and (self.kind != 'objective' or self.duration != 2 or self.tick_event != 'turn_ended'):
@@ -7618,7 +7636,7 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'turn_rule', 'next_spell_damage','next_kindred'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred'):
             raise ValueError('Unsupported player effect kind')
         if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
@@ -7666,8 +7684,10 @@ class PlayerEffect:
     remaining_turns: int | None = None
     source_allocation: tuple[tuple[str, int | str | CardType | Zone], ...] | None = None
     source_player_id: int | None = None
+    cost_modifier_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.cost_modifier_id, 'Aura cost modifier')
         for name in ('id', 'source_id', 'created_turn', 'entered_order'):
             _int(getattr(self, name), name, 1)
         _name(self.spec_id, 'player effect specification')
@@ -10140,6 +10160,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             effect.__post_init__()
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()
+            from .player_effects import validate_cost_binding
+            validate_cost_binding(state, registry, player.id, effect)
             if spec.kind in ('turn_rule','next_spell_damage') and effect.created_turn != state.turn:
                 raise ValueError('Current-turn target rule cannot survive into another actual turn')
             from .repeat_source_conditions import validate_source_declaration
@@ -10169,6 +10191,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError('Player cost_modifiers must contain CostModifier instances')
         for modifier in player.cost_modifiers:
             validate_attachment(modifier)
+            if modifier.player_effect_id is not None:
+                from .player_effects import validate_modifier_owner
+                validate_modifier_owner(state, registry, player.id, modifier)
             if modifier.id in current_attachment_ids:
                 raise ValueError('Duplicate cost modifier ID')
             current_attachment_ids.add(modifier.id)

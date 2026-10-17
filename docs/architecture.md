@@ -1,4 +1,5 @@
 # 纯逻辑引擎设计
+原生圣骑士光环复用公开玩家实例和普通费用修正，对手时钟与双向归属的有限表达见[契约](m3-native-paladin-aura.md)。
 原法术的残骸召唤分支只在原SpendResource增加有限容量门禁，继续使用原支付、通知和带施法归因召唤；见[契约](m3-corpse-spell-capacity.md)。
 真实召唤后的流放奖励按原完整召唤收据交给既有关键词和本回合清理；有限原组续接见[契约](m3-outcast-original-summon.md)。
 真实英雄“免疫到下个本人开始”复用原期限和英雄附件继承，有限载体许可见[契约](m3-hero-timed-immunity.md)。

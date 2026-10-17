@@ -1682,6 +1682,11 @@ class Registry:
                 validate_source_declaration(self, repeat, allow_source=False)
             if self.card(spec.card_id).choice_only:
                 raise ValueError('Player effects require a physical display card')
+            if spec.kind == 'aura':
+                card = self.card(spec.card_id)
+                if (card.kind != CardType.SPELL or card.metadata is None or
+                        CardClass.PALADIN not in card.metadata.classes or card.ongoing_effect_id != spec.id):
+                    raise ValueError('Native Paladin Aura requires its own typed ongoing spell')
             for behavior_id in (spec.on_expire, *(t.behavior_id for t in spec.triggers)):
                 if behavior_id is not None:
                     self.behavior(behavior_id)
@@ -1835,7 +1840,9 @@ class Registry:
                    "player_effects": [{k:v for k,v in asdict(self._player_effects[i]).items()
                                        if (k != 'target_policy' or v is not None) and
                                           (k != 'allowed_card_types' or v) and
-                                          (k != 'next_turn_end' or v)} for i in sorted(self._player_effects)],
+                                          (k != 'next_turn_end' or v) and
+                                          (k != 'tick_player' or v != 'controller') and
+                                          (k != 'opponent_spell_cost' or v)} for i in sorted(self._player_effects)],
                    "summon_producer_profiles": [asdict(self._summon_producer_profiles[i]) for i in sorted(self._summon_producer_profiles)],
                    "end_turn_profiles": [asdict(self._end_turn_profiles[i]) for i in sorted(self._end_turn_profiles)],
                    "end_turn_candidate_profiles": [asdict(self._end_turn_candidate_profiles[i]) for i in sorted(self._end_turn_candidate_profiles)],

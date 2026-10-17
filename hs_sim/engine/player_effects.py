@@ -1,10 +1,10 @@
 """Source-independent public effects, duplicate instances and owner-turn clocks."""
 from dataclasses import dataclass, replace
 
-from .effects import Effect
+from .effects import AddCostModifier, Effect
 from .errors import ResolutionError
 from .lifecycle import attachment_id
-from .model import PlayerEffect, _int, _name
+from .model import CardType, CostModifier, CostSpec, PlayerEffect, _int, _name
 from .secrets import area_count
 
 
@@ -71,6 +71,9 @@ def add(r, effect):
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
+    if spec.kind == 'aura' and (source.card_id != spec.card_id or
+            source.kind != CardType.SPELL or source.controller != player.id):
+        raise ResolutionError('Native Aura requires its own actual controlled spell source')
     if spec.duration is not None and (timed_count(player, r.registry) >= r.rules.max_ongoing_effects or
                                      area_count(player, r.registry) >= r.rules.max_secret_zone):
         r.emit('player_effect_failed', source_id=effect.source_id, player_id=effect.player_id,
@@ -83,11 +86,19 @@ def add(r, effect):
         # The end event captures countdowns before its reactions. An instance
         # installed by those reactions cannot consume that already captured end.
         remaining = 2 if player.id == r.state.active_player and not r.ending_turn else 1
-    instance = PlayerEffect(attachment_id(r.state), spec.id, source.id, source.card_id,
+    instance_id = attachment_id(r.state)
+    modifier_id = r.state.next_attachment_id if spec.opponent_spell_cost else None
+    instance = PlayerEffect(instance_id, spec.id, source.id, source.card_id,
                             r.state.turn, r.state.next_order, remaining,allocation,
-                            effect.player_id if allocation is not None else None)
+                            effect.player_id if allocation is not None else None, modifier_id)
     r.state.next_order += 1
     player.player_effects.append(instance)
+    if modifier_id is not None:
+        from .costs import modify_cost
+        modify_cost(r, AddCostModifier(3-player.id,
+            CostSpec(delta=spec.opponent_spell_cost, card_types=(CardType.SPELL,)), source_id=source.id),
+            player_effect_id=instance.id)
+        validate_cost_binding(r.state, r.registry, player.id, instance)
     r.refresh_auras()
     r.emit('player_effect_added', source_id=source.id, player_id=player.id,
            **public_effect(r.registry, instance))
@@ -95,6 +106,54 @@ def add(r, effect):
 
 def matching(r, effect):
     return next((e for e in r.player(effect.player_id).player_effects if e.id == effect.instance_id), None)
+
+
+def validate_cost_binding(state, registry, player_id, instance):
+    """Each active logical Aura owns precisely its ordinary, nonconsuming tax."""
+    spec = registry.player_effect(instance.spec_id)
+    if spec.kind == 'aura' and instance.source_card_id != spec.card_id:
+        raise ValueError('Aura instance changed its original card face')
+    if not spec.opponent_spell_cost:
+        if instance.cost_modifier_id is not None:
+            raise ValueError('Player effect invented an Aura cost contribution')
+        return
+    if instance.cost_modifier_id is None:
+        raise ValueError('Aura lost its original cost contribution')
+    modifiers = state.players[3-player_id].cost_modifiers
+    rows = [m for m in modifiers if type(m) is CostModifier and m.id == instance.cost_modifier_id]
+    expected = CostModifier(instance.cost_modifier_id,
+        CostSpec(delta=spec.opponent_spell_cost, card_types=(CardType.SPELL,)), instance.source_id,
+        player_effect_id=instance.id)
+    if len(rows) != 1 or rows[0] != expected:
+        raise ValueError('Aura cost contribution differs from its original instance')
+    links = [e.cost_modifier_id for p in state.players.values() for e in p.player_effects
+             if type(e) is PlayerEffect and e.cost_modifier_id is not None]
+    if len(links) != len(set(links)):
+        raise ValueError('Aura instances cannot share a cost contribution')
+
+
+def validate_modifier_owner(state, registry, player_id, modifier):
+    """Validate the reverse live link, including before the one atomic install."""
+    rows = [e for e in state.players[3-player_id].player_effects
+            if e.id == modifier.player_effect_id]
+    if len(rows) != 1:
+        raise ValueError('Aura cost modifier has no original live owner')
+    instance = rows[0]
+    spec = registry.player_effect(instance.spec_id)
+    if spec.kind != 'aura' or not spec.opponent_spell_cost or instance.cost_modifier_id != modifier.id:
+        raise ValueError('Aura cost modifier borrowed another logical source')
+    expected = CostModifier(instance.cost_modifier_id,
+        CostSpec(delta=spec.opponent_spell_cost, card_types=(CardType.SPELL,)), instance.source_id,
+        player_effect_id=instance.id)
+    if modifier != expected:
+        raise ValueError('Aura cost modifier changed its complete native source contribution')
+
+
+def retire_cost_binding(r, player_id, instance):
+    validate_cost_binding(r.state, r.registry, player_id, instance)
+    if instance.cost_modifier_id is not None:
+        player = r.player(3-player_id)
+        player.cost_modifiers = [m for m in player.cost_modifiers if m.id != instance.cost_modifier_id]
 
 
 def target_allowed(state, registry, player_id, card_kind, target_kind):
@@ -174,6 +233,7 @@ def remove(r, effect):
     instance = matching(r, effect)
     if instance is None:
         return
+    retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
     r.refresh_auras()
     r.emit('player_effect_removed', source_id=instance.source_id, player_id=effect.player_id,
@@ -184,8 +244,11 @@ def turn_countdowns(r, player, event):
     # Capture before emitting the boundary: effects added by that boundary's
     # reactions start counting at a later boundary. These guarded ticks survive
     # choices but cannot tick a replacement/new instance by accident.
-    return [TickPlayerEffect(player.id, e.id, e.remaining_turns) for e in player.player_effects
-            if r.registry.player_effect(e.spec_id).tick_event == event]
+    rows = [(owner.id, e) for owner in r.state.players.values() for e in owner.player_effects
+            if (spec := r.registry.player_effect(e.spec_id)).tick_event == event and
+            (owner.id if spec.tick_player == 'controller' else 3-owner.id) == player.id]
+    return [TickPlayerEffect(owner_id, e.id, e.remaining_turns)
+            for owner_id, e in sorted(rows, key=lambda row: row[1].entered_order)]
 
 
 def tick(r, effect):
@@ -202,6 +265,7 @@ def tick(r, effect):
                **public_effect(r.registry, updated))
     else:
         # Expiry frees the slot before reactions and the optional payload.
+        retire_cost_binding(r, effect.player_id, instance)
         player.player_effects.remove(instance)
         r.refresh_auras()
         data = public_effect(r.registry, instance)

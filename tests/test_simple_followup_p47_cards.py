@@ -124,11 +124,12 @@ class SimpleFollowupP47Tests(unittest.TestCase):
         from hs_sim.engine.representative import build_registry as default
         self.assertEqual(default().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
-    def test_real_aura_zone_capability_probe_rejects_kind_and_keeps_whole_root_missing(self):
+    def test_historical_aura_deferral_retains_source_and_current_native_profile_is_explicit(self):
         r=batch_registry()
-        with self.assertRaisesRegex(ValueError,'Unsupported player effect kind'):
-            PlayerEffectSpec('p47.probe','TIME_019',kind='aura',duration=3,tick_event='turn_ended')
-        self.assertNotIn('TIME_019',r.cards);self.assertIn('TIME_019',r.pool_cards)
+        from hs_sim.cards.native_paladin_aura_cards import SPEC, TIMEWAYS
+        self.assertEqual(SKIPPED,(TIMEWAYS,))  # P47's historical deferral remains unchanged.
+        self.assertEqual(r.player_effect(SPEC).kind,'aura')
+        self.assertIsNotNone(r.card(TIMEWAYS).battlecry);self.assertIn(TIMEWAYS,r.pool_cards)
 
     def test_sentry_current_no_neutral_and_ordinary_capacity_summons_without_recursive_battlecry(self):
         for deck,extra in(((),2),((PALADIN,),2),((YETI,),0)):

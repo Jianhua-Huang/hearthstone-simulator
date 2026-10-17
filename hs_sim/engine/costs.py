@@ -550,7 +550,7 @@ def attach_cost(state, entity, spec, source_id=None, expires_turn=None):
     return attachment
 
 
-def modify_cost(r, effect):
+def modify_cost(r, effect, *, player_effect_id=None):
     from .lifecycle import attachment_id, refresh_entity
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Cost attachment source does not exist')
@@ -559,9 +559,15 @@ def modify_cost(r, effect):
     spec = effect.spec
     if isinstance(effect, AddCostModifier):
         player = r.player(effect.player_id)
-        modifier = CostModifier(attachment_id(r.state), spec, effect.source_id,
+        modifier = CostModifier(r.state.next_attachment_id, spec, effect.source_id,
                                 effect.uses_remaining, effect.expires_turn, effect.scope,effect.tribes_any,
-                                effect.combo_only,effect.temporary_only,effect.maximum_cost,effect.minion_keyword,effect.minion_keyword_repetitions)
+                                effect.combo_only,effect.temporary_only,effect.maximum_cost,effect.minion_keyword,effect.minion_keyword_repetitions,
+                                player_effect_id)
+        if player_effect_id is not None:
+            from .player_effects import validate_modifier_owner
+            validate_modifier_owner(r.state, r.registry, player.id, modifier)
+        if attachment_id(r.state) != modifier.id:
+            raise ResolutionError('Cost source allocation changed before installation')
         player.cost_modifiers.append(modifier)
         r.emit('cost_modifier_added', player_id=player.id, source_id=effect.source_id, modifier_id=modifier.id)
         return
