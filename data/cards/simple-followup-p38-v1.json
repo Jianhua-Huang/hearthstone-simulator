@@ -1,0 +1,474 @@
+{
+  "batch": "P38",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_AT_062",
+        "dbf_id": 111364,
+        "name": "天降蛛群",
+        "name_en": "Ball of Spiders",
+        "text": "召唤三只1/1并具有“<b>亡语：</b>随机获取一张野兽牌”的\n结网蛛。",
+        "text_en": "Summon three 1/1 Webspinners\nwith \"<b>Deathrattle:</b> Get\na random Beast.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 2483,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1860
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2483",
+              "type": "Int",
+              "value": "2483"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "169fbda76d4d2d5229ce34e44d38ed62d86b54aaca895fc88901cdbca7573ead"
+    },
+    {
+      "record": {
+        "id": "TLC_815",
+        "dbf_id": 117316,
+        "name": "墓晨虚空芽",
+        "name_en": "Gravedawn Voidbulb",
+        "text": "随机召唤一个法力值消耗为（4）的随从并使其获得<b>嘲讽</b>。<b>延系：</b>重复一次。",
+        "text_en": "Summon a random 4-Cost minion and\ngive it <b>Taunt</b>.\n<b>Kindred:</b> Do it again.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "79cd7525fa4a34e4d4e83e353bb4b2336e6cdf1632c9e8fbfe4fdbbbce2edf10"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "FP1_011",
+        "dbf_id": 1860,
+        "name": "结网蛛",
+        "name_en": "Webspinner",
+        "text": "<b>亡语：</b>随机获取一张野兽牌。",
+        "text_en": "<b>Deathrattle:</b> Get a\nrandom Beast.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 12,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Brereton"
+          }
+        ]
+      },
+      "record_sha256": "501b5f5339d163a75da812d56b08155c94d61d09df38e32967ea195f3f6ccfeb"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "AT_062",
+        "dbf_id": 2483,
+        "name": "天降蛛群",
+        "name_en": "Ball of Spiders",
+        "text": "召唤三只1/1并具有“<b>亡语：</b>随机获取一张野兽牌”的\n结网蛛。",
+        "text_en": "Summon three 1/1 Webspinners\nwith \"<b>Deathrattle:</b> Get\na random Beast.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1860
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "37cde618984376506cca0a1f38c8fc74ea394685edeafd5fbb4e1fefea993fcb"
+    },
+    {
+      "record": {
+        "id": "TLC_815e",
+        "dbf_id": 117550,
+        "name": "虚空之触",
+        "name_en": "Void Touched",
+        "text": "<b>嘲讽</b>。",
+        "text_en": "<b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a29cafe39bc64bd7586c1f492ff683e943d42170bebaa229526d73f38df528f4"
+    }
+  ],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T08:32:31.413296+08:00",
+    "source": "Six complete cached official responses independently verified, no refetch",
+    "observations": [
+      {
+        "card_id": "CORE_AT_062",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111364&locale=en_US",
+        "response_file": "official-CORE_AT_062-en_US.json",
+        "response_sha256": "9f519510af03cb6b6c0882aa12d67123b44b5aab6ff12ba73a4962db02f0fc14",
+        "face": {
+          "id": 111364,
+          "collectible": 1,
+          "slug": "111364-ball-of-spiders",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Skan Srisuwan",
+          "manaCost": 3,
+          "name": "Ball of Spiders",
+          "text": "Summon three 1/1 Webspinners with \"<b>Deathrattle:</b> Get a random Beast.\"",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd1451016255ca721ae5cfac2c0c615b2fb59f719208530a72cccdb54d7d235c.png",
+          "imageGold": "",
+          "flavorText": "\"THEY'RE EVERYWHERE GET THEM OFF!!!\" - Everyone",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41720f23d81af6ce05831070bd2e789616bb6dcd5c4f667865e2191865165087.png",
+          "keywordIds": [
+            12
+          ],
+          "copyOfCardId": [
+            2483,
+            102544
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "CORE_AT_062",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=111364&locale=zh_CN",
+        "response_file": "official-CORE_AT_062-zh_CN.json",
+        "response_sha256": "a2d89285476d6461e21137a9eb497a99e11fb527bc615c28990419856d60d0e7",
+        "face": {
+          "id": 111364,
+          "collectible": 1,
+          "slug": "111364-ball-of-spiders",
+          "classId": 3,
+          "multiClassIds": [],
+          "cardTypeId": 5,
+          "cardSetId": 1637,
+          "rarityId": 3,
+          "artistName": "Skan Srisuwan",
+          "manaCost": 3,
+          "name": "天降蛛群",
+          "text": "召唤三只1/1并具有“<b>亡语：</b>随机获取一张野兽牌”的 结网蛛。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/991fb4b191f8995ebb69ba37fdc2ed5a8a22d1221ed9c6aced14870c71c761cb.png",
+          "imageGold": "",
+          "flavorText": "到处都是蜘蛛，真让人头皮发麻。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41720f23d81af6ce05831070bd2e789616bb6dcd5c4f667865e2191865165087.png",
+          "keywordIds": [
+            12
+          ],
+          "copyOfCardId": [
+            2483,
+            102544
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FP1_011",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1860&locale=en_US",
+        "response_file": "official-FP1_011-en_US.json",
+        "response_sha256": "d2091d23dc33fa25a80dca1dec856475c0f65f9a574f87e3384711ed9be31425",
+        "face": {
+          "id": 1860,
+          "collectible": 1,
+          "slug": "1860-webspinner",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 12,
+          "rarityId": 1,
+          "artistName": "Dan Brereton",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Webspinner",
+          "text": "<b>Deathrattle:</b> Get a random Beast.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea749a542de8db25c17e24554d7ed7be39438957351fa0e3d4d20931d4f586d3.png",
+          "imageGold": "",
+          "flavorText": "Spider cocoons are like little piñatas!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ea51c37d314e97321f72777ad346ddebe0a8f71bb5dea36312e936464a53e86.png",
+          "keywordIds": [
+            12
+          ],
+          "copyOfCardId": [
+            69692
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FP1_011",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1860&locale=zh_CN",
+        "response_file": "official-FP1_011-zh_CN.json",
+        "response_sha256": "61e7400a42bbc5b0d9a900d1844428180af93fbfe42a03104150c7c0752f37cf",
+        "face": {
+          "id": 1860,
+          "collectible": 1,
+          "slug": "1860-webspinner",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 12,
+          "rarityId": 1,
+          "artistName": "Dan Brereton",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "结网蛛",
+          "text": "<b>亡语：</b>随机获取一张野兽牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41fc10f4d49956a5e19d7cf7a93de13071e7b218b2a554e0d561c836f7d6d153.png",
+          "imageGold": "",
+          "flavorText": "蜘蛛的茧里往往会藏着意想不到的好东西！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ea51c37d314e97321f72777ad346ddebe0a8f71bb5dea36312e936464a53e86.png",
+          "keywordIds": [
+            12
+          ],
+          "copyOfCardId": [
+            69692
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_815",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117316&locale=en_US",
+        "response_file": "official-TLC_815-en_US.json",
+        "response_sha256": "4afaa6f02f4ded06d1281ad8abd4a0d3126990a28ca68dd836cac0313d556893",
+        "face": {
+          "id": 117316,
+          "collectible": 1,
+          "slug": "117316-gravedawn-voidbulb",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Studio Hive",
+          "manaCost": 4,
+          "name": "Gravedawn Voidbulb",
+          "text": "Summon a random 4-Cost minion and give it <b>Taunt</b>. <b>Kindred:</b> Do it again.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34a4146f60b989712508a32aa5ce0866d4cec81756d1179dcc6d4d22e6a5df9e.png",
+          "imageGold": "",
+          "flavorText": "How many Gravedawns does it take to screw in a Voidbulb?",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0f0db9b2e42401f2069840ee5e31c2e26d30d10229c775dffcb7aa13d05b074.png",
+          "keywordIds": [
+            1,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "TLC_815",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117316&locale=zh_CN",
+        "response_file": "official-TLC_815-zh_CN.json",
+        "response_sha256": "69a176135f041d20e89f0b73306693cf8e3585cd88fe5bcf0ccbe780c193aca1",
+        "face": {
+          "id": 117316,
+          "collectible": 1,
+          "slug": "117316-gravedawn-voidbulb",
+          "classId": 6,
+          "multiClassIds": [],
+          "spellSchoolId": 6,
+          "cardTypeId": 5,
+          "cardSetId": 1952,
+          "rarityId": 3,
+          "artistName": "Studio Hive",
+          "manaCost": 4,
+          "name": "墓晨虚空芽",
+          "text": "随机召唤一个法力值消耗为（4）的随从并使其获得<b>嘲讽</b>。<b>延系：</b>重复一次。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b6eba14073cea16241e9866eddbb5f555782f1482b71f670f21c075c260b01b.png",
+          "imageGold": "",
+          "flavorText": "维护一株虚空芽需要多少墓晨林地的时光？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0f0db9b2e42401f2069840ee5e31c2e26d30d10229c775dffcb7aa13d05b074.png",
+          "keywordIds": [
+            1,
+            351
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Ball of Spiders current3mana Hunter unschooledSPELL. Three existing single-entry SummonByCard requests for actual FP1_011, same original SummonCause captured once, shared ordinary quantity/capacity/entry pipeline. SummonByCard materials is a unique candidate inventory, not multiplicity/count; no duplicate candidate tuple, fake casts or local executor. Initial fixed summons require no generated pool/context.",
+    "Webspinner actual collectible Hunter1mana1/1Beast with native Deathrattle GenerateFromPool collectibleMINION Beast anyclass ordinaryhand originalcarrier source. Full real named dependency retained despite old set; no production legal pool claim. Self/edition exclusion shared original rule; death reward is Get, not draw/discover/summon.",
+    "Ball exactCore identityAT_062 fromraw858=DBF2483. Explicit COLLECTION_RELATED_CARD_DATABASE_ID1860 points actual FP1_011. OldAT_062 andTLC_815e remain full evidence only, no old root or executable enchantment placeholder.",
+    "Gravedawn Voidbulb4mana PriestShadowSPELL. Existing native KindredProfile wrapperonplay, prepare first ordinary attributed SummonFromPool printed4 collectibleMINION anyclass withentryTAUNT then repeat_components; active each returns a fresh same public summon request at its own actual window. False ordinary1, true ordinary1+extra1, accepted nextKindredmax2 ordinary1+extra2; never repeat payment/fullspell or reuse random selection. Shared ownerturn qualification/source consumption/quantity/entry/wait/replay. No ownTaunt spell keyword, no Taunt poolfilter.",
+    "Full eligible unknown validation before each ownRNG; complete matching host constructed.cards inventory and GenerationContext required only when generated pool actually executes. No registered-only crop, private mutation, placeholder or local sampler. Definitions/PoolCards precede full candidate catalog; old1302/default311/258families/290engine preserved apart from Corecopy identity/new real dependency metadata.",
+    "Only internal effect support; exact CN implicit qualification/death/source-exclusion/Kindred/quantity/entry windows, M0 fulllegal/actuallyreachable pool and stage release remain open."
+  ]
+}
