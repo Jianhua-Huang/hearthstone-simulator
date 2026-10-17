@@ -135,13 +135,21 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                         '{0}' not in states[0] and
                         all(re.fullmatch(r'\s*<i>.*</i>\s*', s, flags=re.S) for s in states[1:]) and
                         tuple(display(s) for s in states[1:]) == progress_labels)
+    # A primary face may leave the counter label intact but omit its live value.
+    # Require a reviewed, single trailing label and preserve the entire rule body,
+    # label text and denominator. Never treat a rule-body @ as a display counter.
+    counter = re.fullmatch(r'([^@]*)@\s*<i>([^<>@]*@[^<>@]*)</i>\s*', raw_text, flags=re.S)
+    counter_labels = (('（已使用@张）', '（已死亡@个）', '（减少@点）', '（@/4）') if chinese
+                      else ('(@)', '(@/4)'))
+    counter_display = (display_normalizations == {'@': ''} and counter is not None and
+                       bool(display(counter[1])) and display(counter[2]) in counter_labels)
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and (progress_display and replacement == '' or
+            require(type(replacement) is str and ((progress_display or counter_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')

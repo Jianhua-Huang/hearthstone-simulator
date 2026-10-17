@@ -140,6 +140,56 @@ class CardBatchToolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'multiple classes'):
             batch.check_face(raw, dict(face, multiClassIds=[1, 7]), 'zh_CN')
 
+    def counter_faces(self):
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/cards/simple-followup-p74-v1.json')
+        rows = {x['record']['id']:x['record'] for x in data['evidence_only']}
+        return [(rows[o['card_id']], o['face'], o['locale'])
+                for o in data['rejected_complete_primary_observations']]
+
+    def test_eight_original_counter_faces_need_explicit_declaration_and_preserve_originals(self):
+        observations = self.counter_faces()
+        self.assertEqual(len(observations), 8)
+        self.assertEqual({row['id'] for row, _, _ in observations},
+                         {'JAIL_909', 'END_009', 'JAIL_974', 'JAIL_474'})
+        for row, face, locale in observations:
+            with self.subTest(card=row['id'], locale=locale):
+                original = deepcopy((row, face))
+                with self.assertRaises(ValueError):batch.check_face(row, face, locale)
+                batch.check_face(row, face, locale, {'@': ''})
+                self.assertEqual((row, face), original)
+
+    def test_counter_display_keeps_the_complete_rule_body_and_denominator(self):
+        row, face, locale = next(x for x in self.counter_faces()
+                                if x[0]['id']=='JAIL_974' and x[2]=='en_US')
+        for text in (face['text'].replace('4 other', '5 other'),
+                     face['text'].replace('/4', '/5'),
+                     face['text'].replace('enemy', 'friendly character'),
+                     face['text'].replace("cast 'Fireball'", 'deal 6 damage'),
+                     face['text'].replace('Deathrattle:', 'Battlecry:')):
+            with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'rules drift'):
+                batch.check_face(row, dict(face, text=text), locale, {'@': ''})
+        for text in (row['text_en'].replace('/4', '/5'),
+                     row['text_en'].replace('4 other', '5 other')):
+            with self.subTest(source=text), self.assertRaises(ValueError):
+                batch.check_face(dict(row, text_en=text), face, locale, {'@': ''})
+
+    def test_counter_display_cannot_remove_rule_values_arbitrary_labels_or_multiple_states(self):
+        raw, face = self.face()
+        for text in ('造成@点伤害。@<i>（已使用@张）</i>',
+                     '造成3点伤害。@<i>（获得@护甲）</i>',
+                     '造成3点伤害。@<i>（已使用@张）</i>额外规则',
+                     '造成3点伤害。@<i>（已使用@张）</i>@<i>（已经就绪！）</i>',
+                     '造成3点伤害。@<i>（已使用<b>@</b>张）</i>',
+                     '造成3点伤害。@<i>（已使用{0}张）</i>',
+                     '造成3点伤害。@<i>（@/5）</i>'):
+            candidate = dict(raw, text=text)
+            displayed = dict(face, text=text.replace('@', ''))
+            with self.subTest(text=text), self.assertRaises(ValueError):
+                batch.check_face(candidate, displayed, 'zh_CN', {'@': ''})
+        raw['text']='造成3点伤害。@<i>(@)</i>'
+        with self.assertRaises(ValueError):
+            batch.check_face(raw, dict(face, text=raw['text'].replace('@','')), 'zh_CN', {'@':''})
+
     def test_client_plural_prefix_keeps_both_branches_and_all_actual_numbers(self):
         self.assertEqual(batch.display('Cast 3 |4(spell, spells) to deal 6 damage.'),
             batch.display('Cast 3 (spell, spells) to deal 6 damage.'))
