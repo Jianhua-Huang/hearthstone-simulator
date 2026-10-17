@@ -186,7 +186,7 @@ class SimpleFollowupP57Tests(unittest.TestCase):
             if card.kind == CardType.MINION:
                 self.assertEqual((card.attack, card.health), (0 if card.id in EGGS else raw['attack'], raw['health']))
         self.assertEqual(sum(after.card(cid).metadata.collectible for cid in ROOTS), 3)
-        self.assertNotIn(DEFERRED, after.cards)
+        self.assertEqual(after.card(DEFERRED), before.card(DEFERRED))
         self.assertNotIn(PARENT, after.cards)
         self.assertEqual(after.card(VANESSA).hand_actions[0].cost, 1)
         self.assertEqual(after.player_effect(PREFIX + 'pending_tax').triggers,
@@ -343,7 +343,7 @@ class SimpleFollowupP57Tests(unittest.TestCase):
             self.assertEqual(g.state.active_player, 2)
             self.assertEqual(self.quote(g, self.first(g, YETI, player=2).id).amount, 5)
 
-    def test_time615_whole_card_deferred_for_real_pool_capacity_request_gap(self):
+    def test_historical_time615_probe_keeps_original_gap_and_native_capacity_request_is_now_registered(self):
         a = self.game((TEST + 'fill',), rules=Ruleset(max_hand=6))
         b = self.game((TEST + 'fill',), rules=Ruleset(max_hand=11))
         self.assertEqual(asdict(a.state), asdict(b.state))
@@ -356,7 +356,9 @@ class SimpleFollowupP57Tests(unittest.TestCase):
         self.assertNotIn('fill', {f.name for f in fields(GenerateFromPool)})
         self.play(a, TEST + 'fill'); self.play(b, TEST + 'fill')
         self.assertEqual((len(a.state.players[1].hand), len(b.state.players[1].hand)), (6, 11))
-        self.assertNotIn(DEFERRED, a.registry.cards)
+        from hs_sim.engine.pools import FillHandFromPool
+        self.assertIn(FillHandFromPool, a.mechanics.effect_types)
+        self.assertIsNotNone(a.registry.card(DEFERRED).on_play)
         self.assertEqual([x['record']['id'] for x in load_batch()['skipped']], [DEFERRED])
 
 
