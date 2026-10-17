@@ -1164,7 +1164,7 @@ CardDefinition 使用 `Keyword.COLOSSAL` 和有序 `colossal=(AppendageSpec(card
 
 
 
-法术/随从使用 `Keyword.REWIND` 与 `rewind=RewindSpec(retries=1)` 声明单次手动打出的重试预算。行为可读 `RuleContext.rewind_attempt` 决定回溯后候选；保留/重试由内核提供并沿用 SelectChoice。卡牌代码不能自己恢复状态或重置 RNG。多次回溯可用 `RewindSpec(retries=2, next_card_id="remaining_one")` 声明严格递减的同牌卡面链，末形态不含回溯；注册时检查完整链，不能改变身材/费用/行为。实例/附件与原出牌支付报价保留，详见 [次数卡面和 R-092](m5-rewind-forms.md)。随从声明 `retain_rewind_outcomes=True` 或通过 `GrantRewindRetention` 授予，可捕获不叠加的保留结果能力；每个激活只记一次支付/出牌/施法，按 [R-093 契约](m5-rewind-outcomes.md) 累计执行。英雄技能回溯已通过内部验收；检查点规则见 [R-091](m5-rewind.md)。
+法术/随从使用 `Keyword.REWIND` 与 `rewind=RewindSpec(retries=1)` 声明单次手动打出的重试预算。行为可读 `RuleContext.rewind_attempt` 决定回溯后候选；保留/重试由内核提供并沿用 SelectChoice。卡牌代码不能自己恢复状态或重置 RNG。多次回溯可用 `RewindSpec(retries=2, next_card_id="remaining_one")` 声明严格递减的同牌卡面链，末形态不含回溯；注册时检查完整链，不能改变身材/费用/行为。实例/附件与原出牌支付报价保留，详见 [次数卡面和 R-092](m5-rewind-forms.md)。随从声明 `retain_rewind_outcomes=True` 或通过 `GrantRewindRetention` 授予，可捕获不叠加的保留结果能力；每个激活只记一次支付/出牌/施法，按 [R-093 契约](m5-rewind-outcomes.md) 累计执行。英雄技能回溯已通过内部验收；检查点规则见 [R-091](m5-rewind.md)。洗牌消费者读取恢复后的完整语义操作事实，原诊断日志仅由有效时间线提供边界见证，见[洗牌契约](m3-semantic-deck-shuffles.md)。
 
 
 

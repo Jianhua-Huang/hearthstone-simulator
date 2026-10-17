@@ -254,13 +254,16 @@ class SimpleFollowupP49Tests(unittest.TestCase):
         with self.assertRaisesRegex(ResolutionError,'callback lost original activation'):self.play(g,TEST+'kindred_probe')
         self.assertEqual(g.snapshot(),saved);self.assertNotIn('DINO_413',g.registry.cards)
 
-    def test_real_shuffle_rewind_gap_rolls_back_retry_instead_of_retiring_diagnostic_insertions(self):
+    def test_historical_shuffle_rewind_gap_now_retires_only_diagnostic_insertions(self):
         g=self.game((TEST+'shuffle_two',TEST+'top'),pool=False,context=None)
         self.play(g,TEST+'shuffle_two');self.play(g,TEST+'top');self.assertEqual(capture_cost(g.state,1).quantity,1)
         self.assertEqual(g.state.deck_shuffle_history[0].declared_count,2)
-        g=self.game((TEST+'rewind_shuffle',),pool=False,context=None);self.play(g,TEST+'rewind_shuffle');saved=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'Insertion names an unknown shuffle operation'):self.choose(g,'retry')
-        self.assertEqual(g.snapshot(),saved);self.assertNotIn(KNOCKBACK,g.registry.cards)
+        g=self.game((TEST+'rewind_shuffle',),pool=False,context=None);self.play(g,TEST+'rewind_shuffle')
+        self.assertEqual(capture_cost(g.state,1).quantity,1);self.choose(g,'retry')
+        self.assertIsNone(g.state.pending_choice);self.assertEqual(capture_cost(g.state,1).quantity,0)
+        self.assertTrue(any(e.kind=='card_added_to_deck'for e in g.events));self.portable(g)
+        self.assertIn(KNOCKBACK,SKIPPED)  # Original P49 deferral remains historical.
+        self.assertIsNotNone(g.registry.card(KNOCKBACK).on_play)
 
     def test_historical_defender_gap_is_now_guarded_through_the_actual_attack_window(self):
         g=self.game((TEST+'force_pair',),board=(YETI,),enemy=(YETI,),mode='defender_reentry',pool=False,context=None)

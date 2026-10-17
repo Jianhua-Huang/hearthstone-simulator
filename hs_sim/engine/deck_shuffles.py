@@ -108,8 +108,11 @@ def publication(r,kind,target_id,player_id,source_id,mode):
 
 
 def validate_boundary(game):
+    from .hero_health_history import effective_events
     state=game._state;validate_state(state,game.registry);members={r.id:[]for r in state.deck_shuffle_history}
-    for event in game._events:
+    # Rewind restores State facts, but keeps the attempted diagnostic suffix.
+    # Only the committed timeline can witness the restored operation inventory.
+    for event in effective_events(game._events):
         marker=dict(event.data).get('deck_insertion')
         if event.kind not in INSERT_EVENTS:
             if marker is not None:raise ValueError('Non-insertion invented a shuffle marker')
