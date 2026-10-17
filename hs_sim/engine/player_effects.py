@@ -65,6 +65,57 @@ class TickPlayerEffect(RemovePlayerEffect):
         _int(self.expected_remaining, 'captured remaining turns', 1)
 
 
+@dataclass(frozen=True)
+class ConsumePlayerEffect(Effect):
+    """Run the continuation only when this exact live instance is consumed."""
+    player_id: int
+    instance: PlayerEffect
+    on_success: tuple[Effect, ...] = ()
+
+    def __post_init__(self):
+        from .effects import _player
+        _player(self.player_id)
+        if type(self.instance) is not PlayerEffect:
+            raise ValueError('Player effect consumption requires its complete original instance')
+        self.instance.__post_init__()
+        if type(self.on_success) is not tuple or any(not isinstance(e, Effect) for e in self.on_success):
+            raise ValueError('Player effect consumption requires immutable typed success work')
+
+
+def validate_consumption(state, registry, effect):
+    effect.__post_init__()
+    instance = effect.instance
+    registry.player_effect(instance.spec_id)
+    registry.card(instance.source_card_id)
+    if (instance.id >= state.next_attachment_id or instance.entered_order >= state.next_order or
+            instance.created_turn > state.turn or instance.source_id not in state.entities):
+        raise ValueError('Player effect consumption has an unallocated original instance')
+    if instance.source_allocation is not None:
+        health_source(state, registry, instance, effect.player_id)
+    for player in state.players.values():
+        current = next((e for e in player.player_effects if e.id == instance.id), None)
+        if current is not None:
+            if player.id != effect.player_id or current != instance:
+                raise ValueError('Player effect consumption changed its original owner or instance')
+            return current
+    # A previously accepted request may outlive its instance. It must skip,
+    # rather than borrowing a newer instance with the same specification.
+    return None
+
+
+def consume(r, effect):
+    try:
+        current = validate_consumption(r.state, r.registry, effect)
+    except ValueError as exc:
+        raise ResolutionError(str(exc)) from exc
+    if current is None:
+        return ()
+    # Removal is committed before its event can capture reentrant callbacks.
+    # Ordinary RemovePlayerEffect and countdown/expiry semantics stay intact.
+    remove(r, RemovePlayerEffect(effect.player_id, current.id))
+    return effect.on_success
+
+
 def add(r, effect):
     player = r.player(effect.player_id)
     spec = r.registry.player_effect(effect.spec_id)
@@ -321,3 +372,4 @@ def register_player_effects(mechanics):
     for effect, handler in ((AddPlayerEffect, add), (RemovePlayerEffect, remove), (TickPlayerEffect, tick)):
         mechanics.register(effect, handler)
     mechanics.register(PlayerEffectDamage,player_damage)
+    mechanics.register(ConsumePlayerEffect, consume)

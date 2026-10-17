@@ -119,7 +119,7 @@ from .quests import AdvanceQuest, ResetQuestProgress, RemoveQuest
 __all__ += ['QuestSpec', 'QuestStageSpec', 'QuestProgress', 'AdvanceQuest', 'ResetQuestProgress', 'RemoveQuest']
 
 from .model import PlayerEffect, PlayerEffectSpec, PlayerAuraSpec, PlayerKeywordAuraSpec
-from .player_effects import AddPlayerEffect, RemovePlayerEffect
+from .player_effects import AddPlayerEffect, RemovePlayerEffect, ConsumePlayerEffect
 __all__ += ['PlayerEffect', 'PlayerEffectSpec', 'PlayerAuraSpec', 'PlayerKeywordAuraSpec', 'AddPlayerEffect', 'RemovePlayerEffect']
 
 from .model import SecretSpec, ActionWindow

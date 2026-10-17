@@ -205,6 +205,9 @@ class FrameCodec:
         from .player_effects import PlayerEffectDamage,health_source
         if type(value)is PlayerEffectDamage and self.origin_state is not None:
             health_source(self.origin_state,self.registry,value.instance,value.player_id)
+        from .player_effects import ConsumePlayerEffect, validate_consumption
+        if type(value) is ConsumePlayerEffect and self.origin_state is not None:
+            validate_consumption(self.origin_state, self.registry, value)
         if type(value) is model.HandOtherClassMatch:
             from .hand_conditions import validate_hand_other_class_match
             validate_hand_other_class_match(value,self.registry)

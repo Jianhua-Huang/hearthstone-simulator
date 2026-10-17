@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+奖励只能兑现一次时，使用完整原实例的`ConsumePlayerEffect`，不要排列“移除＋独立奖励”来模拟条件成功；接受窗、来源和恢复边界见[契约](m3-once-player-effect-reward.md)。
+
 需要0/0初始召唤时直接使用非负 `SummonStats`，不要先创建正生命再设值，也不要强制消灭可能被光环保住的实体；原具名交付可继续原驻留攻击，见[契约](m3-zero-health-summon-entry.md)。
 
 需要实际可用性筛选时复用[可用法术契约](m3-playable-spell-generation.md)中的共享手动资格和纯材料副本，不以试打动作或剩余法力代替；真实交付和生命周期继续交给普通执行器。
