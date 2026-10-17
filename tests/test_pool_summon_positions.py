@@ -1,4 +1,5 @@
 """Real random Deathrattles forward original slots to existing summon plans."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json,unittest
 from hs_sim.cards import build_registry
@@ -105,7 +106,7 @@ class PoolSummonPositionTests(unittest.TestCase):
 
     def test_old_schema328_is_rejected_and_default_content_preserved(self):
         from hs_sim.engine.representative import build_registry as defaults
-        self.assertEqual(defaults().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,329);g=self.game();s=g.snapshot();s['schema_version']=328
+        self.assertEqual(defaults().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,329);g=self.game();s=g.snapshot();s['schema_version']=328
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry(self.mode))
 
 if __name__=='__main__':unittest.main()

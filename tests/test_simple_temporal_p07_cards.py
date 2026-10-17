@@ -1,4 +1,5 @@
 """Native resources, finite persistent stages and three-reward public Auras."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json
 import re
@@ -124,7 +125,7 @@ class SimpleTemporalP07CardTests(unittest.TestCase):
     def test_default_311_definitions_and_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
         r=default();self.assertEqual(len(r.cards),311)
-        self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_actual_paid_roots_charge_once_without_immediate_aura_rewards(self):
         for cid in ROOTS:

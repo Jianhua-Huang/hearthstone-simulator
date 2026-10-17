@@ -1,4 +1,5 @@
 """Torga's actual two physical selectors and native held bonus slots."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,unittest
@@ -100,8 +101,8 @@ class KindredHandBonusTests(unittest.TestCase):
         self.assertEqual(self.r.card(TWISTED).keywords,(Keyword.TAUNT,Keyword.ELUSIVE))
     def test_old1057_complete_definitions_and_default_fingerprint_preserved(self):
         prior=json.loads((ROOT/'outputs/card-integration-20261014/k79-before/definition-digests.json').read_bytes())
-        self.assertEqual(len(prior),1057);self.assertEqual(prior,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in prior})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(prior),1057);self.assertEqual(prior,historical_definition_digests(self.r,prior))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_torga_minion_tutors_native_kindred_then_matching_minion(self):
         g=self.game((TORGA,),deck=(STORM,'k79.elemental',YETI,'k79.nature'));source=self.play(g,TORGA)
         self.assertEqual([row.card_id for row in g.state.draw_history],[STORM,'k79.elemental'])

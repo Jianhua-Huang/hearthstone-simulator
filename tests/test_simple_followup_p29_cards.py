@@ -1,4 +1,5 @@
 """Private ordinary discoveries over explicit experimental inventories."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 from types import SimpleNamespace
 import json,random,re,unittest
@@ -89,7 +90,7 @@ class SimpleFollowupP29Tests(unittest.TestCase):
 
     def test_default311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_exact_queries_any_class_current_class_neutral_all_and_any_card_kind(self):
         r=registry();self.assertEqual(self.candidates(r,WHELP),{MAGE1,WARLOCK1,PALADIN1});self.assertEqual(self.candidates(r,VICAR),{HOLY});self.assertEqual(self.candidates(r,VICAR,CardClass.PRIEST),{PRIEST_HOLY});self.assertEqual(self.candidates(r,NETHER,CardClass.WARLOCK),{DEMON,NEUTRAL_DEMON,ALL});self.assertEqual(self.candidates(r,NETHER,CardClass.MAGE),{MAGE_DEMON,NEUTRAL_DEMON,ALL});self.assertEqual(self.candidates(r,PEDDLER),{PALADIN1,WEAPON1,NEUTRAL1});self.assertEqual(QUERIES[PEDDLER].kinds,())

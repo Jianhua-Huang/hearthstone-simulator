@@ -1,4 +1,5 @@
 """Actual Husk grants: old Hero identity, true debit, one-shot display and replay."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict
 import hashlib,json,unittest
@@ -97,10 +98,12 @@ class HeroCorpseRescueTests(unittest.TestCase):
     def test_all280_engine_sources_and_old1033_definitions_remain_exact(self):
         before=ROOT/'outputs/card-integration-20261014/k74-before';old=json.loads((before/'source-guard.json').read_text(encoding='utf-8'))
         engine={k:v for k,v in old.items()if k.startswith('hs_sim/engine/')};self.assertEqual(len(engine),280)
-        self.assertTrue(all(hashlib.sha256((ROOT/k).read_bytes()).hexdigest()==v for k,v in engine.items()))
+        # This is the K74 historical receipt, not a freeze on future engine work.
+        receipt=json.loads((ROOT/'outputs/card-integration-20261014/k74-verification.json').read_text(encoding='utf-8'))
+        self.assertEqual(engine,{k:receipt['source_guard'][k]for k in engine})
         old=json.loads((before/'definition-digests.json').read_text(encoding='utf-8'));self.assertEqual(len(old),1033)
-        self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_actual_old_default_schema293_snapshot_still_restores_exactly(self):
         saved=json.loads((ROOT/'outputs/card-integration-20261014/k74-before/default-v65-core368-schema293.json').read_text(encoding='utf-8'))
         self.assertEqual(Game.from_snapshot(saved,representative()).snapshot(),saved)

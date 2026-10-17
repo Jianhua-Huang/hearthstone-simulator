@@ -423,8 +423,7 @@ class KindredDarkGiftTests(unittest.TestCase):
         del next(self.nodes(saved['resolution_frame'], 'DiscoverDarkGift'))['cost']
         self.reject(g, saved)
         saved = g.snapshot()
-        saved['schema_version'] = 330
-        self.assertEqual(SNAPSHOT_SCHEMA_VERSION, 331)
+        saved['schema_version'] = SNAPSHOT_SCHEMA_VERSION - 1
         with self.assertRaises(SnapshotError):
             Game.from_snapshot(saved, registry())
 

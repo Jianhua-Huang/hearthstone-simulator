@@ -1,4 +1,5 @@
 """Ranked spells: actual crystal changes, stored lifecycle, and boundary evidence."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -280,7 +281,7 @@ class ManaRankTests(unittest.TestCase):
         self.assertEqual(opening_registry().fingerprint(), 'e2a56b63d48cf1e07a587ade4a9d7bc67cedfdecd1d692ca82a0040113b2f7e5')
         default = build_registry()
         self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
-        self.assertEqual(default.fingerprint(), 'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(default.fingerprint(), DEFAULT_REPRESENTATIVE_FINGERPRINT)
         self.assertEqual(default_mechanics().version, CORE_EFFECTS_VERSION)
 
     def test_opt_in_profile_changes_fingerprint_and_is_frozen(self):

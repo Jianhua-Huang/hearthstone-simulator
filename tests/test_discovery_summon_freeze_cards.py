@@ -1,4 +1,5 @@
 """Glaciate joins its actual selected summon delivery to ordinary Freeze."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import json,re,unittest
@@ -168,7 +169,7 @@ class DiscoverySummonFreezeTests(unittest.TestCase):
 
     def test_default_311_fingerprint_and_previous_schema_rejected(self):
         from hs_sim.engine.representative import build_registry as default
-        self.assertEqual(default().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(default().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
         g=self.game();saved=g.snapshot();self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,324);saved['schema_version']=323
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry(*self.config))
 

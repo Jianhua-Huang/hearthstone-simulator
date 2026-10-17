@@ -1,4 +1,5 @@
 """Sewer Swimmer native Prepare, paid Battlecry and actual Deathrattle activation."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,re,unittest
 from unittest.mock import patch
@@ -70,7 +71,7 @@ class SimpleFollowupP18Tests(unittest.TestCase):
 
     def test_default_311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_paid_native_battlecry_activates_without_death_or_corpses(self):
         g=self.game((SWIMMER,),(TEST+'rattle',));target=self.first(g,TEST+'rattle').id;source=self.play(g,SWIMMER,target);row,=self.records(g)

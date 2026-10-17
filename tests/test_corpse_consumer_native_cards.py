@@ -1,4 +1,5 @@
 """Actual corpse consumers: physical draw, gain lifecycle, quest loop and powers."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict, replace
 import json, unittest
@@ -128,8 +129,8 @@ class CorpseConsumerNativeTests(unittest.TestCase):
             self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
     def test_old1023_complete_definitions_and_default_fingerprint_unchanged(self):
         old=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k73-before/definition-digests.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(old),1023);self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(old),1023);self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_official_stats_dual_tribes_location_and_native_corpse_cost(self):
         for cid in(ANT,TYRAX):self.assertEqual(set(x.lower()for x in self.r.card(cid).metadata.tribes),{'beast','undead'})
         self.assertEqual((self.r.card(GRAVE).kind,self.r.card(GRAVE).durability),(CardType.LOCATION,2))

@@ -1,4 +1,5 @@
 """Complete canonical starting roles and default power effects over existing mechanics."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json,unittest
 from hs_sim.cards import build_registry
@@ -80,7 +81,7 @@ class BasicHeroRoleTests(unittest.TestCase):
         for cid in ['HERO_07','HERO_10']:
             c=self.r.card(cid);self.assertEqual((c.kind,c.health),(CardType.HERO,30));self.assertFalse(c.hero_card);self.assertFalse(c.hand_playable)
     def test_default_representative_signature_and_unbound_historical_roles_remain(self):
-        r=representative();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertIsNone(r.card('HERO_02').initial_hero_power)
+        r=representative();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertIsNone(r.card('HERO_02').initial_hero_power)
     def test_deferred_incomplete_assembly_cannot_be_frozen_or_signed_as_complete(self):
         r=representative(initial_hero_power_bindings=(('HERO_02','HERO_02bp'),),defer_validation=True)
         with self.assertRaises(ValueError):representative(initial_hero_power_bindings=(('HERO_08','HERO_08bp'),))

@@ -1,4 +1,5 @@
 """Real conditional spells, complete quotation operands and original death results."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json
 import unittest
@@ -110,7 +111,7 @@ class ConditionalHealthCardTests(unittest.TestCase):
             self.assertFalse(row['record']['collectible']); self.assertNotIn('RARITY', row['record']['tags'])
             self.assertEqual(self.registry.card(row['record']['id']).metadata.rarity, Rarity.NONE)
         old = representative()
-        self.assertEqual(old.fingerprint(), 'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(old.fingerprint(), DEFAULT_REPRESENTATIVE_FINGERPRINT)
         self.assertIsNone(old.card('GAME_005').metadata.rarity)
 
     def test_backstab_zero_cost_undamaged_domain_and_rejection_rolls_back(self):

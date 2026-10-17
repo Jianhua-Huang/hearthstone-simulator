@@ -1,4 +1,5 @@
 """Ordinary collectible generation bans self; edition links never merge weights."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json,unittest
 from unittest.mock import patch
@@ -149,7 +150,7 @@ class GenerationSourceExclusionTests(unittest.TestCase):
     def test_default_311_fingerprint_and_bookcase_distinct_copy_identity(self):
         from hs_sim.engine.representative import build_registry as default
         from hs_sim.cards import build_registry
-        self.assertEqual(default().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(default().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
         r=build_registry();self.assertEqual(r.card('CORE_EDR_001').metadata.deck_identity,'CORE_EDR_001')
         self.assertEqual(r.generation_family('CORE_EDR_001'),('CORE_EDR_001',))
         self.assertEqual(set(r.generation_family('CORE_LOE_039')),{'CORE_LOE_039','LOE_039'})

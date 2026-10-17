@@ -1,4 +1,5 @@
 """Real corpse end/death/summon triggers and Volcoross original choice payment."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict
 import json,unittest
@@ -114,8 +115,8 @@ class CorpseTriggerChoiceTests(unittest.TestCase):
         self.assertEqual(self.r.card(FLOWER).attack,0);self.assertEqual(self.r.card(FOOTMAN).corpse_value,0)
     def test_old1016_definitions_and_default_fingerprint_stay_exact(self):
         before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k72-before/definition-digests.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(before),1016);self.assertEqual(before,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in before})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(before),1016);self.assertEqual(before,historical_definition_digests(self.r,before))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_necromancer_native_owner_end_raises_one_exact_footman(self):
         g=self.game(board=(NECRO,),corpses=2);self.end(g)
         self.assertEqual((self.bank(g),len(self.entities(g,FOOTMAN))),(1,1));self.end(g)

@@ -1,4 +1,5 @@
 """Nine real cards reusing public rules, plus the actual enemy-Taunt aura domain."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from dataclasses import asdict,fields,replace
 import json,unittest
 from pathlib import Path
@@ -91,8 +92,8 @@ class PublicEffectConsumerTests(unittest.TestCase):
         self.assertIsNone(self.r.card(DOUBLE).battlecry);self.assertIn(Keyword.COMBO,self.r.card(DOUBLE).keywords)
     def test_old1059_complete_definitions_and_unused_default_fingerprint_preserved(self):
         old=json.loads((ROOT/'outputs/card-integration-20261014/k80-before/definition-digests.json').read_bytes())
-        self.assertEqual(len(old),1059);self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(old),1059);self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_enemy_aura_domain_is_the_actual_native_taunt_scope(self):
         self.assertEqual(self.r.card(LANCER).keyword_auras,(KeywordAuraSpec(Keyword.TAUNT,'enemy_minions'),))
         for values in({'keyword':Keyword.POISONOUS},{'include_self':True},{'adjacent_only':True},{'condition':'controller_turn'}):

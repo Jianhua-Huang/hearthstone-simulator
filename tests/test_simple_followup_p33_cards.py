@@ -1,4 +1,5 @@
 """Six native card entries and one unchanged complete fixed-summon dependency."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -85,7 +86,7 @@ class SimpleFollowupP33Tests(unittest.TestCase):
 
     def test_default311_fingerprint_and_no_formal_pool(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
 
     def test_exact_taunt_printed_battlecry_rewind_anykind_and_class_without_neutral(self):
         g=self.game();self.assertEqual({m.card_id for m in self.actual(g,STONE)},{TWO,FOUR,MACHINE});self.assertEqual({m.card_id for m in self.actual(g,INVOCATION)},{STONE,WIZARD,BRIGHT});self.assertEqual({m.card_id for m in self.actual(g,MACHINE)},{WIZARD,REGROWTH,REWIND_SPELL,NEUTRAL});self.assertEqual({m.card_id for m in self.actual(g,WIZARD)},{MAGE,DUAL,REWIND_SPELL});self.assertFalse(QUERIES[WIZARD].include_neutral);self.assertEqual(QUERIES[MACHINE].kinds,());self.assertEqual({m.card_id for m in self.actual(g,HOOK)},{ALL})

@@ -1,4 +1,5 @@
 """Previous printed rune facts and original fixed summon combat deliveries."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict
 import json,unittest
@@ -109,8 +110,8 @@ class BloodRuneNativeTests(unittest.TestCase):
         self.assertEqual(tuple(t.lower()for t in nurse.metadata.tribes),('undead',));self.assertEqual(self.r.summon_attack_profiles[SURGERY].count,4)
     def test_old1034_complete_definitions_and_default_fingerprint_equal(self):
         old=json.loads((ROOT/'outputs/card-integration-20261014/k75-before/definition-digests.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(old),1034);self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(old),1034);self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_blade_first_card_does_not_read_its_own_dual_runes(self):
         g=self.game((BLADE,));self.play(g,BLADE);self.assertEqual((self.weapon(g).attack,self.weapon(g).durability),(2,2));self.portable(g)
     def test_previous_unholy_blood_dual_frost_and_nonrune_are_independent(self):

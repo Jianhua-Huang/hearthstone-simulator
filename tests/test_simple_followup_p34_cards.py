@@ -1,4 +1,5 @@
 """Native P34 consumers, actual zone delivery and original continuation proofs."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -81,7 +82,7 @@ class SimpleFollowupP34Tests(unittest.TestCase):
 
     def test_default311_and_production_formal_pools_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
 
     def test_jackpot_printed_five_floor_current_hero_other_classes_exclude_dual_and_neutral(self):
         for hero,expected in(('HERO_08',{OTHER}),('HERO_01',{MAGE,OTHER}),('HERO_04',{MAGE,OTHER,DUAL})):

@@ -1,4 +1,5 @@
 """Printed death queries and Reborn on every original successful body."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,re,unittest
 from random import Random
@@ -110,7 +111,7 @@ class SimpleFollowupP15Tests(unittest.TestCase):
 
     def test_default_311_and_fingerprint_remain(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_manifest_selects_highest_friendly_printed_undead_and_pays_once(self):
         g=self.game((TEST+'killall',MANIFEST),(TEST+'one',TEST+'high',TEST+'beast'));old=set(g.state.players[1].board);self.killall(g);source=self.play(g,MANIFEST)

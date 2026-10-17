@@ -81,8 +81,13 @@ class PoolCard:
     keywords: tuple[Keyword, ...] = ()
     identity: str | None = None
     battlecry: bool | None = None
+    deathrattle: bool | None = None
+    choose_one: bool | None = None
 
     def __post_init__(self):
+        for field in ('deathrattle', 'choose_one'):
+            if getattr(self, field) is not None and type(getattr(self, field)) is not bool:
+                raise ValueError(f'Pool {field} identity requires boolean or unknown')
         if self.battlecry is not None and type(self.battlecry) is not bool:
             raise ValueError('Pool Battlecry identity requires boolean or unknown')
         if self.battlecry and self.kind not in (CardType.MINION, CardType.WEAPON, CardType.HERO):
@@ -108,14 +113,14 @@ class PoolCard:
     @classmethod
     def from_definition(cls, card: CardDefinition, *, identity=None):
         return cls(card.id, card.kind, card.cost, card.metadata, card.spell_school, card.keywords, identity,
-                   card.battlecry is not None)
+                   card.battlecry is not None, card.deathrattle is not None, card.choose_one is not None)
 
     def filter_signature(self):
         m = self.metadata
         return (self.kind, self.cost, m.collectible, frozenset(m.classes), m.rarity,
                 None if m.tribes is None else frozenset(m.tribes), self.spell_school, frozenset(self.keywords),
                 None if m.factions is None else frozenset(m.factions), self.battlecry,
-                None if m.subtypes is None else frozenset(m.subtypes))
+                None if m.subtypes is None else frozenset(m.subtypes), self.deathrattle, self.choose_one)
 
 
 @dataclass(frozen=True)
@@ -177,8 +182,13 @@ class PoolQuery:
     factions_any: tuple[str, ...] = ()
     ability: CardAbilityCondition | None = None
     subtypes_any: tuple[str, ...] = ()
+    deathrattle: bool | None = None
+    choose_one: bool | None = None
 
     def __post_init__(self):
+        for field in ('deathrattle', 'choose_one'):
+            if getattr(self, field) is not None and type(getattr(self, field)) is not bool:
+                raise ValueError(f'Pool {field} filter requires boolean or None')
         if self.ability is not None:
             if type(self.ability) is not CardAbilityCondition:
                 raise ValueError('Pool ability filter requires CardAbilityCondition')
@@ -227,7 +237,8 @@ def validate_pools(registry):
 
 
 def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords, current_class=None,
-                     printed_battlecry=None, current_battlecry=None):
+                     printed_battlecry=None, current_battlecry=None,
+                     printed_deathrattle=None, printed_choose_one=None):
     """Printed metadata plus explicit ability facts from the caller's context."""
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
@@ -277,8 +288,23 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
             raise ValueError(f'Unknown candidate minion subtypes: {card_id}')
         if not set(query.subtypes_any).intersection(meta.subtypes):
             return False
-    return query.ability is None or matches_ability_values(query.ability,
-        printed=printed_battlecry,current=current_battlecry)
+    if query.ability is not None and not matches_ability_values(query.ability,
+            printed=printed_battlecry, current=current_battlecry):
+        return False
+    facts = (('deathrattle', printed_deathrattle), ('choose_one', printed_choose_one))
+    # A known nonmatch can exclude a row. Absence of an executable definition
+    # cannot supply a negative printed fact or remove an otherwise eligible row.
+    for field, value in facts:
+        wanted = getattr(query, field)
+        if wanted is not None and value is not None:
+            if type(value) is not bool:
+                raise ValueError(f'Invalid printed {field} identity: {card_id}')
+            if value != wanted:
+                return False
+    for field, value in facts:
+        if getattr(query, field) is not None and value is None:
+            raise ValueError(f'Unknown candidate printed {field} identity: {card_id}')
+    return True
 
 
 def resolve_candidates(registry, context, pool_id, query, *, current_class=None, source_card_id=None,
@@ -322,7 +348,8 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
             continue
         if not matches_metadata(query, card_id=row.card_id, kind=row.kind, cost=row.cost,
                 meta=meta, spell_school=row.spell_school, keywords=row.keywords, current_class=current_class,
-                printed_battlecry=row.battlecry, current_battlecry=row.battlecry):
+                printed_battlecry=row.battlecry, current_battlecry=row.battlecry,
+                printed_deathrattle=row.deathrattle, printed_choose_one=row.choose_one):
             continue
         from .starting_generation import eligible as starting_eligible
         if not starting_eligible(registry, context, player_id, row.card_id, row.keywords):

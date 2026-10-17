@@ -1,4 +1,5 @@
 """Real Kindred bodies, complete tokens, expiry, physical draws and continuations."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 import unittest
 
 from hs_sim.cards import build_registry
@@ -112,7 +113,7 @@ class KindredMurlocCardTests(unittest.TestCase):
 
     def test_default_representative_fingerprint_remains_unchanged(self):
         self.assertEqual(representative().fingerprint(),
-            'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+            DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_kindred_play_bodies_are_not_battlecries(self):
         for cid in KINDRED:

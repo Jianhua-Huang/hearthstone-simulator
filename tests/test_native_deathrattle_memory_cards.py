@@ -1,4 +1,5 @@
 """Native growth and exact physical draw linkage through real shared lifecycle paths."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import json,unittest
@@ -71,7 +72,7 @@ class NativeDeathrattleMemoryTests(unittest.TestCase):
         for x in d['cards']+d['dependencies']:self.assertEqual(canonical_digest(x['record']),x['record_sha256'])
         self.assertEqual((self.r.card(WHELP).attack,self.r.card(WHELP).health),(2,1))
     def test_default_fingerprint_unchanged(self):
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_egg_initial_death_summons_complete_two_one(self):
         g=self.game((EGG,'k62.kill'));eid=self.play(g,EGG);self.play(g,'k62.kill',eid);e=self.entity(g,WHELP);self.assertEqual((e.attack,e.health),(2,1));self.portable(g)
     def test_growth_changes_deathrattle_not_eggs_body(self):

@@ -1,4 +1,5 @@
 """P10 original Combo grants, current Demon branch and current Beast hand buff."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json
 from random import Random
@@ -142,7 +143,7 @@ class SimpleConditionalP10CardTests(unittest.TestCase):
     def test_default_311_and_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
         r=default();self.assertEqual(len(r.cards),311)
-        self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_aberration_without_combo_is_only_printed_rush(self):
         g=self.game((ABERRATION,));source=self.play(g,ABERRATION);e=g.state.entities[source]

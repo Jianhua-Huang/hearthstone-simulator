@@ -1,4 +1,5 @@
 """Explicit experimental inventories; no formal format pool or runtime fallback."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -82,7 +83,7 @@ class SimpleFollowupP27Tests(unittest.TestCase):
 
     def test_default311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_exact_class_kind_and_printed_one_cost_queries(self):
         r=registry();self.assertEqual(self.candidates(r,BOOK+'.bc'),{MAGE1,MAGE4,DUAL});self.assertEqual(self.candidates(r,NURSE+'.bc'),{PIRATE,NURSE,CAKE});self.assertEqual(self.candidates(r,NURSE+'.dr'),{MAGE1,ROGUE1});self.assertEqual(self.candidates(r,CAKE+'.dr'),{WEAPON,DUAL_WEAPON})

@@ -1,4 +1,5 @@
 """Ordinary Taunt discovery forwards a fixed grant to actual generated material."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json,re,unittest
 from unittest.mock import patch
@@ -156,7 +157,7 @@ class DiscoveredMinionGrantTests(unittest.TestCase):
 
     def test_default_311_identity_and_old_schema325_are_explicit(self):
         from hs_sim.engine.representative import build_registry as defaults
-        self.assertEqual(defaults().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(defaults().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
         g=self.game();saved=g.snapshot();self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,326);saved['schema_version']=325
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry(*self.config))
 

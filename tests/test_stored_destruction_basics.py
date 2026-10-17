@@ -1,4 +1,5 @@
 """Stored destruction and native departed-card bodies share the ordinary interpreter."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -130,7 +131,7 @@ class StoredDestructionTests(unittest.TestCase):
         self.assertNotIn('SC_408',registry().cards);self.assertNotIn('WW_044t',registry().cards)
         default = build_registry()
         self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
-        self.assertEqual(default.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(default.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_hand_destruction_preserves_identity_and_has_no_discard_or_death(self):
         g=self.game();old=g.state.entities[g.state.players[1].hand[0]];self.play(g,'hand')

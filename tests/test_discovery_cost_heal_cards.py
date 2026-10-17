@@ -1,4 +1,5 @@
 """Real selected spell healing through the shared discovery and health pipes."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import asdict,fields,is_dataclass,replace
 import json,random,re,unittest
@@ -98,7 +99,7 @@ class DiscoveryCostHealTests(unittest.TestCase):
         with patch('hs_sim.cards.discovery_cost_heal_cards.register_discovery_cost_heal_cards',lambda r:None):before=build_registry()
         after=build_registry();self.assertEqual(set(after.cards)-set(before.cards),{KNIGHT});self.assertTrue(all(asdict(before.card(cid))==asdict(after.card(cid))for cid in before.cards));self.assertEqual(dict(before.pools),dict(after.pools))
         from hs_sim.engine.representative import build_registry as default
-        d=default();self.assertEqual(len(d.cards),311);self.assertEqual(d.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        d=default();self.assertEqual(len(d.cards),311);self.assertEqual(d.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_finite_healing_declaration_rejects_wrong_types_and_unrequested_shapes(self):
         base=DiscoverFromPool(1,POOL_ID,PoolQuery(kinds=(CardType.SPELL,),collectible=True),source_id=1,heal_hero_by_printed_cost=True)

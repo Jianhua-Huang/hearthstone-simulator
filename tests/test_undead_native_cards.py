@@ -1,4 +1,5 @@
 """Native Undead entry conditions and actual health/turn/summon boundaries."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from dataclasses import asdict,replace
 import json,unittest
 from pathlib import Path
@@ -95,8 +96,8 @@ class UndeadNativeTests(unittest.TestCase):
         self.assertEqual(canonical_digest(asdict(ghoul)),data['existing_dependencies'][0]['definition_sha256'])
     def test_old1037_definitions_and_unused_default_fingerprint_unchanged(self):
         old=json.loads((ROOT/'outputs/card-integration-20261014/k76-before/definition-digests.json').read_bytes())
-        self.assertEqual(len(old),1037);self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(old),1037);self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_native_profile_validation_read_only_and_fingerprint(self):
         r=build_registry();p=r.hero_health_target_profiles[LIFERENDER];self.assertEqual(p,HeroHealthChangedTargetProfile(LIFERENDER))
         with self.assertRaises(TypeError):r.hero_health_target_profiles['fake']=p

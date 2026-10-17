@@ -1,4 +1,5 @@
 """Actual granted/discarded sources, original slots and two nested discoveries."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -19,6 +20,7 @@ TEST='p35.test.';YETI='CORE_CS2_182';FOUR='CORE_CS2_179';ONE='JAIL_460';TWO='COR
 MEMBERS=(*ROOTS,YETI,FOUR,ONE,TWO,FIRE,NATURE,DUAL,NEUTRAL)
 CONTEXT=GenerationContext('p35-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 UNKNOWN_BEAST=TEST+'unimplemented_beast'
+UNKNOWN_DRUID_SPELL=TEST+'unimplemented_druid_spell'
 
 def batch_registry():
     with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
@@ -31,6 +33,10 @@ def registry(members=MEMBERS,mode=None,pool=True):
         if cid==UNKNOWN_BEAST:
             r.register_pool_card(PoolCard(cid,CardType.MINION,3,CardMetadata(True,(CardClass.NEUTRAL,),Rarity.COMMON,
                 tribes=('beast',),factions=(),subtypes=())))
+        elif cid==UNKNOWN_DRUID_SPELL:
+            r.register_pool_card(PoolCard(cid,CardType.SPELL,1,CardMetadata(True,(CardClass.DRUID,),Rarity.COMMON,
+                tribes=(),factions=(),subtypes=()),spell_school=SpellSchool.NATURE,battlecry=False,
+                deathrattle=False,choose_one=False))
         elif cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p35-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
     def discard(c):
@@ -90,7 +96,7 @@ class SimpleFollowupP35Tests(unittest.TestCase):
 
     def test_default311_fingerprint_and_production_formal_pools_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in batch_registry().pools.values()))
 
     def test_stand_grants_current_active_friends_not_dormant_enemy_hand_or_future(self):
         g=self.game((STAND,YETI,TEST+'later'),board=(YETI,DORMANT),enemy=(YETI,),pool=False,context=None);source=self.play(g,STAND);friend,dormant=g.state.players[1].board;grant,=self.grants(g,friend);self.assertEqual((grant.source_id,grant.deathrattle_grant_card_id,grant.origin),(source,STAND,'granted'));self.assertFalse(self.grants(g,dormant));self.assertFalse(self.grants(g,self.first(g,YETI).id));self.assertFalse(self.grants(g,g.state.players[2].board[0]));self.play(g,TEST+'later');self.assertFalse(self.grants(g,g.state.players[1].board[-1]));self.assertEqual(g.state.players[1].mana,45);self.portable(g)
@@ -193,7 +199,7 @@ class SimpleFollowupP35Tests(unittest.TestCase):
                 self.assertEqual(g.snapshot(),saved)
 
     def test_unknown_discovery_candidate_rejects_before_rng_and_paid_branch_rolls_back(self):
-        for cid,branch,unknown,hero in((IDOL,MINION,UNKNOWN_BEAST,'HERO_08'),(IDOL,SPELL,'DINO_414','HERO_08'),(SPARK,MAGE,'DINO_414','HERO_01'),(SPARK,DRUID,'EDR_273','HERO_01')):
+        for cid,branch,unknown,hero in((IDOL,MINION,UNKNOWN_BEAST,'HERO_08'),(IDOL,SPELL,'DINO_414','HERO_08'),(SPARK,MAGE,'DINO_414','HERO_01'),(SPARK,DRUID,UNKNOWN_DRUID_SPELL,'HERO_01')):
             with self.subTest(cid=cid,branch=branch):
                 g=self.game((cid,),members=(YETI,FIRE,NATURE,unknown),hero=hero);saved=g.snapshot();self.assertNotIn(unknown,g.registry.cards)
                 with patch.object(random.Random,'randrange',side_effect=AssertionError('Unknown sampled'))as calls:

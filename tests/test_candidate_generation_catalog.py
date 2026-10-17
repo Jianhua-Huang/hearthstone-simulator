@@ -1,4 +1,5 @@
 """Complete source candidates stay independent of executable card coverage."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,random,tempfile,unittest
@@ -85,7 +86,7 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
         r=build_registry();before=dict(r.pool_cards);register_candidate_pool_metadata(r);self.assertEqual(dict(r.pool_cards),before)
         from hs_sim.engine.representative import build_registry as default
         with patch('hs_sim.cards.candidate_generation_catalog.candidate_pool_rows',side_effect=AssertionError('Constructed-only catalog')):d=default()
-        self.assertEqual(len(d.cards),311);self.assertEqual(d.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(d.cards),311);self.assertEqual(d.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_entire_catalog_is_validated_before_any_pending_row_is_added(self):
         r=Registry('k109-atomic-test');row=list(self.rows.values())[-1];r.register_pool_card(replace(row,cost=row.cost+1));before=dict(r.pool_cards)

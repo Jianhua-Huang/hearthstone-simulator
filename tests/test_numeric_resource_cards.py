@@ -1,4 +1,5 @@
 """Actual first-copy target requirements and original summon/Mana rewards."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import json,unittest
@@ -119,7 +120,7 @@ class NumericResourceCardTests(unittest.TestCase):
         self.assertFalse(self.r.card(GOLEM).metadata.collectible);self.assertIsNone(self.r.card(URSOL).spell_school)
         self.assertEqual(self.r.card(FOREST).spell_school,SpellSchool.NATURE);self.assertEqual(self.r.card(MOSS).spell_school,SpellSchool.NATURE)
     def test_default_representative_fingerprint_stays_exact(self):
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_forest_counts_dormant_minions_but_not_locations(self):
         g=self.game((FOREST,),board=(YETI,'k69.dormant','CORE_REV_990'));target=self.entities(g,YETI)[0].id;self.play(g,FOREST,target)
         e=g.state.entities[target];self.assertEqual((e.attack,e.health),(6,7));self.portable(g)

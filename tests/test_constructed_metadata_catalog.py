@@ -1,4 +1,5 @@
 """Reviewed constructed metadata must agree in live tribes and independent pools."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,unittest
 from unittest.mock import patch
@@ -81,7 +82,7 @@ class ConstructedMetadataCatalogTests(unittest.TestCase):
         old=source_registry(True);new=source_registry();self.assertEqual(set(old.cards),set(new.cards));changed=[cid for cid in old.cards if asdict(old.card(cid))!=asdict(new.card(cid))];self.assertEqual(changed,[ONYXIA]);a=asdict(old.card(ONYXIA));a['metadata']['tribes']=('dragon','undead');self.assertEqual(a,asdict(new.card(ONYXIA)));self.assertEqual(set(new.pool_cards)-set(old.pool_cards),{x['record']['id']for x in load_batch()['cards']});self.assertTrue(all(old.pool_card(cid)==new.pool_card(cid)for cid in old.pool_cards))
 
     def test_default_bundle_is_unchanged_unless_explicit_metadata_projection_is_requested(self):
-        old=default();self.assertEqual(len(old.cards),311);self.assertEqual(old.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertEqual(old.card(ONYXIA).metadata.tribes,('dragon',));projected=default(metadata_overrides=metadata_overrides());self.assertEqual(projected.card(ONYXIA).metadata.tribes,('dragon','undead'));self.assertTrue(all(asdict(old.card(cid))==asdict(projected.card(cid))for cid in old.cards if cid!=ONYXIA))
+        old=default();self.assertEqual(len(old.cards),311);self.assertEqual(old.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertEqual(old.card(ONYXIA).metadata.tribes,('dragon',));projected=default(metadata_overrides=metadata_overrides());self.assertEqual(projected.card(ONYXIA).metadata.tribes,('dragon','undead'));self.assertTrue(all(asdict(old.card(cid))==asdict(projected.card(cid))for cid in old.cards if cid!=ONYXIA))
 
     def test_pool_metadata_installation_is_idempotent_and_adds_no_pool_definition(self):
         r=source_registry();before=dict(r.pool_cards);pools=dict(r.pools);register_reviewed_pool_metadata(r);self.assertEqual(dict(r.pool_cards),before);self.assertEqual(dict(r.pools),pools);self.assertFalse(any(p.mode=='standard'for p in r.pools.values()))

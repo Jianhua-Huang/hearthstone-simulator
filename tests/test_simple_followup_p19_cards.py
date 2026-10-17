@@ -1,4 +1,5 @@
 """Real trigger consumers: native Shatter events, immutable healing and forced combat."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,re,unittest
 from unittest.mock import patch
@@ -106,7 +107,7 @@ class SimpleFollowupP19Tests(unittest.TestCase):
 
     def test_default_311_definitions_and_fingerprint_remain(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_pyromancer_paid_native_face_then_actual_shatter_hits_all_enemies(self):
         g=self.game((PYROMANCER,TEST+'generate'),enemy=(YETI,YETI));source=self.play(g,PYROMANCER);self.play(g,TEST+'generate');self.assertEqual(g.state.players[1].mana,47);self.assertEqual((g.state.entities[source].attack,g.state.entities[source].health),(4,3));self.assertEqual([g.state.entities[i].health for i in g.state.players[2].board],[3,3]);self.assertEqual(self.hero(g,2).health,30)

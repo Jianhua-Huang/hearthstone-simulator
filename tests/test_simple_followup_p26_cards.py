@@ -1,4 +1,5 @@
 """Explicit experimental format inventory for Legendary and native end-body generators."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,random,re,unittest
 from unittest.mock import patch
@@ -85,7 +86,7 @@ class SimpleFollowupP26Tests(unittest.TestCase):
 
     def test_default311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_queries_filter_legendary_minions_and_exact_spell_schools_any_class(self):
         r=registry();expected={BRIGHT:{BRIGHT,OTHER_LEG},SENTRY:{HOLY},PIXIE:{NATURE},TOTEM:{SHADOW}}

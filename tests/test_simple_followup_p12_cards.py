@@ -1,4 +1,5 @@
 """Original shared current-type buff inventory and retained blocked source pins."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json,re,unittest
 from hs_sim.cards import build_registry
@@ -98,7 +99,7 @@ class SimpleFollowupP12Tests(unittest.TestCase):
 
     def test_default_311_and_fingerprint_remain(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_paid_primary_and_same_type_get_one_plus_one_two_enemy_and_other_type_unchanged(self):
         g=self.game(board=(TEST+'beast',TEST+'beast',TEST+'dragon'),enemy=(TEST+'beast',));old=g.state.players[1].board;enemy=g.state.players[2].board[0];rng=g._rng.getstate()

@@ -1,4 +1,5 @@
 """Complete real Shatter families and post-draw/post-death second components."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,re,unittest
 from unittest.mock import patch
@@ -87,7 +88,7 @@ class SimpleFollowupP20Tests(unittest.TestCase):
 
     def test_default311_and_full_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_both_real_roots_split_to_exact_opposite_fragments(self):
         for root,left,right in((SUPPLY,SUPPLY_DRAW,SUPPLY_BUFF),(FLOW,FLOW_HIT,FLOW_AOE)):

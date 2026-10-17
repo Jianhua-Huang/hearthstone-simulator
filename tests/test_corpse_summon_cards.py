@@ -1,4 +1,5 @@
 """Real corpse debit, original recipients, fixed token and native entry boundaries."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,unittest
@@ -122,8 +123,8 @@ class CorpseSummonCardTests(unittest.TestCase):
         self.assertEqual(self.r.card(TOMB).metadata.deck_identity,'RLK_118');self.assertEqual(self.r.card(COMMANDER).metadata.deck_identity,'RLK_506')
     def test_old1008_definitions_and_default_fingerprint_are_unchanged(self):
         before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k71-before/definition-digests.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(before),1008);self.assertEqual(before,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in before})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(before),1008);self.assertEqual(before,historical_definition_digests(self.r,before))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_chow_summons_five_then_spends_fixed_eight_for_rush(self):
         g=self.game((CHOW,));source=self.play(g,CHOW);self.assertEqual(self.bank(g),4)
         self.assertEqual(len(self.entities(g,DRAKE)),5);self.assertTrue(all(Keyword.RUSH in e.keywords for e in self.entities(g,DRAKE)))

@@ -1,4 +1,5 @@
 """Actual Ash Worm and native full-board dormancy over original awaken requests."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import unittest
@@ -48,7 +49,7 @@ class FullBoardDormancyTests(unittest.TestCase):
     def test_complete_actual_source_and_six_six_face(self):
         row=load_batch()['cards'][0];c=self.r.card(ASH);self.assertEqual(canonical_digest(row['record']),row['record_sha256']);self.assertEqual((c.cost,c.attack,c.health),(1,6,6));self.assertTrue(c.dormant_board_full);self.assertIsNone(c.dormant_turns)
     def test_default_representative_fingerprint_remains_exact(self):
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_underfull_board_starts_indefinitely_dormant(self):
         g=self.game();self.assertIsNone(self.source(g).dormancy.remaining_turns);self.assertEqual(self.wakes(g),0);self.portable(g)
     def test_elapsed_turns_do_not_count_down_this_condition(self):

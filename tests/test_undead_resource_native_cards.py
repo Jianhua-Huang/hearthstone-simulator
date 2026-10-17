@@ -1,4 +1,5 @@
 """Actual native mana, death thresholds, physical tutor and generated spell values."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,unittest
@@ -138,8 +139,8 @@ class UndeadResourceNativeTests(unittest.TestCase):
         self.assertEqual((self.r.card(BREATH).cost,self.r.card(BREATH).metadata.collectible),(2,False))
     def test_old1042_complete_definitions_and_unused_default_fingerprint_equal(self):
         old=json.loads((ROOT/'outputs/card-integration-20261014/k77-before/definition-digests.json').read_bytes())
-        self.assertEqual(len(old),1042);self.assertEqual(old,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in old})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(len(old),1042);self.assertEqual(old,historical_definition_digests(self.r,old))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_native_profiles_are_validated_read_only_and_frozen(self):
         r=build_registry()
         with self.assertRaises(TypeError):r.turn_draw_profiles['bad']=TurnDrawSuppressionProfile(CHILLER)

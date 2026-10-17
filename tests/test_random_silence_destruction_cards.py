@@ -1,4 +1,5 @@
 """Cease to Exist follows one physical residence through native Silence."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import fields,is_dataclass,replace
 import json,random,re,unittest
 from hs_sim.cards import build_registry
@@ -162,7 +163,7 @@ class RandomSilenceDestructionTests(unittest.TestCase):
 
     def test_default_311_identity_schema_unchanged_and_old_core_is_rejected(self):
         from hs_sim.engine.representative import build_registry as defaults
-        r=defaults();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667');self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,328);g=self.game();s=g.snapshot();s['mechanics_version']['version']='core-effects-v407'
+        r=defaults();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertGreaterEqual(SNAPSHOT_SCHEMA_VERSION,328);g=self.game();s=g.snapshot();s['mechanics_version']['version']='core-effects-v407'
         with self.assertRaises(SnapshotError):Game.from_snapshot(s,registry(self.mode))
 
 if __name__=='__main__':unittest.main()

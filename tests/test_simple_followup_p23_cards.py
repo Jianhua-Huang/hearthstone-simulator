@@ -1,4 +1,5 @@
 """Schism's native target acceptance, post-grant current copy and original residence."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 import json,re,unittest
 from unittest.mock import patch
@@ -77,7 +78,7 @@ class SimpleFollowupP23Tests(unittest.TestCase):
 
     def test_default311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_real_root_split_and_adjacent_fragments_recombine(self):
         g=self.game((SCHISM,YETI));self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].hand],[GRANT,YETI,COPY]);self.assertFalse(g.state.play_history)

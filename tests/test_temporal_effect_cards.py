@@ -1,4 +1,5 @@
 """Real returned-card, original-controller and next-owner-turn boundaries."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import replace
 import json,unittest
@@ -116,8 +117,8 @@ class TemporalEffectCardTests(unittest.TestCase):
         before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k70-before/definition-digests.json').read_text(encoding='utf-8'))
         from dataclasses import asdict
         self.assertEqual(len(before),1003)
-        self.assertEqual(before,{cid:canonical_digest(asdict(self.r.card(cid)))for cid in before})
-        self.assertEqual(representative().fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(before,historical_definition_digests(self.r,before))
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_daze_blocks_next_owner_turn_then_releases_on_following_start(self):
         g=self.game((DAZE,),enemy=(YETI,));target=g.state.players[2].board[0];self.play(g,DAZE,target)
         e=g.state.entities[target];self.assertEqual((e.zone,e.controller),(Zone.HAND,2))

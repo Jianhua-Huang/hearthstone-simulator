@@ -1,4 +1,5 @@
 """Dream is a real printed class and never an additional playable hero seat."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import replace
 import json,unittest
@@ -102,7 +103,7 @@ class DreamClassMetadataTests(unittest.TestCase):
 
     def test_default_representative_fingerprint_is_unchanged(self):
         from hs_sim.engine.representative import build_registry as defaults
-        r=defaults();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=defaults();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
 
 if __name__=='__main__':unittest.main()

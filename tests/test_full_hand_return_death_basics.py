@@ -1,4 +1,5 @@
 """Failed BOARD return is an ordinary death, not a successful zone transfer."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -86,7 +87,7 @@ class FullHandReturnDeathTests(unittest.TestCase):
         # test's original v64/306-definition foundation baseline.
         default = build_registry()
         self.assertEqual((default.version, len(default.cards)), ('representative-m5-v65', 311))
-        self.assertEqual(default.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        self.assertEqual(default.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_full_hand_sap_commits_original_death_and_deathrattle(self):
         g=self.game();target=self.target(g);before=g.state.entities[target];self.play(g,target=target)

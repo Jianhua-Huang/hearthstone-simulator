@@ -75,8 +75,13 @@ def candidate_pool_rows():
             keywords.append(keyword)
         battlecry=tags.get('BATTLECRY',0)
         if type(battlecry)is not int or battlecry not in(0,1):raise TargetValidationError('Candidate Battlecry tag must be boolean')
+        abilities={}
+        for field,tag in (('deathrattle','DEATHRATTLE'),('choose_one','CHOOSE_ONE')):
+            value=tags.get(tag,0)
+            if type(value)is not int or value not in(0,1):raise TargetValidationError(f'Candidate {tag} tag must be boolean')
+            abilities[field]=bool(value)
         result.append(PoolCard(cid,CardType(raw['type'].lower()),cost,metadata_from_record(raw),
-            spell_school=SCHOOLS.get(school),keywords=tuple(keywords),battlecry=bool(battlecry)))
+            spell_school=SCHOOLS.get(school),keywords=tuple(keywords),battlecry=bool(battlecry),**abilities))
     if used_zero!=set(zero):raise TargetValidationError('Candidate cost evidence and catalog disagree')
     return tuple(result)
 
@@ -88,7 +93,8 @@ def _same_printed_query_fields(expected,actual):
     left.pop('deck_identity');right.pop('deck_identity')
     return(left==right and expected.kind==actual.kind and expected.cost==actual.cost and
         expected.spell_school==actual.spell_school and set(expected.keywords)==set(actual.keywords)and
-        expected.battlecry==actual.battlecry and expected.generation_identity==actual.generation_identity)
+        expected.battlecry==actual.battlecry and expected.deathrattle==actual.deathrattle and
+        expected.choose_one==actual.choose_one and expected.generation_identity==actual.generation_identity)
 
 
 def register_candidate_pool_metadata(registry):

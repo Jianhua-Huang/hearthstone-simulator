@@ -1,4 +1,5 @@
 """Targeted first effects and ordinary private pool continuations."""
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from dataclasses import asdict,replace
 from types import SimpleNamespace
 import json,random,re,unittest
@@ -82,7 +83,7 @@ class SimpleFollowupP31Tests(unittest.TestCase):
 
     def test_default311_complete_fingerprint_unchanged(self):
         from hs_sim.engine.representative import build_registry as default
-        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),'e0322da10db3dcf3296bbaca5a8f583091f92b65fa43c334d836d8a0ffd0e667')
+        r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
 
     def test_exact_current_hero_neutral_frost_anyclass_and_fixed_druid_dual_queries(self):
         r=registry();self.assertEqual({m.card_id for m in self.candidates(r,ORB)},{SNAP,MAGE,FROST,NEUTRAL});self.assertEqual({m.card_id for m in self.candidates(r,ADVANCE)},{ORB,SNAP,MAGE,FROST,NEUTRAL});self.assertEqual({m.card_id for m in self.candidates(r,SNAP)},{ADVANCE,FROST,DK_FROST});self.assertEqual({m.card_id for m in self.candidates(r,PHOTO)},{DRUID,DUAL});self.assertFalse(QUERIES[PHOTO].include_neutral);self.assertEqual(QUERIES[PHOTO].classes,(CardClass.DRUID,))
