@@ -15,8 +15,11 @@ class DiscoverDarkGift(Effect):
     query: PoolQuery
     source_id: int
     cost: CostSpec | None = None
+    gift_copy_to_hand: bool = False
 
     def __post_init__(self):
+        if type(self.gift_copy_to_hand) is not bool or self.gift_copy_to_hand and self.cost is not None:
+            raise ValueError('Native gift copy requires one plain original discovery without source cost changes')
         _player(self.player_id)
         _integer(self.source_id, 'Dark Gift generation source', 1)
         name(self.pool_id, 'Dark Gift minion pool')
@@ -47,7 +50,8 @@ def discover(r, effect):
         raise ResolutionError('Dark Gift generation requires the actual host generation context')
     from .dark_gifts import dark_gift_pool
     return (DiscoverFromPool(effect.player_id, effect.pool_id, effect.query, source_id=effect.source_id,
-                             gift_pool=dark_gift_pool(context.target_id, context.mode), cost=effect.cost),)
+                             gift_pool=dark_gift_pool(context.target_id, context.mode), cost=effect.cost,
+                             gift_copy_to_hand=effect.gift_copy_to_hand),)
 
 
 def register(mechanics):

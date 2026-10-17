@@ -481,8 +481,17 @@ class DiscoverFromPool(Effect):
     summon_copy_stats: SummonStats | None = None
     minion_grant: CreatedMinionGrant | None = None
     temporary_until_turn: int | None = None
+    gift_copy_to_hand: bool = False
 
     def __post_init__(self):
+        if type(self.gift_copy_to_hand) is not bool:
+            raise ValueError('Selected gift copy requires an explicit boolean')
+        if self.gift_copy_to_hand and (
+                self.gift_pool is None or self.source_id is None or self.cost is not None or
+                type(self.query) is not PoolQuery or self.query.kinds != (CardType.MINION,) or
+                self.query.collectible is not True or self.minion_grant is not None or
+                self.temporary_until_turn is not None):
+            raise ValueError('Selected gift copy requires one plain source-bound gifted minion discovery')
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is not None:
             grant=self.minion_grant

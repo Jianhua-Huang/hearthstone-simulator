@@ -1,0 +1,574 @@
+{
+  "batch_id": "native-gift-copy-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_924",
+        "dbf_id": 115651,
+        "name": "影焰猎豹",
+        "name_en": "Shadowflame Stalker",
+        "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的恶魔牌，并获取一张它的复制。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a Demon with a <b>Dark Gift</b>. Get a copy of it.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "1584": 1,
+          "MINI_SET": 1,
+          "2540": 1,
+          "4050": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d00aecf93edc93f9f67f7e4369b8adc7560898ace71c94bceb23e3ba50af9e64"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "existing_gift_sources": [
+    {
+      "record": {
+        "id": "EDR_100t",
+        "dbf_id": 113796,
+        "name": "起床怒气",
+        "name_en": "Waking Terror",
+        "text": "+3攻击力和<b>吸血</b>。",
+        "text_en": "+3 Attack and <b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7aaeac4360e6a733a803ceb0a68712d033bb16bcc163831da5a04a4efbfdf416"
+    },
+    {
+      "record": {
+        "id": "EDR_100t1",
+        "dbf_id": 113797,
+        "name": "休憩饱足",
+        "name_en": "Well Rested",
+        "text": "+2/+2和<b>扰魔</b>。",
+        "text_en": "+2/+2 and <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77a37754e7200e2e5bd6e273fab175900dcdadb46d71c86df003be6fc2ab09ea"
+    },
+    {
+      "record": {
+        "id": "EDR_100t2",
+        "dbf_id": 113798,
+        "name": "短小利爪",
+        "name_en": "Short Claws",
+        "text": "法力值消耗减少（2）点，但拥有-2攻击力。",
+        "text_en": "Costs (2) less,\nbut has -2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "153de59aebe10d2e2c1d31506547046733b757a7990f337d4fcd5db09dd83b5d"
+    },
+    {
+      "record": {
+        "id": "EDR_100t3",
+        "dbf_id": 113799,
+        "name": "衣甲厚实",
+        "name_en": "Bundled Up",
+        "text": "+4生命值和<b>嘲讽</b>。",
+        "text_en": "+4 Health and <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "642ddf4056febfe342c6663451fe521a696be5f6b6a2c330761b2aba9bbc12cc"
+    },
+    {
+      "record": {
+        "id": "EDR_100t5",
+        "dbf_id": 113801,
+        "name": "活体梦魇",
+        "name_en": "Living Nightmare",
+        "text": "当你使用本牌时，召唤一个它的2/2的复制。",
+        "text_en": "When you play this minion, summon a 2/2 copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "68ca9af88e086ccad315c418b42edc57b84872c2284cd0912bfe8dece93bb8db"
+    },
+    {
+      "record": {
+        "id": "EDR_100t6",
+        "dbf_id": 113802,
+        "name": "梦境行者",
+        "name_en": "Sleepwalker",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CHARGE": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "19087fb6b451a2457fc5ebe6e1ff401c1b79ca68b8fb58725008c4a7dace0205"
+    },
+    {
+      "record": {
+        "id": "EDR_100t7",
+        "dbf_id": 113882,
+        "name": "粗暴唤醒",
+        "name_en": "Rude Awakening",
+        "text": "本随从的<b>战吼</b>会触发两次。",
+        "text_en": "[x]This minion's\n<b>Battlecries</b> trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c3ea8dc124ea80027f757a243e3e80fa0eec745e951d3c60be8be5472b7523e"
+    },
+    {
+      "record": {
+        "id": "EDR_100t8",
+        "dbf_id": 113884,
+        "name": "甜美梦境",
+        "name_en": "Sweet Dreams",
+        "text": "+4/+5。\n将本牌置于你的\n牌库顶。",
+        "text_en": "+4/+5. Place this card on top of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9d947867293a59287b73570ba5ac1b828c147294dcd4e9ade889c30ce285e9c8"
+    },
+    {
+      "record": {
+        "id": "EDR_100t9",
+        "dbf_id": 113886,
+        "name": "回荡恐怖",
+        "name_en": "Persisting Horror",
+        "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+        "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "REBORN": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d539898708e8764e6fc98f9c8facfe2f5e3838d86136562659be918debe39fba"
+    },
+    {
+      "record": {
+        "id": "EDR_100t13",
+        "dbf_id": 120225,
+        "name": "鹰身人之爪",
+        "name_en": "Harpy's Talons",
+        "text": "<b>圣盾</b>，<b>风怒</b>",
+        "text_en": "<b>Divine Shield</b>, <b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "983eb77d4c8a3eac0d1684927000d9b5ace4239bad0455098586de37b3a87edf"
+    }
+  ],
+  "gift_version": "constructed-dark-gifts-32.2-v1",
+  "gift_recipes_sha256": "d38026afb5e74d345f28238c65b26c2b028adb6b1d984bf55ded7127f67a68dc",
+  "official_observations": {
+    "observations": [
+      {
+        "card_id": "FIR_924",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115651&locale=zh_CN",
+        "response_file": "official-FIR_924-zh_CN.json",
+        "response_sha256": "7349bd4515ed0f1d1a2cf69c88a5e1bbe5ecc51deec1e673b043f117ff27ecac",
+        "face": {
+          "id": 115651,
+          "collectible": 1,
+          "slug": "115651-shadowflame-stalker",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            18
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "影焰猎豹",
+          "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的恶魔牌，并获取一张它的复制。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b68902f8417b3d5ed53644b258c10f5d5e2af88b211f859598ed4d5984a8a210.png",
+          "imageGold": "",
+          "flavorText": "紫色代表隐秘。这是一团潜行的火。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/477bbb2a795949274ac82aac020db0b897b4b955b2228dce955444582efd9651.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_924",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115651&locale=en_US",
+        "response_file": "official-FIR_924-en_US.json",
+        "response_sha256": "0b3e4b37b0b4f185c4b77bc69b2552b493ebe69cde37e2ab4a5fcead3a98f825",
+        "face": {
+          "id": 115651,
+          "collectible": 1,
+          "slug": "115651-shadowflame-stalker",
+          "classId": 9,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "multiTypeIds": [
+            18
+          ],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 3,
+          "attack": 4,
+          "manaCost": 4,
+          "name": "Shadowflame Stalker",
+          "text": "<b>Battlecry:</b>& <b>Discover</b> a Demon with a <b>Dark Gift</b>. Get a copy of it.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b178c084031bcaeabb3d185d26a36b7ae5b342f150115e39405ec78229f9a6b1.png",
+          "imageGold": "",
+          "flavorText": "The purple means it's stealthy. It's stealthy fire.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/477bbb2a795949274ac82aac020db0b897b4b955b2228dce955444582efd9651.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ],
+    "response_directory": "outputs/card-integration-20261014/k125-preaudit-01"
+  },
+  "complete_source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "copy_policy": "selected-gift-creation-material-before-acquisition-v1",
+  "internal_policy": [
+    "One original nativeBC discovers currenthero+neutral collectibleDemon with one complete originalgift pairing.",
+    "Freeze the chosen enriched creation recipe before acquisition reactions. Original follows its actual gift destination, one additional Get copy goes tohand with the same captured CardID/giftgrant/cost but a fresh physical identity/attachments.",
+    "Original and copy enter separate existing creation/acquisition/burn windows. No handscan, resampling, second discovery, copying an older same-name card or relaxed spent-card CopyCard guards.",
+    "Exact CN copy material/destination/acquisition checkpoints remain M6 pending; explicit local internal policy is not official full support."
+  ]
+}

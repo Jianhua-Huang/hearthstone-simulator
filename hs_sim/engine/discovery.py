@@ -206,11 +206,14 @@ def deliver_pick(spec, pick):
     delta=gift.cost_delta+(spec.cost.delta if spec.cost is not None else 0)
     cost=CostSpec(delta=delta) if delta else None
     grant=replace(gift.grant,identity=gift.id)
+    hand=AddToHand(spec.player_id,pick.card_id,spec.source_id,cost=cost,minion_grant=grant)
     if gift.destination=='deck_top':
         from .zones import AddToDeck
-        return (AddToDeck(spec.player_id,pick.card_id,'top',spec.source_id,cost=cost,minion_grant=grant),)
-    return (AddToHand(spec.player_id,pick.card_id,spec.source_id,
-        cost=cost,minion_grant=grant),)
+        original=AddToDeck(spec.player_id,pick.card_id,'top',spec.source_id,cost=cost,minion_grant=grant)
+    else:original=hand
+    # Both immutable recipes are accepted before acquisition reactions. The
+    # ordinary creation layer allocates fresh identities and attachment lifetimes.
+    return (original,hand) if spec.gift_copy_to_hand else (original,)
 
 
 def eligible(registry, context, spec, pick):
