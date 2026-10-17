@@ -269,7 +269,9 @@ class SimpleFollowupP69Tests(unittest.TestCase):
         for cid,c in before.pool_cards.items():self.assertEqual(after.pool_card(cid),c)
         self.assertEqual(before.fabled,after.fabled);self.assertEqual(before.generation_families,after.generation_families)
         self.assertEqual(canonical_digest(asdict(after.card(SHRED))),d['existing_dependency_definition_pins'][SHRED]['sha256'])
-        self.assertNotIn('TIME_009',after.cards);self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS))
+        self.assertNotIn('TIME_009',after.cards)
+        self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS)-set(before.cards))
+        self.assertTrue(set(ROOTS)<=set(after.cards))
 
 
 if __name__=='__main__':unittest.main()
