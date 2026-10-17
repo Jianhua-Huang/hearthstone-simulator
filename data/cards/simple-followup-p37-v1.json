@@ -1,0 +1,688 @@
+{
+  "batch": "P37",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_456",
+        "dbf_id": 114218,
+        "name": "黑暗的龙骑士",
+        "name_en": "Darkrider",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，<b>发现</b>一张具有<b>黑暗之赐</b>的龙牌。",
+        "text_en": "<b>Battlecry:</b> If you're holding\na Dragon, <b>Discover</b> a Dragon\nwith a <b>Dark Gift</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "4050": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d091435f1b5da37331226cbca69707c5599f4ca88ac650d05db3c8fc44d610d2"
+    },
+    {
+      "record": {
+        "id": "FIR_939",
+        "dbf_id": 115688,
+        "name": "影焰晕染",
+        "name_en": "Shadowflame Suffusion",
+        "text": "造成$2点伤害。<b>发现</b>一张具有<b>黑暗之赐</b>的战士随从牌。",
+        "text_en": "[x]Deal $2 damage.\n<b>Discover</b> a Warrior\nminion with a <b>Dark Gift</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1,
+          "4050": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d8409876f05704322a85441d9a988540c0939e67ca953050dfd9e80dc1f9fe95"
+    }
+  ],
+  "existing_gift_sources": [
+    {
+      "record": {
+        "id": "EDR_100t",
+        "dbf_id": 113796,
+        "name": "起床怒气",
+        "name_en": "Waking Terror",
+        "text": "+3攻击力和<b>吸血</b>。",
+        "text_en": "+3 Attack and <b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7aaeac4360e6a733a803ceb0a68712d033bb16bcc163831da5a04a4efbfdf416"
+    },
+    {
+      "record": {
+        "id": "EDR_100t1",
+        "dbf_id": 113797,
+        "name": "休憩饱足",
+        "name_en": "Well Rested",
+        "text": "+2/+2和<b>扰魔</b>。",
+        "text_en": "+2/+2 and <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77a37754e7200e2e5bd6e273fab175900dcdadb46d71c86df003be6fc2ab09ea"
+    },
+    {
+      "record": {
+        "id": "EDR_100t2",
+        "dbf_id": 113798,
+        "name": "短小利爪",
+        "name_en": "Short Claws",
+        "text": "法力值消耗减少（2）点，但拥有-2攻击力。",
+        "text_en": "Costs (2) less,\nbut has -2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "153de59aebe10d2e2c1d31506547046733b757a7990f337d4fcd5db09dd83b5d"
+    },
+    {
+      "record": {
+        "id": "EDR_100t3",
+        "dbf_id": 113799,
+        "name": "衣甲厚实",
+        "name_en": "Bundled Up",
+        "text": "+4生命值和<b>嘲讽</b>。",
+        "text_en": "+4 Health and <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "642ddf4056febfe342c6663451fe521a696be5f6b6a2c330761b2aba9bbc12cc"
+    },
+    {
+      "record": {
+        "id": "EDR_100t5",
+        "dbf_id": 113801,
+        "name": "活体梦魇",
+        "name_en": "Living Nightmare",
+        "text": "当你使用本牌时，召唤一个它的2/2的复制。",
+        "text_en": "When you play this minion, summon a 2/2 copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "68ca9af88e086ccad315c418b42edc57b84872c2284cd0912bfe8dece93bb8db"
+    },
+    {
+      "record": {
+        "id": "EDR_100t6",
+        "dbf_id": 113802,
+        "name": "梦境行者",
+        "name_en": "Sleepwalker",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CHARGE": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "19087fb6b451a2457fc5ebe6e1ff401c1b79ca68b8fb58725008c4a7dace0205"
+    },
+    {
+      "record": {
+        "id": "EDR_100t7",
+        "dbf_id": 113882,
+        "name": "粗暴唤醒",
+        "name_en": "Rude Awakening",
+        "text": "本随从的<b>战吼</b>会触发两次。",
+        "text_en": "[x]This minion's\n<b>Battlecries</b> trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c3ea8dc124ea80027f757a243e3e80fa0eec745e951d3c60be8be5472b7523e"
+    },
+    {
+      "record": {
+        "id": "EDR_100t8",
+        "dbf_id": 113884,
+        "name": "甜美梦境",
+        "name_en": "Sweet Dreams",
+        "text": "+4/+5。\n将本牌置于你的\n牌库顶。",
+        "text_en": "+4/+5. Place this card on top of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9d947867293a59287b73570ba5ac1b828c147294dcd4e9ade889c30ce285e9c8"
+    },
+    {
+      "record": {
+        "id": "EDR_100t9",
+        "dbf_id": 113886,
+        "name": "回荡恐怖",
+        "name_en": "Persisting Horror",
+        "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+        "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "REBORN": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d539898708e8764e6fc98f9c8facfe2f5e3838d86136562659be918debe39fba"
+    },
+    {
+      "record": {
+        "id": "EDR_100t13",
+        "dbf_id": 120225,
+        "name": "鹰身人之爪",
+        "name_en": "Harpy's Talons",
+        "text": "<b>圣盾</b>，<b>风怒</b>",
+        "text_en": "<b>Divine Shield</b>, <b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "983eb77d4c8a3eac0d1684927000d9b5ace4239bad0455098586de37b3a87edf"
+    }
+  ],
+  "gift_version": "constructed-dark-gifts-32.2-v1",
+  "gift_recipes_sha256": "d38026afb5e74d345f28238c65b26c2b028adb6b1d984bf55ded7127f67a68dc",
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T08:10:21.968256+08:00",
+    "source": "Four complete cached official responses independently verified, no refetch",
+    "observations": [
+      {
+        "card_id": "EDR_456",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114218&locale=en_US",
+        "response_file": "official-EDR_456-en_US.json",
+        "response_sha256": "794cbcbe2fd07f5180fa62cb97c0ae4a8d499c7ebcc09eb2d80fe365e46cfce0",
+        "face": {
+          "id": 114218,
+          "collectible": 1,
+          "slug": "114218-darkrider",
+          "classId": 10,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "Darkrider",
+          "text": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b> a Dragon with a <b>Dark Gift</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8536af0db9f47a712f664ba4a8868ea16b91e74283c76b19095406bfcf73eff3.png",
+          "imageGold": "",
+          "flavorText": "Before the corruption spread to the Emerald Dream, he was known only by this: Rider.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79d0ee29b26ded9609f7a7648306bb2355f4a8ce08e4c358226a66f86f6727ad.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "EDR_456",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114218&locale=zh_CN",
+        "response_file": "official-EDR_456-zh_CN.json",
+        "response_sha256": "9753b85a78de7a6ac18085622a3143729bc64a57467e2c3546affe43606a359c",
+        "face": {
+          "id": 114218,
+          "collectible": 1,
+          "slug": "114218-darkrider",
+          "classId": 10,
+          "multiClassIds": [],
+          "minionTypeId": 15,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 3,
+          "artistName": "Ivo Campelo da Silva",
+          "health": 1,
+          "attack": 1,
+          "manaCost": 1,
+          "name": "黑暗的龙骑士",
+          "text": "<b>战吼：</b>如果你的手牌中有龙牌，<b>发现</b>一张具有<b>黑暗之赐</b>的龙牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b27c58f4f96063f1cf3af0f5233e9d34c330bd7003a026c671d5e7a17af7de81.png",
+          "imageGold": "",
+          "flavorText": "早在腐蚀还没有蔓延到翡翠梦境的时候，他的名字叫做：骑士。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79d0ee29b26ded9609f7a7648306bb2355f4a8ce08e4c358226a66f86f6727ad.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            8,
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_939",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115688&locale=en_US",
+        "response_file": "official-FIR_939-en_US.json",
+        "response_sha256": "4f6bf41c8f9768c131f7ae817439bb39ba08989142f6a549f803d1909fbb1a77",
+        "face": {
+          "id": 115688,
+          "collectible": 1,
+          "slug": "115688-shadowflame-suffusion",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 2,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Daniil Kudriavtsev",
+          "manaCost": 2,
+          "name": "Shadowflame Suffusion",
+          "text": "Deal 2 damage. <b>Discover</b> a Warrior minion with a <b>Dark Gift</b>.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fde8dadf3de6137d81d8244a28e7758a637b329ce1dff00b7ffb0e655a39354d.png",
+          "imageGold": "",
+          "flavorText": "One Fire and Shadow swirl, please!",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b073252711d185df533ec8573996cc03ec3c51a6ac8be625570c8a82c7633a0.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_939",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115688&locale=zh_CN",
+        "response_file": "official-FIR_939-zh_CN.json",
+        "response_sha256": "054a97bfe4f02ba90c5db301dd63c5d5d0ca3c9ebfc3503ea68e1fce117b9f88",
+        "face": {
+          "id": 115688,
+          "collectible": 1,
+          "slug": "115688-shadowflame-suffusion",
+          "classId": 10,
+          "multiClassIds": [],
+          "spellSchoolId": 2,
+          "cardTypeId": 5,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Daniil Kudriavtsev",
+          "manaCost": 2,
+          "name": "影焰晕染",
+          "text": "造成 2点伤害。<b>发现</b>一张具有<b>黑暗之赐</b>的战士随从牌。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f031b92a05152e279f1909c9e7bfdaf12d21b5658f1a6fdc63f9d9c91a93d1a.png",
+          "imageGold": "",
+          "flavorText": "一份火焰一份暗影，摇匀，谢谢！",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b073252711d185df533ec8573996cc03ec3c51a6ac8be625570c8a82c7633a0.png",
+          "childIds": [
+            113796,
+            113797,
+            113798,
+            113799,
+            113801,
+            113802,
+            113882,
+            113884,
+            113886,
+            120225
+          ],
+          "keywordIds": [
+            21,
+            319
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context": true,
+  "internal_policy": [
+    "Darkrider1mana1/1 Warrior Demon native battlecry reads current own hand through has_any_tribe(dragon), including all/exclusions/current changes. Its own body/board/opponent do not qualify. False gate needs no context/pool/RNG. True gate uses public DiscoverDarkGift collectible MINION currenthero+neutral Dragon pool. No native DarkGift keyword or invented Dragon tribe.",
+    "Shadowflame Suffusion2mana Warrior Fire SPELL requires ordinary any-character target; shared2SPELLdamage first, then public DiscoverDarkGift collectibleMINION specifiedWARRIOR excludingneutral and including actualmatchingdualclass. Current hero does not change this fixed class filter. No damage-success or kill gate; normal death/reaction/counter/terminal pipeline.",
+    "Both use existing host-bound DiscoverDarkGift, complete ten recipes/version/qualifications, original pairing/RNG/preview/selected creation/cost/destination/burn/wait/replay/privacy. Callback does not access private Game, hardcode target/mode, crop minions/gifts or locally sample. Ten existing gift raw sources are evidence for unchanged recipes, not new card/pool definitions.",
+    "Explicit complete host constructed.cards inventory and GenerationContext required for actual discovery. Full eligible unknown validation before ownRNG, no registered-only fallback. Definitions/PoolCards precede full candidate catalog. All prior definitions/default311/families/290engine/gifts preserved; no public changes/productionformalpool.",
+    "Internal effect support only. M0 legal/actuallyreachable complete pool, M6 CN implicit qualification/pairing/source-exclusion/damage/acceptance/creation windows and stage release remain open."
+  ]
+}
