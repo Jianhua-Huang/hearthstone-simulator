@@ -18,6 +18,9 @@ def request_choice(r, effect):
     for option in effect.options:
         if option.entity_id is not None and option.entity_id not in r.state.entities:
             raise ResolutionError('Choice option entity does not exist')
+    if effect.kindred is not None:
+        from .kindred import validate_preparation
+        validate_preparation(r.state, r.registry, effect.kindred)
     offered = effect.sample_size if effect.sample_size is not None else len(effect.options)
     if offered > r.rules.max_choice_options:
         raise ResolutionLimitExceeded('Too many offered choice options')
@@ -25,6 +28,14 @@ def request_choice(r, effect):
     choice = PendingChoice(r.state.next_choice_id, effect.player_id, effect.source_id, effect.prompt,
                            tuple(o.item for o in options), effect.min_count, effect.max_count, effect.purpose, effect.repeat_key)
     r.state.next_choice_id += 1
+    if effect.kindred is not None:
+        # This finite profile is automatic; no additional pending-frame state.
+        # Preserve the original immutable activation across the sampled callback.
+        from .spell_repeats import remember_choice
+        result = ChoiceResult(choice, ())
+        remember_choice(r.state, result)
+        r.emit('choice_skipped', source_id=choice.source_id, player_id=choice.player_id, choice_id=choice.id)
+        return choice_effects(result, options, effect.on_select, kindred=effect.kindred)
     from .discovery_summons import bind_choice
     bind_choice(r,choice,options)
     from .hand_choice_followups import bind_choice as bind_hand_followup
@@ -63,9 +74,9 @@ def request_choice(r, effect):
            _choice_paid_boundary=True)
 
 
-def choice_effects(result, options, on_select):
+def choice_effects(result, options, on_select, *, kindred=None):
     from .resolver import ResolveChoiceResult
-    callback = [ResolveChoiceResult(result, on_select)] if on_select is not None else []
+    callback = [ResolveChoiceResult(result, on_select, kindred)] if on_select is not None else []
     from .discovery import ResolvePoolDiscovery
     from .hand_choice_followups import ResolveHandFollowupChoice
     from .assemble_offers import ResolveAssemble
@@ -82,6 +93,17 @@ def choice_effects(result, options, on_select):
 
 def resolve_choice_result(r, effect):
     choice = effect.result.choice
+    if effect.kindred is not None:
+        from .kindred import context_kwargs, validate_preparation, validate_prepared_choice
+        validate_preparation(r.state, r.registry, effect.kindred)
+        validate_prepared_choice(effect.kindred, effect.result)
+        if choice.id >= r.state.next_choice_id:
+            raise ValueError('Sampled Kindred callback has a future choice identity')
+        old = effect.kindred.original
+        kwargs = context_kwargs(old)
+        kwargs['choice'] = effect.result
+        return [r.call(effect.behavior_id, old.source_id, old.player_id, old.target_id,
+                       **kwargs, kindred=effect.kindred)]
     return [r.call(effect.behavior_id, choice.source_id or r.player(choice.player_id).hero_id,
                    choice.player_id, choice=effect.result)]
 

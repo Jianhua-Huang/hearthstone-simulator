@@ -2,7 +2,7 @@
 from copy import copy
 from dataclasses import dataclass,replace
 from .effects import Effect
-from .model import CardType,KindredActivation,KindredProfile,KindredRecord,OwnerTurnQueryBoundaryFact,Zone
+from .model import CardType,ChoiceResult,KindredActivation,KindredProfile,KindredRecord,OwnerTurnQueryBoundaryFact,Zone
 from .owner_turns import query_for_definition,query_previous_owner_turn,validate_accepted_prefix
 from .player_effects import RemovePlayerEffect
 from .registry import RuleContext
@@ -76,10 +76,14 @@ class ResolveKindred(Effect):
 class RunKindredComponent(Effect):
     activation:KindredActivation
     role:str='active'
+    prepared_choice:ChoiceResult|None=None
     def __post_init__(self):
         if type(self.activation)is not KindredActivation or self.role not in('active','prepare','inactive'):
             raise ValueError('Kindred component requires an original acceptance and real role')
         self.activation.__post_init__()
+        if self.prepared_choice is not None:
+            if self.role!='active':raise ValueError('Prepared choice belongs to a real active Kindred component')
+            validate_prepared_choice(self.activation,self.prepared_choice)
 
 
 @dataclass(frozen=True)
@@ -138,6 +142,26 @@ def validate_component(effect,registry):
     profile=registry.kindred_profiles[effect.activation.card_id]
     if getattr(profile,effect.role)is None or effect.role not in plan(profile,effect.activation.condition,effect.activation.repetitions):
         raise ValueError('Kindred component contradicts its declared role or original qualification')
+    if effect.prepared_choice is not None and profile.prepare is None:
+        raise ValueError('Prepared Kindred group requires its original preparation profile')
+
+
+def validate_prepared_choice(activation,result):
+    if type(activation)is not KindredActivation or type(result)is not ChoiceResult:
+        raise ValueError('Kindred group requires typed original acceptance and result')
+    activation.__post_init__();result.__post_init__();old=activation.original;choice=result.choice
+    if ((choice.source_id,choice.player_id)!=(old.source_id,old.player_id)or
+            choice.min_count!=0 or choice.max_count!=0 or result.selected_ids or choice.repeat_key is not None):
+        raise ValueError('Prepared Kindred group changed its original automatic caller')
+
+
+def validate_preparation(state,registry,activation):
+    value=validate_record_activation(state,registry,activation)
+    profile=registry.kindred_profiles[activation.card_id]
+    if (profile.prepare is None or value.completed or value.interruption is not None or
+            not any(value.started[index]=='prepare' for index in value.stack)):
+        raise ValueError('Kindred sampled callback lost its actual active preparation')
+    return value
 
 
 def request(c,card_id):return(ResolveKindred(c,card_id),)
@@ -173,7 +197,12 @@ def run(r,effect):
     r.state.kindred_history[value.id-1]=replace(value,started=(*value.started,effect.role),stack=(*value.stack,index))
     c=activation.original
     validate_accepted_prefix(c.state,r.state,r.registry)
-    return(r.call(key,c.source_id,c.player_id,c.target_id,**context_kwargs(c),kindred=activation),FinishKindredComponent(value.id,index))
+    kwargs=context_kwargs(c)
+    if effect.prepared_choice is not None:
+        validate_preparation(r.state,r.registry,activation)
+        if effect.prepared_choice.choice.id>=r.state.next_choice_id:raise ValueError('Prepared Kindred group has a future choice identity')
+        kwargs['choice']=effect.prepared_choice
+    return(r.call(key,c.source_id,c.player_id,c.target_id,**kwargs,kindred=activation),FinishKindredComponent(value.id,index))
 
 
 def finish_component(r,effect):
@@ -235,7 +264,8 @@ def validate_records(state,registry):
 
 
 def validate_boundary(game):
-    from .resolver import BehaviorCall
+    from .resolver import BehaviorCall,ResolveChoiceResult
+    from .effects import RequestChoice
     state=game._state;validate_records(state,game.registry)
     queue=(*game._frame.prefix,*game._frame.continuation)if game._frame else()
     known={x.id for x in state.kindred_history}
@@ -262,6 +292,18 @@ def validate_boundary(game):
             validate_record_activation(state,game.registry,roots[0].activation)
             profile=game.registry.kindred_profiles[value.card_id]
             preparing=any(type(x)is BehaviorCall and x.behavior_id==profile.prepare and x.context.kindred is not None and x.context.kindred.record_id==value.id for x in queue)
+            deferred=[x for x in queue if type(x)in(RequestChoice,ResolveChoiceResult)and
+                x.kindred is not None and x.kindred.record_id==value.id]
+            if deferred:
+                if len(deferred)!=1 or deferred[0].kindred!=roots[0].activation:
+                    raise ValueError('Kindred preparation duplicated or changed its original sampled callback')
+                validate_preparation(state,game.registry,deferred[0].kindred)
+                callback_index=queue.index(deferred[0])
+                preparation_ends=[i for i,x in enumerate(queue)if type(x)is FinishKindredComponent and
+                    x.record_id==value.id and value.started[x.index]=='prepare']
+                if len(preparation_ends)!=1 or callback_index>=preparation_ends[0]:
+                    raise ValueError('Sampled Kindred callback follows its original preparation completion')
+                preparing=True
             expected=(('prepare',)if not value.started else()if preparing else value.plan[len(value.started):])if profile.prepare is not None else value.plan[len(value.started):]
             if tuple(x.role for x in runs)!=expected:raise ValueError('Pending Kindred root truncated or reordered its accepted component plan')
             for item in runs:
@@ -310,9 +352,9 @@ def current_source(c):
     return current if current is not None and current.active and current.health>0 and not current.doomed else None
 
 
-def repeat_components(c):
+def repeat_components(c,*,prepared_choice=None):
     if c.kindred is None:raise ValueError('Kindred preparation lost its original component plan')
-    return tuple(RunKindredComponent(c.kindred)for _ in range(c.kindred.repetitions))if c.kindred.condition.matched else()
+    return tuple(RunKindredComponent(c.kindred,prepared_choice=prepared_choice)for _ in range(c.kindred.repetitions))if c.kindred.condition.matched else()
 
 
 def register(mechanics):

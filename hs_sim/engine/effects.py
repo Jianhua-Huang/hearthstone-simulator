@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from .model import HeroAttackReference
 from .model import ChoiceItem, ChoicePurpose, CostScope, CostSpec, CostAuraSpec, DamageKind, HealingKind, HealthRule, Keyword, Resource, StatReference, validate_cost_scope
 from .model import SummonStats, validate_summon_stats, CardPreview, HeroPowerReference, CardType
-from .model import TimedKeywordSpec, EndTurnSpec, TriggerSpec, validate_combat_relation
+from .model import TimedKeywordSpec, EndTurnSpec, TriggerSpec, KindredActivation, validate_combat_relation
 
 
 class Effect:
@@ -208,6 +208,7 @@ class RequestChoice(Effect):
     sample_size: int | None = None
     purpose: ChoicePurpose = ChoicePurpose.EFFECT
     repeat_key: str | None = None
+    kindred: KindredActivation | None = None
 
     def __post_init__(self):
         from .model import PendingChoice
@@ -227,6 +228,16 @@ class RequestChoice(Effect):
             _integer(self.sample_size, 'sample_size', 1)
             if not self.max_count <= self.sample_size <= len(self.options):
                 raise ValueError('Invalid choice sampling size')
+        if self.kindred is not None:
+            if type(self.kindred) is not KindredActivation:
+                raise ValueError('Sampled Kindred callback requires its original acceptance')
+            self.kindred.__post_init__()
+            old = self.kindred.original
+            if ((self.player_id, self.source_id) != (old.player_id, old.source_id) or
+                    self.min_count != 0 or self.max_count != 0 or self.on_select is None or
+                    self.repeat_key is not None or self.purpose != ChoicePurpose.EFFECT or
+                    any(option.effects for option in self.options)):
+                raise ValueError('Kindred context is limited to an automatic preparation callback')
 
 
 @dataclass(frozen=True)

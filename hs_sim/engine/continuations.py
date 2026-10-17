@@ -108,7 +108,26 @@ class FrameCodec:
         if type(value)is model.KindredActivation:validate_activation(value,self.registry)
         if type(value)is ResolveKindred:
             validate_kindred_request(value,self.registry)
-        if type(value)is RunKindredComponent:validate_component(value,self.registry)
+        if type(value)is RunKindredComponent:
+            validate_component(value,self.registry)
+            if value.prepared_choice is not None and self.origin_state is not None:
+                from .kindred import validate_preparation
+                validate_preparation(self.origin_state,self.registry,value.activation)
+                if value.prepared_choice.choice.id>=self.origin_state.next_choice_id:
+                    raise ValueError('Prepared Kindred group has a future choice identity')
+        from .resolver import ResolveChoiceResult
+        if type(value)in(effects.RequestChoice,ResolveChoiceResult)and value.kindred is not None:
+            validate_activation(value.kindred,self.registry)
+            if self.origin_state is not None:
+                from .kindred import validate_preparation
+                validate_preparation(self.origin_state,self.registry,value.kindred)
+                if type(value)is ResolveChoiceResult and value.result.choice.id>=self.origin_state.next_choice_id:
+                    raise ValueError('Sampled Kindred callback has a future choice identity')
+        from .sacrifice import FreezeCapturedMinion
+        if type(value)is FreezeCapturedMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+            if self.registry.card(value.beneficiary.card_id).kind!=CardType.MINION:
+                raise ValueError('Captured freeze requires an actual original minion definition')
         if type(value)is FinishKindred:validate_activation(value.activation,self.registry)
         if type(value)is RuleContext and value.kindred is not None:
             validate_activation(value.kindred,self.registry)

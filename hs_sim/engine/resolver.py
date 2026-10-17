@@ -30,7 +30,7 @@ from .hero_powers import (ActivateHeroPower, FinishHeroPower, activate_hero_powe
 from .combat import calculate_damage, apply_healing, freeze_deadline
 from .health_rules import prepare_health, rule_sources
 from .registry import RuleContext
-from .model import HeroAttackReference
+from .model import HeroAttackReference, KindredActivation
 from .lifecycle import (active_abilities, attachment_id, install_base, install_printed, refresh_entity,
                         remove_attachments, reset_to_definition, consume_keyword, copy_attachments, initialize_dormancy)
 
@@ -61,6 +61,12 @@ class ResolutionFrame:
 class ResolveChoiceResult(Effect):
     result: ChoiceResult
     behavior_id: str
+    kindred: KindredActivation | None = None
+
+    def __post_init__(self):
+        if self.kindred is not None:
+            from .kindred import validate_prepared_choice
+            validate_prepared_choice(self.kindred, self.result)
 
 
 @dataclass(frozen=True)
@@ -136,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v428'
+CORE_EFFECTS_VERSION = 'core-effects-v429'
 
 
 class Mechanics:

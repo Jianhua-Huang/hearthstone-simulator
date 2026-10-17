@@ -72,6 +72,37 @@ class BuffCapturedMinion(Effect):
 
 
 @dataclass(frozen=True)
+class FreezeCapturedMinion(Effect):
+    beneficiary: MinionReference
+    source_id: int
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        _integer(self.source_id, 'original freeze source', 1)
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ref = self.beneficiary
+        entity = state.entities.get(ref.entity_id)
+        if entity is None or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
+            raise ValueError('Captured freeze borrowed an unknown or future minion allocation')
+        if self.source_id not in state.entities:
+            raise ValueError('Captured freeze has an unknown original source')
+
+
+def freeze_captured_minion(r, effect):
+    from .effects import Freeze
+    from .resolver import freeze_character
+    effect.validate_in_state(r.state)
+    validate_request(r, effect)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    freeze_character(r, Freeze(effect.beneficiary.entity_id, effect.source_id))
+    return ()
+
+
+@dataclass(frozen=True)
 class BuffCapturedMinionWithStartTrigger(Effect):
     """Install one numeric grant and its removable one-use turn-start callback."""
     beneficiary: MinionReference
@@ -400,6 +431,7 @@ def register(mechanics):
     mechanics.register(SacrificeAdjacent, sacrifice_adjacent)
     mechanics.register(CompleteDestructionBuff, complete_destruction_buff)
     mechanics.register(BuffCapturedMinion, buff_captured_minion)
+    mechanics.register(FreezeCapturedMinion, freeze_captured_minion)
     mechanics.register(BuffCapturedMinionWithStartTrigger, buff_captured_minion_with_start_trigger)
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(TransformCapturedMinion, transform_captured_minion)

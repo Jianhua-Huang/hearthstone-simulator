@@ -250,11 +250,11 @@ class SimpleFollowupP49Tests(unittest.TestCase):
         self.assertIn('TIME_872',SKIPPED)  # Original P49 deferral remains historical.
         self.assertIsNotNone(g.registry.card('TIME_872').battlecry)
 
-    def test_real_native_kindred_sample_callback_drops_required_original_activation(self):
+    def test_historical_kindred_sample_without_explicit_original_context_still_rejects(self):
         g=self.game((TEST+'beast',TEST+'kindred_probe'),enemy=(YETI,YETI),pool=False,context=None)
         self.play(g,TEST+'beast');g.apply(EndTurn(1));g.apply(EndTurn(2));saved=g.snapshot()
         with self.assertRaisesRegex(ResolutionError,'callback lost original activation'):self.play(g,TEST+'kindred_probe')
-        self.assertEqual(g.snapshot(),saved);self.assertNotIn('DINO_413',g.registry.cards)
+        self.assertEqual(g.snapshot(),saved);self.assertIsNotNone(g.registry.card('DINO_413').battlecry)
 
     def test_historical_shuffle_rewind_gap_now_retires_only_diagnostic_insertions(self):
         g=self.game((TEST+'shuffle_two',TEST+'top'),pool=False,context=None)
