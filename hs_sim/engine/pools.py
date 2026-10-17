@@ -621,6 +621,24 @@ class GenerateFromPool(Effect):
         validate_delivery(self)
 
 
+@dataclass(frozen=True)
+class FillHandFromPool(Effect):
+    """Capture effective free hand slots once, then delegate one ordinary batch."""
+    request: GenerateFromPool
+
+    def __post_init__(self):
+        if type(self.request) is not GenerateFromPool:
+            raise ValueError('Hand fill requires its typed generation request')
+        q = self.request
+        q.__post_init__()
+        if (q.count != 1 or q.source_id is None or q.destination != 'hand' or not q.replacement or
+                q.query.kinds != (CardType.MINION,) or q.query.collectible is not True or
+                q.spell_repeat is not None or q.cause is not None or q.producer_profile_id is not None or
+                q.combined_shatter or q.temporary_until_turn is not None or q.board_position is not None or
+                q.minion_stats is not None or q.shuffle_actor_id is not None):
+            raise ValueError('Hand fill requires a plain source-bound single-minion hand specification')
+
+
 def validate_delivery(effect):
     if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck'):
         raise ValueError('Invalid generation replacement or destination')
@@ -684,6 +702,20 @@ def generation_candidates(r, effect):
 def discover_from_pool(r, effect):
     from .discovery import start
     return start(r, effect)
+
+
+def fill_hand_from_pool(r, effect):
+    from dataclasses import replace
+    from .hand_capacity import hand_capacity
+    effect.__post_init__()
+    player = r.player(effect.request.player_id)
+    count = max(0, hand_capacity(player, r.rules) - len(player.hand))
+    if not count:
+        rows = generation_candidates(r, effect.request)
+        from .costs import validate_creation_cost
+        validate_creation_cost(r.state, effect.request, (r.registry.card(m.card_id) for m in rows))
+        return ()
+    return generate_from_pool(r, replace(effect.request, count=count))
 
 
 def generate_from_pool(r, effect):
@@ -930,6 +962,7 @@ def register_generation(mechanics):
     mechanics.register_payload_type(DiscoveryGiftPool)
     mechanics.register(DiscoverFromPool, discover_from_pool)
     mechanics.register(GenerateFromPool, generate_from_pool)
+    mechanics.register(FillHandFromPool, fill_hand_from_pool)
     mechanics.register(GenerateFromCandidates, generate_from_candidates)
     mechanics.register(SummonFromCandidates, summon_from_candidates)
     mechanics.register(SummonFromPool, summon_from_pool)
