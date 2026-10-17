@@ -1,0 +1,2260 @@
+{
+  "batch": "P53",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_467",
+        "dbf_id": 118277,
+        "name": "低语之石",
+        "name_en": "Whispering Stone",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>随机获取2张邪能法术牌。这些牌会消耗生命值，而非法力值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Get 2 random\nFel spells. They cost Health\ninstead of Mana.",
+        "cost": 5,
+        "attack": null,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "32df8f0c3200a3a5b8c33cb5ed87735e7383ef885a82e70e1a17e79390d5bbac",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_467",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_027",
+        "dbf_id": 120485,
+        "name": "超光子弹幕",
+        "name_en": "Tachyon Barrage",
+        "text": "造成$6点伤害，随机分配到所有敌人身上。将2张时空撕裂洗入你的牌库。",
+        "text_en": "Deal $6 damage split among all enemies. Shuffle 2 Shreds of Time into your deck.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "ea143d7b9100c310ea429a1974e3bd83b1f5281a11445945e9bd10f36fd6cf86",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_027",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_201",
+        "dbf_id": 127932,
+        "name": "秘制配料",
+        "name_en": "Secret Ingredient",
+        "text": "<b>抉择：</b>使你的英雄在本回合中获得+2攻击力；或者随机获取一张德鲁伊牌。",
+        "text_en": "<b>Choose One -</b>\nGive your hero +2 Attack this turn; or get a random Druid card.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "75bf6f28a0c53a471b7e0fb77f58dfe5683ca636ec6ed24b8a57eec41ff14e42",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_201",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t",
+        "dbf_id": 122977,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e31e8b9113bb9f48f67f6b08001a3bb9e960d26e077042c5b09aa9a2423d65f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t2",
+        "dbf_id": 128060,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "705056637ec3b7406de27926baef232c27b5f6d4cfdc987408aa21204863ea43",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t3",
+        "dbf_id": 128061,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4ab56c2310a68bd98a3d4710bc21f8987428c146cc25adb2f73f70e561762488",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_139t4",
+        "dbf_id": 128062,
+        "name": "柳牙的腿",
+        "name_en": "Wickerfang's Leg",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "text_en": "At the end of your turn, gain +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c0b4b9018b900f929c6fe25e085b64a0adf95412eaf35e01c4702b83625739f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_139t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_470t1",
+        "dbf_id": 127644,
+        "name": "奈法利安的造物",
+        "name_en": "Nefarian's Creation",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "2534": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "c02e1b1efc60a9ea013f29826c579f388a16b06cdb13722b54479121660e5b41",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_470t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_610t2",
+        "dbf_id": 121462,
+        "name": "畸变之影",
+        "name_en": "Anomalous Shade",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "e1d11a0ec0d047ac79feb79588157951b03667ba7a127fc7cfdb5d56a7cf6c6f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_610t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_201a",
+        "dbf_id": 130019,
+        "name": "一点这个",
+        "name_en": "A Little of This",
+        "text": "在本回合中，使你的英雄获得+2攻击力。",
+        "text_en": "Give your hero +2 Attack this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "29c95945e13087f9d26008c0ec2ec2e7036833c09330323940d89ce693beabca",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_201a",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_201b",
+        "dbf_id": 130020,
+        "name": "一点那个",
+        "name_en": "A Dash of That",
+        "text": "随机获取一张德鲁伊牌。",
+        "text_en": "Get a random Druid card.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "a1188ed0f1c25c53b691f6636c9f9acd0d7b6b3301e82d3be3d9d257b6d8e6c2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_201b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_025t",
+        "dbf_id": 120483,
+        "name": "时空撕裂",
+        "name_en": "Shred of Time",
+        "text": "<b>抽到时施放</b>\n对你的英雄造成$3点伤害。",
+        "text_en": "<b>Casts When Drawn</b>\nDeal $3 damage to\nyour hero.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "349": 1,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "514b2858af3ef90efee5257c1cb39b30cf753d02df86647fb3bcbac42f459ee1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_025t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_139",
+        "dbf_id": 122976,
+        "name": "柳牙",
+        "name_en": "Wickerfang",
+        "text": "<b>巨型+4</b>\n在柳牙的腿获得属性值后，本随从也会\n获得。",
+        "text_en": "<b>Colossal +4</b>\nAfter one of Wickerfang's Legs gains stats, this gains them too.",
+        "cost": 6,
+        "attack": null,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 128061,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 128061,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "21a5b984d6d29741b0df8a4a50ae56211023de44f8f145fc99a45ba5c146092a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_139",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_470",
+        "dbf_id": 122778,
+        "name": "维克多·奈法里奥斯",
+        "name_en": "Victor Nefarius",
+        "text": "<b>战吼：</b>制造一条自定义的亡灵龙。如果你的手牌中有龙牌，制造的这条龙的法力值消耗减少（3）点。",
+        "text_en": "[x]<b>Battlecry:</b> Craft a custom\nUndead Dragon. If you're\n holding a Dragon, reduce the\nCreation's Cost by (3).",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "COST_UNHOLY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "16ebaec4d60b26f3578f6653e5e037d03645c4c762b2c731f87519145c60d572",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_470",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_610",
+        "dbf_id": 120530,
+        "name": "昨日之影",
+        "name_en": "Shadows of Yesterday",
+        "text": "<b>回溯</b>。召唤四个3/2的影子，每个影子分别随机获得两项<b>额外效果</b>。",
+        "text_en": "<b>Rewind</b>\nSummon four 3/2 Shades. They each gain two\nrandom <b>Bonus Effects</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "COST_UNHOLY": 2,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "edd8afbf79f2948ef1ab2c484713f994dda007ee14fdb10b10cdd24dc04346e2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_610",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_467",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/118277-zh_CN.json",
+      "response_sha256": "9d054e4ba3e41080651e4f4505f3110cd828287b2ad7d53e5ce0abc6dec7065f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118277&locale=zh_CN",
+      "face": {
+        "id": 118277,
+        "collectible": 1,
+        "slug": "118277-whispering-stone",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "低语之石",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>随机获取2张邪能法术牌。这些牌会消耗生命值，而非法力值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9042c344487b1f065da8833b9e054f3dc2ced51596a065aa04de6f204842d29.png",
+        "imageGold": "",
+        "flavorText": "嘘……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fa3051fe9cdcbebfba97975c2687b6cb5ee7584604a4b1779bc5924ef33bb9a.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118277&locale=zh_CN",
+        "sha256": "9d054e4ba3e41080651e4f4505f3110cd828287b2ad7d53e5ce0abc6dec7065f",
+        "bytes": 786,
+        "observed_at": "2026-10-17T06:43:44.849997+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_467",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/118277-en_US.json",
+      "response_sha256": "d63071204e31166d2f3e83437f36f3bf3b601c043c36926693797e25e774f555",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118277&locale=en_US",
+      "face": {
+        "id": 118277,
+        "collectible": 1,
+        "slug": "118277-whispering-stone",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "Whispering Stone",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b> Get 2 random Fel spells. They cost Health instead of Mana.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/26fd2dd8f4e30f2650c386952b2e94c8aeea3f394e855ba429f4be41c811798b.png",
+        "imageGold": "",
+        "flavorText": "shhhhhh...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fa3051fe9cdcbebfba97975c2687b6cb5ee7584604a4b1779bc5924ef33bb9a.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118277&locale=en_US",
+        "sha256": "d63071204e31166d2f3e83437f36f3bf3b601c043c36926693797e25e774f555",
+        "bytes": 768,
+        "observed_at": "2026-10-17T06:43:44.718903+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_027",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/120485-zh_CN.json",
+      "response_sha256": "c90c3479eedafe4a6363609848056dd5984ec4a8fd3bdddbb5896b1c617e7f9e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120485&locale=zh_CN",
+      "face": {
+        "id": 120485,
+        "collectible": 1,
+        "slug": "120485-tachyon-barrage",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 2,
+        "name": "超光子弹幕",
+        "text": "造成 6点伤害，随机分配到所有敌人身上。将2张时空撕裂洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5196a7bc02586bffdf118d5601dc6b1131b807b52fd54ef1a103741ff562d91.png",
+        "imageGold": "",
+        "flavorText": "要我说，我觉得太刺激了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd86f3c44a46e88019389a26ee911de7ee7e2f8d5a3e38ac4e619309decbcf02.png",
+        "childIds": [
+          120483
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120485&locale=zh_CN",
+        "sha256": "c90c3479eedafe4a6363609848056dd5984ec4a8fd3bdddbb5896b1c617e7f9e",
+        "bytes": 775,
+        "observed_at": "2026-10-17T06:43:45.003626+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_027",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/120485-en_US.json",
+      "response_sha256": "85761883607b808bdb2c23323015ee3a105047d03f859226ca18fcd499c376f1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120485&locale=en_US",
+      "face": {
+        "id": 120485,
+        "collectible": 1,
+        "slug": "120485-tachyon-barrage",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 2,
+        "name": "Tachyon Barrage",
+        "text": "Deal 6 damage split among all enemies. Shuffle 2 Shreds of Time into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/16de5c09dbb87011bc0d93845373575dca3101cd51bc23a298cea6a9d08673a5.png",
+        "imageGold": "",
+        "flavorText": "Kinda tachy if you ask me.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd86f3c44a46e88019389a26ee911de7ee7e2f8d5a3e38ac4e619309decbcf02.png",
+        "childIds": [
+          120483
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120485&locale=en_US",
+        "sha256": "85761883607b808bdb2c23323015ee3a105047d03f859226ca18fcd499c376f1",
+        "bytes": 748,
+        "observed_at": "2026-10-17T06:43:44.842023+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/127932-zh_CN.json",
+      "response_sha256": "44b26b80a8b05270d7f3e4d4334d01cad767a06daf19dcd1f1183a63de155f48",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127932&locale=zh_CN",
+      "face": {
+        "id": 127932,
+        "collectible": 1,
+        "slug": "127932-secret-ingredient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "秘制配料",
+        "text": "<b>抉择：</b>使你的英雄在本回合中获得+2攻击力；或者随机获取一张德鲁伊牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5f5a5e003677a85ba813aff0e37d235958de587aca2fe2d43195bbc605a1855.png",
+        "imageGold": "",
+        "flavorText": "眼球是蝾螈的眼球，脚趾是青蛙的脚趾，手……是挥手的手。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3030885866c3841eb649e071c30bd1996c479d21d5c7a3eaf81bfaa80e9c177e.png",
+        "childIds": [
+          130019,
+          130020
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127932&locale=zh_CN",
+        "sha256": "44b26b80a8b05270d7f3e4d4334d01cad767a06daf19dcd1f1183a63de155f48",
+        "bytes": 833,
+        "observed_at": "2026-10-17T06:43:45.480678+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/127932-en_US.json",
+      "response_sha256": "4ba5360078c3a2d44382c18ddefe7a89419b447e98bcfa131b17c161a300d2c0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127932&locale=en_US",
+      "face": {
+        "id": 127932,
+        "collectible": 1,
+        "slug": "127932-secret-ingredient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "Secret Ingredient",
+        "text": "<b>Choose One -</b> Give your hero +2 Attack this turn; or get a random Druid card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13dfd0e357d67d4b70a384f3cd8057d7c5073ff54cca5f6ef25c808ff5a90a5e.png",
+        "imageGold": "",
+        "flavorText": "'eye of newt, toe of frog, hand of... waving.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3030885866c3841eb649e071c30bd1996c479d21d5c7a3eaf81bfaa80e9c177e.png",
+        "childIds": [
+          130019,
+          130020
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127932&locale=en_US",
+        "sha256": "4ba5360078c3a2d44382c18ddefe7a89419b447e98bcfa131b17c161a300d2c0",
+        "bytes": 780,
+        "observed_at": "2026-10-17T06:43:45.984653+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/122977-zh_CN.json",
+      "response_sha256": "547d937e1678835a3b84d39f10a8e9aacfb82aab6236819c514a3f769829f0c6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=zh_CN",
+      "face": {
+        "id": 122977,
+        "collectible": 0,
+        "slug": "122977-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24e5ef43bf753cfc8e7824b2818ef2a9b8eea04e35ac38bb5731b40525b44bac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=zh_CN",
+        "sha256": "547d937e1678835a3b84d39f10a8e9aacfb82aab6236819c514a3f769829f0c6",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:45.733174+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/122977-en_US.json",
+      "response_sha256": "71ea559932d62b0308a532ad84f2d64eea525fa2c466ff6ab95c06ffdc9cdc96",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=en_US",
+      "face": {
+        "id": 122977,
+        "collectible": 0,
+        "slug": "122977-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddbaba5ac1abef803d4246de3394728eae87df76146445a8e653c0bd4c3ab7fc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122977&locale=en_US",
+        "sha256": "71ea559932d62b0308a532ad84f2d64eea525fa2c466ff6ab95c06ffdc9cdc96",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.006703+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t2",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/128060-zh_CN.json",
+      "response_sha256": "2bf9a9a469f82fcc6c808aeb8bbe60ff926a5f77806b0d4aa4f3bfef306fa462",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=zh_CN",
+      "face": {
+        "id": 128060,
+        "collectible": 0,
+        "slug": "128060-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c38740379c0196968a14e572e43f6797746af55c7053adb39a3b602ccac31444.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=zh_CN",
+        "sha256": "2bf9a9a469f82fcc6c808aeb8bbe60ff926a5f77806b0d4aa4f3bfef306fa462",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:46.217444+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t2",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/128060-en_US.json",
+      "response_sha256": "cbfe0b96a588654b3e81b69c88cbc4e551b26ffdb596eaa074833bf140ac20a5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=en_US",
+      "face": {
+        "id": 128060,
+        "collectible": 0,
+        "slug": "128060-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6600c631c7b33b7a1be983dfe2bf2e98cf005c3ccb97959a4434b38061c1307b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128060&locale=en_US",
+        "sha256": "cbfe0b96a588654b3e81b69c88cbc4e551b26ffdb596eaa074833bf140ac20a5",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.741417+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t3",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/128061-zh_CN.json",
+      "response_sha256": "b4594d13b7ab7372a650d28629e96c0db3f168e4567d7dcbccb0bb88191e18d6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=zh_CN",
+      "face": {
+        "id": 128061,
+        "collectible": 0,
+        "slug": "128061-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f1cbba282ca96acfd7081200788800d0e38e20c357decd365048c60d0f68e2f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=zh_CN",
+        "sha256": "b4594d13b7ab7372a650d28629e96c0db3f168e4567d7dcbccb0bb88191e18d6",
+        "bytes": 576,
+        "observed_at": "2026-10-17T05:21:06.706986+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t3",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/128061-en_US.json",
+      "response_sha256": "3d4afbb1d6b4173f04c5065ba2404b5ee775e0f8f55c61b121b09a5630870a28",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=en_US",
+      "face": {
+        "id": 128061,
+        "collectible": 0,
+        "slug": "128061-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75c1f795f9ae613f3707ad59474d526a237ce22411908a64b1d59b1ee79f2c06.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128061&locale=en_US",
+        "sha256": "3d4afbb1d6b4173f04c5065ba2404b5ee775e0f8f55c61b121b09a5630870a28",
+        "bytes": 575,
+        "observed_at": "2026-10-17T05:21:06.758538+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t4",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/128062-zh_CN.json",
+      "response_sha256": "fdadf59090176f718a93129c78599c6fa944236aeeeda3e35254f3bcb06a251b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=zh_CN",
+      "face": {
+        "id": 128062,
+        "collectible": 0,
+        "slug": "128062-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "柳牙的腿",
+        "text": "在你的回合结束时，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98c927463fc68130edd7f4c6e29db54352c11f1ab1b5e78f637b79a11f58d577.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=zh_CN",
+        "sha256": "fdadf59090176f718a93129c78599c6fa944236aeeeda3e35254f3bcb06a251b",
+        "bytes": 576,
+        "observed_at": "2026-10-17T06:43:46.685883+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139t4",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/128062-en_US.json",
+      "response_sha256": "9a6defb59e3f89f6edaf4fd62bf0ef61aba2cb8b010e11380a3ee0312d2f2c56",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=en_US",
+      "face": {
+        "id": 128062,
+        "collectible": 0,
+        "slug": "128062-wickerfangs-leg",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Wickerfang's Leg",
+        "text": "At the end of your turn, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/520cc1d379219dae394e8fc1ad0b35fc6fed4edb96335aa7ef7d7e2c4d85a0e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122976,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=128062&locale=en_US",
+        "sha256": "9a6defb59e3f89f6edaf4fd62bf0ef61aba2cb8b010e11380a3ee0312d2f2c56",
+        "bytes": 575,
+        "observed_at": "2026-10-17T06:43:46.705087+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_470t1",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/127644-zh_CN.json",
+      "response_sha256": "476b5bbb4851af81027682e60ffa17d230a5b0182b34855718ea82328f09f29d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127644&locale=zh_CN",
+      "face": {
+        "id": 127644,
+        "collectible": 0,
+        "slug": "127644-nefarians-creation",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "奈法利安的造物",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/60a2c90166d733e172a872d88e2bacde2f8478a2b9f3d45f7ee3e63142dc7398.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122778,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127644&locale=zh_CN",
+        "sha256": "476b5bbb4851af81027682e60ffa17d230a5b0182b34855718ea82328f09f29d",
+        "bytes": 585,
+        "observed_at": "2026-10-17T06:45:33.340792+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_470t1",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/127644-en_US.json",
+      "response_sha256": "9613b54a0d085f72e427bf394ee2f72872c2b5e43d28793812588bb84e6b0317",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127644&locale=en_US",
+      "face": {
+        "id": 127644,
+        "collectible": 0,
+        "slug": "127644-nefarians-creation",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Nefarian's Creation",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29df297ed192834f713a9952dcecfba629c8106330ae6b573e4a3b026f3ed7ec.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122778,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127644&locale=en_US",
+        "sha256": "9613b54a0d085f72e427bf394ee2f72872c2b5e43d28793812588bb84e6b0317",
+        "bytes": 583,
+        "observed_at": "2026-10-17T06:45:33.423042+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610t2",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/121462-zh_CN.json",
+      "response_sha256": "8624e46a525f314329b357ab1baa60dd716d4052ca005923533279623b2151ae",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=zh_CN",
+      "face": {
+        "id": 121462,
+        "collectible": 0,
+        "slug": "121462-anomalous-shade",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "畸变之影",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2950cb5b61ebbcb96bda8fb40477e9b11e387b5e624d91c294ccc217153b11d6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120530,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=zh_CN",
+        "sha256": "8624e46a525f314329b357ab1baa60dd716d4052ca005923533279623b2151ae",
+        "bytes": 569,
+        "observed_at": "2026-10-17T06:45:33.123935+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610t2",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/121462-en_US.json",
+      "response_sha256": "66e4bfddaa61d3e736b7f1d028545526244d6c32b44d5410107516b7f5925568",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=en_US",
+      "face": {
+        "id": 121462,
+        "collectible": 0,
+        "slug": "121462-anomalous-shade",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Anomalous Shade",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c8aeedbe54fad0282d3e82c4e5faa9ba868025bc8e0056eb70272c51d570657.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120530,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121462&locale=en_US",
+        "sha256": "66e4bfddaa61d3e736b7f1d028545526244d6c32b44d5410107516b7f5925568",
+        "bytes": 572,
+        "observed_at": "2026-10-17T06:45:33.078177+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201a",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/130019-zh_CN.json",
+      "response_sha256": "600afcea130794a7e776058a5a30f360934d6e982d8abbbde10106962f183474",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130019&locale=zh_CN",
+      "face": {
+        "id": 130019,
+        "collectible": 0,
+        "slug": "130019-a-little-of-this",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "一点这个",
+        "text": "在本回合中，使你的英雄获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06b06a858e62da3b10133205631da217e915cad47b682a50775bc9a3e8150edb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127932,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130019&locale=zh_CN",
+        "sha256": "600afcea130794a7e776058a5a30f360934d6e982d8abbbde10106962f183474",
+        "bytes": 577,
+        "observed_at": "2026-10-17T06:43:47.640334+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201a",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/130019-en_US.json",
+      "response_sha256": "d06af2a3299c4ef060659493826cfc0053d8e4872a3eeb46b16fc65b0b43d4dd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130019&locale=en_US",
+      "face": {
+        "id": 130019,
+        "collectible": 0,
+        "slug": "130019-a-little-of-this",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "A Little of This",
+        "text": "Give your hero +2 Attack this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81434c711ce22aa39d287505cc07490bad9c29d5c2e7a1c8d89945929ad23793.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127932,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130019&locale=en_US",
+        "sha256": "d06af2a3299c4ef060659493826cfc0053d8e4872a3eeb46b16fc65b0b43d4dd",
+        "bytes": 563,
+        "observed_at": "2026-10-17T06:44:43.280168+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201b",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/130020-zh_CN.json",
+      "response_sha256": "25323b740fb59c72b8a8e3ee46f14b7c65a72197d7b26fd6243f741e057394d2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130020&locale=zh_CN",
+      "face": {
+        "id": 130020,
+        "collectible": 0,
+        "slug": "130020-a-dash-of-that",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "一点那个",
+        "text": "随机获取一张德鲁伊牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/399cbd4300ac739e8e60d0b93f6bad302edb4df38ee6f300c2d6921c486d8499.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127932,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130020&locale=zh_CN",
+        "sha256": "25323b740fb59c72b8a8e3ee46f14b7c65a72197d7b26fd6243f741e057394d2",
+        "bytes": 555,
+        "observed_at": "2026-10-17T06:44:43.315484+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_201b",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/130020-en_US.json",
+      "response_sha256": "6db5da9a6c73b507a6147280129368cfdad1b7489eedc04e9c18999a15dd0fb8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130020&locale=en_US",
+      "face": {
+        "id": 130020,
+        "collectible": 0,
+        "slug": "130020-a-dash-of-that",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Brian Adriel",
+        "manaCost": 0,
+        "name": "A Dash of That",
+        "text": "Get a random Druid card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cd8abcaf22e2a6279d4b4116fae6806f052c8e69d95f5bd9aec65afc8b2df10.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127932,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130020&locale=en_US",
+        "sha256": "6db5da9a6c73b507a6147280129368cfdad1b7489eedc04e9c18999a15dd0fb8",
+        "bytes": 548,
+        "observed_at": "2026-10-17T06:44:43.339623+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_025t",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/120483-zh_CN.json",
+      "response_sha256": "a1434865659593a7bebb7d4c3e29c7b7e1a373346aaff84788bd163b51bb970b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120483&locale=zh_CN",
+      "face": {
+        "id": 120483,
+        "collectible": 0,
+        "slug": "120483-shred-of-time",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 0,
+        "name": "时空撕裂",
+        "text": "<b>抽到时施放</b> 对你的英雄造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01e66ef0c21265f6e97ff25f700eaeb2ba68a0979e169c9f1326f134c5660772.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120482,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120483&locale=zh_CN",
+        "sha256": "a1434865659593a7bebb7d4c3e29c7b7e1a373346aaff84788bd163b51bb970b",
+        "bytes": 602,
+        "observed_at": "2026-10-17T06:44:43.528823+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_025t",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/120483-en_US.json",
+      "response_sha256": "81da0f132f0456b878522b280e16fd802276f68727d4fde64ecb7b32c4107ddf",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120483&locale=en_US",
+      "face": {
+        "id": 120483,
+        "collectible": 0,
+        "slug": "120483-shred-of-time",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 0,
+        "name": "Shred of Time",
+        "text": "<b>Casts When Drawn</b> Deal 3 damage to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c32cda6cb8c321bccb3c9b06340ce2f453092304b98cd17ec50c4346a4ef8aeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120482,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120483&locale=en_US",
+        "sha256": "81da0f132f0456b878522b280e16fd802276f68727d4fde64ecb7b32c4107ddf",
+        "bytes": 596,
+        "observed_at": "2026-10-17T06:44:44.013150+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/122976-zh_CN.json",
+      "response_sha256": "0e5b5838958e4a854b02781eaaddaa9217183cf23a18f79b93b97d6ceeb7a22e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=zh_CN",
+      "face": {
+        "id": 122976,
+        "collectible": 1,
+        "slug": "122976-wickerfang",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 6,
+        "name": "柳牙",
+        "text": "<b>巨型+4</b> 在柳牙的腿获得属性值后，本随从也会 获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd1fb24b37ceba831bb6970d5581f40171b75a531e73f7b8a5b7f98cbe34ac35.png",
+        "imageGold": "",
+        "flavorText": "危急时刻，梦境之龙麦琳瑟拉带领木喉熊怪举行了仪式，唤起了费伍德森林中最古老的树木。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/994f181f56979d8936d4dd85d9f55f77e4a0eea6531544c1895a0e53560edcad.png",
+        "childIds": [
+          122977,
+          128062,
+          128061,
+          128060
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=zh_CN",
+        "sha256": "0e5b5838958e4a854b02781eaaddaa9217183cf23a18f79b93b97d6ceeb7a22e",
+        "bytes": 888,
+        "observed_at": "2026-10-17T06:44:44.039801+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_139",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/122976-en_US.json",
+      "response_sha256": "0d203b80fa4811787a16baf967e4f4b466b65e7f4519919d0c8e9b8f82074162",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=en_US",
+      "face": {
+        "id": 122976,
+        "collectible": 1,
+        "slug": "122976-wickerfang",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Todd Harris",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 6,
+        "name": "Wickerfang",
+        "text": "<b>Colossal +4</b> After one of Wickerfang's Legs gains stats, this gains them too.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5e9db9a068e93479d51557e9f34a727dbccb673d1b1c7623eb33df417ff140b.png",
+        "imageGold": "",
+        "flavorText": "In their time of need, Merithra of the Dream led the Timbermaw furbolgs in a ritual that animated the Felwood's oldest tree.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/994f181f56979d8936d4dd85d9f55f77e4a0eea6531544c1895a0e53560edcad.png",
+        "childIds": [
+          122977,
+          128062,
+          128061,
+          128060
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122976&locale=en_US",
+        "sha256": "0d203b80fa4811787a16baf967e4f4b466b65e7f4519919d0c8e9b8f82074162",
+        "bytes": 899,
+        "observed_at": "2026-10-17T06:44:44.035859+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_470",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/122778-zh_CN.json",
+      "response_sha256": "14ede97903d732b09065ccaf65ae4532880aa39b8eb916739865f535c440fe72",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122778&locale=zh_CN",
+      "face": {
+        "id": 122778,
+        "collectible": 1,
+        "slug": "122778-victor-nefarius",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Ramzy Kamen",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "维克多·奈法里奥斯",
+        "text": "<b>战吼：</b>制造一条自定义的亡灵龙。如果你的手牌中有龙牌，制造的这条龙的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4cb72139f3866df27709596fd045e71879a60af8cc7ea70c3e7c323a20bd923.png",
+        "imageGold": "",
+        "flavorText": "呃，其实吧，那条亡灵巨龙是维克多·奈法里奥斯的怪物，维克多·奈法里奥斯才是疯狂的科学家。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b09f7f2139408a496581b7fcb2e2c3c8b6cf6183adba33d26ba35464db3b860.png",
+        "childIds": [
+          127644
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122778&locale=zh_CN",
+        "sha256": "14ede97903d732b09065ccaf65ae4532880aa39b8eb916739865f535c440fe72",
+        "bytes": 1022,
+        "observed_at": "2026-10-17T06:45:33.839352+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_470",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/122778-en_US.json",
+      "response_sha256": "56738da08f76000eeb0758bf715fa31d621e804319e892ae0eb3f5a703b71fa6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122778&locale=en_US",
+      "face": {
+        "id": 122778,
+        "collectible": 1,
+        "slug": "122778-victor-nefarius",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Ramzy Kamen",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Victor Nefarius",
+        "text": "<b>Battlecry:</b> Craft a custom Undead Dragon. If you're holding a Dragon, reduce the Creation's Cost by (3).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/618b50435a721caa2dccc7e7ecec4501cea37e03f233605d10638fa1467acb79.png",
+        "imageGold": "",
+        "flavorText": "Umm, actually, the undead dragon is Victor Nefarius's MONSTER, the SCIENTIST is Victor Nefarius.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b09f7f2139408a496581b7fcb2e2c3c8b6cf6183adba33d26ba35464db3b860.png",
+        "childIds": [
+          127644
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122778&locale=en_US",
+        "sha256": "56738da08f76000eeb0758bf715fa31d621e804319e892ae0eb3f5a703b71fa6",
+        "bytes": 947,
+        "observed_at": "2026-10-17T06:45:33.855073+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-source-cache-cn37/official/120530-zh_CN.json",
+      "response_sha256": "e2200678195589f59dcd3d4c08976617244fd0e1a7aa7970955cc66a557ad242",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=zh_CN",
+      "face": {
+        "id": 120530,
+        "collectible": 1,
+        "slug": "120530-shadows-of-yesterday",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "昨日之影",
+        "text": "<b>回溯</b>。召唤四个3/2的影子，每个影子分别随机获得两项<b>额外效果</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6fd1cfb8275ce61b03888eb0fc3fcdaa5959860f2d150d8fe82ac43c68f2c5e.png",
+        "imageGold": "",
+        "flavorText": "昨日的旧事往往会在明天拖下长长的阴影。比方说，选择<b>回溯</b>。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49dd6b974a27046e199a7125274ca3dc38e5b2d0f829f816dd6016215caf55fe.png",
+        "childIds": [
+          121462
+        ],
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=zh_CN",
+        "sha256": "e2200678195589f59dcd3d4c08976617244fd0e1a7aa7970955cc66a557ad242",
+        "bytes": 922,
+        "observed_at": "2026-10-17T06:45:34.185491+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_610",
+      "locale": "en_US",
+      "response_file": "outputs/card-source-cache-cn37/official/120530-en_US.json",
+      "response_sha256": "c130ddd47096d292be331cca1b93e22e6f61c5200b4e2a64afe9c6f7be96ff97",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=en_US",
+      "face": {
+        "id": 120530,
+        "collectible": 1,
+        "slug": "120530-shadows-of-yesterday",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "Shadows of Yesterday",
+        "text": "<b>Rewind</b> Summon four 3/2 Shades. They each gain two random <b>Bonus Effects</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b6c9171fccbe7898d842cf8772c52b68da3853bbef76d5d7002fb3fe4a61b5c.png",
+        "imageGold": "",
+        "flavorText": "Our actions today haunt us tomorrow. Like choosing to <b>Rewind</b>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49dd6b974a27046e199a7125274ca3dc38e5b2d0f829f816dd6016215caf55fe.png",
+        "childIds": [
+          121462
+        ],
+        "keywordIds": [
+          344
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120530&locale=en_US",
+        "sha256": "c130ddd47096d292be331cca1b93e22e6f61c5200b4e2a64afe9c6f7be96ff97",
+        "bytes": 891,
+        "observed_at": "2026-10-17T06:45:34.374559+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TLC_467": {
+      "attack": 0
+    },
+    "CATA_139": {
+      "attack": 0
+    },
+    "CATA_139t": {
+      "attack": 0
+    },
+    "CATA_139t2": {
+      "attack": 0
+    },
+    "CATA_139t3": {
+      "attack": 0
+    },
+    "CATA_139t4": {
+      "attack": 0
+    },
+    "JAIL_201": {
+      "cost": 0
+    },
+    "JAIL_201a": {
+      "cost": 0
+    },
+    "JAIL_201b": {
+      "cost": 0
+    },
+    "TIME_025t": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {},
+  "exact_parent_child_links": [
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t",
+      "dbf_id": 122977,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t2",
+      "dbf_id": 128060,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t3",
+      "dbf_id": 128061,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t4",
+      "dbf_id": 128062,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t",
+      "dbf_id": 122977,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t2",
+      "dbf_id": 128060,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t3",
+      "dbf_id": 128061,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_139",
+      "child": "CATA_139t4",
+      "dbf_id": 128062,
+      "locale": "en_US"
+    },
+    {
+      "parent": "CATA_470",
+      "child": "CATA_470t1",
+      "dbf_id": 127644,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "CATA_470",
+      "child": "CATA_470t1",
+      "dbf_id": 127644,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_610",
+      "child": "TIME_610t2",
+      "dbf_id": 121462,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_610",
+      "child": "TIME_610t2",
+      "dbf_id": 121462,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_201",
+      "child": "JAIL_201a",
+      "dbf_id": 130019,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_201",
+      "child": "JAIL_201b",
+      "dbf_id": 130020,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "JAIL_201",
+      "child": "JAIL_201a",
+      "dbf_id": 130019,
+      "locale": "en_US"
+    },
+    {
+      "parent": "JAIL_201",
+      "child": "JAIL_201b",
+      "dbf_id": 130020,
+      "locale": "en_US"
+    },
+    {
+      "parent": "TIME_027",
+      "child": "TIME_025t",
+      "dbf_id": 120483,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TIME_027",
+      "child": "TIME_025t",
+      "dbf_id": 120483,
+      "locale": "en_US"
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "TIME_025t": "b0c7e6479d51fedf4feb944f62bb1a412feb22430eb7e3bb914c376ee6bebc7e"
+  },
+  "choice_only_ids": [
+    "JAIL_201a",
+    "JAIL_201b"
+  ],
+  "collectible_candidate_roots": [
+    "TLC_467",
+    "TIME_027",
+    "JAIL_201"
+  ],
+  "parent_inventory": {
+    "file": "outputs/card-integration-20261014/standard-inventory-k137-p52-01.json",
+    "sha256": "c71dd6fa51d28dc8cf7d6345239b58b14206702b9bd6e08249b45a1de9b4eea1"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "source_parents_implemented": false,
+  "policies": {
+    "stone": "Two ordinary random collectible Fel spells across classes, each generated with permanent local HEALTH payment; shared payment, overflow and lifecycle.",
+    "barrage": "Exact6 immune-to-spellpower SPELL split root on original CAST, ordinary full completion callback then one attributed shuffled group of two exact existing Shreds.",
+    "ingredient": "Native zero-cost Choose One with exact choice-only child faces; explicit combined branch for native Choose Both, temporary hero attack and full any-kind specified-Druid generation.",
+    "legs": "Independent physical forms with only printed current-controller owner-end +1/+1 to original self residence; no parent mirror ability.",
+    "children": "Exact vanilla Creation and Shade only; parent crafting and random Bonus Effects are absent and remain unsupported."
+  }
+}
