@@ -1,0 +1,251 @@
+{
+  "batch": "P42",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "FIR_913",
+        "dbf_id": 115637,
+        "name": "地狱火先锋",
+        "name_en": "Inferno Herald",
+        "text": "在你施放一个火焰法术后，&随机获取一张元素牌，其法力值消耗减少（3）点。",
+        "text_en": "[x]After you cast a Fire spell,&\nget a random Elemental and\nreduce its Cost by (3).",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edward Frayna"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "2a890c56c262cd75f7926a75cb5381f8be77c6e299d5ddd6674b99a61103c17e"
+    },
+    {
+      "record": {
+        "id": "FIR_955",
+        "dbf_id": 115754,
+        "name": "烬根毁灭者",
+        "name_en": "Emberroot Destroyer",
+        "text": "每当你的英雄在你的回合受到伤害，&随机对一个敌方随从造成3点伤害。",
+        "text_en": "[x]Whenever your hero takes\ndamage on your turn,&\ndeal 3 damage to a random\nenemy minion.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "d444f969e870dbae6e73dc3ed843ef59742ac2fcdd1f3e7e29f80ea9785c4dd6"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": {
+    "checked_at": "2026-10-17T09:47:12.942431+08:00",
+    "source": "Four complete cached official responses independently verified,0 refetch",
+    "observations": [
+      {
+        "card_id": "FIR_913",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115637&locale=zh_CN",
+        "response_file": "official-FIR_913-zh_CN.json",
+        "response_sha256": "651ef5ed558a8810568d5ee85e4f65b4cec954987dc1522d59d3810207711724",
+        "face": {
+          "id": 115637,
+          "collectible": 1,
+          "slug": "115637-inferno-herald",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Edward Frayna",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "地狱火先锋",
+          "text": "在你施放一个火焰法术后，&随机获取一张元素牌，其法力值消耗减少（3）点。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9871cce36d6e740a45235843b11c21b38dfe264aba872a328e73ef0cf46fc53d.png",
+          "imageGold": "",
+          "flavorText": "可怜的地狱火先锋，你为何这样蓝过？",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6a070ddc64757a27877a2cf5fb2152e3cb44ec763d8a5938aa27b06b632e9c9.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_913",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115637&locale=en_US",
+        "response_file": "official-FIR_913-en_US.json",
+        "response_sha256": "8f77dd627a1f94e2d12a1263ceb74492ba344b24454a6f5d0e67123be4105ee0",
+        "face": {
+          "id": 115637,
+          "collectible": 1,
+          "slug": "115637-inferno-herald",
+          "classId": 4,
+          "multiClassIds": [],
+          "minionTypeId": 18,
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Edward Frayna",
+          "health": 6,
+          "attack": 3,
+          "manaCost": 4,
+          "name": "Inferno Herald",
+          "text": "After you cast a Fire spell,& get a random Elemental and reduce its Cost by (3).",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/602ab85380d6ba7aab509ae6a3130aa2b5da701b4c6b286d68e10b340a20f32c.png",
+          "imageGold": "",
+          "flavorText": "Poor Inferno Herald, why so blue?",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6a070ddc64757a27877a2cf5fb2152e3cb44ec763d8a5938aa27b06b632e9c9.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_955",
+        "locale": "zh_CN",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115754&locale=zh_CN",
+        "response_file": "official-FIR_955-zh_CN.json",
+        "response_sha256": "805ddc80bb180c6fdd74bf696e5dc4056c31430ff577d08fd65525d4b8742084",
+        "face": {
+          "id": 115754,
+          "collectible": 1,
+          "slug": "115754-emberroot-destroyer",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Luca Zontini",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "烬根毁灭者",
+          "text": "每当你的英雄在你的回合受到伤害，&随机对一个敌方随从造成3点伤害。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71bb9cc8455cfe22af3094c3b7a9e69e6b9c3a5a5b6e04ff473132f14fa9563b.png",
+          "imageGold": "",
+          "flavorText": "在菲莱克的火力之下，哪怕是最虔诚的自然信徒也难免要燃起来。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6de8121033062fc6eba0eb1179ed24dde94eb06a8b30115f30a6e043884bffa7.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "FIR_955",
+        "locale": "en_US",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115754&locale=en_US",
+        "response_file": "official-FIR_955-en_US.json",
+        "response_sha256": "eae73758fdb5b2dd73a17aea7aed4dc20265775c48ef90d1a4688f84f86ac11d",
+        "face": {
+          "id": 115754,
+          "collectible": 1,
+          "slug": "115754-emberroot-destroyer",
+          "classId": 9,
+          "multiClassIds": [],
+          "cardTypeId": 4,
+          "cardSetId": 1946,
+          "rarityId": 1,
+          "artistName": "Luca Zontini",
+          "health": 3,
+          "attack": 3,
+          "manaCost": 3,
+          "name": "Emberroot Destroyer",
+          "text": "Whenever your hero takes damage on your turn,& deal 3 damage to a random enemy minion.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb3d6588916af17b285a1db78249d8bbb87e0ad2c7d00b2bfc434d36526919fc.png",
+          "imageGold": "",
+          "flavorText": "Under Fyrakk's assault, even those with the purest devotion to nature shall burn.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6de8121033062fc6eba0eb1179ed24dde94eb06a8b30115f30a6e043884bffa7.png",
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        }
+      }
+    ]
+  },
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "required_generation_context_for_herald_get": true,
+  "internal_policy": [
+    "Inferno Herald Mage4mana3/6Elemental: original spell_cast_finished/cast_record exactsource/player/target linkage, actual completed successful payload, owncontroller Fire spell and original liveactive minion. Hand/effect/repeat casts use same native entry. GenerateFromPool collectibleMINION elemental anyclass, count1, sourceID, permanent CostSpec(delta=-3,card_types=(MINION,)), zero floor and shared source exclusion; not draw/discover/Battlecry.",
+    "Emberroot Destroyer Warlock3mana3/3Horde/no tribe: original health_resolved HealthResult positive actual DAMAGE to currentcontroller hero on that controller active turn. Armor-absorbed damage qualifies; zero/healing/conversion/prevention and mere armor loss do not. Original liveactive source then shared ordinary enemy minions enumeration and RandomDamage3 MINION_ABILITY; no spellpower scaling, hero/dormant/interactable target or local random executor.",
+    "Original event/health/turn/death andrandom checkpoints/lifecycle inherited. Complete host constructed.cards GenerationContext required only for actual Herald Get; allqualifiedunknown effects fail before RNG, no executable-coverage crop. Both callbacks retain their original source attribution and public transactional recovery/replay/privacy.",
+    "Only two new independent rootdefinitions, no dependencies. Full two raw rows/four cached bilingual primary faces retained and SHAchecked, metadata_from_record decodes Elemental/no tribe rather than names. RawFACTION3 is retained; shared factions tuple represents only existingTERRAN/ZERG/PROTOSS and is unchanged. Main owns central assembly/identity/ledgers andall publicmechanisms. M0/M6 formalstandard/preciseCN windows remainopen."
+  ]
+}
