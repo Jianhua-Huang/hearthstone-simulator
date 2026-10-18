@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+未来需要原未选发现内容时，使用`offer_for_result`与`unselected_options`读取原实际完整配方，不从预览反推材料或虚构旧出牌记录；本次仅保存配方，见[契约](m3-original-discovery-offers.md)。
+
 需要“发现的那张实际卡”时使用原生产者连接的 `DiscoveryCompletion` 与 `card_discovered`，从该语义事件读取原收件事实，不扫描同名手牌或诊断事件；减费沿普通费用附件执行，见[契约](m3-discovery-delivery.md)。
 
 普通卡池的已选进度用`DiscoveryPick.result`保存完整原选择，必须与原`card_discovery_history`一致；待选分支不得预填结果。原交付、实际收件和发现后通知分别处理，见[原始选择契约](m3-pool-discovery-receipts.md)。

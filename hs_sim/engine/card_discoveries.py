@@ -23,7 +23,7 @@ def selection_matches(event, result):
         (choice.source_id, choice.player_id, choice.id, choice.purpose.value, result.selected_ids))
 
 
-def commit(r, result, selection_event):
+def commit(r, result, selection_event, options, on_select):
     """No new work/checkpoint: all manual and automatic choices pass here."""
     if result.choice.purpose not in PURPOSES:
         return
@@ -39,9 +39,11 @@ def commit(r, result, selection_event):
         if not r.registry.card(option.card_id).hand_playable:
             raise ValueError('A card discovery offered an unplayable card face')
     from .owner_turns import current_owner_turn
+    from .discovery_offers import OriginalDiscoveryOffer, encode_offer
+    offered_work = encode_offer(r.game, OriginalDiscoveryOffer(result.choice, tuple(options), on_select))
     row = CardDiscoveryRecord(len(r.state.card_discovery_history) + 1, r.state.turn,
         r.state.action_number, current_owner_turn(r.state).id,
-        selection_event.sequence, len(r.game._events) + 1, result)
+        selection_event.sequence, len(r.game._events) + 1, result, offered_work)
     r.state.card_discovery_history.append(row)
     from .serialization import canonical_hash
     # This is a private consistency publication. Gameplay reads the typed state
@@ -173,6 +175,8 @@ def validate_boundary(game):
         if (actual_purpose in PURPOSE_VALUES
                 and event.sequence not in selected):
             raise ValueError('Actual card discovery selection lost its receipt')
+    from .discovery_offers import validate_boundary as validate_original_offers
+    validate_original_offers(game, events)
 
 
 def record_from_dict(value):

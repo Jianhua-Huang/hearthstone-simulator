@@ -40,6 +40,8 @@ def request_choice(r, effect):
     bind_choice(r,choice,options)
     from .hand_choice_followups import bind_choice as bind_hand_followup
     bind_hand_followup(r, choice, options)
+    from .discovery_offers import capture as capture_discovery_offer
+    capture_discovery_offer(r, choice, options, effect.on_select)
     from .battlecry_sources import automatic_choice as battlecry_choice
     automatic = battlecry_choice(r,choice,options,effect.on_select)
     if automatic is not None:
@@ -76,7 +78,7 @@ def request_choice(r, effect):
 
 def choice_effects(r, result, options, on_select, *, kindred=None, selection_event=None):
     from .card_discoveries import commit
-    commit(r, result, selection_event)
+    commit(r, result, selection_event, options, on_select)
     from .resolver import ResolveChoiceResult
     callback = [ResolveChoiceResult(result, on_select, kindred)] if on_select is not None else []
     from .discovery import ResolvePoolDiscovery

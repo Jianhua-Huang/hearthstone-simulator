@@ -142,7 +142,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v461'
+CORE_EFFECTS_VERSION = 'core-effects-v462'
 
 
 class Mechanics:
@@ -2254,6 +2254,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .pools import register_generation
     from .zones import register_zones
     from .discovery_delivery import register as register_discovery_delivery
+    from .discovery_offers import register as register_discovery_offers
     from .nondeath_removal import register as register_removal
     from .hand_actions import register_hand_actions
     from .starships import register_starships
@@ -2284,6 +2285,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_battlecry_weapon_outputs(mechanics)
     register_zones(mechanics)
     register_discovery_delivery(mechanics)
+    register_discovery_offers(mechanics)
     from .dredge import register as register_dredge
     register_dredge(mechanics)
     from .excavate import register as register_excavate

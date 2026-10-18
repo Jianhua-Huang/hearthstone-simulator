@@ -9338,11 +9338,13 @@ class CardDiscoveryRecord:
     selection_event: int
     publication_event: int
     result: ChoiceResult
+    original_offer: str
 
     def __post_init__(self):
         for key in ('id', 'turn', 'owner_turn_id', 'selection_event', 'publication_event'):
             _int(getattr(self, key), 'card discovery ' + key, 1)
         _int(self.action, 'card discovery action', 0)
+        _name(self.original_offer, 'complete original discovery offer')
         if type(self.result) is not ChoiceResult:
             raise ValueError('Card discovery requires its complete actual result')
         self.result.__post_init__()
