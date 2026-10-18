@@ -153,6 +153,7 @@ class Registry:
         self._kindred_profiles: dict[str, KindredProfile] = {}
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
+        self._historical_deathrattle_spells = set()
         self._spell_value_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
@@ -289,6 +290,17 @@ class Registry:
 
     @property
     def turn_draw_profiles(self):return MappingProxyType(self._turn_draw_profiles)
+
+    @property
+    def historical_deathrattle_spells(self):
+        return frozenset(self._historical_deathrattle_spells)
+
+    def register_historical_deathrattle_spell(self, card_id):
+        if self._frozen:
+            raise ValueError('Registry is frozen')
+        if card_id in self._historical_deathrattle_spells or self.card(card_id).kind != CardType.SPELL:
+            raise ValueError('Historical Deathrattle prerequisite requires a unique spell')
+        self._historical_deathrattle_spells.add(card_id)
 
     @property
     def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
@@ -1572,6 +1584,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        if any(self.card(cid).kind != CardType.SPELL for cid in self._historical_deathrattle_spells):
+            raise ValueError('Historical Deathrattle prerequisites require registered spells')
         from .turn_start_draws import validate_profile as validate_turn_draw_profile
         for profile in self._turn_draw_profiles.values():validate_turn_draw_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
@@ -1895,6 +1909,8 @@ class Registry:
                    "use_rules": sorted(self._use_rules),
                    "target_visibility": self._target_visibility, "use_visibility": self._use_visibility}
         # Preserve old registry fingerprints when this additive API is unused.
+        if self._historical_deathrattle_spells:
+            payload['historical_deathrattle_spells']=sorted(self._historical_deathrattle_spells)
         if self._kindred_profiles:
             payload['kindred_profiles']=[asdict(self._kindred_profiles[k])for k in sorted(self._kindred_profiles)]
         if self._spell_target_profiles:

@@ -9763,6 +9763,7 @@ class DeathrattleCapture:
     action: int
     repeat_index: int = 1
     trigger_index: int = 1
+    historical_root: Event | None = None
 
     def __post_init__(self):
         _int(self.repeat_index,'Deathrattle repeat index',1)
@@ -9778,7 +9779,11 @@ class DeathrattleCapture:
         if type(self.ability) is not AbilityInstance: raise ValueError('Expected captured Deathrattle ability')
         self.ability.__post_init__()
         if self.ability.kind!='deathrattle' or self.ability.consumed: raise ValueError('Expected active Deathrattle ability')
-        if self.origin not in ('death','effect','stored'): raise ValueError('Unknown Deathrattle origin')
+        if self.origin not in ('death','effect','stored','history'): raise ValueError('Unknown Deathrattle origin')
+        if (self.origin=='history') != (self.historical_root is not None):
+            raise ValueError('Historical Deathrattle requires its own selection provenance')
+        if self.historical_root is not None and type(self.historical_root) is not Event:
+            raise ValueError('Historical Deathrattle requires its original event')
         _optional_id(self.death_id,'Deathrattle death')
         _optional_id(self.trigger_source_id,'Deathrattle trigger source')
         if (self.origin=='death') != (self.death_id is not None): raise ValueError('Deathrattle death/origin disagree')
@@ -9786,7 +9791,7 @@ class DeathrattleCapture:
         if self.trigger_source_card_id is not None: _name(self.trigger_source_card_id,'Deathrattle trigger card')
         if self.origin=='death' and self.trigger_source_id is not None: raise ValueError('Natural Deathrattle has no effect trigger source')
         if self.origin=='death' and self.trigger_index!=1: raise ValueError('Natural Deathrattle has one trigger round')
-        if self.origin in ('effect','stored') and self.kind!=CardType.MINION: raise ValueError('Current effect trigger requires a minion')
+        if self.origin in ('effect','stored','history') and self.kind!=CardType.MINION: raise ValueError('Current effect trigger requires a minion')
 
 
 @dataclass(frozen=True)

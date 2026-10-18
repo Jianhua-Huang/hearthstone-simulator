@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+历史亡语使用`TriggerHistoricalDeathrattles`，不要将旧亡语授予施法者、复活墓地实体或伪造自然死亡；手动非空前置条件及有限保存边界见[契约](m3-historical-deathrattles.md)。
+
 物理牌库复制填手使用`FillHandWithDeckCopies`；创建费用经`CopyMatching.cost`传给原`CopyCard`，不要把它改成全局生成池、抽牌或事后扫描减费，见[契约](m3-physical-deck-copy-fill.md)。
 
 需要宁静旷林式定时沉睡时，以`GrantAttackPolicy.until_next_turn_end`携带原`next_owner_end`期限和捕获随从；不要赋予休眠或使用全局回合奇偶，见[原结束时钟契约](m3-owner-end-attack-sleep.md)。

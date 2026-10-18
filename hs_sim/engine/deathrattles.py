@@ -82,7 +82,7 @@ def activated_deathrattles(state, player_id, *, completed=None, origin=None, tur
     """Trusted-host query, in actual execution order; queued work is excluded."""
     _player(player_id)
     if completed is not None and type(completed) is not bool: raise ValueError('Invalid completion filter')
-    if origin is not None and origin not in ('death','effect','stored'): raise ValueError('Invalid Deathrattle origin')
+    if origin is not None and origin not in ('death','effect','stored','history'): raise ValueError('Invalid Deathrattle origin')
     if turn is not None: _integer(turn,'Deathrattle turn',1)
     return tuple(sorted((d for d in state.deathrattle_history if d.execution_order is not None
         and d.capture.player_id==player_id and (completed is None or d.completed==completed)
@@ -119,6 +119,9 @@ def validate_capture(state, registry, capture):
         if (death is None or death.deathrattles_blocked or (death.entity_id,death.controller,death.card_id,death.turn)!=
                 (capture.carrier_id,capture.player_id,capture.card_id,capture.turn) or capture.ability not in death.abilities):
             raise ValueError('Deathrattle capture differs from its death record')
+    if capture.origin=='history':
+        from .historical_deathrattles import validate_capture as validate_historical_capture
+        validate_historical_capture(state,registry,capture)
 
 
 def validate_context(context, registry):
@@ -160,6 +163,9 @@ def validate_context(context, registry):
         from .lifecycle import active_abilities
         if batch.abilities!=tuple(active_abilities(context.source,'deathrattle')):
             raise ValueError('Stored Deathrattle batch differs from its accepted complete ability set')
+    if capture.origin=='history' and saved.execution_order is None:
+        from .historical_deathrattles import validate_context as validate_historical_context
+        validate_historical_context(context,registry,batch)
 
 
 def validate_acceptance(work,registry=None):
@@ -199,12 +205,14 @@ Later callback views never replace this proof with an extra execution view.
             raise ValueError('Deathrattle batch proof differs from its complete death abilities')
 
 
-def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=None, trigger_source_id=None, trigger_count=1, origin='effect'):
+def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=None, trigger_source_id=None, trigger_count=1, origin='effect', historical_root=None):
     from .deathrattle_repeats import capture_plan
     from .errors import ResolutionLimitExceeded
     entity=r.state.entities[carrier_id]
-    if origin not in ('effect','stored') or death is not None and origin!='effect':
+    if origin not in ('effect','stored','history') or death is not None and origin!='effect':
         raise ValueError('Unknown active/stored Deathrattle acceptance origin')
+    if (origin=='history') != (historical_root is not None):
+        raise ValueError('Historical Deathrattle requires its original selection')
     _integer(trigger_count,'Deathrattle trigger count',1)
     if death is not None and trigger_count!=1: raise ValueError('Natural death has one trigger round')
     if trigger_source_id is not None and trigger_source_id not in r.state.entities:
@@ -226,8 +234,9 @@ def schedule_group(r, carrier_id, player_id, abilities, *, death=None, event=Non
         capture=DeathrattleCapture(batch.id+len(captures),batch.id,carrier_id,player_id,
             death.card_id if death else entity.card_id,entity.kind,ability,'death' if death else origin,
             death.id if death else None,trigger_source_id,
-            r.state.entities[trigger_source_id].card_id if trigger_source_id else None,
-            r.state.turn,r.state.action_number,repeat_index,trigger_index)
+            (dict(historical_root.data)['issuer_card_id'] if historical_root is not None else
+             r.state.entities[trigger_source_id].card_id if trigger_source_id else None),
+            r.state.turn,r.state.action_number,repeat_index,trigger_index,historical_root)
         validate_capture(r.state,r.registry,capture);captures.append(capture)
     # All planned positions are persisted before any context is copied. This
     # makes missing/extra repetitions detectable even at suspended boundaries.
@@ -300,7 +309,7 @@ def validate_history(state, registry):
         if c.id!=index or not previous<=(c.turn,c.action)<=(state.turn,state.action_number):
             raise ValueError('Invalid Deathrattle capture chronology')
         previous=(c.turn,c.action)
-        identity=(c.carrier_id,c.player_id,c.card_id,c.origin,c.death_id,c.trigger_source_id,c.trigger_source_card_id,c.turn,c.action)
+        identity=(c.carrier_id,c.player_id,c.card_id,c.origin,c.death_id,c.trigger_source_id,c.trigger_source_card_id,c.turn,c.action,c.historical_root)
         if c.group_id not in groups:
             if c.group_id!=c.id: raise ValueError('Deathrattle group has no first invocation')
             groups[c.group_id]=(identity,set(),[])
@@ -356,11 +365,15 @@ def validate_boundary(game):
     from .deathrattle_acceptance import validate_queue
     queue=(*game._frame.prefix,*game._frame.continuation) if game._frame else ()
     validate_queue(game._state,game.registry,queue,game.ruleset.max_resolution_steps)
+    from .historical_deathrattles import validate_boundary as validate_historical_boundary
+    validate_historical_boundary(game)
 
 
 def register(mechanics):
     from .deathrattle_repeats import register as register_repeats
     register_repeats(mechanics)
+    from .historical_deathrattles import register as register_historical
+    register_historical(mechanics)
     mechanics.register(InvokeDeathrattle,begin)
     mechanics.register(FinishDeathrattle,finish)
     mechanics.register(FinishDeathrattleBatch,finish_batch)

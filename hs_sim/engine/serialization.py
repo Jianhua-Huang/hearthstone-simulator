@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 400
+SNAPSHOT_SCHEMA_VERSION = 401
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1343,6 +1343,10 @@ def state_from_dict(value: dict) -> GameState:
     for item in _list(value['deathrattle_history'],'Deathrattle history'):
         row=_row(item,DeathrattleRecord);capture=_row(row['capture'],DeathrattleCapture)
         capture['ability']=_ability_from_dict(capture['ability']);capture['kind']=CardType(capture['kind'])
+        if capture['historical_root'] is not None:
+            root=capture['historical_root']
+            root['data']=dict(root['data'])
+            capture['historical_root']=event_from_dict(root)
         row['capture']=DeathrattleCapture(**capture);deathrattles.append(DeathrattleRecord(**row))
     value['deathrattle_history']=deathrattles
     from .model import DeathrattleBatch,DeathrattlePayloadPlan
