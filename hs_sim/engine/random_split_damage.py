@@ -14,6 +14,7 @@ from .resource_operations import SourceAllocationFact
 
 PROFILE = 'spell_bonus_once_unit_packets'
 NON_SPELL_PROFILE = 'non_spell_unit_packets'
+DELAYED_SPELL_PROFILE = 'expired_sigil_spell_immune_unit_packets'
 HEALING_PROFILE = 'spell_healing_immune_base_units_live_health_rules'
 
 @dataclass(frozen=True)
@@ -38,6 +39,7 @@ class RandomSplitDamage(Effect):
     profile: str = PROFILE
     kind: DamageKind = DamageKind.SPELL
     spell_bonus_multiplier: int = 1
+    player_effect: PlayerEffect | None = None
     def __post_init__(self):
         _player(self.player_id)
         if type(self.kind)is not DamageKind:raise ValueError('Split damage requires an exact damage kind')
@@ -54,7 +56,16 @@ class RandomSplitDamage(Effect):
             if (self.cast_id is not None or type(self.kind)is not DamageKind or self.kind not in (DamageKind.MINION_ABILITY,DamageKind.EFFECT)
                     or self.spell_bonus_multiplier!=1):
                 raise ValueError('Non-spell split requires its explicit non-cast minion/location profile')
+        elif self.profile == DELAYED_SPELL_PROFILE:
+            if (self.cast_id is not None or self.kind != DamageKind.SPELL or self.spell_bonus_multiplier != 0
+                    or type(self.player_effect) is not PlayerEffect or self.player_effect.source_allocation is None):
+                raise ValueError('Delayed split requires its captured immune Sigil and no new CAST')
+            self.player_effect.__post_init__()
+            if (self.player_effect.source_id, self.player_effect.source_player_id) != (self.source_id, self.player_id):
+                raise ValueError('Delayed split changed its original Sigil source or beneficiary')
         else: raise ValueError('Unsupported whole split profile')
+        if self.profile != DELAYED_SPELL_PROFILE and self.player_effect is not None:
+            raise ValueError('Only a delayed Sigil split may carry its original player source')
         for name in ('on_result','on_complete'):
             if getattr(self,name) is not None: _name(getattr(self,name),'split callback')
 
@@ -89,7 +100,7 @@ class RandomSplitHealing(Effect):
 
 
 def spell_request(request):
-    return request.profile in (PROFILE, HEALING_PROFILE)
+    return request.profile in (PROFILE, HEALING_PROFILE, DELAYED_SPELL_PROFILE)
 
 
 def healing_request(request):
@@ -135,11 +146,22 @@ class SplitBudgetQuote:
     action: int
     root_action: int
     event_cursor: int
+    player_effect: PlayerEffect | None = None
     def __post_init__(self):
         if type(self.source) is not SourceAllocationFact:
             raise ValueError('Split quote needs its allocated original source')
         self.source.__post_init__()
-        if self.cast is None:
+        if self.player_effect is not None:
+            from .allocation_facts import allocation_from_payload
+            if (type(self.player_effect) is not PlayerEffect or self.player_effect.source_allocation is None
+                    or self.cast is not None or self.source.kind != CardType.SPELL
+                    or self.contributions or self.spell_bonus or self.source_keywords):
+                raise ValueError('Delayed quote requires one captured immune Sigil source')
+            self.player_effect.__post_init__()
+            if (allocation_from_payload(self.player_effect.source_allocation) != self.source
+                    or self.player_effect.source_player_id != self.source.controller):
+                raise ValueError('Delayed quote changed its captured original spell source')
+        elif self.cast is None:
             if self.source.kind not in (CardType.MINION,CardType.LOCATION) or self.contributions or self.spell_bonus:
                 raise ValueError('Non-spell quote cannot borrow a CAST or Spell Damage')
         elif type(self.cast)is not SpellCastRecord:
@@ -248,9 +270,13 @@ class SplitDamageRoot:
         if self.request.spell_bonus_multiplier==0 and(self.quote.contributions or self.quote.spell_bonus):
             raise ValueError('Immune split budget cannot include Spell Damage contributions')
         spell = spell_request(self.request)
+        delayed = self.request.profile == DELAYED_SPELL_PROFILE
+        if (delayed and (self.quote.player_effect != self.request.player_effect or self.quote.cast is not None)
+                or not delayed and self.quote.player_effect is not None):
+            raise ValueError('Split quote changed its original logical Sigil source')
         if (self.quote.budget != self.request.amount+self.quote.spell_bonus or
                 self.request.source_id != self.quote.source.entity_id or
-                spell and (self.quote.cast is None or (self.request.cast_id,self.request.player_id) !=
+                spell and not delayed and (self.quote.cast is None or (self.request.cast_id,self.request.player_id) !=
                 (self.quote.cast.id,self.quote.cast.player_id)) or
                 not spell and (self.quote.cast is not None or self.quote.source.kind != source_kind(self.request))):
             raise ValueError('Split root differs from its original total budget')
@@ -337,6 +363,19 @@ def split_candidates(state,registry,player_id,scope, *, injured_only=False):
             rows.append(SplitCandidate(SourceAllocationFact.capture(state,e),e.health))
     return tuple(sorted(rows,key=lambda r:r.allocation.entity_id))
 
+def delayed_source(state, registry, request):
+    from .player_effects import health_source
+    instance = request.player_effect
+    spec = registry.player_effect(instance.spec_id)
+    fact = health_source(state, registry, instance, request.player_id)
+    if (not spec.capture_health_source or spec.kind != 'sigil' or instance.remaining_turns != 1
+            or fact.kind != CardType.SPELL or fact.card_id != spec.card_id
+            or fact.controller != request.player_id
+            or any(e.id == instance.id for p in state.players.values() for e in p.player_effects)):
+        raise ResolutionError('Delayed split requires its actual expired captured Sigil')
+    return fact
+
+
 def quote_budget(state,registry,request,root_action,event_cursor):
     from .spell_casts import cast_record,active_cast
     from .health_rules import spell_damage_sources
@@ -344,6 +383,11 @@ def quote_budget(state,registry,request,root_action,event_cursor):
     for name in ('on_result','on_complete'):
         if getattr(request,name) is not None: registry.behavior(getattr(request,name))
     source=state.entities.get(request.source_id)
+    if request.profile == DELAYED_SPELL_PROFILE:
+        instance = request.player_effect
+        fact = delayed_source(state, registry, request)
+        return SplitBudgetQuote(None, fact, (), registry.card(fact.card_id).spell_school, (), 0,
+            request.amount, state.action_number, root_action, event_cursor, instance)
     if request.profile == NON_SPELL_PROFILE:
         if source is None or source.kind!=source_kind(request):
             raise ResolutionError('Non-spell split requires its actual minion/location source')
@@ -538,8 +582,10 @@ def validate_state(state,registry):
         if not previous<root.id<state.next_split_damage_root_id: raise ValueError('Split root exceeds its allocation domain')
         if root.parent_id is not None and root.parent_id not in known: raise ValueError('Split history lost its original parent')
         validate_compact_facts(state,registry,root)
+        if root.request.profile == DELAYED_SPELL_PROFILE and delayed_source(state, registry, root.request) != root.quote.source:
+            raise ValueError('Delayed split lost its original logical source')
         from .spell_casts import cast_record
-        if spell_request(root.request):
+        if root.quote.cast is not None:
             actual_cast=cast_record(state,root.request.cast_id)
             if replace(actual_cast,completed=False,interrupted=False)!=root.quote.cast:
                 raise ValueError('Split quote differs from its real allocated original CAST record')
@@ -728,9 +774,16 @@ def rows_from_dict(value):
         row['rng_before']=end_turn_rng_from_json(row['rng_before']);row['rng_after']=end_turn_rng_from_json(row['rng_after']);return SplitSelection(**row)
     def root(v, root_type, request_type):
         row=_row(v,root_type);request=_row(row['request'],request_type);request['scope']=scope(request['scope'])
-        if request_type is RandomSplitDamage:request['kind']=DamageKind(request['kind'])
+        if request_type is RandomSplitDamage:
+            request['kind']=DamageKind(request['kind'])
+            if request['player_effect'] is not None:
+                from .serialization import player_effect_from_dict
+                request['player_effect']=player_effect_from_dict(request['player_effect'])
         row['request']=request_type(**request)
         quote=_row(row['quote'],SplitBudgetQuote)
+        if quote['player_effect'] is not None:
+            from .serialization import player_effect_from_dict
+            quote['player_effect']=player_effect_from_dict(quote['player_effect'])
         quote['cast']=_spell_cast_from_dict(quote['cast']) if quote['cast'] is not None else None;quote['source']=allocation(quote['source']);quote['source_keywords']=tuple(Keyword(k) for k in quote['source_keywords'])
         if quote['school'] is not None:quote['school']=SpellSchool(quote['school'])
         contributions=[]

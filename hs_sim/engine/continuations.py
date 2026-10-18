@@ -562,6 +562,8 @@ class FrameCodec:
                     validate_allocation(value.state,self.registry,allocation_from_payload(effect.source_allocation))
                     if effect.source_player_id!=value.player_id:raise ValueError('Captured player health source changed beneficiary')
                 spec = self.registry.player_effect(effect.spec_id)
+                if spec.capture_health_source and effect.source_allocation is None:
+                    raise ValueError('Captured Sigil context lost its declared original health source')
                 self.registry.card(effect.source_card_id)
                 if (effect.source_id != value.source_id or effect.id >= value.state.next_attachment_id or
                         effect.created_turn > value.state.turn or effect.entered_order >= value.state.next_order or

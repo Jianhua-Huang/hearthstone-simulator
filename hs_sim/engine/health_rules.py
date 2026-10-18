@@ -212,7 +212,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         from .random_split_damage import packet_source, root_record, healing_request
         split_quote = packet_source(state, registry, split_link)
         split_healing = healing_request(root_record(state, split_link.root_id).request)
-        expected_kind=(DamageKind.SPELL if split_quote.cast is not None else
+        expected_kind=(DamageKind.SPELL if split_quote.source.kind == CardType.SPELL else
             DamageKind.MINION_ABILITY if split_quote.source.kind==CardType.MINION else DamageKind.EFFECT)
         valid_instruction = (type(instruction) is Heal and instruction.kind == HealingKind.SPELL if split_healing else
             type(instruction) is Damage and instruction.kind == expected_kind and instruction.spell_bonus_multiplier == 1)

@@ -33,3 +33,14 @@
 [固定完整来源和配方](../data/cards/temporal-effect-cards-v1.json)保留四根、一固定随从及原始附魔；[官网观察与完整卡面对比](../outputs/card-integration-20261014/k70-official-face-01/comparison.json)含实际 HTTP 收据、全文比较和双向 child 关系。完整渲染卡面及固定依赖可由[官网卡库接口](https://hearthstone.blizzard.com/en-us/api/cards?ids=123315,122720,118413,122773,127933&locale=en_US)核对。
 
 卡面证据不证明控制层叠、归还失败、回合事件/到期/抽牌精确排序、当前回合禁止、复制继承和组通知等国服语义。这些既有及新增本地政策继续归 M6，标准正式池和热修归 M0；注册数量不等于完整支持率。
+
+
+## 燃薪咒符：延迟法术随机分配
+
+FIR_902以原ongoing安装器建立一回合sigil，使用`PlayerEffectSpec.capture_health_source=True`声明捕获原Spell分配及受益者；默认False，旧声明指纹保持。声明只允许下次本人开始的单次到期咒符，来源必须为定义中的真实受控法术。它沿现有PlayerEffect字段、共享占位/支付门禁、倒计时与到期移除执行，不新增时钟或再次施法。
+
+`RandomSplitDamage`的有限`DELAYED_SPELL_PROFILE`只接收该已到期实例、无cast ID、SPELL类别且免法伤的预算。请求和SplitBudgetQuote分别保留同一完整PlayerEffect，原health_source校验其分配/受益者，活跃、外来来源或普通profile借用实例均拒绝。原Split解释器负责每单位当前敌方候选、RNG、普通伤害规则、死亡/反应、终止和完整接受/Finish证明；不建立第二套随机或伤害控制器。
+
+燃薪预算为6，原XML明确ImmuneToSpellpower=1，故不加入法术伤害。各单位仍为Fel SPELL伤害，普通伤害规则继续生效；无额外cast和支付。来源身份及受益者取已捕获材料，原逻辑来源不继承物理载体的额外关键词。确切关键词继承、时序和国服交互仍须M6证据，不能从标签或内部测试认证完整官方规则。
+
+请求/预算增加可空player_effect，使用原FrameCodec及严格完整行解码；原活跃法术、非施法随从/地标和治疗profile保留。静态声明增加一个默认False字段，没有新的GameState、PlayerState、AbilityInstance或PlayerEffect实例字段，也没有新Effect类型。core489/schema404拒绝旧1～403，观察94/命令12/replay1保持；私有来源、帧、随机状态和证明不进入玩家DTO。

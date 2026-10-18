@@ -152,6 +152,9 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
+    if spec.capture_health_source and (source.kind != CardType.SPELL or source.card_id != spec.card_id
+            or source.controller != player.id):
+        raise ResolutionError('Captured Sigil requires its actual controlled spell source')
     if spec.kind == 'next_healing_damage' and (source.card_id != spec.card_id or effect.capture_health_source):
         raise ResolutionError('Next-healing program requires its own original card and no independent damage source')
     if spec.kind == 'adaptations':
@@ -174,7 +177,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
                reason='ongoing_area_full', effect_key=spec.id)
         return
     from .allocation_facts import SourceAllocationFact
-    allocation=SourceAllocationFact.capture(r.state,source).payload() if effect.capture_health_source else None
+    allocation=SourceAllocationFact.capture(r.state,source).payload() if effect.capture_health_source or spec.capture_health_source else None
     remaining = spec.duration
     if spec.next_turn_end:
         # The end event captures countdowns before its reactions. An instance

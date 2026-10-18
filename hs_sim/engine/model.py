@@ -7934,8 +7934,13 @@ class PlayerEffectSpec:
     tick_player: str = 'controller'
     opponent_spell_cost: int = 0
     spell_effects: tuple[SpellEffectModifierSpec, ...] = ()
+    capture_health_source: bool = False
 
     def __post_init__(self):
+        _bool(self.capture_health_source, 'captured Sigil health source')
+        if self.capture_health_source and (self.kind != 'sigil' or self.duration != 1 or
+                self.tick_event != 'turn_started' or self.on_expire is None):
+            raise ValueError('Captured Sigil source requires its next-owner-start expiry')
         if (type(self.spell_effects) is not tuple or len(self.spell_effects) > 1 or
                 any(type(s) is not SpellEffectModifierSpec for s in self.spell_effects)):
             raise ValueError('Spell effects require one immutable independent declaration')
@@ -10597,6 +10602,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             for repeat in spec.end_turn_repeats:
                 validate_source_declaration(registry, repeat, allow_source=False)
             registry.card(effect.source_card_id)
+            if spec.capture_health_source and effect.source_allocation is None:
+                raise ValueError('Sigil lost its declared original health source')
             if (effect.source_id not in state.entities or effect.created_turn > state.turn or
                     effect.entered_order >= state.next_order or
                     (spec.duration is None) != (effect.remaining_turns is None) or

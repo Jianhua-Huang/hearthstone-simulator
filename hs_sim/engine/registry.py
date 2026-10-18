@@ -1729,6 +1729,8 @@ class Registry:
             profile.__post_init__()
         logical_units = {profile.unit_id for profile in self._summon_producer_profiles.values()}
         for spec in self._player_effects.values():
+            if spec.capture_health_source and self.card(spec.card_id).kind != CardType.SPELL:
+                raise ValueError('Captured Sigil source requires its physical spell definition')
             if any(declaration.unit_id not in logical_units for declaration in spec.producer_quantities):
                 raise ValueError('Player effect refers to an unknown logical summon unit')
             spec.__post_init__()
@@ -1910,7 +1912,8 @@ class Registry:
                                           (k != 'next_turn_end' or v) and
                                           (k != 'tick_player' or v != 'controller') and
                                           (k != 'opponent_spell_cost' or v) and
-                                          (k != 'spell_effects' or v)} for i in sorted(self._player_effects)],
+                                          (k != 'spell_effects' or v) and
+                                          (k != 'capture_health_source' or v)} for i in sorted(self._player_effects)],
                    "summon_producer_profiles": [asdict(self._summon_producer_profiles[i]) for i in sorted(self._summon_producer_profiles)],
                    "end_turn_profiles": [asdict(self._end_turn_profiles[i]) for i in sorted(self._end_turn_profiles)],
                    "end_turn_candidate_profiles": [asdict(self._end_turn_candidate_profiles[i]) for i in sorted(self._end_turn_candidate_profiles)],
