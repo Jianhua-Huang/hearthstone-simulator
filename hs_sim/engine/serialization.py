@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 386
+SNAPSHOT_SCHEMA_VERSION = 387
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1245,6 +1245,12 @@ def state_from_dict(value: dict) -> GameState:
             derivatives.append(HandDerivativeSpec(**spec))
         row['hand_derivatives'] = tuple(derivatives)
         row['kind']=CardType(row['kind']);row['payment']=PaymentType(row['payment'])
+        if row['held_mana'] is not None:
+            from .model import HeldManaProgress
+            fact=_row(row['held_mana'],HeldManaProgress)
+            fact['spec']=_hand_progress_spec(fact['spec'])
+            for key in ('keys','units'):fact[key]=tuple(_list(fact[key],'held mana '+key))
+            row['held_mana']=HeldManaProgress(**fact)
         if row['held_spells'] is not None:
             from .model import HeldSpellProgress,HandProgressSpec
             fact=_row(row['held_spells'],HeldSpellProgress)

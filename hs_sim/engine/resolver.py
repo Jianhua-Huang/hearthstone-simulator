@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v469'
+CORE_EFFECTS_VERSION = 'core-effects-v470'
 
 
 class Mechanics:
@@ -1480,7 +1480,7 @@ def play_from_hand(r, effect):
     else:
         from .paid_hand_acceptance import capture as capture_paid_hand_cost_proof
         record, paid_hand_proof = capture_paid_hand_cost_proof(r, record, quote)
-    pay_quote(r,player,entity,quote)
+    pay_quote(r,player,entity,quote,exclude_held_source=True)
     paid_hand_submission_base = None if paid_hand_proof is None else deepcopy(r.state)
     r.state.play_history.append(record)
     paid_hand_tail = None

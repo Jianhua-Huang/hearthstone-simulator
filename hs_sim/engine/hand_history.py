@@ -8,6 +8,8 @@ def enter_hand(state, entity, from_zone=None, reason='move'):
     turn = 0 if reason == 'scenario' or state.opening is not None and state.opening.stage != 'complete' else state.turn
     from .held_spells import reset_entry
     reset_entry(entity)
+    from .held_mana import reset_entry as reset_mana_entry
+    reset_mana_entry(entity)
     record = HandEntryRecord(len(state.hand_entries)+1, entity.id, entity.controller, entity.card_id,
                              turn, state.action_number, entity.zone_epoch, from_zone, reason)
     state.hand_entries.append(record)

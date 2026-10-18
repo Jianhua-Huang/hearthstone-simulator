@@ -479,7 +479,7 @@ def pay_cost(r, player, source):
     pay_quote(r, player, source, quote_cost(r.state, r.registry, source))
 
 
-def pay_quote(r, player, source, quote):
+def pay_quote(r, player, source, quote, *, exclude_held_source=False):
     """Apply the shared resource plan; preserve each original capture boundary."""
     if (quote.entity_id, quote.player_id) != (source.id, player.id):
         raise ResolutionError('Payment quote has a different payer or source')
@@ -490,7 +490,7 @@ def pay_quote(r, player, source, quote):
     for event in plan.health_events:
         r.emit(event.kind, **dict(event.data))
     # Compact global cost-use facts include every paid entry, not just Spells.
-    consume_quoted_modifiers(r.state, quote, origin='payment')
+    consume_quoted_modifiers(r.state, quote, origin='payment', exclude_held_source=exclude_held_source)
     # Original expenditure event; corpse payments include their committed account row.
     r.emit(f'{quote.payment.value}_spent', source_id=source.id, player_id=player.id,
            amount=quote.amount, modifier_ids=quote.modifier_ids, consumed_ids=quote.consumable_ids,

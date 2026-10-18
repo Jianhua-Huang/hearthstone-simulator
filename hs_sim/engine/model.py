@@ -1053,12 +1053,14 @@ class HandProgressSpec:
                 self.upgrade_card_id is not None or self.on_progress is not None or
                 self.on_complete is None or self.health_to_durability or self.amount_basis != 'one'):
             raise ValueError('Native deck listeners require repeated single-event completion bodies')
-        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast'):
+        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast', 'mana_spent'):
             raise ValueError('Unknown hand progress kind')
         if type(self.amount_basis) is not str or self.amount_basis not in ('one', 'event_amount'):
             raise ValueError('Unknown hand progress amount basis')
-        if self.amount_basis != 'one' and (self.kind != 'event' or self.repeat):
+        if self.amount_basis != 'one' and (self.kind not in ('event', 'mana_spent') or self.repeat):
             raise ValueError('Event amounts require nonrepeating generic hand progress')
+        if self.kind == 'mana_spent' and (self.amount_basis != 'event_amount' or self.condition_id != 'always'):
+            raise ValueError('Held mana uses actual debit amounts without callback conditions')
         if (type(self.upgrade_cost_policy) is not str or
                 self.upgrade_cost_policy not in ('preserve', 'clear_local') or
                 self.upgrade_cost_policy != 'preserve' and self.upgrade_card_id is None):
@@ -1078,9 +1080,9 @@ class HandProgressSpec:
             raise ValueError('Repeated progress uses callbacks; next forms declare their own stages')
         if self.health_to_durability and self.upgrade_card_id is None:
             raise ValueError('Health conversion requires an upgrade form')
-        if self.kind=='spell_cast':
+        if self.kind in ('spell_cast','mana_spent'):
             if any(x is not None for x in (self.upgrade_card_id,self.on_progress,self.on_complete)) or self.repeat or self.health_to_durability:
-                raise ValueError('Held-spell facts cannot upgrade, repeat or invoke callbacks')
+                raise ValueError('Held resource facts cannot upgrade, repeat or invoke callbacks')
         elif self.upgrade_card_id is None and self.on_complete is None:
             raise ValueError('Hand progress requires a completion effect or form')
 
@@ -1129,6 +1131,42 @@ class HeldSpellProgress:
 
     @property
     def completed(self):return len(self.cast_ids)==self.spec.goal
+
+
+@dataclass(frozen=True)
+class HeldManaProgress:
+    spec: HandProgressSpec
+    keys: tuple[str, ...]
+    units: tuple[int, ...]
+    before_payment_id: int
+    before_consumption_id: int
+
+    def __post_init__(self):
+        if type(self.spec) is not HandProgressSpec or self.spec.kind != 'mana_spent':
+            raise ValueError('Held mana requires its native progress declaration')
+        self.spec.__post_init__()
+        for name in ('before_payment_id', 'before_consumption_id'):
+            _int(getattr(self, name), 'held mana '+name, 1)
+        if (type(self.keys) is not tuple or type(self.units) is not tuple or
+                len(self.keys) != len(self.units) or len(set(self.keys)) != len(self.keys)):
+            raise ValueError('Held mana requires complete distinct original debit witnesses')
+        counts = {'payment': 0, 'consumption': 0}
+        for key, amount in zip(self.keys, self.units):
+            if type(key) is not str or ':' not in key:
+                raise ValueError('Held mana requires typed debit keys')
+            kind, number = key.split(':', 1)
+            if kind not in counts or not number.isdigit() or str(int(number)) != number:
+                raise ValueError('Unknown original held mana debit')
+            identity = int(number)
+            if not counts[kind] < identity < getattr(self, 'before_'+kind+'_id'):
+                raise ValueError('Held mana debit exceeds or reorders its captured bound')
+            counts[kind] = identity
+            _int(amount, 'held mana accepted units', 1)
+        if sum(self.units) > self.spec.goal or any(sum(self.units[:i]) >= self.spec.goal for i in range(len(self.units))):
+            raise ValueError('Held mana accepts at most its first complete threshold')
+
+    @property
+    def completed(self): return sum(self.units) == self.spec.goal
 
 
 @dataclass(frozen=True)
@@ -2929,8 +2967,11 @@ class AbilityInstance:
             _int(units, 'progress witness units', 1)
         for key in self.progress_keys:
             prefix, separator, number = key.partition(':')
-            if prefix not in ('play', 'death', 'event', 'cast') or separator != ':' or not number.isascii() or not number.isdigit() or str(int(number)) != number or int(number) < 1:
+            if prefix not in ('play', 'death', 'event', 'cast', 'payment', 'consumption') or separator != ':' or not number.isascii() or not number.isdigit() or str(int(number)) != number or int(number) < 1:
                 raise ValueError('Invalid progress witness key')
+            if prefix in ('payment','consumption') and (self.kind!='hand_progress' or
+                    self.hand_progress is None or self.hand_progress.kind!='mana_spent'):
+                raise ValueError('Debit keys belong only to native held mana progress')
         if self.kind in ('hand_progress', 'defining_hand_source'):
             if type(self.hand_progress) is not HandProgressSpec:
                 raise ValueError('Hand progress requires a specification')
@@ -6707,6 +6748,7 @@ class PlayRecord:
     interrupted: bool = False
     corrupt_candidates: tuple[HandProgressCandidate, ...] = ()
     held_spells: HeldSpellProgress | None = None
+    held_mana: HeldManaProgress | None = None
     card_spell_repeats: tuple[AbilityInstance, ...] = ()
     position: int | None = None
     magnetic_target_id: int | None = None
@@ -6876,6 +6918,9 @@ class PlayRecord:
         if self.held_spells is not None:
             if type(self.held_spells) is not HeldSpellProgress:raise ValueError('Invalid frozen held-spell condition')
             self.held_spells.__post_init__()
+        if self.held_mana is not None:
+            if type(self.held_mana) is not HeldManaProgress:raise ValueError('Invalid frozen held-mana condition')
+            self.held_mana.__post_init__()
         for candidate in self.corrupt_candidates:
             candidate.__post_init__()
             if candidate.player_id != self.player_id or candidate.source_id == self.source_id:
@@ -10319,6 +10364,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             registry.validate_hand_progress(attachment.hand_progress)
             from .held_spells import validate_ability as validate_held_spell_ability
             validate_held_spell_ability(state,registry,attachment)
+            from .held_mana import validate_ability as validate_held_mana_ability
+            validate_held_mana_ability(state,registry,attachment)
             from .hand_progress import validate_cast_progress
             validate_cast_progress(state, attachment)
             for key in attachment.progress_keys:

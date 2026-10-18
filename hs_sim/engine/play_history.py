@@ -174,6 +174,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .hand_progress import corrupt_candidates
     from .hand_derivatives import capture
     from .held_spells import capture as capture_held_spells
+    from .held_mana import capture as capture_held_mana
     from .card_spell_repeats import capture as capture_card_spell_repeats
     from .owner_turns import freeze_played_face
     player=state.players[source.controller]
@@ -192,6 +193,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         player.mana,player.mana-(quote.amount if quote.payment==PaymentType.MANA else 0),player.max_mana,
         entry.id,entry.turn,registry.card(source.card_id).manathirst,
         corrupt_candidates=corrupt_candidates(state,registry,source,quote),held_spells=capture_held_spells(state,source),
+        held_mana=capture_held_mana(state,source),
         card_spell_repeats=capture_card_spell_repeats(source),
         position=position,magnetic_target_id=magnetic_target_id,body_targets=body_targets,
         board_player_id=board_player_id,
@@ -317,6 +319,9 @@ def validate_history(state, registry):
         if record.held_spells is not None:
             from .held_spells import validate_progress
             validate_progress(state,registry,record.held_spells,record)
+        if record.held_mana is not None:
+            from .held_mana import validate_progress as validate_mana_progress
+            validate_mana_progress(state,registry,record.held_mana,record)
         from .combos import validate_payload
         for payload in record.combos: validate_payload(state,registry,payload)
         for payload in record.battlecries:

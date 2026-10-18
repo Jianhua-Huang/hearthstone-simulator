@@ -143,6 +143,8 @@ def consume_mana(r,effect):
         cast.id if cast is not None else None)
     spend_mana(player,actual)
     r.state.mana_consumption_history.append(row)
+    from .held_mana import note_consumption
+    note_consumption(r.state,row)
     event=r.emit('mana_consumption_resolved',source_id=effect.source_id,player_id=player.id,amount=actual,result=row.payload())
     if actual: r.emit('mana_consumed',source_id=effect.source_id,player_id=player.id,amount=actual,result=row.payload())
     r.emit('mana_changed',source_id=effect.source_id,player_id=player.id,amount=-actual,

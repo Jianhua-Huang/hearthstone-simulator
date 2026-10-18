@@ -110,7 +110,7 @@ def apply_resource_writes(state, writes):
         setattr(target, write.name, deepcopy(write.after))
 
 
-def consume_quoted_modifiers(state, quote, *, origin):
+def consume_quoted_modifiers(state, quote, *, origin, exclude_held_source=False):
     from .costs import consume_modifiers
     player = state.players[quote.player_id]
     source = state.entities[quote.entity_id]
@@ -128,6 +128,8 @@ def consume_quoted_modifiers(state, quote, *, origin):
         used={x.id for x in quote.kindred_sources}
         player.player_effects=[x for x in player.player_effects if x.id not in used]
     state.cost_use_history.append(receipt)
+    from .held_mana import note_payment
+    note_payment(state,receipt,exclude_source=exclude_held_source)
     return receipt
 
 
@@ -152,7 +154,7 @@ def _project_payment(before, quote, *, registry=None, cause_reason=None, cause_s
             cause_source=cause_source, cause_target_id=cause_target_id)
         if capture_stages:
             captures.append(PaymentCapture(event, deepcopy(work)))
-    consume_quoted_modifiers(work, quote, origin='payment')
+    consume_quoted_modifiers(work, quote, origin='payment', exclude_held_source=True)
     event = PaymentEvent(f'{quote.payment.value}_spent', tuple(sorted(dict(source_id=quote.entity_id,
         player_id=quote.player_id, amount=quote.amount, modifier_ids=quote.modifier_ids,
         consumed_ids=quote.consumable_ids, **dict(plan.hero_health_data),

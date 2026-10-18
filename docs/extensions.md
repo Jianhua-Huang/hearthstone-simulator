@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+持有期间花费法力使用有限`HandProgressSpec('mana_spent', amount_basis='event_amount')`及`held_mana.satisfied`，读取原冻结条件；不以印刷费用或后来实体近似，见[契约](m3-held-mana.md)。
+
 马洛拉克从原`card_discarded`上下文调用`discard_summons.capture`，将`discard_summon_copy`材料交给普通`SummonByCard`；冻结材料与数量接受分窗，旧回手复制范围保持，见[契约](m3-discard-summon-copy.md)。
 
 红玉圣殿用有限`next_healing_damage`玩家声明及原地标入口，完整`HealBatch`和固有吸血恢复组沿普通转换管线；不把群体效果退化为首包或事后伤害，见[契约](m3-next-healing-conversion.md)。
