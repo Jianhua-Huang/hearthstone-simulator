@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 408
+SNAPSHOT_SCHEMA_VERSION = 409
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -51,6 +51,7 @@ def event_from_dict(value: dict) -> Event:
 
 def state_to_dict(state: GameState) -> dict:
     result = asdict(state)
+    result['temporary_power_returns'] = {str(k): asdict(v) for k, v in sorted(state.temporary_power_returns.items())}
     from .whole_card_replay_state import encode as encode_whole_card_replay
     result['whole_card_replay_ledger'] = encode_whole_card_replay(state.whole_card_replay_ledger)
     result['players'] = {str(k): asdict(v) for k, v in sorted(state.players.items())}
@@ -1113,6 +1114,17 @@ def _spell_cast_from_dict(value):
 
 def state_from_dict(value: dict) -> GameState:
     value = _row(deepcopy(value), GameState)
+    from .model import TemporaryHeroPowerReturn
+    bindings = value['temporary_power_returns']
+    if type(bindings) is not dict: raise ValueError('Temporary hero powers require a physical binding map')
+    parsed = {}
+    for key, item in bindings.items():
+        if type(key) is not str or not key.isdecimal() or str(int(key)) != key:
+            raise ValueError('Invalid temporary hero power identity')
+        row = _row(item, TemporaryHeroPowerReturn)
+        row['use_ids'] = tuple(_list(row['use_ids'], 'temporary power original uses'))
+        parsed[int(key)] = TemporaryHeroPowerReturn(**row)
+    value['temporary_power_returns'] = parsed
     from .card_discoveries import rows_from_dict as discovery_rows_from_dict
     discovery_rows_from_dict(value)
     from .battlecry_weapon_outputs import from_dict as weapon_output_from_dict

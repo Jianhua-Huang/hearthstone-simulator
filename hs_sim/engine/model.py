@@ -7341,6 +7341,34 @@ class HeroPowerReference:
 
 
 @dataclass(frozen=True)
+class TemporaryHeroPowerReturn:
+    power_id: int
+    player_id: int
+    profile_card_id: str
+    original_id: int | None = None
+    original_epoch: int | None = None
+    original_order: int | None = None
+    use_ids: tuple[int, ...] = ()
+
+    def __post_init__(self):
+        _int(self.power_id, 'temporary hero power', 1)
+        _int(self.player_id, 'temporary hero power owner', 1)
+        if self.player_id not in (1, 2): raise ValueError('Invalid temporary power owner')
+        _name(self.profile_card_id, 'temporary hero power declaration')
+        fields = (self.original_id, self.original_epoch, self.original_order)
+        if any(v is None for v in fields) and not all(v is None for v in fields):
+            raise ValueError('Original power requires its complete parked physical residence')
+        if self.original_id is not None:
+            _int(self.original_id, 'parked original hero power', 1)
+            _int(self.original_epoch, 'parked original epoch', 0)
+            _int(self.original_order, 'parked original installation', 0)
+            if self.original_id == self.power_id: raise ValueError('Temporary power cannot return to itself')
+        if type(self.use_ids) is not tuple or len(self.use_ids) > 1:
+            raise ValueError('Temporary power retains only its first completed actual use')
+        for use_id in self.use_ids: _int(use_id, 'temporary power original use', 1)
+
+
+@dataclass(frozen=True)
 class SpellCastRecord:
     """One spell execution attempt, independent of payment and hand plays."""
     id: int
@@ -10221,6 +10249,7 @@ class GameState:
     rewind_outcomes: list[RewindOutcomeRecord] = field(default_factory=list)
     end_turn_batches: list[EndTurnBatch] = field(default_factory=list)
     end_turn_history: list[EndTurnRecord] = field(default_factory=list)
+    temporary_power_returns: dict[int, TemporaryHeroPowerReturn] = field(default_factory=dict)
     # Concrete immutable WholeCardReplayLedger; module-owned validation avoids import cycles.
     whole_card_replay_ledger: object = field(default_factory=_empty_whole_card_replay_ledger)
     choose_policy_receipts: list = field(default_factory=list)
@@ -10438,7 +10467,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         for special, expected in ((Zone.WEAPON, CardType.WEAPON), (Zone.HERO_POWER, CardType.HERO_POWER)):
             if zone == special and kind != expected:
                 raise ValueError(f'{special} slot requires {expected}')
-        if kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.GRAVEYARD):
+        parked_power = (kind == CardType.HERO_POWER and zone == Zone.SETASIDE and any(type(b) is TemporaryHeroPowerReturn and
+            b.original_id == entity_id and b.player_id == player_id and
+            (b.original_epoch, b.original_order) == (entity.zone_epoch, entity.entered_order)
+            for b in state.temporary_power_returns.values()))
+        if kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.GRAVEYARD) and not parked_power:
             raise ValueError('Hero powers cannot enter normal card zones')
         if kind == CardType.HERO_POWER and state.entities[entity_id].entered_order < 1:
             raise ValueError('Hero powers require an installation order')
@@ -11176,6 +11209,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_consumed_cards(state,registry)
     from .end_turns import validate_history as validate_end_turn_history
     validate_end_turn_history(state, registry)
+    from .temporary_hero_powers import validate_state as validate_temporary_powers
+    validate_temporary_powers(state, registry)
     from .whole_card_replay_state import validate_history as validate_whole_card_replay_history
     validate_whole_card_replay_history(state, registry)
     from .battlecry_policy_uses import validate_history as validate_battlecry_policy_uses

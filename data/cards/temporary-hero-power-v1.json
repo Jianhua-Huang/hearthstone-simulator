@@ -1,0 +1,456 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_730e",
+        "dbf_id": 122835,
+        "name": "培育",
+        "name_en": "Nurtured",
+        "text": "+5/+5。",
+        "text_en": "+5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d39bc670283b9abf365e3f9b38578a48b040742d93e7ec1c3d3e0543753217a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_730e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policies": [
+    "Two ordinary repeated discoveries from the complete current-class/neutral collectible Beast minion domain, replacement between discoveries; source class is not the actor class.",
+    "Reuse CreatedMinionGrant(attack=5,health=5), not CreatedMinionStats: this is an additive creation grant. Each original selected output is created directly at own deck bottom with its complete numbers before the first notification.",
+    "After-each delivery: first original output and reactions complete before the second offer. No hand transfer, shuffle, extra acquisition or silent omission of unknown eligible definitions.",
+    "Current class policy, offer/delivery ordering, initial creation and exact CN behavior remain local policies pending calibration. No complete formal Standard pool or reachability claim."
+  ],
+  "batch": "K214-temporary-hero-power",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_632",
+        "dbf_id": 117874,
+        "name": "萨弗拉斯的故事",
+        "name_en": "Story of Sulfuras",
+        "text": "将你的英雄技能替换为“随机对一个敌人造成8点伤害。”使用两次后，换回原技能。",
+        "text_en": "[x]Swap your Hero Power\nto \"Deal 8 damage\nto a random enemy.\"\nAfter 2 uses, swap back.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "538d03d071449033cfb7ea4d48c0c1afae0f1e9028fc310649ee72529f412e9d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_632",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_632t",
+        "dbf_id": 119639,
+        "name": "死吧，虫子！",
+        "name_en": "DIE, INSECT!",
+        "text": "随机对一个敌人造成$8点伤害。<i>（还可使用两次！）</i>",
+        "text_en": "Deal $8 damage to a random enemy.\n<i>(Two uses left!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jimmy Lo"
+          }
+        ]
+      },
+      "record_sha256": "95fba7bc512a8dd6e11e9d44f59c5270acd41801df37e6bc0deab99f58a40e48",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_632t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_632t2",
+        "dbf_id": 119640,
+        "name": "死吧，虫子！",
+        "name_en": "DIE, INSECT!",
+        "text": "随机对一个敌人造成$8点伤害。<i>（还可使用一次！）</i>",
+        "text_en": "Deal $8 damage to a random enemy.\n<i>(Last use!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jimmy Lo"
+          }
+        ]
+      },
+      "record_sha256": "224dc1bd0e08baa36c4355c534b4fd5d5d89bafe5f513de94c1f1b9c0c22ab9c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_632t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_632",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\117874-zh_CN.json",
+      "response_sha256": "b6a105286d7ba1d5696df80de1f5ddadd74dd790d999e1eacee87de20b36f897",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117874&locale=zh_CN",
+      "face": {
+        "id": 117874,
+        "collectible": 1,
+        "slug": "117874-story-of-sulfuras",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "manaCost": 5,
+        "name": "萨弗拉斯的故事",
+        "text": "将你的英雄技能替换为“随机对一个敌人造成8点伤害。”使用两次后，换回原技能。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78f13583d45c2348fcde589a9285aa5c38ea5e0b716971517b07c297d7005579.png",
+        "imageGold": "",
+        "flavorText": "“……当时对面足有七个随从，可它还是砸中了敌方英雄的脸！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35b5f8751a017161fbf269212b4e10340ff5f9df16f79b764d9ff9bcf4b61d34.png",
+        "childIds": [
+          119639,
+          119640
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117874&locale=zh_CN",
+        "sha256": "b6a105286d7ba1d5696df80de1f5ddadd74dd790d999e1eacee87de20b36f897",
+        "bytes": 872,
+        "observed_at": "2026-10-18T18:18:07.118891+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_632",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\117874-en_US.json",
+      "response_sha256": "1ef171ce78a1d2140217d242d3c2cc2c010e1852e8844979a6a4491c76a8cdfa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117874&locale=en_US",
+      "face": {
+        "id": 117874,
+        "collectible": 1,
+        "slug": "117874-story-of-sulfuras",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "manaCost": 5,
+        "name": "Story of Sulfuras",
+        "text": "Swap your Hero Power to \"Deal 8 damage to a random enemy.\" After 2 uses, swap back.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ad1b900240ec75f0bcaab1c802f1d3b23ea5b6d9412d870fdec14fdf42d78b4.png",
+        "imageGold": "",
+        "flavorText": "\"...and there were seven minions on board, and it STILL hit the enemy hero!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35b5f8751a017161fbf269212b4e10340ff5f9df16f79b764d9ff9bcf4b61d34.png",
+        "childIds": [
+          119639,
+          119640
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117874&locale=en_US",
+        "sha256": "1ef171ce78a1d2140217d242d3c2cc2c010e1852e8844979a6a4491c76a8cdfa",
+        "bytes": 832,
+        "observed_at": "2026-10-18T18:18:07.302663+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_632t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\119639-zh_CN.json",
+      "response_sha256": "66f0ee576869c436b462c92969b8754355fbcac24ef7f5cd04c7be13d1c8f515",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119639&locale=zh_CN",
+      "face": {
+        "id": 119639,
+        "collectible": 0,
+        "slug": "119639-die-insect",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Jimmy Lo",
+        "manaCost": 2,
+        "name": "死吧，虫子！",
+        "text": "随机对一个敌人造成 8点伤害。<i>（还可使用两次！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9adb2133a69e4afe1438ffcd4178a87eb2cd945b4680428722c5b91d2939a06.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117874,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119639&locale=zh_CN",
+        "sha256": "66f0ee576869c436b462c92969b8754355fbcac24ef7f5cd04c7be13d1c8f515",
+        "bytes": 597,
+        "observed_at": "2026-10-18T18:18:07.320807+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_632t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\119639-en_US.json",
+      "response_sha256": "ae60903b246982ad7c3e6d51d4b472c261210446354015428814e46578b33462",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119639&locale=en_US",
+      "face": {
+        "id": 119639,
+        "collectible": 0,
+        "slug": "119639-die-insect",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Jimmy Lo",
+        "manaCost": 2,
+        "name": "DIE, INSECT!",
+        "text": "Deal 8 damage to a random enemy. <i>(Two uses left!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fe488e55c76b3987cdab33758b539b9e3c1e42166e4ad54ff9e2260529e27ea.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117874,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119639&locale=en_US",
+        "sha256": "ae60903b246982ad7c3e6d51d4b472c261210446354015428814e46578b33462",
+        "bytes": 572,
+        "observed_at": "2026-10-18T18:18:07.193096+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_632t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\119640-zh_CN.json",
+      "response_sha256": "149fd3e8b299a518c7529ca3a7f76cb19fa2ae3e7795a7aca2855fab23fb963c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119640&locale=zh_CN",
+      "face": {
+        "id": 119640,
+        "collectible": 0,
+        "slug": "119640-die-insect",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Jimmy Lo",
+        "manaCost": 2,
+        "name": "死吧，虫子！",
+        "text": "随机对一个敌人造成 8点伤害。<i>（还可使用一次！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ad361a0941cacc1292e144a80a6dabdfe2e65f6fb3e9e036abcc678f13805b3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117874,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119640&locale=zh_CN",
+        "sha256": "149fd3e8b299a518c7529ca3a7f76cb19fa2ae3e7795a7aca2855fab23fb963c",
+        "bytes": 597,
+        "observed_at": "2026-10-18T18:18:07.831354+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_632t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\119640-en_US.json",
+      "response_sha256": "cf3976f4dfc10a3fa3016d2bde7e8c5b97c193faac175022d00c7deaa40a60b2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119640&locale=en_US",
+      "face": {
+        "id": 119640,
+        "collectible": 0,
+        "slug": "119640-die-insect",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Jimmy Lo",
+        "manaCost": 2,
+        "name": "DIE, INSECT!",
+        "text": "Deal 8 damage to a random enemy. <i>(Last use!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1ad1232edaef15f1a7335504d9035d49067dea53fe6fcb620702f060687f45a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117874,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119640&locale=en_US",
+        "sha256": "cf3976f4dfc10a3fa3016d2bde7e8c5b97c193faac175022d00c7deaa40a60b2",
+        "bytes": 567,
+        "observed_at": "2026-10-18T18:18:07.933692+00:00"
+      }
+    }
+  ]
+}

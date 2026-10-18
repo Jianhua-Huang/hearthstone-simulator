@@ -395,6 +395,8 @@ def finish_hero_power(r, effect):
         raise ResolutionError('Hero power payloads must finish before their activation')
     record = replace(record,completed=True)
     r.state.hero_power_history[record.id-1] = record
+    from .temporary_hero_powers import after_use
+    after_use(r, record)
     r.emit('hero_power_used' if record.origin == 'manual' else 'hero_power_triggered',
         source_id=record.source_id,target_id=record.target_id,player_id=record.player_id,power_id=record.id)
 
@@ -407,8 +409,10 @@ def automatic_choice(r, choice, options, on_select):
 
 
 def validate_history(state, registry):
+    from .temporary_hero_powers import historical_face_transitions
     if type(state.hero_power_history) is not list:
         raise ValueError('Hero power history must be a list')
+    face_transitions = historical_face_transitions(state, registry)
     previous = (0,0)
     for index, record in enumerate(state.hero_power_history,1):
         if type(record) is not HeroPowerRecord: raise ValueError('Invalid hero power record')
@@ -422,7 +426,8 @@ def validate_history(state, registry):
                 passive and (record.origin != 'effect' or record.target_id is not None)):
             raise ValueError('Passive power history cannot contain an active use')
         if (record.id != index or source is None or source.kind != CardType.HERO_POWER or
-                source.owner != record.player_id or source.card_id != record.card_id or
+                source.owner != record.player_id or (source.card_id != record.card_id and
+                    (source.id, record.card_id, source.card_id) not in face_transitions) or
                 registry.card(record.card_id).kind != CardType.HERO_POWER or
                 any(i is not None and i not in state.entities for i in (record.target_id,record.activator_id)) or
                 not previous <= (record.turn,record.action) <= (state.turn,state.action_number) or
@@ -490,9 +495,11 @@ def check_power_trigger(r,effect):
     return [BehaviorCall(effect.behavior_id,c)]
 
 
-def install_hero_power(r, effect):
+def install_hero_power(r, effect, *, retirement_zone=Zone.GRAVEYARD):
     """Mutate the physical power slot; callers own their atomic event boundary."""
     player = r.player(effect.player_id)
+    if retirement_zone not in (Zone.GRAVEYARD, Zone.SETASIDE):
+        raise ResolutionError('Unsupported original power retirement zone')
     installation_definition(r, effect)
     old = selected_power(r, effect, allow_empty=True)
     if effect.power is not None and old is None:
@@ -508,7 +515,7 @@ def install_hero_power(r, effect):
     old_id = old.id if old is not None else None
     index = player.additional_hero_power_ids.index(old_id) if old_id in player.additional_hero_power_ids else None
     if old is not None:
-        r.move(old, Zone.GRAVEYARD)
+        r.move(old, retirement_zone)
     new = r.create_entity(player.id, effect.card_id, Zone.HERO_POWER, additional_hero_power=index is not None)
     if index is not None:
         player.additional_hero_power_ids.remove(new.id)

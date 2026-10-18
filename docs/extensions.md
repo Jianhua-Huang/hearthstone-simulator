@@ -1773,3 +1773,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 火炮手额外射击使用NativeProducerQuantityProfile与现有ProducerQuantitySpec；当前仅开放cannoneer.shot，普通来源能力负责生命周期，实际cannon_accept_shots续行接受完整数量。不要套用全局结束max重复，见[原生数量契约](m3-native-producer-quantities.md)。
+
+
+两用临时主槽技能注册TemporaryHeroPowerProfile并返回SwapTemporaryHeroPower；保留原实体而非基础卡面，后续由共同完成与取消入口推进。触发/主体重复不当作额外实际使用，见[临时技能契约](m3-temporary-hero-powers.md)。

@@ -154,6 +154,7 @@ class Registry:
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
         self._native_producer_quantity_profiles = {}
+        self._temporary_hero_power_profiles = {}
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
@@ -310,6 +311,9 @@ class Registry:
     def native_producer_quantity_profiles(self):return MappingProxyType(self._native_producer_quantity_profiles)
 
     @property
+    def temporary_hero_power_profiles(self):return MappingProxyType(self._temporary_hero_power_profiles)
+
+    @property
     def historical_deathrattle_spells(self):
         return frozenset(self._historical_deathrattle_spells)
 
@@ -391,6 +395,15 @@ class Registry:
         if profile.card_id in self._native_producer_quantity_profiles:
             raise ValueError('Duplicate native producer quantity profile')
         self._native_producer_quantity_profiles[profile.card_id]=profile
+
+    def register_temporary_hero_power_profile(self,profile):
+        self._require_mutable()
+        from .temporary_hero_powers import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._temporary_hero_power_profiles:raise ValueError('Duplicate temporary power profile')
+        occupied={cid for p in self._temporary_hero_power_profiles.values() for cid in p.stages}
+        if occupied.intersection(profile.stages):raise ValueError('Temporary power face already belongs to another source')
+        self._temporary_hero_power_profiles[profile.card_id]=profile
 
     def register_spell_value_profile(self,profile):
         self._require_mutable()
@@ -1619,6 +1632,8 @@ class Registry:
         for profile in self._turn_draw_profiles.values():validate_turn_draw_profile(self,profile)
         from .native_producer_quantities import validate_profile as validate_native_quantity_profile
         for profile in self._native_producer_quantity_profiles.values():validate_native_quantity_profile(self,profile)
+        from .temporary_hero_powers import validate_profile as validate_temporary_power_profile
+        for profile in self._temporary_hero_power_profiles.values():validate_temporary_power_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -1956,6 +1971,9 @@ class Registry:
         if self._native_producer_quantity_profiles:
             payload['native_producer_quantity_profiles']=[asdict(self._native_producer_quantity_profiles[k])
                 for k in sorted(self._native_producer_quantity_profiles)]
+        if self._temporary_hero_power_profiles:
+            payload['temporary_hero_power_profiles']=[asdict(self._temporary_hero_power_profiles[k])
+                for k in sorted(self._temporary_hero_power_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
         if self._hero_health_target_profiles:

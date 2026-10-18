@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v495'
+CORE_EFFECTS_VERSION = 'core-effects-v496'
 
 
 class Mechanics:
@@ -514,6 +514,9 @@ class Resolution:
             interactable_object=interactable_object, entry_dormant_turns=entry_dormant_turns)
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
+        if entity.kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.SETASIDE):
+            from .temporary_hero_powers import cancel
+            cancel(self, entity.id)
         previous_zone = entity.zone
         drawn_spell_transfer = False
         if draw_id is not None:
@@ -2600,5 +2603,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_turn_start_draws(mechanics)
     from .native_spell_values import register as register_native_spell_values
     register_native_spell_values(mechanics)
+    from .temporary_hero_powers import register as register_temporary_powers
+    register_temporary_powers(mechanics)
     return mechanics
 
