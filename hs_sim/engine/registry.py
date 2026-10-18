@@ -1598,6 +1598,8 @@ class Registry:
         validate_school_spell_damage_definition(card)
         from .weapon_damage_replacement import validate_definition as validate_weapon_damage_definition
         validate_weapon_damage_definition(card)
+        from .shield_durability import validate_definition as validate_shield_hit_definition
+        validate_shield_hit_definition(card)
         from .nature_damage_replacements import validate_definition as validate_nature_damage_definition
         validate_nature_damage_definition(card)
         from .hero_powers import validate_use_aura_definition

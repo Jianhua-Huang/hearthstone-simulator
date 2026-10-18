@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v95'
+VIEW_VERSION = 'player-view-v96'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -330,6 +330,9 @@ class Information:
                               use_limit=entity.use_limit)
                 from .timed_keywords import public_durations
                 result['keyword_durations'] = public_durations(entity)
+                if entity.zone in (Zone.HERO,Zone.BOARD) and entity.kind in (CardType.HERO,CardType.MINION):
+                    from .shield_durability import public_shield
+                    result['divine_shield']=public_shield(state,game.registry,entity)
                 from .body_views import public_bodies
                 result['bodies'] = public_bodies(entity, game.registry)
                 if entity.kind == CardType.MINION:

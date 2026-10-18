@@ -72,6 +72,9 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         entity.abilities = []
         entity.galakrond_invocations = None
     def add(kind, **fields):
+        if kind=='keyword' and fields.get('keyword')==Keyword.DIVINE_SHIELD:
+            fields['divine_shield_hits']=max((a.divine_shield_hits for a in entity.abilities
+                if a.kind=='keyword'and a.keyword==Keyword.DIVINE_SHIELD and not a.consumed),default=0)
         entity.abilities.append(AbilityInstance(
             attachment_id(state), kind, source_id=entity.id, origin='printed', **fields))
     for keyword in definition.keywords:

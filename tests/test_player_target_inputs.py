@@ -220,6 +220,32 @@ class PlayerTargetInputTests(unittest.TestCase):
             self.assertEqual(other.state.players[1].mana,4)
             self.check(other,'wait')
 
+    def test_positive_public_shield_durability_survives_paid_input_receipts(self):
+        from hs_sim.engine.shield_durability import RULE, shields
+        def shield_registry():
+            r=registry()
+            r._cards['tiny']=replace(r.card('tiny'),keywords=(Keyword.DIVINE_SHIELD,))
+            r.register_card(CardDefinition('shield_provider','Shield provider',CardType.MINION,
+                health=5,health_rules=(RULE,),metadata=r.card('tiny').metadata))
+            return r
+        g=Game.from_scenario(Scenario((
+            PlayerSetup('hero',hand=('setup','unit'),board=('tiny','big','shield_provider'),mana=6,max_mana=6),
+            PlayerSetup('hero',board=('tiny','big'),mana=6,max_mana=6)),seed=23),shield_registry())
+        g.apply(PlayCard(1,g.state.players[1].hand[0]))
+        expected=dict(hits_taken=0,hits_to_break=3,remaining_hits=3,active=True)
+        visible=g.for_player(1).observe()['observation']
+        self.assertEqual(visible['players'][0]['board'][0]['divine_shield'],expected)
+        self.paid(g,target_card='tiny')
+        proof=g.state.play_history[-1].body_targets.origin.observation
+        original=json.loads(proof.observation_json)
+        self.assertEqual(original['players'][0]['board'][0]['divine_shield'],expected)
+        self.assertEqual(shields(g.state.entities[g.state.players[1].board[0]])[0].divine_shield_hits,1)
+        reader=shield_registry()
+        self.assertIsNot(reader,g.registry)
+        for other in (g.clone(),Game.from_snapshot(g.snapshot(),reader),replay(build_replay(g),reader)):
+            self.assertEqual(other.snapshot(),g.snapshot())
+            self.assertEqual(other.state.play_history[-1].body_targets.origin.observation,proof)
+
     def test_body_failure_rolls_back_payment_rng_inputs_history_and_handles(self):
         g=game('fail'); before=g.snapshot(); history=g.history
         result=g.for_player(1).submit(command(g))

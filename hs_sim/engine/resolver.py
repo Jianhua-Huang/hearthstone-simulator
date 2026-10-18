@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v512'
+CORE_EFFECTS_VERSION = 'core-effects-v513'
 
 
 class Mechanics:
@@ -1082,8 +1082,12 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
             return 0
         result = calculate_damage(packet, target, state=state, combat=combat)
         if result.prevention == 'divine_shield':
-            consume_keyword(target, Keyword.DIVINE_SHIELD)
-            pending_events.append(('shield_lost', dict(source_id=packet.source_id, target_id=target.id)))
+            from .shield_durability import consume_hit
+            lost,provider_ids=consume_hit(r,state,rules,packet,target)
+            if provider_ids:
+                packet=replace(packet,rule_ids=(*packet.rule_ids,*provider_ids))
+                result=replace(result,packet=packet)
+            if lost:pending_events.append(('shield_lost', dict(source_id=packet.source_id, target_id=target.id)))
         if result.prevention:
             pending_events.append(('damage_prevented', dict(source_id=packet.source_id, target_id=target.id,
                                     reason=result.prevention, **result.event_data())))
@@ -1183,6 +1187,8 @@ def heal_batch(r, effect):
 
 
 def grant_health_rule(r, effect):
+    if effect.rule.operation == HealthOp.SHIELD_HITS:
+        raise ResolutionError('Shield-hit provider requires its original printed minion declaration')
     if effect.rule.operation in (HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON):
         raise ResolutionError('Nature damage replacement requires its original printed minion declaration')
     if effect.rule.operation == HealthOp.WEAPON_DURABILITY:
@@ -1869,6 +1875,9 @@ def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=No
         if effect.keyword in (Keyword.REWIND, Keyword.CASTS_WHEN_DRAWN, Keyword.TWINSPELL, Keyword.MINIATURIZE, Keyword.GIGANTIFY, Keyword.MINI, Keyword.GIGANTIC, Keyword.ECHO, Keyword.SHATTER, Keyword.SHATTERED, Keyword.TITAN, Keyword.OLD_GOD, Keyword.QUEST, Keyword.QUESTLINE, Keyword.SIDEQUEST, Keyword.SECRET, Keyword.HERALD, Keyword.INVOKE, Keyword.COLOSSAL, Keyword.MAGNETIC, Keyword.COMBO, Keyword.OUTCAST, Keyword.FINALE, Keyword.MANATHIRST, Keyword.QUICKDRAW, Keyword.SPELLBURST, Keyword.FRENZY, Keyword.CORRUPT, Keyword.INFUSE):
             raise ResolutionError('This keyword requires registered ability instances; cannot grant as a bare keyword')
         kind, fields['keyword'] = 'keyword', effect.keyword
+        if effect.keyword==Keyword.DIVINE_SHIELD:
+            from .shield_durability import shields
+            fields['divine_shield_hits']=max((a.divine_shield_hits for a in shields(entity)),default=0)
         if effect.reborn_policy is not None:
             if entity.kind != CardType.MINION:
                 raise ResolutionError('Full-health Reborn requires a minion carrier')

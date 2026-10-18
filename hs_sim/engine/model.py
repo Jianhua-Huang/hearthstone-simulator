@@ -241,6 +241,7 @@ class HealthOp(StrEnum):
     FLOOR = 'floor'
     PREVENT = 'prevent'
     WEAPON_DURABILITY = 'weapon_durability'
+    SHIELD_HITS = 'shield_hits'
     NATURE_GROWTH = 'nature_growth'
     NATURE_SUMMON = 'nature_summon'
     REDIRECT = 'redirect'
@@ -291,6 +292,12 @@ class HealthRule:
                 self.target_kinds != (CardType.HERO,) or self.damage_kinds or
                 self.healing_kinds or self.schools or self.redirect_to is not None):
             raise ValueError('Weapon durability replacement requires its exact incoming friendly-hero damage profile')
+        if self.operation == HealthOp.SHIELD_HITS and (
+                self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or self.amount != 3 or
+                self.source_relation != 'any' or self.target_relation != 'friendly' or
+                self.target_kinds != (CardType.HERO,CardType.MINION) or self.damage_kinds or self.healing_kinds or
+                self.schools or self.redirect_to is not None):
+            raise ValueError('Native shield hits require the ordinary friendly three-hit profile')
         if self.operation == HealthOp.FLOOR and (self.flow != HealthFlow.DAMAGE or
                 self.layer != HealthLayer.TARGET or self.amount < 1):
             raise ValueError('Health FLOOR requires positive DAMAGE/TARGET operand')
@@ -2665,6 +2672,7 @@ class AbilityInstance:
     attack: int = 0
     include_self: bool = False
     consumed: bool = False
+    divine_shield_hits: int = 0
     expires_turn: int | None = None
     remove_on_silence: bool = True
     spell_damage: int = 0
@@ -2949,6 +2957,10 @@ class AbilityInstance:
         _optional_id(self.magnetic_id, 'magnetic group')
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
+        _int(self.divine_shield_hits,'Divine Shield hits taken',0)
+        if self.divine_shield_hits and (self.kind!='keyword' or self.keyword!=Keyword.DIVINE_SHIELD or
+                self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
+            raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
             if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus'):
                 raise ValueError("unsupported ability kind")
@@ -10940,6 +10952,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_school_spell_damage_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
                 validate_weapon_damage_carrier(registry, entity.card_id, entity.kind, attachments)
+                from .shield_durability import validate_carrier as validate_shield_hit_carrier
+                validate_shield_hit_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier
                 validate_nature_damage_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .native_conditions import validate_carrier as validate_native_condition_carrier
@@ -11122,6 +11136,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_school_spell_damage_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
         validate_weapon_damage_carrier(registry, record.card_id, kind, record.abilities)
+        from .shield_durability import validate_carrier as validate_shield_hit_carrier
+        validate_shield_hit_carrier(registry,record.card_id,kind,record.abilities)
         from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier
         validate_nature_damage_carrier(registry,record.card_id,kind,record.abilities)
         from .native_conditions import validate_carrier as validate_native_condition_carrier
