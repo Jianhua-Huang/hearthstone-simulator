@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实随机治疗沿原分配解释器逐单位交付普通Heal，保留免法伤、原流、独立治疗历史及混合父根；精确国服资格/数值窗口见[契约](m3-random-split-healing.md)。
+
 阿莱纳希式数值保留用`TransformStoredFromPool(..., retained_stats=SummonStats(...), retained_cost=...)`连接原物理手牌；数字取原局部材料，不复制含外部光环的最终报价，见[契约](m3-retained-demon-transforms.md)。
 
 通缉海报式发现授予使用`DiscoverFromPool.minion_grant=CreatedMinionGrant(special='prepare')`，保留原实际选择并在首次创建通知前安装；查询、有限形状和生命周期见[契约](m3-discovered-prepare.md)，不要事后扫描手牌或预先执行投资。

@@ -83,9 +83,11 @@ class HealthResult:
             if type(self.split_packet) is not SplitPacketLink:
                 raise ValueError('Health result requires exact split packet linkage')
             self.split_packet.__post_init__()
-            if (self.original_flow != HealthFlow.DAMAGE.value or self.damage_kind not in
+            if (self.damage_kind not in
                     (DamageKind.SPELL.value,DamageKind.MINION_ABILITY.value,DamageKind.EFFECT.value) or
-                    self.base_amount != 1 or self.spell_bonus != 0 or self.from_lifesteal):
+                    self.base_amount != 1 or self.spell_bonus != 0 or self.from_lifesteal or
+                    self.original_flow == HealthFlow.HEALING.value and (
+                        self.healing_kind != HealingKind.SPELL.value or self.damage_kind != DamageKind.SPELL.value)):
                 raise ValueError('Split health result is not its one original quoted unit')
         if self.converted != (self.original_flow != self.flow):
             raise ValueError('Health result conversion disagrees with its flow')

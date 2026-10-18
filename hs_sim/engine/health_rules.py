@@ -207,15 +207,19 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
     elif player_effect_owner is not None:
         raise ResolutionError('Player health owner requires the complete captured source')
     split_quote = None
+    split_healing = False
     if split_link is not None:
-        from .random_split_damage import packet_source
+        from .random_split_damage import packet_source, root_record, healing_request
         split_quote = packet_source(state, registry, split_link)
+        split_healing = healing_request(root_record(state, split_link.root_id).request)
         expected_kind=(DamageKind.SPELL if split_quote.cast is not None else
             DamageKind.MINION_ABILITY if split_quote.source.kind==CardType.MINION else DamageKind.EFFECT)
-        if (type(instruction) is not Damage or instruction.kind != expected_kind or
+        valid_instruction = (type(instruction) is Heal and instruction.kind == HealingKind.SPELL if split_healing else
+            type(instruction) is Damage and instruction.kind == expected_kind and instruction.spell_bonus_multiplier == 1)
+        if (not valid_instruction or
                 instruction.source_id != split_quote.source.entity_id or instruction.amount != 1 or
-                instruction.spell_bonus_multiplier != 1 or from_lifesteal):
-            raise ResolutionError('Internal split linkage requires exactly its original damage unit')
+                from_lifesteal):
+            raise ResolutionError('Internal split linkage requires exactly its original typed health unit')
     elif source_packet is not None:
         split_quote = source_packet.split_quote
     if split_quote is not None:

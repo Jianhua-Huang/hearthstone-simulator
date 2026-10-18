@@ -9976,6 +9976,7 @@ class GameState:
     resurrection_quantity_bodies: list = field(default_factory=list)
     next_split_damage_root_id: int = 1
     split_damage_history: list = field(default_factory=list)
+    split_healing_history: list = field(default_factory=list)
     next_hero_lethal_id: int = 1
     hero_lethal_roots: list = field(default_factory=list)
     hero_lethal_history: list = field(default_factory=list)

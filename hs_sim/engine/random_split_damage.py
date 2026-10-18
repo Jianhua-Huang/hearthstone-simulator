@@ -6,14 +6,15 @@ still needs calibration. Native card recipes reuse these same interpreter tails.
 from copy import deepcopy
 from dataclasses import asdict, dataclass, fields, replace
 import json, random
-from .effects import Damage, Effect, RequestChoice, _integer, _player
+from .effects import Damage, Heal, Effect, RequestChoice, _integer, _player
 from .errors import ResolutionError
-from .model import (AbilityInstance, CardType, DamageKind, GameState, Keyword,
+from .model import (AbilityInstance, CardType, DamageKind, GameState, HealingKind, HealthFlow, Keyword,
     PlayerEffect, SpellCastRecord, SpellSchool, Zone, _name)
 from .resource_operations import SourceAllocationFact
 
 PROFILE = 'spell_bonus_once_unit_packets'
 NON_SPELL_PROFILE = 'non_spell_unit_packets'
+HEALING_PROFILE = 'spell_healing_immune_base_units_live_health_rules'
 
 @dataclass(frozen=True)
 class SplitDamageScope:
@@ -56,6 +57,56 @@ class RandomSplitDamage(Effect):
         else: raise ValueError('Unsupported whole split profile')
         for name in ('on_result','on_complete'):
             if getattr(self,name) is not None: _name(getattr(self,name),'split callback')
+
+@dataclass(frozen=True)
+class RandomSplitHealing(Effect):
+    """Immune original healing units; health rules own each actual packet."""
+    player_id: int
+    cast_id: int
+    source_id: int
+    amount: int
+    scope: SplitDamageScope = SplitDamageScope('friendly')
+    on_result: str | None = None
+    on_complete: str | None = None
+    profile: str = HEALING_PROFILE
+
+    @property
+    def kind(self): return HealingKind.SPELL
+
+    @property
+    def spell_bonus_multiplier(self): return 0
+
+    def __post_init__(self):
+        _player(self.player_id); _integer(self.cast_id, 'healing split CAST', 1)
+        _integer(self.source_id, 'healing split source', 1); _integer(self.amount, 'base healing units', 0)
+        if self.profile != HEALING_PROFILE or type(self.scope) is not SplitDamageScope:
+            raise ValueError('Unsupported healing split declaration')
+        self.scope.__post_init__()
+        if self.scope != SplitDamageScope('friendly'):
+            raise ValueError('Healing split requires ordinary friendly characters')
+        for name in ('on_result', 'on_complete'):
+            if getattr(self, name) is not None: _name(getattr(self, name), 'healing split callback')
+
+
+def spell_request(request):
+    return request.profile in (PROFILE, HEALING_PROFILE)
+
+
+def healing_request(request):
+    return type(request) is RandomSplitHealing
+
+
+def history(state):
+    return tuple(sorted((*state.split_damage_history, *state.split_healing_history), key=lambda r: r.id))
+
+
+def history_field(request):
+    return 'split_healing_history' if healing_request(request) else 'split_damage_history'
+
+
+def closing_kind(root):
+    return 'split_healing_closed' if healing_request(root.request) else 'split_damage_closed'
+
 
 @dataclass(frozen=True)
 class SplitBonusContribution:
@@ -177,7 +228,7 @@ class SplitPacketReceipt:
 class SplitDamageRoot:
     id: int
     parent_id: int | None
-    request: RandomSplitDamage
+    request: RandomSplitDamage | RandomSplitHealing
     quote: SplitBudgetQuote
     packets: tuple[SplitPacketReceipt, ...] = ()
     empty_selection: SplitSelection | None = None
@@ -189,12 +240,14 @@ class SplitDamageRoot:
         if self.parent_id is not None:
             _integer(self.parent_id,'split parent',1)
             if self.parent_id >= self.id: raise ValueError('Split parent must precede child')
-        if type(self.request) is not RandomSplitDamage or type(self.quote) is not SplitBudgetQuote:
+        expected = RandomSplitHealing if type(self) is SplitHealingRoot else RandomSplitDamage
+        if (type(self) not in (SplitDamageRoot, SplitHealingRoot) or
+                type(self.request) is not expected or type(self.quote) is not SplitBudgetQuote):
             raise ValueError('Split root requires full original request and budget quote')
         self.request.__post_init__(); self.quote.__post_init__()
         if self.request.spell_bonus_multiplier==0 and(self.quote.contributions or self.quote.spell_bonus):
             raise ValueError('Immune split budget cannot include Spell Damage contributions')
-        spell = self.request.profile == PROFILE
+        spell = spell_request(self.request)
         if (self.quote.budget != self.request.amount+self.quote.spell_bonus or
                 self.request.source_id != self.quote.source.entity_id or
                 spell and (self.quote.cast is None or (self.request.cast_id,self.request.player_id) !=
@@ -226,9 +279,14 @@ class SplitDamageRoot:
             raise ValueError('Split completion and reason differ')
 
 @dataclass(frozen=True)
+class SplitHealingRoot(SplitDamageRoot):
+    """Separate healing history, sharing the original split interpreter."""
+
+
+@dataclass(frozen=True)
 class SplitAcceptanceProof:
     state: GameState
-    request: RandomSplitDamage
+    request: RandomSplitDamage | RandomSplitHealing
     quote: SplitBudgetQuote
 
 @dataclass(frozen=True)
@@ -264,7 +322,7 @@ class FinishRandomSplitRoot(Effect):
 
 CONTROL=(DeliverSplitPacket,FinishSplitPacket,FinishRandomSplitRoot)
 
-def split_candidates(state,registry,player_id,scope):
+def split_candidates(state,registry,player_id,scope, *, injured_only=False):
     _player(player_id)
     if type(scope) is not SplitDamageScope: raise ValueError('Expected typed split scope')
     scope.__post_init__(); rows=[]
@@ -274,6 +332,7 @@ def split_candidates(state,registry,player_id,scope):
             e=state.entities[entity_id]
             if (e.kind not in scope.kinds or not e.active or not e.is_character or e.doomed or e.health<=0 or
                     e.zone!=(Zone.HERO if e.kind==CardType.HERO else Zone.BOARD)): continue
+            if injured_only and e.health >= e.max_health: continue
             registry.card(e.card_id)
             rows.append(SplitCandidate(SourceAllocationFact.capture(state,e),e.health))
     return tuple(sorted(rows,key=lambda r:r.allocation.entity_id))
@@ -306,7 +365,7 @@ def quote_budget(state,registry,request,root_action,event_cursor):
 
 def root_record(state,root_id):
     _integer(root_id,'split root lookup',1)
-    r=next((r for r in state.split_damage_history if r.id==root_id),None)
+    r=next((r for r in history(state) if r.id==root_id),None)
     if r is None: raise ValueError('Unknown original split root')
     return r
 
@@ -314,13 +373,14 @@ def root_record(state,root_id):
 def closed_root(state,event):
     """The actual completed root for a callback, never a global death delta."""
     from .model import Event
-    if type(event)is not Event or event.kind!='split_damage_closed':
+    if type(event)is not Event or event.kind not in ('split_damage_closed', 'split_healing_closed'):
         raise ValueError('Split result requires its original completion event')
     data=dict(event.data)
     if len(event.data)!=1 or set(data)!={'root'} or type(data['root'])is not str:
         raise ValueError('Split completion lost its original complete receipt')
-    rows={'split_damage_history':[json.loads(data['root'])]};rows_from_dict(rows)
-    root=rows['split_damage_history'][0]
+    field = 'split_healing_history' if event.kind == 'split_healing_closed' else 'split_damage_history'
+    rows={field:[json.loads(data['root'])]};rows_from_dict(rows)
+    root=rows[field][0]
     if (root!=root_record(state,root.id) or not root.completed or root.interrupted or
             (event.source_id,event.player_id)!=(root.request.source_id,root.request.player_id)):
         raise ValueError('Split callback borrowed an uncompleted or unrelated root')
@@ -343,15 +403,17 @@ def killed_minions(state,event):
 
 def update(state,old,**values):
     new=replace(old,**values);new.__post_init__()
-    state.split_damage_history[state.split_damage_history.index(old)]=new
+    rows = getattr(state, history_field(old.request))
+    rows[rows.index(old)]=new
     return new
 
 def begin(r,request):
     original=deepcopy(r.state)
     quote=quote_budget(original,r.registry,request,r.root_action_number,len(r.game._events))
-    parent=next((x.id for x in reversed(r.state.split_damage_history) if not x.completed and not x.interrupted),None)
-    root=SplitDamageRoot(r.state.next_split_damage_root_id,parent,request,quote)
-    root.__post_init__();r.state.next_split_damage_root_id+=1;r.state.split_damage_history.append(root)
+    parent=next((x.id for x in reversed(history(r.state)) if not x.completed and not x.interrupted),None)
+    cls = SplitHealingRoot if healing_request(request) else SplitDamageRoot
+    root=cls(r.state.next_split_damage_root_id,parent,request,quote)
+    root.__post_init__();r.state.next_split_damage_root_id+=1;getattr(r.state,history_field(request)).append(root)
     proof=SplitAcceptanceProof(original,request,quote)
     return ((DeliverSplitPacket(root.id,1),) if quote.budget else ())+(FinishRandomSplitRoot(root.id,proof),)
 
@@ -370,11 +432,11 @@ def packet_source(state,registry,link):
 
 
 def source_kind(request):
-    return CardType.SPELL if request.kind==DamageKind.SPELL else CardType.MINION if request.kind==DamageKind.MINION_ABILITY else CardType.LOCATION
+    return CardType.SPELL if spell_request(request) else CardType.MINION if request.kind==DamageKind.MINION_ABILITY else CardType.LOCATION
 
 
 def unit_source(state,request):
-    if request.profile == PROFILE:return None,()
+    if spell_request(request):return None,()
     source=state.entities.get(request.source_id)
     if source is None or source.kind!=source_kind(request):
         raise ResolutionError('Non-spell split unit lost its actual damage source kind')
@@ -387,7 +449,8 @@ def deliver(r,effect):
     if (root.completed or root.interrupted or effect.index!=len(root.packets)+1 or
             effect.index>root.quote.budget or any(not p.completed for p in root.packets)):
         raise ResolutionError('Split delivery duplicated or overtook original packet')
-    window=deepcopy(r.state);pool=split_candidates(window,r.registry,root.request.player_id,root.request.scope)
+    window=deepcopy(r.state);pool=split_candidates(window,r.registry,root.request.player_id,root.request.scope,
+        injured_only=healing_request(root.request))
     before=r.game._rng.getstate();chosen=r.game._rng.choice(pool) if pool else None
     selection=SplitSelection(pool,chosen,before,r.game._rng.getstate());selection.__post_init__()
     if chosen is None:
@@ -396,8 +459,10 @@ def deliver(r,effect):
     source,keywords=unit_source(window,root.request)
     update(r.state,root,packets=(*root.packets,SplitPacketReceipt(link,selection,source=source,source_keywords=keywords)))
     start=len(r.game._events)
-    calls=settle_health_batch(r,(Damage(chosen.allocation.entity_id,1,root.request.source_id,root.request.kind,
-        on_result=root.request.on_result),),split_link=link)
+    instruction = (Heal(chosen.allocation.entity_id,1,root.request.source_id,HealingKind.SPELL,
+        on_result=root.request.on_result) if healing_request(root.request) else
+        Damage(chosen.allocation.entity_id,1,root.request.source_id,root.request.kind,on_result=root.request.on_result))
+    calls=settle_health_batch(r,(instruction,),split_link=link)
     event_ids=tuple(e.sequence for e in r.game._events[start:] if
         (v:=health_result(e)) is not None and v.split_packet==link)
     if len(event_ids)!=1: raise ResolutionError('Allocated split unit lost its unique health result')
@@ -416,7 +481,8 @@ def validate_packet_proof(proof,registry):
     if proof.index!=len(old.packets)+1 or any(not p.completed for p in old.packets):
         raise ValueError('Packet proof differs from original ordered allocated prefix')
     proof.selection.__post_init__()
-    if split_candidates(proof.state,registry,old.request.player_id,old.request.scope)!=proof.selection.candidates:
+    if split_candidates(proof.state,registry,old.request.player_id,old.request.scope,
+            injured_only=healing_request(old.request))!=proof.selection.candidates:
         raise ValueError('Split selection truncated or changed its complete original candidate pool')
 
 
@@ -442,7 +508,7 @@ def finish_root(r,effect):
         raise ResolutionError('Split root finished before its original complete packet tails')
     reason='exhausted' if len(root.packets)==root.quote.budget else 'empty_pool'
     root=update(r.state,root,completed=True,reason=reason)
-    event=r.emit('split_damage_closed',source_id=root.request.source_id,player_id=root.request.player_id,
+    event=r.emit(closing_kind(root),source_id=root.request.source_id,player_id=root.request.player_id,
         root=json.dumps(asdict(root),ensure_ascii=False,sort_keys=True,separators=(',',':')),_capture=False)
     return (r.call(root.request.on_complete,root.request.source_id,root.request.player_id,event=event),) if root.request.on_complete else ()
 
@@ -458,15 +524,22 @@ def reject_choice_control(options):
 def validate_state(state,registry):
     _integer(state.next_split_damage_root_id,'split allocator',1)
     if type(state.split_damage_history) is not list: raise ValueError('Split history must be a list')
+    if type(state.split_healing_history) is not list: raise ValueError('Split healing history must be a list')
+    if (any(type(r) is not SplitDamageRoot for r in state.split_damage_history) or
+            any(type(r) is not SplitHealingRoot for r in state.split_healing_history)):
+        raise ValueError('Damage and healing split histories cannot borrow each other roots')
+    for rows in (state.split_damage_history, state.split_healing_history):
+        ids = [r.id for r in rows]
+        if ids != sorted(set(ids)):
+            raise ValueError('Split history must keep its original ordered unique roots')
     previous=0;known={}
-    for root in state.split_damage_history:
-        if type(root) is not SplitDamageRoot: raise ValueError('Split history needs typed roots')
+    for root in history(state):
         root.__post_init__()
         if not previous<root.id<state.next_split_damage_root_id: raise ValueError('Split root exceeds its allocation domain')
         if root.parent_id is not None and root.parent_id not in known: raise ValueError('Split history lost its original parent')
         validate_compact_facts(state,registry,root)
         from .spell_casts import cast_record
-        if root.request.profile == PROFILE:
+        if spell_request(root.request):
             actual_cast=cast_record(state,root.request.cast_id)
             if replace(actual_cast,completed=False,interrupted=False)!=root.quote.cast:
                 raise ValueError('Split quote differs from its real allocated original CAST record')
@@ -483,7 +556,7 @@ def validate_state(state,registry):
         previous=root.id;known[root.id]=root
 
 def validate_boundary(game):
-    pending=[r for r in game._state.split_damage_history if not r.completed and not r.interrupted]
+    pending=[r for r in history(game._state) if not r.completed and not r.interrupted]
     queue=(*game._frame.prefix,*game._frame.continuation) if game._frame else ()
     if game._frame is not None: reject_choice_control(game._frame.options)
     if any(type(w) in CONTROL and w.root_id not in {r.id for r in pending} for w in queue):
@@ -494,7 +567,7 @@ def validate_boundary(game):
     for tail in tails:
         validate_acceptance(tail.proof,game.registry);root=root_record(game._state,tail.root_id)
         if root.request!=tail.proof.request or root.quote!=tail.proof.quote: raise ValueError('Split tail borrowed original root budget')
-        old_parent=next((x.id for x in reversed(tail.proof.state.split_damage_history) if not x.completed and not x.interrupted),None)
+        old_parent=next((x.id for x in reversed(history(tail.proof.state)) if not x.completed and not x.interrupted),None)
         if tail.root_id!=tail.proof.state.next_split_damage_root_id or root.parent_id!=old_parent:
             raise ValueError('Split root changed its original allocator or accepting parent')
     for root in pending:
@@ -513,7 +586,7 @@ def validate_boundary(game):
             raise ValueError('Split root lost its ordered next delivery')
 
 def interrupt(r,queue):
-    pending=[x for x in r.state.split_damage_history if not x.completed and not x.interrupted]
+    pending=[x for x in history(r.state) if not x.completed and not x.interrupted]
     tails=[w for w in queue if type(w) is FinishRandomSplitRoot]
     if [w.root_id for w in tails]!=[x.id for x in reversed(pending)]: raise ResolutionError('Terminal split lost complete original tails')
     for tail in tails:
@@ -521,20 +594,21 @@ def interrupt(r,queue):
         if root.request!=tail.proof.request or root.quote!=tail.proof.quote:
             raise ResolutionError('Terminal split borrowed another accepted root')
         root=update(r.state,root,interrupted=True,reason='terminal')
-        r.emit('split_damage_closed',source_id=root.request.source_id,player_id=root.request.player_id,
+        r.emit(closing_kind(root),source_id=root.request.source_id,player_id=root.request.player_id,
             root=json.dumps(asdict(root),ensure_ascii=False,sort_keys=True,separators=(',',':')),_capture=False)
 
 def validate_closed_events(game):
     """The complete outer event domain, never a captured state/earlier proof."""
     from .health_outcomes import health_result
     state,registry,events=game._state,game.registry,game._events
-    current={r.id:r for r in state.split_damage_history};closed={};closing_sequence={}
+    current={r.id:r for r in history(state)};closed={};closing_sequence={}
     for event in events:
-        if event.kind!='split_damage_closed': continue
+        if event.kind not in ('split_damage_closed', 'split_healing_closed'): continue
         data=dict(event.data)
         if len(event.data)!=1 or set(data)!={'root'} or type(data['root']) is not str:
             raise ValueError('Closed split event requires one compact original root')
-        rows={'split_damage_history':[json.loads(data['root'])]};rows_from_dict(rows);root=rows['split_damage_history'][0]
+        field = 'split_healing_history' if event.kind == 'split_healing_closed' else 'split_damage_history'
+        rows={field:[json.loads(data['root'])]};rows_from_dict(rows);root=rows[field][0]
         root.__post_init__()
         if (not(root.completed or root.interrupted) or root.id in closed or root.id>=state.next_split_damage_root_id or
                 (event.source_id,event.player_id)!=(root.request.source_id,root.request.player_id) or
@@ -565,10 +639,11 @@ def validate_closed_events(game):
         root=all_roots[link.root_id]
         if link.index>len(root.packets): raise ValueError('Health result references an unallocated split packet')
         packet=root.packets[link.index-1];source=packet.source or root.quote.source;selected=packet.selection.selected.allocation
-        controller=root.request.player_id if root.request.profile==PROFILE else source.controller
+        controller=root.request.player_id if spell_request(root.request) else source.controller
         if ((result.source_id,result.source_card_id,result.source_controller,result.source_zone_epoch,result.source_entered_order)!=
                 (source.entity_id,source.card_id,controller,source.zone_epoch,source.entered_order) or
                 result.damage_kind!=root.request.kind.value or
+                result.original_flow!=(HealthFlow.HEALING.value if healing_request(root.request) else HealthFlow.DAMAGE.value) or
                 root.request.profile==NON_SPELL_PROFILE and result.spell_bonus!=0 or
                 result.original_target_id!=selected.entity_id or event.sequence not in packet.result_events or
                 event.sequence<=root.quote.event_cursor or link.root_id in closing_sequence and event.sequence>=closing_sequence[link.root_id]):
@@ -651,9 +726,10 @@ def rows_from_dict(value):
             c=_row(v,SplitCandidate);c['allocation']=allocation(c['allocation']);return SplitCandidate(**c)
         row['candidates']=tuple(candidate(v) for v in row['candidates']);row['selected']=candidate(row['selected']) if row['selected'] is not None else None
         row['rng_before']=end_turn_rng_from_json(row['rng_before']);row['rng_after']=end_turn_rng_from_json(row['rng_after']);return SplitSelection(**row)
-    result=[]
-    for v in _list(value['split_damage_history'],'split history'):
-        row=_row(v,SplitDamageRoot);request=_row(row['request'],RandomSplitDamage);request['scope']=scope(request['scope']);request['kind']=DamageKind(request['kind']);row['request']=RandomSplitDamage(**request)
+    def root(v, root_type, request_type):
+        row=_row(v,root_type);request=_row(row['request'],request_type);request['scope']=scope(request['scope'])
+        if request_type is RandomSplitDamage:request['kind']=DamageKind(request['kind'])
+        row['request']=request_type(**request)
         quote=_row(row['quote'],SplitBudgetQuote)
         quote['cast']=_spell_cast_from_dict(quote['cast']) if quote['cast'] is not None else None;quote['source']=allocation(quote['source']);quote['source_keywords']=tuple(Keyword(k) for k in quote['source_keywords'])
         if quote['school'] is not None:quote['school']=SpellSchool(quote['school'])
@@ -673,12 +749,16 @@ def rows_from_dict(value):
             p=_row(v,SplitPacketReceipt);p['link']=SplitPacketLink(**_row(p['link'],SplitPacketLink));p['selection']=selection(p['selection']);p['result_events']=tuple(p['result_events']);p['source']=allocation(p['source']) if p['source'] is not None else None;p['source_keywords']=tuple(Keyword(k) for k in p['source_keywords']);packets.append(SplitPacketReceipt(**p))
         row['packets']=tuple(packets)
         if row['empty_selection'] is not None:row['empty_selection']=selection(row['empty_selection'])
-        result.append(SplitDamageRoot(**row))
-    value['split_damage_history']=result
+        return root_type(**row)
+    for field, root_type, request_type in (
+            ('split_damage_history',SplitDamageRoot,RandomSplitDamage),
+            ('split_healing_history',SplitHealingRoot,RandomSplitHealing)):
+        if field in value:
+            value[field]=[root(v,root_type,request_type) for v in _list(value[field],'split history')]
 
 def register(mechanics):
-    for effect,handler in ((RandomSplitDamage,begin),(DeliverSplitPacket,deliver),(FinishSplitPacket,finish_packet),(FinishRandomSplitRoot,finish_root)):
+    for effect,handler in ((RandomSplitDamage,begin),(RandomSplitHealing,begin),(DeliverSplitPacket,deliver),(FinishSplitPacket,finish_packet),(FinishRandomSplitRoot,finish_root)):
         mechanics.register(effect,handler)
     for kind in (SplitDamageScope,SplitBonusContribution,SplitBudgetQuote,SplitCandidate,SplitSelection,
-            SplitPacketLink,SplitPacketReceipt,SplitDamageRoot,SplitAcceptanceProof,SplitPacketProof):
+            SplitPacketLink,SplitPacketReceipt,SplitDamageRoot,SplitHealingRoot,SplitAcceptanceProof,SplitPacketProof):
         mechanics.register_payload_type(kind)
