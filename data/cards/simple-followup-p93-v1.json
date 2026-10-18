@@ -1,0 +1,2707 @@
+{
+  "schema": 1,
+  "batch": "P93",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "GVG_082",
+        "dbf_id": 2050,
+        "name": "发条侏儒",
+        "name_en": "Clockwork Gnome",
+        "text": "<b>亡语：</b>将一张<b>零件</b>牌置入你的手牌。",
+        "text_en": "<b>Deathrattle:</b> Add a <b>Spare Part</b> card to your hand.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "388",
+              "name": "SPARE_PART",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "357bebfe923385f88f38343223a67f72c1bf6d19dcc42e646a26f4277d4b2052",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "GVG_082",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ICC_092",
+        "dbf_id": 42773,
+        "name": "阿彻鲁斯老兵",
+        "name_en": "Acherus Veteran",
+        "text": "<b>战吼：</b>使一个友方随从获得+1攻击力。",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion +1 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1001,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "TECH_LEVEL": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          }
+        ]
+      },
+      "record_sha256": "b429f29fe86fb798565cbf568e105d248e0c45ee958f2689928af955e4061321",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "ICC_092",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SW_067",
+        "dbf_id": 64715,
+        "name": "监狱守卫",
+        "name_en": "Stockades Guard",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>嘲讽</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Give a\nfriendly minion <b>Taunt</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Aaron Su"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d55f3ebfb38bb669923e119a402dffe8fa012bb632be77104a73d51bafac02eb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "SW_067",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BOT_079",
+        "dbf_id": 48025,
+        "name": "可靠的灯泡",
+        "name_en": "Faithful Lumi",
+        "text": "<b>战吼：</b>使一个友方机械获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> Give a friendly Mech +1/+1.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zero"
+          }
+        ]
+      },
+      "record_sha256": "b237b6c7fd45ff8da0b3a147c621f62a4d5b64fa23ee7476242848c40fa0ab0d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BOT_079",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_963",
+        "dbf_id": 74890,
+        "name": "鱼排斗士",
+        "name_en": "Filletfighter",
+        "text": "<b>战吼：</b>造成1点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage.",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "5aace2663e06fcd4298b22ae3dd2bfeab7781af51a7a6eda6fa822d75aa15d2e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "TSC_963",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "YOP_032",
+        "dbf_id": 61970,
+        "name": "护甲商贩",
+        "name_en": "Armor Vendor",
+        "text": "<b>战吼：</b>使每个英雄获得4点护甲值。",
+        "text_en": "<b>Battlecry:</b> Give 4 Armor to_each hero.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Maria Trepalina"
+          }
+        ]
+      },
+      "record_sha256": "78accf3d17ff3ea63ce70e69a5575eb3599f3ddd9b1e9d8a52f5e227f8c4be40",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "YOP_032",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "REV_338",
+        "dbf_id": 78373,
+        "name": "泥仆员工",
+        "name_en": "Dredger Staff",
+        "text": "<b>战吼：</b>使你手牌中的随从牌获得+1生命值。",
+        "text_en": "[x]<b>Battlecry:</b> Give minions \nin your hand +1 Health.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "138a2085154d7f4e2791f8e3126dd5752e99600728b87ab6f8e7a4eaf862b485",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "REV_338",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_001",
+        "dbf_id": 2151,
+        "name": "重型护甲",
+        "name_en": "Armor Plating",
+        "text": "使一个随从获得+1生命值。",
+        "text_en": "Give a minion +1 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          }
+        ]
+      },
+      "record_sha256": "3fb61bcc1b355193edd430889442540c99d095aa07e05573d632edd11f4ccc9f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_001",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_002",
+        "dbf_id": 2152,
+        "name": "时间回溯装置",
+        "name_en": "Time Rewinder",
+        "text": "将一个友方随从移回你的手牌。",
+        "text_en": "Return a friendly minion to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutthapon Petthai"
+          }
+        ]
+      },
+      "record_sha256": "bd4442c130d77fa5a1a059d10c9b5d1ab9c9d951f4f4da15ef6d5732334477f7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_002",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_003",
+        "dbf_id": 2153,
+        "name": "生锈的号角",
+        "name_en": "Rusty Horn",
+        "text": "使一个随从获得<b>嘲讽</b>。",
+        "text_en": "Give a minion <b>Taunt</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peerasak Senalai"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6c7eac6a3fa8303000bc0ee7416552c565f606dfa7c8ac13759fc1dd46a0ab9d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_003",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_004",
+        "dbf_id": 2154,
+        "name": "隐秘力场",
+        "name_en": "Finicky Cloakfield",
+        "text": "直到你的下个回合，使一个友方随从获得<b>潜行</b>。",
+        "text_en": "Give a friendly minion <b>Stealth</b> until your next turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c4427bd14fba42fa0b8188977bf49e49983183d81ae49609d29ee7f40834ebf6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_004",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_005",
+        "dbf_id": 2155,
+        "name": "紧急冷冻剂",
+        "name_en": "Emergency Coolant",
+        "text": "<b>冻结</b>一个随从。",
+        "text_en": "<b>Freeze</b> a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "FREEZE": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peerasak Senalai"
+          }
+        ]
+      },
+      "record_sha256": "a0cc326ec3d93ddbe69948777d45a74216dd4dda023b129b52d62926c4b22ff9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_006",
+        "dbf_id": 2156,
+        "name": "形体改造仪",
+        "name_en": "Reversing Switch",
+        "text": "使一个随从的攻击力和生命值\n互换。",
+        "text_en": "Swap a minion's Attack and Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutthapon Petthai"
+          }
+        ]
+      },
+      "record_sha256": "176bd3a3da4cbbd8fa2cb21848fc0d17ef1dc4440537b29a710da8b98b5f7fbe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_006",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "PART_007",
+        "dbf_id": 2150,
+        "name": "旋风之刃",
+        "name_en": "Whirling Blades",
+        "text": "使一个随从获得+1攻击力。",
+        "text_en": "Give a minion +1 Attack.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          }
+        ]
+      },
+      "record_sha256": "f7be3453c9147e37a938f0eaa503fe79b1f6fae3fe179b237b31552ab1c33332",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "PART_007",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "PART_001e",
+        "dbf_id": 2158,
+        "name": "重型护甲",
+        "name_en": "Armor Plating",
+        "text": "+1生命值。",
+        "text_en": "+1 Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "de68715d6a6cfbe49b7cc109d968680d3b7fd0626b56849438c5262ff7dc402c"
+    },
+    {
+      "record": {
+        "id": "PART_004e",
+        "dbf_id": 2372,
+        "name": "隐形",
+        "name_en": "Cloaked",
+        "text": "获得潜行直到你的下个回合。",
+        "text_en": "Stealthed until your next turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d2594d47321163c02070e6df0f29c65a4ea572d248545d26b1dfcf718cbaa2c0"
+    },
+    {
+      "record": {
+        "id": "PART_006a",
+        "dbf_id": 2405,
+        "name": "形体改造",
+        "name_en": "Switched",
+        "text": "攻击力和生命值被形体改造仪互换。",
+        "text_en": "Attack and Health have been swapped by Reversing Switch.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "884cb3781c6b5aff924b86166b39108d54a20f54f37851a6114fbffc481e37fe"
+    },
+    {
+      "record": {
+        "id": "PART_007e",
+        "dbf_id": 2160,
+        "name": "旋风之刃",
+        "name_en": "Whirling Blades",
+        "text": "+1攻击力。",
+        "text_en": "+1 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7d8d987274c1fb967317a577b03be8f6264b18e077aad06bd48786dec55f0e7a"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "GVG_082",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2050-zh_CN.json",
+      "response_sha256": "473fe8c5ea671663eb6c82022641ef7c999a3ec0ab6b10dc1405c5977867df90",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2050&locale=zh_CN",
+      "face": {
+        "id": 2050,
+        "collectible": 1,
+        "slug": "2050-clockwork-gnome",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "发条侏儒",
+        "text": "<b>亡语：</b>将一张<b>零件</b>牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/849d1d3add0827cf714cb329cc7d5f761570667aa525430b39f61558263d46bb.png",
+        "imageGold": "",
+        "flavorText": "发条侏儒总是会问：“现在几点？”因为他需要有人定时帮他旋紧发条。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5397f9b213dfccc5c2b754c8f5567d914b2c9830a69146e737bbc709d82266af.jpg",
+        "childIds": [
+          2150,
+          2151,
+          2156,
+          2153,
+          2155,
+          2154,
+          2152
+        ],
+        "keywordIds": [
+          12,
+          19
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2050&locale=zh_CN",
+        "sha256": "473fe8c5ea671663eb6c82022641ef7c999a3ec0ab6b10dc1405c5977867df90",
+        "bytes": 878,
+        "observed_at": "2026-10-18T07:07:52.806583+00:00"
+      }
+    },
+    {
+      "card_id": "GVG_082",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2050-en_US.json",
+      "response_sha256": "169e0ca4782b1305193d0cf9d1e0d7849f62d4a7ac92d8dcf5c457abef713546",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2050&locale=en_US",
+      "face": {
+        "id": 2050,
+        "collectible": 1,
+        "slug": "2050-clockwork-gnome",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Clockwork Gnome",
+        "text": "<b>Deathrattle:</b> Add a <b>Spare Part</b> card to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/687b07f38018ab9b701a88b77a9ea4a2a92c25581674558454a16f86c69f52cb.png",
+        "imageGold": "",
+        "flavorText": "Clockwork gnomes are always asking what time it is.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5397f9b213dfccc5c2b754c8f5567d914b2c9830a69146e737bbc709d82266af.jpg",
+        "childIds": [
+          2150,
+          2151,
+          2156,
+          2153,
+          2155,
+          2154,
+          2152
+        ],
+        "keywordIds": [
+          12,
+          19
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2050&locale=en_US",
+        "sha256": "169e0ca4782b1305193d0cf9d1e0d7849f62d4a7ac92d8dcf5c457abef713546",
+        "bytes": 836,
+        "observed_at": "2026-10-18T07:07:52.329136+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_092",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\42773-zh_CN.json",
+      "response_sha256": "ee0334955d543fb2c9fcf54ccc78cac940e6105870a91ee5efec7754a1c145e6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42773&locale=zh_CN",
+      "face": {
+        "id": 42773,
+        "collectible": 1,
+        "slug": "42773-acherus-veteran",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Luke Mancini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "阿彻鲁斯老兵",
+        "text": "<b>战吼：</b>使一个友方随从获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30bfc186186a6fff1e3be7620fbabaad902f55a5ae926999e2be8f4bbbaf12e1.png",
+        "imageGold": "",
+        "flavorText": "这是我的符文剑。有很多类似的符文剑，但是这把符文剑是我的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27c367d387ece3595093dc59e590fa3a8047679423f621f053c7b0fb88aa45fe.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          95634
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42773&locale=zh_CN",
+        "sha256": "ee0334955d543fb2c9fcf54ccc78cac940e6105870a91ee5efec7754a1c145e6",
+        "bytes": 847,
+        "observed_at": "2026-10-18T07:07:52.296229+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_092",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\42773-en_US.json",
+      "response_sha256": "396f9cf2a86406f35dca17de11c40237d938d5cc86bb05e79af238345f417776",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42773&locale=en_US",
+      "face": {
+        "id": 42773,
+        "collectible": 1,
+        "slug": "42773-acherus-veteran",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Luke Mancini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Acherus Veteran",
+        "text": "<b>Battlecry:</b> Give a friendly minion +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37d9e0a759daa8321ef9d98e8c60d02e57abd33d53090d1eced7e1b5a868d9bc.png",
+        "imageGold": "",
+        "flavorText": "This is my Runeblade. There are many like it but this one is mine.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27c367d387ece3595093dc59e590fa3a8047679423f621f053c7b0fb88aa45fe.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          95634
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42773&locale=en_US",
+        "sha256": "396f9cf2a86406f35dca17de11c40237d938d5cc86bb05e79af238345f417776",
+        "bytes": 817,
+        "observed_at": "2026-10-18T07:07:52.746446+00:00"
+      }
+    },
+    {
+      "card_id": "SW_067",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\64715-zh_CN.json",
+      "response_sha256": "49667d1cd616bae03c8a4c6648097bc455f541a4197cb6007f525d08d55660e3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=64715&locale=zh_CN",
+      "face": {
+        "id": 64715,
+        "collectible": 1,
+        "slug": "64715-stockades-guard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Aaron Su",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "监狱守卫",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59709f578fe23d50639f10be7738e6d43fc6d4694b4815d8dda87404dfbf6d39.png",
+        "imageGold": "",
+        "flavorText": "“你，过来！你要用你的生命来保卫这座监狱。我要休假了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/869a1d619b980822abc0749389734d5f7a74ed136c35a7a63217ee82fb8ddb24.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=64715&locale=zh_CN",
+        "sha256": "49667d1cd616bae03c8a4c6648097bc455f541a4197cb6007f525d08d55660e3",
+        "bytes": 797,
+        "observed_at": "2026-10-18T07:07:53.222686+00:00"
+      }
+    },
+    {
+      "card_id": "SW_067",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\64715-en_US.json",
+      "response_sha256": "a15846c2bb0f187c0eecf0b806e68f3afac75002f69933dfb5db8ed3feb541a4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=64715&locale=en_US",
+      "face": {
+        "id": 64715,
+        "collectible": 1,
+        "slug": "64715-stockades-guard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Aaron Su",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Stockades Guard",
+        "text": "<b>Battlecry:</b> Give a friendly minion <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c683d34686ff166788d372ed0b702374b3ff91cf6ae48145efc83f9a8b058b4.png",
+        "imageGold": "",
+        "flavorText": "\"You there! Defend this prison with your life. It's my break.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/869a1d619b980822abc0749389734d5f7a74ed136c35a7a63217ee82fb8ddb24.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=64715&locale=en_US",
+        "sha256": "a15846c2bb0f187c0eecf0b806e68f3afac75002f69933dfb5db8ed3feb541a4",
+        "bytes": 775,
+        "observed_at": "2026-10-18T07:07:53.574106+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_079",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\48025-zh_CN.json",
+      "response_sha256": "ca956ae32f9e5a4c55567d908846699a98d4a902284b1c665e27082c8dde7105",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=48025&locale=zh_CN",
+      "face": {
+        "id": 48025,
+        "collectible": 1,
+        "slug": "48025-faithful-lumi",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Zero",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "可靠的灯泡",
+        "text": "<b>战吼：</b>使一个友方机械获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24ff8d58019ceeee71d3a73a9cbbfb11c404412afbfd1da979a5073457bb526c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/972c293277e629215f6d416d6e1ec5c086a96b34bd11a4af6e90d50b822d3874.png",
+        "flavorText": "小小灯泡，脑门锃亮；左摇右摆，晕头转向。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea8252ac6576ec06c977d93625e8bc6936155b855efc17a316b33d2e4f933378.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=48025&locale=zh_CN",
+        "sha256": "ca956ae32f9e5a4c55567d908846699a98d4a902284b1c665e27082c8dde7105",
+        "bytes": 896,
+        "observed_at": "2026-10-18T07:07:53.483975+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_079",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\48025-en_US.json",
+      "response_sha256": "9c80a514dc61b7f62d6dcc8d4e2e93094365952c5006efbbf5179e079f8557cd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=48025&locale=en_US",
+      "face": {
+        "id": 48025,
+        "collectible": 1,
+        "slug": "48025-faithful-lumi",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Zero",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Faithful Lumi",
+        "text": "<b>Battlecry:</b> Give a friendly Mech +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b6a021a4f261b01d3692634cdccfd0102a44c3a72d55a29726c4fbf523074f4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5fb81fd8f5d8ff965948a6b73020d043813f7a35fd9c0e6def6b3bc10026c40.png",
+        "flavorText": "They're a little light-headed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea8252ac6576ec06c977d93625e8bc6936155b855efc17a316b33d2e4f933378.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=48025&locale=en_US",
+        "sha256": "9c80a514dc61b7f62d6dcc8d4e2e93094365952c5006efbbf5179e079f8557cd",
+        "bytes": 858,
+        "observed_at": "2026-10-18T07:07:53.529387+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_963",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\74890-zh_CN.json",
+      "response_sha256": "87f1db6cb52aa6b876d09e7da6608d92bc64016cb26b561462f6314f34abe175",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=74890&locale=zh_CN",
+      "face": {
+        "id": 74890,
+        "collectible": 1,
+        "slug": "74890-filletfighter",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "鱼排斗士",
+        "text": "<b>战吼：</b>造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c8da5d6872c34b656fb34b3704ce674a9701b8acc4fa43cc0061af991e0d464.png",
+        "imageGold": "",
+        "flavorText": "你和她有几分熟？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a46b222cb246ddd3eafd00b15fbfc15d12df859b5888593a2cf6d551a46089b.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=74890&locale=zh_CN",
+        "sha256": "87f1db6cb52aa6b876d09e7da6608d92bc64016cb26b561462f6314f34abe175",
+        "bytes": 733,
+        "observed_at": "2026-10-18T07:07:53.946627+00:00"
+      }
+    },
+    {
+      "card_id": "TSC_963",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\74890-en_US.json",
+      "response_sha256": "c3ee5ee3cc94c0ce8ad90b63b32383994244eeffc11d5e582f70ed68956fbe2b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=74890&locale=en_US",
+      "face": {
+        "id": 74890,
+        "collectible": 1,
+        "slug": "74890-filletfighter",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Filletfighter",
+        "text": "<b>Battlecry:</b> Deal 1 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b13bda73df51d33bd7b3cd8741899e0c7877ec4b3216f1871c271427c9c95fe6.png",
+        "imageGold": "",
+        "flavorText": "\"What do you mean this isn't the meal you asked for? ! I made you a Fillet Minion!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a46b222cb246ddd3eafd00b15fbfc15d12df859b5888593a2cf6d551a46089b.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=74890&locale=en_US",
+        "sha256": "c3ee5ee3cc94c0ce8ad90b63b32383994244eeffc11d5e582f70ed68956fbe2b",
+        "bytes": 792,
+        "observed_at": "2026-10-18T07:07:54.352194+00:00"
+      }
+    },
+    {
+      "card_id": "YOP_032",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\61970-zh_CN.json",
+      "response_sha256": "1254da5395e60093f3415f0579352496800cfe875a14edbecca54e75ad18997f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=61970&locale=zh_CN",
+      "face": {
+        "id": 61970,
+        "collectible": 1,
+        "slug": "61970-armor-vendor",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "护甲商贩",
+        "text": "<b>战吼：</b>使每个英雄获得4点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/83be93c38571eb01e63758a5aa3013f5118577a7c136ac1ed0eaaaa8067bc8ca.png",
+        "imageGold": "",
+        "flavorText": "“一看您就是那种需要三套护甲的大客户，一套实用，一套备用，一套备用的备用。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/db1016099ab8bd7562cf187973dbd17da18707d02b2603ebea4d460a4cb81bdc.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          102223
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=61970&locale=zh_CN",
+        "sha256": "1254da5395e60093f3415f0579352496800cfe875a14edbecca54e75ad18997f",
+        "bytes": 847,
+        "observed_at": "2026-10-18T07:07:54.351552+00:00"
+      }
+    },
+    {
+      "card_id": "YOP_032",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\61970-en_US.json",
+      "response_sha256": "dc1aaceff0ea73338acc0af77b418641fa5740b5ef489d5b0f4b9a2d4392edbc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=61970&locale=en_US",
+      "face": {
+        "id": 61970,
+        "collectible": 1,
+        "slug": "61970-armor-vendor",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Armor Vendor",
+        "text": "<b>Battlecry:</b> Give 4 Armor to each hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/152a76d518ef2cbfebd25c640bd80f36e61fc8522c6145e032a1508429d4a355.png",
+        "imageGold": "",
+        "flavorText": "\"You look like the kind of person that would buy three sets of armor. One to wear, a spare, and a spare for the spare.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/db1016099ab8bd7562cf187973dbd17da18707d02b2603ebea4d460a4cb81bdc.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          102223
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=61970&locale=en_US",
+        "sha256": "dc1aaceff0ea73338acc0af77b418641fa5740b5ef489d5b0f4b9a2d4392edbc",
+        "bytes": 845,
+        "observed_at": "2026-10-18T07:07:54.280083+00:00"
+      }
+    },
+    {
+      "card_id": "REV_338",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\78373-zh_CN.json",
+      "response_sha256": "257601ccd0919115168302013e4c0070ba062e9eaefe2be3787698b615e21963",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78373&locale=zh_CN",
+      "face": {
+        "id": 78373,
+        "collectible": 1,
+        "slug": "78373-dredger-staff",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "泥仆员工",
+        "text": "<b>战吼：</b>使你手牌中的随从牌获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b1816e7d51a3794567ea4dd032d077990ea34caebf5a3d2f445e6ca9e6976f1.png",
+        "imageGold": "",
+        "flavorText": "泥仆员工手执泥仆的刀，说道：“泥仆向大帝敬礼！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0fdfedb7f8019eaf63d57c8550b472a130e8c10391a621d31307ece8edb1013.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          118089
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78373&locale=zh_CN",
+        "sha256": "257601ccd0919115168302013e4c0070ba062e9eaefe2be3787698b615e21963",
+        "bytes": 814,
+        "observed_at": "2026-10-18T07:07:54.669516+00:00"
+      }
+    },
+    {
+      "card_id": "REV_338",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\78373-en_US.json",
+      "response_sha256": "29d8c41c9c36e16fd20ca9890d79a830de2a3b1c26f02aaa4e1cc382548940dd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78373&locale=en_US",
+      "face": {
+        "id": 78373,
+        "collectible": 1,
+        "slug": "78373-dredger-staff",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Dredger Staff",
+        "text": "<b>Battlecry:</b> Give minions in your hand +1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fd7256acb033cacc2bd30f0c25d9909a362021fdf02d1a81a794b954ced7218.png",
+        "imageGold": "",
+        "flavorText": "The dredger staff held the dredger knife and said, \"Dredger bow before the Sire!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0fdfedb7f8019eaf63d57c8550b472a130e8c10391a621d31307ece8edb1013.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          118089
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78373&locale=en_US",
+        "sha256": "29d8c41c9c36e16fd20ca9890d79a830de2a3b1c26f02aaa4e1cc382548940dd",
+        "bytes": 817,
+        "observed_at": "2026-10-18T07:07:54.994401+00:00"
+      }
+    },
+    {
+      "card_id": "PART_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2151-zh_CN.json",
+      "response_sha256": "1e4c6c2776403334c69e10c4a23ff09e549602eba6416da402d8917bb0fcbe2f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2151&locale=zh_CN",
+      "face": {
+        "id": 2151,
+        "collectible": 0,
+        "slug": "2151-armor-plating",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "重型护甲",
+        "text": "使一个随从获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/244935f625dd9c16299c52a1ee1fe623da4e8ba38894c0445465945e42dba572.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2151&locale=zh_CN",
+        "sha256": "1e4c6c2776403334c69e10c4a23ff09e549602eba6416da402d8917bb0fcbe2f",
+        "bytes": 546,
+        "observed_at": "2026-10-18T07:07:55.183517+00:00"
+      }
+    },
+    {
+      "card_id": "PART_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2151-en_US.json",
+      "response_sha256": "a7baed318caad0210c9392b714def99165bac043673054f4230a62fd4b4ff47c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2151&locale=en_US",
+      "face": {
+        "id": 2151,
+        "collectible": 0,
+        "slug": "2151-armor-plating",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "Armor Plating",
+        "text": "Give a minion +1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5d6f75a17e7b7f7a921cdf63ef494502f5184cfc7094103f66d7cdea9096b74.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2151&locale=en_US",
+        "sha256": "a7baed318caad0210c9392b714def99165bac043673054f4230a62fd4b4ff47c",
+        "bytes": 536,
+        "observed_at": "2026-10-18T07:07:55.060146+00:00"
+      }
+    },
+    {
+      "card_id": "PART_002",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2152-zh_CN.json",
+      "response_sha256": "c30726d4d17d1e74ad0dd8695cb5cb6aac652a7db1e55cdaf24f658d7f0fd0d4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2152&locale=zh_CN",
+      "face": {
+        "id": 2152,
+        "collectible": 0,
+        "slug": "2152-time-rewinder",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutthapon Petthai",
+        "manaCost": 1,
+        "name": "时间回溯装置",
+        "text": "将一个友方随从移回你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e05da6cd480eaed80176cef828091014fe70a23006203fba41c241c849ba735.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2152&locale=zh_CN",
+        "sha256": "c30726d4d17d1e74ad0dd8695cb5cb6aac652a7db1e55cdaf24f658d7f0fd0d4",
+        "bytes": 551,
+        "observed_at": "2026-10-18T07:07:55.687906+00:00"
+      }
+    },
+    {
+      "card_id": "PART_002",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2152-en_US.json",
+      "response_sha256": "d15d41957968f29ca2ef32d61e0a45b76ceca70fc481e68941c1aa45e14590f0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2152&locale=en_US",
+      "face": {
+        "id": 2152,
+        "collectible": 0,
+        "slug": "2152-time-rewinder",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutthapon Petthai",
+        "manaCost": 1,
+        "name": "Time Rewinder",
+        "text": "Return a friendly minion to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64b715b69f802ebde1c12387d0d5bddd792f396b4b32b4ec67de9af6a9140d7d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2152&locale=en_US",
+        "sha256": "d15d41957968f29ca2ef32d61e0a45b76ceca70fc481e68941c1aa45e14590f0",
+        "bytes": 542,
+        "observed_at": "2026-10-18T07:07:56.202837+00:00"
+      }
+    },
+    {
+      "card_id": "PART_003",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2153-zh_CN.json",
+      "response_sha256": "10bd9f86aec99b16f9c3870edde6e92a46b91bf816a68f4baea0768a36be3b6a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2153&locale=zh_CN",
+      "face": {
+        "id": 2153,
+        "collectible": 0,
+        "slug": "2153-rusty-horn",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Peerasak Senalai",
+        "manaCost": 1,
+        "name": "生锈的号角",
+        "text": "使一个随从获得<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40167489362a489ce95cbd47fdec20a1cf5d5969beeb8768cdfe05369b653786.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2153&locale=zh_CN",
+        "sha256": "10bd9f86aec99b16f9c3870edde6e92a46b91bf816a68f4baea0768a36be3b6a",
+        "bytes": 556,
+        "observed_at": "2026-10-18T07:07:55.984285+00:00"
+      }
+    },
+    {
+      "card_id": "PART_003",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2153-en_US.json",
+      "response_sha256": "709b7f9c953e5ce5d8eaca169eb9a3719ddacfe8a86fa2febfb2ed8be76628a4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2153&locale=en_US",
+      "face": {
+        "id": 2153,
+        "collectible": 0,
+        "slug": "2153-rusty-horn",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Peerasak Senalai",
+        "manaCost": 1,
+        "name": "Rusty Horn",
+        "text": "Give a minion <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/366775caf39d019dafbffaae7d9f0b639a9fbc6f35ee1663568fcc6c7a283b6f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2153&locale=en_US",
+        "sha256": "709b7f9c953e5ce5d8eaca169eb9a3719ddacfe8a86fa2febfb2ed8be76628a4",
+        "bytes": 541,
+        "observed_at": "2026-10-18T07:07:55.890687+00:00"
+      }
+    },
+    {
+      "card_id": "PART_004",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2154-zh_CN.json",
+      "response_sha256": "173d9b9df46d1afae27c8bd02272eeb659a26c776885778812064f3e799d262a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2154&locale=zh_CN",
+      "face": {
+        "id": 2154,
+        "collectible": 0,
+        "slug": "2154-finicky-cloakfield",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "隐秘力场",
+        "text": "直到你的下个回合，使一个友方随从获得<b>潜行</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61ea215a74fcf52eab394c53a769ad0dac05862e1950e18c7c5752f47b08057c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2154&locale=zh_CN",
+        "sha256": "173d9b9df46d1afae27c8bd02272eeb659a26c776885778812064f3e799d262a",
+        "bytes": 603,
+        "observed_at": "2026-10-18T07:07:56.411393+00:00"
+      }
+    },
+    {
+      "card_id": "PART_004",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2154-en_US.json",
+      "response_sha256": "b7854d39f25b9fb420090029230eff79934f7e69b345b2df8032ada6db72c179",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2154&locale=en_US",
+      "face": {
+        "id": 2154,
+        "collectible": 0,
+        "slug": "2154-finicky-cloakfield",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "Finicky Cloakfield",
+        "text": "Give a friendly minion <b>Stealth</b> until your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df15e26bc17a49317b012cf0edafbda446fea95de3adaf6b3e1b1008572eda1e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2154&locale=en_US",
+        "sha256": "b7854d39f25b9fb420090029230eff79934f7e69b345b2df8032ada6db72c179",
+        "bytes": 598,
+        "observed_at": "2026-10-18T07:07:56.598197+00:00"
+      }
+    },
+    {
+      "card_id": "PART_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2155-zh_CN.json",
+      "response_sha256": "8924c0ed8384b58615cf281ce5f4fd398f3a108e6c6773227376acca86d89679",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2155&locale=zh_CN",
+      "face": {
+        "id": 2155,
+        "collectible": 0,
+        "slug": "2155-emergency-coolant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Peerasak Senalai",
+        "manaCost": 1,
+        "name": "紧急冷冻剂",
+        "text": "<b>冻结</b>一个随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93b27555d2b700e1eb36c949e93c0b43b3017a8aeeb3fa702aa9644a63434a03.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2155&locale=zh_CN",
+        "sha256": "8924c0ed8384b58615cf281ce5f4fd398f3a108e6c6773227376acca86d89679",
+        "bytes": 555,
+        "observed_at": "2026-10-18T07:07:56.725368+00:00"
+      }
+    },
+    {
+      "card_id": "PART_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2155-en_US.json",
+      "response_sha256": "c450314a440b66ba9bfe698ddea98e477658110e93a9865a22b594e0a4309b9f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2155&locale=en_US",
+      "face": {
+        "id": 2155,
+        "collectible": 0,
+        "slug": "2155-emergency-coolant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Peerasak Senalai",
+        "manaCost": 1,
+        "name": "Emergency Coolant",
+        "text": "<b>Freeze</b> a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/166003aa82e5b641debf070b1ac0ec85b6dccc89af3ea446502db59b8a117431.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2155&locale=en_US",
+        "sha256": "c450314a440b66ba9bfe698ddea98e477658110e93a9865a22b594e0a4309b9f",
+        "bytes": 552,
+        "observed_at": "2026-10-18T07:07:56.917502+00:00"
+      }
+    },
+    {
+      "card_id": "PART_006",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2156-zh_CN.json",
+      "response_sha256": "652fb3cfb8f0ba6a10712fb94775788ef81a35a7d860bce42428cad628f0fc70",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2156&locale=zh_CN",
+      "face": {
+        "id": 2156,
+        "collectible": 0,
+        "slug": "2156-reversing-switch",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutthapon Petthai",
+        "manaCost": 1,
+        "name": "形体改造仪",
+        "text": "使一个随从的攻击力和生命值 互换。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/23cbd54b96f37ae4a229217308609686c7a74b9032c5d88a9787c9f6e80c5a1f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2156&locale=zh_CN",
+        "sha256": "652fb3cfb8f0ba6a10712fb94775788ef81a35a7d860bce42428cad628f0fc70",
+        "bytes": 558,
+        "observed_at": "2026-10-18T07:07:57.117531+00:00"
+      }
+    },
+    {
+      "card_id": "PART_006",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2156-en_US.json",
+      "response_sha256": "06cc2d98e717a146e1a9a05c8e4b4d9796a28f399599055488fa0fb81e65adc1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2156&locale=en_US",
+      "face": {
+        "id": 2156,
+        "collectible": 0,
+        "slug": "2156-reversing-switch",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutthapon Petthai",
+        "manaCost": 1,
+        "name": "Reversing Switch",
+        "text": "Swap a minion's Attack and Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6410f75e81fbc13e3375a4da5b8e16d4594439182c97e459dcd7f56b7a01e726.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2156&locale=en_US",
+        "sha256": "06cc2d98e717a146e1a9a05c8e4b4d9796a28f399599055488fa0fb81e65adc1",
+        "bytes": 544,
+        "observed_at": "2026-10-18T07:07:57.310232+00:00"
+      }
+    },
+    {
+      "card_id": "PART_007",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2150-zh_CN.json",
+      "response_sha256": "5b8109287c52ee545544ea397a6e38746f9ab828bcaa47b2aba69d247f45c14c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2150&locale=zh_CN",
+      "face": {
+        "id": 2150,
+        "collectible": 0,
+        "slug": "2150-whirling-blades",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "旋风之刃",
+        "text": "使一个随从获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd0510bfc20ff6efc46839815c5a46ecb74d6799e4ae2d976051a679ae0bd9b5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2150&locale=zh_CN",
+        "sha256": "5b8109287c52ee545544ea397a6e38746f9ab828bcaa47b2aba69d247f45c14c",
+        "bytes": 548,
+        "observed_at": "2026-10-18T07:07:57.445219+00:00"
+      }
+    },
+    {
+      "card_id": "PART_007",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p93-20261018\\official-cache-01\\2150-en_US.json",
+      "response_sha256": "e4fec81a1504d0e3a8a0a941a12c269d0b81e0dbc71add603a3d36718bd9b527",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2150&locale=en_US",
+      "face": {
+        "id": 2150,
+        "collectible": 0,
+        "slug": "2150-whirling-blades",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": null,
+        "artistName": "Nutchapol Thitinunthakorn",
+        "manaCost": 1,
+        "name": "Whirling Blades",
+        "text": "Give a minion +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d02961667c9a94d2b95255288584b331be2333cdc929abf82e5f43a551602c8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2150&locale=en_US",
+        "sha256": "e4fec81a1504d0e3a8a0a941a12c269d0b81e0dbc71add603a3d36718bd9b527",
+        "bytes": 540,
+        "observed_at": "2026-10-18T07:07:57.615535+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "new_definition_ids": [
+    "GVG_082",
+    "ICC_092",
+    "SW_067",
+    "BOT_079",
+    "TSC_963",
+    "YOP_032",
+    "REV_338",
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_006",
+    "PART_007"
+  ],
+  "new_standard_collectible_roots": [],
+  "necessary_cross_series_collectibles": [
+    "GVG_082",
+    "ICC_092",
+    "SW_067",
+    "BOT_079",
+    "TSC_963",
+    "YOP_032",
+    "REV_338"
+  ],
+  "necessary_noncollectibles": [
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_006",
+    "PART_007"
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "GVG_082",
+      "child": "PART_001",
+      "dbf_id": 2151,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_002",
+      "dbf_id": 2152,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_003",
+      "dbf_id": 2153,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_004",
+      "dbf_id": 2154,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_005",
+      "dbf_id": 2155,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_006",
+      "dbf_id": 2156,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_007",
+      "dbf_id": 2150,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_001",
+      "dbf_id": 2151,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_002",
+      "dbf_id": 2152,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_003",
+      "dbf_id": 2153,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_004",
+      "dbf_id": 2154,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_005",
+      "dbf_id": 2155,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_006",
+      "dbf_id": 2156,
+      "locale": "en_US"
+    },
+    {
+      "parent": "GVG_082",
+      "child": "PART_007",
+      "dbf_id": 2150,
+      "locale": "en_US"
+    }
+  ],
+  "source_tag_links": [],
+  "named_dependency_links": [],
+  "spare_part_family": {
+    "parent": "GVG_082",
+    "full_source_spare_part_spell_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007"
+    ],
+    "all_tagged_source_rows_count": 11,
+    "complete_tagged_source_records": [
+      {
+        "id": "PART_001",
+        "dbf_id": 2151,
+        "name": "重型护甲",
+        "name_en": "Armor Plating",
+        "text": "使一个随从获得+1生命值。",
+        "text_en": "Give a minion +1 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          }
+        ]
+      },
+      {
+        "id": "PART_001e",
+        "dbf_id": 2158,
+        "name": "重型护甲",
+        "name_en": "Armor Plating",
+        "text": "+1生命值。",
+        "text_en": "+1 Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      {
+        "id": "PART_002",
+        "dbf_id": 2152,
+        "name": "时间回溯装置",
+        "name_en": "Time Rewinder",
+        "text": "将一个友方随从移回你的手牌。",
+        "text_en": "Return a friendly minion to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutthapon Petthai"
+          }
+        ]
+      },
+      {
+        "id": "PART_003",
+        "dbf_id": 2153,
+        "name": "生锈的号角",
+        "name_en": "Rusty Horn",
+        "text": "使一个随从获得<b>嘲讽</b>。",
+        "text_en": "Give a minion <b>Taunt</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peerasak Senalai"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "PART_004",
+        "dbf_id": 2154,
+        "name": "隐秘力场",
+        "name_en": "Finicky Cloakfield",
+        "text": "直到你的下个回合，使一个友方随从获得<b>潜行</b>。",
+        "text_en": "Give a friendly minion <b>Stealth</b> until your next turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "PART_004e",
+        "dbf_id": 2372,
+        "name": "隐形",
+        "name_en": "Cloaked",
+        "text": "获得潜行直到你的下个回合。",
+        "text_en": "Stealthed until your next turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      {
+        "id": "PART_005",
+        "dbf_id": 2155,
+        "name": "紧急冷冻剂",
+        "name_en": "Emergency Coolant",
+        "text": "<b>冻结</b>一个随从。",
+        "text_en": "<b>Freeze</b> a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "FREEZE": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peerasak Senalai"
+          }
+        ]
+      },
+      {
+        "id": "PART_006",
+        "dbf_id": 2156,
+        "name": "形体改造仪",
+        "name_en": "Reversing Switch",
+        "text": "使一个随从的攻击力和生命值\n互换。",
+        "text_en": "Swap a minion's Attack and Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutthapon Petthai"
+          }
+        ]
+      },
+      {
+        "id": "PART_006a",
+        "dbf_id": 2405,
+        "name": "形体改造",
+        "name_en": "Switched",
+        "text": "攻击力和生命值被形体改造仪互换。",
+        "text_en": "Attack and Health have been swapped by Reversing Switch.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      {
+        "id": "PART_007",
+        "dbf_id": 2150,
+        "name": "旋风之刃",
+        "name_en": "Whirling Blades",
+        "text": "使一个随从获得+1攻击力。",
+        "text_en": "Give a minion +1 Attack.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nutchapol Thitinunthakorn"
+          }
+        ]
+      },
+      {
+        "id": "PART_007e",
+        "dbf_id": 2160,
+        "name": "旋风之刃",
+        "name_en": "Whirling Blades",
+        "text": "+1攻击力。",
+        "text_en": "+1 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "SPARE_PART": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      }
+    ],
+    "members": {
+      "PART_001": 2151,
+      "PART_002": 2152,
+      "PART_003": 2153,
+      "PART_004": 2154,
+      "PART_005": 2155,
+      "PART_006": 2156,
+      "PART_007": 2150
+    },
+    "nonphysical_tagged_enchantments": [
+      "PART_001e",
+      "PART_004e",
+      "PART_006a",
+      "PART_007e"
+    ],
+    "primary_faces": [
+      {
+        "locale": "zh_CN",
+        "child_ids": [
+          2150,
+          2151,
+          2156,
+          2153,
+          2155,
+          2154,
+          2152
+        ],
+        "response_sha256": "473fe8c5ea671663eb6c82022641ef7c999a3ec0ab6b10dc1405c5977867df90"
+      },
+      {
+        "locale": "en_US",
+        "child_ids": [
+          2150,
+          2151,
+          2156,
+          2153,
+          2155,
+          2154,
+          2152
+        ],
+        "response_sha256": "169e0ca4782b1305193d0cf9d1e0d7849f62d4a7ac92d8dcf5c457abef713546"
+      }
+    ],
+    "policy": "All seven complete native classic Spare Part SPELLs, one physical candidate weight per member; four ENCHANTMENT records remain evidence and use ordinary attachments. No implemented-only filtering. Exact native lifecycle and random windows remain CN calibration items.",
+    "formal_past_pool_complete": false
+  },
+  "spare_part_family_sha256": "70dfbd48384c37648302b174292c037937a782470f6355919868fb187ca900e5",
+  "skipped": [],
+  "unsupported_source_cards": [],
+  "per_card_reviews": {
+    "GVG_082": "2/1 Mech Deathrattle GenerateFromCandidates with all7 complete physical Spare Part ids, original source/controller, no custom RNG or pool truncation.",
+    "ICC_092": "2/1 Undead Battlecry IF_AVAILABLE friendly other minion Attack+1.",
+    "SW_067": "1/3 Battlecry IF_AVAILABLE friendly other minion Taunt.",
+    "BOT_079": "1/1 Mech Battlecry IF_AVAILABLE current friendly other Mech +1/+1 via shared TargetPredicateSpec.",
+    "TSC_963": "3/1 Pirate Battlecry IF_AVAILABLE character1 damage, MINION_ABILITY.",
+    "YOP_032": "1/3 Battlecry ordinary fixed4 Armor to each hero.",
+    "REV_338": "1/2 Battlecry original current HAND minions Health+1 via BuffMinionsInZones, no attack grant or future aura.",
+    "PART_001": "Ordinary minion Health+1.",
+    "PART_002": "Return friendly minion to current controller hand; ordinary reset/overflow.",
+    "PART_003": "Ordinary minion Taunt grant.",
+    "PART_004": "Friendly minion Stealth through caster next actual turn_started; choose controller/opponent clock at body acceptance to bind caster even after target control changed during spell start.",
+    "PART_005": "Ordinary minion Freeze.",
+    "PART_006": "Single atomic native SwapStats uses current Attack and remaining Health, including resulting ordinary death.",
+    "PART_007": "Ordinary minion Attack+1."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "14 actual new historical behavior dependencies:7 collectible minions and7 noncollectible complete Spare Part spells;0 Standard roots.4 nonphysical ENCHANTMENT rows retained as evidence only.",
+    "family": "Complete fixed7-card family independently established from full source SPARE_PART/SPELL rows and both Gnome primary childIds. ENCHANTMENT tag rows are not physical candidates. Producer uses explicit full GenerateFromCandidates and never filters by implementation.",
+    "native_effects": {
+      "GVG_082": "2/1 Mech Deathrattle GenerateFromCandidates with all7 complete physical Spare Part ids, original source/controller, no custom RNG or pool truncation.",
+      "ICC_092": "2/1 Undead Battlecry IF_AVAILABLE friendly other minion Attack+1.",
+      "SW_067": "1/3 Battlecry IF_AVAILABLE friendly other minion Taunt.",
+      "BOT_079": "1/1 Mech Battlecry IF_AVAILABLE current friendly other Mech +1/+1 via shared TargetPredicateSpec.",
+      "TSC_963": "3/1 Pirate Battlecry IF_AVAILABLE character1 damage, MINION_ABILITY.",
+      "YOP_032": "1/3 Battlecry ordinary fixed4 Armor to each hero.",
+      "REV_338": "1/2 Battlecry original current HAND minions Health+1 via BuffMinionsInZones, no attack grant or future aura.",
+      "PART_001": "Ordinary minion Health+1.",
+      "PART_002": "Return friendly minion to current controller hand; ordinary reset/overflow.",
+      "PART_003": "Ordinary minion Taunt grant.",
+      "PART_004": "Friendly minion Stealth through caster next actual turn_started; choose controller/opponent clock at body acceptance to bind caster even after target control changed during spell start.",
+      "PART_005": "Ordinary minion Freeze.",
+      "PART_006": "Single atomic native SwapStats uses current Attack and remaining Health, including resulting ordinary death.",
+      "PART_007": "Ordinary minion Attack+1."
+    },
+    "source": "14 complete physical original rows,4 complete nonphysical family rows and28 strict cached bilingual primary faces.14 explicit API edges; SPARE_PART category tags are not mislabelled as parent-child DBF edges.",
+    "limits": "Exact past pool membership/weights and CN timing remain M0/M6 open. No public kernel, central assembly, identities, ledgers or old definitions changed; no custom RNG, state mutation or executor."
+  }
+}
