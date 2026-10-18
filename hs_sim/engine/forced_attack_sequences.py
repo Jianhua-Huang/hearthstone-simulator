@@ -35,4 +35,51 @@ def execute(r,effect):
     r.emit('random_choice',source_id=effect.source_id,target_id=attacker.id,defender_id=defender)
     return(ForceAttack(effect.attacker,original),)
 
-def register(mechanics):mechanics.register(AttackRandomEnemyMinion,execute)
+@dataclass(frozen=True)
+class AttackAllOtherMinions(Effect):
+    attacker: BoardPresenceReference
+    visited: tuple[BoardPresenceReference, ...] = ()
+
+    def __post_init__(self):
+        if type(self.attacker) is not BoardPresenceReference:
+            raise ValueError('All-minion attack requires its original physical residence')
+        self.attacker.__post_init__()
+        if type(self.visited) is not tuple or len(set(self.visited)) != len(self.visited):
+            raise ValueError('All-minion attack requires distinct attempted residences')
+        for ref in self.visited:
+            if type(ref) is not BoardPresenceReference or ref == self.attacker:
+                raise ValueError('All-minion attack has an invalid attempted target')
+            ref.__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        for ref in (self.attacker, *self.visited):
+            if ref.entity_id not in state.entities or ref.presence_id >= state.next_order:
+                raise ValueError('All-minion attack has an unknown or future residence')
+
+
+def attack_all(r, effect):
+    effect.validate_in_state(r.state)
+    attacker = resolve_board_presence(r.state, effect.attacker)
+    if attacker is None or not attacker.active or attacker.health <= 0 or attacker.doomed:
+        r.stale(effect, effect.attacker.entity_id)
+        return ()
+    candidates = tuple(BoardPresenceReference.capture(r.state, eid)
+        for player in (1, 2) for eid in r.player(player).board
+        for entity in (r.state.entities[eid],)
+        if entity.kind == CardType.MINION and entity.active and entity.health > 0 and not entity.doomed
+        and entity.id != attacker.id and r.registry.card(entity.card_id).interactable is None)
+    candidates = tuple(sorted((ref for ref in candidates if ref not in effect.visited),
+                              key=lambda ref: ref.entity_id))
+    if not candidates:
+        return ()
+    defender = r.game._rng.choice(candidates)
+    r.emit('random_choice', source_id=attacker.id, target_id=defender.entity_id,
+           producer='attack_all_other_minions', defender_presence_id=defender.presence_id)
+    return (ForceAttack(effect.attacker, defender, combat_relation='any_minions'),
+            AttackAllOtherMinions(effect.attacker, (*effect.visited, defender)))
+
+
+def register(mechanics):
+    mechanics.register(AttackRandomEnemyMinion, execute)
+    mechanics.register(AttackAllOtherMinions, attack_all)

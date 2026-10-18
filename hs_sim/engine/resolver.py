@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v484'
+CORE_EFFECTS_VERSION = 'core-effects-v485'
 
 
 class Mechanics:
@@ -2394,6 +2394,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics.register(TriggerDeathrattles, trigger_deathrattles)
     from .deathrattles import register as register_deathrattles
     register_deathrattles(mechanics)
+    from .source_kills import register as register_source_kills
+    register_source_kills(mechanics)
     from .power_payloads import register as register_power_payloads
     register_power_payloads(mechanics)
     from .end_turns import register as register_end_turns

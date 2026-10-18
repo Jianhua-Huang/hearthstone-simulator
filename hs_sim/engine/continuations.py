@@ -185,9 +185,14 @@ class FrameCodec:
             validate_destruction_resources(self.origin_state, self.registry, value)
         if type(value) in (effects.ForceAttack, effects.CopyMinion) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
-        from .forced_attack_sequences import AttackRandomEnemyMinion
-        if type(value) is AttackRandomEnemyMinion and self.origin_state is not None:
+        from .forced_attack_sequences import AttackRandomEnemyMinion, AttackAllOtherMinions
+        if type(value) in (AttackRandomEnemyMinion, AttackAllOtherMinions) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        from .source_kills import KillSourceReference, ResurrectKilledMinions, validate_reference as validate_kill_source, validate_effect as validate_kill_effect
+        if type(value) is KillSourceReference and self.origin_state is not None:
+            validate_kill_source(self.origin_state, self.registry, value)
+        if type(value) is ResurrectKilledMinions and self.origin_state is not None:
+            validate_kill_effect(self.origin_state, self.registry, value)
         from .sacrifice import SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion
         if type(value) in (SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
