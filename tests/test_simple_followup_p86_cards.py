@@ -173,7 +173,7 @@ class SimpleFollowupP86Tests(unittest.TestCase):
   g=self.game((AZALINA,FILLER),enemy_hand=(BEAST,FILLER),mode='copy');self.play(g,AZALINA);self.fail_wait(g);self.choose(g,'change');self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].hand],[BEAST]);self.portable(g)
  def test_z0_complete_raw_and_before_after_central_assembly_preservation(self):
   d=load_batch();self.assertEqual(len(d['dependencies']),12);self.assertEqual(len(d['official_observations']),30);self.assertEqual([x['card_id']for x in d['skipped']],['BT_495']);self.assertFalse(d['cards']);r0=baseline_registry();r1=batch_registry()
-  self.assertTrue(all(i not in r1.cards for i in DEFERRED));self.assertEqual(len(r1.cards)-len(r0.cards),12);self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
+  self.assertTrue(set(DEFERRED).isdisjoint(set(r1.cards)-set(r0.cards)));self.assertEqual(len(r1.cards)-len(r0.cards),12);self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
   for key in('player_effects','fabled','generation_families','pools','jade_families'):self.assertEqual(getattr(r0,key),getattr(r1,key))
   for x in d['dependencies']:
    raw=x['record'];self.assertEqual(r1.card(raw['id']).metadata,metadata_from_record(raw));self.assertEqual((r1.card(raw['id']).cost,r1.card(raw['id']).attack,r1.card(raw['id']).health),(raw['cost'],raw['attack'],raw['health']))
