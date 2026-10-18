@@ -197,6 +197,8 @@ class Game:
                     if registry.card(card_id).kind != kind:
                         raise ValueError(f'{field} requires a {kind} definition')
                     resolution.create_entity(player_id, card_id, zone, ready=True, hand_entry_reason='scenario')
+                    if kind == CardType.HERO_POWER:
+                        player.starting_hero_power_card_id = card_id
             for card_id in setup.additional_hero_power_card_ids:
                 resolution.create_entity(player_id, card_id, Zone.HERO_POWER, additional_hero_power=True)
             for zone in (Zone.DECK, Zone.HAND, Zone.BOARD):
@@ -223,9 +225,12 @@ class Game:
         start_owner_turn(game._state, len(game._events), origin='scenario')
         from .dormancy import capture_board_full
         initial_conditions = Resolution(game)
-        initial_awakenings = capture_board_full(initial_conditions)
-        if initial_awakenings:
-            initial_conditions.run(initial_awakenings)
+        from .hand_parity import synchronize as synchronize_hand_parity
+        synchronize_hand_parity(initial_conditions, initial=True)
+        initial_work = [*initial_conditions._captured, *capture_board_full(initial_conditions)]
+        initial_conditions._captured.clear()
+        if initial_work:
+            initial_conditions.run(initial_work)
         game._assert_stable()
         game._origin = game.snapshot()
         return game

@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v497'
+CORE_EFFECTS_VERSION = 'core-effects-v498'
 
 
 class Mechanics:
@@ -234,6 +234,8 @@ class Resolution:
         self.ending_turn = False
         self.removed_weapons = []
         self.death_deferrals = 0
+        from .hand_parity import hand_signature
+        self._hand_parity_signature = hand_signature(self.state) if self.registry.hand_parity_profiles else None
 
     def charge(self):
         self._steps += 1
@@ -349,6 +351,8 @@ class Resolution:
             self.game._information.record(self.game, event)
         from .hand_mirrors import synchronize as synchronize_hand_mirrors
         synchronize_hand_mirrors(self,event)
+        from .hand_parity import synchronize as synchronize_hand_parity
+        synchronize_hand_parity(self)
         if not _capture:
             return event
         from .end_turns import listeners, prepare, schedule

@@ -9466,6 +9466,7 @@ class PlayerState:
 
     additional_hero_power_ids: list[int] = field(default_factory=list)
     hand_cap: int | None = None
+    starting_hero_power_card_id: str | None = None
 
     @property
     def hero_power_ids(self) -> tuple[int, ...]:
@@ -10487,6 +10488,10 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError(f"player key {player_id} disagrees with player state")
         if player.hero_class is not None and (not isinstance(player.hero_class, CardClass)or player.hero_class==CardClass.DREAM):
             raise ValueError('Invalid current hero class')
+        if player.starting_hero_power_card_id is not None:
+            _name(player.starting_hero_power_card_id, 'starting Hero Power face')
+            if registry.card(player.starting_hero_power_card_id).kind != CardType.HERO_POWER:
+                raise ValueError('Starting Hero Power fact requires a known Hero Power face')
         if player.deck_class is not None and (not isinstance(player.deck_class, CardClass) or player.deck_class not in PLAYABLE_CARD_CLASSES):
             raise ValueError('Invalid starting deck class')
         if player.runes is not None:

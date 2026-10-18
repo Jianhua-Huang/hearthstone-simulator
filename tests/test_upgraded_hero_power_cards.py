@@ -1,4 +1,4 @@
-"""Real upgraded power dependencies; Genn itself is intentionally still pending."""
+"""Real upgraded power dependencies, independently owned from Genn's native card."""
 from copy import deepcopy
 from functools import lru_cache
 import json
@@ -78,7 +78,8 @@ class UpgradedHeroPowerTests(unittest.TestCase):
         self.assertEqual(set(data['missing_primary_ids']), {'HERO_09bp2', 'HERO_11bp2', GHOUL})
         self.assertEqual(len(UPGRADES), 11)
         for cid in POWERS: self.assertEqual(r.card(cid).kind, CardType.HERO_POWER)
-        self.assertNotIn('CATA_615', r.cards); self.assertNotIn('CATA_615t', r.cards)
+        owned = {x['record']['id'] for x in data['cards'] + data['dependencies']}
+        self.assertNotIn('CATA_615', owned); self.assertNotIn('CATA_615t', owned)
 
     def test_two_exact_display_pins_accept_both_complete_primary_languages(self):
         data = load_batch(); rows = {x['record']['id']: x['record'] for x in data['cards']}

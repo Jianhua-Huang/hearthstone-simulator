@@ -155,6 +155,7 @@ class Registry:
         self._turn_draw_profiles = {}
         self._native_producer_quantity_profiles = {}
         self._temporary_hero_power_profiles = {}
+        self._hand_parity_profiles = {}
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
@@ -314,6 +315,9 @@ class Registry:
     def temporary_hero_power_profiles(self):return MappingProxyType(self._temporary_hero_power_profiles)
 
     @property
+    def hand_parity_profiles(self):return MappingProxyType(self._hand_parity_profiles)
+
+    @property
     def historical_deathrattle_spells(self):
         return frozenset(self._historical_deathrattle_spells)
 
@@ -404,6 +408,15 @@ class Registry:
         occupied={cid for p in self._temporary_hero_power_profiles.values() for cid in p.stages}
         if occupied.intersection(profile.stages):raise ValueError('Temporary power face already belongs to another source')
         self._temporary_hero_power_profiles[profile.card_id]=profile
+
+    def register_hand_parity_profile(self,profile):
+        self._require_mutable()
+        from .hand_parity import validate_profile
+        validate_profile(self,profile)
+        if (profile.card_id in self._hand_parity_profiles or profile.transformed_id in self._hand_parity_profiles or
+                any(p.transformed_id==profile.card_id for p in self._hand_parity_profiles.values())):
+            raise ValueError('Duplicate or chained native hand parity declaration')
+        self._hand_parity_profiles[profile.card_id]=profile
 
     def register_spell_value_profile(self,profile):
         self._require_mutable()
@@ -1635,6 +1648,8 @@ class Registry:
         for profile in self._native_producer_quantity_profiles.values():validate_native_quantity_profile(self,profile)
         from .temporary_hero_powers import validate_profile as validate_temporary_power_profile
         for profile in self._temporary_hero_power_profiles.values():validate_temporary_power_profile(self,profile)
+        from .hand_parity import validate_profile as validate_hand_parity_profile
+        for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -1976,6 +1991,8 @@ class Registry:
         if self._temporary_hero_power_profiles:
             payload['temporary_hero_power_profiles']=[asdict(self._temporary_hero_power_profiles[k])
                 for k in sorted(self._temporary_hero_power_profiles)]
+        if self._hand_parity_profiles:
+            payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
         if self._hero_health_target_profiles:
