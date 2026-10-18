@@ -234,6 +234,20 @@ def hero_attacks(state, player_id, query):
          v.terminal is not None and v.terminal.outcome==query.phase))
 
 
+def hero_attacked_before(state, player_id, turn, action, event_cursor):
+    """Recheck a frozen DTO fact against retained original completion clocks."""
+    if (type(state) is not GameState or type(player_id) is not int or player_id not in (1, 2) or
+            type(turn) is not int or not 1 <= turn <= state.turn or
+            type(action) is not int or not 0 <= action <= state.action_number or
+            type(event_cursor) is not int or event_cursor < 0):
+        raise ValueError('Original hero-attack input requires a real bounded origin')
+    validate_history(state)
+    return any(v.declaration.identity.player_id == player_id and
+               v.declaration.identity.turn == turn and v.terminal is not None and
+               v.terminal.outcome == 'completed' and v.terminal.action_number <= action and
+               v.terminal.event_cursor <= event_cursor for v in state.hero_attack_history)
+
+
 def hero_attack_count(state, player_id, query=HeroAttackQuery()):
     return len(hero_attacks(state,player_id,query))
 

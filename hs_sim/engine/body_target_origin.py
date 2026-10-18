@@ -108,7 +108,7 @@ Current target eligibility is deliberately not used as original eligibility.
             or sum(p.turn == play.turn for p in owned) != play.prior_turn_plays):
         raise ValueError('Original target conditions differ from actual preceding hand plays')
     from .player_target_inputs import validate_origin
-    validate_origin(registry, origin, source, play=play, prior=prior)
+    validate_origin(registry, origin, source, history_state=state, play=play, prior=prior)
     entities = {}
     for fact in origin.entities:
         entities[fact.id] = Entity(fact.id, fact.card_id, fact.owner, fact.controller,

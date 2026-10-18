@@ -31,7 +31,7 @@ SLOTS = (('hero', Zone.HERO, False), ('hero_power', Zone.HERO_POWER, False),
          ('weapon', Zone.WEAPON, False), ('additional_hero_powers', Zone.HERO_POWER, True),
          ('board', Zone.BOARD, True), ('pending_plays', Zone.PLAY, True),
          ('quests', Zone.QUEST, True), ('secrets', Zone.SECRET, True), ('hand', Zone.HAND, True))
-PRIVATE_KEYS = frozenset('state entities enchantments abilities rng_state information source_json origin_hash original_state_hash registry_fingerprint body_target_profile_id tribe_changes'.split())
+PRIVATE_KEYS = frozenset('state entities enchantments abilities rng_state information source_json origin_hash original_state_hash registry_fingerprint body_target_profile_id tribe_changes original_event_cursor'.split())
 
 ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interactable'}
 ENTITY |= {'base_damage'}
@@ -84,8 +84,13 @@ def decode(proof, *, require_active_player=True):
     if type(value['players']) is not list or [p.get('id') for p in value['players'] if type(p) is dict] != [1, 2]:
         raise ValueError('Player target observation requires both ordered seats')
     for p in value['players']:
-        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual', 'spell_schools_played_this_turn', 'quests_played_total'} != PLAYER or type(p['id']) is not int:
+        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual', 'spell_schools_played_this_turn', 'quests_played_total', 'hero_attacked_this_turn'} != PLAYER or type(p['id']) is not int:
             raise ValueError('Player target observation lost complete public player fields')
+        if p['id'] == value['viewer']:
+            if type(p.get('hero_attacked_this_turn')) is not bool:
+                raise ValueError('Own hero-attack input requires an exact boolean')
+        elif 'hero_attacked_this_turn' in p:
+            raise ValueError('Hero-attack input is private to its own viewer')
         if p['id'] == value['viewer']:
             schools = p.get('spell_schools_played_this_turn')
             if (type(schools) is not list or
@@ -187,7 +192,7 @@ def decode(proof, *, require_active_player=True):
     return value
 
 
-def capture(game, state, source):
+def capture(game, state, source, *, original_event_cursor=None):
     if game._state is not state:
         raise ValueError('Original player inputs require the actual current game boundary')
     game._information.sync(game)
@@ -195,12 +200,13 @@ def capture(game, state, source):
     refs = {row['ref'] for _, _, row in _cards(value)}
     knowledge = game._information.players[source.controller]
     bindings = tuple(sorted((int(i), ref) for i, ref in knowledge.refs.items() if ref in refs))
-    result = PaidTargetObservation(canonical(value), bindings)
+    raw_cursor = len(game._events) if original_event_cursor is None else original_event_cursor
+    result = PaidTargetObservation(canonical(value), bindings, raw_cursor)
     result.__post_init__()
     return result
 
 
-def validate_origin(registry, origin, source, *, play=None, prior=(), require_active_player=True):
+def validate_origin(registry, origin, source, *, history_state, play=None, prior=(), require_active_player=True):
     proof = origin.observation
     if proof is None:
         return
@@ -242,6 +248,11 @@ def validate_origin(registry, origin, source, *, play=None, prior=(), require_ac
                         None if tribes is None else list(tribes.members), [] if tribes is None else list(tribes.excluded)):
                     raise ValueError('Original player target view changed its effective tribes')
     own = value['players'][source.controller - 1]
+    from .hero_attack_history import hero_attacked_before
+    expected_attack = hero_attacked_before(history_state, source.controller, origin.turn,
+                                          origin.action, proof.original_event_cursor)
+    if own['hero_attacked_this_turn'] != expected_attack:
+        raise ValueError('Original player hero-attack input differs from its actual completion window')
     if tuple(reverse[row['ref']] for row in own['hand']) != origin.hand or tuple(reverse[row['ref']] for row in own['board']) != origin.board:
         raise ValueError('Original player target view lost its complete own hand or board order')
     expected_ids = {f.id for f in origin.entities if f.zone in {s[1] for s in SLOTS}}
@@ -304,6 +315,10 @@ def validate_full_state(state, registry, source, proof, *, require_active_player
     host = SimpleNamespace(_state=state, registry=registry, ruleset=rules)
     if canonical(information.observe(host, source.controller)) != proof.observation_json:
         raise ValueError('Original player target observation differs from its complete payment state projection')
+    from .hero_attack_history import hero_attacked_before
+    if value['players'][source.controller - 1]['hero_attacked_this_turn'] != hero_attacked_before(
+            state, source.controller, state.turn, state.action_number, proof.original_event_cursor):
+        raise ValueError('Original player hero-attack cursor changed its complete payment state projection')
 
 
 def live_factory(r, source):
@@ -335,4 +350,5 @@ def rewind_root_observation(game, anchor):
     host = SimpleNamespace(_state=anchor.before, registry=game.registry, ruleset=game.ruleset,
                            _information=information)
     host.observe = lambda viewer: information.observe(host, viewer)
-    return capture(host, anchor.before, anchor.before.entities[anchor.action.entity_id])
+    return capture(host, anchor.before, anchor.before.entities[anchor.action.entity_id],
+                   original_event_cursor=session.event_start)

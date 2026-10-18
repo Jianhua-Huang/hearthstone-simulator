@@ -291,7 +291,7 @@ def original_inputs(state,registry,accepted):
         raise ValueError('Generated acceptance changed its complete authorized physical vector')
     if origin.observation is not None:
         from .player_target_inputs import validate_origin
-        validate_origin(registry,origin,source,require_active_player=False)
+        validate_origin(registry,origin,source,history_state=state,require_active_player=False)
     return probe,source
 
 

@@ -6539,10 +6539,12 @@ class PaidTargetObservation:
     """Complete detached public input plus host-only physical reference bindings."""
     observation_json: str
     references: tuple[tuple[int, str], ...]
+    original_event_cursor: int
 
     def __post_init__(self):
         if type(self.observation_json) is not str or not self.observation_json:
             raise ValueError('Player target inputs require canonical observation JSON')
+        _int(self.original_event_cursor, 'original raw target event cursor', 0)
         if type(self.references) is not tuple:
             raise ValueError('Original player references require an immutable ordered vector')
         ids, refs = [], []

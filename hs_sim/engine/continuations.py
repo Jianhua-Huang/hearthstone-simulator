@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        if (type(value) is model.PaidTargetObservation and self.origin_events is not None and
+                value.original_event_cursor > len(self.origin_events)):
+            raise ValueError('Original player target cursor exceeds actual retained events')
         from .dead_minion_shuffles import ShuffleDeadMinion, validate_request as validate_dead_shuffle
         if type(value) is ShuffleDeadMinion and self.origin_state is not None:
             validate_dead_shuffle(self.origin_state, self.registry, value)

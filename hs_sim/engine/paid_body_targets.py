@@ -123,7 +123,7 @@ def capture(state, registry, action, quote=None, *, rewind_session=None, game=No
     state_hash = canonical_hash(state_to_dict(state))
     origin = capture_origin(state, source, state_hash, player_observation)
     from .player_target_inputs import validate_origin
-    validate_origin(registry, origin, source)
+    validate_origin(registry, origin, source, history_state=state)
     receipt = PaidBodyTargetReceipt(action, ordered, choices, flags, root_choices,
         state_hash, registry.fingerprint(), origin, origin_hash(origin))
     if rewind_session is not None and rewind_session.attempt > 0:
