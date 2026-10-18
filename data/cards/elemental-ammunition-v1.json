@@ -1,0 +1,771 @@
+{
+  "batch": "K222C-elemental-ammunition",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_458",
+        "dbf_id": 127711,
+        "name": "小朋友",
+        "name_en": "Tiny Pal",
+        "text": "<b>战吼：</b>选择你的元素弹药！<i>（在你的英雄攻击后，另选一种。）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Choose your\nelemental ammunition!\n<i>(After your hero attacks,\nchoose another).</i>",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "21624f23884a621474be72bda6c53976808fa3e74c10f885a6612aa8a93500fc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_458",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_458t1",
+        "dbf_id": 127713,
+        "name": "小朋友",
+        "name_en": "Tiny Pal",
+        "text": "在你的英雄攻击后，随机<b>冻结</b>2个其他敌人。另选一种元素弹药。",
+        "text_en": "[x]After your hero attacks,\n<b>Freeze</b> 2 other random\nenemies. Choose\n__another ammunition.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fa3839a7d433e9c21a7e4d6a09572529325836a16487eb37f0be9ef91158205f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_458t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_458t2",
+        "dbf_id": 127715,
+        "name": "小朋友",
+        "name_en": "Tiny Pal",
+        "text": "在你的英雄攻击后，对所有敌人造成1点伤害。另选一种元素弹药。",
+        "text_en": "[x]After your hero attacks,\ndeal 1 damage to all\nenemies. Choose\n__another ammunition.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "8fa996d5780f5116fdd363eea00aa70e49ea79af9c5c47c2ebd208364f715668",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_458t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_458t3",
+        "dbf_id": 127716,
+        "name": "小朋友",
+        "name_en": "Tiny Pal",
+        "text": "在你的英雄攻击后，随机召唤一个法力值消耗为（3）的随从，使其获得<b>嘲讽</b>。另选一种元素弹药。",
+        "text_en": "After your hero attacks, summon a random 3-Cost minion. Give it <b>Taunt</b>. Choose another ammunition.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "adb8548be8ab1b13f543e4d3146151bae952bd3028e641f440c643ab6534aa2f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_458t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_458t4",
+        "dbf_id": 127717,
+        "name": "小朋友",
+        "name_en": "Tiny Pal",
+        "text": "在你的英雄攻击后，随机获取一张<b>战吼</b>随从牌，其法力值消耗减少（2）点。另选一种元素弹药。",
+        "text_en": "[x]After your hero attacks, get a\nrandom <b>Battlecry</b> minion.\nIt costs (2) less. Choose\nanother ammunition.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 5,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "218",
+              "name": "BATTLECRY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0626ec4f783c7ba18a59ade7d488919f0210043ba092ed5df7ab9d1b3561de4a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_458t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_458",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127711-zh_CN.json",
+      "response_sha256": "14c44cef860be6ecb2b382f8c8cacde14df1adf5e10cedacf241611783127693",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127711&locale=zh_CN",
+      "face": {
+        "id": 127711,
+        "collectible": 1,
+        "slug": "127711-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "小朋友",
+        "text": "<b>战吼：</b>选择你的元素弹药！<i>（在你的英雄攻击后，另选一种。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6986c1af8e1fb2b090a8b6b905efccfb4875fa381433ba30e21aa5f3212743d.png",
+        "imageGold": "",
+        "flavorText": "跟我的小朋友打个招呼吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7daabf09d93a98ef866d75369f9c4c31f292b291649339ccd024410179300fd4.png",
+        "childIds": [
+          127713,
+          127715,
+          127716,
+          127717
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127711&locale=zh_CN",
+        "sha256": "14c44cef860be6ecb2b382f8c8cacde14df1adf5e10cedacf241611783127693",
+        "bytes": 822,
+        "observed_at": "2026-10-18T21:22:57.759796+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127711-en_US.json",
+      "response_sha256": "749ac326f891a03dd79fed0efdb4e124faeac80f242a9141ffb0bb4f03aa4ee2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127711&locale=en_US",
+      "face": {
+        "id": 127711,
+        "collectible": 1,
+        "slug": "127711-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Tiny Pal",
+        "text": "<b>Battlecry:</b> Choose your elemental ammunition! <i>(After your hero attacks, choose another).</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa6ccd4b0a3db1c19e85a4e4edba292888b6032e12c599651675b68b6a6090ce.png",
+        "imageGold": "",
+        "flavorText": "SAY HELLO!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7daabf09d93a98ef866d75369f9c4c31f292b291649339ccd024410179300fd4.png",
+        "childIds": [
+          127713,
+          127715,
+          127716,
+          127717
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127711&locale=en_US",
+        "sha256": "749ac326f891a03dd79fed0efdb4e124faeac80f242a9141ffb0bb4f03aa4ee2",
+        "bytes": 798,
+        "observed_at": "2026-10-18T21:22:58.028170+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127713-zh_CN.json",
+      "response_sha256": "c4dc84516d6d42a887b6642f07d8e05fcad268f318d84bf4a877c559e83b51de",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127713&locale=zh_CN",
+      "face": {
+        "id": 127713,
+        "collectible": 0,
+        "slug": "127713-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "小朋友",
+        "text": "在你的英雄攻击后，随机<b>冻结</b>2个其他敌人。另选一种元素弹药。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d966afbed8cbcf2aa79516f2e0569fca53e967b9daef57e47e208d4fa2396a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127713&locale=zh_CN",
+        "sha256": "c4dc84516d6d42a887b6642f07d8e05fcad268f318d84bf4a877c559e83b51de",
+        "bytes": 642,
+        "observed_at": "2026-10-18T21:22:57.978999+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127713-en_US.json",
+      "response_sha256": "b273be4f48b59f0f412a99dbb00c24fff6b4ae4501c5e0c75bce281f7383f725",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127713&locale=en_US",
+      "face": {
+        "id": 127713,
+        "collectible": 0,
+        "slug": "127713-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Tiny Pal",
+        "text": "After your hero attacks, <b>Freeze</b> 2 other random enemies. Choose another ammunition.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/780a2a093c7d1cc96f913981cfff6599c57710cc194fab5f196c53e728612c2a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127713&locale=en_US",
+        "sha256": "b273be4f48b59f0f412a99dbb00c24fff6b4ae4501c5e0c75bce281f7383f725",
+        "bytes": 638,
+        "observed_at": "2026-10-18T21:22:57.711862+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127715-zh_CN.json",
+      "response_sha256": "68703025a1ab0f4a6aeba819f8b3ee73081b53f4827ea75af1a68aaf29ef9a97",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127715&locale=zh_CN",
+      "face": {
+        "id": 127715,
+        "collectible": 0,
+        "slug": "127715-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "小朋友",
+        "text": "在你的英雄攻击后，对所有敌人造成1点伤害。另选一种元素弹药。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fce6d21361068833e1d498f34bee462697ac6dc134b05bddb703188ba9fa7c77.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127715&locale=zh_CN",
+        "sha256": "68703025a1ab0f4a6aeba819f8b3ee73081b53f4827ea75af1a68aaf29ef9a97",
+        "bytes": 620,
+        "observed_at": "2026-10-18T21:22:58.717504+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127715-en_US.json",
+      "response_sha256": "f5607e0cef37adb549c65dc45cd38090d03f56138520135c6dc374e0fd9729a8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127715&locale=en_US",
+      "face": {
+        "id": 127715,
+        "collectible": 0,
+        "slug": "127715-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Tiny Pal",
+        "text": "After your hero attacks, deal 1 damage to all enemies. Choose another ammunition.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f679c11bdfb8a7a05cd96961512fda640b81f63e8ea76a7c70876a519b6aa0c5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127715&locale=en_US",
+        "sha256": "f5607e0cef37adb549c65dc45cd38090d03f56138520135c6dc374e0fd9729a8",
+        "bytes": 612,
+        "observed_at": "2026-10-18T21:22:58.661448+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127716-zh_CN.json",
+      "response_sha256": "f1eeb449cc84a14e8fe54726cac31aee1770cb5290838c924172d869fc2fa00b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127716&locale=zh_CN",
+      "face": {
+        "id": 127716,
+        "collectible": 0,
+        "slug": "127716-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "小朋友",
+        "text": "在你的英雄攻击后，随机召唤一个法力值消耗为（3）的随从，使其获得<b>嘲讽</b>。另选一种元素弹药。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eb09b0a765f1c5386605bbd831c2b2f9431ffa0ff044453f3089eaa6e7cc22e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127716&locale=zh_CN",
+        "sha256": "f1eeb449cc84a14e8fe54726cac31aee1770cb5290838c924172d869fc2fa00b",
+        "bytes": 686,
+        "observed_at": "2026-10-18T21:22:58.686725+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127716-en_US.json",
+      "response_sha256": "491c2187c6feb640e8daac2105259835adbb3b2047f7b69a66440f82e81ed31d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127716&locale=en_US",
+      "face": {
+        "id": 127716,
+        "collectible": 0,
+        "slug": "127716-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Tiny Pal",
+        "text": "After your hero attacks, summon a random 3-Cost minion. Give it <b>Taunt</b>. Choose another ammunition.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ada79778218e31306ad067ece324ba1da5fd3df551141eb8ab8320761f3b36be.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127716&locale=en_US",
+        "sha256": "491c2187c6feb640e8daac2105259835adbb3b2047f7b69a66440f82e81ed31d",
+        "bytes": 652,
+        "observed_at": "2026-10-18T21:22:59.174024+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127717-zh_CN.json",
+      "response_sha256": "d8aa075d97ba6d5b17af9932e0c61c3f62e32d7cc75088e18988c3a3788b5ab6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127717&locale=zh_CN",
+      "face": {
+        "id": 127717,
+        "collectible": 0,
+        "slug": "127717-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "小朋友",
+        "text": "在你的英雄攻击后，随机获取一张<b>战吼</b>随从牌，其法力值消耗减少（2）点。另选一种元素弹药。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1a6fee024e011d58cc4a09b1500e6e89ab3f925579c2c31093b0f79bbe94046.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127717&locale=zh_CN",
+        "sha256": "d8aa075d97ba6d5b17af9932e0c61c3f62e32d7cc75088e18988c3a3788b5ab6",
+        "bytes": 683,
+        "observed_at": "2026-10-18T21:22:59.492866+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_458t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127717-en_US.json",
+      "response_sha256": "a14614497bf7c6add9a4aef8cd5442890e947e36e005c1464dd2b3547fe85c1a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127717&locale=en_US",
+      "face": {
+        "id": 127717,
+        "collectible": 0,
+        "slug": "127717-tiny-pal",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Studio Hive ",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Tiny Pal",
+        "text": "After your hero attacks, get a random <b>Battlecry</b> minion. It costs (2) less. Choose another ammunition.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/076824b54bca77800929bcff160b6424974e9a74b7b0aa2b275a73429d9daf79.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127711,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127717&locale=en_US",
+        "sha256": "a14614497bf7c6add9a4aef8cd5442890e947e36e005c1464dd2b3547fe85c1a",
+        "bytes": 656,
+        "observed_at": "2026-10-18T21:22:59.705338+00:00"
+      }
+    }
+  ],
+  "semantics_sources": [
+    "https://www.reddit.com/r/hearthstone/comments/1tux9zu/comment/oqk1xjc/",
+    "https://www.reddit.com/r/hearthstone/comments/1tux9zu/comment/oqk1ty9/",
+    "https://www.reddit.com/r/hearthstone/comments/1tux9zu/comment/oqk3ei4/",
+    "https://www.reddit.com/r/hearthstone/comments/1uyby1t/3602_hotfix_patch_rolling_out_today/"
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "choices": "First choice offers four forms; subsequent choices exclude only the current ammunition. Earlier ammunition is available again. Effects replace, not stack.",
+    "battlecry": "Targets the currently equipped weapon, including another weapon under historical Battlecry execution. Existing automatic-choice policy handles random replays. No equipment means no form or RNG.",
+    "form_material": "Keep the same physical entity, owner/controller, current durability, ordinary enchantments and granted abilities; replace printed weapon base/abilities, increase face epoch without equipping or resetting hero attacks. Foreign-weapon numerical/material inheritance beyond the declared policy remains pending CN calibration.",
+    "attack": "Use original completed hero attack and declared weapon; the accepted ammunition effect survives the last durability, but a new form choice requires the original still-current live installation. Base randomly equipped Tiny Pal has no ammunition bonus until an attack completes.",
+    "frost": "Sample at most two distinct currently living active enemies other than the actual completed attack target, then apply the original Freeze primitive to the whole group before buffered notifications.",
+    "pools": "Earth: complete current-format collectible printed 3-Cost minions, pre-entry Taunt via original SummonFromPool. Air: complete current-format collectible printed Battlecry minions, create with -2 cost. Unknown eligible candidates raise; never prune by executable coverage.",
+    "uncalibrated": "Exact CN RNG stream, relative after-attack/death/choice windows and foreign-weapon form material policy still require M6. Formal generated pools remain M0."
+  }
+}

@@ -1792,3 +1792,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 两用临时主槽技能注册TemporaryHeroPowerProfile并返回SwapTemporaryHeroPower；保留原实体而非基础卡面，后续由共同完成与取消入口推进。触发/主体重复不当作额外实际使用，见[临时技能契约](m3-temporary-hero-powers.md)。
+
+
+当前装备的有限武器换面用RequestWeaponForm；攻击后续接传原EquippedWeaponReference，不能追随替换槽。RefaceEquippedWeapon保留当前耐久/普通附魔/授予，替换印刷能力并推进卡面epoch，不重新装备或恢复英雄攻击次数。真实四弹药及完整池要求见[契约](m3-elemental-ammunition.md)。

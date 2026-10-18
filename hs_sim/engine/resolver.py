@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v504'
+CORE_EFFECTS_VERSION = 'core-effects-v505'
 
 
 class Mechanics:
@@ -2227,7 +2227,10 @@ def reborn_minion(r, effect):
     return enter_minion(r,entity,'reborn',origin_id=record.entity_id,death_id=record.id)
 
 
-def freeze_character(r, effect):
+def freeze_character(r, effect, *, pending_events=None):
+    def emit(kind,**data):
+        if pending_events is None:r.emit(kind,**data)
+        else:pending_events.append((kind,data))
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Freeze source does not exist')
     entity = r.live_character(effect.target_id)
@@ -2236,13 +2239,13 @@ def freeze_character(r, effect):
         return
     from .combat import can_be_frozen
     if not can_be_frozen(entity):
-        r.emit('freeze_unchanged', source_id=effect.source_id, target_id=entity.id, reason='cannot_be_frozen')
+        emit('freeze_unchanged', source_id=effect.source_id, target_id=entity.id, reason='cannot_be_frozen')
         return
     if entity.frozen:
-        r.emit('freeze_unchanged', source_id=effect.source_id, target_id=entity.id)
+        emit('freeze_unchanged', source_id=effect.source_id, target_id=entity.id)
         return
     entity.frozen_until_owner_turn = freeze_deadline(r.state, entity, ending_turn=r.ending_turn, registry=r.registry)
-    r.emit('frozen', source_id=effect.source_id, target_id=entity.id, thaw_owner_turn=entity.frozen_until_owner_turn)
+    emit('frozen', source_id=effect.source_id, target_id=entity.id, thaw_owner_turn=entity.frozen_until_owner_turn)
 
 
 def unfreeze_character(r, effect):
@@ -2331,6 +2334,10 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_aura_duration(mechanics)
     from .deck_stat_distribution import register as register_deck_stat_distribution
     register_deck_stat_distribution(mechanics)
+    from .weapon_forms import register as register_weapon_forms
+    register_weapon_forms(mechanics)
+    from .weapon_attack_freeze import register as register_weapon_attack_freeze
+    register_weapon_attack_freeze(mechanics)
     register_zones(mechanics)
     register_discovery_delivery(mechanics)
     register_discovery_offers(mechanics)
