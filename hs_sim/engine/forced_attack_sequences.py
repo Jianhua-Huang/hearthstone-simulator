@@ -36,6 +36,32 @@ def execute(r,effect):
     return(ForceAttack(effect.attacker,original),)
 
 @dataclass(frozen=True)
+class AttackLowestHealthEnemy(AttackRandomEnemyMinion):
+    """One original attacker; reselect current enemy characters for this attack."""
+
+
+def attack_lowest(r, effect):
+    effect.validate_in_state(r.state)
+    attacker = resolve_board_presence(r.state, effect.attacker)
+    if (attacker is None or not attacker.active or attacker.health <= 0 or attacker.doomed or
+            attacker.controller != effect.player_id):
+        r.stale(effect, effect.attacker.entity_id); return ()
+    enemy = r.player(3-effect.player_id)
+    candidates = tuple(sorted(eid for eid in (enemy.hero_id, *enemy.board)
+        for e in (r.live_character(eid),) if e is not None and e.health > 0 and not e.doomed
+        and r.registry.card(e.card_id).interactable is None))
+    if not candidates: return ()
+    minimum = min(r.state.entities[eid].health for eid in candidates)
+    candidates = tuple(eid for eid in candidates if r.state.entities[eid].health == minimum)
+    defender = r.game._rng.choice(candidates)
+    target = (BoardPresenceReference.capture(r.state, defender)
+        if r.state.entities[defender].kind == CardType.MINION else defender)
+    r.emit('random_choice', source_id=effect.source_id, target_id=attacker.id,
+        defender_id=defender, producer='attack_lowest_health_enemy')
+    return (ForceAttack(effect.attacker, target),)
+
+
+@dataclass(frozen=True)
 class AttackAllOtherMinions(Effect):
     attacker: BoardPresenceReference
     visited: tuple[BoardPresenceReference, ...] = ()
@@ -82,4 +108,5 @@ def attack_all(r, effect):
 
 def register(mechanics):
     mechanics.register(AttackRandomEnemyMinion, execute)
+    mechanics.register(AttackLowestHealthEnemy, attack_lowest)
     mechanics.register(AttackAllOtherMinions, attack_all)

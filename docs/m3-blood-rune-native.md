@@ -33,3 +33,16 @@
 [中英卡面比较](../outputs/card-integration-20261014/k75-official-face-01/comparison.json)核对真实符文、武器属性、护士及双向child关联。[36.0.3官方说明](https://hearthstone.blizzard.com/en-us/news/24290431)把紧急手术的数量从三改为四，与固定37.0有效卡面一致；[实际HTTP200归档](../outputs/card-integration-20261014/k75-official-patch-01/observation.json)保留。此证据不代替全部国服热修、正式标准池和精确时序校准。
 
 后续真实树群来袭在SummonAttackProfile末尾增加有默认值的combat_relation，紧急手术三参调用保持opponent；有限双方随从关系及当前格式见[真实源扩展](m3-native-shreds-treants.md)。本节原组/容量/反应政策保持，历史core369/schema294不代表当前新格式。
+
+
+## 怒火狱犬的有序双召唤及最低生命攻击
+
+`SummonAttackProfile`增加默认空的`request_card_ids`及默认`original`的`target_policy`。旧紧急手术/树群来袭继续同一固定卡面的原次数、原显式目标及各自战斗关系。新有限政策`lowest_health_enemy_if_no_deck_minions`只供无手动目标的原法术，固定有序原请求必须完整，不能混用其他战斗关系。
+
+`original_summon_groups.ordered_recipients`按完整原原因、原有序请求材料及每次实际成功入场连接全部成员，旧`recipients`只传重复的同一卡面。数量额外交付继续属于原请求，已有/嵌套同名物及旧驻留不能凭卡名加入，容量失败请求仍须完整保留。
+
+两次召唤及其反应结束后，有限续行检查本人当前物理牌库是否有随从；无随从时一次接受全部原成员的攻击义务。各`AttackLowestHealthEnemy`再独立检查原攻击者驻留/当前控制者，读取当前敌方活跃存活角色的最低剩余生命，并列沿原RNG抽选。随从目标捕获场上驻留，英雄目标走原ForceAttack英雄入口。普通强制战斗负责攻击、拦截、伤害及死亡；选择反应中的离场重入不能重绑旧攻击。
+
+内部采用先完成整组召唤、再检查一次牌库、逐个重新选敌、并列抽样（单候选也沿既有choice入口）的政策，确切窗口仍待M6国服校准。主卡[官方卡面](https://hearthstone.blizzard.com/en-gb/cards/120990-hounds-of-fury/)和[35.4.2补丁说明](https://hearthstone.blizzard.com/en-us/news/24276662)确认两个3/2恶魔；本地完整原行有TIME_443t/t2两个同名3/2卡面，但四次双语官网查询均无对应面。实验配方暂各用一次并在源包明确`official_mapping_confirmed=false`，不宣称实际身份安排已获官方或国服证明，两条原卡面均保留为必要候选依赖。
+
+新增一个有限Effect，未增加GameState、Entity或AbilityInstance字段，原支付/召唤/战斗/FrameCodec继续共用；core493/schema406拒旧1～405，观察95/命令12/replay1保持。完整原上下文、请求和随机状态不投影给玩家。

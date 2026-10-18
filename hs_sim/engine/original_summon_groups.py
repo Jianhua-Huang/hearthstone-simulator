@@ -16,11 +16,20 @@ def root_prefix(before,after):
 
 def recipients(original,accepted,registry,card_id,requests=2):
     if type(requests)is not int or requests<1:raise ValueError('Fixed summon group requires a positive original request count')
+    return ordered_recipients(original,accepted,registry,(card_id,)*requests)
+
+
+def ordered_recipients(original,accepted,registry,card_ids):
+    """The complete ordered native requests, including different fixed faces."""
+    if type(card_ids) is not tuple or not card_ids:
+        raise ValueError('Fixed summon group requires its complete ordered card faces')
     validate_accepted_prefix(original.state,accepted.state,registry);root_prefix(original.state,accepted.state)
-    cause=SummonCause.capture(original);material=(SummonEntryMaterial(card_id),)
+    cause=SummonCause.capture(original)
+    materials=tuple((SummonEntryMaterial(cid),)for cid in card_ids)
     roots=[x for x in accepted.state.card_summon_history[len(original.state.card_summon_history):]
-        if x.request.cause==cause and x.request.materials==material]
-    if len(roots)!=requests or any(x.status not in('completed','skipped')for x in roots):
+        if x.request.cause==cause and x.request.materials in materials]
+    if (tuple(x.request.materials for x in roots)!=materials or
+            any(x.status not in('completed','skipped')for x in roots)):
         raise ValueError('Original summon group requires every original completed fixed request')
     result=[]
     for root in roots:

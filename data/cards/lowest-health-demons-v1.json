@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_730e",
+        "dbf_id": 122835,
+        "name": "培育",
+        "name_en": "Nurtured",
+        "text": "+5/+5。",
+        "text_en": "+5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d39bc670283b9abf365e3f9b38578a48b040742d93e7ec1c3d3e0543753217a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_730e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policies": [
+    "Two ordinary repeated discoveries from the complete current-class/neutral collectible Beast minion domain, replacement between discoveries; source class is not the actor class.",
+    "Reuse CreatedMinionGrant(attack=5,health=5), not CreatedMinionStats: this is an additive creation grant. Each original selected output is created directly at own deck bottom with its complete numbers before the first notification.",
+    "After-each delivery: first original output and reactions complete before the second offer. No hand transfer, shuffle, extra acquisition or silent omission of unknown eligible definitions.",
+    "Current class policy, offer/delivery ordering, initial creation and exact CN behavior remain local policies pending calibration. No complete formal Standard pool or reachability claim."
+  ],
+  "batch": "K211-lowest-health-demons",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_443",
+        "dbf_id": 120990,
+        "name": "怒火狱犬",
+        "name_en": "Hounds of Fury",
+        "text": "召唤两个3/2的恶魔。如果你的牌库中没有随从牌，使其攻击生命值最低的敌人。",
+        "text_en": "[x]Summon two 3/2\nDemons. If your deck has\nno minions, they attack\nthe lowest Health enemy.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "1d33c18061ff68a8416bafcc4d8f3cfc351805698918477a06cd3bb41400e2d3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_443",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_443t",
+        "dbf_id": 121021,
+        "name": "萨格拉斯的地狱犬",
+        "name_en": "Sargeran Felhound",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "7fe1d21af7c5c40ad03da956e72c233e2130f666b832dcb1c7f870ed6af466ab",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_443t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_443t2",
+        "dbf_id": 122715,
+        "name": "萨格拉斯的地狱犬",
+        "name_en": "Sargeran Felhound",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "11436a55aacaba887a3ca75d35d6bd763cee30caa04a9c8b3a38b124b3885074",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_443t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_443",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\120990-zh_CN.json",
+      "response_sha256": "a201dd3852a7b7a6940ca52b0d73d393ccd8e3407f1a5388c4c4f072135d84e2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=zh_CN",
+      "face": {
+        "id": 120990,
+        "collectible": 1,
+        "slug": "120990-hounds-of-fury",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 4,
+        "name": "怒火狱犬",
+        "text": "召唤两个3/2的恶魔。如果你的牌库中没有随从牌，使其攻击生命值最低的敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a67f8d0a1fba6e06040a180a884ec2c374d421c7a1320b68f926023c1ffa8315.png",
+        "imageGold": "",
+        "flavorText": "这样的狗狗摸不得！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8420b761561491871394b09af8e4cb474d1f571c9db3717475fdffa3cedf3f5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=zh_CN",
+        "sha256": "a201dd3852a7b7a6940ca52b0d73d393ccd8e3407f1a5388c4c4f072135d84e2",
+        "bytes": 754,
+        "observed_at": "2026-10-18T17:49:28.553437+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_443",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\120990-en_US.json",
+      "response_sha256": "d6bad6f1e6329f7c6a6ed52f8ba0da462ca6745601cd0ced52be0dd045a45c54",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=en_US",
+      "face": {
+        "id": 120990,
+        "collectible": 1,
+        "slug": "120990-hounds-of-fury",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 4,
+        "name": "Hounds of Fury",
+        "text": "Summon two 3/2 Demons. If your deck has no minions, they attack the lowest Health enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ce10aabe1b5f9e946ee363b8170eae9664ff099eff7a8f1d5d1faaeac3080af.png",
+        "imageGold": "",
+        "flavorText": "No, you can't pet the dogs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8420b761561491871394b09af8e4cb474d1f571c9db3717475fdffa3cedf3f5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120990&locale=en_US",
+        "sha256": "d6bad6f1e6329f7c6a6ed52f8ba0da462ca6745601cd0ced52be0dd045a45c54",
+        "bytes": 739,
+        "observed_at": "2026-10-18T17:49:28.372575+00:00"
+      }
+    }
+  ],
+  "identity_policy": {
+    "status": "local-uncalibrated",
+    "ordered_faces": [
+      "TIME_443t",
+      "TIME_443t2"
+    ],
+    "token_primary_faces_available": false,
+    "official_mapping_confirmed": false,
+    "scope": "Both complete original client rows retained; one of each is an internal policy, not certified by the root gallery or CN play evidence."
+  }
+}
