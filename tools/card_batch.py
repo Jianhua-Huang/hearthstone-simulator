@@ -196,18 +196,22 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # exactly its two native parameter slots, not an executable 0/0 default.
     bones_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'TLC_829t' and
                      canonical(row) == '082069689d67c8d86b654a0fe74baabff66ebcf2830b01a7e2835714aa02a558')
+    upgraded_recruit_display = (display_normalizations == {'{0}': ''} and row['id'] == 'HERO_04bp2' and
+        canonical(row) == 'e591407799b3a77a6013ede32fccc293544df11bcdf4b8c3b1371edcb4ede54d')
+    upgraded_hunter_display = (display_normalizations == {'@': ''} and row['id'] == 'HERO_05bp2' and
+        canonical(row) == '405a2877e62fd20fd01e5ec1c38c7eb4a1bcb84b4a263a8750bdaf6e2a4f925a')
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((progress_display or counter_display or leyline_display or smoldering_display) and replacement == '' or
+            require(type(replacement) is str and ((progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
