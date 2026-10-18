@@ -58,6 +58,7 @@ class AddPlayerEffect(Effect):
     spec_id: str
     source_id: int
     capture_health_source: bool = False
+    aura_duration_cast_id: int | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
@@ -67,6 +68,8 @@ class AddPlayerEffect(Effect):
         _int(self.source_id, 'player effect source', 1)
         if type(self.capture_health_source) is not bool:
             raise ValueError('Player effect health source capture must be boolean')
+        if self.aura_duration_cast_id is not None:
+            _int(self.aura_duration_cast_id, 'Aura original duration cast', 1)
 
 
 @dataclass(frozen=True)
@@ -178,7 +181,9 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         return
     from .allocation_facts import SourceAllocationFact
     allocation=SourceAllocationFact.capture(r.state,source).payload() if effect.capture_health_source or spec.capture_health_source else None
-    remaining = spec.duration
+    from .aura_duration import duration as original_aura_duration
+    remaining = original_aura_duration(r.state, r.registry, spec, source.id, player.id,
+                                      effect.aura_duration_cast_id)
     if spec.next_turn_end:
         # The end event captures countdowns before its reactions. An instance
         # installed by those reactions cannot consume that already captured end.
@@ -188,7 +193,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     instance = PlayerEffect(instance_id, spec.id, source.id,
                             adaptation_source.card_id if adaptation_source is not None else source.card_id,
                             r.state.turn, r.state.next_order, remaining,allocation,
-                            effect.player_id if allocation is not None else None, modifier_id, adaptations)
+                            effect.player_id if allocation is not None else None, modifier_id, adaptations,
+                            effect.aura_duration_cast_id)
     r.state.next_order += 1
     player.player_effects.append(instance)
     if modifier_id is not None:
@@ -198,8 +204,12 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
             player_effect_id=instance.id)
         validate_cost_binding(r.state, r.registry, player.id, instance)
     r.refresh_auras()
-    r.emit('player_effect_added', source_id=source.id, player_id=player.id,
-           **public_effect(r.registry, instance))
+    added = r.emit('player_effect_added', source_id=source.id, player_id=player.id,
+                   **public_effect(r.registry, instance))
+    if instance.aura_duration_cast_id is not None:
+        from .aura_duration import BIND_EVENT
+        r.emit(BIND_EVENT, source_id=source.id, player_id=player.id, instance_id=instance.id,
+               cast_id=instance.aura_duration_cast_id, added_event=added.sequence)
 
 
 def matching(r, effect):

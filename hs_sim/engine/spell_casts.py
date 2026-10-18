@@ -125,6 +125,8 @@ def note_payload(r, record):
     record = capture(r,record)
     from .native_spell_values import capture as capture_native_value
     record = capture_native_value(r,record)
+    from .aura_duration import capture as capture_aura_duration
+    record = capture_aura_duration(r, record)
     from .player_effects import claim_next_spell_damage
     record = claim_next_spell_damage(r,record)
     from .held_spells import note_cast
@@ -355,7 +357,8 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
             r.emit('quest_activation_failed', player_id=record.player_id)
     elif definition.ongoing_effect_id is not None:
         from .player_effects import AddPlayerEffect
-        work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id))
+        work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id,
+            aura_duration_cast_id=record.id if record.aura_duration_grants else None))
     work.extend(r.call(b, record.source_id, record.player_id, record.target_id, play=play, cast=record) for b in behavior_ids)
     # Twinspell is a payload derivative. Echo remains a paid-hand-play facility.
     if play is not None:
@@ -417,6 +420,8 @@ def validate_history(state, registry):
         validate_record(state,record,live,local_owners)
         from .native_spell_values import validate_record as validate_native_value
         validate_native_value(state,registry,record,live,local_owners)
+        from .aura_duration import validate_record as validate_aura_duration_record
+        validate_aura_duration_record(state, registry, record)
         for effect in record.spell_damage_effects:
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()

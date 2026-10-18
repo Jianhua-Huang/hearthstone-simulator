@@ -189,8 +189,10 @@ def validate(registry, value):
     for instance in value.inventory:
         registry.card(instance.source_card_id)
         spec = registry.player_effect(instance.spec_id)
+        from .aura_duration import maximum_duration
+        maximum = maximum_duration(registry, instance)
         if ((spec.duration is None) != (instance.remaining_turns is None) or
-                (spec.duration is not None and instance.remaining_turns > spec.duration)):
+                (spec.duration is not None and instance.remaining_turns > maximum)):
             raise ValueError('Original producer effect lifetime differs from its declaration')
     expected = decisions(registry, value.profile, value.cause, value.source_kind, value.base_count, value.inventory)
     if expected != value.decisions:

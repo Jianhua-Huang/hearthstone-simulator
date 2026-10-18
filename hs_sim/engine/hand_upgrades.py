@@ -120,7 +120,7 @@ def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy=
                         continue
                 kept.append(row)
             source.enchantments = kept
-        granted = [a for a in source.abilities if a.origin != 'printed']
+        granted = [a for a in source.abilities if a.origin != 'printed' and a.kind != 'aura_duration_bonus']
         if spell_to_minion:
             # Do not silently delete a granted spell-only body/repetition when
             # the physical card changes type. Such a real source needs its own

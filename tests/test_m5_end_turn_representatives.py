@@ -219,7 +219,7 @@ class EndTurnRepresentativeTests(unittest.TestCase):
         spec = self.r.player_effect(SOURCE)
         self.assertEqual((card.ongoing_effect_id, card.on_play, card.triggers), (SOURCE, None, ()))
         self.assertEqual((spec.card_id, spec.kind, spec.duration, spec.tick_event),
-            ('CATA_480', 'objective', 3, 'turn_ended'))
+            ('CATA_480', 'aura', 3, 'turn_ended'))
         self.assertEqual((spec.end_turn_repeats, spec.triggers, spec.on_expire),
             ((EndTurnRepeatSpec(2, 'minion'),), (), None))
 

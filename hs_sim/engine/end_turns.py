@@ -335,9 +335,11 @@ def validate_subject(state,registry,subject):
                 raise ValueError('Historical end-turn finite uses moved backwards')
     else:
         effect=subject.player_effect;spec=registry.player_effect(effect.spec_id)
+        from .aura_duration import maximum_duration
+        maximum = maximum_duration(registry, effect, state)
         if (effect.id>=state.next_attachment_id or effect.created_turn>state.turn or
                 (effect.remaining_turns is None)!=(spec.duration is None) or
-                spec.duration is not None and effect.remaining_turns>spec.duration or
+                spec.duration is not None and effect.remaining_turns>maximum or
                 subject.trigger_index>=len(spec.triggers) or spec.triggers[subject.trigger_index]!=subject.trigger):
             raise ValueError('End-turn player subject differs from its registered declaration')
         for player in state.players.values():

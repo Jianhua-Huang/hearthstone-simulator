@@ -135,7 +135,7 @@ class SimpleTemporalP07CardTests(unittest.TestCase):
                 self.assertEqual(g.state.entities[source].zone,Zone.GRAVEYARD)
                 self.assertEqual(p.temporary_mana,0);self.assertFalse(self.entities(g,DRAKE))
                 spec=self.r.player_effect(self.effects(g)[0].spec_id)
-                self.assertEqual(spec.kind,'persistent'if cid==POWER else'objective')
+                self.assertEqual(spec.kind,'persistent'if cid==POWER else'aura')
 
     def test_power_destroys_ordinary_crystal_then_rewards_second_real_owner_start(self):
         g=self.game((POWER,),mana=10,maximum=10,cap=20);self.play(g,POWER)
@@ -203,7 +203,7 @@ class SimpleTemporalP07CardTests(unittest.TestCase):
         for viewer in(1,2):
             row=next(p for p in g.for_player(viewer).observe()['observation']['players']if p['id']==1)
             self.assertEqual(len(row['player_effects']),5)
-            self.assertTrue(all(e['effect_kind']=='objective'and e['remaining_turns']==3 for e in row['player_effects']))
+            self.assertTrue(all(e['effect_kind']=='aura'and e['remaining_turns']==3 for e in row['player_effects']))
         saved=g.snapshot()
         with self.assertRaises(IllegalAction):self.play(g,CHRONOLOGICAL)
         self.assertEqual(g.snapshot(),saved);self.portable(g)

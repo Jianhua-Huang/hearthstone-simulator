@@ -195,7 +195,7 @@ def add_to_hand(r, effect):
     create_hand_card(r, effect)
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None):
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None):
     """Shared generated materialization; public AddToHand still returns no work."""
     player = r.player(effect.player_id)
     definition = r.registry.card(effect.card_id)
@@ -222,6 +222,9 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
     if native_spell_value is not None:
         from .native_spell_values import install as install_native_spell_value
         install_native_spell_value(r.state,r.registry,entity,native_spell_value)
+    if aura_duration_source is not None:
+        from .aura_duration import install as install_aura_duration
+        install_aura_duration(r.state, r.registry, entity, aura_duration_source)
     for viewer in effect.revealed_to:
         r.game._information.players[viewer].remember(entity)
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id)

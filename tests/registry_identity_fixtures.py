@@ -1,8 +1,9 @@
 """Reviewed representative identity; update only after full identity-delta audit."""
 
-# K169: printed minion attack pool scalar. Removing only that new field
-# reproduces the complete K122 fingerprint; definitions and programs unchanged.
-DEFAULT_REPRESENTATIVE_FINGERPRINT = '3aec897b8107fb6e26224127339b43c5154497c9655d110485a97cdd4e3e1645'
+# K219: the complete identity audit preserves all 311 definitions. Changing
+# only m5.sandfury_aura.kind from objective to its real aura identity reproduces
+# this entire fingerprint; the prior fingerprint is retained in that receipt.
+DEFAULT_REPRESENTATIVE_FINGERPRINT = 'b2167d3328df10bb4336983812adfd12220d2644b7bcc86b517f5e335028eb4a'
 
 # Explicit, previously reviewed whole-definition transitions. Historical input
 # files keep their original bytes; a current definition must match the complete

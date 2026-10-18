@@ -195,6 +195,7 @@ class PoolQuery:
     any_of: tuple['PoolQuery', ...] = ()
     runes_any: tuple[str, ...] = ()
     attack_parity: str | None = None
+    card_ids: tuple[str, ...] = ()
 
     def __post_init__(self):
         if self.attack_parity is not None and (type(self.attack_parity) is not str or
@@ -241,6 +242,7 @@ class PoolQuery:
         ids(self.factions_any, 'factions_any', unique=True)
         validate_minion_subtypes(self.subtypes_any)
         ids(self.exclude_card_ids, 'query exclusions', unique=True)
+        ids(self.card_ids, 'query identities', unique=True)
         ids(self.runes_any, 'printed rune filters', unique=True)
         if not set(self.runes_any) <= {'blood', 'frost', 'unholy'}:
             raise ValueError('Printed rune filters require blood, frost or unholy')
@@ -277,6 +279,8 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
     query.__post_init__()
+    if query.card_ids and card_id not in query.card_ids:
+        return False
     missing = []
     if query.kinds and kind not in query.kinds:
         return False

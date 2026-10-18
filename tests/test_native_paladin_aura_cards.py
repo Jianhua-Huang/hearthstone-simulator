@@ -29,6 +29,10 @@ META = CardMetadata(False, (CardClass.NEUTRAL,), None, tribes=(), factions=(), s
 @lru_cache(None)
 def registry(mode=None):
     r = build_registry()
+    legacy=P+'legacy_objective'
+    r.register_player_effect(PlayerEffectSpec(legacy,legacy,kind='objective',duration=3,tick_event='turn_ended'))
+    r.register_card(CardDefinition(legacy,'Non-Aura objective fixture',CardType.SPELL,
+        ongoing_effect_id=legacy,metadata=META))
     def fail(c):
         raise ResolutionError('K132 deliberate suspended action failure')
     def remove(c):
@@ -233,10 +237,10 @@ class NativePaladinAuraTests(unittest.TestCase):
         g = self.game(hand=(TIMEWAYS,), enemy=(YETI,))
         self.play(g, TIMEWAYS)
         self.assertEqual(g.state.entities[g.state.players[2].hero_id].health, 30)
-        legacy = registry().card('CATA_480').ongoing_effect_id
+        legacy = registry().card(P+'legacy_objective').ongoing_effect_id
         self.assertNotEqual(registry().player_effect(legacy).kind, 'aura')
-        g = self.game(hand=('CATA_480',TIMEWAYS), enemy=(YETI,))
-        self.play(g, 'CATA_480')
+        g = self.game(hand=(P+'legacy_objective',TIMEWAYS), enemy=(YETI,))
+        self.play(g, P+'legacy_objective')
         self.play(g, TIMEWAYS)
         self.assertEqual(g.state.entities[g.state.players[2].hero_id].health, 30)
         g = self.game(hand=(TIMEWAYS,), enemy_hand=(RESISTANCE,))

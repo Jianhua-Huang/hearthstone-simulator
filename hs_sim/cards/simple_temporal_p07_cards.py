@@ -68,10 +68,10 @@ def register_simple_temporal_p07_cards(registry):
     registry.register_behavior(PREFIX+'drake', lambda c: (
         SummonByCard(c.player_id, (SummonEntryMaterial(DRAKE),), SummonCause.capture(c)),))
     registry.register_player_effect(PlayerEffectSpec(PREFIX+'acceleration', ACCELERATION,
-        kind='objective', duration=3, tick_event='turn_started',
+        kind='aura', duration=3, tick_event='turn_started',
         triggers=(TriggerSpec('turn_started', PREFIX+'acceleration'),)))
     registry.register_player_effect(PlayerEffectSpec(PREFIX+'chronological', CHRONOLOGICAL,
-        kind='objective', duration=3, tick_event='turn_ended',
+        kind='aura', duration=3, tick_event='turn_ended',
         triggers=(TriggerSpec('turn_ended', PREFIX+'drake', EndTurnSpec()),)))
     for row in data['cards'] + data['dependencies']:
         raw = row['record'];cid = raw['id']

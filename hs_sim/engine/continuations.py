@@ -565,10 +565,12 @@ class FrameCodec:
                 if spec.capture_health_source and effect.source_allocation is None:
                     raise ValueError('Captured Sigil context lost its declared original health source')
                 self.registry.card(effect.source_card_id)
+                from .aura_duration import maximum_duration
+                maximum = maximum_duration(self.registry, effect, value.state, value.player_id)
                 if (effect.source_id != value.source_id or effect.id >= value.state.next_attachment_id or
                         effect.created_turn > value.state.turn or effect.entered_order >= value.state.next_order or
                         (effect.remaining_turns is None) != (spec.duration is None) or
-                        (spec.duration is not None and effect.remaining_turns > spec.duration)):
+                        (spec.duration is not None and effect.remaining_turns > maximum)):
                     raise ValueError('Invalid captured player effect provenance')
 
     def encode(self, value, depth=0):

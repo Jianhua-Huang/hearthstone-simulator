@@ -100,10 +100,12 @@ def validate_plan(state, registry, plan, player_id, turn, recipient, ability, de
         if type(source) is DeathrattlePlayerContributor:
             instance=source.instance;declaration=registry.player_effect(instance.spec_id)
             registry.card(instance.source_card_id)
+            from .aura_duration import maximum_duration
+            maximum = maximum_duration(registry, instance, state)
             if (instance.id>=state.next_attachment_id or instance.source_id not in state.entities or
                     instance.created_turn>turn or instance.entered_order>=state.next_order or
                     (declaration.duration is None)!=(instance.remaining_turns is None) or
-                    declaration.duration is not None and instance.remaining_turns>declaration.duration or
+                    declaration.duration is not None and instance.remaining_turns>maximum or
                     source.spec_index>=len(declaration.deathrattle_repeats) or
                     declaration.deathrattle_repeats[source.spec_index]!=source.spec):
                 raise ValueError('Invalid captured player Deathrattle source or specification')

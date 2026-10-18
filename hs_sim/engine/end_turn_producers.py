@@ -134,9 +134,11 @@ def validate_selection(state, registry, activation, *, acceptance=False):
         else:
             effect = row.player_effect
             spec = registry.player_effect(effect.spec_id)
+            from .aura_duration import maximum_duration
+            maximum = maximum_duration(registry, effect, state)
             if (effect.id >= state.next_attachment_id or effect.created_turn > state.turn or
                     (effect.remaining_turns is None) != (spec.duration is None) or
-                    spec.duration is not None and effect.remaining_turns > spec.duration):
+                    spec.duration is not None and effect.remaining_turns > maximum):
                 raise ValueError('End-turn candidate has invalid player-instance provenance')
             for player in state.players.values():
                 current = next((e for e in player.player_effects if e.id == effect.id), None)

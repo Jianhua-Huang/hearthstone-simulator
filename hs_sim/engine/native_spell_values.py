@@ -57,6 +57,8 @@ def bound_value(entity):
 
 
 def validate_carrier(state,registry,card_id,kind,abilities):
+    from .aura_duration import validate_carrier as validate_aura_duration_carrier
+    validate_aura_duration_carrier(state, registry, card_id, kind, abilities)
     rows=tuple(a for a in abilities if a.kind in VALUE_KINDS)
     if not rows:return
     if kind!=CardType.SPELL or len(rows)!=1 or ability_value(rows[0]).card_id!=card_id:

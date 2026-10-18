@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 411
+SNAPSHOT_SCHEMA_VERSION = 412
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1102,6 +1102,8 @@ def _spell_cast_from_dict(value):
     row['local_spell_damage'] = tuple(_ability_from_dict(a)
         for a in _list(row['local_spell_damage'], 'original local spell damage abilities'))
     if row['native_spell_value'] is not None:row['native_spell_value']=_ability_from_dict(row['native_spell_value'])
+    row['aura_duration_grants'] = tuple(_ability_from_dict(a)
+        for a in _list(row['aura_duration_grants'], 'original Aura duration attachments'))
     row['spell_damage_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['spell_damage_effects'], 'claimed next-spell damage effects'))
     if row['target_selection'] is not None:

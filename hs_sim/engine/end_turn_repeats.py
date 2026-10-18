@@ -84,10 +84,12 @@ def validate_plan(state, registry, plan, subject, turn):
             instance = source.player_effect
             declaration = registry.player_effect(instance.spec_id)
             declaration.__post_init__()
+            from .aura_duration import maximum_duration
+            maximum = maximum_duration(registry, instance, state)
             if (instance.id >= state.next_attachment_id or instance.created_turn > turn or
                     instance.entered_order >= state.next_order or
                     (instance.remaining_turns is None) != (declaration.duration is None) or
-                    declaration.duration is not None and instance.remaining_turns > declaration.duration or
+                    declaration.duration is not None and instance.remaining_turns > maximum or
                     source.spec_index >= len(declaration.end_turn_repeats) or
                     declaration.end_turn_repeats[source.spec_index] != source.spec):
                 raise ValueError('End-turn repeat player source differs from its declaration')

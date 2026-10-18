@@ -896,9 +896,11 @@ def validate_player_effect_view(value, registry, event_kind):
             raise ValueError('Whole-game effects cannot expire')
     else:
         _integer(remaining)
-        if (remaining > spec.duration or (remaining == 0) != (event_kind == 'player_effect_expired') or
+        maximum = spec.duration + (1 if spec.kind == 'aura' else 0)
+        initial = (spec.duration, maximum) if spec.kind == 'aura' else (spec.duration,)
+        if (remaining > maximum or (remaining == 0) != (event_kind == 'player_effect_expired') or
                 (event_kind == 'player_effect_added' and remaining not in
-                    ((1, 2) if spec.next_turn_end else (spec.duration,)))):
+                    ((1, 2) if spec.next_turn_end else initial))):
             raise ValueError('Invalid public player effect countdown')
 
 

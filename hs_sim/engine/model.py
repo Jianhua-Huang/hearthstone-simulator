@@ -2713,6 +2713,12 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.kind == 'aura_duration_bonus':
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin'}
+            if self.origin != 'granted' or self.source_id is None or any(
+                    getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed):
+                raise ValueError('Aura duration requires one pure granted extra-turn attachment')
         if self.kind == 'prepare':
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin', 'magnetic_id'}
@@ -2925,7 +2931,7 @@ class AbilityInstance:
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -7410,9 +7416,12 @@ class SpellCastRecord:
     native_spell_value: AbilityInstance | None = None
 
     target_origin: object | None = None
+    aura_duration_grants: tuple[AbilityInstance, ...] = ()
 
     def __post_init__(self):
         from .allocation_facts import SourceAllocationFact
+        from .aura_duration import validate_grants
+        validate_grants(self.aura_duration_grants)
         if self.target_origin is not None:
             if type(self.target_origin)is not SourceAllocationFact:
                 raise ValueError('Spell target requires its typed original allocation')
@@ -8132,8 +8141,13 @@ class PlayerEffect:
     source_player_id: int | None = None
     cost_modifier_id: int | None = None
     adaptations: tuple[str, ...] = ()
+    aura_duration_cast_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.aura_duration_cast_id, 'Aura original duration cast')
+        if self.aura_duration_cast_id is not None and (self.remaining_turns is None or
+                self.adaptations or self.source_allocation is not None or self.source_player_id is not None):
+            raise ValueError('Aura duration cannot borrow untimed or other captured program material')
         validate_adaptations(self.adaptations, empty=True)
         if self.adaptations and any(v is not None for v in
                 (self.remaining_turns, self.source_allocation, self.source_player_id, self.cost_modifier_id)):
@@ -10689,10 +10703,13 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             registry.card(effect.source_card_id)
             if spec.capture_health_source and effect.source_allocation is None:
                 raise ValueError('Sigil lost its declared original health source')
+            from .aura_duration import duration as original_aura_duration
+            maximum_duration = original_aura_duration(state, registry, spec, effect.source_id,
+                                                       player.id, effect.aura_duration_cast_id)
             if (effect.source_id not in state.entities or effect.created_turn > state.turn or
                     effect.entered_order >= state.next_order or
                     (spec.duration is None) != (effect.remaining_turns is None) or
-                    (spec.duration is not None and effect.remaining_turns > spec.duration)):
+                    (spec.duration is not None and effect.remaining_turns > maximum_duration)):
                 raise ValueError('Invalid player effect source, order or countdown')
             if effect.source_allocation is not None:
                 from .allocation_facts import allocation_from_payload,validate_allocation

@@ -1313,7 +1313,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
     for behavior_id, handler in behaviors.items():
         registry.register_behavior(behavior_id, handler)
     registry.register_card(CardDefinition("test.hero", "M1测试英雄", CardType.HERO, health=30))
-    registry.register_player_effect(PlayerEffectSpec('m5.sandfury_aura', 'CATA_480', 'objective', 3, 'turn_ended',
+    registry.register_player_effect(PlayerEffectSpec('m5.sandfury_aura', 'CATA_480', 'aura', 3, 'turn_ended',
         end_turn_repeats=(EndTurnRepeatSpec(2, 'minion'),)))
     registry.register_player_effect(PlayerEffectSpec('m5.snowfall_graveyard', 'AV_400', 'objective', 3, 'turn_ended',
         deathrattle_repeats=(DeathrattleRepeatSpec(kinds=(CardType.MINION,CardType.WEAPON,CardType.LOCATION)),)))
