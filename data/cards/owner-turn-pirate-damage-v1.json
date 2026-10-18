@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_730e",
+        "dbf_id": 122835,
+        "name": "培育",
+        "name_en": "Nurtured",
+        "text": "+5/+5。",
+        "text_en": "+5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d39bc670283b9abf365e3f9b38578a48b040742d93e7ec1c3d3e0543753217a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_730e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policies": [
+    "Two ordinary repeated discoveries from the complete current-class/neutral collectible Beast minion domain, replacement between discoveries; source class is not the actor class.",
+    "Reuse CreatedMinionGrant(attack=5,health=5), not CreatedMinionStats: this is an additive creation grant. Each original selected output is created directly at own deck bottom with its complete numbers before the first notification.",
+    "After-each delivery: first original output and reactions complete before the second offer. No hand transfer, shuffle, extra acquisition or silent omission of unknown eligible definitions.",
+    "Current class policy, offer/delivery ordering, initial creation and exact CN behavior remain local policies pending calibration. No complete formal Standard pool or reachability claim."
+  ],
+  "batch": "K212-owner-turn-pirate-damage",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_104",
+        "dbf_id": 127016,
+        "name": "炸药工程师",
+        "name_en": "Blastpowder Engineer",
+        "text": "在你的回合，\n友方海盗造成的伤害增加1点。",
+        "text_en": "[x]On your turn, friendly\nPirates deal 1 more\ndamage.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kati Sarin"
+          }
+        ]
+      },
+      "record_sha256": "d58a38b8f5559e0ef63ebd9f2e55b0a6ea8a676800aa93d612a54c43382315b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CAP_104",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "CAP_104",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\127016-zh_CN.json",
+      "response_sha256": "23595e0654e62d085122ae7639a2249080e1b04b0a3c75b4f4e83fa933bee37a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127016&locale=zh_CN",
+      "face": {
+        "id": 127016,
+        "collectible": 1,
+        "slug": "127016-blastpowder-engineer",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Kati Sarin",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "炸药工程师",
+        "text": "在你的回合， 友方海盗造成的伤害增加1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/899e8d656ce4387ff73cdea454fd415376ff7f3a58534d66b940c6901f579830.png",
+        "imageGold": "",
+        "flavorText": "爆发力十足。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6e5e8d4e345101f8f8741e84e0123ca08e15fc99c8730a24a0478890df134c3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127016&locale=zh_CN",
+        "sha256": "23595e0654e62d085122ae7639a2249080e1b04b0a3c75b4f4e83fa933bee37a",
+        "bytes": 742,
+        "observed_at": "2026-10-18T17:57:42.846830+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_104",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\127016-en_US.json",
+      "response_sha256": "cce2604781f5731b8eb8fe4d5c27d3bc031d471483854e9b77e22c659d2eeac8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127016&locale=en_US",
+      "face": {
+        "id": 127016,
+        "collectible": 1,
+        "slug": "127016-blastpowder-engineer",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Kati Sarin",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Blastpowder Engineer",
+        "text": "On your turn, friendly Pirates deal 1 more damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/26ddf7524892512a25c857f527f79cb2c080da6e3bfa646c4fa0b077c059af73.png",
+        "imageGold": "",
+        "flavorText": "She's got that boom, boom pow.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6e5e8d4e345101f8f8741e84e0123ca08e15fc99c8730a24a0478890df134c3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127016&locale=en_US",
+        "sha256": "cce2604781f5731b8eb8fe4d5c27d3bc031d471483854e9b77e22c659d2eeac8",
+        "bytes": 750,
+        "observed_at": "2026-10-18T17:57:42.852237+00:00"
+      }
+    }
+  ]
+}

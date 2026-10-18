@@ -74,9 +74,11 @@ def relation_matches(relation, entity_id, controller, holder_id, holder_controll
 
 
 def source_matches(state,registry,packet,holder_id,controller,relation):
-    tribes={'friendly_elemental_minions':'elemental','friendly_beast_minions':'beast'}
+    tribes={'friendly_elemental_minions':'elemental','friendly_beast_minions':'beast',
+            'friendly_pirate_minions_on_owner_turn':'pirate'}
     if relation not in tribes:
         return relation_matches(relation,packet.source_id,packet.source_controller,holder_id,controller)
+    if relation=='friendly_pirate_minions_on_owner_turn' and state.active_player!=controller:return False
     if packet.source_controller!=controller:return False
     source=state.entities.get(packet.source_id)
     if source is None:

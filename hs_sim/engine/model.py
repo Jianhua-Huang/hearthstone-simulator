@@ -278,10 +278,10 @@ class HealthRule:
         if self.operation == HealthOp.FLOOR and (self.flow != HealthFlow.DAMAGE or
                 self.layer != HealthLayer.TARGET or self.amount < 1):
             raise ValueError('Health FLOOR requires positive DAMAGE/TARGET operand')
-        if self.source_relation not in ('any','friendly','enemy','self','friendly_elemental_minions','friendly_beast_minions') or self.target_relation not in ('any','friendly','enemy','self'):
+        if self.source_relation not in ('any','friendly','enemy','self','friendly_elemental_minions','friendly_beast_minions','friendly_pirate_minions_on_owner_turn') or self.target_relation not in ('any','friendly','enemy','self'):
             raise ValueError('Invalid health rule relation')
-        if self.source_relation in ('friendly_elemental_minions','friendly_beast_minions'):
-            operation,amount=((HealthOp.ADD,1)if self.source_relation=='friendly_elemental_minions'else(HealthOp.SCALE,2))
+        if self.source_relation in ('friendly_elemental_minions','friendly_beast_minions','friendly_pirate_minions_on_owner_turn'):
+            operation,amount=((HealthOp.SCALE,2)if self.source_relation=='friendly_beast_minions'else(HealthOp.ADD,1))
             if(self.flow!=HealthFlow.DAMAGE or self.layer!=HealthLayer.SOURCE or self.operation!=operation or self.amount!=amount
                     or self.denominator!=1 or self.target_relation!='any' or self.target_kinds!=(CardType.HERO,CardType.MINION)
                     or self.damage_kinds or self.healing_kinds or self.schools or self.redirect_to is not None):
