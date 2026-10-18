@@ -1,4 +1,6 @@
 """Weapon slots, derived hero contribution and intrinsic attack wear."""
+from dataclasses import dataclass
+from .effects import Effect, _integer, _source
 from .errors import ResolutionError
 from .lifecycle import attachment_id, refresh_entity
 from .model import CardType, Enchantment, EquippedWeaponReference, Event, Keyword, Zone, _int
@@ -6,6 +8,45 @@ from .model import CardType, Enchantment, EquippedWeaponReference, Event, Keywor
 
 WEAPON_KEYWORDS = {Keyword.WINDFURY, Keyword.MEGA_WINDFURY, Keyword.LIFESTEAL, Keyword.POISONOUS,
                    Keyword.IMMUNE_WHILE_ATTACKING}
+
+
+@dataclass(frozen=True)
+class SetWeaponAttackForTurn(Effect):
+    weapon: EquippedWeaponReference
+    attack: int
+    expires_turn: int
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.weapon) is not EquippedWeaponReference:
+            raise ValueError('Weapon Attack set requires an original equipped reference')
+        self.weapon.__post_init__()
+        _integer(self.attack,'weapon Attack set',0)
+        _integer(self.expires_turn,'weapon Attack expiry',1)
+        _source(self.source_id)
+
+
+def set_weapon_attack_for_turn(r,effect):
+    from .resolver import validate_attachment_source
+    effect.__post_init__()
+    validate_attachment_source(r,effect.source_id,effect.expires_turn)
+    if effect.expires_turn != r.state.turn:
+        raise ResolutionError('Weapon this-turn set must retain its actual current turn')
+    ref=effect.weapon
+    if r.registry.card(ref.card_id).kind != CardType.WEAPON:
+        raise ResolutionError('Weapon Attack reference requires a weapon face')
+    weapon=r.state.entities.get(ref.entity_id)
+    if (weapon is None or not weapon.active or weapon.doomed or weapon.durability<=0 or
+            (weapon.kind,weapon.zone,weapon.controller,weapon.card_id,weapon.zone_epoch,weapon.entered_order) !=
+            (CardType.WEAPON,Zone.WEAPON,ref.player_id,ref.card_id,ref.zone_epoch,ref.entered_order) or
+            r.player(ref.player_id).weapon_id != ref.entity_id):
+        r.emit('effect_skipped',target_id=ref.entity_id,effect='SetWeaponAttackForTurn',reason='stale_equipped_weapon')
+        return ()
+    weapon.enchantments.append(Enchantment(attachment_id(r.state),source_id=effect.source_id,
+        set_attack=effect.attack,expires_turn=effect.expires_turn,label='weapon_attack_set'))
+    r.refresh_auras()
+    r.emit('weapon_changed',source_id=effect.source_id,target_id=weapon.id,
+           attack=weapon.attack,durability=weapon.durability)
 
 
 def equipped_weapon(state, player):

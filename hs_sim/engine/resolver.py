@@ -23,7 +23,7 @@ from .model import AbilityInstance, Enchantment, DeathRecord, CardType, ChoiceRe
 from .costs import pay_cost, modify_cost
 from .resources import begin_mana_turn, refresh_mana, mana_effect, resource_effect, lose_armor, consume_mana
 from .stats import resolve_stat
-from .equipment import total_hero_attack, WEAPON_KEYWORDS, equip_entity, equip_weapon, transfer_weapon, modify_weapon, refresh_equipment, validate_exchange, finish_exchange
+from .equipment import total_hero_attack, WEAPON_KEYWORDS, equip_entity, equip_weapon, transfer_weapon, modify_weapon, refresh_equipment, validate_exchange, finish_exchange, SetWeaponAttackForTurn, set_weapon_attack_for_turn
 from .hero_powers import (ActivateHeroPower, FinishHeroPower, activate_hero_power, finish_hero_power,
                           replace_hero_power, refresh_hero_power, set_hero_power_uses, replace_hero,
                           play_hero, assign_hero_class)
@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v503'
+CORE_EFFECTS_VERSION = 'core-effects-v504'
 
 
 class Mechanics:
@@ -2390,6 +2390,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
         (Summon, summon), (Draw, draw), (Buff, buff), (Destroy, destroy), (DestroyBatch, destroy_batch),
         (SetStats, set_stats), (SwapStats, set_stats), (DoubleStats, double_stats),
         (EquipWeapon, equip_weapon), (TransferWeapon, transfer_weapon), (ModifyWeapon, modify_weapon),
+        (SetWeaponAttackForTurn, set_weapon_attack_for_turn),
         (ReplaceHeroPower, replace_hero_power), (RefreshHeroPower, refresh_hero_power),
         (SetHeroPowerUses, set_hero_power_uses), (ReplaceHero, replace_hero),
         (ActivateHeroPower, activate_hero_power), (FinishHeroPower, finish_hero_power),
