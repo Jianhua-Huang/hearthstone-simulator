@@ -1,4 +1,4 @@
-"""Actual weapon creation results shared by Battlecry and independent Combo.
+"""Actual card creation results shared by Battlecry and independent Combo.
 
 No hand search or entity-allocation cursor reconstructs the recipient. Pool
 selection, creation and stored Attack changes keep their existing executors.
@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
 from .effects import AddToHand, Effect, _integer
 from .model import CardType, Zone
-from .pools import GenerateFromPool
+from .pools import GenerateFromCandidates, GenerateFromPool
 from .serialization import canonical_hash
 from .zones import CardReference
 
@@ -30,32 +30,54 @@ class BattlecryWeaponOutput:
             if type(self.created) is not SourceAllocationFact:
                 raise ValueError('Weapon output requires its actual physical creation fact')
             self.created.__post_init__()
-            if self.created.kind != CardType.WEAPON or self.created.zone not in (Zone.HAND, Zone.GRAVEYARD):
+            if self.created.kind not in (CardType.WEAPON, CardType.SPELL) or self.created.zone not in (Zone.HAND, Zone.GRAVEYARD):
                 raise ValueError('Weapon output must record its original hand delivery or burn')
 
 
+# Retain the existing record and wire names; there is only one output journal.
+BattlecryCardOutput = BattlecryWeaponOutput
+
+
 @dataclass(frozen=True)
-class GenerateBattlecryWeapon(Effect):
+class GenerateBattlecryCard(Effect):
     battlecry_id: int
-    request: GenerateFromPool
+    request: GenerateFromPool | GenerateFromCandidates
 
     def __post_init__(self):
         _integer(self.battlecry_id, 'original Battlecry', 1)
         request = self.request
-        if type(request) is not GenerateFromPool:
-            raise ValueError('Weapon output requires the ordinary complete pool request')
+        if type(request) not in (GenerateFromPool, GenerateFromCandidates):
+            raise ValueError('Card output requires an ordinary pool or finite generation request')
         request.__post_init__()
-        if (request.source_id is None or request.count != 1 or not request.replacement or
-                request.destination != 'hand' or request.query.kinds != (CardType.WEAPON,) or
+        if request.source_id is None:
+            raise ValueError('Card output requires its original Battlecry source')
+        if type(request) is GenerateFromCandidates:
+            return
+        if (request.count != 1 or not request.replacement or
+                request.destination != 'hand' or request.query.kinds not in ((CardType.WEAPON,), (CardType.SPELL,)) or
                 request.query.collectible is not True or any(v is not None for v in (
                     request.cost, request.expires_turn, request.spell_repeat, request.cause,
                     request.producer_profile_id, request.temporary_until_turn, request.board_position,
-                    request.minion_stats, request.shuffle_actor_id)) or request.combined_shatter):
-            raise ValueError('Weapon output supports one plain source-bound collectible hand weapon')
+                    request.minion_stats, request.shuffle_actor_id, request.entry_grant,
+                    request.minion_grant)) or request.combined_shatter):
+            raise ValueError('Card output supports one plain source-bound collectible weapon or spell')
+
+
+@dataclass(frozen=True)
+class GenerateBattlecryWeapon(GenerateBattlecryCard):
+    """Compatibility entry point; its weapon-only contract remains strict."""
+    def __post_init__(self):
+        super().__post_init__()
+        if type(self.request) is not GenerateFromPool or self.request.query.kinds != (CardType.WEAPON,):
+            raise ValueError('Weapon output requires its ordinary weapon pool request')
 
 
 def validate_work(effect, registry, state=None):
     effect.__post_init__()
+    if type(effect.request) is GenerateFromCandidates:
+        kinds = {registry.card(cid).kind for cid in effect.request.card_ids}
+        if len(kinds) != 1 or not kinds.issubset((CardType.WEAPON, CardType.SPELL)):
+            raise ValueError('A bound finite output requires one weapon or spell kind')
     if state is None:
         return
     from .battlecries import battlecry_record, validate_record
@@ -70,12 +92,13 @@ def validate_work(effect, registry, state=None):
 
 def generate(r, effect):
     from .opening import create_hand_card
-    from .pools import generate_from_pool
+    from .pools import generate_from_candidates, generate_from_pool
     validate_work(effect, r.registry, r.state)
     # The ordinary generator validates every eligible member and samples once.
     # Its one selected AddToHand is materialized by the shared creation helper,
     # which returns the actual entity before queued reactions can change it.
-    work = generate_from_pool(r, effect.request)
+    generator = generate_from_candidates if type(effect.request) is GenerateFromCandidates else generate_from_pool
+    work = generator(r, effect.request)
     if len(work) > 1 or any(type(w) is not AddToHand for w in work):
         raise ValueError('Weapon generator returned another delivery protocol')
     entity = create_hand_card(r, work[0]) if work else None
@@ -134,8 +157,10 @@ def validate_events(game):
             raise ValueError('Weapon creation is outside its original Battlecry window')
 
 
-def combo_weapon(context, registry):
+def combo_card(context, registry, *, kind):
     """The last matching native Battlecry in this exact physical body/result."""
+    if kind not in (CardType.WEAPON, CardType.SPELL):
+        raise ValueError('Combo output requires its declared weapon or spell kind')
     from .combos import combo_record
     combo = context.combo
     if combo is None or combo != combo_record(context.state, combo.id):
@@ -156,9 +181,15 @@ def combo_weapon(context, registry):
     if len(outputs) != 1:
         raise ValueError('Combo lost the matching Battlecry original weapon output')
     created = outputs[0].created
+    if created is not None and created.kind != kind:
+        raise ValueError('Combo output changed its declared original card kind')
     if created is None or created.zone != Zone.HAND:
         return None
     return CardReference(created.entity_id, combo.player_id, Zone.HAND, created.card_id, created.zone_epoch)
+
+
+def combo_weapon(context, registry):
+    return combo_card(context, registry, kind=CardType.WEAPON)
 
 
 def validate_context(context, state, events):
@@ -185,4 +216,5 @@ def from_dict(value):
 
 def register(mechanics):
     mechanics.register_payload_type(BattlecryWeaponOutput)
+    mechanics.register(GenerateBattlecryCard, generate)
     mechanics.register(GenerateBattlecryWeapon, generate)

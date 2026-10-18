@@ -82,9 +82,9 @@ class FrameCodec:
         from .dead_minion_shuffles import ShuffleDeadMinion, validate_request as validate_dead_shuffle
         if type(value) is ShuffleDeadMinion and self.origin_state is not None:
             validate_dead_shuffle(self.origin_state, self.registry, value)
-        from .battlecry_weapon_outputs import (GenerateBattlecryWeapon, validate_work as validate_weapon_work,
+        from .battlecry_weapon_outputs import (GenerateBattlecryCard, GenerateBattlecryWeapon, validate_work as validate_weapon_work,
                                               validate_context as validate_weapon_context)
-        if type(value) is GenerateBattlecryWeapon:
+        if type(value) in (GenerateBattlecryCard, GenerateBattlecryWeapon):
             validate_weapon_work(value, self.registry, self.origin_state)
         if type(value) is RuleContext and self.origin_state is not None and self.origin_events is not None:
             validate_weapon_context(value, self.origin_state, self.origin_events)

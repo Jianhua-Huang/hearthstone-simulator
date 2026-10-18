@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实单张生成需供独立连击消费时，使用`GenerateBattlecryCard`包装普通池请求或有限`GenerateFromCandidates`，再用`combo_card(..., kind=...)`取得原引用；不扫描后来的同名手牌。旧武器接口仍限武器，历史线格式和具名面具域见[契约](m3-mask-battlecry-combo.md)。
+
 原生手牌奇偶变形注册`HandParityTransformProfile(card_id, transformed_id)`，复用当前报价与原升级器，不使用进度计数伪造条件。实际初始技能看`starting_hero_power_card_id`；有限规范适配与待校准窗口见[契约](m3-native-hand-parity.md)。
 
 黏弹式当前相邻手牌增费用`CostAuraSpec(CostSpec(delta=1), hand_adjacent=True)`，只支持原生普通法术来源，不通过动态授予或永久修改邻牌费用实现。当前位置、生成/已离手报价和支付证明见[契约](m2-adjacent-hand-cost-auras.md)。

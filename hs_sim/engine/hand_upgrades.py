@@ -63,7 +63,9 @@ def buff_stored_card(r, effect):
     effect.__post_init__()
     source_exists(r, effect.source_id)
     definition=r.registry.card(effect.card.card_id)
-    if definition.kind not in (CardType.MINION, CardType.WEAPON):
+    cost_only_spell = (definition.kind == CardType.SPELL and type(effect.card) is CardReference and
+                      effect.attack == effect.health == 0 and effect.cost is not None)
+    if definition.kind not in (CardType.MINION, CardType.WEAPON) and not cost_only_spell:
         raise ResolutionError('Stored stat buffs require a minion or weapon')
     if definition.kind == CardType.WEAPON and (effect.health != 0 or type(effect.card) is DiscardRecord):
         raise ResolutionError('Stored weapon buffs only modify Attack on physical stored cards')
@@ -73,7 +75,7 @@ def buff_stored_card(r, effect):
     if entity is None:
         return
     validate_cost_targets(r.state,effect,((definition,entity),))
-    if entity.kind not in (CardType.MINION, CardType.WEAPON):
+    if entity.kind not in (CardType.MINION, CardType.WEAPON) and not (cost_only_spell and entity.kind == CardType.SPELL):
         raise ResolutionError('Stored stat buffs require a minion or weapon')
     if effect.attack == effect.health == 0 and effect.cost is None:
         return

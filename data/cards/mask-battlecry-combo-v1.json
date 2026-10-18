@@ -1,0 +1,514 @@
+{
+  "batch": "K218-mask-battlecry-combo",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_427",
+        "dbf_id": 118632,
+        "name": "装扮商贩",
+        "name_en": "Costume Merchant",
+        "text": "<b>战吼：</b>随机获取一张另一职业的面具牌。<b>连击：</b>其法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Battlecry:</b> Get a random\nMask from another class.\n_<b>Combo:</b> It costs (2) less.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "0d21ca6f5b10e159ff31ca2a80da34e54ef218bc8cf041f1925939b1c492157f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "DINO_427",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "DINO_402",
+        "dbf_id": 118406,
+        "name": "蝙蝠面具",
+        "name_en": "Bat Mask",
+        "text": "将一个友方随从的属性值变为1/1。用它的复制填满你的\n面板。",
+        "text_en": "Set a friendly minion's stats to 1/1. Fill your board with copies of it.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "80bca006a4095602bb1dc81b1954b357d32ad9b4ee41aa45af85f358fe8ed040",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "DINO_402",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_403",
+        "dbf_id": 118408,
+        "name": "魔暴龙面具",
+        "name_en": "Devilsaur Mask",
+        "text": "将一个随从的属性值变为8/8。使其获得<b>冲锋</b>。",
+        "text_en": "Set a minion's stats to 8/8. Give it <b>Charge</b>.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1952,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5f3385ad1000d78bc92fc54b7b6dcef914fe1f4484170830b44a7242e86fae77",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "DINO_403",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_428",
+        "dbf_id": 118649,
+        "name": "巨鳗面具",
+        "name_en": "Behemoth Mask",
+        "text": "将一个随从的属性值变为8/10并使其获得<b>吸血</b>。随机迫使一个敌方随从攻击该随从。",
+        "text_en": "[x]Set a minion's stats to\n8/10 and give it <b>Lifesteal</b>.\nForce a random enemy\nminion to attack it.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c10ed09601afcc3afc7f7dd1af5a56a689e0445c5f76688f25613a2cc44a1f28",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_428",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_429",
+        "dbf_id": 118651,
+        "name": "绵羊面具",
+        "name_en": "Sheep Mask",
+        "text": "将一个随从的属性值变为1/1并使其获得“<b>亡语：</b>对所有随从造成2点伤害。”",
+        "text_en": "Set a minion's stats to 1/1 and give it \"<b>Deathrattle:</b> Deal 2 damage to all minions.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "90eb6dca44d1f7c1c1eed255556150fe5042620aff9a4efee9107c699b7b6252",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_429",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DINO_432",
+        "dbf_id": 118712,
+        "name": "奔行豹面具",
+        "name_en": "Panther Mask",
+        "text": "将一个随从的属性值变为5/4并使其获得<b>潜行</b>。抽两张牌。",
+        "text_en": "Set a minion's stats to\n5/4 and give it <b>Stealth</b>. Draw 2 cards.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5d5b486e0e3259552ce01b1548bb13bdb88fd7f87b76c06fb1f9a93f1164cee1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DINO_432",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "DINO_427",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\118632-zh_CN.json",
+      "response_sha256": "e7661c39edbff8a76cdb23effa72027597ab6a6d8ad36db2b1738c58e2a6fc2b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118632&locale=zh_CN",
+      "face": {
+        "id": 118632,
+        "collectible": 1,
+        "slug": "118632-costume-merchant",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "装扮商贩",
+        "text": "<b>战吼：</b>随机获取一张另一职业的面具牌。<b>连击：</b>其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b615b1fef64c7840c602e1734447d1daab0910bd4f663c615192aef99b96df9b.png",
+        "imageGold": "",
+        "flavorText": "每年秋天，这个始祖龟都会租掉废弃龟壳店。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d68a411b2df2d372d31ea44c7fec21e6a85df7128f52d2807cdc82de985f5e73.png",
+        "childIds": [
+          118406,
+          118649,
+          118408,
+          118712,
+          118651
+        ],
+        "keywordIds": [
+          8,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118632&locale=zh_CN",
+        "sha256": "e7661c39edbff8a76cdb23effa72027597ab6a6d8ad36db2b1738c58e2a6fc2b",
+        "bytes": 882,
+        "observed_at": "2026-10-18T19:43:21.828474+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_427",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\118632-en_US.json",
+      "response_sha256": "99f940c645b6c182791a95db8ae59f2815dd59f8b57ddaf40694da529a96e3ea",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118632&locale=en_US",
+      "face": {
+        "id": 118632,
+        "collectible": 1,
+        "slug": "118632-costume-merchant",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Costume Merchant",
+        "text": "<b>Battlecry:</b> Get a random Mask from another class. <b>Combo:</b> It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/076caca7d90217fa8689377d751a99a7852f074fae8c8cdfc6e5c78d7325facb.png",
+        "imageGold": "",
+        "flavorText": "Every fall, this tortollan rents out the abandoned shellshop.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d68a411b2df2d372d31ea44c7fec21e6a85df7128f52d2807cdc82de985f5e73.png",
+        "childIds": [
+          118406,
+          118649,
+          118408,
+          118712,
+          118651
+        ],
+        "keywordIds": [
+          8,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118632&locale=en_US",
+        "sha256": "99f940c645b6c182791a95db8ae59f2815dd59f8b57ddaf40694da529a96e3ea",
+        "bytes": 861,
+        "observed_at": "2026-10-18T19:43:21.668539+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "mask_domain": "Exact five child IDs shared by both official root faces; use current player class and ordinary metadata query, not name matching or the open format pool.",
+    "battlecry": "One finite ordinary generation, bound to the actual creation before queued reactions.",
+    "combo": "The matching Battlecry output only; persistent minus two cost along the original hand residency. Last repeat output policy inherited from the weapon consumer.",
+    "formal_pool_complete": false,
+    "cn_calibrated": false
+  }
+}
