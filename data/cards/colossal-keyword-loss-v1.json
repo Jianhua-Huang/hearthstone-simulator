@@ -1,0 +1,776 @@
+{
+  "batch": "K221-colossal-keyword-loss",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_432",
+        "dbf_id": 122401,
+        "name": "克洛玛图斯",
+        "name_en": "Chromatus",
+        "text": "<b>巨型+4</b>\n<b>嘲讽</b>。<b>吸血</b>。<b>扰魔</b>\n<b>圣盾</b>",
+        "text_en": "<b>Colossal +4</b>\n<b>Taunt</b>, <b>Lifesteal</b>, <b>Elusive</b>, <b>Divine Shield</b>",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122402,
+          "ELUSIVE": 1,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "760176444ecd204c5cae43a3de2ea75824328fa23c1c5cb8e3a3e653a27b176d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_432",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_432t1",
+        "dbf_id": 122402,
+        "name": "克洛玛图斯的绿色头颅",
+        "name_en": "Green Head of Chromatus",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>移除克洛玛图斯的<b>嘲讽</b>。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b> Remove\n <b>Taunt</b> from Chromatus.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "69f04c02e93659fda34b09fd99780584bf92b9e97a9ed64121ac1174c6577628",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_432t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_432t2",
+        "dbf_id": 122405,
+        "name": "克洛玛图斯的红色头颅",
+        "name_en": "Red Head of Chromatus",
+        "text": "<b>吸血</b>。<b>亡语：</b>移除克洛玛图斯的<b>吸血</b>。",
+        "text_en": "<b>Lifesteal</b>\n<b>Deathrattle:</b> Remove <b>Lifesteal</b> from Chromatus.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "LIFESTEAL": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "56fe01da3f5a3067bef9f2eacaffe1a79138aa400e338bb254594bcdbc31efd4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_432t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_432t3",
+        "dbf_id": 122407,
+        "name": "克洛玛图斯的蓝色头颅",
+        "name_en": "Blue Head of Chromatus",
+        "text": "<b>扰魔</b>。<b>亡语：</b>移除克洛玛图斯的<b>扰魔</b>。",
+        "text_en": "[x]<b>Elusive</b>\n<b>Deathrattle:</b> Remove\n <b>Elusive</b> from Chromatus.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "ELUSIVE": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "80f7d87eb131bd8e2a9dfac9758a6229f9edc0f39527734226a6fe7b14ea7da8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_432t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_432t4",
+        "dbf_id": 122410,
+        "name": "克洛玛图斯的青铜头颅",
+        "name_en": "Bronze Head of Chromatus",
+        "text": "<b>圣盾</b>。<b>亡语：</b>移除克洛玛图斯的<b>圣盾</b>。",
+        "text_en": "<b>Divine Shield</b>\n<b>Deathrattle:</b> Remove\n<b>Divine Shield</b> from Chromatus.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b16b3dd8972b1addf3946ddb62910b33d070a6d2c1f3787587a795353ce4a231",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_432t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_432",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122401-zh_CN.json",
+      "response_sha256": "94aa75f6684f912ac7c04e5811b3dc411d5d63bb451555ecc4c73842ef85bfa5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122401&locale=zh_CN",
+      "face": {
+        "id": 122401,
+        "collectible": 1,
+        "slug": "122401-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "克洛玛图斯",
+        "text": "<b>巨型+4</b> <b>嘲讽</b>。<b>吸血</b>。<b>扰魔</b> <b>圣盾</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36d2f9a41868195554d7e2d50858a8bf9766ef88c929f45e4e70a1bd1afd654e.png",
+        "imageGold": "",
+        "flavorText": "在我们的时间线，奈法里奥斯从未实现缝合五种巨龙的狂想。不过，姆诺兹多找到了他成功的时间线。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/981bfdbac3d844076c065adad9af5f8676a8b4180a17ad4cacf5f279ea3b69b0.png",
+        "childIds": [
+          122402,
+          122405,
+          122407,
+          122410
+        ],
+        "keywordIds": [
+          1,
+          3,
+          38,
+          231,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122401&locale=zh_CN",
+        "sha256": "94aa75f6684f912ac7c04e5811b3dc411d5d63bb451555ecc4c73842ef85bfa5",
+        "bytes": 938,
+        "observed_at": "2026-10-18T20:53:46.581462+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122401-en_US.json",
+      "response_sha256": "48e152ef34922c8c939dfa32eb7d69b7321c1674b1f9fd7dac07a8fa505ecd82",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122401&locale=en_US",
+      "face": {
+        "id": 122401,
+        "collectible": 1,
+        "slug": "122401-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Chromatus",
+        "text": "<b>Colossal +4</b> <b>Taunt</b>, <b>Lifesteal</b>, <b>Elusive</b>, <b>Divine Shield</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64498566457a84969a5cc40a8f289bbf4079186f857885084115da2ce8149802.png",
+        "imageGold": "",
+        "flavorText": "In our timeline, Nefarius never achieved his dream of combining the power of all five dragonflights into a single ultimate dragon. But Murozond found the timeline where he did.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/981bfdbac3d844076c065adad9af5f8676a8b4180a17ad4cacf5f279ea3b69b0.png",
+        "childIds": [
+          122402,
+          122405,
+          122407,
+          122410
+        ],
+        "keywordIds": [
+          1,
+          3,
+          38,
+          231,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122401&locale=en_US",
+        "sha256": "48e152ef34922c8c939dfa32eb7d69b7321c1674b1f9fd7dac07a8fa505ecd82",
+        "bytes": 985,
+        "observed_at": "2026-10-18T20:53:46.809398+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122402-zh_CN.json",
+      "response_sha256": "92009bc040e3f1262317a963bdc661267ef4340512feeda85e09513431a35c55",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122402&locale=zh_CN",
+      "face": {
+        "id": 122402,
+        "collectible": 0,
+        "slug": "122402-green-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "克洛玛图斯的绿色头颅",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>移除克洛玛图斯的<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7bc797a5eb58eefc7246fee6d927b4117b6f2e5859aa377e9163dbf147cd4069.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122402&locale=zh_CN",
+        "sha256": "92009bc040e3f1262317a963bdc661267ef4340512feeda85e09513431a35c55",
+        "bytes": 671,
+        "observed_at": "2026-10-18T20:53:46.556253+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122402-en_US.json",
+      "response_sha256": "fd46f138da5c3610ab780450c958747539f47c88ad7158f558a94dffa6e49f95",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122402&locale=en_US",
+      "face": {
+        "id": 122402,
+        "collectible": 0,
+        "slug": "122402-green-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Green Head of Chromatus",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b> Remove <b>Taunt</b> from Chromatus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01c712bdcd86de43184e8aa92d235d064137d2fd130ea62dde5ddbffe868583c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122402&locale=en_US",
+        "sha256": "fd46f138da5c3610ab780450c958747539f47c88ad7158f558a94dffa6e49f95",
+        "bytes": 660,
+        "observed_at": "2026-10-18T20:53:46.443747+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122405-zh_CN.json",
+      "response_sha256": "c290c1c83e419edce1021e38adcae24c15575e94e18f19af46c85a0b7b926a28",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122405&locale=zh_CN",
+      "face": {
+        "id": 122405,
+        "collectible": 0,
+        "slug": "122405-red-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "克洛玛图斯的红色头颅",
+        "text": "<b>吸血</b>。<b>亡语：</b>移除克洛玛图斯的<b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6374b918f28521e1d0d68354a8e803ae8b7125259683dc8b92dcb5d18df67115.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122405&locale=zh_CN",
+        "sha256": "c290c1c83e419edce1021e38adcae24c15575e94e18f19af46c85a0b7b926a28",
+        "bytes": 670,
+        "observed_at": "2026-10-18T20:53:47.277478+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122405-en_US.json",
+      "response_sha256": "6425046ecbfd7940d05f932c7ca1da45dd94f22b6408eab21d0e996d04fcabc9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122405&locale=en_US",
+      "face": {
+        "id": 122405,
+        "collectible": 0,
+        "slug": "122405-red-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Red Head of Chromatus",
+        "text": "<b>Lifesteal</b> <b>Deathrattle:</b> Remove <b>Lifesteal</b> from Chromatus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/80b0226472b9a565c54ab535f33058129f9a2692d2a07d9a5d740bbb092d0eda.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122405&locale=en_US",
+        "sha256": "6425046ecbfd7940d05f932c7ca1da45dd94f22b6408eab21d0e996d04fcabc9",
+        "bytes": 665,
+        "observed_at": "2026-10-18T20:53:47.611396+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122407-zh_CN.json",
+      "response_sha256": "7d2da389db8d5b5d283be2fe603954a46c058b19d376e87772d075261c197361",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122407&locale=zh_CN",
+      "face": {
+        "id": 122407,
+        "collectible": 0,
+        "slug": "122407-blue-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "克洛玛图斯的蓝色头颅",
+        "text": "<b>扰魔</b>。<b>亡语：</b>移除克洛玛图斯的<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d9657bf186ad64c4067ef9206fe3703860a41c932509533019daf07854f322c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          12,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122407&locale=zh_CN",
+        "sha256": "7d2da389db8d5b5d283be2fe603954a46c058b19d376e87772d075261c197361",
+        "bytes": 672,
+        "observed_at": "2026-10-18T20:53:47.325387+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122407-en_US.json",
+      "response_sha256": "f7d6903427a387a23358873aa875e5da8fd18dd76f019c11912608e2cbe726d4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122407&locale=en_US",
+      "face": {
+        "id": 122407,
+        "collectible": 0,
+        "slug": "122407-blue-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Blue Head of Chromatus",
+        "text": "<b>Elusive</b> <b>Deathrattle:</b> Remove <b>Elusive</b> from Chromatus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdea31ae0932a7eae23926b0b791396b72294ccf21751e977c45693fb9cb2a84.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          12,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122407&locale=en_US",
+        "sha256": "f7d6903427a387a23358873aa875e5da8fd18dd76f019c11912608e2cbe726d4",
+        "bytes": 664,
+        "observed_at": "2026-10-18T20:53:47.542668+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122410-zh_CN.json",
+      "response_sha256": "cdb177813fd4d59ca94ef504b86f9d849ee78906f981c18c67040ff5b893c332",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122410&locale=zh_CN",
+      "face": {
+        "id": 122410,
+        "collectible": 0,
+        "slug": "122410-bronze-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "克洛玛图斯的青铜头颅",
+        "text": "<b>圣盾</b>。<b>亡语：</b>移除克洛玛图斯的<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c39a766c933c0477b550f6c9e6b831171176abf2bddf8f09467f1d5eccc7204.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122410&locale=zh_CN",
+        "sha256": "cdb177813fd4d59ca94ef504b86f9d849ee78906f981c18c67040ff5b893c332",
+        "bytes": 672,
+        "observed_at": "2026-10-18T20:53:47.988578+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_432t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\122410-en_US.json",
+      "response_sha256": "062c27d5d2c3c94191f76b924653c270724eafd8076bd5407685f19e577f3ea2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122410&locale=en_US",
+      "face": {
+        "id": 122410,
+        "collectible": 0,
+        "slug": "122410-bronze-head-of-chromatus",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Bronze Head of Chromatus",
+        "text": "<b>Divine Shield</b> <b>Deathrattle:</b> Remove <b>Divine Shield</b> from Chromatus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/60232cbb6c5c197c335cb8a526f42f8ab36e21d9b002175c058f861171173a53.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122401,
+        "keywordIds": [
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122410&locale=en_US",
+        "sha256": "062c27d5d2c3c94191f76b924653c270724eafd8076bd5407685f19e577f3ea2",
+        "bytes": 678,
+        "observed_at": "2026-10-18T20:53:48.445592+00:00"
+      }
+    }
+  ],
+  "semantics_sources": [
+    "https://news.blizzard.com/en-us/article/24245219/deathwing-strikes-back-in-cataclysm-hearthstones-next-expansion",
+    "https://www.reddit.com/r/hearthstone/comments/1s21ez2/til_chromatus_will_have_permanent_taunt_if_you/"
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "native_body": "All four keywords are printed on the body, not granted while its heads live. A missing or silenced head cannot remove its keyword.",
+    "local_scope": "Each actual head Deathrattle selects all current living friendly CATA_432 bodies by current card identity, not an invented parent pointer. Captured residency guards each removal.",
+    "local_order": [
+      "CATA_432t4",
+      "CATA_432t3",
+      "CATA_432t2",
+      "CATA_432t1"
+    ],
+    "local_sides": [
+      "left",
+      "left",
+      "right",
+      "right"
+    ],
+    "uncalibrated": "Primary first-person observation establishes Green/Taunt is last; the other order, exact sides, multiple-body/control/transform policy and precise removal/aura windows still require CN calibration. childIds order is not runtime order.",
+    "keyword_removal": "Consume all current printed/granted copies of one of the four actual flags. Other abilities, stats and independent aura contributions remain. A later keyword grant may restore the flag."
+  }
+}

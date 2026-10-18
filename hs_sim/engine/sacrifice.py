@@ -234,6 +234,35 @@ def grant_captured_keyword(r, effect):
 
 
 @dataclass(frozen=True)
+class RemoveCapturedKeyword(Effect):
+    beneficiary: MinionReference
+    keyword: Keyword
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        _source(self.source_id)
+        if type(self.keyword) is not Keyword or self.keyword not in (
+                Keyword.TAUNT, Keyword.LIFESTEAL, Keyword.ELUSIVE, Keyword.DIVINE_SHIELD):
+            raise ValueError('Selective removal requires a supported ordinary minion keyword')
+
+
+def remove_captured_keyword(r, effect):
+    from .lifecycle import consume_keyword
+    effect.__post_init__(); validate_request(r, effect)
+    entity = live_minion(r.state, effect.beneficiary)
+    if entity is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    if not any(a.kind == 'keyword' and a.keyword == effect.keyword and not a.consumed
+               for a in entity.abilities):
+        return ()
+    consume_keyword(entity, effect.keyword)
+    r.emit('keyword_removed', source_id=effect.source_id, target_id=entity.id,
+           player_id=entity.controller, keyword=effect.keyword.value)
+
+
+@dataclass(frozen=True)
 class GrantCapturedDeathrattle(Effect):
     beneficiary: MinionReference
     behavior_id: str
@@ -458,5 +487,6 @@ def register(mechanics):
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(TransformCapturedMinion, transform_captured_minion)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
+    mechanics.register(RemoveCapturedKeyword, remove_captured_keyword)
     mechanics.register(GrantCapturedDeathrattle, grant_captured_deathrattle)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v319"
+CONTENT_VERSION = "constructed-cn37-preview-v320"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -685,6 +685,8 @@ def build_registry():
     register_generated_aura_duration_card(registry)
     from .deck_stat_distribution_card import register_deck_stat_distribution_card
     register_deck_stat_distribution_card(registry)
+    from .colossal_keyword_loss_cards import register_colossal_keyword_loss_cards
+    register_colossal_keyword_loss_cards(registry)
     register_reviewed_pool_metadata(registry)
     from .candidate_generation_catalog import register_candidate_pool_metadata
     register_candidate_pool_metadata(registry)

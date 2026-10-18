@@ -247,7 +247,12 @@ def validate_material(registry,material,*,hand_copy=False):
         card=registry.card(material.card_id)
         if not card.hand_playable or card.choice_only:
             raise ValueError('Discard summon requires its original physical minion face')
-    else:validate_plain_material(registry,SummonEntryMaterial(material.card_id))
+    else:
+        # Board copies already restore their accepted material and delegate
+        # entry to colossal.enter_minion. Other stored/recruit profiles retain
+        # their existing eligibility policy.
+        validate_plain_material(registry, SummonEntryMaterial(material.card_id),
+                                allow_colossal=material.profile=='board_copy')
     if material.on_summon is not None:registry.behavior(material.on_summon)
     if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
         raise ValueError('Dormant copy requires its printed entry dormancy')
