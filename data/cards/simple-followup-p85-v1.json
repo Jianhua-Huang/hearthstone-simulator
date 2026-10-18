@@ -1,0 +1,5198 @@
+{
+  "schema": 1,
+  "batch": "P85",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p85-20261018/active-manifest.json",
+    "sha256": "e4cbb2b1e358ba526b6b1a07d5a639ecbf31d1a713cb762297a69e81cfb67ede"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BAR_313",
+        "dbf_id": 62877,
+        "name": "安瑟祭司",
+        "name_en": "Priest of An'she",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在本回合中恢复过生命值，&获得+3/+3。",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b> If you've restored Health this turn,& gain +3/+3.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1525,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "add8753372bc95b471e4e5b639a0b1cf1fb35dabaa7a97a4bdd30719c80f7bfc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BAR_313",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_510",
+        "dbf_id": 59865,
+        "name": "怒刺蛮兵",
+        "name_en": "Wrathspike Brute",
+        "text": "<b>嘲讽</b>。在本随从被攻击后，&对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Taunt</b>\nAfter this is attacked,&\n deal 1 damage to\nall enemies.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1463,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1463,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "ed4451f9baaa384216dc07d60694dae17809de123b867a01072fac05e2561c0d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BT_510",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CFM_344",
+        "dbf_id": 40803,
+        "name": "飞火流星·芬杰",
+        "name_en": "Finja, the Flying Star",
+        "text": "<b>潜行</b>\n每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "text_en": "[x]<b>Stealth</b>\n   Whenever this attacks and   \nkills a minion, summon 2\n_Murlocs from your deck.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 25,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "0482c8048018db16ad0a0b9f41e4b22c4dc142fff13f9be58a859a30f17ce149",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CFM_344",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_028",
+        "dbf_id": 68,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 3,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "1d61a3cda45c61edebea453fa49277af2afaf171299aa2d9abf8e0c516544ece",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "EX1_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_250",
+        "dbf_id": 1141,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b><b>Overload</b>:</b> (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "4ae3bc094a0157b3b28de8051c604e5dd26887901a9a3036d1b0c228fd68f3b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EX1_250",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GIL_623",
+        "dbf_id": 47346,
+        "name": "女巫森林灰熊",
+        "name_en": "Witchwood Grizzly",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>\n你的对手每有一张手牌，本随从便失去1点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Lose 1 Health\nfor each card in your\nopponent's hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1125,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          }
+        ]
+      },
+      "record_sha256": "df837d1a27014858948eed08847e2d59853f56f88161124c6dd74b26687e4008",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "GIL_623",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "KAR_061",
+        "dbf_id": 39225,
+        "name": "馆长",
+        "name_en": "The Curator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 23,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          }
+        ]
+      },
+      "record_sha256": "0bca46664c81d5e76d8577916f3490366e7d1f06696a39ea0aa0891d0c85e926",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "KAR_061",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ONY_018",
+        "dbf_id": 71241,
+        "name": "暴烈枭兽",
+        "name_en": "Boomkin",
+        "text": "<b>抉择：</b>为你的英雄恢复#8点生命值；或者造成4点伤害。",
+        "text_en": "<b>Choose One - </b>Restore\n#8 Health to your hero; or Deal 4 damage.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1626,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "3ee80841512d5bef0406d370b70bb212efee7940568eae0a91352dc3a5993243",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ONY_018",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "REV_946",
+        "dbf_id": 78079,
+        "name": "蒸汽清洁器",
+        "name_en": "Steamcleaner",
+        "text": "<b>战吼：</b>摧毁双方玩家牌库中所有套牌之外的牌。",
+        "text_en": "<b>Battlecry:</b> Destroy ALL cards in both players' decks that didn't start there.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "0b9c09dad477a21f2d398f9d8fcc57380c14f2aaaad077c77c9d10b655f079af",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "REV_946",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SCH_605",
+        "dbf_id": 59452,
+        "name": "止水湖蛇颈龙",
+        "name_en": "Lake Thresher",
+        "text": "同时对其攻击目标相邻的随从造成伤害。",
+        "text_en": "Also damages the minions next to whomever\nthis attacks.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "4a2b941eff263ab1f7ce989445ad17c5fcb6585139fb06b79af4032f728e7fea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "SCH_605",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_BAR_313",
+        "dbf_id": 129172,
+        "name": "安瑟祭司",
+        "name_en": "Priest of An'she",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在本回合中恢复过生命值，&获得+3/+3。",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b> If you've restored Health this turn,& gain +3/+3.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 62877,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62877,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62877",
+              "type": "Int",
+              "value": "62877"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "aca35c48ae40c9ca05cf8d2f9e444e0e70d0a75972a18677c8cc47fb02261888",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_BAR_313",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_BT_510",
+        "dbf_id": 129168,
+        "name": "怒刺蛮兵",
+        "name_en": "Wrathspike Brute",
+        "text": "<b>嘲讽</b>。在本随从被攻击后，&对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Taunt</b>\nAfter this is attacked,&\n deal 1 damage to\nall enemies.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 59865,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 59865,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "59865",
+              "type": "Int",
+              "value": "59865"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f2feef0217b6c547ca262bbddeb8d783ee30d699d04671b67214d213638a56ca",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_BT_510",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_344",
+        "dbf_id": 120428,
+        "name": "飞火流星·芬杰",
+        "name_en": "Finja, the Flying Star",
+        "text": "<b>潜行</b>\n每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "text_en": "[x]<b>Stealth</b>\n   Whenever this attacks and   \nkills a minion, summon 2\n_Murlocs from your deck.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 40803,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 40803
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40803",
+              "type": "Int",
+              "value": "40803"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "14d40949d705f3c619925c838c4e22cb61353cf13bd83cc0447b0c8d3d1aa8b6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_CFM_344",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_028",
+        "dbf_id": 69658,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 68,
+          "1584": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "68",
+              "type": "Int",
+              "value": "68"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "398f2468940c3c390e1c7fa2f6e8ca7cb3d83258cde9f5ae33fe33f8a2a46556",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_250",
+        "dbf_id": 69627,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b>Overload</b>: (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 1141
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1141",
+              "type": "Int",
+              "value": "1141"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5037b0082b05a13d1411227301cd9098ab86ba63b373d32054d00f6092bed888",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_EX1_250",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_623",
+        "dbf_id": 130791,
+        "name": "女巫森林灰熊",
+        "name_en": "Witchwood Grizzly",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>\n你的对手每有一张手牌，本随从便失去1点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Lose 1 Health\nfor each card in your\nopponent's hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 47346,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 47346
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "47346",
+              "type": "Int",
+              "value": "47346"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3c731fb51417a516f333339839c049eebc9aa9be9ebe0878fa9c446825a5164a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_GIL_623",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_061",
+        "dbf_id": 120180,
+        "name": "馆长",
+        "name_en": "The Curator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 39225,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 39225,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39225",
+              "type": "Int",
+              "value": "39225"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d78c83fcb86ee7a5aed12696662cfa7ff6dd053d5569475961420a17f65d1af7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_KAR_061",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_ONY_018",
+        "dbf_id": 129216,
+        "name": "暴烈枭兽",
+        "name_en": "Boomkin",
+        "text": "<b>抉择：</b>为你的英雄恢复#8点生命值；或者造成4点伤害。",
+        "text_en": "<b>Choose One - </b>Restore\n#8 Health to your hero; or Deal 4 damage.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 71241,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 71241,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "71241",
+              "type": "Int",
+              "value": "71241"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0a2a960becb7ad00674e4030b392a4ea94a948e0f3ff81c40912a0572c232e32",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_ONY_018",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_REV_946",
+        "dbf_id": 118163,
+        "name": "蒸汽清洁器",
+        "name_en": "Steamcleaner",
+        "text": "<b>战吼：</b>摧毁双方玩家牌库中所有套牌之外的牌。",
+        "text_en": "<b>Battlecry:</b> Destroy ALL cards in both players' decks that didn't start there.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 78079,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 78079
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78079",
+              "type": "Int",
+              "value": "78079"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "c81a473de07492ac0a389dfbc50e07ea8da9516ac45aadc83cc9d22753516c9c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_REV_946",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_SCH_605",
+        "dbf_id": 129176,
+        "name": "止水湖蛇颈龙",
+        "name_en": "Lake Thresher",
+        "text": "同时对其攻击目标相邻的随从造成伤害。",
+        "text_en": "Also damages the minions next to whomever\nthis attacks.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 59452,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 59452
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "59452",
+              "type": "Int",
+              "value": "59452"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "8739add6327777f84dcbdef1a0641dd89aa48596dc40d1f1b0001f43251f9d98",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_SCH_605",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "CORE_BAR_313": {
+      "sha256": "62786689fcbb22a4fb4258dcda0c7b19f2f434874d88adb453216014d5212ffb"
+    },
+    "CORE_BT_510": {
+      "sha256": "7692f6e80a5d3eab3654f8b3dcbcdd2fa1537b44925e358ee9b729ef7bddb674"
+    },
+    "CORE_CFM_344": {
+      "sha256": "1f031bb658603c00d33745041fffb7493a7d1d7f97802a19892d2663eee1387b"
+    },
+    "CORE_EX1_028": {
+      "sha256": "5878cd1f7718dfcc3e89657c2b737a18f1eba015d3c8d16363128ead8ec812d5"
+    },
+    "CORE_EX1_250": {
+      "sha256": "e43dac2dbfae13d8e6d0e3c1589c78906a77974d253959c6d2c267df4a7da6b7"
+    },
+    "CORE_GIL_623": {
+      "sha256": "9d2dc99bd3665c7562e13fc4e7e4a421f7c0ea1766a5ebfcfd685847419215f4"
+    },
+    "CORE_KAR_061": {
+      "sha256": "366c2d94ba0ab0d366923ec32349639498088ea2a878257b6894e1cee497b0fc"
+    },
+    "CORE_ONY_018": {
+      "sha256": "198ca5039e87571a0b9a4552a9195e116e3e705a4ce6dcaa81a510a77c43876d"
+    },
+    "CORE_REV_946": {
+      "sha256": "cc3880eab05cdbaff238608881231c27bb569c7e42c6ccfeefe8827741456bdb"
+    },
+    "CORE_SCH_605": {
+      "sha256": "7b81d74df1cb8e66c5f3788ae55de0211e66de0e4f07e6c0826e9b7f22d34b64"
+    }
+  },
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_040",
+        "dbf_id": 120782,
+        "name": "消散的回忆",
+        "name_en": "Fading Memory",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Get a\nrandom 5-Cost minion from the past.",
+        "cost": 4,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "9a491cc6054857214a6c6c71791f83c8e908dd4e3226f73f18beac9981e1c782",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_040",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "collectible_candidate_roots": [],
+  "necessary_cross_series_collectibles": [
+    "BAR_313",
+    "BT_510",
+    "CFM_344",
+    "EX1_028",
+    "EX1_250",
+    "GIL_623",
+    "KAR_061",
+    "ONY_018",
+    "REV_946",
+    "SCH_605"
+  ],
+  "necessary_noncollectibles": [],
+  "new_definition_ids": [
+    "BAR_313",
+    "BT_510",
+    "CFM_344",
+    "EX1_028",
+    "EX1_250",
+    "GIL_623",
+    "KAR_061",
+    "ONY_018",
+    "REV_946",
+    "SCH_605"
+  ],
+  "official_observations": [
+    {
+      "card_id": "BAR_313",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\62877-zh_CN.json",
+      "response_sha256": "11ec7ca87130ec8a31bd71d83484872030101c79429225b774a3994f102a6d4f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=62877&locale=zh_CN",
+      "face": {
+        "id": 62877,
+        "collectible": 1,
+        "slug": "62877-priest-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "安瑟祭司",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在本回合中恢复过生命值，&获得+3/+3。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f33ce3c51b42df54f60a9c76db0329a0cf63dd4a37e92a63d70162432a3bd74.png",
+        "imageGold": "",
+        "flavorText": "太阳神的名字为什么要叫“暗色”呢？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63a707dbd69ec9e8f731867c2353e7dc581f1280271d88bbcdc8627811706f8b.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          129172
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=62877&locale=zh_CN",
+        "sha256": "11ec7ca87130ec8a31bd71d83484872030101c79429225b774a3994f102a6d4f",
+        "bytes": 824,
+        "observed_at": "2026-10-18T02:22:11.200609+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_313",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\62877-en_US.json",
+      "response_sha256": "ba475ceea49aa701660a696dfda3642de183299b84e22ec5918c2f0ac6c5d611",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=62877&locale=en_US",
+      "face": {
+        "id": 62877,
+        "collectible": 1,
+        "slug": "62877-priest-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Priest of An'she",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b> If you've restored Health this turn,& gain +3/+3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75d16e9466e905c2b422d63651e96bf1eb25042e71fc417ef707db38d099cfb7.png",
+        "imageGold": "",
+        "flavorText": "\"An’she?\" \"Bless you!\" \"No, you, An'she…\" \"Bless you again!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63a707dbd69ec9e8f731867c2353e7dc581f1280271d88bbcdc8627811706f8b.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          129172
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=62877&locale=en_US",
+        "sha256": "ba475ceea49aa701660a696dfda3642de183299b84e22ec5918c2f0ac6c5d611",
+        "bytes": 838,
+        "observed_at": "2026-10-18T02:22:11.233345+00:00"
+      }
+    },
+    {
+      "card_id": "BT_510",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\59865-zh_CN.json",
+      "response_sha256": "6a4f78fdc9f21b2c9b491ca846f821194a9f065dfa78f429ce1b0cf3455dd6c6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59865&locale=zh_CN",
+      "face": {
+        "id": 59865,
+        "collectible": 1,
+        "slug": "59865-wrathspike-brute",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1463,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "怒刺蛮兵",
+        "text": "<b>嘲讽</b>。在本随从被攻击后，&对所有敌人造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18b8052d6c3150434b4ed287fbefa486a0464ea9c6f9b24d26f35cc30f562904.png",
+        "imageGold": "",
+        "flavorText": "帮她抓背时会被她的背抓。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4851f4a194b2ad6230c10714f36391278c9faa52133e11c2451351f672ae6d74.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          129168
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59865&locale=zh_CN",
+        "sha256": "6a4f78fdc9f21b2c9b491ca846f821194a9f065dfa78f429ce1b0cf3455dd6c6",
+        "bytes": 817,
+        "observed_at": "2026-10-18T02:22:10.726965+00:00"
+      }
+    },
+    {
+      "card_id": "BT_510",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\59865-en_US.json",
+      "response_sha256": "f1a06d29c6ecf12697d5d088430e2f9cec984eef29e996af257c6469ff4c793b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59865&locale=en_US",
+      "face": {
+        "id": 59865,
+        "collectible": 1,
+        "slug": "59865-wrathspike-brute",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1463,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Wrathspike Brute",
+        "text": "<b>Taunt</b> After this is attacked,& deal 1 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3badd22339bd41bafddc11717d7c61a82317910cf4a44b9fa9c0923b46a8aacc.png",
+        "imageGold": "",
+        "flavorText": "You scratch her back, her back scratches back.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4851f4a194b2ad6230c10714f36391278c9faa52133e11c2451351f672ae6d74.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          129168
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59865&locale=en_US",
+        "sha256": "f1a06d29c6ecf12697d5d088430e2f9cec984eef29e996af257c6469ff4c793b",
+        "bytes": 820,
+        "observed_at": "2026-10-18T02:22:10.733005+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_344",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\40803-zh_CN.json",
+      "response_sha256": "15429664922997c3a81b6d12ebdf18c9c414669a9f30acffe161b0683b11eba2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40803&locale=zh_CN",
+      "face": {
+        "id": 40803,
+        "collectible": 1,
+        "slug": "40803-finja-the-flying-star",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "飞火流星·芬杰",
+        "text": "<b>潜行</b> 每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcf2af6510c981bbd4848c10e3b5a7d6ec73d25ac0774f2197677bfe60209002.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/003e9d22c662848c72521b9bafd7c355ae0d6c8025a0f71c3b74efdeeb3c7b19.png",
+        "flavorText": "忍者大师，鱼人的传奇英雄。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e07918b680bc6b6ceac99fd181365e355e975ae2cf2466dc41bf808880192677.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          120428
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40803&locale=zh_CN",
+        "sha256": "15429664922997c3a81b6d12ebdf18c9c414669a9f30acffe161b0683b11eba2",
+        "bytes": 966,
+        "observed_at": "2026-10-18T02:22:11.455615+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_344",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\40803-en_US.json",
+      "response_sha256": "efd015767b6bcd5c3aa46459d808c8ddaf0d1e7549f3eb0377ea02d1e11293e6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40803&locale=en_US",
+      "face": {
+        "id": 40803,
+        "collectible": 1,
+        "slug": "40803-finja-the-flying-star",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Finja, the Flying Star",
+        "text": "<b>Stealth</b> Whenever this attacks and kills a minion, summon 2 Murlocs from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a383055327bc364623282ef3fc43102405199d9a7fb79e6f2a282a202ce4a18f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0c52a89d643449d287aee0dfa8698f63dc1c7d5bc2f644faa3a0338dd931231.png",
+        "flavorText": "The last true master of Finjitsu.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e07918b680bc6b6ceac99fd181365e355e975ae2cf2466dc41bf808880192677.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          120428
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40803&locale=en_US",
+        "sha256": "efd015767b6bcd5c3aa46459d808c8ddaf0d1e7549f3eb0377ea02d1e11293e6",
+        "bytes": 950,
+        "observed_at": "2026-10-18T02:22:11.562646+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\68-zh_CN.json",
+      "response_sha256": "62c2847261af1a3576f3e44e03d3b15e556f5895bc8233853c8fab5e26ccc93b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=zh_CN",
+      "face": {
+        "id": 68,
+        "collectible": 1,
+        "slug": "68-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "荆棘谷猛虎",
+        "text": "<b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0533aa5e3b240367fd71d82abb745b3939a8ec60ffd1fa2d37d6b2ffa4ad179.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0039c76c7c7ea602bbe36bda87c6ac12a84ab8ff375f918cfe190d48f88e92.png",
+        "flavorText": "这些美丽的大猫是荆棘谷一道亮丽的风景！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52e4d713b09e95d8b2510e735efd167c9d8cf3a719411c558b818d2348a72337.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          69658,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=zh_CN",
+        "sha256": "62c2847261af1a3576f3e44e03d3b15e556f5895bc8233853c8fab5e26ccc93b",
+        "bytes": 899,
+        "observed_at": "2026-10-18T02:22:11.969661+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\68-en_US.json",
+      "response_sha256": "72113232fd29c892460c5ae42f095676417f73e23c8b5a0d8260d021f3690cb7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=en_US",
+      "face": {
+        "id": 68,
+        "collectible": 1,
+        "slug": "68-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stranglethorn Tiger",
+        "text": "<b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb2eb59e8858064af7c57ba520c1475eb47a3f5da3174534f3dd711d1572ea74.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0039c76c7c7ea602bbe36bda87c6ac12a84ab8ff375f918cfe190d48f88e92.png",
+        "flavorText": "The wonderful thing about tigers is tigers are wonderful things!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52e4d713b09e95d8b2510e735efd167c9d8cf3a719411c558b818d2348a72337.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          69658,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=68&locale=en_US",
+        "sha256": "72113232fd29c892460c5ae42f095676417f73e23c8b5a0d8260d021f3690cb7",
+        "bytes": 911,
+        "observed_at": "2026-10-18T02:22:12.438301+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_250",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\1141-zh_CN.json",
+      "response_sha256": "a9b78f0253a3455e7ed9d151efce96a94def36292aca9d22188b23db88b3a8ae",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1141&locale=zh_CN",
+      "face": {
+        "id": 1141,
+        "collectible": 1,
+        "slug": "1141-earth-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Dan Scott",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "土元素",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56d23692f28391316d9bad4b7295c97871eae7a7f804c906ee254be64141d1c6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6c3c584a492e2d047f970b5595ba3d477ade13efe1905a5d6fb73d66ded9271.png",
+        "flavorText": "硬如磐石，坚不可破。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da219323553bf821362931e273209a6bc603c0cab59241688f2f4846f0c44d96.png",
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          69627,
+          69899
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1141&locale=zh_CN",
+        "sha256": "a9b78f0253a3455e7ed9d151efce96a94def36292aca9d22188b23db88b3a8ae",
+        "bytes": 881,
+        "observed_at": "2026-10-18T02:22:12.170808+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_250",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\1141-en_US.json",
+      "response_sha256": "8f90495f52bfd1ab8c7c9b335b2bb8c10368c9f556009401c289a968bcfbe344",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1141&locale=en_US",
+      "face": {
+        "id": 1141,
+        "collectible": 1,
+        "slug": "1141-earth-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Dan Scott",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "Earth Elemental",
+        "text": "<b>Taunt</b> <b><b>Overload</b>:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1befd70be1298b50cee3e8f48d93a4c81bff112336e1942406ae9061de685fc3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6c3c584a492e2d047f970b5595ba3d477ade13efe1905a5d6fb73d66ded9271.png",
+        "flavorText": "Nothing beats rock.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da219323553bf821362931e273209a6bc603c0cab59241688f2f4846f0c44d96.png",
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          69627,
+          69899
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1141&locale=en_US",
+        "sha256": "8f90495f52bfd1ab8c7c9b335b2bb8c10368c9f556009401c289a968bcfbe344",
+        "bytes": 877,
+        "observed_at": "2026-10-18T02:22:12.302360+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_623",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\47346-zh_CN.json",
+      "response_sha256": "7ee809568cb91d137cf889f5b8876f8a2f3b949ba612f9d1095139186bfa6df9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=47346&locale=zh_CN",
+      "face": {
+        "id": 47346,
+        "collectible": 1,
+        "slug": "47346-witchwood-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "health": 12,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "女巫森林灰熊",
+        "text": "<b>嘲讽</b>。<b>战吼：</b> 你的对手每有一张手牌，本随从便失去1点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f272df15856adf461cb8f28a933560aa4fc9cdd6822949034fabc9333508c5e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6851259f266a32e99ecdd5620e627fa659b86202d94d5ad33cd7d2cbf7a1a1d9.png",
+        "flavorText": "虽然看似有点不现实，但还是有很多人想拿它当坐骑。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/633ee3b743a6d32275fec3037a1b60f26bd8e8cb394918abc1fa6d898a8205bb.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          130791
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=47346&locale=zh_CN",
+        "sha256": "7ee809568cb91d137cf889f5b8876f8a2f3b949ba612f9d1095139186bfa6df9",
+        "bytes": 1002,
+        "observed_at": "2026-10-18T02:22:13.244659+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_623",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\47346-en_US.json",
+      "response_sha256": "41d5d34c7bf7d7bc34f0e55eb2ce513e4711727f476b2c882445d7a82c4a609d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=47346&locale=en_US",
+      "face": {
+        "id": 47346,
+        "collectible": 1,
+        "slug": "47346-witchwood-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "health": 12,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Witchwood Grizzly",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> Lose 1 Health for each card in your opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/504c2141e1ac7b849d3b3edcd866eb8f955d911f3ef9c599cd42699f20fd4681.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4d41ed8b1d3ef562de5a789a10a6fe7fd54708b493467fedbca1e919df47eeb.png",
+        "flavorText": "You know what they say about people with big hands? Small bears.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/633ee3b743a6d32275fec3037a1b60f26bd8e8cb394918abc1fa6d898a8205bb.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          130791
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=47346&locale=en_US",
+        "sha256": "41d5d34c7bf7d7bc34f0e55eb2ce513e4711727f476b2c882445d7a82c4a609d",
+        "bytes": 976,
+        "observed_at": "2026-10-18T02:22:13.633737+00:00"
+      }
+    },
+    {
+      "card_id": "KAR_061",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\39225-zh_CN.json",
+      "response_sha256": "f46b7dbf858b6bb29cdbeb626bd56ef22954acaf211f7e4006c0d8f8be52eb1b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=zh_CN",
+      "face": {
+        "id": 39225,
+        "collectible": 1,
+        "slug": "39225-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>抽取野兽牌，龙牌和鱼人牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77e5641d44fd874a71b43538c0d7be3411a34e46440532b051a435111dacc3ec.png",
+        "imageGold": "",
+        "flavorText": "年久失修的馆长，脾气也变得十分古怪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d5aa5386f512cbb9ed14edb58e38fe035d5b0ce481f2285305157d79ef7632.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          120180
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=zh_CN",
+        "sha256": "f46b7dbf858b6bb29cdbeb626bd56ef22954acaf211f7e4006c0d8f8be52eb1b",
+        "bytes": 818,
+        "observed_at": "2026-10-18T02:22:13.425767+00:00"
+      }
+    },
+    {
+      "card_id": "KAR_061",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\39225-en_US.json",
+      "response_sha256": "e25fdf7a06a7fb8a0c56509d7141e05154c9773e1ec08a5decae10d5de4365eb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=en_US",
+      "face": {
+        "id": 39225,
+        "collectible": 1,
+        "slug": "39225-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Curator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> Draw a Beast, Dragon, and Murloc.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d55225f9f88e213ed994de29c73893f281096cb07125daae989366261020b6e2.png",
+        "imageGold": "",
+        "flavorText": "The Curator guards Azeroth’s deadliest creatures, but it’s secretly terrified of squirrels.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d5aa5386f512cbb9ed14edb58e38fe035d5b0ce481f2285305157d79ef7632.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          120180
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=en_US",
+        "sha256": "e25fdf7a06a7fb8a0c56509d7141e05154c9773e1ec08a5decae10d5de4365eb",
+        "bytes": 848,
+        "observed_at": "2026-10-18T02:25:25.984600+00:00"
+      }
+    },
+    {
+      "card_id": "ONY_018",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\71241-zh_CN.json",
+      "response_sha256": "1e7a33b547983b9a06901e8d00a327caa5b7821810f90168993317fa2b59ca84",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71241&locale=zh_CN",
+      "face": {
+        "id": 71241,
+        "collectible": 1,
+        "slug": "71241-boomkin",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "暴烈枭兽",
+        "text": "<b>抉择：</b>为你的英雄恢复 8点生命值；或者造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/579dd4fae63f9d493c4a266dde26b46be93ad2295c0b42d661006a38579d70d9.png",
+        "imageGold": "",
+        "flavorText": "某些德鲁伊口中的平衡，是自然和奥术之间的平衡。而某些德鲁伊口中的平衡，是对手生命值和自身生命值之间的平衡。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efa82d181bed535da4fbdc512089943f1662926fbf0fcff1d995ab7d57a955ca.png",
+        "copyOfCardId": [
+          129216
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71241&locale=zh_CN",
+        "sha256": "1e7a33b547983b9a06901e8d00a327caa5b7821810f90168993317fa2b59ca84",
+        "bytes": 891,
+        "observed_at": "2026-10-18T02:22:45.037292+00:00"
+      }
+    },
+    {
+      "card_id": "ONY_018",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\71241-en_US.json",
+      "response_sha256": "bdc5d8c42a5a0f5b93dfce54e836c9149f3795e192db58b595295b23ccb496c7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71241&locale=en_US",
+      "face": {
+        "id": 71241,
+        "collectible": 1,
+        "slug": "71241-boomkin",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Boomkin",
+        "text": "<b>Choose One - </b>Restore 8 Health to your hero; or Deal 4 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48bbf47df9b1a3bed78c4489f1b624c3ea8c1afeaf15482d549729032e77d702.png",
+        "imageGold": "",
+        "flavorText": "Some Druids consider balance to be a state of harmony between the Natural and the Arcane. Others are more focused on the balance of the opponent’s life total versus their own.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efa82d181bed535da4fbdc512089943f1662926fbf0fcff1d995ab7d57a955ca.png",
+        "copyOfCardId": [
+          129216
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=71241&locale=en_US",
+        "sha256": "bdc5d8c42a5a0f5b93dfce54e836c9149f3795e192db58b595295b23ccb496c7",
+        "bytes": 893,
+        "observed_at": "2026-10-18T02:25:26.253141+00:00"
+      }
+    },
+    {
+      "card_id": "REV_946",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\78079-zh_CN.json",
+      "response_sha256": "ac60a40173c53f191888a7deedc945ecefa7eee83eab8c908e15392c31a2e0da",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78079&locale=zh_CN",
+      "face": {
+        "id": 78079,
+        "collectible": 1,
+        "slug": "78079-steamcleaner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "蒸汽清洁器",
+        "text": "<b>战吼：</b>摧毁双方玩家牌库中所有套牌之外的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7240217bb71e0bbb0eb1ca531645057491b10cfa9841f8a3668ea4b8d3d68d87.png",
+        "imageGold": "",
+        "flavorText": "自从心能短缺，工作清闲了下来。地上迸溅的心能少多了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2896eccc5d91b2c20e8470883ba7674f580faa2b1a8392c22d58c4b399e53301.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          118163
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78079&locale=zh_CN",
+        "sha256": "ac60a40173c53f191888a7deedc945ecefa7eee83eab8c908e15392c31a2e0da",
+        "bytes": 852,
+        "observed_at": "2026-10-18T02:22:44.818204+00:00"
+      }
+    },
+    {
+      "card_id": "REV_946",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\78079-en_US.json",
+      "response_sha256": "a8ed23556630de9eb1719a761a6af8d1b94c7536ab106672fa3f214f544731c4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78079&locale=en_US",
+      "face": {
+        "id": 78079,
+        "collectible": 1,
+        "slug": "78079-steamcleaner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Steamcleaner",
+        "text": "<b>Battlecry:</b> Destroy ALL cards in both players' decks that didn't start there.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e0e4c2cd55f07ebaefd5b4ec62918b9b76cbe9e0eef26bb78493fef6b91a22e.png",
+        "imageGold": "",
+        "flavorText": "Business is slow since the anima shortage began. Things just don't get stained like they used to!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2896eccc5d91b2c20e8470883ba7674f580faa2b1a8392c22d58c4b399e53301.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          118163
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=78079&locale=en_US",
+        "sha256": "a8ed23556630de9eb1719a761a6af8d1b94c7536ab106672fa3f214f544731c4",
+        "bytes": 881,
+        "observed_at": "2026-10-18T02:22:45.835866+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_605",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\59452-zh_CN.json",
+      "response_sha256": "c762a9ae701ed68c00da55b1120c130ccb2c165cfad186e325e85f7728ace195",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59452&locale=zh_CN",
+      "face": {
+        "id": 59452,
+        "collectible": 1,
+        "slug": "59452-lake-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "止水湖蛇颈龙",
+        "text": "同时对其攻击目标相邻的随从造成伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/184bf14bf702dd63d29def103d914f4db9d6331507c98a1e3ebe3c4c5d19d813.png",
+        "imageGold": "",
+        "flavorText": "“湖里有个怪物？！” “那不是怪物，那是龙哥。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e228ed9600831677d80598745ba8d003f26e2b5c983cd1296bd406986866dc81.png",
+        "copyOfCardId": [
+          75939,
+          129176
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59452&locale=zh_CN",
+        "sha256": "c762a9ae701ed68c00da55b1120c130ccb2c165cfad186e325e85f7728ace195",
+        "bytes": 814,
+        "observed_at": "2026-10-18T02:22:45.746879+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_605",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\59452-en_US.json",
+      "response_sha256": "de33e4069cc3fa1dd4a6f59f6002724f4db524fed62208aad8a0b4d444d69b6c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59452&locale=en_US",
+      "face": {
+        "id": 59452,
+        "collectible": 1,
+        "slug": "59452-lake-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Lake Thresher",
+        "text": "Also damages the minions next to whomever this attacks.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ce69da99fc8a3121880c01d40a5c64a8aa53ddffe87d38975a05f87c584f1c9.png",
+        "imageGold": "",
+        "flavorText": "\"There’s a monster in the lake?!\" \"That’s not a monster, that’s Gary.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e228ed9600831677d80598745ba8d003f26e2b5c983cd1296bd406986866dc81.png",
+        "copyOfCardId": [
+          75939,
+          129176
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=59452&locale=en_US",
+        "sha256": "de33e4069cc3fa1dd4a6f59f6002724f4db524fed62208aad8a0b4d444d69b6c",
+        "bytes": 820,
+        "observed_at": "2026-10-18T02:22:46.482326+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BAR_313",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129172-zh_CN.json",
+      "response_sha256": "210b4ee4390dc17782eeb6c934c040b6246d4f2bd15842abf4bfbfecfa380d38",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129172&locale=zh_CN",
+      "face": {
+        "id": 129172,
+        "collectible": 1,
+        "slug": "129172-priest-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "安瑟祭司",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你在本回合中恢复过生命值， 获得+3/+3。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/791c49585ad22cf48f19949c58e2ca74bf5815cb1f227d2ef42f8a920c830e89.png",
+        "imageGold": "",
+        "flavorText": "太阳神的名字为什么要叫“暗色”呢？",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          62877
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129172&locale=zh_CN",
+        "sha256": "210b4ee4390dc17782eeb6c934c040b6246d4f2bd15842abf4bfbfecfa380d38",
+        "bytes": 709,
+        "observed_at": "2026-10-18T02:25:33.656318+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BAR_313",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129172-en_US.json",
+      "response_sha256": "eef549b889114fac826bedc3b8decc78db8c6614d2687ab2d91136820d3441d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129172&locale=en_US",
+      "face": {
+        "id": 129172,
+        "collectible": 1,
+        "slug": "129172-priest-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Priest of An'she",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b> If you've restored Health this turn, gain +3/+3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c2df5d46246b9b3d7539cf37406eaa0d00ed9566a98062e9ddc730e616feac4.png",
+        "imageGold": "",
+        "flavorText": "\"An’she?\" \"Bless you!\" \"No, you, An'she…\" \"Bless you again!\"",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          62877
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129172&locale=en_US",
+        "sha256": "eef549b889114fac826bedc3b8decc78db8c6614d2687ab2d91136820d3441d1",
+        "bytes": 722,
+        "observed_at": "2026-10-18T02:25:33.493221+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_510",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129168-zh_CN.json",
+      "response_sha256": "9c419392ecafcd5a1682383563fe225e490c7e3a252d53c2d31223629382305d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129168&locale=zh_CN",
+      "face": {
+        "id": 129168,
+        "collectible": 1,
+        "slug": "129168-wrathspike-brute",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "怒刺蛮兵",
+        "text": "<b>嘲讽</b>。在本随从被攻击后， 对所有敌人造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/408a26a830f81545ca0807a232514dfc9752ad03313d284146074e2252cdc8e0.png",
+        "imageGold": "",
+        "flavorText": "帮她抓背时会被她的背抓。",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          59865
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129168&locale=zh_CN",
+        "sha256": "9c419392ecafcd5a1682383563fe225e490c7e3a252d53c2d31223629382305d",
+        "bytes": 702,
+        "observed_at": "2026-10-18T02:23:05.770150+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_510",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129168-en_US.json",
+      "response_sha256": "16776c5b5cc9b9dede3a64295f86cb8c1ffffd5185ee15485035ade474182302",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129168&locale=en_US",
+      "face": {
+        "id": 129168,
+        "collectible": 1,
+        "slug": "129168-wrathspike-brute",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Wrathspike Brute",
+        "text": "<b>Taunt</b> After this is attacked, deal 1 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1aa2acf1a35984e98aa0e541f797534ec74e1adc5916a2f5eb12140a37ef30db.png",
+        "imageGold": "",
+        "flavorText": "You scratch her back, her back scratches back.",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          59865
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129168&locale=en_US",
+        "sha256": "16776c5b5cc9b9dede3a64295f86cb8c1ffffd5185ee15485035ade474182302",
+        "bytes": 704,
+        "observed_at": "2026-10-18T02:23:06.064268+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_CFM_344",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120428-zh_CN.json",
+      "response_sha256": "c467b205580bcc033e6770023dc2722dd63061860d50a7e17b06784a4bacbcd3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120428&locale=zh_CN",
+      "face": {
+        "id": 120428,
+        "collectible": 1,
+        "slug": "120428-finja-the-flying-star",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "飞火流星·芬杰",
+        "text": "<b>潜行</b> 每当本随从攻击并消灭一个随从，便从你的牌库中召唤两个鱼人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e514fd7b5780084c85859c0cf4b07aee34caa24c84785feb747d8ad304bf638f.png",
+        "imageGold": "",
+        "flavorText": "忍者大师，鱼人的传奇英雄。",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          40803
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120428&locale=zh_CN",
+        "sha256": "c467b205580bcc033e6770023dc2722dd63061860d50a7e17b06784a4bacbcd3",
+        "bytes": 735,
+        "observed_at": "2026-10-18T02:25:34.350527+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_CFM_344",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120428-en_US.json",
+      "response_sha256": "80f5cbf0086007181c4b999f772832e227b649a996d46003d739a6e8a736b137",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120428&locale=en_US",
+      "face": {
+        "id": 120428,
+        "collectible": 1,
+        "slug": "120428-finja-the-flying-star",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Finja, the Flying Star",
+        "text": "<b>Stealth</b> Whenever this attacks and kills a minion, summon 2 Murlocs from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1a4067397d218f581c853ed998b29e2cce4db6b6c61e0efa50e77a7408646bc.png",
+        "imageGold": "",
+        "flavorText": "The last true master of Finjitsu.",
+        "cropImage": null,
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          40803
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120428&locale=en_US",
+        "sha256": "80f5cbf0086007181c4b999f772832e227b649a996d46003d739a6e8a736b137",
+        "bytes": 719,
+        "observed_at": "2026-10-18T02:25:27.130163+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\69658-zh_CN.json",
+      "response_sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "荆棘谷猛虎",
+        "text": "<b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc8651fe343dd5c9a8fa4e8105741df05c91b7a21afa5415f34ecec548cbc8d1.png",
+        "imageGold": "",
+        "flavorText": "这些美丽的大猫是荆棘谷一道亮丽的风景！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+        "sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+        "bytes": 787,
+        "observed_at": "2026-10-17T22:07:15.174397+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\69658-en_US.json",
+      "response_sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stranglethorn Tiger",
+        "text": "<b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03d3846eba11cba5db6578e60928c2b3010c686cf041d8f8ecd5bfd3f9d4192f.png",
+        "imageGold": "",
+        "flavorText": "The wonderful thing about tigers is tigers are wonderful things!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+        "sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+        "bytes": 799,
+        "observed_at": "2026-10-17T22:07:15.397897+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_250",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\69627-zh_CN.json",
+      "response_sha256": "5650dbdb8a62bd95576dd2a390517c359e277de353f43138d1cb560fc3121f9e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69627&locale=zh_CN",
+      "face": {
+        "id": 69627,
+        "collectible": 1,
+        "slug": "69627-earth-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Dan Scott",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "土元素",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bee0e8712def086a3ef578a83601d87c324e50dbfdb52e3ec5f77d2e73bff930.png",
+        "imageGold": "",
+        "flavorText": "硬如磐石，坚不可破。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          1141,
+          69899
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69627&locale=zh_CN",
+        "sha256": "5650dbdb8a62bd95576dd2a390517c359e277de353f43138d1cb560fc3121f9e",
+        "bytes": 651,
+        "observed_at": "2026-10-18T02:25:29.354732+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_250",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\69627-en_US.json",
+      "response_sha256": "6bee99cbfbebb1c8f00b150a8d0292f05187a60eb87b6c7a00cb6191aae81589",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69627&locale=en_US",
+      "face": {
+        "id": 69627,
+        "collectible": 1,
+        "slug": "69627-earth-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Dan Scott",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "Earth Elemental",
+        "text": "<b>Taunt</b> <b>Overload</b>: (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177593e43e6e52e6dd2bac93a6d23cb5a379155d5064a4164da49dbd421c5a83.png",
+        "imageGold": "",
+        "flavorText": "Nothing beats rock.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          1141,
+          69899
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69627&locale=en_US",
+        "sha256": "6bee99cbfbebb1c8f00b150a8d0292f05187a60eb87b6c7a00cb6191aae81589",
+        "bytes": 640,
+        "observed_at": "2026-10-18T02:25:30.062463+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_623",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\130791-zh_CN.json",
+      "response_sha256": "a6812b3e569a53374674787bc5a8fbd1d90c930bdfd8b1a50f5bc79c0081ca9a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130791&locale=zh_CN",
+      "face": {
+        "id": 130791,
+        "collectible": 1,
+        "slug": "130791-witchwood-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "health": 12,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "女巫森林灰熊",
+        "text": "<b>嘲讽</b>。<b>战吼：</b> 你的对手每有一张手牌，本随从便失去1点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e78b94162364e673bdb235a10ffdcb534dc8adbeccc762fd5f4af72cd5c9e30d.png",
+        "imageGold": "",
+        "flavorText": "虽然看似有点不现实，但还是有很多人想拿它当坐骑。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          47346
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130791&locale=zh_CN",
+        "sha256": "a6812b3e569a53374674787bc5a8fbd1d90c930bdfd8b1a50f5bc79c0081ca9a",
+        "bytes": 769,
+        "observed_at": "2026-10-18T02:25:30.910578+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_623",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\130791-en_US.json",
+      "response_sha256": "bfc447bc0c9bec49c251c7dcb0b03de0543e857a4948686b5a4ae0bddcfbf3e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130791&locale=en_US",
+      "face": {
+        "id": 130791,
+        "collectible": 1,
+        "slug": "130791-witchwood-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "health": 12,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Witchwood Grizzly",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> Lose 1 Health for each card in your opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1df5351fa751515b6bf8c3a4093209fa6eda9a76c48b4d87dd5dd72641aa6dcd.png",
+        "imageGold": "",
+        "flavorText": "You know what they say about people with big hands? Small bears.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          47346
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130791&locale=en_US",
+        "sha256": "bfc447bc0c9bec49c251c7dcb0b03de0543e857a4948686b5a4ae0bddcfbf3e0",
+        "bytes": 743,
+        "observed_at": "2026-10-18T02:25:31.767889+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_061",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120180-zh_CN.json",
+      "response_sha256": "0e2a03cd294b99ae01de1316a74f08606754f173e6ed78b4b30118c54f04d072",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120180&locale=zh_CN",
+      "face": {
+        "id": 120180,
+        "collectible": 1,
+        "slug": "120180-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d428687779fed6e8729459a41d3a5e638fee408a8f4e80fd87a64344d0db439.png",
+        "imageGold": "",
+        "flavorText": "年久失修的馆长，脾气也变得十分古怪。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          39225
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120180&locale=zh_CN",
+        "sha256": "0e2a03cd294b99ae01de1316a74f08606754f173e6ed78b4b30118c54f04d072",
+        "bytes": 706,
+        "observed_at": "2026-10-18T02:25:32.490733+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_061",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120180-en_US.json",
+      "response_sha256": "2ababc24d270c9ff56ab1c088a12dfa5d8f8f359eb5f949096c58a9d286092ac",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120180&locale=en_US",
+      "face": {
+        "id": 120180,
+        "collectible": 1,
+        "slug": "120180-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Curator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9715396baf07be920d71de189dea95ec8e9d973f5875bc117e0e907f7503a4a.png",
+        "imageGold": "",
+        "flavorText": "The Curator guards Azeroth’s deadliest creatures, but it’s secretly terrified of squirrels.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          39225
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120180&locale=en_US",
+        "sha256": "2ababc24d270c9ff56ab1c088a12dfa5d8f8f359eb5f949096c58a9d286092ac",
+        "bytes": 736,
+        "observed_at": "2026-10-18T02:25:33.331029+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ONY_018",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129216-zh_CN.json",
+      "response_sha256": "479a4448c09e65cf4af6a3ae3d00c5df1d9ceb048d11465745b2328c71d0d8d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129216&locale=zh_CN",
+      "face": {
+        "id": 129216,
+        "collectible": 1,
+        "slug": "129216-boomkin",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "暴烈枭兽",
+        "text": "<b>抉择：</b>为你的英雄恢复 8点生命值；或者造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88eca40386c57c11e1d68615ffccf19e0bc69a6ef3f170e367a83f70162c32da.png",
+        "imageGold": "",
+        "flavorText": "某些德鲁伊口中的平衡，是自然和奥术之间的平衡。而某些德鲁伊口中的平衡，是对手生命值和自身生命值之间的平衡。",
+        "cropImage": null,
+        "copyOfCardId": [
+          71241
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129216&locale=zh_CN",
+        "sha256": "479a4448c09e65cf4af6a3ae3d00c5df1d9ceb048d11465745b2328c71d0d8d1",
+        "bytes": 776,
+        "observed_at": "2026-10-18T02:25:34.042895+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ONY_018",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129216-en_US.json",
+      "response_sha256": "24b6a286d7eb760c755050e722b7446e2a4ed7907eff86be2378c2b78ee409e8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129216&locale=en_US",
+      "face": {
+        "id": 129216,
+        "collectible": 1,
+        "slug": "129216-boomkin",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Boomkin",
+        "text": "<b>Choose One - </b>Restore 8 Health to your hero; or Deal 4 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c3213877193c49cb5078f54f17ce3deeae57e671ecfcecb2fa302678e0aa067.png",
+        "imageGold": "",
+        "flavorText": "Some Druids consider balance to be a state of harmony between the Natural and the Arcane. Others are more focused on the balance of the opponent’s life total versus their own.",
+        "cropImage": null,
+        "copyOfCardId": [
+          71241
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129216&locale=en_US",
+        "sha256": "24b6a286d7eb760c755050e722b7446e2a4ed7907eff86be2378c2b78ee409e8",
+        "bytes": 778,
+        "observed_at": "2026-10-18T02:25:34.226530+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_REV_946",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\118163-zh_CN.json",
+      "response_sha256": "ce518d4e117df5414c21f2682b04628750ac5977b51935e14ca7778d40978fd9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118163&locale=zh_CN",
+      "face": {
+        "id": 118163,
+        "collectible": 1,
+        "slug": "118163-steamcleaner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "蒸汽清洁器",
+        "text": "<b>战吼：</b>摧毁双方玩家牌库中所有套牌之外的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5f26eac26f523e11e847591a34f62ed7fe3c86ff01a7a2f1c3c7e7091c76133.png",
+        "imageGold": "",
+        "flavorText": "自从心能短缺，工作清闲了下来。地上迸溅的心能少多了！",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          78079
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118163&locale=zh_CN",
+        "sha256": "ce518d4e117df5414c21f2682b04628750ac5977b51935e14ca7778d40978fd9",
+        "bytes": 737,
+        "observed_at": "2026-10-18T02:25:34.402891+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_REV_946",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\118163-en_US.json",
+      "response_sha256": "1f454f4604bdcf0eb8860502ed2dccf144a44d481e565d1ef84fe84eb9c454cc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118163&locale=en_US",
+      "face": {
+        "id": 118163,
+        "collectible": 1,
+        "slug": "118163-steamcleaner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Steamcleaner",
+        "text": "<b>Battlecry:</b> Destroy ALL cards in both players' decks that didn't start there.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69dc9a1c3120e6a005164a7b1dc98590ceb0e085f47a3488de0139481bdae0e3.png",
+        "imageGold": "",
+        "flavorText": "Business is slow since the anima shortage began. Things just don't get stained like they used to!",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          78079
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118163&locale=en_US",
+        "sha256": "1f454f4604bdcf0eb8860502ed2dccf144a44d481e565d1ef84fe84eb9c454cc",
+        "bytes": 766,
+        "observed_at": "2026-10-18T02:25:34.773269+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_SCH_605",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129176-zh_CN.json",
+      "response_sha256": "21d5bb5537c1bdd34d77c6b9e5e4c91808c1af64ce79213fa37415789bbc84c9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129176&locale=zh_CN",
+      "face": {
+        "id": 129176,
+        "collectible": 1,
+        "slug": "129176-lake-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "止水湖蛇颈龙",
+        "text": "同时对其攻击目标相邻的随从造成伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/736141943ecb5490b33582b7eaf3b3726d2b87139c22df8029e79177d765b153.png",
+        "imageGold": "",
+        "flavorText": "“湖里有个怪物？！” “那不是怪物，那是龙哥。”",
+        "cropImage": null,
+        "copyOfCardId": [
+          75939,
+          59452
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129176&locale=zh_CN",
+        "sha256": "21d5bb5537c1bdd34d77c6b9e5e4c91808c1af64ce79213fa37415789bbc84c9",
+        "bytes": 699,
+        "observed_at": "2026-10-18T02:25:34.967117+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_SCH_605",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\129176-en_US.json",
+      "response_sha256": "ae8e0d114742941818c25449d3d118ca2b097f39af6cffd802945dbc5c180d91",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129176&locale=en_US",
+      "face": {
+        "id": 129176,
+        "collectible": 1,
+        "slug": "129176-lake-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Lake Thresher",
+        "text": "Also damages the minions next to whomever this attacks.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/026917f901709ad3783b2d9cb2c3388fc8893b90565ba08685838bb7fd48fe31.png",
+        "imageGold": "",
+        "flavorText": "\"There’s a monster in the lake?!\" \"That’s not a monster, that’s Gary.\"",
+        "cropImage": null,
+        "copyOfCardId": [
+          75939,
+          59452
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129176&locale=en_US",
+        "sha256": "ae8e0d114742941818c25449d3d118ca2b097f39af6cffd802945dbc5c180d91",
+        "bytes": 705,
+        "observed_at": "2026-10-18T02:25:35.251185+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120782-zh_CN.json",
+      "response_sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "消散的回忆",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/124dbe1ae668610b47aa809dc0d8421a3300d3c91c4abb1c8ab9bf4172e1305f.png",
+        "imageGold": "",
+        "flavorText": "我想到了一条绝妙的卡牌趣文……怎么又忘了？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+        "sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+        "bytes": 832,
+        "observed_at": "2026-10-17T16:37:15.061765+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p85-20261018\\official-cache-01\\120782-en_US.json",
+      "response_sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "Fading Memory",
+        "text": "<b>Deathrattle:</b>& Get a random 5-Cost minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13e8b54c21ae8be793ac75e2a8f0d773da7e299fbc0481a7da0db6541fe29ba7.png",
+        "imageGold": "",
+        "flavorText": "I had the best idea for flavor text! …what was it again?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+        "sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+        "bytes": 797,
+        "observed_at": "2026-10-17T16:37:15.541325+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "exact_parent_child_links": [],
+  "source_tag_links": [],
+  "named_dependency_links": [],
+  "reviewed_declaration_aliases": {
+    "BAR_313": "CORE_BAR_313",
+    "BT_510": "CORE_BT_510",
+    "CFM_344": "CORE_CFM_344",
+    "EX1_028": "CORE_EX1_028",
+    "EX1_250": "CORE_EX1_250",
+    "GIL_623": "CORE_GIL_623",
+    "KAR_061": "CORE_KAR_061",
+    "ONY_018": "CORE_ONY_018",
+    "REV_946": "CORE_REV_946",
+    "SCH_605": "CORE_SCH_605"
+  },
+  "alias_face_checks": [
+    {
+      "card_id": "BAR_313",
+      "source_id": "CORE_BAR_313",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "62786689fcbb22a4fb4258dcda0c7b19f2f434874d88adb453216014d5212ffb",
+      "complete_source_definition": {
+        "id": "CORE_BAR_313",
+        "name": "安瑟祭司",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": null,
+        "battlecry": "cards.basic_trigger.anshe",
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "priest"
+          ],
+          "rarity": "epic",
+          "deck_identity": "BAR_313",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.basic_trigger.anshe",
+          "file": "hs_sim/cards/basic_trigger_cards.py",
+          "source_sha256": "dac6fab3eb3fedd009ded4f5085a90d7b0fccef52195bd44b9b3b42ebdd3297a",
+          "line": 62,
+          "freevars": [],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Printed Taunt; actual restored_health for this controller/current turn, positive effective restoration only; original source Buff3/3."
+    },
+    {
+      "card_id": "BT_510",
+      "source_id": "CORE_BT_510",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "7692f6e80a5d3eab3654f8b3dcbcdd2fa1537b44925e358ee9b729ef7bddb674",
+      "complete_source_definition": {
+        "id": "CORE_BT_510",
+        "name": "怒刺蛮兵",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "attack_finished",
+            "behavior_id": "cards.basic_trigger.wrathspike",
+            "end_turn": null
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "demon_hunter"
+          ],
+          "rarity": "epic",
+          "deck_identity": "BT_510",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "demon"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.basic_trigger.wrathspike",
+          "file": "hs_sim/cards/basic_trigger_cards.py",
+          "source_sha256": "dac6fab3eb3fedd009ded4f5085a90d7b0fccef52195bd44b9b3b42ebdd3297a",
+          "line": 54,
+          "freevars": [
+            "attack_record",
+            "registry"
+          ],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Original attack_finished completion and defender identity; one MINION_ABILITY batch to all current enemies, including captured lethal defense. No live-source guard or hardcoded Core entity."
+    },
+    {
+      "card_id": "CFM_344",
+      "source_id": "CORE_CFM_344",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "1f031bb658603c00d33745041fffb7493a7d1d7f97802a19892d2663eee1387b",
+      "complete_source_definition": {
+        "id": "CORE_CFM_344",
+        "name": "飞火流星·芬杰",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "keywords": [
+          "stealth"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [
+          {
+            "event": "attack_finished",
+            "behavior_id": "cards.attack_followups.finja",
+            "end_turn": null
+          }
+        ],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "legendary",
+          "deck_identity": "CFM_344",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "murloc"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.attack_followups.finja",
+          "file": "hs_sim/cards/attack_followup_cards.py",
+          "source_sha256": "1b568e260c17e84a27714129778a8511521326c12daf40ec6dba1a63b4670546",
+          "line": 68,
+          "freevars": [],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Original actual attacker and combat/poison fatal packet, living source; SummonFromZone current physical deck Murlocs count2 and original cause. No recruit Battlecry."
+    },
+    {
+      "card_id": "EX1_028",
+      "source_id": "CORE_EX1_028",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "5878cd1f7718dfcc3e89657c2b737a18f1eba015d3c8d16363128ead8ec812d5",
+      "complete_source_definition": {
+        "id": "CORE_EX1_028",
+        "name": "荆棘谷猛虎",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [
+          "stealth"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "common",
+          "deck_identity": "EX1_028",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [],
+      "review": "Complete printed Stealth and Beast. Ordinary attack removes Stealth; no callback."
+    },
+    {
+      "card_id": "EX1_250",
+      "source_id": "CORE_EX1_250",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "e43dac2dbfae13d8e6d0e3c1589c78906a77974d253959c6d2c267df4a7da6b7",
+      "complete_source_definition": {
+        "id": "CORE_EX1_250",
+        "name": "土元素",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": "cards.economy.e51e3564c6aabe1bbf8ec193",
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "shaman"
+          ],
+          "rarity": "epic",
+          "deck_identity": "EX1_250",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "elemental"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.economy.e51e3564c6aabe1bbf8ec193",
+          "file": "hs_sim/cards/economy_cards.py",
+          "source_sha256": "13dd94eb3785bc67f7245c826827311f157f8c42ddff4f21b33dce51562ffdf2",
+          "line": 196,
+          "freevars": [],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Current5/7/9 Taunt, original on_play Overload2 (not Battlecry). No historical7/8 or Overload3 substitution. Nested English bold tags differ only in existing display stripping."
+    },
+    {
+      "card_id": "GIL_623",
+      "source_id": "CORE_GIL_623",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "9d2dc99bd3665c7562e13fc4e7e4a421f7c0ea1766a5ebfcfd685847419215f4",
+      "complete_source_definition": {
+        "id": "CORE_GIL_623",
+        "name": "女巫森林灰熊",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 3,
+        "health": 12,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": null,
+        "battlecry": "cards.simple_battlecry.grizzly",
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "rare",
+          "deck_identity": "GIL_623",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.simple_battlecry.grizzly",
+          "file": "hs_sim/cards/simple_battlecry_cards.py",
+          "source_sha256": "5bf48ff30384bd7243a1b808f85ad4bf16a1fbeb1c0c2871906c39e1da750ef7",
+          "line": 55,
+          "freevars": [
+            "invoke"
+          ],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Original Battlecry invokes fresh opponent hand count, health Buff-negative without damage, original physical source; ordinary silence clears the adjustment."
+    },
+    {
+      "card_id": "KAR_061",
+      "source_id": "CORE_KAR_061",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "366c2d94ba0ab0d366923ec32349639498088ea2a878257b6894e1cee497b0fc",
+      "complete_source_definition": {
+        "id": "CORE_KAR_061",
+        "name": "馆长",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": null,
+        "battlecry": "cards.economy.3401b7bc272b6ea457dd3023",
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "legendary",
+          "deck_identity": "KAR_061",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "mech"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.economy.3401b7bc272b6ea457dd3023",
+          "file": "hs_sim/cards/economy_cards.py",
+          "source_sha256": "13dd94eb3785bc67f7245c826827311f157f8c42ddff4f21b33dce51562ffdf2",
+          "line": 196,
+          "freevars": [],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Current5/4/6 Taunt/Mech; original sequential DrawMatching one Beast, Dragon, Murloc. Each queries fresh current physical deck through shared tutor executor."
+    },
+    {
+      "card_id": "ONY_018",
+      "source_id": "CORE_ONY_018",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "198ca5039e87571a0b9a4552a9195e116e3e705a4ce6dcaa81a510a77c43876d",
+      "complete_source_definition": {
+        "id": "CORE_ONY_018",
+        "name": "暴烈枭兽",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "keywords": [],
+        "on_play": "engine.choose_one",
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "druid"
+          ],
+          "rarity": "rare",
+          "deck_identity": "ONY_018",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": {
+          "branches": [
+            {
+              "id": "first",
+              "label": "治疗英雄8点",
+              "behavior_id": "cards.utility.body.e2df1d8435f325c2fa8a8966",
+              "targeting": null,
+              "target_rule": "any_entity",
+              "requires_board_space": false
+            },
+            {
+              "id": "second",
+              "label": "造成4点伤害",
+              "behavior_id": "cards.utility.body.f35ee4cb708c969b47a4e2d9",
+              "targeting": {
+                "mode": "if_available",
+                "zones": [
+                  "hero",
+                  "board"
+                ],
+                "kinds": [
+                  "hero",
+                  "minion"
+                ],
+                "relation": "any",
+                "exclude_source": true
+              },
+              "target_rule": "any_entity",
+              "requires_board_space": false
+            }
+          ],
+          "combined": {
+            "id": "both",
+            "label": "两项效果",
+            "behavior_id": "cards.utility.body.530a7b53413977342ed87afb",
+            "targeting": {
+              "mode": "if_available",
+              "zones": [
+                "hero",
+                "board"
+              ],
+              "kinds": [
+                "hero",
+                "minion"
+              ],
+              "relation": "any",
+              "exclude_source": true
+            },
+            "target_rule": "any_entity",
+            "requires_board_space": false
+          }
+        },
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "engine.choose_one",
+          "file": "hs_sim/engine/registry.py",
+          "source_sha256": "c0be51fe871660ca014f626433a7913e15e96ec55fc78d77d67d770cf19305ff",
+          "line": 211,
+          "freevars": [
+            "dispatch",
+            "self"
+          ],
+          "uses_actual_context_source": true
+        },
+        {
+          "id": "cards.utility.body.e2df1d8435f325c2fa8a8966",
+          "file": "hs_sim/cards/utility_cards.py",
+          "source_sha256": "9834805103ab14b1cc1795bde707cad7b72e04e613c98f6bb65eb04a23b9c640",
+          "line": 198,
+          "freevars": [],
+          "uses_actual_context_source": true
+        },
+        {
+          "id": "cards.utility.body.f35ee4cb708c969b47a4e2d9",
+          "file": "hs_sim/cards/utility_cards.py",
+          "source_sha256": "9834805103ab14b1cc1795bde707cad7b72e04e613c98f6bb65eb04a23b9c640",
+          "line": 198,
+          "freevars": [],
+          "uses_actual_context_source": true
+        },
+        {
+          "id": "cards.utility.body.530a7b53413977342ed87afb",
+          "file": "hs_sim/cards/utility_cards.py",
+          "source_sha256": "9834805103ab14b1cc1795bde707cad7b72e04e613c98f6bb65eb04a23b9c640",
+          "line": 198,
+          "freevars": [],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Full native on_play choose_one: first Heal8 own hero, second Damage4 chosen character, combined both. Original target modes, branch IDs and compiled stages remain exact."
+    },
+    {
+      "card_id": "REV_946",
+      "source_id": "CORE_REV_946",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "cc3880eab05cdbaff238608881231c27bb569c7e42c6ccfeefe8827741456bdb",
+      "complete_source_definition": {
+        "id": "CORE_REV_946",
+        "name": "蒸汽清洁器",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": "cards.physical_zones.steamcleaner",
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "rare",
+          "deck_identity": "REV_946",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "mech"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [
+        {
+          "id": "cards.physical_zones.steamcleaner",
+          "file": "hs_sim/cards/physical_zone_cards.py",
+          "source_sha256": "57786335a5136dcf306fb4d934adf5c153612ff14bc6815087f9e0722f5ae87c",
+          "line": 35,
+          "freevars": [
+            "registry"
+          ],
+          "uses_actual_context_source": true
+        }
+      ],
+      "review": "Original opening physical identities for both decks, face_replaced policy, complete accepted CardReferences and one DestroyDeckBatch; absent real opening facts fail and rollback."
+    },
+    {
+      "card_id": "SCH_605",
+      "source_id": "CORE_SCH_605",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "7b81d74df1cb8e66c5f3788ae55de0211e66de0e4f07e6c0826e9b7f22d34b64",
+      "complete_source_definition": {
+        "id": "CORE_SCH_605",
+        "name": "止水湖蛇颈龙",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": true,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "common",
+          "deck_identity": "CORE_SCH_605",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "beast"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": true,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "callbacks": [],
+      "review": "Complete native cleave=True, current5/4/6 Beast. Attack extras and target/neighbor windows remain public combat. Actual raw deck identity used rather than Core metadata identity."
+    }
+  ],
+  "pool_predicate_qualifications": [
+    {
+      "card_id": "BAR_313",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "BT_510",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "CFM_344",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "EX1_028",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "EX1_250",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "GIL_623",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "KAR_061",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "ONY_018",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "REV_946",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "SCH_605",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "exact_source_pool_certified": false
+    }
+  ],
+  "unsupported_source_cards": [
+    "TIME_040"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Ten actual necessary five-cost historical collectibles, zero Standard roots or tokens. Exact existing complete Core declarations reused independently; no global alias family or precise past pool certification.",
+    "aliases": "Every full original definition and raw row is pinned. New ID/name/printed fields and metadata come from actual new raw; all remaining original declaration fields including triggers, targeting, choose_one, on_play overload, native cleave and continuation IDs remain source-exact. Callbacks use actual context source IDs; no Core-ID entity substitution.",
+    "effects": {
+      "BAR_313": "Printed Taunt; actual restored_health for this controller/current turn, positive effective restoration only; original source Buff3/3.",
+      "BT_510": "Original attack_finished completion and defender identity; one MINION_ABILITY batch to all current enemies, including captured lethal defense. No live-source guard or hardcoded Core entity.",
+      "CFM_344": "Original actual attacker and combat/poison fatal packet, living source; SummonFromZone current physical deck Murlocs count2 and original cause. No recruit Battlecry.",
+      "EX1_028": "Complete printed Stealth and Beast. Ordinary attack removes Stealth; no callback.",
+      "EX1_250": "Current5/7/9 Taunt, original on_play Overload2 (not Battlecry). No historical7/8 or Overload3 substitution. Nested English bold tags differ only in existing display stripping.",
+      "GIL_623": "Original Battlecry invokes fresh opponent hand count, health Buff-negative without damage, original physical source; ordinary silence clears the adjustment.",
+      "KAR_061": "Current5/4/6 Taunt/Mech; original sequential DrawMatching one Beast, Dragon, Murloc. Each queries fresh current physical deck through shared tutor executor.",
+      "ONY_018": "Full native on_play choose_one: first Heal8 own hero, second Damage4 chosen character, combined both. Original target modes, branch IDs and compiled stages remain exact.",
+      "REV_946": "Original opening physical identities for both decks, face_replaced policy, complete accepted CardReferences and one DestroyDeckBatch; absent real opening facts fail and rollback.",
+      "SCH_605": "Complete native cleave=True, current5/4/6 Beast. Attack extras and target/neighbor windows remain public combat. Actual raw deck identity used rather than Core metadata identity."
+    },
+    "evidence": "Twenty-one complete original rows and42 strict bilingual primary faces. Re-prepared offline from42 full original body/receipt pairs inside this worker. No API/tag/named edge inferred from same-text declarations. Ten pool predicates remain independent from precise eligibility.",
+    "limits": "M0 fixed CN patch/legal generated pools, M6 precise attack/death/tutor/health/choose/overload/provenance windows and complete actual reachable content remain open. TIME_040 unsupported. Removed EX1_310 strict Chinese drift is outside active manifest; no normalization added. No public code, state, effect, program, identity, assembly, old content or local generation pool change."
+  }
+}
