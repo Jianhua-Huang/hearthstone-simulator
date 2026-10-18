@@ -8,6 +8,28 @@ from .model import CardType, CostModifier, CostSpec, PlayerEffect, _int, _name
 from .secrets import area_count
 
 
+def spell_effect_values(state, registry, cast, base_value):
+    """Quote primary value and internal effect count once for an actual CAST.
+
+    These units stay within the same cast. They are not additional casts or
+    payments; actual target queries still run for each delivered effect.
+    """
+    from .effects import _integer
+    from .model import SpellCastRecord
+    from .spell_casts import active_cast
+    _integer(base_value, 'printed spell primary value', 0)
+    if (type(cast) is not SpellCastRecord or not cast.payload_started or cast.completed or cast.interrupted or
+            cast.failure is not None or active_cast(state, cast.source_id, cast.player_id) != cast):
+        raise ResolutionError('Spell effect values require their original active CAST')
+    value, count = base_value, 1
+    for instance in state.players[cast.player_id].player_effects:
+        for declaration in registry.player_effect(instance.spec_id).spell_effects:
+            if cast.card_id in declaration.card_ids:
+                value += declaration.value_add
+                count += declaration.additional_effects
+    return value, count
+
+
 def timed_count(player, registry):
     return sum(registry.player_effect(e.spec_id).duration is not None for e in player.player_effects)
 

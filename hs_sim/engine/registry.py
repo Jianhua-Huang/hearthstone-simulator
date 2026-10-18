@@ -1705,6 +1705,10 @@ class Registry:
                         continue
                     if self.card(card_id).kind != CardType.MINION:
                         raise ValueError('Player stat auras only filter minion definitions')
+            for modifier in spec.spell_effects:
+                for card_id in modifier.card_ids:
+                    if self.card(card_id).kind != CardType.SPELL or self.card(card_id).choice_only:
+                        raise ValueError('Spell effect modifiers require registered physical spell definitions')
         ship_classes = set()
         herald_classes = set()
         for card in (*self._cards.values(), *self._modular_modules.values()):
@@ -1851,7 +1855,8 @@ class Registry:
                                           (k != 'allowed_card_types' or v) and
                                           (k != 'next_turn_end' or v) and
                                           (k != 'tick_player' or v != 'controller') and
-                                          (k != 'opponent_spell_cost' or v)} for i in sorted(self._player_effects)],
+                                          (k != 'opponent_spell_cost' or v) and
+                                          (k != 'spell_effects' or v)} for i in sorted(self._player_effects)],
                    "summon_producer_profiles": [asdict(self._summon_producer_profiles[i]) for i in sorted(self._summon_producer_profiles)],
                    "end_turn_profiles": [asdict(self._end_turn_profiles[i]) for i in sorted(self._end_turn_profiles)],
                    "end_turn_candidate_profiles": [asdict(self._end_turn_candidate_profiles[i]) for i in sorted(self._end_turn_candidate_profiles)],

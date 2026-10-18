@@ -70,3 +70,5 @@ v76复验说明：上文原批次契约和验收数字保留为历史；当前�
 普通持续法术保持原AddPlayerEffect队列；具名install_then_branch抉择根在原CAST窗口调用同一安装器，再捕获独立分支视图。法伤和光环已安装，安装反应可先执行；后续触发/到期各自独立，PlayerEffectSpec拒绝engine.choose_one作为未来文本。现有实例身份/来源/获得顺序、共享容量、owner时钟、移除/到期、等待恢复和回滚均复用，不把整局或持续效果绑定到当前来源生存状态。所有分支仍安装相同静态效果，分支依赖文本须独立持久契约；详见[组合契约](m5-ongoing-choose-roots.md)。
 
 PlayerAuraSpec新增显式scope，默认active_board保持；controlled_minion_cards要求具名家族并连续作用于受控的存储/场上普通随从，首次存储通知与休眠缓存仅接受原程序准确贡献。原生新兵来源、尚未适配成员的谓词边界与国服待校准项见[契约](m3-recruit-player-programs.md)。
+
+永久法术效果源用默认空spell_effects保存一个SpellEffectModifierSpec（明确物理法术、数值加法或一个额外效果单位），不能混入其他玩家程序。原CAST接受数值/次数、同一次施法内交付，费用仍独立；旧空字段不改指纹，见[魔网契约](m3-native-leylines.md)。

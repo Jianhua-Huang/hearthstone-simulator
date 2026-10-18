@@ -10,6 +10,43 @@ from tools import card_batch as batch
 
 
 class CardBatchToolTests(unittest.TestCase):
+    def leyline_display_fixture(self):
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-leyline-display-v1.json')
+        self.assertEqual(batch.canonical(data), '9ed92e3741808d262c9777d237da714ea4d09bcccc95ad32b91ba9763101fe62')
+        for row in data['records']:
+            self.assertEqual(batch.canonical(row['record']), row['record_sha256'])
+        return data
+
+    def test_leyline_display_keeps_both_complete_original_bodies_in_six_faces(self):
+        data = self.leyline_display_fixture(); original = deepcopy(data)
+        rows = {r['record']['id']: r['record'] for r in data['records']}
+        for o in data['observations']:
+            with self.subTest(card=o['card_id'], locale=o['locale']):
+                batch.check_face(rows[o['card_id']], o['face'], o['locale'], {'@': '', '{0}': '', '{1}': ''})
+                with self.assertRaises(ValueError): batch.check_face(rows[o['card_id']], o['face'], o['locale'])
+        self.assertEqual(data, original)
+
+    def test_leyline_display_rejects_truncated_variants_changed_rules_or_unpinned_source(self):
+        data = self.leyline_display_fixture(); rows = {r['record']['id']: r['record'] for r in data['records']}
+        for o in data['observations']:
+            raw, face, locale = rows[o['card_id']], o['face'], o['locale']
+            text = face['text']; changed = text.replace('random', 'chosen').replace('Draw', 'Discard').replace('随机', '所有').replace('抽', '弃')
+            for body in (text[:len(text)//2], changed):
+                with self.subTest(card=raw['id'], locale=locale), self.assertRaises(ValueError):
+                    batch.check_face(raw, dict(face, text=body), locale, {'@': '', '{0}': '', '{1}': ''})
+            changed = deepcopy(raw); changed['tags']['TAG_SCRIPT_DATA_NUM_1'] += 1
+            with self.assertRaises(ValueError):
+                batch.check_face(changed, face, locale, {'@': '', '{0}': '', '{1}': ''})
+
+    def test_leyline_display_retains_primary_metadata_and_forbids_other_macro_shapes(self):
+        data = self.leyline_display_fixture(); raw = data['records'][0]['record']
+        o = next(o for o in data['observations'] if o['card_id'] == raw['id'] and o['locale'] == 'en_US')
+        for key, value in (('manaCost', 999), ('classId', 9), ('cardTypeId', 4), ('cardSetId', 1), ('collectible', False)):
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(o['face'], **{key:value}), 'en_US', {'@': '', '{0}': '', '{1}': ''})
+        for declaration in ({'@': '', '{0}': ''}, {'@': '', '{0}': '4', '{1}': ''}, {'@': '', '{0}': '', '{2}': ''}):
+            with self.assertRaises(ValueError): batch.check_face(raw, o['face'], 'en_US', declaration)
+
     def recruit_display_fixture(self):
         data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-recruit-stats-display-v1.json')
         self.assertEqual(batch.canonical(data), '556d67a6004a3e52ac8b69d46baf3a4698f130b9890f817f2e3595f3929ac8b0')

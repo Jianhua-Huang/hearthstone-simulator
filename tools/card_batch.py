@@ -175,19 +175,30 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # remain in these exact original bodies; this is not a general macro rule.
     recruit_display = (display_normalizations == {'{0}': ''} and row.get('type') == 'SPELL' and
                        display(raw_text) == display(recruit_bodies.get((row['id'], locale), '')))
+    leyline_pins = {
+        'MEND_500': '132924d54e920a9e232451d78270dce82997ea4dcf4e04139caca9fbe6bb8b2d',
+        'MEND_502': 'cdf80ae32e59da20337167be95e99eac9802b8b842e6b968de993a1ec33f0371',
+        'MEND_504': '8828c777196157e5bfcdc08fbe76e55ece23b3d8acfb91c8b6e0db7d860894ae',
+    }
+    # Both full bodies remain. Only these pinned records may omit their live
+    # scalar/count slots and the delimiter exactly as the primary API does.
+    leyline_display = (display_normalizations == {'@': '', '{0}': '', '{1}': ''} and
+                       row['id'] in leyline_pins and canonical(row) == leyline_pins[row['id']])
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((progress_display or counter_display) and replacement == '' or
+            require(type(replacement) is str and ((progress_display or counter_display or leyline_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
+        elif marker == '{1}':
+            require(leyline_display and replacement == '', 'Only complete pinned Leyline bodies may omit their repeat display')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and

@@ -7728,6 +7728,23 @@ class PlayerAuraSpec:
 
 
 @dataclass(frozen=True)
+class SpellEffectModifierSpec:
+    """One permanent, named spell-family numeric or effect-unit addition."""
+    card_ids: tuple[str, ...]
+    value_add: int = 0
+    additional_effects: int = 0
+
+    def __post_init__(self):
+        if type(self.card_ids) is not tuple or not self.card_ids or len(set(self.card_ids)) != len(self.card_ids):
+            raise ValueError('Spell effect modifiers require explicit distinct card identities')
+        for cid in self.card_ids: _name(cid, 'modified spell ID')
+        _int(self.value_add, 'spell primary value addition', 0)
+        _int(self.additional_effects, 'additional spell effects', 0)
+        if self.additional_effects not in (0, 1) or bool(self.value_add) == bool(self.additional_effects):
+            raise ValueError('One declaration adds a primary value or one actual extra effect')
+
+
+@dataclass(frozen=True)
 class SummonProducerProfile:
     """Logical unit and acceptance policy, independent of the selected card face."""
     id: str
@@ -7807,8 +7824,18 @@ class PlayerEffectSpec:
     next_turn_end: bool = False
     tick_player: str = 'controller'
     opponent_spell_cost: int = 0
+    spell_effects: tuple[SpellEffectModifierSpec, ...] = ()
 
     def __post_init__(self):
+        if (type(self.spell_effects) is not tuple or len(self.spell_effects) > 1 or
+                any(type(s) is not SpellEffectModifierSpec for s in self.spell_effects)):
+            raise ValueError('Spell effects require one immutable independent declaration')
+        for declaration in self.spell_effects: declaration.__post_init__()
+        if self.spell_effects and (self.kind != 'persistent' or any((self.duration, self.tick_event,
+                self.on_expire, self.triggers, self.spell_damage, self.auras, self.deathrattle_repeats,
+                self.end_turn_repeats, self.producer_quantities, self.keyword_auras,
+                self.target_policy, self.allowed_card_types, self.next_turn_end, self.opponent_spell_cost))):
+            raise ValueError('Spell effect additions are independent permanent player programs')
         if self.tick_player not in ('controller', 'opponent'):
             raise ValueError('Unsupported player-effect clock actor')
         _int(self.opponent_spell_cost, 'Aura opponent spell cost', 0)
