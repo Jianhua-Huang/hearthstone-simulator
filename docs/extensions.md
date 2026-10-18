@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实新兵长期奖励在原玩家程序中声明明确卡牌范围，存储卡首次通知与休眠缓存沿同一数值层校验；默认场上光环含义保持，见[新兵契约](m3-recruit-player-programs.md)。
+
 真实随机治疗沿原分配解释器逐单位交付普通Heal，保留免法伤、原流、独立治疗历史及混合父根；精确国服资格/数值窗口见[契约](m3-random-split-healing.md)。
 
 阿莱纳希式数值保留用`TransformStoredFromPool(..., retained_stats=SummonStats(...), retained_cost=...)`连接原物理手牌；数字取原局部材料，不复制含外部光环的最终报价，见[契约](m3-retained-demon-transforms.md)。

@@ -1,0 +1,1692 @@
+{
+  "schema": 1,
+  "batch": "native-recruit-program-v1",
+  "policy": "controlled-minion-card-family-additive-player-aura-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "MEND_800",
+        "dbf_id": 123620,
+        "name": "莽撞的战场军官",
+        "name_en": "Brash Battlemaster",
+        "text": "<b>突袭</b>。<b>亡语：</b>&在本局对战中，使你的白银之手新兵获得+1攻击力。",
+        "text_en": "[x]<b>Rush</b>\n <b>Deathrattle:</b>& Give your\nSilver Hand Recruits\n+1 Attack this game.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "5c9573903103da7168313aa64a09bb1dc3af4c188775d096c142bd3271d46af0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MEND_800",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_801",
+        "dbf_id": 123621,
+        "name": "坚定的救援者",
+        "name_en": "Resilient Savior",
+        "text": "<b>圣盾</b>。在本随从失去<b>圣盾</b>后，&在本局对战中，使你的白银之手新兵获得+1生命值。",
+        "text_en": "[x]<b>Divine Shield</b>\nAfter this loses <b>Divine Shield</b>,&\ngive your Silver Hand Recruits\n+1 Health this game.",
+        "cost": 3,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          }
+        ]
+      },
+      "record_sha256": "28c9b9084b8137c62322c8cf8bd5096f19efb40cad97bdb7f992d05140ef80ab",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "MEND_801",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_802",
+        "dbf_id": 123622,
+        "name": "休养",
+        "name_en": "Convalescence",
+        "text": "召唤两个{0}并具有<b>圣盾</b>的白银之手新兵。",
+        "text_en": "Summon two {0} Silver Hand Recruits with <b>Divine Shield</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9cf85d8224eb50a1a7b9299566c9a56591bdc506b5f88f3949f840571db3817a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "MEND_802",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "MEND_803",
+        "dbf_id": 123623,
+        "name": "砺胆重剑",
+        "name_en": "Emboldening Blade",
+        "text": "<b>战吼：</b>&在本局对战中，使你的白银之手新兵获得+1/+1。",
+        "text_en": "[x]<b>Battlecry:</b>& Give your\nSilver Hand Recruits\n+1/+1 this game.",
+        "cost": 5,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "204ae87fff8afec431a10ff22554eb0be283ad57b5d838ef28ace339f87c4acc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "MEND_803",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_900",
+        "dbf_id": 127427,
+        "name": "团队协作",
+        "name_en": "Teamwork",
+        "text": "召唤并获取四个{0}的白银之手\n新兵。",
+        "text_en": "[x]Summon and get\nfour {0} Silver\nHand Recruits.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "7775d6fffa47c1d1a4b970253b8694200ba771ff051382c6db3dbb6dce2f7edd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MEND_900",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_101t",
+        "dbf_id": 1652,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "d6e11cb6245a7dca1c68d31adbd57b33e9dcc2d48de091e5471736cae9df12ea",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "c465bf114ee5f2b6e8fd3581621e11cc9540af2f226a291ca2fca7e02007264b"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CS2_101t2",
+        "dbf_id": 105917,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "d1d496a16849c17ff534c6ca64da96cad86df94ec640833d84e0413c79618449",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t3",
+        "dbf_id": 105918,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "19603d1b0f5a577e28e21b6cbcddf62aa1ad05af50aba4ec3b5ea115ea7df91f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t4",
+        "dbf_id": 105919,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "623beff66363ab184362a7e0656c77b3107b0657c641896b0cd4564e68cf0a92",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t5",
+        "dbf_id": 105920,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "512fc548105c788904c43499072228007cd9d1f0aca05eb2c44c07174c5a9b97",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t6",
+        "dbf_id": 105921,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "297f436d9fdcc42945f410f00dc3d089d537eb7dd89fbd78a66bf478b8f7e063",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t7",
+        "dbf_id": 105922,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "ab4c40ca8445a09e8f7ca791ce049b10f324d2915b3baa39437259ea339bf579",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_101t8",
+        "dbf_id": 105923,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "aeb337a86b595f619b053da80ed87154b280d4ddd74cdf225afb92738b8101bc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_101t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAN_CS2_101t",
+        "dbf_id": 71409,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "3444": 1
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "356aa08c3831d30fe663c5ce1c44d223e17abe000222d1fc4afa619422a9a017",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "VAN_CS2_101t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_800e",
+        "dbf_id": 123627,
+        "name": "新兵的力量",
+        "name_en": "Recruit's Might",
+        "text": "在本局对战的剩余时间内，你的白银之手新兵拥有+1攻击力。",
+        "text_en": "For the rest of the game, your Silver Hand Recruits have +1 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "12dc18b9da7941772d44096652695af3ec7bab1d2a87efcb5cbcc3e0cd10e21a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_800e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_800e2",
+        "dbf_id": 123629,
+        "name": "勇力",
+        "name_en": "Might",
+        "text": "+1攻击力",
+        "text_en": "+1 Attack",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "968dc1aac79103dee1cc9a3c1eff43cb85319cfd2aa6c92e957043889409334e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_800e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_801e",
+        "dbf_id": 123628,
+        "name": "新兵的坚韧",
+        "name_en": "Recruit's Resilience",
+        "text": "在本局对战的剩余时间内，你的白银之手新兵拥有+1生命值。",
+        "text_en": "For the rest of the game, your Silver Hand Recruits have +1 Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 6,
+          "3169": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3169",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3169"
+          }
+        ]
+      },
+      "record_sha256": "076573c26000aed7c9fb682c4e7e81fe155c2d8ba2da701337c77c3d9d2e1897",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_801e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_801e2",
+        "dbf_id": 123630,
+        "name": "坚韧",
+        "name_en": "Resilience",
+        "text": "+1生命值",
+        "text_en": "+1 Health",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a778509a3d9432f8015c63327bcdf33f4aa41fe44fccec1b04fd78e72f8daab3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_801e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_803e",
+        "dbf_id": 130741,
+        "name": "胆气雄壮",
+        "name_en": "Emboldened",
+        "text": "在本局对战的剩余时间内，你的白银之手新兵拥有+1/+1。",
+        "text_en": "For the rest of the game, your Silver Hand Recruits have +1/+1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "51509410c18d2df8428de0aa78979af739987c950194415365d7f3849ea50df5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_803e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_803e2",
+        "dbf_id": 130742,
+        "name": "胆气雄壮",
+        "name_en": "Emboldened",
+        "text": "+1/+1",
+        "text_en": "+1/+1",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d6065ef2914f5c0e242cab9be9b28f14c674d91ced84ca3689d4fd806d2dc46d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_803e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "recipient_ids": [
+    "CS2_101t",
+    "CS2_101t2",
+    "CS2_101t3",
+    "CS2_101t4",
+    "CS2_101t5",
+    "CS2_101t6",
+    "CS2_101t7",
+    "CS2_101t8",
+    "VAN_CS2_101t"
+  ],
+  "official_observations": [
+    {
+      "card_id": "MEND_800",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123620-zh_CN.json",
+      "response_sha256": "239a52c721085f3bf20db0e6a5f5d7b306c743f3a3aa168aca2277e72ece27e1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123620&locale=zh_CN",
+      "face": {
+        "id": 123620,
+        "collectible": 1,
+        "slug": "123620-brash-battlemaster",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "莽撞的战场军官",
+        "text": "<b>突袭</b>。<b>亡语：</b>&在本局对战中，使你的白银之手新兵获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62d8d1793106e2bf7154bd9daa1e5e04894903aed427a634671f09f39a33dd41.png",
+        "imageGold": "",
+        "flavorText": "莽就完了，敌人也全都完了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38c8c3a783aade5d517ef41a3a6679f89ad1a96fdb8f6c9d22ae9ac6fc88e186.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123620&locale=zh_CN",
+        "sha256": "239a52c721085f3bf20db0e6a5f5d7b306c743f3a3aa168aca2277e72ece27e1",
+        "bytes": 829,
+        "observed_at": "2026-10-18T09:11:14.037290+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_800",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123620-en_US.json",
+      "response_sha256": "9424eed8ce784429867f40d51005a9fe10ee4fdb5325a31920e7edafffb79a7a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123620&locale=en_US",
+      "face": {
+        "id": 123620,
+        "collectible": 1,
+        "slug": "123620-brash-battlemaster",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Brash Battlemaster",
+        "text": "<b>Rush</b> <b>Deathrattle:</b>& Give your Silver Hand Recruits +1 Attack this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64c8a00db6b4042abcbf5ec34789860d6bbb6584ea928c7344ab1a0ef78050c2.png",
+        "imageGold": "",
+        "flavorText": "Bold and brash, his enemies belong in the trash.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38c8c3a783aade5d517ef41a3a6679f89ad1a96fdb8f6c9d22ae9ac6fc88e186.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123620&locale=en_US",
+        "sha256": "9424eed8ce784429867f40d51005a9fe10ee4fdb5325a31920e7edafffb79a7a",
+        "bytes": 818,
+        "observed_at": "2026-10-18T09:11:13.868140+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_801",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123621-zh_CN.json",
+      "response_sha256": "f86e0e7589795e380cc014e1e77c1facd7e170a3f19e2294146ee4e5e17581e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123621&locale=zh_CN",
+      "face": {
+        "id": 123621,
+        "collectible": 1,
+        "slug": "123621-resilient-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Milica Celikovic",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "坚定的救援者",
+        "text": "<b>圣盾</b>。在本随从失去<b>圣盾</b>后，&在本局对战中，使你的白银之手新兵获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/772c8acdb30640018375c8a8e8d28f5530636ecb7dcec86614bd3b27a89d71d9.png",
+        "imageGold": "",
+        "flavorText": "恭喜你获救了！请不要拒绝。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd56a0b34b8114e4131fbcac80bbdda5cfb702960d580732094544b694b0c399.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123621&locale=zh_CN",
+        "sha256": "f86e0e7589795e380cc014e1e77c1facd7e170a3f19e2294146ee4e5e17581e0",
+        "bytes": 864,
+        "observed_at": "2026-10-18T09:11:13.987799+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_801",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123621-en_US.json",
+      "response_sha256": "bbf41a635f2a2e3c61af07b4188cf258d72aa344e02d3593f5e6ad1ef84a0403",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123621&locale=en_US",
+      "face": {
+        "id": 123621,
+        "collectible": 1,
+        "slug": "123621-resilient-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Milica Celikovic",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Resilient Savior",
+        "text": "<b>Divine Shield</b> After this loses <b>Divine Shield</b>,& give your Silver Hand Recruits +1 Health this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28bf6d500efeed2cf9600832a69464184039eb240f7b76fcec8e63f9b28d4e9e.png",
+        "imageGold": "",
+        "flavorText": "Congratulations you're being rescued! Please do not resist.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd56a0b34b8114e4131fbcac80bbdda5cfb702960d580732094544b694b0c399.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123621&locale=en_US",
+        "sha256": "bbf41a635f2a2e3c61af07b4188cf258d72aa344e02d3593f5e6ad1ef84a0403",
+        "bytes": 872,
+        "observed_at": "2026-10-18T09:11:13.862688+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_802",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123622-zh_CN.json",
+      "response_sha256": "8a72e9d0b2fe8a09da97733203e273556df9cbfff6224d53b901a0073dbb5a0e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123622&locale=zh_CN",
+      "face": {
+        "id": 123622,
+        "collectible": 1,
+        "slug": "123622-convalescence",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 2,
+        "name": "休养",
+        "text": "召唤两个 并具有<b>圣盾</b>的白银之手新兵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7ffbc63d87f31f18f4da57cf28d5cd174027d740c3929c9005e70f71d31a211.png",
+        "imageGold": "",
+        "flavorText": "你好……起来吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef7dad82a8905d8801507ea2338779b3125920de69f12daef0945d0eaef6b586.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123622&locale=zh_CN",
+        "sha256": "8a72e9d0b2fe8a09da97733203e273556df9cbfff6224d53b901a0073dbb5a0e",
+        "bytes": 745,
+        "observed_at": "2026-10-18T09:11:14.680521+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_802",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123622-en_US.json",
+      "response_sha256": "09cce9c2bff518a64251668e8bd02eccacb5686480f0db6c9bc0c74e779b63d9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123622&locale=en_US",
+      "face": {
+        "id": 123622,
+        "collectible": 1,
+        "slug": "123622-convalescence",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 2,
+        "name": "Convalescence",
+        "text": "Summon two Silver Hand Recruits with <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/feb5079d57fa14297999bc9dce84b4b02d4f0463376482977a50befce060cf46.png",
+        "imageGold": "",
+        "flavorText": "Get WELL MET soon!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef7dad82a8905d8801507ea2338779b3125920de69f12daef0945d0eaef6b586.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123622&locale=en_US",
+        "sha256": "09cce9c2bff518a64251668e8bd02eccacb5686480f0db6c9bc0c74e779b63d9",
+        "bytes": 745,
+        "observed_at": "2026-10-18T09:11:14.871110+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_803",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123623-zh_CN.json",
+      "response_sha256": "c8b67f94d39b86a0ef886e18a316702eecc654283c9e884e4f489165761f7e38",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123623&locale=zh_CN",
+      "face": {
+        "id": 123623,
+        "collectible": 1,
+        "slug": "123623-emboldening-blade",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Vlad Botos",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "砺胆重剑",
+        "text": "<b>战吼：</b>&在本局对战中，使你的白银之手新兵获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31e56d1602f757d2d547661a8314031580f1375686a17afeff2e87c7b9864207.png",
+        "imageGold": "",
+        "flavorText": "<b>剑</b>的磅数要加重。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f705b4c1dc6aaf5f7e953eac1df9861d8f64bef4a3c7ecc71629e7789a74293e.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123623&locale=zh_CN",
+        "sha256": "c8b67f94d39b86a0ef886e18a316702eecc654283c9e884e4f489165761f7e38",
+        "bytes": 785,
+        "observed_at": "2026-10-18T09:11:14.719783+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_803",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123623-en_US.json",
+      "response_sha256": "8d6dbc137a43820a4d3a3b024588ce373d3a8a5567a02cc33784146661d2808c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123623&locale=en_US",
+      "face": {
+        "id": 123623,
+        "collectible": 1,
+        "slug": "123623-emboldening-blade",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Vlad Botos",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Emboldening Blade",
+        "text": "<b>Battlecry:</b>& Give your Silver Hand Recruits +1/+1 this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22c2957b1a52b89fbc9c338ce040b6984a25ea9c03b8c2987ed93f40094be913.png",
+        "imageGold": "",
+        "flavorText": "<b>Blade</b>",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f705b4c1dc6aaf5f7e953eac1df9861d8f64bef4a3c7ecc71629e7789a74293e.png",
+        "childIds": [
+          1652
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123623&locale=en_US",
+        "sha256": "8d6dbc137a43820a4d3a3b024588ce373d3a8a5567a02cc33784146661d2808c",
+        "bytes": 758,
+        "observed_at": "2026-10-18T09:11:14.776039+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_900",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127427-zh_CN.json",
+      "response_sha256": "341417f66265f89689b84e832477809439746bd59f1cd7abb2f60cc8c558eba5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127427&locale=zh_CN",
+      "face": {
+        "id": 127427,
+        "collectible": 1,
+        "slug": "127427-teamwork",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "团队协作",
+        "text": "召唤并获取四个 的白银之手 新兵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5b7cad9e9f7d248d437492213246e02f5c7a6c4ce1ad48b166045d4ac51efff.png",
+        "imageGold": "",
+        "flavorText": "都别作了，求你们了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f348c3060c714848813dd7f576cf8976982dbd2497688d966c6b7adc9aa523c4.png",
+        "childIds": [
+          1652
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127427&locale=zh_CN",
+        "sha256": "341417f66265f89689b84e832477809439746bd59f1cd7abb2f60cc8c558eba5",
+        "bytes": 714,
+        "observed_at": "2026-10-18T09:11:15.691616+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_900",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127427-en_US.json",
+      "response_sha256": "189dd487f0e52ab6555e45f9f50872e5d8f320dbbf49dc94c536e3a0c5ab80a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127427&locale=en_US",
+      "face": {
+        "id": 127427,
+        "collectible": 1,
+        "slug": "127427-teamwork",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 4,
+        "name": "Teamwork",
+        "text": "Summon and get four Silver Hand Recruits.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/997a49b838acf4bfc0606c786c4b861dd8b19d25995c85424094e0f76e880810.png",
+        "imageGold": "",
+        "flavorText": "Uh, yeah, I sure hope it does.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f348c3060c714848813dd7f576cf8976982dbd2497688d966c6b7adc9aa523c4.png",
+        "childIds": [
+          1652
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127427&locale=en_US",
+        "sha256": "189dd487f0e52ab6555e45f9f50872e5d8f320dbbf49dc94c536e3a0c5ab80a7",
+        "bytes": 704,
+        "observed_at": "2026-10-18T09:14:58.598239+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "MEND_802": {
+      "{0}": ""
+    },
+    "MEND_900": {
+      "{0}": ""
+    }
+  },
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "numeric_and_lifecycle_policy": "Use existing PlayerEffectSpec and additive aura layer, extending only an explicit controlled minion-card scope across HAND/DECK/PLAY/BOARD (including dormant). Follow current controller/card face; silence and physical local copies do not remove or bake the logical player contribution. Creation notification sees current contribution after local creation grants. Grave/exile outside scope. Precise CN zone/transfer/copy/numeric order remain calibration items. Starship building carriers are not ordinary recipients. Named unresolved family identities are predicates only; materialization still requires an actual adapter.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

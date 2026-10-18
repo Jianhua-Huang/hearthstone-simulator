@@ -7708,10 +7708,11 @@ class ActionWindow:
 
 @dataclass(frozen=True)
 class PlayerAuraSpec:
-    """Continuous additive stats on the recipient's active board minions."""
+    """Continuous player stats; the default retains active-board semantics."""
     attack: int = 0
     health: int = 0
     card_ids: tuple[str, ...] = ()
+    scope: str = 'active_board'
 
     def __post_init__(self):
         _int(self.attack, 'player aura attack')
@@ -7720,6 +7721,10 @@ class PlayerAuraSpec:
             raise ValueError('Player aura card IDs must be a unique immutable tuple')
         for card_id in self.card_ids:
             _name(card_id, 'player aura card ID')
+        if self.scope not in ('active_board', 'controlled_minion_cards'):
+            raise ValueError('Unknown player stat aura scope')
+        if self.scope == 'controlled_minion_cards' and not self.card_ids:
+            raise ValueError('Stored player stats require their explicit named minion family')
 
 
 @dataclass(frozen=True)
@@ -10535,8 +10540,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             entity.dormancy.__post_init__()
             if entity.dormancy.permanent != permanent_dormancy:
                 raise ValueError('Dormancy permanence disagrees with its definition')
+            from .stat_auras import controlled_card_bonus
+            dormant_bonus = controlled_card_bonus(state, registry, entity)
             if (entity.kind != CardType.MINION or entity.zone != Zone.BOARD or entity.starship_building or
-                    entity.dormancy.started_turn > state.turn or entity.keywords or entity.aura_attack or entity.aura_health):
+                    entity.dormancy.started_turn > state.turn or entity.keywords or
+                    (entity.aura_attack, entity.aura_health) != dormant_bonus):
                 raise ValueError('Dormancy requires an inactive board minion')
             if entity.dormancy.id in current_attachment_ids:
                 raise ValueError('Duplicate dormancy instance ID')

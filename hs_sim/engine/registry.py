@@ -1699,6 +1699,10 @@ class Registry:
                 if trigger.end_turn is not None: self.trigger_condition(trigger.end_turn.condition_id)
             for aura in spec.auras:
                 for card_id in aura.card_ids:
+                    if aura.scope == 'controlled_minion_cards' and card_id not in self._cards:
+                        # A named predicate is not an executable adapter. A later
+                        # attempt to create this identity still fails explicitly.
+                        continue
                     if self.card(card_id).kind != CardType.MINION:
                         raise ValueError('Player stat auras only filter minion definitions')
         ship_classes = set()

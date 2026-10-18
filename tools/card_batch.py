@@ -165,6 +165,16 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                       else ('(@)', '(@/4)'))
     counter_display = (display_normalizations == {'@': ''} and counter is not None and
                        bool(display(counter[1])) and display(counter[2]) in counter_labels)
+    recruit_bodies = {
+        ('MEND_802', 'zh_CN'): '召唤两个{0}并具有圣盾的白银之手新兵。',
+        ('MEND_802', 'en_US'): 'Summon two {0} Silver Hand Recruits with Divine Shield.',
+        ('MEND_900', 'zh_CN'): '召唤并获取四个{0}的白银之手新兵。',
+        ('MEND_900', 'en_US'): 'Summon and get four {0} Silver Hand Recruits.',
+    }
+    # The API omits only the live stat pair. Counts, shield and acquisition
+    # remain in these exact original bodies; this is not a general macro rule.
+    recruit_display = (display_normalizations == {'{0}': ''} and row.get('type') == 'SPELL' and
+                       display(raw_text) == display(recruit_bodies.get((row['id'], locale), '')))
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
@@ -176,8 +186,8 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display) and replacement == '',
-                    'Only exact trailing progress-left/ready labels may omit their display counter')
+            require((progress_display or mana_forms_display or recruit_display) and replacement == '',
+                    'Only explicitly reviewed complete display forms may omit their live value')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and

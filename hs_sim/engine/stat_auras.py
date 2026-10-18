@@ -66,6 +66,47 @@ def matches_card_identity(entity, card_ids):
     return not card_ids or entity.card_id in card_ids
 
 
+MINION_CARD_ZONES = (Zone.HAND, Zone.DECK, Zone.PLAY, Zone.BOARD)
+
+
+def player_aura_targets(state, player, aura):
+    if aura.scope == 'active_board':
+        return tuple(state.entities[i] for i in player.board
+            if state.entities[i].active and state.entities[i].kind == CardType.MINION and
+            matches_card_identity(state.entities[i], aura.card_ids))
+    return tuple(e for e in state.entities.values() if e.controller == player.id and
+        e.kind == CardType.MINION and e.zone in MINION_CARD_ZONES and not e.starship_building and
+        matches_card_identity(e, aura.card_ids))
+
+
+def controlled_card_bonus(state, registry, entity):
+    if entity.kind != CardType.MINION or entity.zone not in MINION_CARD_ZONES or entity.starship_building:
+        return 0, 0
+    auras = tuple(a for effect in state.players[entity.controller].player_effects
+        for a in registry.player_effect(effect.spec_id).auras
+        if a.scope == 'controlled_minion_cards' and matches_card_identity(entity, a.card_ids))
+    return sum(a.attack for a in auras), sum(a.health for a in auras)
+
+
+def refresh_stored_player_card_aura(state, registry, entity):
+    """Publish a new stored card after local grants, before its first observer.
+
+    The full ordinary refresh continues to own board sources and checkpoints.
+    This small stored-card path neither emits events nor inserts checkpoints.
+    """
+    if entity.kind != CardType.MINION or entity.zone not in (Zone.HAND, Zone.DECK, Zone.PLAY):
+        return
+    all_auras = tuple((p.id, a) for p in state.players.values() for effect in p.player_effects
+        for a in registry.player_effect(effect.spec_id).auras if a.scope == 'controlled_minion_cards')
+    if not all_auras:
+        return
+    old_health, old_bonus = entity.health, entity.aura_health
+    entity.aura_attack, entity.aura_health = controlled_card_bonus(state, registry, entity)
+    if entity.aura_health < old_bonus:
+        entity.damage = max(0, entity.max_health - old_health)
+    refresh_entity(entity)
+
+
 def weapon_bonuses(state, *, include_dying=False):
     """Pure contributions from physical active board carriers to current slots."""
     bonuses = {}

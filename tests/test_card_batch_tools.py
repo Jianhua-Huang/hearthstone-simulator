@@ -10,6 +10,54 @@ from tools import card_batch as batch
 
 
 class CardBatchToolTests(unittest.TestCase):
+    def recruit_display_fixture(self):
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-recruit-stats-display-v1.json')
+        self.assertEqual(batch.canonical(data), '556d67a6004a3e52ac8b69d46baf3a4698f130b9890f817f2e3595f3929ac8b0')
+        for row in data['records']:
+            self.assertEqual(batch.canonical(row['record']), row['record_sha256'])
+        return data
+
+    def test_recruit_stat_display_keeps_two_complete_original_bodies_both_locales(self):
+        data = self.recruit_display_fixture(); original = deepcopy(data)
+        rows = {r['record']['id']: r['record'] for r in data['records']}
+        for observation in data['observations']:
+            raw = rows[observation['card_id']]
+            with self.subTest(card=raw['id'], locale=observation['locale']):
+                batch.check_face(raw, observation['face'], observation['locale'], {'{0}': ''})
+                with self.assertRaises(ValueError):
+                    batch.check_face(raw, observation['face'], observation['locale'])
+        self.assertEqual(data, original)
+
+    def test_recruit_stat_display_cannot_erase_count_shield_acquisition_or_other_body(self):
+        data = self.recruit_display_fixture(); rows = {r['record']['id']: r['record'] for r in data['records']}
+        for observation in data['observations']:
+            raw, face, locale = rows[observation['card_id']], observation['face'], observation['locale']
+            text = face['text']
+            changed = text.replace('两个', '三个').replace('two', 'three').replace('四个', '五个').replace('four', 'five')
+            with self.subTest(card=raw['id'], locale=locale), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(face, text=changed), locale, {'{0}': ''})
+            for altered in (dict(raw, id='unreviewed'),
+                            dict(raw, **{'text' if locale == 'zh_CN' else 'text_en': '{0}'})):
+                with self.assertRaises(ValueError):
+                    batch.check_face(altered, face, locale, {'{0}': ''})
+        observation = next(o for o in data['observations'] if o['card_id'] == 'MEND_802' and o['locale'] == 'en_US')
+        with self.assertRaises(ValueError):
+            batch.check_face(rows['MEND_802'], dict(observation['face'], text='Summon two Silver Hand Recruits.'), 'en_US', {'{0}': ''})
+        observation = next(o for o in data['observations'] if o['card_id'] == 'MEND_900' and o['locale'] == 'en_US')
+        with self.assertRaises(ValueError):
+            batch.check_face(rows['MEND_900'], dict(observation['face'], text='Summon four Silver Hand Recruits.'), 'en_US', {'{0}': ''})
+
+    def test_recruit_stat_display_preserves_primary_fields_and_forbids_arbitrary_macros(self):
+        data = self.recruit_display_fixture(); raw = data['records'][0]['record']
+        observation = next(o for o in data['observations'] if o['card_id'] == raw['id'] and o['locale'] == 'en_US')
+        for field, value in (('id', 1), ('manaCost', 3), ('classId', 9), ('cardTypeId', 4),
+                             ('cardSetId', 1), ('collectible', False), ('name', 'Another spell')):
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(observation['face'], **{field: value}), 'en_US', {'{0}': ''})
+        for declaration in ({'{0}': '1/1'}, {'{1}': ''}, {'{0}': '', '@': ''}):
+            with self.subTest(declaration=declaration), self.assertRaises(ValueError):
+                batch.check_face(raw, observation['face'], 'en_US', declaration)
+
     def mana_forms_fixture(self):
         data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-held-mana-forms-v1.json')
         self.assertEqual(batch.canonical(data), '6563091ec06702871b5866e567160e3c995371195b2057bc166a323c6517202c')

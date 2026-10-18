@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v475'
+CORE_EFFECTS_VERSION = 'core-effects-v476'
 
 
 class Mechanics:
@@ -250,6 +250,9 @@ class Resolution:
         return result
 
     def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, **data):
+        if target_id in self.state.entities:
+            from .stat_auras import refresh_stored_player_card_aura
+            refresh_stored_player_card_aura(self.state, self.registry, self.state.entities[target_id])
         if kind == 'card_burned':
             entity = self.state.entities.get(target_id)
             if entity is not None and (active_abilities(entity, 'on_destroyed') or
@@ -579,7 +582,7 @@ class Resolution:
             enter_hand(self.state, entity, previous_zone, hand_entry_reason)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
-        from .stat_auras import matches_card_identity
+        from .stat_auras import matches_card_identity, player_aura_targets
         # Calculate simultaneously, using the old settled health to select sources.
         # Resetting health auras before selecting sources breaks mutual support.
         bonuses = {i: [0, 0] for i in self.state.entities}
@@ -591,12 +594,9 @@ class Resolution:
         for player in self.state.players.values():
             for effect in player.player_effects:
                 for aura in self.registry.player_effect(effect.spec_id).auras:
-                    for target_id in player.board:
-                        target = self.state.entities[target_id]
-                        if (target.active and target.kind == CardType.MINION and
-                                matches_card_identity(target, aura.card_ids)):
-                            bonuses[target_id][0] += aura.attack
-                            bonuses[target_id][1] += aura.health
+                    for target in player_aura_targets(self.state, player, aura):
+                        bonuses[target.id][0] += aura.attack
+                        bonuses[target.id][1] += aura.health
             for source_id in player.board:
                 source = self.state.entities[source_id]
                 if not source.active or (not include_dying and (source.health <= 0 or source.doomed)):
