@@ -16,8 +16,14 @@ class DiscoverDarkGift(Effect):
     source_id: int
     cost: CostSpec | None = None
     gift_copy_to_hand: bool = False
+    shuffle_unselected_into_deck: bool = False
 
     def __post_init__(self):
+        if (type(self.shuffle_unselected_into_deck) is not bool or self.shuffle_unselected_into_deck and
+                (self.cost is not None or self.gift_copy_to_hand or self.query != PoolQuery(
+                    kinds=(CardType.MINION,), min_cost=5, collectible=True,
+                    class_mode='current', tribes_any=('demon',)))):
+            raise ValueError('Native gift remainder requires one plain high-cost Demon discovery')
         if type(self.gift_copy_to_hand) is not bool or self.gift_copy_to_hand and self.cost is not None:
             raise ValueError('Native gift copy requires one plain original discovery without source cost changes')
         _player(self.player_id)
@@ -51,7 +57,8 @@ def discover(r, effect):
     from .dark_gifts import dark_gift_pool
     return (DiscoverFromPool(effect.player_id, effect.pool_id, effect.query, source_id=effect.source_id,
                              gift_pool=dark_gift_pool(context.target_id, context.mode), cost=effect.cost,
-                             gift_copy_to_hand=effect.gift_copy_to_hand),)
+                             gift_copy_to_hand=effect.gift_copy_to_hand,
+                             shuffle_unselected_into_deck=effect.shuffle_unselected_into_deck),)
 
 
 def register(mechanics):

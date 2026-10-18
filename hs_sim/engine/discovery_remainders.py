@@ -3,11 +3,11 @@
 Current committed events witness the one owed continuation, including through
 acquisition waits. This establishes consistency, not unsigned origin authority.
 """
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 import json
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .discovery import ResolvePoolDiscovery, validate_selection
+from .discovery import ResolvePoolDiscovery, pick_requests, validate_selection
 from .effects import AddToHand, Effect
 from .model import Zone
 from .pools import GenerationContext
@@ -30,13 +30,35 @@ class ShuffleDiscoveryRemainder(Effect):
         spec = self.discovery.batch.spec
         if not spec.shuffle_unselected_into_deck or self.discovery.choice_result is None:
             raise ValueError('Discovery remainder requires its declared actual ChoiceResult')
+        from .zones import AddToDeck
+        recipe = selected_recipe(self.discovery)
+        allowed = (Zone.DECK,) if type(recipe) is AddToDeck else (Zone.HAND, Zone.GRAVEYARD)
         if (self.created.owner != spec.player_id or self.created.controller != spec.player_id or
-                self.created.zone not in (Zone.HAND, Zone.GRAVEYARD)):
+                self.created.card_id != self.discovery.selection.card_id or self.created.zone not in allowed):
             raise ValueError('Discovery remainder lost its actual original hand creation or overflow')
 
 
 def remainder(work):
     return tuple(cid for cid in work.discovery.offered_card_ids if cid != work.discovery.selection.card_id)
+
+
+def selected_recipe(discovery):
+    requests = pick_requests(discovery.batch.spec,
+        replace(discovery.selection, result=discovery.choice_result))
+    from .zones import AddToDeck
+    if len(requests) != 1 or type(requests[0]) not in (AddToHand, AddToDeck):
+        raise ValueError('Remainder requires one original hand or deck gift delivery')
+    return requests[0]
+
+
+def remainder_requests(work):
+    from .zones import AddToDeck
+    from .model import CostSpec
+    d = work.discovery; spec = d.batch.spec
+    return tuple(AddToDeck(spec.player_id, cid, 'random', spec.source_id,
+        cost=CostSpec(delta=d.offered_gifts[i].cost_delta) if d.offered_gifts and d.offered_gifts[i].cost_delta else None,
+        minion_grant=replace(d.offered_gifts[i].grant, identity=d.offered_gifts[i].id) if d.offered_gifts else None)
+        for i,cid in enumerate(d.offered_card_ids) if cid != d.selection.card_id)
 
 
 def validate_work(game, work, *, closed=False):
@@ -69,10 +91,15 @@ def begin(r, discovery):
     # The ordinary creator publishes first; acquisition reactions run before
     # the returned shuffle continuation. Never find a later same-face card.
     delivery_cursor=len(r.game._events)
-    entity = create_hand_card(r, AddToHand(spec.player_id, discovery.selection.card_id, spec.source_id))
+    recipe = selected_recipe(discovery)
+    if type(recipe) is AddToHand:
+        entity = create_hand_card(r, recipe)
+    else:
+        from .zones import create_deck_card
+        entity = create_deck_card(r, recipe)
     from .discovery_delivery import finish_for_entity
     notification = finish_for_entity(r, discovery.choice_result, entity,
-        AddToHand(spec.player_id, discovery.selection.card_id, spec.source_id),delivery_cursor)
+        recipe,delivery_cursor)
     work = ShuffleDiscoveryRemainder(discovery, r.game._generation_context,
                                     SourceAllocationFact.capture(r.state, entity))
     emit(r, ACCEPTED, work)
@@ -153,7 +180,7 @@ def shuffle(r, work):
         raise ValueError('Stale or foreign original discovery remainder')
     spec = work.discovery.batch.spec; before = len(r.state.deck_shuffle_history)
     cursor = len(r.game._events)
-    entries = tuple(AddToDeck(spec.player_id, cid, 'random', spec.source_id) for cid in remainder(work))
+    entries = remainder_requests(work)
     execute(r, ShuffleDeckCards(spec.player_id, spec.player_id, entries, spec.source_id))
     sid = r.state.deck_shuffle_history[-1].id if len(r.state.deck_shuffle_history) > before else None
     cards = tuple(SourceAllocationFact.capture(r.state, r.state.entities[e.target_id])

@@ -532,12 +532,15 @@ class DiscoverFromPool(Effect):
                 self.destination != 'hand' or self.source_id is None or self.count != 3 or self.discoveries != 1 or
                 self.delivery != 'after_each' or not self.replacement or type(self.query) is not PoolQuery or
                 self.query.kinds != (CardType.MINION,) or self.query.collectible is not True or
-                self.query.rarities != (Rarity.LEGENDARY,) or self.cost is not None or self.expires_turn is not None or
-                self.spell_repeat is not None or self.cause is not None or self.gift_pool is not None or
+                not (self.gift_pool is None and self.query.rarities == (Rarity.LEGENDARY,) or
+                     self.gift_pool is not None and self.query == PoolQuery(kinds=(CardType.MINION,),
+                         min_cost=5, collectible=True, class_mode='current', tribes_any=('demon',))) or
+                self.cost is not None or self.expires_turn is not None or
+                self.spell_repeat is not None or self.cause is not None or
                 self.heal_hero_by_printed_cost or self.freeze_summoned or self.summon_copy_stats is not None or
                 self.minion_grant is not None or self.temporary_until_turn is not None or self.gift_copy_to_hand or
                 self.set_summoned_stats is not None or self.copy_selected_to_hand):
-            raise ValueError('Unselected shuffle requires one plain source-bound Legendary hand discovery')
+            raise ValueError('Unselected shuffle requires one plain Legendary or paired high-cost Demon discovery')
         if type(self.copy_selected_to_hand) is not bool:
             raise ValueError('Selected discovery copy requires an explicit boolean')
         if self.copy_selected_to_hand and (
