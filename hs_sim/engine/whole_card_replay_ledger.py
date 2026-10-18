@@ -13,6 +13,7 @@ from hs_sim.engine.model import CardType, Entity, GameState, Zone
 from .whole_card_history import (
     HistorySelectionReceipt, integer, unique_ids, rng_state,
     selection_from_dict, validate_frontier_registry, verify_frontier_origin)
+from .offered_card_selection import OfferedCardSelection, source_key
 
 
 class ReplayRootStatus(StrEnum):
@@ -63,7 +64,7 @@ class WholeCardReplayRoot:
     accepted_turn: int
     accepted_action: int
     owner_turn_id: int
-    selection: HistorySelectionReceipt
+    selection: HistorySelectionReceipt | OfferedCardSelection
     ancestor_policy: ReplayAncestorPolicy
     accepted_after_child_id: int
     parent_child_id: int | None = None
@@ -81,7 +82,7 @@ class WholeCardReplayRoot:
         integer(self.cursor, 'replay cursor', 0)
         if type(self.player_id) is not int or self.player_id not in (1, 2):
             raise ValueError('Replay executor requires its own explicit player seat')
-        if type(self.caster) is not ReplayCasterFact or type(self.selection) is not HistorySelectionReceipt:
+        if type(self.caster) is not ReplayCasterFact or type(self.selection) not in (HistorySelectionReceipt, OfferedCardSelection):
             raise ValueError('Replay root lost its original caster or complete selection')
         self.caster.__post_init__()
         self.selection.__post_init__()
@@ -89,8 +90,10 @@ class WholeCardReplayRoot:
             raise ValueError('Replay root requires typed lifecycle and recursion policies')
         if self.runtime_route not in (None, 'spells_v1', 'cards_v1'):
             raise ValueError('Unknown whole-card runtime route')
-        if type(self.spell_branch_policy) is not str or self.spell_branch_policy not in ('current', 'inherit'):
+        if type(self.spell_branch_policy) is not str or self.spell_branch_policy not in ('current', 'inherit', 'offered'):
             raise ValueError('Unknown whole-card spell branch policy')
+        if (self.spell_branch_policy == 'offered') != (type(self.selection) is OfferedCardSelection):
+            raise ValueError('Original offered branches require their own actual source')
         for name in ('parent_child_id', 'active_child_id'):
             if getattr(self, name) is not None:
                 integer(getattr(self, name), name)
@@ -263,13 +266,19 @@ def accept_replay_root(ledger, state, registry, selection, player_id, caster_id,
                        ancestor_policy, *, shared_rng_state, parent_child_id=None, runtime_route=None,
                        spell_branch_policy='current'):
     checked(ledger)
-    if type(state) is not GameState or type(selection) is not HistorySelectionReceipt:
+    if type(state) is not GameState or type(selection) not in (HistorySelectionReceipt, OfferedCardSelection):
         raise ValueError('Replay acceptance requires actual typed state and original selection')
     selection.__post_init__()
     rng_state(shared_rng_state)
     if shared_rng_state != selection.rng_after:
         raise ValueError('Replay root selection differs from the actual supplied post-selection RNG')
-    verify_frontier_origin(selection.frontier, state, registry)
+    if type(selection) is OfferedCardSelection:
+        from .offered_card_selection import validate_origin
+        validate_origin(selection, state, registry, accepted_window=True)
+        if selection.discovery.result.choice.player_id != player_id:
+            raise ValueError('Offered execution borrowed another original chooser')
+    else:
+        verify_frontier_origin(selection.frontier, state, registry)
     if state.status != 'playing' or not state.owner_turn_history or state.owner_turn_history[-1].closed:
         raise ValueError('Replay acceptance requires its actual open owner interval')
     integer(caster_id, 'actual replay caster')
@@ -299,9 +308,11 @@ def begin_replay_child(ledger, root_id):
         raise ValueError('Root has an active child or no accepted occurrences left')
     occurrence_id = root.selection.selected_ids[root.cursor]
     face = root.selection.frontier.rows[occurrence_id - 1].occurrence.face
-    ancestors = tuple(ledger.children[ledger.roots[i - 1].active_child_id - 1].occurrence_id
+    ancestors = tuple(source_key(ledger.roots[i - 1].selection,
+        ledger.children[ledger.roots[i - 1].active_child_id - 1].occurrence_id)
         for i in ledger.stack[:-1] if ledger.roots[i - 1].active_child_id is not None)
-    excluded = root.ancestor_policy == ReplayAncestorPolicy.EXCLUDE_ACTIVE_SUBMISSIONS and occurrence_id in ancestors
+    excluded = (root.ancestor_policy == ReplayAncestorPolicy.EXCLUDE_ACTIVE_SUBMISSIONS
+        and source_key(root.selection, occurrence_id) in ancestors)
     child = WholeCardReplayChild(len(ledger.children) + 1, root.id, root.cursor, occurrence_id, face.card_id, face.kind,
         ReplayChildStatus.FAILED if excluded else ReplayChildStatus.RUNNING,
         'ancestor_excluded' if excluded else None)
@@ -389,7 +400,11 @@ def ledger_from_dict(value):
         caster['kind'] = CardType(caster['kind'])
         caster['zone'] = Zone(caster['zone'])
         root['caster'] = ReplayCasterFact(**caster)
-        root['selection'] = selection_from_dict(root['selection'])
+        if root['selection'].get('origin') == 'original_discovery_v1':
+            from .offered_card_selection import selection_from_dict as offered_from_dict
+            root['selection'] = offered_from_dict(root['selection'])
+        else:
+            root['selection'] = selection_from_dict(root['selection'])
         root['ancestor_policy'] = ReplayAncestorPolicy(root['ancestor_policy'])
         root['status'] = ReplayRootStatus(root['status'])
         roots.append(WholeCardReplayRoot(**root))
@@ -411,6 +426,10 @@ def ledger_from_dict(value):
 def validate_ledger_registry(ledger, registry):
     checked(ledger)
     for root in ledger.roots:
-        validate_frontier_registry(root.selection.frontier, registry)
+        if type(root.selection) is OfferedCardSelection:
+            from .offered_card_selection import validate_registry
+            validate_registry(root.selection, registry)
+        else:
+            validate_frontier_registry(root.selection.frontier, registry)
         if registry.card(root.caster.card_id).kind != root.caster.kind:
             raise ValueError('Recorded replay caster differs from its pinned physical kind')

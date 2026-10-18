@@ -65,7 +65,7 @@ class GeneratedPlacementResult:
             raise ValueError('Placement result disagrees with its original physical installation')
 
 
-def install_generated_placement(r, effect):
+def install_generated_placement(r, effect, *, offered=None):
     """Resolver-only helper returning the actual created entity's identity."""
     if type(effect) is not InstallGeneratedPlacement:
         raise ValueError('Generated placement requires its typed effect')
@@ -81,6 +81,9 @@ def install_generated_placement(r, effect):
         # Same actual lifecycle as equip_weapon, retaining the created entity
         # directly rather than guessing a last allocated or last equipped ID.
         entity = r.create_entity(player.id, card.id, Zone.GRAVEYARD)
+        if offered is not None:
+            from .offered_card_execution import apply_material
+            apply_material(r, *offered, entity)
         equip_entity(r, entity)
     else:
         # Same local PlaceLocation capacity/position/event policy. A failed
@@ -89,6 +92,9 @@ def install_generated_placement(r, effect):
             r.emit('summon_failed', player_id=player.id, card_id=card.id, reason='board_full')
             return GeneratedPlacementResult(player.id, card.id, card.kind, effect.source_id, None, 'board_full')
         entity = r.create_entity(player.id, card.id, Zone.BOARD, effect.position)
+        if offered is not None:
+            from .offered_card_execution import apply_material
+            apply_material(r, *offered, entity)
         r.emit('location_placed', source_id=entity.id, target_id=entity.id, player_id=player.id)
     return GeneratedPlacementResult(player.id, card.id, card.kind, effect.source_id,
                                     SourceAllocationFact.capture(r.state, entity))

@@ -45,18 +45,35 @@ def dark_gift_pool(generation_target, mode='experimental', *, pool_id='construct
 
 
 def living_nightmare(context):
-    """Only a paid physical minion play produces this additional summon."""
+    """A real paid or accepted generated whole-minion body, never a summon."""
     from .effects import CopyMinion
     from .model import CardType, Zone
     from .summon_quantities import SummonCause
-    if context.play is None or context.play.kind != CardType.MINION:
+    generated = context.play is None
+    if generated:
+        from .whole_card_physical import PhysicalReplayProgress
+        progress = context.physical
+        ledger = context.state.whole_card_replay_ledger
+        if (type(progress) is not PhysicalReplayProgress or progress.phase != 'running'
+                or progress.kind != CardType.MINION or progress.player_id != context.player_id
+                or progress.source is None or progress.source.entity_id != context.source_id
+                or not 1 <= progress.child_id <= len(ledger.children)):
+            raise ValueError('Living Nightmare requires its actual whole-minion body')
+        child = ledger.children[progress.child_id - 1]
+        root = ledger.roots[child.root_id - 1]
+        if (child.physical != progress or root.active_child_id != child.id
+                or progress.activation is None or LIVING_NIGHTMARE_BEHAVIOR not in progress.on_play):
+            raise ValueError('Living Nightmare borrowed another generated activation')
+    elif context.play.kind != CardType.MINION:
         raise ValueError('Living Nightmare requires its physical minion play')
     source = context.source
     if source.zone != Zone.BOARD:
         return ()
     board = context.state.players[context.player_id].board
     position = board.index(source.id) + 1 if source.id in board else None
-    return (CopyMinion(source.id, context.player_id, position=position,
+    from .model import BoardPresenceReference
+    original = BoardPresenceReference.capture(context.state, source.id) if generated else source.id
+    return (CopyMinion(original, context.player_id, position=position,
                        cause=SummonCause.capture(context), stats=SummonStats(2, 2),
                        allow_dormant=True),)
 

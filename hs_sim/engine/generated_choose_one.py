@@ -51,9 +51,10 @@ class GeneratedChooseOneReceipt:
 
     def __post_init__(self):
         from .generated_combo_repeats import PROFILES
-        if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit'):
+        if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit', 'offered'):
             raise ValueError('Unknown generated branch inheritance policy')
-        if (self.branch_policy == 'inherit') != (self.inherited_branch_id is not None):
+        if ((self.branch_policy == 'inherit' and self.inherited_branch_id is None)
+                or (self.branch_policy == 'current' and self.inherited_branch_id is not None)):
             raise ValueError('Generated inheritance lost or invented its original branch')
         if self.inherited_branch_id is not None: _behavior(self.inherited_branch_id)
         if self.branch_policy == 'inherit' and self.request_branch_id is not None:
@@ -129,7 +130,8 @@ def capture(r, acceptance, child, before):
     probe = SimpleNamespace(state=before, game=r.game)
     rng_before = r.game._rng.getstate()
     from .choose_branch_state import history_selection
-    selection = history_selection(acceptance.before_state, r.registry, child, acceptance.request.physical_branch_policy)
+    selection = history_selection(acceptance.before_state, r.registry, child, acceptance.request.physical_branch_policy,
+        source_selection=acceptance.root.selection)
     entity = SimpleNamespace(choose_branch=selection)
     selected = automatic_branch(probe, card, acceptance.request.player_id, requested, origin='physical', entity=entity)
     from .choose_policies import capture as capture_policy
@@ -208,7 +210,7 @@ def validate_receipt(state, registry, receipt, root, child):
         elif receipt.policy_receipt_id != len(state.choose_policy_receipts) + 1:
             raise ValueError('Generated branch policy cannot skip its next real acceptance')
     from .choose_branch_state import options as selection_options, history_selection
-    selection = history_selection(state, registry, child, receipt.branch_policy)
+    selection = history_selection(state, registry, child, receipt.branch_policy, source_selection=root.selection)
     if receipt.inherited_branch_id != (None if selection is None else selection.branch_id):
         raise ValueError('Generated inheritance changed its original committed branch')
     options = selection_options(card, bool(sources or modifiers), 'physical', selection)
@@ -238,7 +240,8 @@ def validate_proof(proof, acceptance, registry):
             receipt.original_player_modifiers != tuple(before.players[receipt.player_id].choose_both_modifiers)):
         raise ValueError('Generated branch differs from its complete original pre-installation state')
     from .choose_branch_state import history_selection
-    selection = history_selection(acceptance.before_state, registry, child, receipt.branch_policy)
+    selection = history_selection(acceptance.before_state, registry, child, receipt.branch_policy,
+        source_selection=acceptance.root.selection)
     if receipt.inherited_branch_id != (None if selection is None else selection.branch_id):
         raise ValueError('Generated branch differs from its original accepted historical root')
     from .choose_policies import capture as capture_policy, validate_proof as validate_policy_proof

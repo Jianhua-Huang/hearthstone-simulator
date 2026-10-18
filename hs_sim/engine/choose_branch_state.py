@@ -171,9 +171,12 @@ def set_branch(r, effect):
            player_id=entity.controller)
 
 
-def history_selection(state, registry, child, policy, *, origin='physical'):
+def history_selection(state, registry, child, policy, *, origin='physical', source_selection=None):
     """Bind each actual generated child to its own committed occurrence."""
     if policy == 'current': return None
+    if policy == 'offered':
+        from .offered_card_execution import selected_branch
+        return selected_branch(state, registry, source_selection, child.occurrence_id, origin)
     if policy != 'inherit': raise ValueError('Unknown historical branch inheritance policy')
     if not 1 <= child.occurrence_id <= len(state.play_history):
         raise ValueError('Inherited branch lost its actual historical hand root')

@@ -8,6 +8,7 @@ from enum import Enum
 
 from . import whole_card_history as history
 from . import whole_card_replay_ledger as ledger_types
+from . import offered_card_selection as offered_types
 from .whole_card_replay_ledger import (
     ReplayChildStatus, ReplayRootStatus, WholeCardReplayLedger, interrupt_replay_ledger,
     ledger_from_dict, ledger_to_dict, validate_ledger_registry)
@@ -45,7 +46,9 @@ def validate_history(state, registry):
             raise ValueError('Replay acceptance lost its original physical caster')
         # Current faces, class, ownership and outcomes may legitimately advance.
         # The original immutable paid-submission face and time cannot change.
-        for row in frontier.rows:
+        if type(root.selection) is offered_types.OfferedCardSelection:
+            offered_types.validate_origin(root.selection, state, registry)
+        for row in (() if type(root.selection) is offered_types.OfferedCardSelection else frontier.rows):
             occurrence = row.occurrence
             actual = state.play_history[occurrence.id - 1]
             if ((actual.played_face, actual.turn, actual.action)
@@ -61,8 +64,14 @@ def validate_history(state, registry):
     used_casts = set()
     for child in ledger.children:
         root = ledger.roots[child.root_id - 1]
+        if child.failure == 'original_offer_unavailable':
+            from .offered_card_execution import original
+            if (type(root.selection) is not offered_types.OfferedCardSelection or
+                    original(registry, root.selection, child.occurrence_id)[1].route != 'unavailable' or
+                    child.spell_cast_id is not None or child.physical is not None):
+                raise ValueError('Unavailable offer cannot erase an actual history or allocated body')
         if (root.runtime_route in ('spells_v1', 'cards_v1') and child.kind.value == 'spell' and child.status != ReplayChildStatus.RUNNING
-                and child.failure != 'ancestor_excluded' and child.spell_cast_id is None):
+                and child.failure not in ('ancestor_excluded', 'original_offer_unavailable') and child.spell_cast_id is None):
             raise ValueError('Actual replay child cannot erase its allocated spell body')
         if child.spell_cast_id is None: continue
         if child.spell_cast_id > len(state.cast_history) or child.spell_cast_id in used_casts:
@@ -103,7 +112,7 @@ def interrupt(r):
 
 
 def register_payloads(mechanics):
-    for module in (history, ledger_types):
+    for module in (history, ledger_types, offered_types):
         for value in vars(module).values():
             if (isinstance(value, type) and value.__module__ == module.__name__
                     and (issubclass(value, Enum) or

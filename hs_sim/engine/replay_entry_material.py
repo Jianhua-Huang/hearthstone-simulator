@@ -16,7 +16,8 @@ class PhysicalReplayEntryMaterial:
     profile: str = 'whole_card_printed_primary_v1'
 
     def __post_init__(self):
-        if type(self.card_id) is not str or not self.card_id or self.profile != 'whole_card_printed_primary_v1':
+        if type(self.card_id) is not str or not self.card_id or self.profile not in (
+                'whole_card_printed_primary_v1', 'whole_card_original_offer_primary_v1'):
             raise ValueError('Whole-card primary entry lost its explicit printed recipe')
         _int(self.root_id, 'original whole-card entry root', 1); _int(self.child_id, 'original whole-card entry child', 1)
 
@@ -42,6 +43,9 @@ def validate_scope(state, registry, request, material):
     if material.root_id > len(ledger.roots) or material.child_id > len(ledger.children):
         raise ValueError('Whole-card entry borrowed an unknown or future accepted invocation')
     root = ledger.roots[material.root_id - 1]; child = ledger.children[material.child_id - 1]
+    from .offered_card_selection import OfferedCardSelection
+    if (material.profile == 'whole_card_original_offer_primary_v1') != (type(root.selection) is OfferedCardSelection):
+        raise ValueError('Primary material changed its actual history or offered-card source')
     if (root.runtime_route != 'cards_v1' or child.root_id != root.id or child.card_id != material.card_id
             or child.kind != CardType.MINION or request.player_id != root.player_id
             or request.cause.source.entity_id != root.caster.entity_id

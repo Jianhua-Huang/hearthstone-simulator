@@ -775,13 +775,14 @@ class TransferWeapon(Effect):
 
 @dataclass(frozen=True)
 class ModifyWeapon(Effect):
-    target_id: int
+    target_id: int | EquippedWeaponReference
     attack: int = 0
     durability: int = 0
     source_id: int | None = None
 
     def __post_init__(self):
-        _integer(self.target_id, 'target_id', 1)
+        if type(self.target_id) is EquippedWeaponReference: self.target_id.__post_init__()
+        else: _integer(self.target_id, 'target_id', 1)
         _integer(self.attack, 'attack')
         _integer(self.durability, 'durability')
         _source(self.source_id)

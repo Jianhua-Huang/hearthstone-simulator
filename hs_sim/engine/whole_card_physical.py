@@ -342,19 +342,25 @@ def install(r, acceptance, child, *, choose_before=None):
     if child.kind == CardType.MINION:
         from .summon_quantities import SummonByCard, SummonCause, accept as accept_summon
         from .replay_entry_material import PhysicalReplayEntryMaterial
+        from .offered_card_selection import OfferedCardSelection
         cause = SummonCause(SourceAllocationFact.capture(r.state, r.state.entities[root.caster.entity_id]),
             root.player_id, r.state.turn, r.state.action_number)
-        work = accept_summon(r, SummonByCard(root.player_id, (PhysicalReplayEntryMaterial(card.id, root.id, child.id),), cause))
+        material = PhysicalReplayEntryMaterial(card.id, root.id, child.id,
+            'whole_card_original_offer_primary_v1' if type(root.selection) is OfferedCardSelection
+            else 'whole_card_printed_primary_v1')
+        work = accept_summon(r, SummonByCard(root.player_id, (material,), cause))
         # The common acceptor returns the actual typed root. No entity cursor guessing.
         progress = replace(progress, summon_root_id=work[0].root_id)
     elif child.kind in (CardType.WEAPON, CardType.LOCATION):
         from .generated_placement import InstallGeneratedPlacement, install_generated_placement
-        result = install_generated_placement(r, InstallGeneratedPlacement(root.player_id, card.id, root.caster.entity_id))
+        result = install_generated_placement(r, InstallGeneratedPlacement(root.player_id, card.id, root.caster.entity_id),
+            offered=(root.selection, child.occurrence_id))
         progress = replace(progress, source=result.installation, failure=result.failure,
             phase='completed' if result.failure else 'installing')
     else:
         from .generated_heroes import InstallGeneratedHeroCard, install_generated_hero_card
-        result = install_generated_hero_card(r, InstallGeneratedHeroCard(root.player_id, card.id, root.caster.entity_id))
+        result = install_generated_hero_card(r, InstallGeneratedHeroCard(root.player_id, card.id, root.caster.entity_id),
+            offered=(root.selection, child.occurrence_id))
         progress = replace(progress, source=SourceAllocationFact.capture(r.state, r.state.entities[result.hero_id]))
     if progress.source is not None:
         r.state.entities[progress.source.entity_id].origin_entity_id = root.caster.entity_id
@@ -366,7 +372,9 @@ def current_source(state, progress):
     fact = progress.source
     if fact is None: return False
     entity = state.entities[fact.entity_id]
-    if not entity.active or entity.doomed: return False
+    dormant_body = (entity.kind == CardType.MINION and entity.dormancy is not None
+        and not entity.starship_building and not entity.interactable_object)
+    if (not entity.active and not dormant_body) or entity.doomed: return False
     if progress.kind in (CardType.MINION, CardType.HERO) and entity.health <= 0: return False
     if progress.kind in (CardType.WEAPON, CardType.LOCATION) and entity.durability <= 0: return False
     if ((entity.card_id, entity.kind, entity.owner, entity.controller, entity.zone, entity.zone_epoch, entity.entered_order)
@@ -673,7 +681,7 @@ def validate_physical_history(state, registry):
     for child in state.whole_card_replay_ledger.children:
         root = state.whole_card_replay_ledger.roots[child.root_id - 1]
         progress = child.physical
-        if child.kind == CardType.SPELL or child.failure == 'ancestor_excluded':
+        if child.kind == CardType.SPELL or child.failure in ('ancestor_excluded', 'original_offer_unavailable'):
             if progress is not None: raise ValueError('Spell/excluded child cannot borrow a physical activation')
             continue
         if root.runtime_route != 'cards_v1':

@@ -117,7 +117,18 @@ def validate_weapon_transfer_events(state,registry,events):
 
 
 def modify_weapon(r, effect):
-    weapon = r.state.entities.get(effect.target_id)
+    reference = effect.target_id if type(effect.target_id) is EquippedWeaponReference else None
+    if reference is not None:
+        r.registry.card(reference.card_id)
+        weapon = r.state.entities.get(reference.entity_id)
+        if (weapon is None or not weapon.active or weapon.zone != Zone.WEAPON or weapon.kind != CardType.WEAPON
+                or weapon.durability <= 0 or weapon.doomed or r.player(reference.player_id).weapon_id != weapon.id
+                or (weapon.controller, weapon.card_id, weapon.zone_epoch, weapon.entered_order) !=
+                (reference.player_id, reference.card_id, reference.zone_epoch, reference.entered_order)):
+            r.emit('effect_skipped', target_id=reference.entity_id, effect='ModifyWeapon', reason='stale_equipped_weapon')
+            return ()
+    else:
+        weapon = r.state.entities.get(effect.target_id)
     if weapon is None or weapon.zone != Zone.WEAPON:
         r.stale(effect, effect.target_id)
         return

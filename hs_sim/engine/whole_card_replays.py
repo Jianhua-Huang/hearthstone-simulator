@@ -22,6 +22,7 @@ from .whole_card_physical import (PROFILE, FinishReplayPhysical, PreparePhysical
 from .generated_battlecry_repeats import PROFILE as BATTLECRY_REPEAT_PROFILE
 from .generated_combo_repeats import PROFILE as FAMILY_REPEAT_PROFILE
 from .generated_activation_receipts import RETAINED_PROFILE
+from .offered_card_selection import OfferedCardSelection
 
 
 @dataclass(frozen=True)
@@ -71,13 +72,44 @@ class ReplayWholeCards(Effect):
 
 
 @dataclass(frozen=True)
+class PlayDiscoveredOptions(Effect):
+    player_id: int
+    source_id: int
+    discovery_id: int
+    choices: str = 'random'
+    target_preference: AutomaticTargetPreference = AutomaticTargetPreference.ANY
+    ancestors: ReplayAncestorPolicy = ReplayAncestorPolicy.EXCLUDE_ACTIVE_SUBMISSIONS
+    physical_profile: str = RETAINED_PROFILE
+    body_target_profile_id: str | None = None
+    body_target_id: int | None = None
+    physical_branch_id: str | None = None
+    physical_branch_policy: str = 'offered'
+    spell_branch_policy: str = 'offered'
+
+    def __post_init__(self):
+        from .effects import _player, _behavior, _source
+        _player(self.player_id); integer(self.source_id, 'original offered-card caster')
+        integer(self.discovery_id, 'original discovery identity')
+        if (self.choices not in ('player', 'random') or type(self.target_preference) is not AutomaticTargetPreference
+                or type(self.ancestors) is not ReplayAncestorPolicy
+                or self.physical_profile not in (FAMILY_REPEAT_PROFILE, RETAINED_PROFILE)
+                or self.physical_branch_id is not None
+                or self.physical_branch_policy != 'offered' or self.spell_branch_policy != 'offered'):
+            raise ValueError('Original offered cards require their complete explicit execution policies')
+        if self.body_target_profile_id is not None: _behavior(self.body_target_profile_id)
+        _source(self.body_target_id)
+        if self.body_target_id is not None and self.body_target_profile_id is None:
+            raise ValueError('Offered body target requires its own actual origin profile')
+
+
+@dataclass(frozen=True)
 class ReplayAcceptanceProof:
-    request: ReplayWholeCards
+    request: ReplayWholeCards | PlayDiscoveredOptions
     before_state: GameState
     root: WholeCardReplayRoot
 
     def __post_init__(self):
-        if (type(self.request) is not ReplayWholeCards or type(self.before_state) is not GameState
+        if (type(self.request) not in (ReplayWholeCards, PlayDiscoveredOptions) or type(self.before_state) is not GameState
                 or type(self.root) is not WholeCardReplayRoot):
             raise ValueError('Whole-card acceptance lost its complete original window')
         self.request.__post_init__(); self.root.__post_init__()
@@ -134,8 +166,15 @@ DIAGNOSTIC_CONTROL = (AdvanceReplayRoot, FinishReplaySpell, FinishReplayPhysical
 def validate_acceptance(proof, registry):
     proof.__post_init__()
     request, before, root = proof.request, proof.before_state, proof.root
-    if (root.selection.frontier.query != request.query or root.selection.policy != request.selection
-            or root.ancestor_policy != request.ancestors or root.player_id != request.player_id
+    if type(request) is PlayDiscoveredOptions:
+        from .offered_card_selection import capture as capture_offered
+        expected = capture_offered(before, registry, request.discovery_id, root.selection.rng_before)
+        if type(root.selection) is not OfferedCardSelection or root.selection != expected:
+            raise ValueError('Offered execution differs from its complete original discovery')
+    elif (type(root.selection) is OfferedCardSelection or
+            root.selection.frontier.query != request.query or root.selection.policy != request.selection):
+        raise ValueError('Historical replay differs from its original history query')
+    if (root.ancestor_policy != request.ancestors or root.player_id != request.player_id
             or root.caster.entity_id != request.source_id or root.spell_branch_policy != request.spell_branch_policy):
         raise ValueError('Replay root differs from its complete original request')
     accepted, root_id = accept_replay_root(before.whole_card_replay_ledger, before, registry,
@@ -194,8 +233,13 @@ def same_cast(current, accepted):
 def accept(r, request):
     request.__post_init__()
     before = deepcopy(r.state)
-    frontier = capture_history_frontier(before, r.registry, request.query)
-    selection = select_history_occurrences(frontier, request.selection, r.game._rng)
+    if type(request) is PlayDiscoveredOptions:
+        from .offered_card_selection import capture as capture_offered
+        selection = capture_offered(before, r.registry, request.discovery_id, r.game._rng.getstate())
+        frontier = selection
+    else:
+        frontier = capture_history_frontier(before, r.registry, request.query)
+        selection = select_history_occurrences(frontier, request.selection, r.game._rng)
     # Refuse unsupported selected types before allocating an execution root.
     # No occurrence is silently removed from the accepted pool or run as blank.
     if request.physical_profile is None and any(frontier.rows[i - 1].occurrence.face.kind != CardType.SPELL for i in selection.selected_ids):
@@ -234,19 +278,35 @@ def begin_spell(r, work):
     r.state.whole_card_replay_ledger = ledger
     child = ledger.children[child_id - 1]
     if child.status == ReplayChildStatus.FAILED: return ()
+    if type(root.selection) is OfferedCardSelection:
+        from .offered_card_execution import original
+        if original(r.registry, root.selection, child.occurrence_id)[1].route == 'unavailable':
+            r.state.whole_card_replay_ledger = finish_replay_child(ledger, child.id,
+                failure='original_offer_unavailable')
+            return ()
     if child.kind != CardType.SPELL:
         from .whole_card_physical import install
         if work.proof.request.physical_profile not in (PROFILE, BATTLECRY_REPEAT_PROFILE, FAMILY_REPEAT_PROFILE, RETAINED_PROFILE):
             raise ResolutionError('Whole-card replay requires its declared physical source profile')
         return install(r, work.proof, child, choose_before=choose_before)
     # Allocation returns the real carrier; never infer it from an entity cursor.
-    entity = r.create_entity(root.player_id, child.card_id, Zone.GRAVEYARD)
+    from .offered_card_execution import components_for, apply_material
+    components = components_for(r.registry, root.selection, child.occurrence_id)
+    entity = r.create_entity(root.player_id, child.card_id, Zone.GRAVEYARD, components=components)
     entity.origin_entity_id = root.caster.entity_id
-    from .native_spell_values import inherit_play
-    inherit_play(r,entity,work.proof.before_state,child.occurrence_id)
+    if type(root.selection) is OfferedCardSelection:
+        apply_material(r, root.selection, child.occurrence_id, entity)
+    else:
+        from .native_spell_values import inherit_play
+        inherit_play(r,entity,work.proof.before_state,child.occurrence_id)
+    entity.origin_entity_id = root.caster.entity_id
     from .choose_branch_state import history_selection
-    entity.choose_branch = history_selection(work.proof.before_state, r.registry, child,
-        work.proof.request.spell_branch_policy, origin='cast_effect')
+    if type(root.selection) is OfferedCardSelection:
+        from .offered_card_execution import saved_branch
+        entity.choose_branch = saved_branch(work.proof.before_state, r.registry, root.selection, child.occurrence_id)
+    else:
+        entity.choose_branch = history_selection(work.proof.before_state, r.registry, child,
+            work.proof.request.spell_branch_policy, origin='cast_effect', source_selection=root.selection)
     cast_request = CastSpell(root.player_id, child.card_id, root.caster.entity_id,
         choices=work.proof.request.choices, target_preference=work.proof.request.target_preference)
     target_proofs = []
@@ -256,7 +316,8 @@ def begin_spell(r, work):
         raise ResolutionError('Whole-card replay lost its original automatic target proof')
     # Inheritance belongs to this invocation, not a lasting physical grant.
     # The original target proof preserves the transient pre-CAST recipe.
-    entity.choose_branch = None
+    if type(root.selection) is not OfferedCardSelection:
+        entity.choose_branch = None
     cast = r.state.cast_history[-1]
     if cast.source_id != entity.id:
         raise ResolutionError('Replay spell lost its actual allocated cast')
@@ -382,7 +443,7 @@ def register(mechanics):
     register_branches(mechanics)
     from .whole_card_physical import register as register_physical
     register_physical(mechanics)
-    for kind, handler in ((ReplayWholeCards, accept), (AdvanceReplayRoot, advance),
+    for kind, handler in ((ReplayWholeCards, accept), (PlayDiscoveredOptions, accept), (AdvanceReplayRoot, advance),
             (BeginReplaySpell, begin_spell), (FinishReplaySpell, finish_spell), (FinishReplayRoot, finish_root)):
         mechanics.register(kind, handler)
     for kind in (ReplayAcceptanceProof, ReplaySpellProof): mechanics.register_payload_type(kind)

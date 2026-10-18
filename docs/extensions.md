@@ -1726,3 +1726,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 需要原真实交付输出时，牌库生成用 zones.create_deck_card，物理移动用 move_physical_card；手牌创建/复制继续原既有返回接口。立即捕获原CardReference，禁止用实体游标或同名搜索，禁止把Entity当续接；完整边界见[契约](m3-materialization-results.md)。
+
+真实发现余项整卡执行用PlayDiscoveredOptions(player_id, source_id, discovery_id)，交入实际原发现ID，保留原菜单顺序与固有材料，不能借历史play ID。原装备续接义务可给ModifyWeapon传入EquippedWeaponReference，避免晚窗口误改替换或重入的装备；完整范围和国服待验证政策见[执行契约](m3-original-offer-execution.md)。

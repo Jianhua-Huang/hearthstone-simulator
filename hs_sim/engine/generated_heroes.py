@@ -65,7 +65,7 @@ class GeneratedHeroInstallation:
             raise ValueError('Hero and power installation identities must be distinct')
 
 
-def install_generated_hero_card(r, effect):
+def install_generated_hero_card(r, effect, *, offered=None):
     """Trusted resolver-only helper. Public card callbacks return the Effect."""
     if type(effect) is not InstallGeneratedHeroCard:
         raise ValueError('Generated hero installation requires its typed effect')
@@ -94,8 +94,13 @@ def install_generated_hero_card(r, effect):
     player.graveyard.append(old.id)
     player.hero_id = 0
     new = r.create_entity(player.id, definition.id, Zone.HERO)
+    if offered is not None:
+        from .offered_card_execution import apply_material
+        apply_material(r, *offered, new)
+    offered_enchantments = list(new.enchantments)
     printed = new.abilities
     copy_attachments(r.state, old, new)
+    new.enchantments = [*offered_enchantments, *new.enchantments]
     new.abilities = [*printed, *(a for a in new.abilities if a.origin != 'printed')]
     new.base_health = old.base_health
     new.silenced = False

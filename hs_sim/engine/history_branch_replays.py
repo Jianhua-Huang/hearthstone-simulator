@@ -30,9 +30,10 @@ class SpellReplayBranchReceipt:
         for name in ('root_id', 'child_id', 'occurrence_id', 'cast_id'):
             integer(getattr(self, name), 'spell branch ' + name)
         _behavior(self.card_id); _player(self.player_id); _behavior(self.branch_id)
-        if type(self.policy) is not str or self.policy not in ('current', 'inherit'):
+        if type(self.policy) is not str or self.policy not in ('current', 'inherit', 'offered'):
             raise ValueError('Unknown replay spell branch policy')
-        if (self.policy == 'inherit') != (self.inherited_branch_id is not None):
+        if ((self.policy == 'inherit' and self.inherited_branch_id is None)
+                or (self.policy == 'current' and self.inherited_branch_id is not None)):
             raise ValueError('Spell replay erased or invented its inherited branch')
         if self.inherited_branch_id is not None: _behavior(self.inherited_branch_id)
         if (type(self.options) is not tuple or not self.options or len(set(self.options)) != len(self.options)):
@@ -50,7 +51,12 @@ def capture(root, child, cast, target_proof, registry, rng_before):
     if card.choose_one is None: return None
     from .choose_one import branches
     entity = target_proof.before_state.entities[cast.source_id]
-    inherited = None if root.spell_branch_policy == 'current' else entity.choose_branch.branch_id
+    selected = entity.choose_branch
+    if root.spell_branch_policy == 'offered':
+        from .offered_card_execution import selected_branch
+        selected = selected_branch(target_proof.before_state, registry, root.selection,
+            child.occurrence_id, 'cast_effect')
+    inherited = None if selected is None else selected.branch_id
     return SpellReplayBranchReceipt(root.id, child.id, child.occurrence_id, cast.id, child.card_id,
         root.player_id, root.spell_branch_policy, inherited,
         branches(target_proof.before_state, card, root.player_id, origin='cast_effect', entity=entity),
@@ -69,7 +75,8 @@ def validate_receipt(state, registry, root, child, cast):
     from .choose_one import branch
     for selected in (*receipt.options, receipt.branch_id): branch(card, selected)
     from .choose_branch_state import history_selection
-    selection = history_selection(state, registry, child, root.spell_branch_policy, origin='cast_effect')
+    selection = history_selection(state, registry, child, root.spell_branch_policy, origin='cast_effect',
+        source_selection=root.selection)
     ordinary = tuple(b.id for b in card.choose_one.branches)
     permitted = (ordinary, (card.choose_one.combined.id,)) if selection is None else (
         (selection.branch_id,), (card.choose_one.combined.id,))
@@ -92,7 +99,8 @@ def validate_proof(proof, registry):
     validate_receipt(state, registry, root, child, cast)
     from .choose_branch_state import history_selection
     expected = history_selection(proof.acceptance.before_state, registry, child,
-        proof.acceptance.request.spell_branch_policy, origin='cast_effect')
+        proof.acceptance.request.spell_branch_policy, origin='cast_effect',
+        source_selection=proof.acceptance.root.selection)
     before = proof.target_proof.before_state
     from .whole_card_replays import current_root
     original_root = current_root(before, registry, proof.acceptance)
@@ -102,7 +110,12 @@ def validate_proof(proof, registry):
             original_child != replace(child, spell_cast_id=None, spell_branch=None)):
         raise ValueError('Spell branch lost its actual pre-cast child allocation window')
     carrier = before.entities[cast.source_id]
-    if carrier.choose_branch != expected or state.entities[cast.source_id].choose_branch is not None:
+    carrier_branch = expected
+    if root.spell_branch_policy == 'offered':
+        from .offered_card_execution import saved_branch
+        carrier_branch = saved_branch(proof.acceptance.before_state, registry, root.selection, child.occurrence_id)
+    after_branch = carrier_branch if root.spell_branch_policy == 'offered' else None
+    if carrier.choose_branch != carrier_branch or state.entities[cast.source_id].choose_branch != after_branch:
         raise ValueError('Replay spell borrowed or erased a historical branch recipe')
     if child.spell_branch is not None:
         actual = capture(root, child, cast, proof.target_proof, registry, child.spell_branch.rng_before)

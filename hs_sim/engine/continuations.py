@@ -345,6 +345,9 @@ class FrameCodec:
                 elif (type(value) is effects.CopyMinion and field.name == 'target_id'
                       and type(item) is model.BoardPresenceReference):
                     item.__post_init__()
+                elif (type(value) is effects.ModifyWeapon and field.name == 'target_id'
+                      and type(item) is model.EquippedWeaponReference):
+                    item.__post_init__()
                 elif item is not None and (type(item) is not int or item <= 0):
                     raise ValueError('Invalid frame entity/record ID')
         if hasattr(value, '__post_init__'):

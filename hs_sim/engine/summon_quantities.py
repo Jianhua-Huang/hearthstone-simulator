@@ -461,10 +461,17 @@ def deliver(r,effect):
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import create_body
             entity=create_body(r,material,root.request.player_id,position)
-        else:entity=r.create_entity(root.request.player_id,material.card_id,Zone.BOARD,position,
+        else:
+            components=()
+            if type(material) is PhysicalReplayEntryMaterial:
+                from .offered_card_execution import components_for_entry
+                components=components_for_entry(r.state,r.registry,material)
+            entity=r.create_entity(root.request.player_id,material.card_id,Zone.BOARD,position,components=components,
             entry_herald_count=None if root.entry_strength is None else root.entry_strength.count,
             entry_dormant_turns=material.dormant_turns if type(material)is SummonEntryMaterial else None)
         if type(material) is PhysicalReplayEntryMaterial:
+            from .offered_card_execution import apply_entry
+            apply_entry(r,material,entity)
             entity.origin_entity_id = root.request.cause.source.entity_id
             if effect.index == 0:
                 from .adapt_memory import install_generated
@@ -834,7 +841,7 @@ def validate_closed_events(game):
 
 
 def material_from_dict(value):
-    if type(value) is dict and value.get('profile') == 'whole_card_printed_primary_v1':
+    if type(value) is dict and value.get('profile') in ('whole_card_printed_primary_v1', 'whole_card_original_offer_primary_v1'):
         return from_dict(PhysicalReplayEntryMaterial, value)
     if 'death'in value:
         from .resurrection_summons import from_dict as death_from_dict

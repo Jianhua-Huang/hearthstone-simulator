@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "batch": "K177-native-origin-stone",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_460",
+        "dbf_id": 118183,
+        "name": "禁忌序列",
+        "name_en": "The Forbidden Sequence",
+        "text": "<b>任务：</b><b>发现</b>8张牌。<b>奖励：</b>源生之石。",
+        "text_en": "[x]<b>Quest:</b> <b>Discover</b> 8 cards.\n<b>Reward:</b> The Origin Stone.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 118191,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "43327c776ec2d16d72533017087975969e54d876f8a685e36b7afc7dad3f51cc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_460",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_460t",
+        "dbf_id": 118191,
+        "name": "源生之石",
+        "name_en": "The Origin Stone",
+        "text": "在你<b>发现</b>一张牌后，本武器会使用其余选项并失去1点耐久度。",
+        "text_en": "After you <b>Discover</b> a card, this plays the other options.\nLose 1 Durability.",
+        "cost": 3,
+        "attack": null,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f097595b845c6b9b4f475b2c0a86c3c471ed56d82473d631d501dda3ffd197a1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_460t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_460",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k177-native-source-cache-01\\TLC_460-zh_CN.json",
+      "response_sha256": "3634975707396269b8f4710f3c8842a14a0bf5b915e921d9882d08ac460e90a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=zh_CN",
+      "face": {
+        "id": 118183,
+        "collectible": 1,
+        "slug": "118183-the-forbidden-sequence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "禁忌序列",
+        "text": "<b>任务：</b><b>发现</b>8张牌。<b>奖励：</b>源生之石。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64bf8a5222103eead24d35aaa4612884c7389219c139eae1ca07f69d4c466adc.png",
+        "imageGold": "",
+        "flavorText": "第9天。迎接我们的不是温暖的怀抱，而是冰冷的长矛。好在埃舒头领体谅我们，屏退了卫兵。有个泰坦考据学家听说了伊莉斯的专业能力，把她请到了图书馆。而安布拉又在城里消失了……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dffdd2abaa1e45db06b1015839b1304cdf363900642c365a58d6247ce77d00ca.png",
+        "childIds": [
+          118191
+        ],
+        "keywordIds": [
+          21,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=zh_CN",
+        "sha256": "3634975707396269b8f4710f3c8842a14a0bf5b915e921d9882d08ac460e90a7",
+        "bytes": 984,
+        "observed_at": "2026-10-17T21:20:49.360985+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k177-native-source-cache-01\\TLC_460-en_US.json",
+      "response_sha256": "0a7096d132e7422011b45cff7c152f92e9b07cc048d0dcd1b84a610893b59e2d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=en_US",
+      "face": {
+        "id": 118183,
+        "collectible": 1,
+        "slug": "118183-the-forbidden-sequence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "The Forbidden Sequence",
+        "text": "<b>Quest:</b> <b>Discover</b> 8 cards. <b>Reward:</b> The Origin Stone.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3425fb55a2b4c2828dd5e31af658f24532508b9de207353279783b850e90d11f.png",
+        "imageGold": "",
+        "flavorText": "Day 9. We were not welcomed with open arms, but with spears! Fortunately, Chief Esho took pity on us and called off the guards. Learning of Elise's expertise, a Titanographer whisked her away to the library. Umbra disappeared in the twisting streets...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dffdd2abaa1e45db06b1015839b1304cdf363900642c365a58d6247ce77d00ca.png",
+        "childIds": [
+          118191
+        ],
+        "keywordIds": [
+          21,
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118183&locale=en_US",
+        "sha256": "0a7096d132e7422011b45cff7c152f92e9b07cc048d0dcd1b84a610893b59e2d",
+        "bytes": 997,
+        "observed_at": "2026-10-17T21:20:49.550134+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k177-native-source-cache-01\\TLC_460t-zh_CN.json",
+      "response_sha256": "6dccf9ccd9b9581e0788fb3ad47e13f4aeaa2546f59d00d18669a119cd24060e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=zh_CN",
+      "face": {
+        "id": 118191,
+        "collectible": 0,
+        "slug": "118191-the-origin-stone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "manaCost": 3,
+        "name": "源生之石",
+        "text": "在你<b>发现</b>一张牌后，本武器会使用其余选项并失去1点耐久度。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ad4b99d9d08e1f6ab658ad21d4a111b03f48c8bda95564d46de4528f1815829.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 118183,
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=zh_CN",
+        "sha256": "6dccf9ccd9b9581e0788fb3ad47e13f4aeaa2546f59d00d18669a119cd24060e",
+        "bytes": 641,
+        "observed_at": "2026-10-17T21:20:49.796096+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_460t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k177-native-source-cache-01\\TLC_460t-en_US.json",
+      "response_sha256": "291f3b6a924a38fe94154ee0f8aff7fe4ab2da0fee36de65edd93b7f762c91f2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=en_US",
+      "face": {
+        "id": 118191,
+        "collectible": 0,
+        "slug": "118191-the-origin-stone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "manaCost": 3,
+        "name": "The Origin Stone",
+        "text": "After you <b>Discover</b> a card, this plays the other options. Lose 1 Durability.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/617fce83484376a025829cb09eb3ca8c23eaac1b41d1e35efa8ea41c3043a7c4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 118183,
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118191&locale=en_US",
+        "sha256": "291f3b6a924a38fe94154ee0f8aff7fe4ab2da0fee36de65edd93b7f762c91f2",
+        "bytes": 638,
+        "observed_at": "2026-10-17T21:20:50.085999+00:00"
+      }
+    }
+  ],
+  "exact_parent_child_links": [
+    {
+      "parent": "TLC_460",
+      "child": "TLC_460t",
+      "dbf_id": 118191,
+      "locale": "zh_CN"
+    },
+    {
+      "parent": "TLC_460",
+      "child": "TLC_460t",
+      "dbf_id": 118191,
+      "locale": "en_US"
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "scope": "Complete Quest8 discoveries and its3mana8durability weapon. Raw absent ATK and primary absent attack use existing weapon definition default0, original source rows unchanged.",
+    "execution": "Play remaining original menu slots in original order, automatic targets/choices, all five hand kinds via shared whole-card interpreter. Freeze physical material and intrinsic per-slot gifts, not selected-only delivery rewards. No original-card removal or fake hand/payment history.",
+    "timing": "Semantic after-discovery completion, accepted source trigger survives retirement; original equipped-incarnation wear after full batch including nested work. Single-option discovery still wears once. Existing automatic cast/generated body conditions and repetition policy inherited; precise CN timing and copy/gift qualification pending M6."
+  }
+}
