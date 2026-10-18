@@ -802,10 +802,7 @@
         "subtypes": []
       },
       "spell_school": null
-    }
-  ],
-  "existing_dependencies": [],
-  "evidence_only": [
+    },
     {
       "record": {
         "id": "BOT_020",
@@ -884,6 +881,8 @@
       "spell_school": null
     }
   ],
+  "existing_dependencies": [],
+  "evidence_only": [],
   "official_observations": [
     {
       "card_id": "DRG_239",
@@ -1891,7 +1890,8 @@
     "UNG_085",
     "GVG_051",
     "KAR_029",
-    "LOOT_117"
+    "LOOT_117",
+    "BOT_020"
   ],
   "new_standard_collectible_roots": [],
   "necessary_cross_series_collectibles": [
@@ -1906,32 +1906,15 @@
     "UNG_085",
     "GVG_051",
     "KAR_029",
-    "LOOT_117"
+    "LOOT_117",
+    "BOT_020"
   ],
   "necessary_noncollectibles": [],
   "exact_parent_child_links": [],
   "source_tag_links": [],
   "named_dependency_links": [],
-  "skipped": [
-    {
-      "card_id": "BOT_020",
-      "whole_card_deferred": true,
-      "reason": "Actual native GenerateFromPool(board) and real TIME052 Deathrattle both reject full Skaterbot material in pool_summons.validate_basis→summon_quantities.validate_material: ordinary non-composite minion required. Direct Summon and manual Magnetic/Rush paths passed in original managed module. No silent candidate exclusion, no removing Magnetic, no alternate pool executor.",
-      "original_failed_run": "outputs/simple-cards-p91/special-01",
-      "original_frozen_source": "outputs/simple-cards-p91/frozen-01",
-      "required_success_tests": [
-        "test_f2_actual_amber_death_pool_skater_enters_left_of_mech_without_magnetic",
-        "test_f3_native_one_cost_random_pool_summon_and_unknown_candidate_atomic_failure"
-      ],
-      "public_source_sha256": {
-        "hs_sim/engine/pool_summons.py": "81c95cc52064934e45ab884645d95250853173a0924c3bbc11bf8f7f93e98612",
-        "hs_sim/engine/summon_quantities.py": "546fb364303f678131d1e007f8761b939020d605f3b2d6ea0dd2e605280f458b"
-      }
-    }
-  ],
-  "unsupported_source_cards": [
-    "BOT_020"
-  ],
+  "skipped": [],
+  "unsupported_source_cards": [],
   "per_card_reviews": {
     "DRG_239": "Vanilla2/2.",
     "LOOT_258": "Vanilla1/3 Beast.",
@@ -1945,13 +1928,13 @@
     "GVG_051": "1/3 Mech, SELF_DAMAGED conditional attack+1, not cumulative damage triggers.",
     "KAR_029": "Printed0/2; actual original Deathrattle Draw1 for invocation controller and source.",
     "LOOT_117": "Printed0/2 Elemental, Taunt and Divine Shield.",
-    "BOT_020": "Whole card deferred: actual native pool summon rejects Magnetic material. Original full printed row and strict bilingual faces retained. Manual and direct Summon evidence is insufficient for the assigned past-generation behavior dependency."
+    "BOT_020": "1/1 Mech, Magnetic with mech host predicate and Rush; manual positional fusion only, normal/generated summons enter independently."
   },
   "formal_pool_complete": false,
   "cn_calibrated": false,
   "reachability_complete": false,
   "policies": {
-    "scope": "12 complete new historical one-cost collectible behavior dependencies from13 assigned; BOT020 whole-card handback after actual native pool-entry failure.0 new Standard roots; exact past membership/weights/qualification not certified. No CORE aliases.",
+    "scope": "13 complete new historical one-cost collectible behavior dependencies for Standard past-generation work.0 new Standard roots; exact past membership/weights/qualification not certified. No existing CORE counterparts, no alias registrations.",
     "native_effects": {
       "DRG_239": "Vanilla2/2.",
       "LOOT_258": "Vanilla1/3 Beast.",
@@ -1965,7 +1948,7 @@
       "GVG_051": "1/3 Mech, SELF_DAMAGED conditional attack+1, not cumulative damage triggers.",
       "KAR_029": "Printed0/2; actual original Deathrattle Draw1 for invocation controller and source.",
       "LOOT_117": "Printed0/2 Elemental, Taunt and Divine Shield.",
-      "BOT_020": "Whole card deferred: actual native pool summon rejects Magnetic material. Original full printed row and strict bilingual faces retained. Manual and direct Summon evidence is insufficient for the assigned past-generation behavior dependency."
+      "BOT_020": "1/1 Mech, Magnetic with mech host predicate and Rush; manual positional fusion only, normal/generated summons enter independently."
     },
     "source": "13 complete original rows and26 strict cached bilingual primary faces, offline prepared again inside worker. Only KAR029/LOOT117 individually reviewed absent printed Attack→0; no global null normalization.",
     "past_pool": "No production past pool is installed or inferred from executable coverage. Tests use explicit complete bounded experimental host pools only. Unknown qualifying contents fail without pruning.",

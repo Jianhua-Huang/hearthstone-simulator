@@ -8,6 +8,7 @@ from hs_sim.cards import simple_followup_p91_cards as cards
 from hs_sim.cards.simple_followup_p91_cards import BATTLEMAGE,MOLE,FRESHMAN,ATTENDEE,HERMIT,AIR,SNAKE,LAB,QUEEN,WARBOT,EGG,WAX,SKATER,ROOTS,load_batch,register_simple_followup_p91_cards
 from hs_sim.cards.candidate_generation_catalog import register_candidate_pool_metadata
 from hs_sim.cards.simple_followup_p89_cards import PAST_POOL,WARDEN,register_simple_followup_p89_cards
+from hs_sim.cards.native_past_entry_grant_cards import FLASHBACK,register_native_past_entry_grant_cards
 from hs_sim.engine import Attack,CardClass,CardDefinition,CardMetadata,CardType,EndTurn,Game,IllegalAction,Keyword,PlayCard,PlayerSetup,Rarity,Registry,Scenario,SelectChoice,TargetSpec,Zone
 from hs_sim.engine.effects import Buff,ChangeControl,ChoiceOption,Damage,Destroy,Heal,InvokeBehavior,RequestChoice,ReturnToHand,Silence,Summon,TriggerDeathrattles
 from hs_sim.engine.errors import ResolutionError
@@ -30,10 +31,7 @@ def batch_registry():
  elif not all(present):raise AssertionError('Complete P91 assembly required')
  register_candidate_pool_metadata(r);r.validate();return r
 def registry(mode,members):
- r=Registry('p91-small-native-host');register_simple_followup_p91_cards(r);register_simple_followup_p89_cards(r)
- # Full Skaterbot declaration is fixture-only to preserve the public gap proof;
- # the production batch deliberately leaves it unregistered.
- raw=load_batch()['evidence_only'][0]['record'];skater=CardDefinition(SKATER,raw['name'],CardType.MINION,cost=1,attack=1,health=1,metadata=cards.metadata_from_record(raw),keywords=(Keyword.MAGNETIC,Keyword.RUSH),magnetic_tribes=('mech',));r.register_card(skater);r.register_pool_card(PoolCard.from_definition(skater))
+ r=Registry('p91-small-native-host');register_simple_followup_p91_cards(r);register_simple_followup_p89_cards(r);register_native_past_entry_grant_cards(r)
  r.register_behavior(P+'fail',lambda c:(_ for _ in()).throw(ResolutionError('P91 deliberate native waiting failure')))
  r.register_behavior(P+'wait',lambda c:(RequestChoice(1,(ChoiceOption('ok','Continue'),ChoiceOption('fail','Fail',(InvokeBehavior(P+'fail',c.source_id,1),))),c.source_id),))
  scripts={HIT:lambda c:(Damage(c.target_id,1,c.source_id,DamageKind.SPELL),),KILL:lambda c:(Destroy(c.target_id,c.source_id),),HEAL:lambda c:(Heal(c.target_id,1,c.source_id),),SILENCE:lambda c:(Silence(c.target_id),),BUFF:lambda c:(Buff(c.target_id,1,1,c.source_id),),TAKE:lambda c:(ChangeControl(c.target_id,2),),RETURN:lambda c:(ReturnToHand(c.target_id),),TRIGGER:lambda c:(TriggerDeathrattles(c.target_id,c.source_id),),SUMMON_SKATER:lambda c:(Summon(c.player_id,SKATER,0),),GENERATE:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,PoolQuery(kinds=(CardType.MINION,),collectible=True,min_cost=1,max_cost=1),destination='board',source_id=c.source_id,cause=SummonCause.capture(c)),)}
@@ -44,9 +42,13 @@ def registry(mode,members):
  if mode:
   def eligible(c):
    if c.player_id!=1:return False
-   if mode=='entry':return c.event.target_id is not None and c.state.entities[c.event.target_id].card_id in(SKATER,MOLE)
+   if mode in('entry','flashback'):
+    if c.event.target_id is None:return False
+    e=c.state.entities[c.event.target_id]
+    if mode=='flashback'and e.card_id==SKATER and(e.attack,e.health)!=(2,1):raise ResolutionError('Actual Flashback grant missing at first Skaterbot notification')
+    return e.card_id in(SKATER,MOLE)
    return c.event.source_id is not None and c.state.entities[c.event.source_id].card_id==EGG
-  r.register_trigger_condition(P+'eligible',eligible);extra['limited_triggers']=(LimitedTriggerSpec('minion_summoned'if mode=='entry'else'card_drawn',P+'wait',condition_id=P+'eligible'),)
+  r.register_trigger_condition(P+'eligible',eligible);extra['limited_triggers']=(LimitedTriggerSpec('minion_summoned'if mode in('entry','flashback')else'card_drawn',P+'wait',condition_id=P+'eligible'),)
  r.register_card(CardDefinition(HERO,HERO,CardType.HERO,health=100,metadata=meta(),**extra))
  if UNKNOWN in members:r.register_pool_card(PoolCard(UNKNOWN,CardType.MINION,1,CardMetadata(True,(CardClass.NEUTRAL,),Rarity.COMMON,runes=Runes(),tribes=(),factions=(),subtypes=()),battlecry=False,deathrattle=False,choose_one=False,attack=1))
  r.register_pool(PoolDefinition(PAST_POOL,'p91-bounded-complete-fixture',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True));r.validate();return r
@@ -74,7 +76,7 @@ class SimpleFollowupP91Tests(unittest.TestCase):
   self.assertEqual(g.snapshot(),s)
  def price(self,g,cid):return g.quote_cost(self.first(g,cid).id).amount
 
- def test_a0_all_twelve_native_paid_entries_and_full_printed_metadata(self):
+ def test_a0_all_thirteen_native_paid_entries_and_full_printed_metadata(self):
   for cid in ROOTS:
    with self.subTest(cid=cid):
     g=self.game((cid,));source=self.play(g,cid);raw=next(x['record']for x in load_batch()['dependencies']if x['record']['id']==cid);e=g.state.entities[source];self.assertEqual((e.attack,e.health,g.state.players[1].mana),(0 if cid in(EGG,WAX)else raw['attack'],raw['health'],59));self.assertEqual(g.state.play_history[0].card_id,cid);self.assertEqual(g.registry.card(cid).metadata,cards.metadata_from_record(raw))
@@ -121,24 +123,25 @@ class SimpleFollowupP91Tests(unittest.TestCase):
   g=self.game((SILENCE,KILL),board=(EGG,));source=self.first(g,EGG,'board').id;self.play(g,SILENCE,source);self.play(g,KILL,source);self.assertFalse(g.state.draw_history)
  def test_e1_egg_dead_source_draw_wait_recovers_once_and_failed_resume_rolls_back(self):
   g=self.game((KILL,),board=(EGG,),mode='draw');self.play(g,KILL,self.first(g,EGG,'board').id);self.fail_wait(g);self.choose(g);self.assertEqual(len(g.state.draw_history),1);self.portable(g)
- def test_f0_fixture_only_deferred_skater_manual_magnetic_and_rush(self):
+ def test_f0_skater_paid_magnetic_merges_with_real_warbot_and_grants_rush(self):
   g=self.game((WARBOT,SKATER),enemy=(FILLER,));host=self.play(g,WARBOT);source=self.play(g,SKATER,position=0);self.assertEqual(g.state.players[1].board,[host]);self.assertEqual(g.state.entities[source].zone,Zone.GRAVEYARD);self.assertEqual((g.state.entities[host].attack,g.state.entities[host].health),(2,4));self.assertIn(Keyword.RUSH,g.state.entities[host].keywords);self.assertEqual(len(g.state.magnetic_history),1);s=g.snapshot()
   with self.assertRaises(IllegalAction):g.apply(Attack(1,host,g.state.players[2].hero_id))
   self.assertEqual(g.snapshot(),s);g.apply(Attack(1,host,self.first(g,FILLER,'board',2).id));self.assertEqual(g.state.entities[host].attack,3);self.portable(g)
- def test_f1_fixture_only_deferred_skater_manual_right_and_direct_summon(self):
+ def test_f1_skater_normal_paid_right_entry_and_ordinary_summon_never_merge(self):
   for cid in(SKATER,SUMMON_SKATER):
    g=self.game((cid,),board=(WARBOT,));self.play(g,cid);self.assertEqual(len(g.state.players[1].board),2);self.assertFalse(g.state.magnetic_history);self.assertEqual((self.first(g,SKATER,'board').attack,self.first(g,SKATER,'board').health),(1,1));self.portable(g)
- def test_f2_whole_deferred_skater_actual_amber_pool_entry_gap_preserves_rollback(self):
-  g=self.game((KILL,),board=(WARDEN,WARBOT),members=(SKATER,),mode='entry');source=self.first(g,WARDEN,'board').id;s=g.snapshot()
-  with self.assertRaisesRegex(ResolutionError,'ordinary non-composite'):self.play(g,KILL,source)
-  self.assertEqual(g.snapshot(),s);self.assertFalse(g.state.magnetic_history);self.assertIsNone(g.state.pending_choice)
+ def test_f2_actual_amber_death_pool_skater_enters_left_of_mech_without_magnetic(self):
+  g=self.game((KILL,),board=(WARDEN,WARBOT),members=(SKATER,),mode='entry');source=self.first(g,WARDEN,'board').id;self.play(g,KILL,source);self.fail_wait(g);self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].board],[SKATER,WARBOT]);self.assertFalse(g.state.magnetic_history);self.assertEqual(g.state.card_summon_history[-1].request.cause.source.card_id,WARDEN);self.choose(g);self.portable(g)
  def test_f3_native_one_cost_random_pool_summon_and_unknown_candidate_atomic_failure(self):
-  g=self.game((GENERATE,),members=(MOLE,));self.play(g,GENERATE);self.assertEqual(self.first(g,MOLE,'board').health,3);self.portable(g)
-  g=self.game((GENERATE,),members=(MOLE,UNKNOWN));s=g.snapshot()
+  g=self.game((GENERATE,),members=(SKATER,));self.play(g,GENERATE);self.assertEqual(self.first(g,SKATER,'board').health,1);self.assertFalse(g.state.magnetic_history);self.portable(g)
+  g=self.game((GENERATE,),members=(SKATER,UNKNOWN));s=g.snapshot()
   with self.assertRaises((ResolutionError,ValueError)):self.play(g,GENERATE)
   self.assertEqual(g.snapshot(),s)
  def test_f4_actual_amber_mole_entry_wait_restores_original_death_cause(self):
   g=self.game((KILL,),board=(WARDEN,WARBOT),members=(MOLE,),mode='entry');self.play(g,KILL,self.first(g,WARDEN,'board').id);self.fail_wait(g);self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].board],[MOLE,WARBOT]);self.assertEqual(g.state.card_summon_history[-1].request.cause.source.card_id,WARDEN);self.choose(g);self.portable(g)
- def test_z0_full13_original_rows26_faces_twelve_defs_whole_gap_and_preservation(self):
-  d=load_batch();self.assertEqual((len(d['dependencies']),len(d['evidence_only']),len(d['official_observations'])),(12,1,26));self.assertFalse(d['cards']);self.assertFalse(d['new_standard_collectible_roots']);self.assertEqual(d['numeric_normalizations'],{EGG:{'attack':0},WAX:{'attack':0}});r0=baseline_registry();r1=batch_registry();self.assertEqual(len(r1.cards)-len(r0.cards),12);self.assertNotIn(SKATER,r1.cards);self.assertNotIn(SKATER,r1.pool_cards);self.assertTrue(all('CORE_'+cid not in r0.cards for cid in ROOTS));self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
+ def test_f5_actual_flashback_original_combo_grant_before_first_skater_notification(self):
+  g=self.game((HIT,FLASHBACK),board=(WARBOT,),members=(SKATER,),mode='flashback');self.play(g,HIT,self.first(g,WARBOT,'board').id);source=self.play(g,FLASHBACK);self.fail_wait(g);self.assertEqual((self.first(g,SKATER,'board').attack,self.first(g,SKATER,'board').health),(2,1));self.assertFalse(g.state.magnetic_history);self.choose(g)
+  bodies=[g.state.entities[i]for i in g.state.players[1].board if g.state.entities[i].card_id==SKATER];self.assertEqual([(e.attack,e.health)for e in bodies],[(2,1),(2,1)]);self.assertTrue(all(any(a.source_id==source and a.attack==1 for a in e.enchantments)for e in bodies));self.assertEqual(g.state.players[1].mana,58);self.assertFalse(g.state.magnetic_history);self.portable(g)
+ def test_z0_full13_original_rows26_primary_faces_zero_evidence_and_assembly_preservation(self):
+  d=load_batch();self.assertEqual((len(d['dependencies']),len(d['official_observations'])),(13,26));self.assertFalse(d['cards']);self.assertFalse(d['new_standard_collectible_roots']);self.assertEqual(d['numeric_normalizations'],{EGG:{'attack':0},WAX:{'attack':0}});r0=baseline_registry();r1=batch_registry();self.assertEqual(len(r1.cards)-len(r0.cards),13);self.assertTrue(all('CORE_'+cid not in r0.cards for cid in ROOTS));self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
   for key in('player_effects','fabled','generation_families','pools','jade_families'):self.assertEqual(getattr(r0,key),getattr(r1,key))
