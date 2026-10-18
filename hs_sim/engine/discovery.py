@@ -8,6 +8,7 @@ from .effects import AddToHand, ChoiceOption, Effect, Heal, RequestChoice
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import CardClass, CardPreview, CardType, ChoicePurpose, ChoiceResult, CostSpec, GameState
 from .card_creation import DiscoveryMinionGift
+from .copy_materials import CapturedCardCopyMaterial
 from .pools import (DiscoverFromPool, GenerationContext, generation_candidates, resolve_candidates,
                     sample_candidates, deliver_generated)
 
@@ -113,12 +114,57 @@ class DeliverAndSummonDiscoveredMinion(Effect):
         if type(self.discovery)is not ResolvePoolDiscovery or type(self.context)is not GenerationContext:
             raise ValueError('Discovered copy requires original typed selection/context')
         self.discovery.__post_init__();self.context.__post_init__()
-        if self.discovery.batch.spec.summon_copy_stats is None or self.discovery.choice_result is None:
+        spec=self.discovery.batch.spec
+        if (spec.summon_copy_stats is None and spec.summon_copy_corpse_cost is None) or self.discovery.choice_result is None:
             raise ValueError('Discovered copy requires its actual declared selection result')
 
 
 def validate_selected_copy(registry,effect):
     effect.__post_init__();validate_selection(registry,effect.context,effect.discovery)
+
+
+@dataclass(frozen=True)
+class SummonDiscoveredMinionCopy(Effect):
+    """Frozen creation material, accepted into summoning after corpse payment."""
+    discovery:ResolvePoolDiscovery
+    context:GenerationContext
+    material:CapturedCardCopyMaterial|None
+
+    @property
+    def cause(self):return self.discovery.batch.spec.cause
+
+    def __post_init__(self):
+        validate_selected_copy_request=DeliverAndSummonDiscoveredMinion(self.discovery,self.context)
+        validate_selected_copy_request.__post_init__()
+        spec=self.discovery.batch.spec
+        if spec.summon_copy_corpse_cost is None:
+            raise ValueError('Deferred selected copy requires its original corpse-paid discovery')
+        if self.material is not None:
+            if type(self.material)is not CapturedCardCopyMaterial:
+                raise ValueError('Selected copy requires complete frozen creation material')
+            self.material.__post_init__();origin=self.material.origin
+            from .model import Zone
+            if (origin.card_id!=self.discovery.selection.card_id or origin.kind!=CardType.MINION or
+                    origin.controller!=spec.player_id or origin.zone!=Zone.HAND):
+                raise ValueError('Selected copy lost its original created hand face and player')
+
+
+def summon_discovered_copy(r,effect):
+    validate_selected_copy(r.registry,effect)
+    validate_receipt_history(r.state,effect.discovery.batch,effect.discovery.choice_result)
+    if effect.context!=r.game._generation_context:raise ValueError('Deferred discovered copy context changed')
+    from .summon_quantities import SummonByCard,SummonEntryMaterial,validate_cause,accept
+    from .copy_materials import CopyEntryMaterial,validate_captured_card_copy
+    spec=effect.discovery.batch.spec;validate_cause(r.state,r.registry,spec.cause)
+    if effect.material is None:
+        material=SummonEntryMaterial(effect.discovery.selection.card_id)
+    else:
+        validate_captured_card_copy(r.state,r.registry,effect.material)
+        # Like ordinary CopyCard from a captured source, consume the frozen
+        # object's local state and stamp the actual new entry acceptance now.
+        material=CopyEntryMaterial.capture(r.state,effect.material.entity(),'stored_copy','current',
+            registry=r.registry,player_id=spec.player_id)
+    return accept(r,SummonByCard(spec.player_id,(material,),spec.cause))
 
 
 def deliver_and_summon_copy(r,effect):
@@ -128,14 +174,19 @@ def deliver_and_summon_copy(r,effect):
     from .summon_quantities import SummonByCard,SummonEntryMaterial,validate_cause,accept
     validate_cause(r.state,r.registry,spec.cause)
     if spec.cause.source.entity_id!=spec.source_id:raise ValueError('Discovered copy borrowed another cause')
-    from .effects import AddToHand
+    from .effects import AddToHand,SpendResource
     from .opening import create_hand_card
-    from .model import Zone
+    from .model import Resource,Zone
     delivery_cursor=len(r.game._events)
     entity=create_hand_card(r,AddToHand(spec.player_id,effect.discovery.selection.card_id,spec.source_id))
     from .discovery_delivery import finish_for_entity
     notification=finish_for_entity(r,effect.discovery.choice_result,entity,
         AddToHand(spec.player_id,effect.discovery.selection.card_id,spec.source_id),delivery_cursor)
+    if spec.summon_copy_corpse_cost is not None:
+        frozen=CapturedCardCopyMaterial.capture(r.state,entity)if entity.zone==Zone.HAND else None
+        request=SummonDiscoveredMinionCopy(effect.discovery,effect.context,frozen)
+        return (SpendResource(spec.player_id,Resource.CORPSES,spec.summon_copy_corpse_cost,
+                              on_success=(request,),requires_board_space=True),notification)
     if entity.zone==Zone.HAND:
         from .copy_materials import CopyEntryMaterial
         material=CopyEntryMaterial.capture(r.state,entity,'stored_copy','current',spec.summon_copy_stats,
@@ -143,7 +194,8 @@ def deliver_and_summon_copy(r,effect):
     else:material=SummonEntryMaterial(entity.card_id,spec.summon_copy_stats)
     # The actual created object and its material/quantity are accepted before
     # acquisition reactions. Public creation and summon checkpoints still run.
-    return (*accept(r,SummonByCard(spec.player_id,(material,),spec.cause)),notification)
+    request=SummonByCard(spec.player_id,(material,),spec.cause)
+    return (*accept(r,request),notification)
 
 
 def validate_cost_healing(registry,effect):
@@ -383,7 +435,7 @@ def resolve_discovery(r, effect):
     if effect.choice_result is None:
         raise ValueError('Executed discovery requires its actual complete choice result')
     validate_receipt_history(r.state,batch,effect.choice_result)
-    if spec.summon_copy_stats is not None and effect.choice_result is None:
+    if (spec.summon_copy_stats is not None or spec.summon_copy_corpse_cost is not None) and effect.choice_result is None:
         raise ValueError('Discovered copy requires the actual complete choice result')
     if spec.heal_hero_by_printed_cost and effect.choice_result is None:
         raise ValueError('Discovery cost healing requires the actual complete choice result')
@@ -405,7 +457,7 @@ def resolve_discovery(r, effect):
     elif spec.shuffle_unselected_into_deck:
         from .discovery_remainders import begin
         delivery=begin(r,effect)
-    elif spec.summon_copy_stats is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
+    elif spec.summon_copy_stats is not None or spec.summon_copy_corpse_cost is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
     else:delivery=deliver_pick(spec,committed) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)
@@ -435,12 +487,15 @@ def validate_boundary(game):
             if value.context!=game._generation_context or value.discovery.batch.spec.source_id not in game._state.entities:
                 raise ValueError('Discovered healing context or source differs from its queued outcome')
             return
-        if type(value)is DeliverAndSummonDiscoveredMinion:
+        if type(value)in(DeliverAndSummonDiscoveredMinion,SummonDiscoveredMinionCopy):
             validate_selected_copy(game.registry,value)
             validate_receipt_history(game._state,value.discovery.batch,value.discovery.choice_result)
             if value.context!=game._generation_context:raise ValueError('Discovered copy context differs from queued outcome')
             from .summon_quantities import validate_cause
             validate_cause(game._state,game.registry,value.discovery.batch.spec.cause)
+            if type(value)is SummonDiscoveredMinionCopy and value.material is not None:
+                from .copy_materials import validate_captured_card_copy
+                validate_captured_card_copy(game._state,game.registry,value.material)
             return
         if type(value)is GameState:return
         if type(value)in(tuple,list):
@@ -478,6 +533,7 @@ def register(mechanics):
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)
     mechanics.register(HealHeroFromDiscoveredSpell,heal_discovered_spell)
     mechanics.register(DeliverAndSummonDiscoveredMinion,deliver_and_summon_copy)
+    mechanics.register(SummonDiscoveredMinionCopy,summon_discovered_copy)
     from .discovery_remainders import register as register_remainders
     register_remainders(mechanics)
     from .discovery_keep import register as register_kept

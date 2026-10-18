@@ -414,11 +414,19 @@ class SpendResource(Effect):
                 raise ValueError('Resource branches must be immutable tuples of effects')
         if self.requires_board_space:
             from .pools import SummonFromPool
+            from .discovery import SummonDiscoveredMinionCopy
             if (self.resource != Resource.CORPSES or self.amount <= 0 or self.required or
-                    self.on_failure or len(self.on_success) != 1 or type(self.on_success[0]) is not SummonFromPool):
-                raise ValueError('Capacity gate requires one ordinary corpse-paid pool summon')
+                    self.on_failure or len(self.on_success) != 1 or type(self.on_success[0]) not in (SummonFromPool,SummonDiscoveredMinionCopy)):
+                raise ValueError('Capacity gate requires one ordinary corpse-paid summon')
             request = self.on_success[0]
             request.__post_init__()
+            if type(request) is SummonDiscoveredMinionCopy:
+                spec=request.discovery.batch.spec
+                if (spec.player_id!=self.player_id or spec.summon_copy_corpse_cost!=self.amount or
+                        request.cause.origin!='spell_cast' or request.cause.player_id!=self.player_id or
+                        request.cause.source.entity_id!=spec.source_id):
+                    raise ValueError('Selected-copy corpse gate lost its original source, player or payment')
+                return
             if (request.player_id != self.player_id or request.source_id is None or request.cause is None or
                     request.cause.origin != 'spell_cast' or request.cause.player_id != self.player_id or
                     request.cause.source.entity_id != request.source_id or request.position is not None or

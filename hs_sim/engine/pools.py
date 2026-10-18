@@ -525,8 +525,20 @@ class DiscoverFromPool(Effect):
     copy_selected_to_hand: bool = False
     shuffle_unselected_into_deck: bool = False
     keep_all_corpse_cost: int | None = None
+    summon_copy_corpse_cost: int | None = None
 
     def __post_init__(self):
+        if self.summon_copy_corpse_cost is not None:
+            integer(self.summon_copy_corpse_cost, 'discovered copy corpse cost', 1)
+            if (self.destination != 'hand' or self.cause is None or self.source_id is None or
+                    self.count != 3 or self.discoveries != 1 or self.delivery != 'after_each' or not self.replacement or
+                    type(self.query) is not PoolQuery or self.query.kinds != (CardType.MINION,) or
+                    self.query.collectible is not True or self.cost is not None or self.expires_turn is not None or
+                    self.spell_repeat is not None or self.gift_pool is not None or self.heal_hero_by_printed_cost or
+                    self.freeze_summoned or self.summon_copy_stats is not None or self.minion_grant is not None or
+                    self.temporary_until_turn is not None or self.gift_copy_to_hand or self.set_summoned_stats is not None or
+                    self.copy_selected_to_hand or self.shuffle_unselected_into_deck or self.keep_all_corpse_cost is not None):
+                raise ValueError('Corpse-paid copy requires one plain attributed hand-minion discovery')
         if self.keep_all_corpse_cost is not None:
             integer(self.keep_all_corpse_cost, 'keep original discovery corpse cost', 1)
             if (self.source_id is None or self.destination != 'hand' or self.count != 3 or
@@ -645,7 +657,7 @@ class DiscoverFromPool(Effect):
                         self.cost.ability is not None or CardType.MINION not in self.cost.card_types):
                     raise ValueError('Gift discovery source cost supports an ordinary reduction only')
         if self.cause is not None:
-            if type(self.cause)is not SummonCause or (self.destination!='board'and self.summon_copy_stats is None):raise ValueError('Typed summon cause requires board discovery or selected hand-copy declaration')
+            if type(self.cause)is not SummonCause or (self.destination!='board'and self.summon_copy_stats is None and self.summon_copy_corpse_cost is None):raise ValueError('Typed summon cause requires board discovery or selected hand-copy declaration')
             self.cause.__post_init__()
         validate_declaration(self.spell_repeat)
         validate_request(self)
