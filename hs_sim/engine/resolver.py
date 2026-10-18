@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v510'
+CORE_EFFECTS_VERSION = 'core-effects-v511'
 
 
 class Mechanics:
@@ -1025,6 +1025,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
                    for instruction in instructions]
     lifesteals = []
     callbacks = {}
+    replacements = {}
     batch_id, packet_index = len(r.game._events)+1, 0
 
     def settle(packet, on_result=None):
@@ -1068,6 +1069,17 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
                                       reason='lifesteal' if packet.from_lifesteal else 'effect', **packet.event_data())))
             outcome(healed=actual, prevention='rule_prevention' if packet.prevented else None)
             return actual
+        from .nature_damage_replacements import select as select_nature_replacement,complete as complete_nature_replacement
+        native = select_nature_replacement(r,state,rules,packet,target)
+        if native is not None:
+            packet = replace(packet,amount=0,prevented=True,rule_ids=(*packet.rule_ids,native[0]))
+            pending_events.append(('damage_prevented',dict(source_id=packet.source_id,target_id=target.id,
+                                  reason='rule_prevention',**packet.event_data())))
+            # The health receipt describes the prevented packet. Ordinary stat
+            # growth is a separate operation, committed before the next packet.
+            outcome(prevention='rule_prevention')
+            replacements[packet_index] = complete_nature_replacement(r,native,target,pending_events)
+            return 0
         result = calculate_damage(packet, target, state=state, combat=combat)
         if result.prevention == 'divine_shield':
             consume_keyword(target, Keyword.DIVINE_SHIELD)
@@ -1135,6 +1147,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
         event = r.emit(kind, **payload)
         if kind == 'health_resolved':
             result = dict(payload['result'])
+            continuations.extend(replacements.get(result['packet_index'],()))
             behavior = callbacks.get(result['packet_index'])
             if behavior is not None:
                 continuations.append(r.call(behavior, result['source_id'], result['source_controller'],
@@ -1170,6 +1183,8 @@ def heal_batch(r, effect):
 
 
 def grant_health_rule(r, effect):
+    if effect.rule.operation in (HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON):
+        raise ResolutionError('Nature damage replacement requires its original printed minion declaration')
     if effect.rule.operation == HealthOp.WEAPON_DURABILITY:
         raise ResolutionError('Weapon durability replacement requires an original printed weapon declaration')
     from .health_floors import validate_grant

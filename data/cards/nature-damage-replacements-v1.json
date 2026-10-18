@@ -1,0 +1,367 @@
+{
+  "batch": "K227-nature-damage-replacements",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_214",
+        "dbf_id": 120175,
+        "name": "时流亡魂",
+        "name_en": "Flux Revenant",
+        "text": "<b>嘲讽</b>。每当你即将用自然法术对本随从造成伤害，改为本随从获得+2/+1。",
+        "text_en": "[x]<b>Taunt</b>\nWhenever you would damage\nthis with a Nature spell, it\ngains +2/+1 instead.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "62bf4ad116ebd91fcddb08b69e5db29cec3f104050093ec8e5685b0406f61274",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_214",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_217",
+        "dbf_id": 120177,
+        "name": "雷鸫",
+        "name_en": "Stormrook",
+        "text": "每当你即将用自然法术对本随从造成伤害，改为随机召唤一个法力值消耗为（5）的随从。",
+        "text_en": "[x]Whenever you would\ndamage this with a Nature\nspell, summon a random\n__5-Cost minion instead.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "00bab1314abe04879b782663fe558805f93bb9f01756090ace8ae45e8da996ed",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_217",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_214e",
+        "dbf_id": 120707,
+        "name": "时流超载",
+        "name_en": "Flux Overcapacity",
+        "text": "+2/+1。",
+        "text_en": "+2/+1.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d852ee5834225e77d4c5b2058e8a49b2f0809cb8120b9416099f79d92a2eb0df",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_214e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_214",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120175-zh_CN.json",
+      "response_sha256": "b68dd075fe5180c9f02808b17e97c6ec0891c6c42ea7fea2c2eb99d2639a1c55",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120175&locale=zh_CN",
+      "face": {
+        "id": 120175,
+        "collectible": 1,
+        "slug": "120175-flux-revenant",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "时流亡魂",
+        "text": "<b>嘲讽</b>。每当你即将用自然法术对本随从造成伤害，改为本随从获得+2/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4472a4f4698e53cbb1905178f62a6ddabb289aaf014ec290dd99e56a75d32ca9.png",
+        "imageGold": "",
+        "flavorText": "“我把那个电容放哪了……”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d711fb1185490be25cb0e7a5d856d903da770fab03aee3c68f7bc4a94f01884d.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120175&locale=zh_CN",
+        "sha256": "b68dd075fe5180c9f02808b17e97c6ec0891c6c42ea7fea2c2eb99d2639a1c55",
+        "bytes": 822,
+        "observed_at": "2026-10-18T23:10:38.233595+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_214",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120175-en_US.json",
+      "response_sha256": "e5124b583166ebde2b9fa93d99801379d485da0ac739353cb4573005e6da47e3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120175&locale=en_US",
+      "face": {
+        "id": 120175,
+        "collectible": 1,
+        "slug": "120175-flux-revenant",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Flux Revenant",
+        "text": "<b>Taunt</b> Whenever you would damage this with a Nature spell, it gains +2/+1 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ef27e35a0a9bbc7c805d28510bb5b8e660ca78c2ad98665aa0940aeec214831.png",
+        "imageGold": "",
+        "flavorText": "\"Now where did I leave that capacitor…\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d711fb1185490be25cb0e7a5d856d903da770fab03aee3c68f7bc4a94f01884d.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120175&locale=en_US",
+        "sha256": "e5124b583166ebde2b9fa93d99801379d485da0ac739353cb4573005e6da47e3",
+        "bytes": 813,
+        "observed_at": "2026-10-18T23:10:38.246987+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_217",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120177-zh_CN.json",
+      "response_sha256": "e1ad97dd654b43fe435eb1a079ca42f083a608050babb227c2441057fe1de966",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120177&locale=zh_CN",
+      "face": {
+        "id": 120177,
+        "collectible": 1,
+        "slug": "120177-stormrook",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "雷鸫",
+        "text": "每当你即将用自然法术对本随从造成伤害，改为随机召唤一个法力值消耗为（5）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/649028d521a4ae9e1eb9fbdb7625292e49ad62995507544ab5ecdf1c193dc488.png",
+        "imageGold": "",
+        "flavorText": "矮人和自己的雷鸫之间有着特殊的连结，不惧锤锻，不怕火炼。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00cfc7bb0f4deb857b07cc1bdb003b15c325ccb04a1ad733d00bf292260e7dba.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120177&locale=zh_CN",
+        "sha256": "e1ad97dd654b43fe435eb1a079ca42f083a608050babb227c2441057fe1de966",
+        "bytes": 869,
+        "observed_at": "2026-10-18T23:10:38.334722+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_217",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120177-en_US.json",
+      "response_sha256": "40de2ef94e0b1fcd91dc4bcac9bc25aa970ab0044ff5d193124e85480bfb42df",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120177&locale=en_US",
+      "face": {
+        "id": 120177,
+        "collectible": 1,
+        "slug": "120177-stormrook",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stormrook",
+        "text": "Whenever you would damage this with a Nature spell, summon a random 5-Cost minion instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b740515dd8d1cce112f80f391046404a44a1fb47067cb904f666853fb2cd7164.png",
+        "imageGold": "",
+        "flavorText": "A dwarf and their rook have a special bond, which cannot be broken by forge nor fire.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00cfc7bb0f4deb857b07cc1bdb003b15c325ccb04a1ad733d00bf292260e7dba.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120177&locale=en_US",
+        "sha256": "40de2ef94e0b1fcd91dc4bcac9bc25aa970ab0044ff5d193124e85480bfb42df",
+        "bytes": 845,
+        "observed_at": "2026-10-18T23:10:38.544883+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "window": "positive own Nature spell packet before immunity/shield; frozen batch eligibility",
+    "growth": "ordinary +2/+1 before next packet, separate from prevented health receipt",
+    "summon": "ordinary full configured five-cost collectible minion pool, unknown content errors"
+  }
+}

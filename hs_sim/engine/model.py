@@ -241,6 +241,8 @@ class HealthOp(StrEnum):
     FLOOR = 'floor'
     PREVENT = 'prevent'
     WEAPON_DURABILITY = 'weapon_durability'
+    NATURE_GROWTH = 'nature_growth'
+    NATURE_SUMMON = 'nature_summon'
     REDIRECT = 'redirect'
     CONVERT = 'convert'
 
@@ -274,8 +276,15 @@ class HealthRule:
         _int(self.denominator, 'health rule denominator', 1)
         if self.operation != HealthOp.SCALE and self.denominator != 1:
             raise ValueError('Only scaling rules have a denominator')
-        if self.operation in (HealthOp.PREVENT, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY) and self.amount != 0:
+        if self.operation in (HealthOp.PREVENT, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY,
+                              HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON) and self.amount != 0:
             raise ValueError('Routing, conversion and prevention have no numeric operand')
+        if self.operation in (HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON) and (
+                self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
+                self.source_relation != 'friendly' or self.target_relation != 'self' or
+                self.target_kinds != (CardType.MINION,) or self.damage_kinds != (DamageKind.SPELL,) or
+                self.schools != (SpellSchool.NATURE,) or self.healing_kinds or self.redirect_to is not None):
+            raise ValueError('Native Nature replacement requires its complete own-spell self-minion profile')
         if self.operation == HealthOp.WEAPON_DURABILITY and (
                 self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
                 self.source_relation != 'any' or self.target_relation != 'friendly' or
@@ -10928,6 +10937,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_school_spell_damage_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
                 validate_weapon_damage_carrier(registry, entity.card_id, entity.kind, attachments)
+                from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier
+                validate_nature_damage_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .native_conditions import validate_carrier as validate_native_condition_carrier
                 validate_native_condition_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
                 from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier
@@ -11108,6 +11119,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_school_spell_damage_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
         validate_weapon_damage_carrier(registry, record.card_id, kind, record.abilities)
+        from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier
+        validate_nature_damage_carrier(registry,record.card_id,kind,record.abilities)
         from .native_conditions import validate_carrier as validate_native_condition_carrier
         validate_native_condition_carrier(registry,record.card_id,kind,record.abilities,record.components)
         from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier
