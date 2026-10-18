@@ -24,7 +24,7 @@ class ConsumptionProfile:
 
     def __post_init__(self):
         _behavior(self.card_id)
-        if self.kind not in ('hand_spell', 'deck_minion'):
+        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand'):
             raise ValueError('Unknown native consumption profile')
 
 
@@ -68,7 +68,7 @@ class ConsumedCardRecord:
         origin = self.card.origin
         if (self.source.kind != CardType.MINION or self.source.zone != Zone.BOARD
                 or origin.zone not in (Zone.HAND, Zone.DECK) or origin.entity_id == self.source.entity_id
-                or origin.controller != self.source.controller or self.after_epoch != origin.zone_epoch + 1):
+                or self.after_epoch != origin.zone_epoch + 1):
             raise ValueError('Consumption changed its original physical source or removal')
         if type(self.candidates) is not tuple or any(type(ref) is not CardReference for ref in self.candidates):
             raise ValueError('Consumption candidates require their complete frozen references')
@@ -109,8 +109,11 @@ def validate_record(state, registry, row):
     if (row.turn > state.turn or row.action > state.action_number or row.ability_id >= state.next_attachment_id
             or state.entities[origin.entity_id].zone_epoch < row.after_epoch):
         raise ValueError('Consumption has a future source, attachment or removal')
-    expected = (Zone.HAND, CardType.SPELL) if profile.kind == 'hand_spell' else (Zone.DECK, CardType.MINION)
-    if (origin.zone, origin.kind) != expected:
+    expected_zone = Zone.DECK if profile.kind == 'deck_minion' else Zone.HAND
+    expected_kind = {'hand_spell': CardType.SPELL, 'deck_minion': CardType.MINION}.get(profile.kind)
+    expected_player = 3-row.source.controller if profile.kind == 'opponent_hand' else row.source.controller
+    if (origin.zone != expected_zone or origin.controller != expected_player
+            or expected_kind is not None and origin.kind != expected_kind):
         raise ValueError('Consumption does not match its declared original card kind')
     for ability in row.card.local.abilities:
         if ability.consumed_card_id is not None:
@@ -126,10 +129,12 @@ def validate_record(state, registry, row):
         if not row.candidates:
             raise ValueError('Random consumption requires its original nonempty candidates')
         for ref in row.candidates:
-            if (ref.zone != Zone.DECK or ref.player_id != row.source.controller
-                    or registry.card(ref.card_id).kind != CardType.MINION
+            if (ref.zone != expected_zone or ref.player_id != expected_player
+                    or expected_kind is not None and registry.card(ref.card_id).kind != expected_kind
                     or ref.entity_id not in state.entities or ref.zone_epoch > state.entities[ref.entity_id].zone_epoch):
                 raise ValueError('Random consumption has an unknown or invalid original candidate')
+        if profile.kind == 'opponent_hand' and (row.attack_gain or row.health_gain):
+            raise ValueError('Opponent hand consumption cannot invent stat gains')
         rng = Random()
         rng.setstate(row.rng_before)
         selected = rng.choice(row.candidates)
@@ -187,6 +192,17 @@ class ResolveConsumedDeathrattle(Effect):
         _integer(self.deathrattle_id, 'consumed payload invocation', 1)
 
 
+@dataclass(frozen=True)
+class ConsumeOpponentHand(Effect):
+    """The actual two-card native Battlecry, followed by ordinary dormancy."""
+    source: MinionReference
+    profile_id: str
+
+    def __post_init__(self):
+        reference_value(self.source)
+        _behavior(self.profile_id)
+
+
 def consume(r, effect):
     effect.__post_init__()
     profile = r.registry.consumption_profiles[effect.profile_id]
@@ -215,6 +231,11 @@ def consume(r, effect):
         selected = r.game._rng.choice(candidates)
         after = r.game._rng.getstate()
         target = r.state.entities[selected.entity_id]
+    _capture_consumption(r, source, profile, target, candidates, before, after)
+    return ()
+
+
+def _capture_consumption(r, source, profile, target, candidates=(), before=None, after=None):
     material = CapturedCardCopyMaterial.capture(r.state, target)
     source_fact = SourceAllocationFact.capture(r.state, source)
     attack, health = (target.attack, target.max_health) if profile.kind == 'deck_minion' else (0, 0)
@@ -235,6 +256,31 @@ def consume(r, effect):
         buff(r, Buff(source.id, attack=attack, health=health, source_id=source.id))
     r.emit('ability_granted', target_id=source.id, source_id=source.id,
            ability_id=row.ability_id, ability_kind='deathrattle')
+    return row
+
+
+def consume_opponent_hand(r, effect):
+    effect.__post_init__()
+    profile = r.registry.consumption_profiles[effect.profile_id]
+    validate_profile(r.registry, profile)
+    if profile.kind != 'opponent_hand':
+        raise ValueError('Opponent hand consumption borrowed another native profile')
+    source = same_instance(r.state, effect.source)
+    if source is None or source.health <= 0 or source.doomed:
+        return ()
+    # An already accepted Battlecry may finish while its source is dormant.
+    # Each actual invocation keeps its own current hand pool and payloads.
+    for _ in range(2):
+        candidates = tuple(CardReference.capture(r.state.entities[i])
+                           for i in r.player(3-source.controller).hand)
+        if not candidates:
+            break
+        before = r.game._rng.getstate()
+        selected = r.game._rng.choice(candidates)
+        after = r.game._rng.getstate()
+        _capture_consumption(r, source, profile, r.state.entities[selected.entity_id], candidates, before, after)
+    from .dormancy import MakeDormant, make_dormant
+    make_dormant(r, MakeDormant(source.id, 2, source.id))
     return ()
 
 
@@ -253,6 +299,8 @@ def resolve(r, effect):
     if profile.kind == 'hand_spell':
         from .spell_casts import CastSpell
         return (CastSpell(capture.player_id, row.card.origin.card_id, capture.carrier_id),)
+    if profile.kind == 'opponent_hand':
+        return (CopyCard(row.card, row.card.origin.controller, mode='current', source_id=capture.carrier_id),)
     return (CopyCard(row.card, capture.player_id, mode='base', source_id=capture.carrier_id),)
 
 
@@ -296,3 +344,4 @@ def register(mechanics):
     mechanics.register(ConsumeHandSpell, consume)
     mechanics.register(ConsumeDeckMinion, consume)
     mechanics.register(ResolveConsumedDeathrattle, resolve)
+    mechanics.register(ConsumeOpponentHand, consume_opponent_hand)

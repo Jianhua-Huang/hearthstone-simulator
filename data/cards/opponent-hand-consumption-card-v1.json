@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "batch": "K202-opponent-hand-consumption",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_481",
+        "dbf_id": 123332,
+        "name": "厄索拉斯",
+        "name_en": "Iso'rath",
+        "text": "<b>战吼：</b>随机吞食对手的两张手牌，然后<b>休眠</b>2回合。<b>亡语：</b>吐回吞食的牌。",
+        "text_en": "[x]<b>Battlecry:</b> Devour 2 random\ncards from the opponent's hand,\nthen go <b>Dormant</b> for 2 turns.\n<b>Deathrattle:</b> Return them.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d718a41e4553d5329b0ab0c1275454182d84e41a42920986719ee9ca3cd47996",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_481",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_481e",
+        "dbf_id": 126120,
+        "name": "凝视与等待",
+        "name_en": "Watch and Wait",
+        "text": "<b>休眠</b>。@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 2,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0b6de60c522c2b5115189fca7ddff620db3d92e3ea6194bbd24620ae9fbdd659",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_481e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_481",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k202-opponent-hand-consumption\\official-cache-01\\123332-zh_CN.json",
+      "response_sha256": "791317e1b43b946d7b99ac0126c6ac5f3da8de58b224666cf90837bf0e7d03fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123332&locale=zh_CN",
+      "face": {
+        "id": 123332,
+        "collectible": 1,
+        "slug": "123332-isorath",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "厄索拉斯",
+        "text": "<b>战吼：</b>随机吞食对手的两张手牌，然后<b>休眠</b>2回合。<b>亡语：</b>吐回吞食的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91f72aeb6f1d318c1cbd1fcbe86eee12d391563fd8ac905c1498d4016e6360a9.png",
+        "imageGold": "",
+        "flavorText": "“你还吃不吃了？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36cd18ae939ebb5dc99e6059408d080989b8af1194fcdc0565cea5c425495e4b.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123332&locale=zh_CN",
+        "sha256": "791317e1b43b946d7b99ac0126c6ac5f3da8de58b224666cf90837bf0e7d03fb",
+        "bytes": 807,
+        "observed_at": "2026-10-18T16:01:21.603172+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_481",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k202-opponent-hand-consumption\\official-cache-01\\123332-en_US.json",
+      "response_sha256": "e2a347a1716add0afe8626549159f48675b76f7a833b4027f0e011b582e5dd33",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123332&locale=en_US",
+      "face": {
+        "id": 123332,
+        "collectible": 1,
+        "slug": "123332-isorath",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Iso'rath",
+        "text": "<b>Battlecry:</b> Devour 2 random cards from the opponent's hand, then go <b>Dormant</b> for 2 turns. <b>Deathrattle:</b> Return them.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc066bc8b4c43c985ec4fcaf3287f0e10d6d4f9b1c097041f2b40fdb3c761de8.png",
+        "imageGold": "",
+        "flavorText": "\"Are you going to finish that?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36cd18ae939ebb5dc99e6059408d080989b8af1194fcdc0565cea5c425495e4b.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123332&locale=en_US",
+        "sha256": "e2a347a1716add0afe8626549159f48675b76f7a833b4027f0e011b582e5dd33",
+        "bytes": 825,
+        "observed_at": "2026-10-18T16:01:21.453613+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_policy": {
+    "id": "opponent-hand-consumption-v1",
+    "selection": "Two current physical opponent-hand selections without replacement; shrink the full pool after each removal. Empty hand consumes no RNG; source still goes dormant.",
+    "storage": "Existing private SETASIDE removal and complete consumed-card material; no discard, death or draw.",
+    "output": "Independent granted Deathrattle per consumed card; return frozen current material through ordinary CopyCard to its original hand controller, including ordinary capacity handling. This creates new acquisitions; original hidden objects remain provenance.",
+    "dormancy": "Ordinary two-owner-start countdown. An accepted repeated Battlecry can consume while dormant; it does not reset existing dormancy.",
+    "cn_pending": [
+      "Output identity/acquisition and enchantment retention, repeated Battlecry/Deathrattle semantics, copying/inheritance, source gating, event order and consumed-content visibility require CN calibration."
+    ]
+  }
+}
