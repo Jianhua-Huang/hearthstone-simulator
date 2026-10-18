@@ -604,14 +604,17 @@ class DiscoverFromPool(Effect):
             ordinary = (grant.attack >= 0 and grant.health >= 0 and not grant.keywords and
                         grant.reborn_policy is None and grant.identity is None and grant.special is None)
             prepared = grant == CreatedMinionGrant(special='prepare')
+            hand = self.destination == 'hand' and self.discoveries == 1
+            bottom = (ordinary and self.destination == 'deck' and self.position == 'bottom'
+                      and self.discoveries == 2)
             if (not (ordinary or prepared) or
-                    self.source_id is None or self.destination!='hand' or self.count!=3 or self.discoveries!=1 or
+                    self.source_id is None or not (hand or bottom) or self.count!=3 or
                     self.delivery!='after_each' or not self.replacement or type(self.query)is not PoolQuery or
                     self.query.kinds!=(CardType.MINION,)or self.query.collectible is not True or
                     self.cost is not None or self.expires_turn is not None or self.spell_repeat is not None or
                     self.cause is not None or self.gift_pool is not None or self.heal_hero_by_printed_cost or
                     self.freeze_summoned or self.summon_copy_stats is not None):
-                raise ValueError('Ordinary discovery grant requires one source-bound positive-stat or Prepare hand-minion recipe')
+                raise ValueError('Discovery grant requires one hand recipe or two plain positive-stat bottom-deck minions')
         if self.summon_copy_stats is not None:
             if type(self.summon_copy_stats)is not SummonStats:
                 raise ValueError('Discovered copy requires typed summon stats')
