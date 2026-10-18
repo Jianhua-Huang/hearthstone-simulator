@@ -85,11 +85,17 @@ def equip_entity(r, entity, *, controller_id=None):
     r.emit('weapon_equipped', source_id=entity.id, target_id=entity.id, player_id=player.id)
 
 
-def equip_weapon(r, effect):
-    if r.registry.card(effect.card_id).kind != CardType.WEAPON:
+def create_equipped_weapon(r, player_id, card_id):
+    """Ordinary equipment creation with its actual result available before reactions."""
+    if r.registry.card(card_id).kind != CardType.WEAPON:
         raise ResolutionError('EquipWeapon requires a weapon definition')
-    entity = r.create_entity(effect.player_id, effect.card_id, Zone.GRAVEYARD)
+    entity = r.create_entity(player_id, card_id, Zone.GRAVEYARD)
     equip_entity(r, entity)
+    return entity
+
+
+def equip_weapon(r, effect):
+    create_equipped_weapon(r,effect.player_id,effect.card_id)
 
 
 def transfer_weapon(r,effect):

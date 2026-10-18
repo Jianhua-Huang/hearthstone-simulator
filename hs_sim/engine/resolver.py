@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v505'
+CORE_EFFECTS_VERSION = 'core-effects-v506'
 
 
 class Mechanics:
@@ -2338,6 +2338,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_weapon_forms(mechanics)
     from .weapon_attack_freeze import register as register_weapon_attack_freeze
     register_weapon_attack_freeze(mechanics)
+    from .random_weapon_equipment import register as register_random_weapon_equipment
+    register_random_weapon_equipment(mechanics)
     register_zones(mechanics)
     register_discovery_delivery(mechanics)
     register_discovery_offers(mechanics)
