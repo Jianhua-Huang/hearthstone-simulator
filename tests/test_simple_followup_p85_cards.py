@@ -185,7 +185,9 @@ class SimpleFollowupP85Tests(unittest.TestCase):
  def test_k0_thresher_native_cleave_hits_only_defender_neighbors_and_one_retaliation(self):
   g=self.game(board=(THRESHER,),enemy=(FILLER,)*4);ids=list(g.state.players[2].board);source=self.first(g,THRESHER,'board').id;g.apply(Attack(1,source,ids[1]));self.assertEqual([g.state.entities[i].damage for i in ids],[4,4,4,0]);self.assertEqual(g.state.entities[source].damage,1);self.assertEqual(g.state.entities[source].attacks_this_turn,1);self.portable(g)
  def test_z0_full_raw_alias_declarations_and_existing_content_exact(self):
-  d=load_batch();self.assertEqual(len(d['dependencies']),10);self.assertEqual(len(d['official_observations']),42);self.assertFalse(d['cards']);self.assertFalse(d['exact_parent_child_links']);self.assertFalse(d['source_tag_links']);r0=build_registry();r1=batch_registry()
+  d=load_batch();self.assertEqual(len(d['dependencies']),10);self.assertEqual(len(d['official_observations']),42);self.assertFalse(d['cards']);self.assertFalse(d['exact_parent_child_links']);self.assertFalse(d['source_tag_links'])
+  with patch('hs_sim.cards.simple_followup_p85_cards.register_simple_followup_p85_cards',lambda r:None):r0=build_registry()
+  r1=batch_registry()
   for x in d['dependencies']:
    raw=x['record'];source=d['reviewed_declaration_aliases'][raw['id']];self.assertEqual(r1.card(raw['id']),replace(r0.card(source),id=raw['id'],name=raw['name'],cost=raw['cost'],attack=raw['attack'],health=raw['health'],metadata=metadata_from_record(raw)))
   self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
