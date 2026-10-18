@@ -15,6 +15,9 @@ class SpellBaseDamageProfile:
 
 
 def validate_profile(registry,profile):
+    from .destruction_spell_values import SpellStatGrantProfile, validate_profile as validate_stat_profile
+    if type(profile) is SpellStatGrantProfile:
+        return validate_stat_profile(registry, profile)
     if type(profile)is not SpellBaseDamageProfile:raise ValueError('Expected native base damage profile')
     profile.__post_init__();card=registry.card(profile.card_id);source=registry.card(profile.source_card_id)
     if card.kind!=CardType.SPELL or not card.hand_playable or card.on_play is None or source.kind!=CardType.MINION or source.deathrattle is None:
@@ -22,11 +25,15 @@ def validate_profile(registry,profile):
 
 
 def validate_ability(state,registry,ability):
+    if ability.kind == 'spell_stat_value':
+        from .destruction_spell_values import validate_ability as validate_stat_ability
+        return validate_stat_ability(state, registry, ability)
     ability.__post_init__()
     if ability.kind!='spell_base_value':raise ValueError('Expected native physical spell value')
     value=ability.spell_base_value;profile=registry.spell_value_profiles.get(value.card_id)
     if profile is None:raise ValueError('Native spell value lost its complete registered declaration')
     validate_profile(registry,profile)
+    if type(profile) is not SpellBaseDamageProfile: raise ValueError('Native base damage borrowed another value profile')
     if not 1<=value.deathrattle_id<=len(state.deathrattle_history):raise ValueError('Native spell value borrowed an unknown Deathrattle')
     row=state.deathrattle_history[value.deathrattle_id-1];capture=row.capture
     if row.id!=value.deathrattle_id or capture.carrier_id!=ability.source_id or capture.kind!=CardType.MINION or row.execution_order is None or value.amount!=row.source_attack:
@@ -35,21 +42,39 @@ def validate_ability(state,registry,ability):
         raise ValueError('Native spell value borrowed an unrelated source body')
 
 
+VALUE_KINDS = ('spell_base_value', 'spell_stat_value')
+
+
+def ability_value(ability):
+    if ability.kind == 'spell_base_value': return ability.spell_base_value
+    if ability.kind == 'spell_stat_value': return ability.spell_stat_value
+    raise ValueError('Expected a complete native spell value ability')
+
+
+def bound_value(entity):
+    rows = tuple(a for a in entity.abilities if a.kind in VALUE_KINDS)
+    return None if not rows else ability_value(rows[0])
+
+
 def validate_carrier(state,registry,card_id,kind,abilities):
-    rows=tuple(a for a in abilities if a.kind=='spell_base_value')
+    rows=tuple(a for a in abilities if a.kind in VALUE_KINDS)
     if not rows:return
-    if kind!=CardType.SPELL or len(rows)!=1 or rows[0].spell_base_value.card_id!=card_id:
+    if kind!=CardType.SPELL or len(rows)!=1 or ability_value(rows[0]).card_id!=card_id:
         raise ValueError('Native base value requires its single original spell carrier')
     validate_ability(state,registry,rows[0])
 
 
 def install(state,registry,entity,value):
+    from .model import SpellStatGrantValue
+    if type(value) is SpellStatGrantValue:
+        from .destruction_spell_values import install as install_stat_value
+        return install_stat_value(state, registry, entity, value)
     if type(value)is not SpellBaseDamageValue:raise ValueError('Expected complete generated spell value')
     value.__post_init__();row=state.deathrattle_history[value.deathrattle_id-1]if value.deathrattle_id<=len(state.deathrattle_history)else None
     if row is None:raise ValueError('Native generation lost its actual source Deathrattle')
     ability=AbilityInstance(attachment_id(state),'spell_base_value',source_id=row.capture.carrier_id,spell_base_value=value)
     validate_ability(state,registry,ability)
-    if entity.kind!=CardType.SPELL or entity.card_id!=value.card_id or any(a.kind=='spell_base_value'for a in entity.abilities):
+    if entity.kind!=CardType.SPELL or entity.card_id!=value.card_id or any(a.kind in VALUE_KINDS for a in entity.abilities):
         raise ValueError('Native spell value cannot be installed on a foreign or already bound carrier')
     entity.abilities.append(ability)
 
@@ -75,12 +100,12 @@ def create(r,request):
 
 
 def capture(r,record):
-    rows=tuple(a for a in r.state.entities[record.source_id].abilities if a.kind=='spell_base_value')
+    rows=tuple(a for a in r.state.entities[record.source_id].abilities if a.kind in VALUE_KINDS)
     required=record.card_id in r.registry.spell_value_profiles
     if not required and not rows:return record
-    if len(rows)!=1 or rows[0].spell_base_value.card_id!=record.card_id:
+    if len(rows)!=1 or ability_value(rows[0]).card_id!=record.card_id:
         from .registry import UnsupportedDefinitionError
-        raise UnsupportedDefinitionError('Native generated spell lacks its bound original base damage: '+record.card_id)
+        raise UnsupportedDefinitionError('Native generated spell lacks its bound original parameters: '+record.card_id)
     validate_ability(r.state,r.registry,rows[0])
     record=replace(record,native_spell_value=rows[0]);r.state.cast_history[record.id-1]=record
     return record
@@ -92,7 +117,7 @@ def validate_record(state,registry,record,live,owners):
         if required and record.payload_started and record.failure is None:raise ValueError('Accepted native spell lost its original frozen value')
         return
     validate_ability(state,registry,ability)
-    if not required or ability.spell_base_value.card_id!=record.card_id or ability.id>=state.next_attachment_id:
+    if not required or ability_value(ability).card_id!=record.card_id or ability.id>=state.next_attachment_id:
         raise ValueError('Native cast value lost its original face or allocation')
     if ability.id in live and live[ability.id]!=('ability',record.source_id,ability):raise ValueError('Native cast value borrowed another physical attachment')
     if ability.id in owners and owners[ability.id]!=record.source_id:raise ValueError('Native cast value migrated across physical spells')
@@ -115,12 +140,15 @@ def inherit_play(r,entity,original_state,play_id):
         if c.play_id==original.id and c.card_id==original.card_id and c.native_spell_value is not None)
     if not values:
         source=original_state.entities[original.source_id]
-        values=tuple(a for a in source.abilities if a.kind=='spell_base_value'and a.spell_base_value.card_id==original.card_id)
-    if not values or any(a.spell_base_value!=values[0].spell_base_value for a in values):
+        values=tuple(a for a in source.abilities if a.kind in VALUE_KINDS and ability_value(a).card_id==original.card_id)
+    if not values or any(ability_value(a)!=ability_value(values[0]) for a in values):
         from .registry import UnsupportedDefinitionError
         raise UnsupportedDefinitionError('Selected native spell occurrence lacks recoverable original parameters')
     for ability in values:validate_ability(original_state,r.registry,ability)
-    install(r.state,r.registry,entity,values[0].spell_base_value)
+    install(r.state,r.registry,entity,ability_value(values[0]))
 
 
-def register(mechanics):mechanics.register(CreateDeathrattleSpell,create)
+def register(mechanics):
+    mechanics.register(CreateDeathrattleSpell,create)
+    from .destruction_spell_values import register as register_stat_values
+    register_stat_values(mechanics)

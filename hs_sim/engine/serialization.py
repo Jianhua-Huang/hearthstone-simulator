@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 404
+SNAPSHOT_SCHEMA_VERSION = 405
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -292,6 +292,11 @@ def _ability_from_dict(value):
     if row['spell_base_value'] is not None:
         from .model import SpellBaseDamageValue
         row['spell_base_value']=SpellBaseDamageValue(**_row(row['spell_base_value'],SpellBaseDamageValue))
+    if row['spell_stat_value'] is not None:
+        from .model import SpellStatGrantValue
+        value = _row(row['spell_stat_value'], SpellStatGrantValue)
+        value['cause'] = _death_cause_from_dict(value['cause'])
+        row['spell_stat_value'] = SpellStatGrantValue(**value)
     if row['deathrattle_memory'] is not None:
         from .model import DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw
         memory=_row(row['deathrattle_memory'],DeathrattleMemory)

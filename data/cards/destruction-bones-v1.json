@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_730e",
+        "dbf_id": 122835,
+        "name": "培育",
+        "name_en": "Nurtured",
+        "text": "+5/+5。",
+        "text_en": "+5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 3,
+          "ENCHANTMENT_IDLE_VISUAL": 3
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d39bc670283b9abf365e3f9b38578a48b040742d93e7ec1c3d3e0543753217a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_730e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policies": [
+    "Two ordinary repeated discoveries from the complete current-class/neutral collectible Beast minion domain, replacement between discoveries; source class is not the actor class.",
+    "Reuse CreatedMinionGrant(attack=5,health=5), not CreatedMinionStats: this is an additive creation grant. Each original selected output is created directly at own deck bottom with its complete numbers before the first notification.",
+    "After-each delivery: first original output and reactions complete before the second offer. No hand transfer, shuffle, extra acquisition or silent omission of unknown eligible definitions.",
+    "Current class policy, offer/delivery ordering, initial creation and exact CN behavior remain local policies pending calibration. No complete formal Standard pool or reachability claim."
+  ],
+  "batch": "K210-destruction-bones",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_252",
+        "dbf_id": 118252,
+        "name": "蚀解软泥怪",
+        "name_en": "Dissolving Ooze",
+        "text": "<b>战吼：</b>消灭一个友方随从，将一张骸骨置入你的手牌。骸骨可以使一个随从获得被消灭随从的攻击力和生命值。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy a\nfriendly minion. Spit out\nthe Bones of its Attack and\nHealth into your hand.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 117614
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "e45249c3d03951ea1d865247381ff7546615df5573961d31dba34787f15dea28",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_252",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_829t",
+        "dbf_id": 117614,
+        "name": "骸骨",
+        "name_en": "Bones",
+        "text": "使一个随从获得+{0}/+{1}。",
+        "text_en": "Give a minion +{0}/+{1}.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "082069689d67c8d86b654a0fe74baabff66ebcf2830b01a7e2835714aa02a558",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_829t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_252",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118252-zh_CN.json",
+      "response_sha256": "9d5c09cbb5afe646a9fbf9a9f0fae0bb425c16d9719199462e2beba4660bc0a0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118252&locale=zh_CN",
+      "face": {
+        "id": 118252,
+        "collectible": 1,
+        "slug": "118252-dissolving-ooze",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "蚀解软泥怪",
+        "text": "<b>战吼：</b>消灭一个友方随从，将一张骸骨置入你的手牌。骸骨可以使一个随从获得被消灭随从的攻击力和生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07dd31fb4694b5b23379495968cbda64b798a9a8ee9d2eb8c616ec8823054756.png",
+        "imageGold": "",
+        "flavorText": "软泥怪→软泥→软→车",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/618ccdd3aaa4040677b9d50926f600bcf818f4d81ceb6911bb830a18e668971b.png",
+        "childIds": [
+          117614
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118252&locale=zh_CN",
+        "sha256": "9d5c09cbb5afe646a9fbf9a9f0fae0bb425c16d9719199462e2beba4660bc0a0",
+        "bytes": 863,
+        "observed_at": "2026-10-18T17:33:28.755027+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_252",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118252-en_US.json",
+      "response_sha256": "6bc3a1a7e67a1b8db55b00cac3498343d94761a622f1e70e5969ec6d704a22e2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118252&locale=en_US",
+      "face": {
+        "id": 118252,
+        "collectible": 1,
+        "slug": "118252-dissolving-ooze",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Dissolving Ooze",
+        "text": "<b>Battlecry:</b> Destroy a friendly minion. Spit out the Bones of its Attack and Health into your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53f565db1eac831636746a85d0b4d6b571f0645c7ec9487e5255ceead9aefd4d.png",
+        "imageGold": "",
+        "flavorText": "Ooze Ooz Oo O",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/618ccdd3aaa4040677b9d50926f600bcf818f4d81ceb6911bb830a18e668971b.png",
+        "childIds": [
+          117614
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118252&locale=en_US",
+        "sha256": "6bc3a1a7e67a1b8db55b00cac3498343d94761a622f1e70e5969ec6d704a22e2",
+        "bytes": 796,
+        "observed_at": "2026-10-18T17:33:29.098913+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_829t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117614-zh_CN.json",
+      "response_sha256": "eca83be1b174e4390c7254d5980a03c03cb0fd5330f9f1f3c1f80bbf393ce8b6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117614&locale=zh_CN",
+      "face": {
+        "id": 117614,
+        "collectible": 0,
+        "slug": "117614-bones",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Vlad Botos",
+        "manaCost": 2,
+        "name": "骸骨",
+        "text": "使一个随从获得+ /+ 。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64e1b69ad2fac1cb00363bc37c1f53c33baa8ab7e0f0f2d31f97720a047b13e6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117610,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117614&locale=zh_CN",
+        "sha256": "eca83be1b174e4390c7254d5980a03c03cb0fd5330f9f1f3c1f80bbf393ce8b6",
+        "bytes": 535,
+        "observed_at": "2026-10-18T17:33:28.643881+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_829t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117614-en_US.json",
+      "response_sha256": "072489f8ff749aa7078a3ee2889b46400d2708dbc1727a24ca18e521e2dfb07e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117614&locale=en_US",
+      "face": {
+        "id": 117614,
+        "collectible": 0,
+        "slug": "117614-bones",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Vlad Botos",
+        "manaCost": 2,
+        "name": "Bones",
+        "text": "Give a minion + /+ .",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a547c15277d92f715b8501f72949f3706a7b617e363ff5ee23ee435d4d316969.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117610,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117614&locale=en_US",
+        "sha256": "072489f8ff749aa7078a3ee2889b46400d2708dbc1727a24ca18e521e2dfb07e",
+        "bytes": 525,
+        "observed_at": "2026-10-18T17:33:28.735403+00:00"
+      }
+    }
+  ]
+}

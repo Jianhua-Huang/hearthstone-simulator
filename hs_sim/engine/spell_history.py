@@ -175,8 +175,8 @@ def recast(r, effect):
     entity = r.create_entity(effect.player_id,card.id,Zone.GRAVEYARD)
     entity.origin_entity_id = original.source_id
     if original.native_spell_value is not None:
-        from .native_spell_values import install
-        install(r.state,r.registry,entity,original.native_spell_value.spell_base_value)
+        from .native_spell_values import ability_value, install
+        install(r.state,r.registry,entity,ability_value(original.native_spell_value))
     if effect.branch_policy == 'inherit' and card.choose_one is not None:
         from .choose_branch_state import validate_selection
         from .model import ChooseBranchSelection

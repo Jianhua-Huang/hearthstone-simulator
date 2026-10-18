@@ -192,6 +192,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # scalar and remaining-turn slots. These exact original rows alone qualify.
     smoldering_display = (display_normalizations == {'@': '', '{0}': '', '{1}': ''} and
                          row['id'] in smoldering_pins and canonical(row) == smoldering_pins[row['id']])
+    # Bones preserves both complete rule bodies; the primary gallery omits
+    # exactly its two native parameter slots, not an executable 0/0 default.
+    bones_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'TLC_829t' and
+                     canonical(row) == '082069689d67c8d86b654a0fe74baabff66ebcf2830b01a7e2835714aa02a558')
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
@@ -203,10 +207,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((leyline_display or smoldering_display) and replacement == '', 'Only complete pinned bodies may omit their repeat/count display')
+            require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and

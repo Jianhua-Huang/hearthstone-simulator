@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v94'
+VIEW_VERSION = 'player-view-v95'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -369,6 +369,9 @@ class Information:
                     from .native_spell_values import public_value
                     value=public_value(entity)
                     if value is not None:result['base_damage']=value
+                    from .destruction_spell_values import public_bonus
+                    bonus = public_bonus(entity)
+                    if bonus is not None: result['stat_bonus'] = bonus
                 if entity.zone == Zone.QUEST:
                     from .quests import public_progress
                     result['quest'] = public_progress(game.registry, entity)

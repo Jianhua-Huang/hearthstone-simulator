@@ -2609,6 +2609,25 @@ class SpellBaseDamageValue:
 
 
 @dataclass(frozen=True)
+class SpellStatGrantValue:
+    """Frozen native bonuses and the genuine destruction that created them."""
+    card_id: str
+    attack: int
+    health: int
+    cause: DeathCause
+
+    def __post_init__(self):
+        _name(self.card_id, 'native stat spell face')
+        _int(self.attack, 'native spell Attack bonus', 0)
+        _int(self.health, 'native spell Health bonus', 1)
+        if type(self.cause) is not DeathCause:
+            raise ValueError('Native stat spell requires its complete destruction cause')
+        self.cause.__post_init__()
+        if self.cause.kind != 'destroy' or self.cause.reason != 'Destroy' or self.cause.source_id is None:
+            raise ValueError('Native stat spell requires actual source-bound destruction')
+
+
+@dataclass(frozen=True)
 class AbilityInstance:
     """A printed or granted ability with serializable identity and usage state."""
 
@@ -2683,6 +2702,7 @@ class AbilityInstance:
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
     spell_base_value: SpellBaseDamageValue | None = None
+    spell_stat_value: SpellStatGrantValue | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
 
     def __post_init__(self) -> None:
@@ -2708,6 +2728,17 @@ class AbilityInstance:
             if self.origin!='granted'or self.source_id is None or any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed):
                 raise ValueError('Native spell value cannot mix unrelated ability material')
         elif self.spell_base_value is not None:raise ValueError('Only native spell values carry base damage material')
+        if self.kind == 'spell_stat_value':
+            if type(self.spell_stat_value) is not SpellStatGrantValue:
+                raise ValueError('Native stat spell requires complete frozen bonuses')
+            self.spell_stat_value.__post_init__()
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'spell_stat_value'}
+            if (self.origin != 'granted' or self.source_id != self.spell_stat_value.cause.source_id or
+                    any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Native stat spell cannot mix unrelated ability material')
+        elif self.spell_stat_value is not None:
+            raise ValueError('Only native stat spells carry frozen bonuses')
         if self.kind == 'corpse_gain':
             _name(self.corpse_gain_card_id, 'native corpse gain card')
             if self.origin != 'printed' or self.source_id is None or not self.remove_on_silence:
@@ -2879,7 +2910,7 @@ class AbilityInstance:
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value', 'prepare'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value', 'spell_stat_value', 'prepare'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -7349,10 +7380,11 @@ class SpellCastRecord:
             raise ValueError('Spell target identity and original allocation must agree')
         from .stored_spell_damage import validate_local_ability
         if self.native_spell_value is not None:
-            if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind!='spell_base_value':
+            if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind not in ('spell_base_value', 'spell_stat_value'):
                 raise ValueError('Native cast value requires its complete original physical ability')
             self.native_spell_value.__post_init__()
-            if not self.payload_started or self.failure is not None or self.native_spell_value.spell_base_value.card_id!=self.card_id:
+            value = self.native_spell_value.spell_base_value if self.native_spell_value.kind == 'spell_base_value' else self.native_spell_value.spell_stat_value
+            if not self.payload_started or self.failure is not None or value.card_id!=self.card_id:
                 raise ValueError('Native cast value differs from its accepted original face')
         if type(self.local_spell_damage) is not tuple:
             raise ValueError('Local cast Spell Damage requires immutable complete abilities')
