@@ -2,6 +2,8 @@
 
 `DeckMinionCostSumCondition(total_cost, cost_basis, scope='starting')` 声明一个独立的起始套牌条件。卡牌通过现有 `CheckDeckCondition` 选择效果分支；执行、选择暂停、恢复和异常回滚均由原解释器负责。
 
+后续完整威拉诺兹适配把本条件接到原当前物理牌库的属性均分；数值依据、余数及窗口见[接卡契约](m3-deck-stat-distribution.md)，本条件与原起始事实口径不变。
+
 ```python
 from hs_sim.engine import DeckMinionCostSumCondition, CheckDeckCondition
 

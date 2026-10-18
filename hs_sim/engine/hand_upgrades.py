@@ -58,7 +58,7 @@ class UpgradeHandCard(Effect):
             raise ValueError('Health conversion must be boolean')
 
 
-def buff_stored_card(r, effect):
+def buff_stored_card(r, effect, *, pending_events=None):
     from .costs import attach_cost,validate_cost_targets
     effect.__post_init__()
     source_exists(r, effect.source_id)
@@ -84,10 +84,18 @@ def buff_stored_card(r, effect):
             attack=effect.attack, health=effect.health, expires_turn=effect.expires_turn, label='stored_buff'))
     cost=attach_cost(r.state,entity,effect.cost,effect.source_id,effect.expires_turn) if effect.cost is not None else None
     refresh_entity(entity)
-    r.emit('stored_card_buffed', target_id=entity.id, source_id=effect.source_id,
-           player_id=entity.controller, attack_delta=effect.attack, health_delta=effect.health)
+    data = dict(target_id=entity.id, source_id=effect.source_id, player_id=entity.controller,
+                attack_delta=effect.attack, health_delta=effect.health)
+    if pending_events is None:
+        r.emit('stored_card_buffed', **data)
+    else:
+        pending_events.append(('stored_card_buffed', data))
     if cost is not None:
-        r.emit('cost_modified',target_id=entity.id,source_id=effect.source_id,attachment_id=cost.id)
+        data = dict(target_id=entity.id, source_id=effect.source_id, attachment_id=cost.id)
+        if pending_events is None:
+            r.emit('cost_modified', **data)
+        else:
+            pending_events.append(('cost_modified', data))
 
 
 def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy='preserve', spell_to_minion=False):

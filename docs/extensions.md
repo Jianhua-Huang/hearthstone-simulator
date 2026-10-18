@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+威拉诺兹式牌库奖励用`DistributeDeckStatPairs(player_id, pairs, source_id)`，一对为+1攻击/+1生命；起始资格继续用`CheckDeckCondition`。均分和随机余数、普通附件及通知窗口见[契约](m3-deck-stat-distribution.md)。
+
 生成光环额外一回合用`GenerateAuraWithExtraTurn`包装普通单张池请求，有限身份筛选使用`PoolQuery.card_ids`。不直接改规范duration或当前同名实例；物理材料、实际施法及倒数证明见[契约](m3-generated-aura-duration.md)。
 
 真实单张生成需供独立连击消费时，使用`GenerateBattlecryCard`包装普通池请求或有限`GenerateFromCandidates`，再用`combo_card(..., kind=...)`取得原引用；不扫描后来的同名手牌。旧武器接口仍限武器，历史线格式和具名面具域见[契约](m3-mask-battlecry-combo.md)。

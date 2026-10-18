@@ -608,6 +608,8 @@ class Game:
         validate_weapon_output_events(self)
         from .aura_duration import validate_events as validate_aura_duration_events
         validate_aura_duration_events(self)
+        from .deck_stat_distribution import validate_events as validate_deck_stat_distribution_events
+        validate_deck_stat_distribution_events(self)
         from .timed_keywords import validate_boundary as validate_timed_keywords
         validate_timed_keywords(self)
         from .corpse_summon_rewards import validate_boundary as validate_corpse_summon_boundary
