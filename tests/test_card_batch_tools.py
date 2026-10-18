@@ -10,6 +10,62 @@ from tools import card_batch as batch
 
 
 class CardBatchToolTests(unittest.TestCase):
+    def mana_forms_fixture(self):
+        data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-held-mana-forms-v1.json')
+        self.assertEqual(batch.canonical(data), '6563091ec06702871b5866e567160e3c995371195b2057bc166a323c6517202c')
+        for row in data['records']:
+            self.assertEqual(batch.canonical(row['record']), row['record_sha256'])
+        return data
+
+    def test_repeated_mana_forms_keep_all_three_complete_bodies_in_both_locales(self):
+        data = self.mana_forms_fixture(); original = deepcopy(data)
+        rows = {row['record']['id']: row['record'] for row in data['records']}
+        for o in data['observations']:
+            raw = rows[o['card_id']]
+            with self.subTest(card=o['card_id'], locale=o['locale']):
+                batch.check_face(raw, o['face'], o['locale'], {'@': '', '{0}': ''})
+                with self.assertRaises(ValueError): batch.check_face(raw, o['face'], o['locale'])
+        self.assertEqual(data, original)
+
+    def test_repeated_mana_forms_cannot_drop_or_change_a_real_rule(self):
+        data = self.mana_forms_fixture(); raw = data['records'][0]['record']
+        o = next(o for o in data['observations'] if o['card_id'] == raw['id'] and o['locale'] == 'en_US')
+        for text in (o['face']['text'].replace('4 Mana', '5 Mana', 1),
+                     o['face']['text'].replace('temporary', 'permanent', 1),
+                     o['face']['text'].split('<i>')[0],
+                     o['face']['text'].replace('Gain a temporary Mana Crystal.', '', 1)):
+            with self.subTest(text=text), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(o['face'], text=text), 'en_US', {'@': '', '{0}': ''})
+        for index in (0, 1, 2):
+            changed = deepcopy(raw); states = changed['text_en'].split('@')
+            states[index] = states[index].replace('4', '5')
+            changed['text_en'] = '@'.join(states)
+            self.assertNotEqual(changed['text_en'], raw['text_en'])
+            with self.assertRaises(ValueError):
+                batch.check_face(changed, o['face'], 'en_US', {'@': '', '{0}': ''})
+
+    def test_repeated_mana_forms_require_exact_labels_and_printed_mana_threshold(self):
+        data = self.mana_forms_fixture(); raw = data['records'][0]['record']
+        o = next(o for o in data['observations'] if o['card_id'] == raw['id'] and o['locale'] == 'en_US')
+        for text in (raw['text_en'].replace('(Ready!)', '(Cast twice!)'),
+                     raw['text_en'].replace('{0}', '{1}'),
+                     raw['text_en'].replace('(Ready!)', '(Ready! Deal 4 damage.)')):
+            changed = dict(raw, text_en=text)
+            with self.assertRaises(ValueError):
+                batch.check_face(changed, o['face'], 'en_US', {'@': '', '{0}': ''})
+        for value in (None, True, 0, 5):
+            changed = deepcopy(raw); changed['tags']['TAG_SCRIPT_DATA_NUM_1'] = value
+            with self.assertRaises(ValueError):
+                batch.check_face(changed, o['face'], 'en_US', {'@': '', '{0}': ''})
+
+    def test_repeated_mana_forms_preserve_all_typed_and_numeric_primary_checks(self):
+        data = self.mana_forms_fixture(); raw = data['records'][0]['record']
+        o = next(o for o in data['observations'] if o['card_id'] == raw['id'] and o['locale'] == 'en_US')
+        for key, value in (('id', 1), ('manaCost', 3), ('attack', 3), ('health', 3),
+                           ('classId', 9), ('cardSetId', 1), ('cardTypeId', 5), ('collectible', False)):
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                batch.check_face(raw, dict(o['face'], **{key: value}), 'en_US', {'@': '', '{0}': ''})
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

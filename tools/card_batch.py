@@ -115,6 +115,26 @@ def validate_numeric_normalizations(values):
             'Only explicit printed cost/attack zero declarations are supported')
 
 
+def repeated_mana_forms(row, states, locale):
+    """Three complete, equal rule bodies with only left/ready UI suffixes.
+
+    The gallery concatenates all three original forms and omits the dynamic
+    value. Keep every body; this never selects or drops an alternate effect.
+    """
+    threshold = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
+    if (len(states) != 3 or row.get('type') != 'MINION' or row['tags'].get('BATTLECRY') != 1 or
+            type(threshold) is not int or threshold <= 0):
+        return False
+    forms = [re.fullmatch(r'(.+?)\s*<i>([^<>]*)</i>\s*', s, flags=re.S) for s in states[:2]]
+    if not all(forms): return False
+    labels = ('（还剩{0}点！）', '（已经就绪！）') if locale == 'zh_CN' else ('({0}left!)', '(Ready!)')
+    body = display(states[2])
+    held = f'消耗过{threshold}点法力值' if locale == 'zh_CN' else f'spent{threshold}Mana'
+    return (held in body and '{0}' not in body and
+            tuple(display(form[2]) for form in forms) == labels and
+            all(display(form[1]) == body for form in forms))
+
+
 def check_face(row, face, locale, display_normalizations=None, *, numeric_normalizations=None):
     chinese = locale == 'zh_CN'
     require(locale in ('zh_CN', 'en_US'), 'Unreviewed face locale')
@@ -135,6 +155,8 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                         '{0}' not in states[0] and
                         all(re.fullmatch(r'\s*<i>.*</i>\s*', s, flags=re.S) for s in states[1:]) and
                         tuple(display(s) for s in states[1:]) == progress_labels)
+    mana_forms_display = (display_normalizations == {'@': '', '{0}': ''} and
+                          repeated_mana_forms(row, states, locale))
     # A primary face may leave the counter label intact but omit its live value.
     # Require a reviewed, single trailing label and preserve the entire rule body,
     # label text and denominator. Never treat a rule-body @ as a display counter.
@@ -154,7 +176,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require(progress_display and replacement == '',
+            require((progress_display or mana_forms_display) and replacement == '',
                     'Only exact trailing progress-left/ready labels may omit their display counter')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
