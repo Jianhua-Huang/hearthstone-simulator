@@ -55,6 +55,7 @@ class ResolutionFrame:
     death_deferrals: int = 0
     spell_acceptances: tuple[int, ...] = ()
     paid_hand_acceptances: tuple[int, ...] = ()
+    original_discovery_offer: object | None = None
 
 
 @dataclass(frozen=True)
@@ -142,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v462'
+CORE_EFFECTS_VERSION = 'core-effects-v463'
 
 
 class Mechanics:
@@ -228,6 +229,7 @@ class Resolution:
         self._steps = 0
         self.root_action_number = self.state.action_number
         self._choice_request = None
+        self._original_discovery_offer = None
         self._paid_hand_choice_boundary = None
         self.ending_turn = False
         self.removed_weapons = []
@@ -856,7 +858,8 @@ class Resolution:
                 frame = ResolutionFrame(self.state.pending_choice.id, self.root_action_number, self._steps,
                                         self.ending_turn, tuple(routed if hero_mode else self.rules.reactions(triggers, deathrattles, [])),
                                         tuple(queue) if hero_mode else tuple(continuation) + tuple(queue), request.options, request.on_select,
-                                        self._paid_hand_choice_boundary, self.death_deferrals)
+                                        self._paid_hand_choice_boundary, self.death_deferrals,
+                                        original_discovery_offer=self._original_discovery_offer)
                 frame = replace(frame, spell_acceptances=tuple(w.play_id for w in
                     (*frame.prefix, *frame.continuation) if type(w) is FinishSpellAcceptance))
                 frame = replace(frame, paid_hand_acceptances=tuple(w.play_id for w in

@@ -41,7 +41,7 @@ def request_choice(r, effect):
     from .hand_choice_followups import bind_choice as bind_hand_followup
     bind_hand_followup(r, choice, options)
     from .discovery_offers import capture as capture_discovery_offer
-    capture_discovery_offer(r, choice, options, effect.on_select)
+    r._original_discovery_offer = capture_discovery_offer(r, choice, options, effect.on_select)
     from .battlecry_sources import automatic_choice as battlecry_choice
     automatic = battlecry_choice(r,choice,options,effect.on_select)
     if automatic is not None:
@@ -136,6 +136,7 @@ def resume_choice(r, action):
     r.death_deferrals = frame.death_deferrals
     r.charge()  # Choosing is part of the original resolution's cumulative budget.
     result = ChoiceResult(choice, tuple(o.id for o in choice.options if o.id in action.option_ids))
+    r._original_discovery_offer = frame.original_discovery_offer
     from .spell_repeats import remember_choice
     remember_choice(r.state, result)
     r.game._frame = None

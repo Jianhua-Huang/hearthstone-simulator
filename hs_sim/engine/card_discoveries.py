@@ -40,7 +40,11 @@ def commit(r, result, selection_event, options, on_select):
             raise ValueError('A card discovery offered an unplayable card face')
     from .owner_turns import current_owner_turn
     from .discovery_offers import OriginalDiscoveryOffer, encode_offer
-    offered_work = encode_offer(r.game, OriginalDiscoveryOffer(result.choice, tuple(options), on_select))
+    original = r._original_discovery_offer
+    if (type(original) is not OriginalDiscoveryOffer or original.choice != result.choice or
+            original.options != tuple(options) or original.on_select != on_select):
+        raise ValueError('Discovery commit lost its actual original offered material')
+    offered_work = encode_offer(r.game, original)
     row = CardDiscoveryRecord(len(r.state.card_discovery_history) + 1, r.state.turn,
         r.state.action_number, current_owner_turn(r.state).id,
         selection_event.sequence, len(r.game._events) + 1, result, offered_work)
