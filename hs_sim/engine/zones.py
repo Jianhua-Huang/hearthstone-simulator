@@ -819,7 +819,7 @@ def copy_card(r, effect):
     copy_physical_card(r, effect)
 
 
-def copy_physical_card(r, effect):
+def copy_physical_card(r, effect, *, minion_grant=None):
     """Shared copy materialization; internal callers may bind the new body."""
     effect.__post_init__()
     source_exists(r, effect.source_id)
@@ -854,6 +854,11 @@ def copy_physical_card(r, effect):
         source=reference_entity(r,effect.card)
         if source is None:return
     definition = r.registry.card(material.card_id if material is not None else source.card_id)
+    if minion_grant is not None:
+        from .card_creation import validate_minion_grant
+        validate_minion_grant(minion_grant)
+        if type(effect.card)is not CapturedCardCopyMaterial or definition.kind!=CardType.MINION or effect.mode!='current':
+            raise ResolutionError('Copied creation grant requires original current stored-minion material')
     if effect.stats is not None and definition.kind != CardType.MINION:
         raise ResolutionError('Copied initial stats require a minion')
     from .costs import attach_cost, validate_cost_targets
@@ -885,6 +890,10 @@ def copy_physical_card(r, effect):
     apply_summon_stats(r.state, entity, effect.stats)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
+    if minion_grant is not None:
+        from types import SimpleNamespace
+        from .card_creation import install
+        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=minion_grant,source_id=effect.source_id))
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id, copied_from=origin_id, copy_mode=effect.mode)
     event = 'card_added_to_deck' if destination == Zone.DECK else 'card_burned' if destination == Zone.GRAVEYARD else 'card_added_to_hand'
     if destination==Zone.GRAVEYARD:
@@ -1081,7 +1090,7 @@ def draw_minion_with_attack(r, effect):
     return (MoveCard(selected,effect.player_id,Zone.HAND,draw=True,source_id=effect.source_id),)
 
 
-def choose_from_zone(r, effect):
+def sample_zone_choices(r, effect):
     candidates = zone_candidates(r, effect.owner_id, effect.zone, effect.query, effect.player_id, effect.source_id)
     groups = {}
     if effect.distinct == 'card':
@@ -1101,6 +1110,12 @@ def choose_from_zone(r, effect):
         # Choose the physical representative once, after selecting distinct
         # definitions. Duplicate copies cannot inflate an ID's offer weight.
         offered = tuple(r.game._rng.choice(groups[card.card_id]) for card in offered)
+    return offered
+
+
+def choose_from_zone(r, effect):
+    offered=sample_zone_choices(r,effect)
+    if not offered:return ()
     options = []
     for index, card in enumerate(offered, 1):
         if effect.operation == 'copy_base':

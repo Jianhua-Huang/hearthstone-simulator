@@ -1804,3 +1804,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 亢祖式一次当前职业法术发现可用DiscoverFromPool(destination="hand_or_opponent_top")；原Spec须纯三选、一个发现且无额外材料。DeliverDiscoveredSpell绑定原池结果和实际去向决定，继续普通MaterializeDiscoveredCard/DiscoveryCompletion，不先入手再猜目标。两个真实选项仅展示印刷费用，不参与出牌支付，见[契约](m3-discovered-spell-destination.md)。
+
+
+梦魇供能式物理复制发现可用DiscoverOpponentDeckCopy(player_id, source_id, gift)，gift必须取原spell_conditions.combo。sample_zone_choices保持原复制去重/代表抽样；CopyOpponentDeckOffer将原CapturedCardCopyMaterial及配对赐福交原复制/材料化管线，不先取得再改牌。当前材料政策及M6边界见[契约](m3-opponent-deck-gift-copy.md)。

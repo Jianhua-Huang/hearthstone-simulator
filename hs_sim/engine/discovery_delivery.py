@@ -19,7 +19,8 @@ def recipe_types():
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     from .discovery_destinations import DeliverDiscoveredSpell
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell)
+    from .opponent_deck_gift_copy import CopyOpponentDeckOffer
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer)
 
 
 def recipe_face(request):
@@ -47,6 +48,8 @@ def validate_recipe(result, request):
     from .zones import MoveCard, DiscardCard
     if type(request) not in (MoveCard, DiscardCard) and request.player_id != result.choice.player_id:
         raise ValueError('Discovery recipe borrowed another original recipient player')
+    from .opponent_deck_gift_copy import CopyOpponentDeckOffer,validate_recipe as validate_copy_recipe
+    if type(request)is CopyOpponentDeckOffer:validate_copy_recipe(result,request)
 
 
 @dataclass(frozen=True)
@@ -160,6 +163,7 @@ def materialize(r, effect):
     cursor = len(r.game._events)
     request = effect.recipe; entity = None; work = ()
     from .discovery_destinations import DeliverDiscoveredSpell,materialize as materialize_destination
+    from .opponent_deck_gift_copy import CopyOpponentDeckOffer,materialize as materialize_copy
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     if type(request) is AddToHand:
@@ -187,6 +191,8 @@ def materialize(r, effect):
         entity = materialize_temporary_card(r, request)
     elif type(request)is DeliverDiscoveredSpell:
         entity=materialize_destination(r,request)
+    elif type(request)is CopyOpponentDeckOffer:
+        entity=materialize_copy(r,request)
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 
@@ -224,6 +230,8 @@ def validate_completion(state, registry, completion, *, closed=False):
     completion.__post_init__(); require_original_result(state, completion.result)
     from .discovery_destinations import validate_completion as validate_destination_completion
     validate_destination_completion(completion,registry)
+    from .opponent_deck_gift_copy import validate_completion as validate_copy_completion
+    validate_copy_completion(completion,registry)
     if completion.recipient is not None:
         validate_allocation(state, registry, completion.recipient, closed=closed)
     if completion.summon_root_id is not None:
@@ -281,6 +289,8 @@ def discount(r, effect):
 
 
 def validate_boundary(game):
+    from .opponent_deck_gift_copy import validate_boundary as validate_copy_boundary
+    validate_copy_boundary(game)
     from .hero_health_history import effective_events
     from .continuations import FrameCodec
     codec = FrameCodec(game.mechanics, game.registry); pending = {}; finished = set()

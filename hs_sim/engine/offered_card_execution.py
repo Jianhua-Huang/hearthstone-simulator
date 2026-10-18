@@ -115,9 +115,12 @@ def apply_material(r, selection, slot_id, entity):
     if option.effects:
         from .discovery import ResolvePoolDiscovery
         from .stored_gift_discovery import SelectGiftedDeckCard, gift_by_id
+        from .opponent_deck_gift_copy import CopyOpponentDeckOffer
         work = option.effects[0]
         if type(work) is ResolvePoolDiscovery: gift = work.selection.gift
         elif type(work) is SelectGiftedDeckCard: gift = gift_by_id(work.offered[work.index].gift_id)
+        elif type(work)is CopyOpponentDeckOffer and work.offered[work.index].gift_id is not None:
+            gift=gift_by_id(work.offered[work.index].gift_id)
     if gift is not None:
         from .card_creation import install
         source_id = selection.discovery.result.choice.source_id

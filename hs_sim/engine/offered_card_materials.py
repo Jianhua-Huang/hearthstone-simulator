@@ -78,6 +78,7 @@ def capture(r, option):
     from .temporary_cards import CreateTemporaryCard
     from .discovery import ResolvePoolDiscovery
     from .stored_gift_discovery import SelectGiftedDeckCard
+    from .opponent_deck_gift_copy import CopyOpponentDeckOffer
     from .hand_choice_followups import ResolveHandFollowupChoice, record
     from .summon_sources import ResurrectMinion
     # All currently supported genuine discovery producers have one original
@@ -96,6 +97,8 @@ def capture(r, option):
         return _physical(r, option, work.card)
     if type(work) is SelectGiftedDeckCard:
         return _physical(r, option, work.offered[work.index].card)
+    if type(work)is CopyOpponentDeckOffer:
+        return _physical(r,option,work.offered[work.index].material)
     if type(work) is ResolveHandFollowupChoice:
         root = record(r.state, work.followup_id)
         original = next((o for o in root.offers if o.id == work.option_id), None)
