@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+阿莱纳希式数值保留用`TransformStoredFromPool(..., retained_stats=SummonStats(...), retained_cost=...)`连接原物理手牌；数字取原局部材料，不复制含外部光环的最终报价，见[契约](m3-retained-demon-transforms.md)。
+
 通缉海报式发现授予使用`DiscoverFromPool.minion_grant=CreatedMinionGrant(special='prepare')`，保留原实际选择并在首次创建通知前安装；查询、有限形状和生命周期见[契约](m3-discovered-prepare.md)，不要事后扫描手牌或预先执行投资。
 
 真实残骸保留发现余项使用DiscoverFromPool.keep_all_corpse_cost及原完整菜单；付款/创建不能重抽或丢失后续，有限形状与校准边界见[契约](m3-corpse-discovery-keep.md)。

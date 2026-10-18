@@ -6,7 +6,7 @@ from .allocation_facts import SourceAllocationFact, validate_allocation
 from .construction import name
 from .effects import Effect, _integer, _source
 from .errors import ResolutionError
-from .model import CardClass, validate_end_turn_rng
+from .model import CardClass, CardType, SummonStats, Zone, validate_end_turn_rng, validate_summon_stats
 from .pools import (GenerationContext, GenerationPolicy, PoolMember, PoolQuery,
     resolve_candidates, sample_candidates, validate_policy)
 from .zones import CardReference, reference_entity, source_exists
@@ -26,6 +26,8 @@ class TransformStoredFromPool(Effect):
     source_id: int | None = None
     policy: GenerationPolicy = GenerationPolicy()
     empty: str = 'skip'
+    retained_stats: SummonStats | None = None
+    retained_cost: int | None = None
 
     def __post_init__(self):
         if type(self.target) is not CardReference:
@@ -36,6 +38,15 @@ class TransformStoredFromPool(Effect):
         self.query.__post_init__(); _source(self.source_id); validate_policy(self.policy)
         if type(self.empty) is not str or self.empty not in ('skip', 'error'):
             raise ValueError('Unknown stored transformation empty policy')
+        if (self.retained_stats is None) != (self.retained_cost is None):
+            raise ValueError('Retained hand transformation requires both stats and numeric Cost')
+        if self.retained_stats is not None:
+            validate_summon_stats(self.retained_stats)
+            _integer(self.retained_cost, 'retained stored transformation cost', 0)
+            if (self.retained_stats.attack is None or self.retained_stats.health is None or
+                    self.target.zone != Zone.HAND or self.source_id is None or
+                    self.query.kinds != (CardType.MINION,) or self.query.collectible is not True):
+                raise ValueError('Retained numbers require a complete source-bound hand-minion transformation')
 
 
 @dataclass(frozen=True)
@@ -96,11 +107,15 @@ class StoredPoolTransformDraw:
 def candidates(registry, state, context, request, hero_class, source_card_id):
     from .cross_zone import stored_destination
     request.__post_init__()
+    if request.retained_stats is not None and registry.card(request.target.card_id).kind != CardType.MINION:
+        raise ResolutionError('Retained stored numbers require an original minion')
     rows = resolve_candidates(registry, context, request.pool_id, request.query,
         current_class=hero_class, source_card_id=source_card_id, policy=request.policy,
         player_id=request.target.player_id, exclude_source_by_rule=False)
     for row in rows:
-        stored_destination(registry, request.target, row.card_id, state=state)
+        definition = stored_destination(registry, request.target, row.card_id, state=state)
+        if request.retained_stats is not None and definition.kind != CardType.MINION:
+            raise ResolutionError('Retained stored numbers require complete minion destinations')
     if not rows and request.empty == 'error':
         raise ResolutionError('Empty stored transformation pool')
     return rows
@@ -125,7 +140,8 @@ def transform(r, request):
     if selected:
         definition = stored_destination(r.registry, request.target, selected[0], state=r.state)
         cursor = len(r.game._events)
-        transform_stored_entity(r, entity, definition, source_id=request.source_id)
+        transform_stored_entity(r, entity, definition, source_id=request.source_id,
+            retained_cost=request.retained_cost, retained_stats=request.retained_stats)
         event, = (e for e in r.game._events[cursor:] if e.kind == 'stored_card_transformed')
         sequence = event.sequence
     draw = StoredPoolTransformDraw(request, context, r.registry.pool(request.pool_id, context).version,

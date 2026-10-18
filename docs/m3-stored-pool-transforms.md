@@ -1,5 +1,7 @@
 # 原存储卡牌的完整随机池变形
 
+阿莱纳希按真实需求复用本页请求并增加成对局部属性/费用材料，旧默认None及一般类型变形保持；详见[数值保留契约](m3-retained-demon-transforms.md)。
+
 `stored_pool_transforms.TransformStoredFromPool`将一个原HAND/DECK的`CardReference`连接到已有的完整候选查询、整数抽样及普通存储变形。请求携带池、查询、来源、既有生成政策及空池政策；它不锁随从、原类型或费用档。没有新随机算法、变形执行器、费用账户或状态账本。
 
 执行时先用`resolve_candidates`检查全部合格候选，再用`stored_destination`验证全部物理目的地和固定面板映射。未知合格内容或不支持的物理定义在游戏RNG前报错，不裁池或只等抽中后报错。普通变形沿既有纯查询政策，不额外排除来源家族；查询自己的exclude_source仍有效。实际目标引用过期也先校验内容，再跳过且不抽样。

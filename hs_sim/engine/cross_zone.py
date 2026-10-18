@@ -487,13 +487,24 @@ def transform_captured(r, effect):
                                    retained_cost=effect.retained_cost)
 
 
-def transform_stored_entity(r, entity, definition, *, source_id=None, retained_cost=None):
+def transform_stored_entity(r, entity, definition, *, source_id=None, retained_cost=None, retained_stats=None):
     """One lifecycle for the original minion operation and general stored cards."""
     from .costs import attach_cost
+    if retained_stats is not None:
+        validate_summon_stats(retained_stats)
+        if (retained_stats.attack is None or retained_stats.health is None or retained_cost is None or
+                entity.kind != CardType.MINION or definition.kind != CardType.MINION):
+            raise ResolutionError('Retained stored stats require complete minion numbers and Cost')
     old_card=entity.card_id
     reset_stored_entity(r,entity,definition)
     if retained_cost is not None:
         attach_cost(r.state,entity,CostSpec(set_to=retained_cost),source_id)
+    if retained_stats is not None:
+        from .lifecycle import attachment_id, refresh_entity
+        from .model import Enchantment
+        entity.enchantments.append(Enchantment(attachment_id(r.state), source_id=source_id,
+            set_attack=retained_stats.attack, set_health=retained_stats.health, label='retained_transform_stats'))
+        refresh_entity(entity)
     announce_stored_transform(r,entity,old_card,source_id=source_id)
     return ()
 
