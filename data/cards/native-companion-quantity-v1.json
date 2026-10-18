@@ -1,0 +1,619 @@
+{
+  "schema": 1,
+  "batch": "K191-companion-quantity",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "MEND_304",
+        "dbf_id": 123492,
+        "name": "塔雅·陆行",
+        "name_en": "Talya Earthstrider",
+        "text": "<b>战吼：</b>在本局对战中，你的召唤动物伙伴的卡牌多召唤一个\n伙伴。",
+        "text_en": "[x]<b>Battlecry:</b> Your cards\nthat summon Animal\nCompanions summon\n1 more this game.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Caroline Gariba"
+          }
+        ]
+      },
+      "record_sha256": "6f2fa5c5dbfbc2dccabd5963f0ed96fd91dd2bf2c5860429f334dccdaa39a3e6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "MEND_304",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_NEW1_031",
+        "dbf_id": 76297,
+        "name": "动物伙伴",
+        "name_en": "Animal Companion",
+        "text": "随机召唤一个野兽伙伴。",
+        "text_en": "Summon a random Beast Companion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 437
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "437",
+              "type": "Int",
+              "value": "437"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "817e645c61bdfc6c34114c9d7e07be2fcf77fed7a9513a7cb31a3dc3bc910e08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_NEW1_031",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_OG_211",
+        "dbf_id": 130721,
+        "name": "兽群呼唤",
+        "name_en": "Call of the Wild",
+        "text": "召唤全部三个动物伙伴。",
+        "text_en": "Summon all three Animal Companions.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 38727,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 38727
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38727",
+              "type": "Int",
+              "value": "38727"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9a5049149ba5d93d62c106f55d2784422bcbd6b6e0b04613cec54e30b6a208bb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_OG_211",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MEND_301",
+        "dbf_id": 123488,
+        "name": "灵语猎手",
+        "name_en": "Spiritspeaker",
+        "text": "<b>战吼：</b>&选择并召唤一个动物伙伴。",
+        "text_en": "<b>Battlecry:</b>& Choose an Animal Companion to_summon.",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "6f28c9275ce18005b63b26adca7e2d7fa21319a281384e5676c67ca4e558ff7f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "MEND_301",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_853",
+        "dbf_id": 114857,
+        "name": "布罗尔·熊皮",
+        "name_en": "Broll Bearmantle",
+        "text": "在你施放一个法术后，&随机召唤一个动物伙伴。",
+        "text_en": "After you cast a spell,& summon a random\nAnimal Companion.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "89cb21145ee4f438435860fa3e7d30bcc72e7f59fff690a59a5b697563154506",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_853",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NEW1_034",
+        "dbf_id": 100,
+        "name": "霍弗",
+        "name_en": "Huffer",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CHARGE": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "311f22defcf8c3b51210ac10d08d5e84e4720d34f27b153f7ead8b6f0a0a482e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "NEW1_034",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NEW1_033",
+        "dbf_id": 226,
+        "name": "雷欧克",
+        "name_en": "Leokk",
+        "text": "你的其他随从拥有+1攻击力。",
+        "text_en": "Your other minions have +1 Attack.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "AURA": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c59c8ebe081a99b054210027ce39b1ebdccb756809974e9409e8aabdb015f33b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "NEW1_033",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NEW1_032",
+        "dbf_id": 959,
+        "name": "米莎",
+        "name_en": "Misha",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fc317cb2c9ba52b53402eeeb32be160bf56b12b09c2c7be9320e6213ab2da066",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "NEW1_032",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "MEND_304",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123492-zh_CN.json",
+      "response_sha256": "18fc022d788c6ad4c1be4373f19b11139f51a5c04dd2139c949dec41e2afd6a9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123492&locale=zh_CN",
+      "face": {
+        "id": 123492,
+        "collectible": 1,
+        "slug": "123492-talya-earthstrider",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Caroline Gariba",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "塔雅·陆行",
+        "text": "<b>战吼：</b>在本局对战中，你的召唤动物伙伴的卡牌多召唤一个 伙伴。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcfd3d458068c3997693cb1707c7b28f2128f7191e45f6445a069c0ed356e5dc.png",
+        "imageGold": "",
+        "flavorText": "爱猫女士，爱雷象女士……也是爱摩天龙女士。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75b2ca83fb4a1b1672afad22b2120dbb9e0d866968d2029ab4c2c78654ff87f0.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123492&locale=zh_CN",
+        "sha256": "18fc022d788c6ad4c1be4373f19b11139f51a5c04dd2139c949dec41e2afd6a9",
+        "bytes": 823,
+        "observed_at": "2026-10-18T10:30:59.664516+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_304",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123492-en_US.json",
+      "response_sha256": "7ff66e1f72ac81f7cf936f31fc41bbb0e1fb4a0f6349b838aa348328f7507f15",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123492&locale=en_US",
+      "face": {
+        "id": 123492,
+        "collectible": 1,
+        "slug": "123492-talya-earthstrider",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Caroline Gariba",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Talya Earthstrider",
+        "text": "<b>Battlecry:</b> Your cards that summon Animal Companions summon 1 more this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f85db28fc8b9a21cbb151a0399409185a59d4172bbcce2eec6464f843d3c421e.png",
+        "imageGold": "",
+        "flavorText": "She's a cat lady... and an Elekk lady... and an Ultrasaur lady.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75b2ca83fb4a1b1672afad22b2120dbb9e0d866968d2029ab4c2c78654ff87f0.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123492&locale=en_US",
+        "sha256": "7ff66e1f72ac81f7cf936f31fc41bbb0e1fb4a0f6349b838aa348328f7507f15",
+        "bytes": 815,
+        "observed_at": "2026-10-18T10:30:59.443320+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_policy": {
+    "quote": "Once at original card body; choice retains its original entire tail.",
+    "additional": "Each permanent contribution appends one independently random companion after the base body.",
+    "entry": "Original SummonByCard capacity, ordinary entry multipliers and reaction checkpoints.",
+    "remaining_family_replacement_roots": [
+      "MEND_300",
+      "MEND_303",
+      "MEND_307"
+    ]
+  }
+}

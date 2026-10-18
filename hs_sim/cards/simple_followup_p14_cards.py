@@ -8,10 +8,9 @@ from hs_sim.engine.pools import PoolCard
 from hs_sim.engine.registry import UnsupportedDefinitionError
 from hs_sim.engine.sacrifice import BuffCapturedMinion,MinionReference
 from hs_sim.engine.spell_casts import cast_record
-from hs_sim.engine.summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial
 from hs_sim.targets import TargetValidationError,canonical_digest
 from .attack_followup_cards import completed_attack,living_source
-from .fixed_companion_cards import load_batch as companion_batch
+from .fixed_companion_cards import companion_effects,load_batch as companion_batch
 from .metadata import metadata_from_record
 from .native_followup_cards import minions
 
@@ -53,7 +52,7 @@ def register_simple_followup_p14_cards(registry):
         if not cast.completed or not cast.payload_started or cast.failure is not None or cast.interrupted:
             raise ResolutionError('Broll requires an actual successful spell completion')
         if cast.player_id!=c.player_id or not living_source(c):return ()
-        return(SummonByCard(c.player_id,tuple(SummonEntryMaterial(cid)for cid in COMPANIONS),SummonCause.capture(c),selection='random'),)
+        return companion_effects(c,registry)
     registry.register_behavior(PREFIX+'hammer',hammer);registry.register_behavior(PREFIX+'broll',broll)
     for row in data['cards']:
         raw=row['record'];cid=raw['id'];kwargs={}

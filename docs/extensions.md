@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实动物伙伴消费者调用`companion_effects`，由既有`ProducerQuantitySpec`报价额外逻辑单位，继续交普通`SummonByCard`逐次执行；不要把它替换为对已选材料的普通召唤倍率，见[契约](m3-companion-quantity.md)。
+
 真实魔网数值及额外效果在原CAST报价，永久玩家声明、逐单位随机/召唤/抽牌继续复用公共执行器；选择预览与物理施法区分见[魔网契约](m3-native-leylines.md)。
 
 真实新兵长期奖励在原玩家程序中声明明确卡牌范围，存储卡首次通知与休眠缓存沿同一数值层校验；默认场上光环含义保持，见[新兵契约](m3-recruit-player-programs.md)。

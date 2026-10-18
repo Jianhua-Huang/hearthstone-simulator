@@ -2,13 +2,11 @@
 from dataclasses import replace
 import json
 from pathlib import Path
-from hs_sim.engine.effects import ChoiceOption,RequestChoice
 from hs_sim.engine.model import CardDefinition,CardType
 from hs_sim.engine.physical_draw_groups import DrawGroupSlot,DrawPhysicalGroup
 from hs_sim.engine.pools import PoolCard,PoolQuery
-from hs_sim.engine.summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial
 from hs_sim.targets import TargetValidationError,canonical_digest
-from .fixed_companion_cards import load_batch as companion_batch
+from .fixed_companion_cards import companion_effects,load_batch as companion_batch
 from .metadata import metadata_from_record
 
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/simple-followup-p13-v1.json'
@@ -38,10 +36,7 @@ def register_simple_followup_p13_cards(registry):
         return(DrawPhysicalGroup(c.player_id,c.source_id,
             (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,)),starting_deck=False),)),)
     def speaker(c):
-        cause=SummonCause.capture(c)
-        options=tuple(ChoiceOption(cid,registry.card(cid).name,
-            (SummonByCard(c.player_id,(SummonEntryMaterial(cid),),cause),),card_id=cid)for cid in COMPANIONS)
-        return(RequestChoice(c.player_id,options,c.source_id),)
+        return companion_effects(c,registry,'choice')
     registry.register_behavior(PREFIX+'shovel',shovel);registry.register_behavior(PREFIX+'speaker',speaker)
     for row in data['cards']:
         raw=row['record'];cid=raw['id'];kwargs={}
