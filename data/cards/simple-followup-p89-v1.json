@@ -1,0 +1,2036 @@
+{
+  "schema": 1,
+  "batch": "P89",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p89-20261018/active-standard-manifest-02.json",
+    "sha256": "f19aabda5b5b2c66b5a3dd7a75dccc9c75e24c52ca671be99d3b4f105929781e"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_013",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_016",
+        "dbf_id": 119964,
+        "name": "耀眼创意",
+        "name_en": "Neon Innovation",
+        "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+        "text_en": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "GEARS": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "2e0e1d341a2ac5cc1cf2725712b7c54fb172ae5bacbfdbb6b5f5658c2788e813",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_016",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TIME_040",
+        "dbf_id": 120782,
+        "name": "消散的回忆",
+        "name_en": "Fading Memory",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Get a\nrandom 5-Cost minion from the past.",
+        "cost": 4,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "9a491cc6054857214a6c6c71791f83c8e908dd4e3226f73f18beac9981e1c782",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_040",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_052",
+        "dbf_id": 120951,
+        "name": "琥珀守卫",
+        "name_en": "Amber Warden",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&随机召唤一个来自过去的随从。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b>& Summon a\nrandom minion from\nthe past.",
+        "cost": 8,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 8,
+          "CARD_SET": 1957,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "a87d026f5d559d658284003cbea48d9c93cff9feb6e604164fd965423b2d5531",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_052",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_444",
+        "dbf_id": 120993,
+        "name": "迷时战刃",
+        "name_en": "Time-Lost Glaive",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的恶魔牌。",
+        "text_en": "<b>Deathrattle:</b>& Get a random Demon\nfrom the past.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "08e333536f4d11ed5c443afe1a2d8d23b869b5099fcb6e8e4157db6a4c828c0c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_444",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_857",
+        "dbf_id": 119633,
+        "name": "操控时间",
+        "name_en": "Alter Time",
+        "text": "<b>发现</b>两张来自过去的奥术法术牌，其法力值消耗减少（2）点。",
+        "text_en": "<b>Discover</b> two Arcane spells from the past. They cost (2) less.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "88dd76c181bbc30fb8bc73b4ffe4189c1a866dfa47c9b304a66e929b503d308b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_857",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "END_027",
+        "dbf_id": 121190,
+        "name": "永时之翼",
+        "name_en": "Wings of Eternity",
+        "text": "<b>发现</b>一张具有<b>黑暗之赐</b>的来自过去的龙牌。",
+        "text_en": "[x]<b>Discover</b> a Dragon\nfrom the past with a\n<b>Dark Gift</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cf24732c34692d838f8865f4482597aa8035c9128b16093af950651632ce8dd2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "END_027",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_000",
+        "dbf_id": 126698,
+        "name": "始源领主",
+        "name_en": "Primordial Lord",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "text_en": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion\nfrom the past.",
+        "cost": 6,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 6,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2247",
+              "name": "COLOSSAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0d0c5900d007da29a9f51752527696af1bae716689ae561c4cb8af3ec492e58f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_EVENT_000",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_707",
+        "dbf_id": 122833,
+        "name": "平行现实",
+        "name_en": "Alternate Reality",
+        "text": "将你的手牌和牌库里的牌替换为来自过去的随机<b>抉择</b>牌，其法力值消耗减少（1）点。",
+        "text_en": "[x]Replace your hand and\ndeck with random <b>Choose\nOne</b> cards from the past.\nThey cost (1) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "443",
+              "name": "CHOOSE_ONE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77c72fee45c3c6c2920d2ce1c2abee4491256b6c6c6218d39c962685dc245090",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_707",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_711",
+        "dbf_id": 120793,
+        "name": "闪回",
+        "name_en": "Flashback",
+        "text": "随机召唤两个来自过去的法力值消耗为（1）的随从。<b>连击：</b>并具有+1攻击力。",
+        "text_en": "Summon two random 1-Cost minions from the past. <b>Combo:</b> With +1 Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COMBO": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "b306038d9179b21145e13796cadb1b7290c3d090071b21d6b018d9704d5030bc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_711",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_434",
+        "dbf_id": 117430,
+        "name": "古生物秘术",
+        "name_en": "Paleomancy",
+        "text": "<b>发现</b>一张亡灵牌。消耗5份<b>残骸</b>，改为保留全部三张牌。",
+        "text_en": "<b>Discover</b> an Undead. Spend 5 <b>Corpses</b> to keep all 3 instead.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "SPELL_SCHOOL": 6,
+          "COST_UNHOLY": 1,
+          "CORPSE_SPENDER": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2559",
+              "name": "CORPSE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "79ccb55087f9ec949e29dff46947f4642072a39566e9fc46a193b202af00b454",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_434",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "CAP_407",
+        "dbf_id": 129888,
+        "name": "通缉海报",
+        "name_en": "Wanted Poster",
+        "text": "<b>发现</b>一张法力值消耗大于或等于（5）点的随从牌，使其获得<b>预备</b>。",
+        "text_en": "<b>Discover</b> a minion\n_that costs (5) or more.\nGive it <b>Prepare</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "91935b4ef713db8d1e4a8c834401b380e5c98369d8e37ecc850e91ec4ada8382",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CAP_407",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_493",
+        "dbf_id": 115928,
+        "name": "阿莱纳希",
+        "name_en": "Alara'shi",
+        "text": "<b>战吼：</b>随机使你手牌中的所有随从牌变形成为恶魔牌。<i>（保留其原始属性值和法力值消耗。）</I>",
+        "text_en": "[x]<b>Battlecry:</b> Transform minions\nin your hand into random\nDemons. <i>(They keep their\n__original stats and Cost.)</I>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "2537": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "8f594d177efb3e3096d0eecd4b8efd3d168e038e8eea75cda2141d061b0a44a9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_493",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [
+    {
+      "card_id": "TIME_711",
+      "whole_card_deferred": true,
+      "probe": "SummonFromPool pre-entry relative Attack grant",
+      "rejection_type": "TypeError",
+      "rejection": "SummonFromPool.__init__() got an unexpected keyword argument 'entry_attack'",
+      "missing_public_contract": "Random pool summon has no selected-material relative Attack grant; entry_keywords/dormancy do not express +1 Attack and post-summon Buff would publish an unbuffed first entry. No private candidate RNG/executor or partial non-Combo-only registration.",
+      "Game_apply": 0
+    },
+    {
+      "card_id": "TLC_434",
+      "whole_card_deferred": true,
+      "probe": "DiscoverFromPool keep original three on corpse payment",
+      "rejection_type": "TypeError",
+      "rejection": "DiscoverFromPool.__init__() got an unexpected keyword argument 'keep_all'",
+      "missing_public_contract": "No native original-menu keep-all delivery tied to SpendResource5. Three independent discoveries or three generic generated cards change original offered options, discovery receipts and quantity/choice semantics; not substituted.",
+      "Game_apply": 0
+    },
+    {
+      "card_id": "CAP_407",
+      "whole_card_deferred": true,
+      "probe": "Creation-time dynamic Prepare grant",
+      "rejection_type": "ValueError",
+      "rejection": "Unknown created minion special ability",
+      "missing_public_contract": "CreatedMinionGrant supports living_nightmare/rude_awakening only; hand action specification reads printed registry.card(source.card_id).hand_actions. No public stored Prepare grant, not a printed Keyword or mutated global definition.",
+      "Game_apply": 0
+    },
+    {
+      "card_id": "EDR_493",
+      "whole_card_deferred": true,
+      "probe": "Stored random pool transform preserving original stats",
+      "rejection_type": "TypeError",
+      "rejection": "TransformStoredFromPool.__init__() got an unexpected keyword argument 'keep_stats'",
+      "missing_public_contract": "Existing stored random transform resets printed Attack/Health and local state. Retained-cost variants preserve Cost only; no complete original-stat+Cost recipe before transform notification. Post-hoc hand buff after a new transform lifetime is not substituted.",
+      "Game_apply": 0
+    }
+  ],
+  "new_definition_ids": [
+    "TIME_013",
+    "TIME_016",
+    "TIME_040",
+    "TIME_052",
+    "TIME_444",
+    "TIME_857",
+    "END_027",
+    "CATA_EVENT_000",
+    "TIME_707"
+  ],
+  "collectible_candidate_roots": [
+    "TIME_013",
+    "TIME_016",
+    "TIME_040",
+    "TIME_052",
+    "TIME_444",
+    "TIME_857",
+    "END_027",
+    "CATA_EVENT_000",
+    "TIME_707"
+  ],
+  "necessary_cross_series_collectibles": [],
+  "necessary_noncollectibles": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119686-zh_CN.json",
+      "response_sha256": "2c27ef54c62ef285765b3ee9c63e3009cd3e5f9422291184cbcaf3fd78d93ec0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119686&locale=zh_CN",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119686&locale=zh_CN",
+        "sha256": "2c27ef54c62ef285765b3ee9c63e3009cd3e5f9422291184cbcaf3fd78d93ec0",
+        "bytes": 934,
+        "observed_at": "2026-10-18T04:43:01.599451+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119686-en_US.json",
+      "response_sha256": "1fc9d26e3928176b6c23e56238ec328956b0d3438ee00fc38e816e711b7042e4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119686&locale=en_US",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119686&locale=en_US",
+        "sha256": "1fc9d26e3928176b6c23e56238ec328956b0d3438ee00fc38e816e711b7042e4",
+        "bytes": 985,
+        "observed_at": "2026-10-18T04:43:01.460509+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_016",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119964-zh_CN.json",
+      "response_sha256": "713b527f1dadc05e93e72ce67ec9a554ede32d400247aad5cfd1b97f6b6b002b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=zh_CN",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "耀眼创意",
+        "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac11ba9b786880c9e2d65599a0b95ac1b381414ea2945b4a23b31398c4f23dfa.png",
+        "imageGold": "",
+        "flavorText": "“这星期你带护盾机器人来班里三次了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=zh_CN",
+        "sha256": "713b527f1dadc05e93e72ce67ec9a554ede32d400247aad5cfd1b97f6b6b002b",
+        "bytes": 784,
+        "observed_at": "2026-10-18T04:43:01.625063+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_016",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119964-en_US.json",
+      "response_sha256": "44753ce43badca80a1b7d1e90913efd215f9bc3b05cb20cd697b2341de490b81",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=en_US",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "Neon Innovation",
+        "text": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c2b7db7d6893fa5a21f1a8601ee631cd68b020d4aa71f3183be42d7a0a53ed8.png",
+        "imageGold": "",
+        "flavorText": "\"This is the third time this week you've brought Shielded Minibot to class.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119964&locale=en_US",
+        "sha256": "44753ce43badca80a1b7d1e90913efd215f9bc3b05cb20cd697b2341de490b81",
+        "bytes": 793,
+        "observed_at": "2026-10-18T04:43:01.844661+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120782-zh_CN.json",
+      "response_sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "消散的回忆",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/124dbe1ae668610b47aa809dc0d8421a3300d3c91c4abb1c8ab9bf4172e1305f.png",
+        "imageGold": "",
+        "flavorText": "我想到了一条绝妙的卡牌趣文……怎么又忘了？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+        "sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+        "bytes": 832,
+        "observed_at": "2026-10-18T04:43:02.201775+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120782-en_US.json",
+      "response_sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "Fading Memory",
+        "text": "<b>Deathrattle:</b>& Get a random 5-Cost minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13e8b54c21ae8be793ac75e2a8f0d773da7e299fbc0481a7da0db6541fe29ba7.png",
+        "imageGold": "",
+        "flavorText": "I had the best idea for flavor text! …what was it again?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+        "sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+        "bytes": 797,
+        "observed_at": "2026-10-18T04:43:02.740620+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_052",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120951-zh_CN.json",
+      "response_sha256": "4b5f276b60a20ffb76642d1b6efa0cecf77eaa1c6ca6997532eaba20deb251d2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120951&locale=zh_CN",
+      "face": {
+        "id": 120951,
+        "collectible": 1,
+        "slug": "120951-amber-warden",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "health": 12,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "琥珀守卫",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&随机召唤一个来自过去的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4c7a49dc433f052146f6e487a730fa18d14c833beed0d9109b406a7ec5bbed9.png",
+        "imageGold": "",
+        "flavorText": "对于琥珀守卫而言，这是生命中最重要的时刻。对于我而言，那不过是第八回合。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47c20d7d0f7e9c3680d569dfe29569412d9c7ae68671849dc78e603f2499ae37.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120951&locale=zh_CN",
+        "sha256": "4b5f276b60a20ffb76642d1b6efa0cecf77eaa1c6ca6997532eaba20deb251d2",
+        "bytes": 863,
+        "observed_at": "2026-10-18T04:43:02.496147+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_052",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120951-en_US.json",
+      "response_sha256": "762cdbec369eaac36212cc4e7f2e371d25f1088c54376451e6131cfd8f93093b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120951&locale=en_US",
+      "face": {
+        "id": 120951,
+        "collectible": 1,
+        "slug": "120951-amber-warden",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "health": 12,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "Amber Warden",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b>& Summon a random minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c076ea80b1b9297b0c02dccd28072ab0ec13488339ca5f20062b27b934a4ea66.png",
+        "imageGold": "",
+        "flavorText": "For Amber Warden, this was the most important moment in their life. For me, it was turn eight.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47c20d7d0f7e9c3680d569dfe29569412d9c7ae68671849dc78e603f2499ae37.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120951&locale=en_US",
+        "sha256": "762cdbec369eaac36212cc4e7f2e371d25f1088c54376451e6131cfd8f93093b",
+        "bytes": 845,
+        "observed_at": "2026-10-18T04:43:02.748389+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_444",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120993-zh_CN.json",
+      "response_sha256": "91444162876bad2107878c05096462183f91b46abbce2bf5103bd3617cab46ab",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120993&locale=zh_CN",
+      "face": {
+        "id": 120993,
+        "collectible": 1,
+        "slug": "120993-time-lost-glaive",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "迷时战刃",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的恶魔牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0006387bd9e462922d7daa5212ab6e151116c99e719eeafef42af3c2fb966d4.png",
+        "imageGold": "",
+        "flavorText": "哦，原来丢在这个时候了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9b27e8efd5dd03147ceb18d3000ec6967e791ddb8c3327fac2f9fdf945da9ed.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120993&locale=zh_CN",
+        "sha256": "91444162876bad2107878c05096462183f91b46abbce2bf5103bd3617cab46ab",
+        "bytes": 764,
+        "observed_at": "2026-10-18T04:43:03.103691+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_444",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120993-en_US.json",
+      "response_sha256": "a5660c8107f23ad2832b3493f42acb3fec577cbdd0eec2cb2ee795fa42f1c548",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120993&locale=en_US",
+      "face": {
+        "id": 120993,
+        "collectible": 1,
+        "slug": "120993-time-lost-glaive",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Time-Lost Glaive",
+        "text": "<b>Deathrattle:</b>& Get a random Demon from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b06e49f14ecfef5580a9327255ce7e2181f9a2b9e923fc49ff9071e819799f63.png",
+        "imageGold": "",
+        "flavorText": "Oh, that's when I left it!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9b27e8efd5dd03147ceb18d3000ec6967e791ddb8c3327fac2f9fdf945da9ed.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120993&locale=en_US",
+        "sha256": "a5660c8107f23ad2832b3493f42acb3fec577cbdd0eec2cb2ee795fa42f1c548",
+        "bytes": 750,
+        "observed_at": "2026-10-18T04:43:03.234186+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_857",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119633-zh_CN.json",
+      "response_sha256": "4f37e3fa2b0a525ac4b0486e4256abeef19fd5d9686529c98f5e108cde33a788",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119633&locale=zh_CN",
+      "face": {
+        "id": 119633,
+        "collectible": 1,
+        "slug": "119633-alter-time",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 4,
+        "name": "操控时间",
+        "text": "<b>发现</b>两张来自过去的奥术法术牌，其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b9dccc2a3066b5631ab33e3b6e3aac54faba493d87a18891bd79eecb8be06460.png",
+        "imageGold": "",
+        "flavorText": "来自过去和未来的法术牌的消耗会根据通货膨胀加以调整。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/490cba7ff5506254aec47ba65c9b678f18eb66fd3344b199b1d5637877140ceb.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119633&locale=zh_CN",
+        "sha256": "4f37e3fa2b0a525ac4b0486e4256abeef19fd5d9686529c98f5e108cde33a788",
+        "bytes": 817,
+        "observed_at": "2026-10-18T04:43:03.750790+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_857",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\119633-en_US.json",
+      "response_sha256": "6ad42dd62efd0e1600056c0d32868fe241ae266c177bce619726138eb1431f62",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119633&locale=en_US",
+      "face": {
+        "id": 119633,
+        "collectible": 1,
+        "slug": "119633-alter-time",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 4,
+        "name": "Alter Time",
+        "text": "<b>Discover</b> two Arcane spells from the past. They cost (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5496b8d201746df27249042ea05b811dfc1813b2e3081c4fc1baa4ba396b2ed9.png",
+        "imageGold": "",
+        "flavorText": "Spells from the past and future are adjusted for inflation.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/490cba7ff5506254aec47ba65c9b678f18eb66fd3344b199b1d5637877140ceb.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119633&locale=en_US",
+        "sha256": "6ad42dd62efd0e1600056c0d32868fe241ae266c177bce619726138eb1431f62",
+        "bytes": 775,
+        "observed_at": "2026-10-18T04:43:03.666416+00:00"
+      }
+    },
+    {
+      "card_id": "END_027",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\121190-zh_CN.json",
+      "response_sha256": "886fe2a38fa2d38d241adc6991057fcd1b5f6b43804562aadae249388880c3c5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121190&locale=zh_CN",
+      "face": {
+        "id": 121190,
+        "collectible": 1,
+        "slug": "121190-wings-of-eternity",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 1,
+        "name": "永时之翼",
+        "text": "<b>发现</b>一张具有<b>黑暗之赐</b>的来自过去的龙牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1aae36f1341a6363028a29cea5bd61b741f5d372f26e5326a0e8742e0b791a54.png",
+        "imageGold": "",
+        "flavorText": "哇，坦普卢斯！哇，双倍<b>战吼</b>……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac991ec48274dbdee30a3e4a59b74be90b46530592b9382cf7b84e52682fc1f7.png",
+        "keywordIds": [
+          21,
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121190&locale=zh_CN",
+        "sha256": "886fe2a38fa2d38d241adc6991057fcd1b5f6b43804562aadae249388880c3c5",
+        "bytes": 770,
+        "observed_at": "2026-10-18T04:43:04.102226+00:00"
+      }
+    },
+    {
+      "card_id": "END_027",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\121190-en_US.json",
+      "response_sha256": "cb19c2661cc24ddbe541e4f05514ff3ee2344d02c59858d3e5863015414376ec",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121190&locale=en_US",
+      "face": {
+        "id": 121190,
+        "collectible": 1,
+        "slug": "121190-wings-of-eternity",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 1,
+        "name": "Wings of Eternity",
+        "text": "<b>Discover</b> a Dragon from the past with a <b>Dark Gift</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f8d0b08f6021fec556353739bfe42a8ebc846db2d83fa509ec3cc0e69537955.png",
+        "imageGold": "",
+        "flavorText": "I can't wait for Temporus with double <b>Battlecry</b>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac991ec48274dbdee30a3e4a59b74be90b46530592b9382cf7b84e52682fc1f7.png",
+        "keywordIds": [
+          21,
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121190&locale=en_US",
+        "sha256": "cb19c2661cc24ddbe541e4f05514ff3ee2344d02c59858d3e5863015414376ec",
+        "bytes": 770,
+        "observed_at": "2026-10-18T04:43:04.457786+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\126698-zh_CN.json",
+      "response_sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "始源领主",
+        "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9f328bfa5489abbaad5a814d09f63aca07008bbd9a7598a47d3089b129a279d.png",
+        "imageGold": "",
+        "flavorText": "在那冰冷的黑曜石铠甲之下，他的心……如熔岩一般炽烈。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=zh_CN",
+        "sha256": "d7f99890ac58f415c9aed03f757e884056868677aedbbe5bb43aca3c58eff015",
+        "bytes": 839,
+        "observed_at": "2026-10-18T04:43:04.396023+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_000",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\126698-en_US.json",
+      "response_sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+      "face": {
+        "id": 126698,
+        "collectible": 1,
+        "slug": "126698-primordial-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 6,
+        "attack": 7,
+        "manaCost": 6,
+        "name": "Primordial Lord",
+        "text": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/caca1940b5fb902312af15fcd0393d74ea390b70fd14d4e7f81ff7d854d53a2c.png",
+        "imageGold": "",
+        "flavorText": "Behind his cold obsidian armor, he has a heart of... molten rock.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbd86dd34290bf853633d4b553dec3b2b7f741c07e7b2ae74268c1b6a842bd41.png",
+        "keywordIds": [
+          8,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126698&locale=en_US",
+        "sha256": "5bcfa31f4d7833a5605ad060464c752df140db2b1f7aa9e1b1962876cb2fc402",
+        "bytes": 823,
+        "observed_at": "2026-10-18T04:43:04.457786+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_711",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120793-zh_CN.json",
+      "response_sha256": "8e86bcd92451609ab65ef296e9768c609f84e8e3b179fb347965ae607fedc3a2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120793&locale=zh_CN",
+      "face": {
+        "id": 120793,
+        "collectible": 1,
+        "slug": "120793-flashback",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "闪回",
+        "text": "随机召唤两个来自过去的法力值消耗为（1）的随从。<b>连击：</b>并具有+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/414b65092cb6b3aaf2e8f7123bd3c0a7cbe399cc6c206b56c004a4554c0d762c.png",
+        "imageGold": "",
+        "flavorText": "这让我回想起了……使用上一张牌的时候。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34949ff7f158a11465f08aae965ec7f2e193291afd1372b4ff4f856e7f279faf.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120793&locale=zh_CN",
+        "sha256": "8e86bcd92451609ab65ef296e9768c609f84e8e3b179fb347965ae607fedc3a2",
+        "bytes": 788,
+        "observed_at": "2026-10-18T04:43:05.112045+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_711",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\120793-en_US.json",
+      "response_sha256": "b31ee9e648c8264dc458ef62d886bc608e89394771acfaf1b189a3bfc12d96b1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120793&locale=en_US",
+      "face": {
+        "id": 120793,
+        "collectible": 1,
+        "slug": "120793-flashback",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "Flashback",
+        "text": "Summon two random 1-Cost minions from the past. <b>Combo:</b> With +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c458b0c3f1982d3be8e57f92dd147b2e60e07afb88508407d8430a92278b810.png",
+        "imageGold": "",
+        "flavorText": "Brings me back. To the card I played right before this.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34949ff7f158a11465f08aae965ec7f2e193291afd1372b4ff4f856e7f279faf.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120793&locale=en_US",
+        "sha256": "b31ee9e648c8264dc458ef62d886bc608e89394771acfaf1b189a3bfc12d96b1",
+        "bytes": 757,
+        "observed_at": "2026-10-18T04:43:05.567976+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_707",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\122833-zh_CN.json",
+      "response_sha256": "46c273be1c123fc1c0a2ac331e4c0d7706b8f000879e19137b00f76a8b3bffb7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122833&locale=zh_CN",
+      "face": {
+        "id": 122833,
+        "collectible": 1,
+        "slug": "122833-alternate-reality",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "平行现实",
+        "text": "将你的手牌和牌库里的牌替换为来自过去的随机<b>抉择</b>牌，其法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea7a7dded1eb9a321a2a90c51a041821c49191b32e6e80a02dea95ad66bf3eb2.png",
+        "imageGold": "",
+        "flavorText": "我不接受你的现实。换成我的吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5957304309b9c1e6804d9413152516b5d9766dea9585320a9c42fd759b9c412.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122833&locale=zh_CN",
+        "sha256": "46c273be1c123fc1c0a2ac331e4c0d7706b8f000879e19137b00f76a8b3bffb7",
+        "bytes": 784,
+        "observed_at": "2026-10-18T04:43:05.251572+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_707",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\122833-en_US.json",
+      "response_sha256": "c4b42fef5ca4f78ab28c6ba7f7796b4713dca091d07e864096eccbc53473d559",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122833&locale=en_US",
+      "face": {
+        "id": 122833,
+        "collectible": 1,
+        "slug": "122833-alternate-reality",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "Alternate Reality",
+        "text": "Replace your hand and deck with random <b>Choose One</b> cards from the past. They cost (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b63c946a762abd19b528b0e84b0ff3c74060bf00da36b72c657660bf21eface.png",
+        "imageGold": "",
+        "flavorText": "I reject your reality and substitute my own!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5957304309b9c1e6804d9413152516b5d9766dea9585320a9c42fd759b9c412.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122833&locale=en_US",
+        "sha256": "c4b42fef5ca4f78ab28c6ba7f7796b4713dca091d07e864096eccbc53473d559",
+        "bytes": 766,
+        "observed_at": "2026-10-18T04:43:05.217605+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_434",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\117430-zh_CN.json",
+      "response_sha256": "476f977a31e9b806ffe953d8cd1fe66848cc157fcfdea164c021c51d604f97ac",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117430&locale=zh_CN",
+      "face": {
+        "id": 117430,
+        "collectible": 1,
+        "slug": "117430-paleomancy",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 3,
+        "name": "古生物秘术",
+        "text": "<b>发现</b>一张亡灵牌。消耗5份<b>残骸</b>，改为保留全部三张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/915dfbfacf885c7f65a483cb85bdd7329a08a5ec36e283a246115a242bebd9fa.png",
+        "imageGold": "",
+        "flavorText": "死亡自会找到出路。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d0fc3becabd8aa74fc3617fed9cb053ce6608b0ff5e94aec1a732914badc47.png",
+        "keywordIds": [
+          21,
+          247
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117430&locale=zh_CN",
+        "sha256": "476f977a31e9b806ffe953d8cd1fe66848cc157fcfdea164c021c51d604f97ac",
+        "bytes": 812,
+        "observed_at": "2026-10-18T04:43:05.838454+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_434",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\117430-en_US.json",
+      "response_sha256": "c954ad64288bf8b240816c2648b1ee982b3e596a1321e66be18ffeb066e2dd53",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117430&locale=en_US",
+      "face": {
+        "id": 117430,
+        "collectible": 1,
+        "slug": "117430-paleomancy",
+        "classId": 1,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 3,
+        "name": "Paleomancy",
+        "text": "<b>Discover</b> an Undead. Spend 5 <b>Corpses</b> to keep all 3 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a9110949de926a50999bc074377e88e1f3e9b13e4117a9437cbedbd7de53a92.png",
+        "imageGold": "",
+        "flavorText": "Death finds a way.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d0fc3becabd8aa74fc3617fed9cb053ce6608b0ff5e94aec1a732914badc47.png",
+        "keywordIds": [
+          21,
+          247
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117430&locale=en_US",
+        "sha256": "c954ad64288bf8b240816c2648b1ee982b3e596a1321e66be18ffeb066e2dd53",
+        "bytes": 783,
+        "observed_at": "2026-10-18T04:43:05.940317+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_407",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\129888-zh_CN.json",
+      "response_sha256": "020b45ef2d747794f57146c05fde02e834f7d77467a8602ef856ac31165b9909",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=zh_CN",
+      "face": {
+        "id": 129888,
+        "collectible": 1,
+        "slug": "129888-wanted-poster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 2,
+        "name": "通缉海报",
+        "text": "<b>发现</b>一张法力值消耗大于或等于（5）点的随从牌，使其获得<b>预备</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9df794e7d4a1dbb95efee74f5a8d88040417d5e47e12be3994c7c0de6acccc0.png",
+        "imageGold": "",
+        "flavorText": "“啊，他们把我的鼻子画崩了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b83b9e411af9b07ddfd49a7db8ff898efdd2daaebdf08e237ea3f87c8d925d9c.png",
+        "keywordIds": [
+          21,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=zh_CN",
+        "sha256": "020b45ef2d747794f57146c05fde02e834f7d77467a8602ef856ac31165b9909",
+        "bytes": 788,
+        "observed_at": "2026-10-18T04:43:05.987466+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_407",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\129888-en_US.json",
+      "response_sha256": "cb2025edb0fe758ff7db7dfdd459971144824764d7331f5752ed08d3cf25d86f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=en_US",
+      "face": {
+        "id": 129888,
+        "collectible": 1,
+        "slug": "129888-wanted-poster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 2,
+        "name": "Wanted Poster",
+        "text": "<b>Discover</b> a minion that costs (5) or more. Give it <b>Prepare</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0f5ba49002f77aad6cc1b0cb970baf294ef2dfa460dd2dc742ebb171b358799.png",
+        "imageGold": "",
+        "flavorText": "\"Aww, they messed up my nose!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b83b9e411af9b07ddfd49a7db8ff898efdd2daaebdf08e237ea3f87c8d925d9c.png",
+        "keywordIds": [
+          21,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=en_US",
+        "sha256": "cb2025edb0fe758ff7db7dfdd459971144824764d7331f5752ed08d3cf25d86f",
+        "bytes": 746,
+        "observed_at": "2026-10-18T04:43:06.387611+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_493",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\115928-zh_CN.json",
+      "response_sha256": "0b698cb06f20e85ae0b718b338dcd3a61fbe1cefdbb82201e4f0996efec93c7c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115928&locale=zh_CN",
+      "face": {
+        "id": 115928,
+        "collectible": 1,
+        "slug": "115928-alarashi",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Jakub Kasper",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "阿莱纳希",
+        "text": "<b>战吼：</b>随机使你手牌中的所有随从牌变形成为恶魔牌。<i>（保留其原始属性值和法力值消耗。）</I>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1711fa4d7f370fee2d9679dc0408a0981bf95d1eaa037f3e4c1675499bbb5a66.png",
+        "imageGold": "",
+        "flavorText": "看，是小鸟！看，是飞机！看，是大熊！看，是魔犬！看，是末日守卫！看，是小鬼！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54efae63ffd17f96430ec554b5b7ee1f12ba43d676a84490740cf1c32a2ee940.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115928&locale=zh_CN",
+        "sha256": "0b698cb06f20e85ae0b718b338dcd3a61fbe1cefdbb82201e4f0996efec93c7c",
+        "bytes": 940,
+        "observed_at": "2026-10-18T04:43:06.533971+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_493",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\115928-en_US.json",
+      "response_sha256": "a3e402cce27ed0c5d4f88fcaa19fbb81c3c912897f2fa54b7fcfc5d86233f804",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115928&locale=en_US",
+      "face": {
+        "id": 115928,
+        "collectible": 1,
+        "slug": "115928-alarashi",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Jakub Kasper",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Alara'shi",
+        "text": "<b>Battlecry:</b> Transform minions in your hand into random Demons. <i>(They keep their original stats and Cost.)</I>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19e85c26b5c9a292f51b8b8f914420d56e5087a348ce1669e4b5c13ea0493e21.png",
+        "imageGold": "",
+        "flavorText": "It's a bird! It's a plane! It's a bear! It's a felstalker! It's a doomguard! It's an imp!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54efae63ffd17f96430ec554b5b7ee1f12ba43d676a84490740cf1c32a2ee940.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115928&locale=en_US",
+        "sha256": "a3e402cce27ed0c5d4f88fcaa19fbb81c3c912897f2fa54b7fcfc5d86233f804",
+        "bytes": 893,
+        "observed_at": "2026-10-18T04:43:06.823477+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "exact_parent_child_links": [],
+  "source_tag_links": [],
+  "named_dependency_links": [],
+  "unsupported_source_cards": [
+    "TIME_711",
+    "TLC_434",
+    "CAP_407",
+    "EDR_493"
+  ],
+  "per_card_reviews": {
+    "TIME_013": "Elusive4/2/6. Subscribe native spell_cast_finished and validate actual linked completed/payload-started/nonfailed/noninterrupted SpellCastRecord. Every successful own manual, automatic/indirect and repeated payload discovers a current-class+neutral past Nature spell while original Wo remains living. Opponent, countered, missing-target and failed payloads cannot reward.",
+    "TIME_016": "Holy3 spell, explicit printed PALADIN-only Mech discovery (exclude neutral regardless of current hero); CreatedMinionGrant(+5/+5) bound to original creation before first hand acquisition event.",
+    "TIME_040": "4/6/3 Undead Deathrattle GenerateFromPool one collectible printed5-cost minion, random any class, original accepted controller and source.",
+    "TIME_052": "8/4/12 Taunt Dragon Deathrattle GenerateFromPool board minion, random any class, original deathrattle_position and SummonCause. Native capacity and Colossal/lifecycle remain public.",
+    "TIME_444": "1-cost2/2 Weapon, health source operand is durability2. Original weapon Deathrattle random any-class Demon minion from host past pool to hand; no Battlecry or source-living cancellation.",
+    "TIME_857": "Arcane4 spell; native DiscoverFromPool discoveries2 and cost delta-2, sequential ordinary current-class+neutral Arcane choices with first delivery before second choice; one original cast/payment.",
+    "END_027": "1-cost spell with no inferred school; native DiscoverDarkGift from host past Dragon pool, current-class+neutral, actual generation context and all paired native gifts preserved.",
+    "CATA_EVENT_000": "6/7/6 Elemental Battlecry random any-class past minion with printed Keyword.COLOSSAL; no fabricated Colossal subtype, no preselected built-in list.",
+    "TIME_707": "2-cost spell captures current ordered own hand+deck refs and their counts at original body acceptance, removes both in one ordinary nondeath RemoveFromGame group, then native random Choose One card generation to hand and ordered deck-bottom replacement with cost delta-1 bound before creation. Source active play excluded, no discard/draw/death or temporary return. Counts and grouping are explicit local policy pending M6."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Nine implemented actual Standard candidate roots from13 assigned; four whole public gaps retained unregistered. Original historical alias proposal not executed or counted. No replacement cards to force quota.",
+    "past_pool": "constructed.past.cards is an explicit host-supplied complete PoolDefinition for the actual GenerationContext. No production pool registered here, no membership inferred from implemented definitions, no exact past qualification/weight/version certificate. Missing required pool/context and qualifying unknown definitions must fail in native pipeline and rollback.",
+    "classes": "Ordinary discoveries use current class plus neutral; TIME016 explicitly specified printed Paladin only and excludes neutral. All random generation uses any class. Colossal is the actual existing Keyword.COLOSSAL query, not a new subtype.",
+    "effects": {
+      "TIME_013": "Elusive4/2/6. Subscribe native spell_cast_finished and validate actual linked completed/payload-started/nonfailed/noninterrupted SpellCastRecord. Every successful own manual, automatic/indirect and repeated payload discovers a current-class+neutral past Nature spell while original Wo remains living. Opponent, countered, missing-target and failed payloads cannot reward.",
+      "TIME_016": "Holy3 spell, explicit printed PALADIN-only Mech discovery (exclude neutral regardless of current hero); CreatedMinionGrant(+5/+5) bound to original creation before first hand acquisition event.",
+      "TIME_040": "4/6/3 Undead Deathrattle GenerateFromPool one collectible printed5-cost minion, random any class, original accepted controller and source.",
+      "TIME_052": "8/4/12 Taunt Dragon Deathrattle GenerateFromPool board minion, random any class, original deathrattle_position and SummonCause. Native capacity and Colossal/lifecycle remain public.",
+      "TIME_444": "1-cost2/2 Weapon, health source operand is durability2. Original weapon Deathrattle random any-class Demon minion from host past pool to hand; no Battlecry or source-living cancellation.",
+      "TIME_857": "Arcane4 spell; native DiscoverFromPool discoveries2 and cost delta-2, sequential ordinary current-class+neutral Arcane choices with first delivery before second choice; one original cast/payment.",
+      "END_027": "1-cost spell with no inferred school; native DiscoverDarkGift from host past Dragon pool, current-class+neutral, actual generation context and all paired native gifts preserved.",
+      "CATA_EVENT_000": "6/7/6 Elemental Battlecry random any-class past minion with printed Keyword.COLOSSAL; no fabricated Colossal subtype, no preselected built-in list.",
+      "TIME_707": "2-cost spell captures current ordered own hand+deck refs and their counts at original body acceptance, removes both in one ordinary nondeath RemoveFromGame group, then native random Choose One card generation to hand and ordered deck-bottom replacement with cost delta-1 bound before creation. Source active play excluded, no discard/draw/death or temporary return. Counts and grouping are explicit local policy pending M6."
+    },
+    "evidence": "Thirteen complete fixed original rows and26 strict bilingual primary faces, offline re-prepared inside worker; all deferred raw rows and minimal public API rejection proofs retained.",
+    "limits": "M0 fixed CN patch/qualified pool closure/past weights, M6 exact cast/repetition/generation/removal/replacement and event windows remain open. Nine registrations are not official complete support. No public engine, scheduler, source-auditor, state or identity changes."
+  }
+}
