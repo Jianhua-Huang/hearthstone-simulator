@@ -896,8 +896,21 @@ class Enchantment:
     owner_turn_expiry: OwnerTurnExpiry | None = None
     hand_play_lock: HandPlayLock | None = None
     control_return_expiry: OwnerTurnExpiry | None = None
+    hand_turn_discount: bool = False
+    hand_discount_turn: int | None = None
 
     def __post_init__(self) -> None:
+        _bool(self.hand_turn_discount, 'periodic hand discount')
+        _optional_id(self.hand_discount_turn, 'last hand discount turn')
+        if self.hand_turn_discount:
+            if (self.label != 'hand_turn_discount' or self.source_id is None or not self.remove_on_silence or
+                    self.attack or self.health or self.cost or self.cost_minimum or self.payment is not None or
+                    any(getattr(self,'set_'+n)is not None for n in ('attack','health','cost')) or
+                    any(getattr(self,n)is not None for n in ('expires_turn','magnetic_id','tribe_change','cthun_ritual',
+                        'control_return_player_id','owner_turn_expiry','hand_play_lock','control_return_expiry'))):
+                raise ValueError('Periodic hand discount requires its independent removable cost grant')
+        elif self.hand_discount_turn is not None or self.label == 'hand_turn_discount':
+            raise ValueError('Periodic hand discount clock requires its grant')
         _int(self.id, "enchantment ID", 1)
         _optional_id(self.source_id, "enchantment source_id")
         _optional_id(self.magnetic_id, 'magnetic group')

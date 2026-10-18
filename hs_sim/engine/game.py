@@ -615,6 +615,8 @@ class Game:
         validate_creation_boundary(self)
         from .prepare import validate_boundary as validate_prepare_boundary
         validate_prepare_boundary(self)
+        from .hand_turn_costs import validate_boundary as validate_hand_turn_costs
+        validate_hand_turn_costs(self)
         for entity in self._state.entities.values():
             if any(a.expires_turn is not None and a.expires_turn < self._state.turn
                    for a in [*entity.abilities, *entity.enchantments]):

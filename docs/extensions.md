@@ -1764,3 +1764,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 无拘之魂使用HandProgressSpec('opponent_copy_play')与IntrinsicCostSpec(set_to=1, condition='held_opponent_copy', history_profile_id='hand.held-opponent-copy-play-v1')；复制来源由公共物理复制入口冻结，不由卡牌扫描隐藏原牌库。限定资格与用法见[契约](m3-held-opponent-copy-cost.md)。
 
 原复制持牌战吼在BattlecryRecord保存held_opponent_copy；效果请求与整卡主体承接自己的接受事实，适配只用satisfied(context)及原DamageBatch，不读更晚载体。声明、历史与未登记定向来源边界见[契约](m3-held-opponent-copy-battlecry.md)。
+
+原手牌的本人开始减费用hand_turn_costs.GrantHandTurnDiscount(CardReference, source_id)，每次授予独立减1，不写自定义回调或替换hand_progress。随机生成随从的首次原子授予使用GenerateFromPool.minion_grant=CreatedMinionGrant(special='hand_turn_discount')；限定请求、复制/变形和保存边界见[契约](m3-hand-turn-costs.md)。

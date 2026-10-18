@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v482'
+CORE_EFFECTS_VERSION = 'core-effects-v483'
 
 
 class Mechanics:
@@ -420,6 +420,8 @@ class Resolution:
                         self._captured.append(call)
         from .hand_progress import capture_hand_progress
         self._captured.extend(capture_hand_progress(self, event))
+        from .hand_turn_costs import capture as capture_hand_turn_costs
+        self._captured.extend(capture_hand_turn_costs(self, event))
         self._captured.extend(hand_followup_work)
         if _discard_commit is not None:
             from .discard_history import capture_body
@@ -2446,6 +2448,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_derivatives(mechanics)
     from .hand_keywords import register as register_hand_keywords
     register_hand_keywords(mechanics)
+    from .hand_turn_costs import register as register_hand_turn_costs
+    register_hand_turn_costs(mechanics)
     from .summon_sources import register as register_summon_sources
     register_summon_sources(mechanics)
     from .spell_casts import register as register_spell_casts

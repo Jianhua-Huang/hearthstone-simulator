@@ -32,10 +32,13 @@ class CreatedMinionGrant:
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening', 'prepare')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount')):
             raise ValueError('Unknown created minion special ability')
         if self.special == 'prepare' and (self.attack or self.health or self.keywords or self.reborn_policy is not None):
             raise ValueError('Created Prepare is a separate hand-action grant')
+        if self.special == 'hand_turn_discount' and (
+                self.attack or self.health or self.keywords or self.reborn_policy is not None or self.identity is not None):
+            raise ValueError('Created periodic discount is an independent hand cost grant')
         if not (self.attack or self.health or self.keywords or self.special):
             raise ValueError('Created minion grant must change stats or keywords')
 
@@ -193,6 +196,8 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
+    if grant is not None and grant.special == 'hand_turn_discount' and effect.source_id is None:
+        raise ResolutionError('Created periodic discount requires its actual source')
     if grant is not None and grant.special == 'prepare':
         if effect.source_id is None or any(not d.hand_playable or
                 any(s.id == 'prepare' for s in d.hand_actions) and
@@ -274,6 +279,9 @@ def install(state, entity, effect):
                 battlecry_repeat=BattlecryRepeatSpec(2, (CardType.MINION,), scope='self')))
         elif grant.special == 'prepare':
             entity.abilities.append(AbilityInstance(attachment_id(state), 'prepare', source_id=effect.source_id))
+        elif grant.special == 'hand_turn_discount':
+            from .hand_turn_costs import attach
+            attach(state,entity,effect.source_id)
         refresh_entity(entity)
 
 
