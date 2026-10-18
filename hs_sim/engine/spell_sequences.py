@@ -71,6 +71,15 @@ class DrawWithCostReduction(Effect):
 
 
 @dataclass(frozen=True)
+class DrawWithTemporaryCostReduction(DrawWithCostReduction):
+    expires_turn: int
+
+    def __post_init__(self):
+        super().__post_init__()
+        _integer(self.expires_turn,'drawn card current-turn expiry',1)
+
+
+@dataclass(frozen=True)
 class DrawMatchingWithCostReduction(DrawWithCostReduction):
     """One physical matching draw; reduce that actual hand arrival after reactions."""
     query: PoolQuery
@@ -158,6 +167,8 @@ def draw_batch_deaths(r, request):
 
 def draw_discount(r, request, *, card=None):
     request.__post_init__()
+    if type(request)is DrawWithTemporaryCostReduction and request.expires_turn!=r.state.turn:
+        raise ResolutionError('Temporary draw reduction requires its original current turn')
     from .draw_casts import draw_one
     from .zones import CardReference, ModifyStoredCost
     index = len(r.state.draw_history)
@@ -168,7 +179,8 @@ def draw_discount(r, request, *, card=None):
     reference = CardReference.capture(r.state.entities[record.entity_id])
     if reference.zone != Zone.HAND:
         raise ResolutionError('Successful physical draw lacks its original hand arrival')
-    return (*work, ModifyStoredCost(reference, CostSpec(delta=-request.reduction), request.source_id))
+    return (*work, ModifyStoredCost(reference, CostSpec(delta=-request.reduction), request.source_id,
+        expires_turn=getattr(request,'expires_turn',None)))
 
 
 def draw_matching_discount(r, request):
@@ -201,6 +213,7 @@ def register(mechanics):
     for kind, handler in ((DecreasingMinionDamage, begin_decreasing),
             (MinionDamageWave, decreasing_wave), (DamageMinionsDrawDeaths, damage_then_draw),
             (DrawSpellBatchDeaths, draw_batch_deaths), (DrawWithCostReduction, draw_discount),
+            (DrawWithTemporaryCostReduction, draw_discount),
             (DrawMatchingWithCostReduction, draw_matching_discount),
             (DrawIfCheap, draw_if_cheap)):
         mechanics.register(kind, handler)

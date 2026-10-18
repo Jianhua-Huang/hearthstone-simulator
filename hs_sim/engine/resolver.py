@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v506'
+CORE_EFFECTS_VERSION = 'core-effects-v507'
 
 
 class Mechanics:

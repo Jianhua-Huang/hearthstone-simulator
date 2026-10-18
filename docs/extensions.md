@@ -1798,3 +1798,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 双方随机装备可用EquipRandomWeapons；内部create_equipped_weapon是普通EquipWeapon的同一创建/安装路径，只有需要原实际交付时才取返回实体并立即捕获EquippedWeaponReference，不把Entity放入续接。原+1/+1奖励、完整武器池及原生回溯见[契约](m3-random-weapon-equipment.md)。
+
+
+需要原抽到牌本回合减费时用DrawWithTemporaryCostReduction(player_id, reduction, source_id, expires_turn)，期限必须是实际当前回合；原hand交付在反应后以ModifyStoredCost处理，不搜索同名或后续抽牌。旧永久请求保持，见[契约](m3-temporary-draw-discount.md)。
