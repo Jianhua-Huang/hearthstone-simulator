@@ -240,6 +240,7 @@ class HealthOp(StrEnum):
     CAP = 'cap'
     FLOOR = 'floor'
     PREVENT = 'prevent'
+    WEAPON_DURABILITY = 'weapon_durability'
     REDIRECT = 'redirect'
     CONVERT = 'convert'
 
@@ -273,8 +274,14 @@ class HealthRule:
         _int(self.denominator, 'health rule denominator', 1)
         if self.operation != HealthOp.SCALE and self.denominator != 1:
             raise ValueError('Only scaling rules have a denominator')
-        if self.operation in (HealthOp.PREVENT, HealthOp.REDIRECT, HealthOp.CONVERT) and self.amount != 0:
+        if self.operation in (HealthOp.PREVENT, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY) and self.amount != 0:
             raise ValueError('Routing, conversion and prevention have no numeric operand')
+        if self.operation == HealthOp.WEAPON_DURABILITY and (
+                self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
+                self.source_relation != 'any' or self.target_relation != 'friendly' or
+                self.target_kinds != (CardType.HERO,) or self.damage_kinds or
+                self.healing_kinds or self.schools or self.redirect_to is not None):
+            raise ValueError('Weapon durability replacement requires its exact incoming friendly-hero damage profile')
         if self.operation == HealthOp.FLOOR and (self.flow != HealthFlow.DAMAGE or
                 self.layer != HealthLayer.TARGET or self.amount < 1):
             raise ValueError('Health FLOOR requires positive DAMAGE/TARGET operand')
@@ -10919,6 +10926,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_native_spell_carrier(state,registry,entity.card_id,entity.kind,attachments)
                 from .health_rules import validate_school_spell_damage_carrier
                 validate_school_spell_damage_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
+                from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
+                validate_weapon_damage_carrier(registry, entity.card_id, entity.kind, attachments)
                 from .native_conditions import validate_carrier as validate_native_condition_carrier
                 validate_native_condition_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
                 from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier
@@ -11097,6 +11106,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_native_spell_carrier(state,registry,record.card_id,kind,record.abilities)
         from .health_rules import validate_school_spell_damage_carrier
         validate_school_spell_damage_carrier(registry, record.card_id, kind, record.abilities, record.components)
+        from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
+        validate_weapon_damage_carrier(registry, record.card_id, kind, record.abilities)
         from .native_conditions import validate_carrier as validate_native_condition_carrier
         validate_native_condition_carrier(registry,record.card_id,kind,record.abilities,record.components)
         from .deathrattle_memory import validate_carrier as validate_deathrattle_memory_carrier

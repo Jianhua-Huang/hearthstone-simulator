@@ -116,7 +116,7 @@ def validate_weapon_transfer_events(state,registry,events):
         if prior is None: raise ValueError('Weapon transfer lost its original physical equipment event')
 
 
-def modify_weapon(r, effect):
+def modify_weapon(r, effect, *, pending_events=None):
     reference = effect.target_id if type(effect.target_id) is EquippedWeaponReference else None
     if reference is not None:
         r.registry.card(reference.card_id)
@@ -141,8 +141,12 @@ def modify_weapon(r, effect):
     from .death_causes import dying, mark
     if dying(weapon): mark(r, weapon, 'durability', 'ModifyWeapon', effect.source_id)
     r.refresh_auras()
-    r.emit('weapon_changed', source_id=effect.source_id, target_id=weapon.id,
-           attack=weapon.attack, durability=weapon.durability)
+    data = dict(source_id=effect.source_id, target_id=weapon.id,
+                attack=weapon.attack, durability=weapon.durability)
+    if pending_events is None:
+        r.emit('weapon_changed', **data)
+    else:
+        pending_events.append(('weapon_changed', data))
 
 
 def finish_exchange(r, combat):

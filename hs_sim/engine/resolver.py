@@ -19,7 +19,7 @@ from .effects import (Buff, Damage, DamageBatch, Destroy, DestroyBatch, Draw, Ef
                       ChangeManaCrystals, SetManaCap, Overload, UnlockOverload, GainResource, SpendResource,
                       HealBatch, GrantHealthRule, RequestChoice, ChoiceOption, InvokeBehavior, SplitDamage)
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import AbilityInstance, Enchantment, DeathRecord, CardType, ChoiceResult, DamageKind, Entity, Event, HealthFlow, Keyword, Resource, StatReference, TriggerCandidate, Zone
+from .model import AbilityInstance, Enchantment, DeathRecord, CardType, ChoiceResult, DamageKind, Entity, Event, HealthFlow, HealthOp, Keyword, Resource, StatReference, TriggerCandidate, Zone
 from .costs import pay_cost, modify_cost
 from .resources import begin_mana_turn, refresh_mana, mana_effect, resource_effect, lose_armor, consume_mana
 from .stats import resolve_stat
@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v502'
+CORE_EFFECTS_VERSION = 'core-effects-v503'
 
 
 class Mechanics:
@@ -1077,6 +1077,14 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
                                     reason=result.prevention, **result.event_data())))
             outcome(prevention=result.prevention)
             return 0
+        from .weapon_damage_replacement import replace_damage as replace_weapon_damage
+        guard_id = replace_weapon_damage(r, state, rules, packet, target, pending_events)
+        if guard_id is not None:
+            packet = replace(packet, amount=0, prevented=True, rule_ids=(*packet.rule_ids, guard_id))
+            pending_events.append(('damage_prevented', dict(source_id=packet.source_id, target_id=target.id,
+                                  reason='rule_prevention', **packet.event_data())))
+            outcome(prevention='rule_prevention')
+            return 0
         source = r.state.entities.get(packet.source_id)
         if (result.dealt and packet.damage_kind == DamageKind.MINION_ABILITY and source is not None
                 and Keyword.STEALTH in source.keywords):
@@ -1162,6 +1170,8 @@ def heal_batch(r, effect):
 
 
 def grant_health_rule(r, effect):
+    if effect.rule.operation == HealthOp.WEAPON_DURABILITY:
+        raise ResolutionError('Weapon durability replacement requires an original printed weapon declaration')
     from .health_floors import validate_grant
     validate_grant(r.state, r.registry, effect)
     validate_attachment_source(r, effect.source_id, effect.expires_turn)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+武器耐久替代英雄伤害使用有限印刷`HealthOp.WEAPON_DURABILITY`声明，不能用受伤后触发或在整组伤害后扣耐久；完整限制与原装备绑定见[契约](m3-weapon-damage-replacement.md)。
+
 指定普通关键词移除用`RemoveCapturedKeyword`与原`MinionReference`，不要用沉默或另造父子绑定；有限关键词、巨型原入口及恢复边界见[契约](m3-colossal-keyword-loss.md)。
 
 威拉诺兹式牌库奖励用`DistributeDeckStatPairs(player_id, pairs, source_id)`，一对为+1攻击/+1生命；起始资格继续用`CheckDeckCondition`。均分和随机余数、普通附件及通知窗口见[契约](m3-deck-stat-distribution.md)。

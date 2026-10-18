@@ -1596,6 +1596,8 @@ class Registry:
         _number(card.spell_damage, f"card {card.id} spell_damage", 0)
         from .health_rules import validate_school_spell_damage_definition
         validate_school_spell_damage_definition(card)
+        from .weapon_damage_replacement import validate_definition as validate_weapon_damage_definition
+        validate_weapon_damage_definition(card)
         from .hero_powers import validate_use_aura_definition
         validate_use_aura_definition(card)
         from .cleave import validate_definition as validate_cleave_definition
