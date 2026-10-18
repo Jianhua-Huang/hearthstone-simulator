@@ -4,6 +4,10 @@
 
 `ScheduleHandRemoval(player_id, owner_ends, source_id=None, retirement='remove', cards=None)` 在 `cards=None` 时保存指定玩家在效果实际执行时的完整手牌；提供不可变 `CardReference` 元组时，只保存显式给出的原手牌引用。经过明确数量的该玩家自然回合结束后，退役仍满足原引用的牌。`retirement='remove'` 保留原非死亡移除，`'destroy'` 显式执行存储摧毁；未知值拒绝。`owner_ends` 必须是严格正整数，玩家只允许 1、2；未知来源和未知卡牌明确报错。
 
+真实FIR_928烈焰守护者只组合既有入口：战吼捕获本人当前手牌随从，先以该完整原引用组接受三次本人结束的摧毁期限，再逐张交给普通BuffStoredCard(+3/+3)。这样首次增益通知/选择已保留全部期限及剩余增益，后收的牌不追加。来源死亡不撤销期限，原牌出牌/移区/转交/变形/重入及复制使用下文既有原驻留政策，不新建附魔时钟。出牌当回合在结束前接受的期限，按现有计数包括当次结束；这张卡的精确国服计数、复制/转交/变形政策及通知顺序仍待M6校准。
+
+根卡与FIR_928e/e2/e3三个仅证据附魔、两个官方主面固定于`data/cards/hand-buff-deadline-card-v1.json`；不把证据附魔注册成可执行卡。只新增卡牌适配器，公共时钟、存储增益/摧毁、恢复和信息执行器保持。
+
 这是一项独立的公共区域能力。回合、死亡、区域、选择和回放仍由已有内核负责。实际验证结果与下一项只在 [项目状态](project-status.md) 和 [机制清单](mechanism-backlog.md) 维护；可核查的本次结果见 [验证记录](../outputs/bound-hand-deadline-basics-20261011/verification.json)。
 
 ## 保存与时钟
