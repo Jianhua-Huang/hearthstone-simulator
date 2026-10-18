@@ -45,6 +45,22 @@ def validate_minion_grant(value):
         value.__post_init__()
 
 
+def validate_pool_entry_grant(value):
+    """Flashback needs only a relative Attack bonus on a fresh pool body."""
+    validate_minion_grant(value)
+    if value is not None and (value.attack <= 0 or value.health or value.keywords or
+            value.reborn_policy is not None or value.identity is not None or value.special is not None):
+        raise ValueError('Pool entry grant requires a plain positive relative Attack bonus')
+
+
+def minion_grant_from_dict(value):
+    if value is None: return None
+    from .serialization import _row
+    row = _row(value, CreatedMinionGrant)
+    row['keywords'] = tuple(Keyword(k) for k in row['keywords'])
+    return CreatedMinionGrant(**row)
+
+
 @dataclass(frozen=True)
 class CreatedMinionStats:
     """One numeric recipe for a freshly allocated hand/deck minion."""

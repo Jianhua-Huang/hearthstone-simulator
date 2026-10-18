@@ -9,6 +9,7 @@ import json
 from random import Random
 
 from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
+from .card_creation import CreatedMinionGrant,validate_pool_entry_grant,minion_grant_from_dict
 from .producer_amounts import AcceptedProducerAmount,ProducerAmountDecision,capture as capture_amount,validate_record as validate_amount_record,request_profile
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
@@ -30,8 +31,12 @@ class PoolSummonBasis:
     candidates:tuple[PoolMember,...]
     entry_keywords:tuple[Keyword,...]=()
     entry_dormant_turns:int|None=None
+    entry_grant:CreatedMinionGrant|None=None
 
     def __post_init__(self):
+        validate_pool_entry_grant(self.entry_grant)
+        if self.entry_grant is not None and (self.source is None or self.entry_keywords or self.entry_dormant_turns is not None):
+            raise ValueError('Pool entry Attack grant requires a source and plain printed material')
         if self.entry_dormant_turns is not None:
             _integer(self.entry_dormant_turns,'original pool dormant turns',1)
             if self.source is None or self.entry_keywords:
@@ -59,7 +64,12 @@ class PoolSummonBasis:
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns)
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None))
+
+
+def entry_material(basis,card_id):
+    return SummonEntryMaterial(card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns,
+        entry_grant=basis.entry_grant)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
@@ -72,7 +82,7 @@ def validate_basis(state,registry,basis,*,closed=False):
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
         exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
-    for row in rows:validate_material(registry,SummonEntryMaterial(row.card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns),allow_colossal=True)
+    for row in rows:validate_material(registry,entry_material(basis,row.card_id),allow_colossal=True,allow_pool_entry=True)
 
 
 def choose_weighted(rng,materials,weights):
@@ -84,8 +94,11 @@ def choose_weighted(rng,materials,weights):
 def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
     validate_basis(state,registry,request.pool_basis,closed=closed)
+    if request.pool_basis.entry_grant is not None and (
+            request.cause.source!=request.pool_basis.source or request.cause.player_id!=request.pool_basis.player_id):
+        raise ValueError('Pool entry grant changed its original causing source or player')
     if (request.player_id!=request.pool_basis.player_id or
-        request.materials!=tuple(SummonEntryMaterial(m.card_id,keywords=request.pool_basis.entry_keywords,dormant_turns=request.pool_basis.entry_dormant_turns)for m in request.pool_basis.candidates)or
+        request.materials!=tuple(entry_material(request.pool_basis,m.card_id)for m in request.pool_basis.candidates)or
         request.weights!=tuple(m.weight for m in request.pool_basis.candidates)):
         raise ValueError('Weighted entry differs from original resolved pool')
 
@@ -141,6 +154,9 @@ class PoolSummonBatchSpec:
     def __post_init__(self):
         if type(self.cause)is not SummonCause or type(self.basis)is not PoolSummonBasis:raise ValueError('Typed attributed batch producer required')
         self.cause.__post_init__();self.basis.__post_init__();_integer(self.count,'original batch count',0)
+        if self.basis.entry_grant is not None and (
+                self.cause.source!=self.basis.source or self.cause.player_id!=self.basis.player_id):
+            raise ValueError('Pool entry grant changed its original causing source or player')
         if self.basis.entry_dormant_turns is not None:
             raise ValueError('Preselected batch producer does not declare forced dormant entries')
         if type(self.replacement)is not bool:raise ValueError('Typed batch replacement required')
@@ -259,7 +275,7 @@ def start_entry(r,effect):
     root=record(r.state,effect.batch_id)
     if root.status!='active'or effect.index!=len(root.entry_root_ids)or effect.index>=len(root.selected):raise ResolutionError('Out-of-order original pool entry')
     if root.entry_root_ids and next(x for x in r.state.card_summon_history if x.id==root.entry_root_ids[-1]).status=='active':raise ResolutionError('Pool entry preceded completion of previous entry')
-    request=SummonByCard(root.spec.basis.player_id,(SummonEntryMaterial(root.selected[effect.index]),),root.spec.cause,
+    request=SummonByCard(root.spec.basis.player_id,(entry_material(root.spec.basis,root.selected[effect.index]),),root.spec.cause,
         position=entry_position(root,effect.index,{x.id:x for x in r.state.card_summon_history}),
         capacity='preselected_attempt',producer_link=PoolSummonEntryLink(root.id,effect.index))
     continuation=accept_entry(r,request);child_id=r.state.card_summon_history[-1].id
@@ -280,20 +296,27 @@ def interrupt(r):
         if root.status=='active':emit(r,'pool_summon_finished',update(r.state,root,status='interrupted'))
 
 
-def validate_link(state,root,*,closed=False):
-    link=root.request.producer_link
-    if link is None:return
+def validate_entry_recipe(state,request,*,closed=False):
+    link=request.producer_link
     link.__post_init__()
     if link.batch_id>=state.next_pool_summon_id:raise ValueError('Future original batch entry link')
     batch=next((r for r in state.pool_summon_history if r.id==link.batch_id),None)
     if batch is None:
         if closed:return
         raise ValueError('Unknown pool entry producer')
-    if (link.index>=len(batch.entry_root_ids)or batch.entry_root_ids[link.index]!=root.id or
-        root.request.cause!=batch.spec.cause or root.request.player_id!=batch.spec.basis.player_id or
-        root.request.materials!=(SummonEntryMaterial(batch.selected[link.index]),)or root.request.capacity!='preselected_attempt'or
-        root.request.position!=entry_position(batch,link.index,{x.id:x for x in state.card_summon_history})):
+    if (link.index>=len(batch.selected)or request.cause!=batch.spec.cause or request.player_id!=batch.spec.basis.player_id or
+        request.materials!=(entry_material(batch.spec.basis,batch.selected[link.index]),)or request.capacity!='preselected_attempt'or
+        request.position!=entry_position(batch,link.index,{x.id:x for x in state.card_summon_history})):
         raise ValueError('Entry borrowed another original batch/index/cause/material')
+
+
+def validate_link(state,root,*,closed=False):
+    link=root.request.producer_link
+    if link is None:return
+    validate_entry_recipe(state,root.request,closed=closed)
+    batch=next((r for r in state.pool_summon_history if r.id==link.batch_id),None)
+    if batch is not None and (link.index>=len(batch.entry_root_ids)or batch.entry_root_ids[link.index]!=root.id):
+        raise ValueError('Entry borrowed another original batch child identity')
 
 
 def validate_record(state,registry,root,*,closed=False,children=None):
@@ -312,7 +335,7 @@ def validate_record(state,registry,root,*,closed=False,children=None):
         if child is None:raise ValueError('Batch lost an actual original child entry')
         req=child.request
         if (req.producer_link!=PoolSummonEntryLink(root.id,index)or req.cause!=root.spec.cause or
-            req.player_id!=root.spec.basis.player_id or req.materials!=(SummonEntryMaterial(root.selected[index]),)or
+            req.player_id!=root.spec.basis.player_id or req.materials!=(entry_material(root.spec.basis,root.selected[index]),)or
             req.capacity!='preselected_attempt' or req.position!=entry_position(root,index,children)or
             child.event_cursor<=root.event_cursor):raise ValueError('Batch entry differs from original selected item/cause/window')
 
@@ -470,6 +493,7 @@ def from_dict(cls,value):
         row['source']=allocation_from_dict(row['source']);row['hero_class']=None if row['hero_class']is None else CardClass(row['hero_class'])
         row['candidates']=tuple(PoolMember(**_row(x,PoolMember))for x in row['candidates'])
         row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
+        row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
     elif cls is PoolSummonBatchSpec:
         row['cause']=entry_from_dict(SummonCause,row['cause']);row['basis']=from_dict(PoolSummonBasis,row['basis'])
         if row['fill_capacity']is not None:

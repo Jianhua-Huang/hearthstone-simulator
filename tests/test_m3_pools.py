@@ -328,8 +328,9 @@ class GenerationPoolTests(unittest.TestCase):
 
     def test_selected_branch_failure_keeps_committed_options_and_rng(self):
         self.pool(); self.script(lambda c: [DiscoverFromPool(1, 'pool')])
+        from hs_sim.engine.discovery_delivery import MaterializeDiscoveredCard
         def fail(r, effect): raise ValueError('simulated add failure')
-        mechanics = default_mechanics('generation-failing-v1'); mechanics.replace(AddToHand, fail)
+        mechanics = default_mechanics('generation-failing-v1'); mechanics.replace(MaterializeDiscoveredCard, fail)
         g = self.game(mechanics=mechanics); self.cast(g); before = g.snapshot()
         with self.assertRaisesRegex(ResolutionError, 'simulated add failure'): self.choose(g)
         self.assertEqual(g.snapshot(), before)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+实际随机批次需原相对入场加攻时，用GenerateFromPool.entry_grant=CreatedMinionGrant(attack=...)；原basis/子项必须相等，单次池入口及其他材料范围保持，见[闪回契约](m3-past-pool-entry-grants.md)。
+
 持有期间花费法力使用有限`HandProgressSpec('mana_spent', amount_basis='event_amount')`及`held_mana.satisfied`，读取原冻结条件；不以印刷费用或后来实体近似，见[契约](m3-held-mana.md)。
 
 马洛拉克从原`card_discarded`上下文调用`discard_summons.capture`，将`discard_summon_copy`材料交给普通`SummonByCard`；冻结材料与数量接受分窗，旧回手复制范围保持，见[契约](m3-discard-summon-copy.md)。

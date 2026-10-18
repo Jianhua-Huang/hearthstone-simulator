@@ -664,11 +664,21 @@ class GenerateFromPool(Effect):
     board_position: int | None = None
     minion_stats: CreatedMinionStats | None = None
     shuffle_actor_id: int | None = None
+    entry_grant: CreatedMinionGrant | None = None
 
     def __post_init__(self):
-        from .card_creation import validate_combined_shatter
+        from .card_creation import validate_combined_shatter, validate_pool_entry_grant
         validate_combined_shatter(self.combined_shatter)
         validate_minion_stats(self.minion_stats)
+        validate_pool_entry_grant(self.entry_grant)
+        if self.entry_grant is not None and (
+                type(self.cause) is not SummonCause or self.destination != 'board' or
+                self.source_id != self.cause.source.entity_id or self.player_id != self.cause.player_id or
+                type(self.query) is not PoolQuery or self.query.kinds != (CardType.MINION,) or
+                self.query.collectible is not True or self.minion_stats is not None or
+                self.spell_repeat is not None or self.combined_shatter or self.temporary_until_turn is not None or
+                self.cost is not None or self.expires_turn is not None or self.shuffle_actor_id is not None):
+            raise ValueError('Pool entry grant requires its original source-bound plain board minion batch')
         if self.shuffle_actor_id is not None:
             _player(self.shuffle_actor_id)
             if self.destination != 'deck' or self.position != 'random' or self.source_id is None:
@@ -975,9 +985,9 @@ def summon_from_pool(r,effect,*,producer_link=None):
     if not rows and effect.empty=='error':raise ResolutionError('Empty summon pool')
     if effect.cause is not None:
         from .summon_quantities import SummonByCard,SummonEntryMaterial,accept
-        from .pool_summons import PoolSummonBasis
+        from .pool_summons import PoolSummonBasis, entry_material
         basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,entry_dormant_turns=effect.entry_dormant_turns)
-        return accept(r,SummonByCard(effect.player_id,tuple(SummonEntryMaterial(m.card_id,keywords=effect.entry_keywords,dormant_turns=effect.entry_dormant_turns)for m in rows),effect.cause,
+        return accept(r,SummonByCard(effect.player_id,tuple(entry_material(basis,m.card_id)for m in rows),effect.cause,
             'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis,producer_link=producer_link))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='board_full')

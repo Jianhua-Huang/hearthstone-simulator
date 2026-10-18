@@ -10,6 +10,7 @@ import json
 from random import Random
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
+from .card_creation import CreatedMinionGrant, validate_pool_entry_grant, minion_grant_from_dict
 from .effects import Effect, _behavior, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import attachment_id
@@ -64,9 +65,14 @@ class SummonEntryMaterial:
     keywords: tuple[Keyword,...] = ()
     dormant_turns: int | None = None
     on_summon: str | None = None
+    entry_grant: CreatedMinionGrant | None = None
 
     def __post_init__(self):
         from .model import validate_summon_stats
+        validate_pool_entry_grant(self.entry_grant)
+        if self.entry_grant is not None and (self.stats is not None or self.deathrattles or
+                self.keywords or self.dormant_turns is not None or self.on_summon is not None):
+            raise ValueError('Pool entry Attack grant requires plain printed material')
         if self.dormant_turns is not None:
             _integer(self.dormant_turns, 'pre-entry dormant turns', 1)
             if self.stats is not None or self.deathrattles or self.keywords or self.on_summon is not None:
@@ -153,7 +159,7 @@ def validate_face(card):
         raise ValueError('Summon quantity requires an ordinary physical carrier')
 
 
-def validate_material(registry,material,*,allow_colossal=False):
+def validate_material(registry,material,*,allow_colossal=False,allow_pool_entry=False):
     if type(material) is PhysicalReplayEntryMaterial:
         from .replay_entry_material import validate_material as validate_primary_material
         validate_primary_material(registry, material); return
@@ -169,7 +175,7 @@ def validate_material(registry,material,*,allow_colossal=False):
         validate_copy_material(registry,material);return
     material.__post_init__(); card=registry.card(material.card_id)
     if (card.kind!=CardType.MINION or card.choice_only or card.starship_for or card.colossal and not allow_colossal or
-            Keyword.MAGNETIC in card.keywords or Keyword.STARSHIP_PIECE in card.keywords):
+            not allow_pool_entry and (Keyword.MAGNETIC in card.keywords or Keyword.STARSHIP_PIECE in card.keywords)):
         raise ValueError('This entry profile requires an ordinary non-composite minion')
     # Random generation can select a printed Colossal (for example FIR_907 at
     # six mana selects CATA_139). Delivery already delegates each new body to
@@ -394,11 +400,17 @@ def select_material(rng,request):
 
 def validate_request(state,registry,request,*,closed=False,original_cast_event=None):
     validate_cause(state,registry,request.cause,closed=closed,original_cast_event=original_cast_event)
+    from .pool_summons import PoolSummonEntryLink,validate_entry_recipe,validate_weighted_request
+    pooled=request.selection=='weighted' or type(request.producer_link)is PoolSummonEntryLink
+    if request.selection=='weighted':validate_weighted_request(state,registry,request,closed=closed)
+    elif type(request.producer_link)is PoolSummonEntryLink:validate_entry_recipe(state,request,closed=closed)
     for material in request.materials:
         if type(material) is PhysicalReplayEntryMaterial:
             from .replay_entry_material import validate_scope
             validate_scope(state, registry, request, material)
-        validate_material(registry,material,allow_colossal=type(material)is SummonEntryMaterial)
+        validate_material(registry,material,allow_colossal=type(material)is SummonEntryMaterial,allow_pool_entry=pooled)
+        if type(material)is SummonEntryMaterial and material.entry_grant is not None and not pooled:
+            raise ValueError('Pool entry Attack grant requires its complete original pool recipe')
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)
@@ -415,9 +427,6 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import validate_material as validate_death_material
             validate_death_material(state,registry,material,closed=closed)
-    if request.selection=='weighted':
-        from .pool_summons import validate_weighted_request
-        validate_weighted_request(state,registry,request,closed=closed)
     from .mana_worth_summons import ManaWorthEntryLink,validate_recipe as validate_budget_recipe
     if type(request.producer_link) is ManaWorthEntryLink:validate_budget_recipe(request)
 
@@ -500,6 +509,11 @@ def deliver(r,effect):
                     behavior_id=behavior,deathrattle_grant_card_id=root.request.cause.source.card_id))
             for keyword in material.keywords:
                 entity.abilities.append(AbilityInstance(attachment_id(r.state),'keyword',source_id=root.request.cause.source.entity_id,keyword=keyword))
+            if type(material)is SummonEntryMaterial and material.entry_grant is not None:
+                from types import SimpleNamespace
+                from .card_creation import install
+                install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.entry_grant,
+                    source_id=root.request.cause.source.entity_id))
             refresh_entity(entity);r.refresh_auras()
         result=CardSummonDelivery(effect.index,'delivered',SourceAllocationFact.capture(r.state,entity))
     update(r.state,root,deliveries=(*root.deliveries,result))
@@ -874,6 +888,7 @@ def from_dict(cls,value):
     elif cls is SummonEntryMaterial:
         row['stats']=None if row['stats'] is None else SummonStats(**_row(row['stats'],SummonStats))
         row['deathrattles']=tuple(row['deathrattles']);row['keywords']=tuple(Keyword(k)for k in row['keywords'])
+        row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
     elif cls is SummonByCard:
         row['cause']=from_dict(SummonCause,row['cause']);row['materials']=tuple(material_from_dict(x)for x in row['materials'])
         row['weights']=tuple(row['weights'])

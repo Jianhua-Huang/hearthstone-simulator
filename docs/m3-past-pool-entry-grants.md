@@ -1,0 +1,15 @@
+# 过去随机池的相对入场加攻
+
+TIME_711闪回为2费潜行者法术，随机召唤两个来自过去的印刷1费随从；连击时，这些随从具有+1攻击力。完整原记录及官网中英主面保留在[数据包](../data/cards/native-past-entry-grant-v1.json)。使用原施法冻结的combo事实，不能根据后来的出牌历史或手牌位置重新判断。
+
+卡牌沿原GenerateFromPool(count=2, destination='board')、SummonCause和宿主constructed.past.cards查询执行。完整候选先校验，再按原权重一次抽出两个结果；每个原结果在自己的实际接受窗口捕获召唤数量。数量额外体沿同一所选材料交付，不再抽样；后一个原结果可以按新局面接受不同的数量计划。满场、空池、来源和位置继续服从原批次政策。
+
+GenerateFromPool、PoolSummonBasis和SummonEntryMaterial各增加可空entry_grant，复用既有CreatedMinionGrant。当前只允许正的相对攻击力增量，生命、关键词、identity、special及附加材料均不在这项入口范围；不扩展单次SummonFromPool的公开参数。原basis保留完整声明，各有序候选及实际所选子项必须严格相等，增益来源和接收玩家绑定原SummonCause。
+
+实际分配新体后，调用原card_creation.install写入普通独立Enchantment，在光环刷新、成功召唤历史和首次minion_summoned通知前完成。没有事后Buff，也不改印刷池资格。沉默、回手、复制、死亡及后续刷新继续由既有附件和实体生命周期负责；额外体具有自己的实体及附件ID。
+
+真实过去来源可能选中BOT_020滑板机器人。池召唤不能把磁力误当作必须合体的出牌入口：验证过完整原池basis或原批次子项的普通印刷材料，允许磁力和星舰组件随从单体入场。合体选择不执行，已有create_entity和enter_minion仍负责原生能力及生命周期。无原池绑定的其他旧材料profile没有被一并放宽；未知合格定义仍在RNG之前报错，不能通过删候选绕过。
+
+原手动JSON解码及解释器帧codec保存同一创建声明；恢复核对原批次、原子项、归因、数量、完整候选和RNG收据。等待不重新抽取，异常回滚保留原已提交选择，玩家视图不暴露入场配方或内部证明。core471/schema388拒绝旧schema，视图94、命令12和replay1布局保持；无新Effect、payload类型或GameState/Entity/Player字段。
+
+默认不注册过去池，也不从已实现定义推断成员。宿主提供的实验有限池仅验证其声明内容；正式池仍须满足原PoolDefinition的完整性门槛，并独立完成M0成员资格审查。精确国服过去范围、连击接受与入场/反应窗口仍待M6校准；卡牌接入不认证这些门槛。实际结果及下一项只在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)记录。

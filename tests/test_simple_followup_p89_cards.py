@@ -199,6 +199,6 @@ class SimpleFollowupP89Tests(unittest.TestCase):
    with self.assertRaises((ResolutionError,ValueError)):self.play(g,KILL,self.first(g,cid,'board').id)
    self.assertEqual(g.snapshot(),snap)
  def test_z0_full_sources_four_whole_gaps_and_old_registry_preservation(self):
-  d=load_batch();self.assertEqual((len(d['cards']),len(d['evidence_only']),len(d['official_observations'])),(9,4,26));self.assertEqual(tuple(x['record']['id']for x in d['evidence_only']),DEFERRED);r0=baseline_registry();r1=batch_registry();self.assertEqual(len(r1.cards)-len(r0.cards),9);self.assertTrue(all(i not in r1.cards for i in DEFERRED));self.assertNotIn(PAST_POOL,r1.pools)
+  d=load_batch();self.assertEqual((len(d['cards']),len(d['evidence_only']),len(d['official_observations'])),(9,4,26));self.assertEqual(tuple(x['record']['id']for x in d['evidence_only']),DEFERRED);r0=baseline_registry();r1=batch_registry();self.assertEqual(len(r1.cards)-len(r0.cards),9);self.assertEqual({i for i in DEFERRED if i in r1.cards},{i for i in DEFERRED if i in r0.cards});self.assertNotIn(PAST_POOL,r1.pools)
   self.assertEqual({i:r1.card(i)for i in r0.cards},r0.cards);self.assertEqual({i:r1.pool_cards[i]for i in r0.pool_cards},r0.pool_cards)
   for key in('player_effects','fabled','generation_families','pools','jade_families'):self.assertEqual(getattr(r0,key),getattr(r1,key))
