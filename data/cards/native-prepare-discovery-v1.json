@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "batch": "native-prepare-discovery-v1",
+  "policy": "selected-created-minion-prepare-grant-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_407",
+        "dbf_id": 129888,
+        "name": "通缉海报",
+        "name_en": "Wanted Poster",
+        "text": "<b>发现</b>一张法力值消耗大于或等于（5）点的随从牌，使其获得<b>预备</b>。",
+        "text_en": "<b>Discover</b> a minion\n_that costs (5) or more.\nGive it <b>Prepare</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "91935b4ef713db8d1e4a8c834401b380e5c98369d8e37ecc850e91ec4ada8382",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CAP_407",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "original_package": "data\\cards\\simple-followup-p89-v1.json",
+  "original_package_canonical_sha256": "fd2cb4d52c7ccaf49aa29bcffbe04fedb729fa73060a8c3c970babc55c74f584",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "official_observations": [
+    {
+      "card_id": "CAP_407",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\129888-zh_CN.json",
+      "response_sha256": "020b45ef2d747794f57146c05fde02e834f7d77467a8602ef856ac31165b9909",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=zh_CN",
+      "face": {
+        "id": 129888,
+        "collectible": 1,
+        "slug": "129888-wanted-poster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 2,
+        "name": "通缉海报",
+        "text": "<b>发现</b>一张法力值消耗大于或等于（5）点的随从牌，使其获得<b>预备</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9df794e7d4a1dbb95efee74f5a8d88040417d5e47e12be3994c7c0de6acccc0.png",
+        "imageGold": "",
+        "flavorText": "“啊，他们把我的鼻子画崩了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b83b9e411af9b07ddfd49a7db8ff898efdd2daaebdf08e237ea3f87c8d925d9c.png",
+        "keywordIds": [
+          21,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=zh_CN",
+        "sha256": "020b45ef2d747794f57146c05fde02e834f7d77467a8602ef856ac31165b9909",
+        "bytes": 788,
+        "observed_at": "2026-10-18T04:43:05.987466+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_407",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p89-20261018\\official-standard-cache-02\\129888-en_US.json",
+      "response_sha256": "cb2025edb0fe758ff7db7dfdd459971144824764d7331f5752ed08d3cf25d86f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=en_US",
+      "face": {
+        "id": 129888,
+        "collectible": 1,
+        "slug": "129888-wanted-poster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Dmitry Bolotov",
+        "manaCost": 2,
+        "name": "Wanted Poster",
+        "text": "<b>Discover</b> a minion that costs (5) or more. Give it <b>Prepare</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0f5ba49002f77aad6cc1b0cb970baf294ef2dfa460dd2dc742ebb171b358799.png",
+        "imageGold": "",
+        "flavorText": "\"Aww, they messed up my nose!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b83b9e411af9b07ddfd49a7db8ff898efdd2daaebdf08e237ea3f87c8d925d9c.png",
+        "keywordIds": [
+          21,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=129888&locale=en_US",
+        "sha256": "cb2025edb0fe758ff7db7dfdd459971144824764d7331f5752ed08d3cf25d86f",
+        "bytes": 746,
+        "observed_at": "2026-10-18T04:43:06.387611+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

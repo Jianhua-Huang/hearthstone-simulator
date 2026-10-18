@@ -8,7 +8,7 @@ from dataclasses import replace
 from .costs import CostQuote, pay_quote, quote_cost
 from .errors import ResolutionError
 from .lifecycle import attachment_id, refresh_entity
-from .model import Enchantment, HandPreparation, PaymentType, Zone
+from .model import CardType, Enchantment, HandPreparation, PaymentType, Zone
 
 
 def quote(state, registry, source):
@@ -74,6 +74,11 @@ def public_state(state, source):
 
 def validate_boundary(game):
     for entity in game._state.entities.values():
+        for ability in entity.abilities:
+            if ability.kind == 'prepare' and (entity.kind != CardType.MINION or
+                    not game.registry.card(entity.card_id).hand_playable or
+                    ability.source_id not in game._state.entities):
+                raise ValueError('Granted Prepare requires its playable minion and physical source')
         value = entity.preparation
         if value is None:
             continue

@@ -324,7 +324,8 @@ class PlayerPort:
                 for entity_id in (*player.hand, *(i for i in player.board if game._state.entities[i].kind == CardType.LOCATION), *player.hero_power_ids):
                     require_supported_source(game, entity_id)
                     if entity_id in player.hand:
-                        for spec in game.registry.card(game._state.entities[entity_id].card_id).hand_actions:
+                        from .hand_actions import specifications
+                        for spec in specifications(game.registry, game._state.entities[entity_id]):
                             require_supported_hand_action(game, entity_id, spec.id)
             actions = [_encode(game, self.viewer, action) for action in game.legal_actions() if action.player_id == self.viewer]
             # Engine enumeration uses internal entity IDs. Sort only after

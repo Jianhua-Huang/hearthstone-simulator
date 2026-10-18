@@ -29,7 +29,7 @@ from .starships import ActivateStarship, construction, launch_error
 from .minion_abilities import ActivateMinionAbility, ability_error, ability_definition, remaining_abilities, specification as minion_specification
 from .locations import ActivateLocation, location_error
 from .play_history import play_definition
-from .hand_actions import ActivateHandAction, hand_action_error, quote_hand_action, specification
+from .hand_actions import ActivateHandAction, hand_action_error, quote_hand_action, specification, specifications
 from .serialization import canonical_hash, event_from_dict, event_to_dict, rng_from_json, rng_to_json, state_from_dict, state_to_dict
 from .actions import UseInteractable, Concede
 from .interactables import ActivateInteractable, use_error as interactable_error
@@ -842,8 +842,8 @@ class Game:
         from .player_api import context_factory
         context = context_factory(self, player.id)
         for entity_id in player.hand:
-            definition = self.registry.card(state.entities[entity_id].card_id)
-            for spec in definition.hand_actions:
+            source = state.entities[entity_id]
+            for spec in specifications(self.registry, source):
                 candidate = UseHandAction(player.id, entity_id, spec.id)
                 try:
                     self.validate(candidate)
@@ -851,7 +851,7 @@ class Game:
                     continue
                 result.append(candidate)
             from .hand_admission import hand_plays
-            result.extend(hand_plays(self, state.entities[entity_id], validator=self.validate, context=context))
+            result.extend(hand_plays(self, source, validator=self.validate, context=context))
         for entity_id in player.hero_power_ids:
             source = state.entities[entity_id]
             from .choose_one import branches, effective

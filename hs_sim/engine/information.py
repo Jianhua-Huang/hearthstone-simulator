@@ -411,11 +411,11 @@ class Information:
                         from .kindred_targets import matched
                         result['play_conditions']['kindred'] = matched(state, game.registry, entity,
                             game.registry.card(entity.card_id))
-                    from .hand_actions import quote_hand_action
+                    from .hand_actions import quote_hand_action, specifications
                     result['hand_actions'] = [
                         {'id': spec.id, 'kind': spec.kind, 'cost': {
                             'amount': quote_hand_action(state, game.registry, entity, spec).amount, 'payment': 'mana'}}
-                        for spec in game.registry.card(entity.card_id).hand_actions]
+                        for spec in specifications(game.registry, entity)]
                     from .prepare import public_state
                     result['preparation'] = public_state(state, entity)
                 if game.registry.card(entity.card_id).disguised:

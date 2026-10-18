@@ -27,7 +27,7 @@ def plate_up_recipe(ctx):
 | `keywords` | 无重复的不可变关键词元组；当前仅真实赐福所需的嘲讽、圣盾、冲锋、风怒、复生、吸血、扰魔 |
 | `reborn_policy` | 默认None；与复生一同声明时可使用原 `full_health_enchantments` 返回政策 |
 | `identity` | 默认None；可选创建授予身份，保存在原附魔名称中；关键词单独授予也能留下零数值身份附魔，见[成对发现契约](m3-paired-discovery.md) |
-| `special` | 默认None；只接受`living_nightmare`或`rude_awakening`，安装原on_play或self战吼重复附件 |
+| `special` | 默认None；接受`living_nightmare`、`rude_awakening`及有限`prepare`，分别安装原on_play、自身战吼重复或物理预备能力；预备单独声明，见[契约](m3-discovered-prepare.md) |
 
 空声明、布尔/浮点数值、未知关键词、错误复生政策及任意战吼/亡语/触发程序均明确拒绝。其他原存储授予接口保持原范围。只有随从能携带本声明；费用沿原 `AddToHand.cost` 独立表达，原来源ID提供全部新附件的来源。
 

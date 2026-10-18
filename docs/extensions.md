@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+通缉海报式发现授予使用`DiscoverFromPool.minion_grant=CreatedMinionGrant(special='prepare')`，保留原实际选择并在首次创建通知前安装；查询、有限形状和生命周期见[契约](m3-discovered-prepare.md)，不要事后扫描手牌或预先执行投资。
+
 真实残骸保留发现余项使用DiscoverFromPool.keep_all_corpse_cost及原完整菜单；付款/创建不能重抽或丢失后续，有限形状与校准边界见[契约](m3-corpse-discovery-keep.md)。
 
 实际随机批次需原相对入场加攻时，用GenerateFromPool.entry_grant=CreatedMinionGrant(attack=...)；原basis/子项必须相等，单次池入口及其他材料范围保持，见[闪回契约](m3-past-pool-entry-grants.md)。

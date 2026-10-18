@@ -32,8 +32,10 @@ class CreatedMinionGrant:
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare')):
             raise ValueError('Unknown created minion special ability')
+        if self.special == 'prepare' and (self.attack or self.health or self.keywords or self.reborn_policy is not None):
+            raise ValueError('Created Prepare is a separate hand-action grant')
         if not (self.attack or self.health or self.keywords or self.special):
             raise ValueError('Created minion grant must change stats or keywords')
 
@@ -191,6 +193,11 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
+    if grant is not None and grant.special == 'prepare':
+        if effect.source_id is None or any(not d.hand_playable or
+                any(s.id == 'prepare' for s in d.hand_actions) and
+                not any(s.kind == 'prepare' for s in d.hand_actions) for d in definitions):
+            raise ResolutionError('Created Prepare requires a source and an unambiguous playable hand action')
     if stats is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created numeric carrier must be a minion')
     if spec is not None and any(d.kind != CardType.SPELL for d in definitions):
@@ -265,6 +272,8 @@ def install(state, entity, effect):
             entity.abilities.append(AbilityInstance(attachment_id(state), 'battlecry_repeat',
                 source_id=effect.source_id,
                 battlecry_repeat=BattlecryRepeatSpec(2, (CardType.MINION,), scope='self')))
+        elif grant.special == 'prepare':
+            entity.abilities.append(AbilityInstance(attachment_id(state), 'prepare', source_id=effect.source_id))
         refresh_entity(entity)
 
 

@@ -2670,6 +2670,12 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.kind == 'prepare':
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'magnetic_id'}
+            if (self.origin != 'granted' or self.source_id is None or
+                    any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Granted Prepare requires a pure removable physical ability')
         if self.kind=='turn_draw_suppression':
             _name(self.turn_draw_card_id,'native turn draw declaration')
             from dataclasses import fields
@@ -2853,7 +2859,7 @@ class AbilityInstance:
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value', 'prepare'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:

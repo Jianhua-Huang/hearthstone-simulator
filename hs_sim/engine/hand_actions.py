@@ -12,13 +12,27 @@ from .actions import UseHandAction
 from .costs import CostQuote, payment_error, pay_quote
 from .effects import Effect
 from .errors import ResolutionError
-from .model import PaymentType, Zone
+from .model import HandActionSpec, PaymentType, Zone
 from .registry import RuleContext
 from .zones import CardReference, MoveCard, move_card
 
 
+PREPARE = HandActionSpec('prepare', 'prepare', 1)
+
+
+def specifications(registry, source):
+    """Printed actions plus Prepare granted to this physical card."""
+    declared = registry.card(source.card_id).hand_actions
+    if (not any(a.kind == 'prepare' and not a.consumed for a in source.abilities) or
+            any(s.kind == 'prepare' for s in declared)):
+        return declared
+    if any(s.id == PREPARE.id for s in declared):
+        raise ResolutionError('Granted Prepare conflicts with an existing hand action ID')
+    return (*declared, PREPARE)
+
+
 def specification(registry, source, action_id):
-    return next((s for s in registry.card(source.card_id).hand_actions if s.id == action_id), None)
+    return next((s for s in specifications(registry, source) if s.id == action_id), None)
 
 
 def quote_hand_action(state, registry, source, spec):
