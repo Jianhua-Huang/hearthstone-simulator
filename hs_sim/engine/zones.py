@@ -76,6 +76,41 @@ def fill_hand_with_card(r, effect):
 
 
 @dataclass(frozen=True)
+class FillHandWithDeckCopies(Effect):
+    """Quote free slots once; each current physical deck copy uses CopyMatching."""
+    player_id: int
+    owner_id: int
+    source_id: int
+    cost: CostSpec | None = None
+
+    def __post_init__(self):
+        _player(self.player_id);_player(self.owner_id);_source(self.source_id)
+        if self.source_id is None:raise ValueError('Deck-copy fill requires its original source')
+        validate_generated_cost(self.cost,None)
+
+
+def validate_copy_cost(r, cost, mode, candidates):
+    if cost is None:return
+    from types import SimpleNamespace
+    from .costs import validate_cost_targets
+    validate_cost_targets(r.state,SimpleNamespace(cost=cost,expires_turn=None),
+        tuple((r.registry.card(ref.card_id),r.state.entities[ref.entity_id]if mode=='current'else None)
+            for ref in candidates))
+
+
+def fill_hand_with_deck_copies(r, effect):
+    effect.__post_init__();source_exists(r,effect.source_id)
+    candidates=zone_candidates(r,effect.owner_id,Zone.DECK,PoolQuery(),effect.player_id,effect.source_id)
+    validate_copy_cost(r,effect.cost,'current',candidates)
+    player=r.player(effect.player_id)
+    count=max(0,hand_capacity(player,r.rules)-len(player.hand))
+    if count>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Deck-copy fill exceeds resolution budget')
+    if not count or not candidates:return ()
+    return(CopyMatching(player.id,effect.owner_id,Zone.DECK,count=count,
+        source_id=effect.source_id,cost=effect.cost),)
+
+
+@dataclass(frozen=True)
 class AddToDeck(Effect):
     player_id: int
     card_id: str
@@ -643,10 +678,12 @@ class CopyMatching(Effect):
     count: int = 1
     selection: str = 'random'
     source_id: int | None = None
+    cost: CostSpec | None = None
 
     def __post_init__(self):
         _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
         filter_value(self.query); _source(self.source_id)
+        validate_generated_cost(self.cost,None)
         integer(self.count, 'copy count', 0)
         if self.mode not in ('current', 'base') or self.selection not in ('random', 'lowest_cost'):
             raise ValueError('Unreviewed automatic zone copy policy')
@@ -1097,10 +1134,11 @@ def copy_matching(r, effect):
         prices=tuple(quote_unselected_cost(r.state,r.registry,r.state.entities[c.entity_id]).amount for c in candidates)
         lowest=min(prices)
         candidates=tuple(c for c,price in zip(candidates,prices) if price==lowest)
+    validate_copy_cost(r,effect.cost,effect.mode,candidates)
     # Each physical slot has one weight. Pure current-price ties use the same RNG;
     # a unique cheapest card and an empty pool do not consume it.
     card=candidates[0] if effect.selection=='lowest_cost' and len(candidates)==1 else r.game._rng.choice(candidates)
-    return (CopyCard(card,effect.player_id,mode=effect.mode,source_id=effect.source_id),
+    return (CopyCard(card,effect.player_id,mode=effect.mode,source_id=effect.source_id,cost=effect.cost),
             replace(effect,count=effect.count-1))
 
 
@@ -1135,7 +1173,8 @@ def register_zones(mechanics):
     mechanics.register_payload_type(CardDestructionRecord)
     mechanics.register(PutMatchingDeckMinionOnTop,put_matching_deck_minion_on_top)
     for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckBatch, destroy_deck_batch), (DestroyDeckMatching, matching_card),
-                          (AddToDeck, add_to_deck), (FillHandWithCard, fill_hand_with_card), (MoveCard, move_card), (CopyCard, copy_card),
+                          (AddToDeck, add_to_deck), (FillHandWithCard, fill_hand_with_card),
+            (FillHandWithDeckCopies, fill_hand_with_deck_copies), (MoveCard, move_card), (CopyCard, copy_card),
             (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
             (DrawMatching, matching_card), (DrawMinionWithAttack, draw_minion_with_attack),
             (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone),
