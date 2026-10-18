@@ -65,7 +65,7 @@ def validate_cost_quote_fact(registry, fact):
         else:
             aura = contribution.ability.cost_aura
             if (aura.relation != 'any' and
-                    (contribution.player_id == value.player_id) != (aura.relation == 'friendly')):
+                    (contribution.player_id == value.player_id) != (aura.relation in ('friendly','friendly_arcane_spells'))):
                 raise ValueError('Frozen cost aura payer relation does not match')
             spec = aura.cost
         if not matches_cost_contribution(registry, contribution, definition, current_battlecry, value.enchantments,

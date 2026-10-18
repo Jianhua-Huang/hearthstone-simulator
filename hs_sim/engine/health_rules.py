@@ -158,7 +158,7 @@ def spell_damage_sources(state, player_id, registry, school=..., *, cast_id=None
             validate_native_provider(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
         for ability in entity.abilities:
             if (ability.kind=='spell_damage' and not ability.consumed and
-                    native_provider_matches(state,entity,ability.native_condition) and
+                    native_provider_matches(state,entity,ability.native_condition,registry=registry) and
                     (school is Ellipsis or not ability.spell_damage_schools or school in ability.spell_damage_schools)):
                 rows.append((entity,ability,None,ability.spell_damage))
     rows.extend((None,None,e,registry.player_effect(e.spec_id).spell_damage) for e in player.player_effects

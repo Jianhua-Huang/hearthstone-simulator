@@ -88,9 +88,11 @@ def register_simple_followup_p62_cards(registry):
         return (GainTemporaryMana(c.player_id, 1), InvokeBehavior(PREFIX + 'coin_damage', c.source_id, c.player_id))
 
     def stone(c):
-        count = len(death_candidates(c.state, registry, c.player_id, DRAGONS, c.source_id))
-        return (Resurrect(c.player_id, count, DRAGONS, selection='first', source_id=c.source_id,
-            cause=SummonCause.capture(c)),) if count else ()
+        from hs_sim.engine.tribes import has_any_tribe
+        deaths=death_candidates(c.state,registry,c.player_id,DeathQuery(),c.source_id)
+        ids=tuple(d.id for d in deaths if has_any_tribe(registry,d,('dragon',),basis='current'))
+        return (Resurrect(c.player_id,len(ids),selection='first',source_id=c.source_id,
+            cause=SummonCause.capture(c),death_ids=ids),)if ids else()
 
     bodies = {FRAME: frame, 'destroy_pair': destroy_pair,
         'enemy_deck_top': lambda c: (ChooseFromZone(c.player_id, 3-c.player_id, Zone.DECK,

@@ -1,0 +1,465 @@
+{
+  "batch": "K228-arcane-dragon-fabled",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_852",
+        "dbf_id": 119524,
+        "name": "碧蓝女王辛达苟萨",
+        "name_en": "Azure Queen Sindragosa",
+        "text": "<b>奇闻</b>\n如果你控制着其他龙，你的奥术法术的法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Fabled</b>\nIf you control another\nDragon, your Arcane\nspells cost (2) less.",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "5ec4693fe0f1d9effe963721ad5d60a859b64d33aafc83d418dd707883bb8ef8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_852",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_852t1",
+        "dbf_id": 119527,
+        "name": "碧蓝之王玛里苟斯",
+        "name_en": "Azure King Malygos",
+        "text": "如果你控制着其他龙，你的奥术法术会施放两次。",
+        "text_en": "If you control another Dragon, your Arcane spells cast twice.",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "f50cbfcc0fc977ea0781bc766de62915bcdc166e939f604ec176d444f918e60a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_852t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_852",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119524-zh_CN.json",
+      "response_sha256": "9ee422b7ac04dadc7d56a4597beacbdbe895cf22cdcc89a6bd40645ed6bc8063",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119524&locale=zh_CN",
+      "face": {
+        "id": 119524,
+        "collectible": 1,
+        "slug": "119524-azure-queen-sindragosa",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "碧蓝女王辛达苟萨",
+        "text": "<b>奇闻</b> 如果你控制着其他龙，你的奥术法术的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d85ab67afbb58e0c5dc8d448bf3a522c70892dc411166e71ce9b023c811a4fa9.png",
+        "imageGold": "",
+        "flavorText": "辛达苟萨曾是玛里苟斯的爱侣，也是首批怀疑奈萨里奥已被腐蚀的巨龙之一。她悔恨自己没能坚持当初的怀疑。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f879ea15cd86b88c25a72e996ac2351100cf1c4c0778aa8a70441cfdc84da79.png",
+        "childIds": [
+          119527,
+          119525
+        ],
+        "keywordIds": [
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119527,
+          119525
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119524&locale=zh_CN",
+        "sha256": "9ee422b7ac04dadc7d56a4597beacbdbe895cf22cdcc89a6bd40645ed6bc8063",
+        "bytes": 1026,
+        "observed_at": "2026-10-18T23:18:00.861321+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_852",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119524-en_US.json",
+      "response_sha256": "34a46e0fb2ded0f732c4009a2770e0a04d69afcf07534bc78bda359432de1f55",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119524&locale=en_US",
+      "face": {
+        "id": 119524,
+        "collectible": 1,
+        "slug": "119524-azure-queen-sindragosa",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "Azure Queen Sindragosa",
+        "text": "<b>Fabled</b> If you control another Dragon, your Arcane spells cost (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a023289d3e11f33da5675eaa5c4379ec14dff2ac6fa41d6ede2608d02c814f8.png",
+        "imageGold": "",
+        "flavorText": "Once Malygos' beloved mate, Sindragosa was among the first to suspect the corruption that had overtaken Neltharion. She came to regret not trusting her suspicions.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f879ea15cd86b88c25a72e996ac2351100cf1c4c0778aa8a70441cfdc84da79.png",
+        "childIds": [
+          119527,
+          119525
+        ],
+        "keywordIds": [
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119527,
+          119525
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119524&locale=en_US",
+        "sha256": "34a46e0fb2ded0f732c4009a2770e0a04d69afcf07534bc78bda359432de1f55",
+        "bytes": 1019,
+        "observed_at": "2026-10-18T23:18:00.870206+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_852t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119527-zh_CN.json",
+      "response_sha256": "818acceb2c7c967506b53506fd4f7b6a0e62b3af11db97d691d078639bd300bb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119527&locale=zh_CN",
+      "face": {
+        "id": 119527,
+        "collectible": 0,
+        "slug": "119527-azure-king-malygos",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 8,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "碧蓝之王玛里苟斯",
+        "text": "如果你控制着其他龙，你的奥术法术会施放两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6e9bb5cfe8cb5c572ca16c259ea6262e7beb8b0b296d5ad7f2acc58f0fa3f70.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119524,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119527&locale=zh_CN",
+        "sha256": "818acceb2c7c967506b53506fd4f7b6a0e62b3af11db97d691d078639bd300bb",
+        "bytes": 642,
+        "observed_at": "2026-10-18T23:18:00.902436+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_852t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119527-en_US.json",
+      "response_sha256": "247e8170610da9e0d22525f7adbd8a38ca5bd548b0d71f9052ea1cb832eeca0f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119527&locale=en_US",
+      "face": {
+        "id": 119527,
+        "collectible": 0,
+        "slug": "119527-azure-king-malygos",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 8,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "Azure King Malygos",
+        "text": "If you control another Dragon, your Arcane spells cast twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f04b04a6117364f0f19f3b18aa2cc4740d28a089b3d7a031d02402250968625.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119524,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119527&locale=en_US",
+        "sha256": "247e8170610da9e0d22525f7adbd8a38ca5bd548b0d71f9052ea1cb832eeca0f",
+        "bytes": 631,
+        "observed_at": "2026-10-18T23:18:01.022441+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_852t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119525-zh_CN.json",
+      "response_sha256": "0bd178eac8c970ecfd76eb366149927aee4536b6eaf765e6a21abd8ba6b306e2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119525&locale=zh_CN",
+      "face": {
+        "id": 119525,
+        "collectible": 0,
+        "slug": "119525-azure-oathstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Drew Hill",
+        "manaCost": 8,
+        "name": "碧蓝誓言石",
+        "text": "召唤在 本局对战中死亡的你的龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecb959493d434d62f0907017444a2d4f759b00b338ee15e8c71d51839d3515e6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119524,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119525&locale=zh_CN",
+        "sha256": "0bd178eac8c970ecfd76eb366149927aee4536b6eaf765e6a21abd8ba6b306e2",
+        "bytes": 569,
+        "observed_at": "2026-10-18T23:18:02.112168+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_852t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119525-en_US.json",
+      "response_sha256": "27e13ceb7ad799a0b7abf80bd8f4f63a646567707aeb53951576dd4635f22b3a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119525&locale=en_US",
+      "face": {
+        "id": 119525,
+        "collectible": 0,
+        "slug": "119525-azure-oathstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Drew Hill",
+        "manaCost": 8,
+        "name": "Azure Oathstone",
+        "text": "Summon your Dragons that died this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c7346a67c7e3d481f0717c8bf72ed663681680fa2cd6c67f2a05665dfc196b7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119524,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119525&locale=en_US",
+        "sha256": "27e13ceb7ad799a0b7abf80bd8f4f63a646567707aeb53951576dd4635f22b3a",
+        "bytes": 563,
+        "observed_at": "2026-10-18T23:18:01.789488+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "dragon_basis": "current tribes, other controlled board minions; controlled profile includes dormant/doomed, excludes starship building",
+    "resurrection": "each original friendly Dragon death, current tribes at death; original death order"
+  },
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_852t3",
+        "dbf_id": 119525,
+        "name": "碧蓝誓言石",
+        "name_en": "Azure Oathstone",
+        "text": "召唤在\n本局对战中死亡的你的龙。",
+        "text_en": "Summon your Dragons that died this game.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "b0b53cc28a82cd2884d78d0b1094c9de87344fdba129e5aba49d0d3080e124c2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_852t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ]
+}

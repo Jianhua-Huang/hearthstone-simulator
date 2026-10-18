@@ -60,9 +60,13 @@ def _qualifying_board_witnesses(state, registry, *, player_id, carrier_id, eligi
         definition = registry.card(entity.card_id)
         if definition.kind != CardType.MINION:
             raise ValueError('Repeat witness face is not a minion')
-        matched = matches_metadata(query, card_id=definition.id, kind=definition.kind,
-            cost=definition.cost, meta=definition.metadata, spell_school=definition.spell_school,
-            keywords=definition.keywords)
+        if profile.basis=='current_tribes':
+            from .tribes import has_any_tribe
+            matched=has_any_tribe(registry,entity,eligibility.tribes_any,basis='current')
+        else:
+            matched = matches_metadata(query, card_id=definition.id, kind=definition.kind,
+                cost=definition.cost, meta=definition.metadata, spell_school=definition.spell_school,
+                keywords=definition.keywords)
         if matched:
             witnesses.append(entity_id)
     return tuple(witnesses)

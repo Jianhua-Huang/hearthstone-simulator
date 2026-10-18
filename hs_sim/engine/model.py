@@ -606,8 +606,11 @@ class CostAuraSpec:
         if type(self.cost) is not CostSpec:
             raise ValueError('Cost aura requires a CostSpec operation')
         self.cost.__post_init__()
-        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any'):
+        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells'):
             raise ValueError('Invalid cost aura payer relation')
+        if self.relation=='friendly_arcane_spells' and (self.cost!=CostSpec(delta=-2,card_types=(CardType.SPELL,)) or
+                self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
+            raise ValueError('Native Arcane aura requires the ordinary friendly two-cost spell reduction')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _bool(self.first_per_turn, 'first-per-turn cost aura')
         _bool(self.hand_adjacent, 'adjacent hand cost aura')
@@ -1875,7 +1878,7 @@ class RepeatWitnessProfile:
         if type(self.id) is not str:
             raise ValueError('Repeat witness profile ID requires a string')
         _name(self.id, 'Repeat witness profile ID')
-        if type(self.basis) is not str or self.basis != 'current_face_printed':
+        if type(self.basis) is not str or self.basis not in ('current_face_printed','current_tribes'):
             raise ValueError('Unsupported repeat witness metadata basis')
         for name in ('include_dormant', 'include_starship_building',
                      'include_doomed', 'require_positive_health'):
@@ -2532,7 +2535,7 @@ class NativeSourceCondition:
     max_hand: int | None = None
 
     def __post_init__(self):
-        if type(self.kind)is not str or self.kind not in('self_damaged','controller_hand_at_most'):
+        if type(self.kind)is not str or self.kind not in('self_damaged','controller_hand_at_most','controller_other_dragon'):
             raise ValueError('Unsupported native provider condition')
         if self.kind=='controller_hand_at_most':_int(self.max_hand,'native source hand limit',0)
         elif self.max_hand is not None:raise ValueError('Only hand-size qualifications carry a threshold')

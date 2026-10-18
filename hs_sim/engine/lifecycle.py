@@ -136,7 +136,7 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
             aura_tribes_any=aura.tribes_any, aura_card_ids=aura.card_ids)
     for spec in definition.cost_auras:
         add('cost_aura', cost_aura=spec,
-            native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind=='controller_hand_at_most'else None)
+            native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind in('controller_hand_at_most','controller_other_dragon')else None)
     for spec in definition.keyword_auras:
         add('keyword_aura', keyword_aura=spec)
     for index, spec in enumerate(definition.attack_policies):

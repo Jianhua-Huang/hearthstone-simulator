@@ -312,11 +312,11 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         for ability in source.abilities:
             if (ability.kind != 'cost_aura' or ability.consumed or not (
                     ability.cost_aura.relation == 'any' or
-                    (source.controller == player_id) == (ability.cost_aura.relation == 'friendly'))):
+                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells')))):
                 continue
             if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
                 continue
-            if not native_provider_matches(state,source,ability.native_condition):continue
+            if not native_provider_matches(state,source,ability.native_condition,registry=registry):continue
             first = None
             if ability.cost_aura.first_per_turn or ability.cost_aura.every_nth_per_turn is not None:
                 # Unrelated types neither activate nor spend this qualification.
@@ -374,6 +374,9 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     physical subjects use their original ordered current-tribe changes.
     """
     spec = contribution.modifier.spec if contribution.modifier is not None else contribution.ability.cost_aura.cost
+    if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_arcane_spells':
+        from .model import SpellSchool
+        if definition.kind!=CardType.SPELL or definition.spell_school!=SpellSchool.ARCANE:return False
     if not matches_cost_values(spec, definition, current_battlecry):
         return False
     modifier=contribution.modifier

@@ -17,8 +17,10 @@ def validate_definition(card):
     if kind=='spell_damage':
         if type(card.spell_damage)is not int or card.spell_damage<=0 or card.cost_auras:
             raise ValueError('Damaged provider requires positive native Spell Damage without conditional cost sharing')
-    elif card.spell_damage or card.cost_auras!=(CostAuraSpec(CostSpec(set_to=0,card_types=(CardType.HERO_POWER,))),):
-        raise ValueError('Small-hand provider requires one native friendly zero-cost Hero Power aura')
+    else:
+        expected=(CostAuraSpec(CostSpec(delta=-2,card_types=(CardType.SPELL,)),relation='friendly_arcane_spells')if condition.kind=='controller_other_dragon'
+            else CostAuraSpec(CostSpec(set_to=0,card_types=(CardType.HERO_POWER,))))
+        if card.spell_damage or card.cost_auras!=(expected,):raise ValueError('Native conditional cost provider differs from its complete declared recipe')
 
 
 def validate_carrier(registry,card_id,kind,abilities,components=()):
@@ -43,8 +45,12 @@ def validate_carrier(registry,card_id,kind,abilities,components=()):
         if installed>1:raise ValueError('Duplicate native conditional provider')
 
 
-def matches(state,holder,condition):
+def matches(state,holder,condition,*,registry=None):
     if condition is None:return True
     leaf(condition)
     if condition.kind=='self_damaged':return holder.damage>0
+    if condition.kind=='controller_other_dragon':
+        if registry is None:raise ValueError('Current Dragon condition requires the original registry')
+        from .arcane_dragon_providers import other_dragons
+        return bool(other_dragons(state,registry,holder.controller,holder.id))
     return len(state.players[holder.controller].hand)<=condition.max_hand

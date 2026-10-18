@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+辛达苟萨式原生费用使用有限friendly_arcane_spells及controller_other_dragon声明；重复源复用共享ARCANE/DRAGONS配置，原死亡种族筛选交精确Resurrect。资格、私有计划和旧范围保持见[契约](m3-arcane-dragon-fabled.md)。
+
 时流亡魂/雷鸫式替代使用`nature_damage_replacements.RULES`的有限印刷声明；属性和随机召唤仍交原执行器，不通过受伤后触发近似。固定资格、动态授予限制和未闭合池边界见[契约](m3-nature-damage-replacements.md)。
 
 武器本回合攻击设值使用`SetWeaponAttackForTurn`和原EquippedWeaponReference，不修改基础攻击或将限制永久授予英雄；原属性层及明确数值政策见[契约](m3-infinite-weapon-attack.md)。

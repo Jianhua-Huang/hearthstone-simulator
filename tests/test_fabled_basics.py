@@ -56,7 +56,7 @@ def registry(*, declaration=True, wait=False, fault=False):
         cid = 'spell.'+str(i)
         r.register_card(CardDefinition(cid, cid, CardType.SPELL, cost=1,
             on_play='fixture.noop', metadata=metadata(cls)))
-        r.register_pool_card(PoolCard(cid, CardType.SPELL, 1, r.card(cid).metadata, battlecry=False))
+        r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     r.register_pool(PoolDefinition('fabled.spells', 'finite-v1', CONTEXT.target_id,
         CONTEXT.mode, tuple(PoolMember('spell.'+str(i)) for i in range(3))))
     # Only this necessary real family is adapted. The finite spell pool and
