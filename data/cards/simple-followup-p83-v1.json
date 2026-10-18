@@ -1,0 +1,3676 @@
+{
+  "schema": 1,
+  "batch": "P83",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_manifest": {
+    "path": "outputs/card-parallel-p83-20261018/manifest-alias-review-02.json",
+    "sha256": "93d955aa38d2cb65e095fb40f5ea856633c675feb3e03e924421b5bb02e327de"
+  },
+  "original_source_manifest": {
+    "path": "outputs/card-parallel-p83-20261018/manifest.json",
+    "sha256": "962a34cbb82380853b04748ba9a2cfe501cb49f3d3f82c0832e62ad72996b900"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "WON_058",
+        "dbf_id": 102592,
+        "name": "暗影子嗣",
+        "name_en": "Spawn of Shadows",
+        "text": "<b>战吼，激励：</b>对每个英雄造成4点伤害。",
+        "text_en": "<b>Battlecry and Inspire:</b>\nDeal 4 damage to\neach hero.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1,
+          "858": 2551
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2551",
+              "type": "Int",
+              "value": "2551"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "6a7be7a563a81a3f28bf3de23f91f58ffabb219d563457c4df6f263f1cec1106",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "WON_058",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_085",
+        "dbf_id": 102627,
+        "name": "雷霆崖勇士",
+        "name_en": "Thunder Bluff Valiant",
+        "text": "<b>战吼，激励：</b>使你的图腾获得+2攻击力。",
+        "text_en": "<b>Battlecry and Inspire:</b>\nGive your Totems\n+2 Attack.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1,
+          "858": 2615
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2615",
+              "type": "Int",
+              "value": "2615"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0be0b51aa917981b3754660c80b1271e4cf41761beae0a862f94284525bf965c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "WON_085",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_133",
+        "dbf_id": 102677,
+        "name": "索瑞森大帝",
+        "name_en": "Emperor Thaurissan",
+        "text": "在你的回合结束时，你所有手牌的法力值消耗减少（1）点。",
+        "text_en": "At the end of your turn, reduce the Cost of cards\nin your hand by (1).",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1898,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 2262
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2262",
+              "type": "Int",
+              "value": "2262"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "c0c6bb496e6be3398003c3028b161b627660ac8d471e7d6ad58a7c27601fe14e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "WON_133",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_137",
+        "dbf_id": 102682,
+        "name": "唐·汉古",
+        "name_en": "Don Han'Cho",
+        "text": "<b>战吼：</b>随机使你手牌中的一张随从牌获得+5/+5。",
+        "text_en": "<b>Battlecry:</b> Give a\nrandom minion in your hand +5/+5.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1898,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 532,
+          "GRIMY_GOONS": 1,
+          "858": 40703
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyson Murphy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40703",
+              "type": "Int",
+              "value": "40703"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d3e85dc810541c5452814f587b7fd9cd581d1949387ad3ae4a5adf9a6f6780e4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter",
+          "paladin",
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "WON_137",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_315",
+        "dbf_id": 103218,
+        "name": "夜色镇炼金师",
+        "name_en": "Darkshire Alchemist",
+        "text": "<b>战吼：</b>\n恢复#5点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore\n#5 Health.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 38764
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chris Seaman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38764",
+              "type": "Int",
+              "value": "38764"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3479e16cc704e98e6d7e0a372cfe1a8cb445aeb3b92a888b889012860cf2da25",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_315",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_316",
+        "dbf_id": 103219,
+        "name": "影踪骁骑兵",
+        "name_en": "Shado-Pan Rider",
+        "text": "<b>连击：</b>\n获得+4攻击力。",
+        "text_en": "<b>Combo:</b> Gain +4 Attack.",
+        "cost": 5,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "858": 2765
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ryan Metcalf"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2765",
+              "type": "Int",
+              "value": "2765"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "12510f35997ab77b12354adf15fc1e6b484626750c130762ed3e6891134adbf8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_316",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_328",
+        "dbf_id": 103231,
+        "name": "穆克拉的勇士",
+        "name_en": "Mukla's Champion",
+        "text": "<b>激励：</b>使你的其他随从获得+1/+1。",
+        "text_en": "<b>Inspire:</b> Give your other minions +1/+1.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1,
+          "858": 2497
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2497",
+              "type": "Int",
+              "value": "2497"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "411af761b094c90c517b53f031ba29e6bf543e69c3c1cb81128bbb57dbab04a9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_328",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_339",
+        "dbf_id": 103242,
+        "name": "兽人铸甲师",
+        "name_en": "Alley Armorsmith",
+        "text": "<b>嘲讽</b>\n每当本随从造成伤害时，获得等量的护甲值。",
+        "text_en": "[x]<b>Taunt</b>\nWhenever this minion\ndeals damage, gain\nthat much Armor.",
+        "cost": 5,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 40574
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40574",
+              "type": "Int",
+              "value": "40574"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "dfa5caa2607414642bc11cbcba551338c89c2733ee7b5699203729e2845c3f6d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "WON_339",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_329",
+        "dbf_id": 103232,
+        "name": "黑翼腐蚀者",
+        "name_en": "Blackwing Corruptor",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，则造成5点伤害。",
+        "text_en": "<b>Battlecry:</b> If you're holding a Dragon, deal 5 damage.",
+        "cost": 5,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1898,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2409
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Greg Staples"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2409",
+              "type": "Int",
+              "value": "2409"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "7563a225d5645ed6cc26a5ea0b5dd9c86922da937d800745fc06d1ec82662d04",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_329",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_249",
+        "dbf_id": 57165,
+        "name": "废铁魔像",
+        "name_en": "Scrap Golem",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>获得等同于本随从攻击力的护甲值。",
+        "text_en": "<b>Taunt</b>. <b>Deathrattle</b>: Gain Armor equal to this minion's Attack.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1414,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "56d1703c7bed05785b791741e3f365b00e610f2b361fb8631fb09b9a26c85cab",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BT_249",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_064",
+        "dbf_id": 41217,
+        "name": "邪脊吞噬者",
+        "name_en": "Vilespine Slayer",
+        "text": "<b>连击：</b>\n消灭一个随从。",
+        "text_en": "<b>Combo:</b> Destroy a minion.",
+        "cost": 5,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COMBO": 1,
+          "251": 7,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Efrem Palacios"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "7"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "1942676e3a5fa40dee1d7e40eb2c7f9157b16ae8016aad59adbb27d91d31b31d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "UNG_064",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BOT_576",
+        "dbf_id": 49494,
+        "name": "疯狂的药剂师",
+        "name_en": "Crazed Chemist",
+        "text": "<b>连击：</b>使一个友方随从获得+4攻击力。",
+        "text_en": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1127,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "821dc54f8a2ee70bd241346020253d3aa9e67440e4232cdbf8bd783cab776eef",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "BOT_576",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "AT_012",
+        "dbf_id": 2551,
+        "name": "暗影子嗣",
+        "name_en": "Spawn of Shadows",
+        "text": "<b>战吼，激励：</b>对每个英雄造成4点伤害。",
+        "text_en": "<b>Battlecry and Inspire:</b>\nDeal 4 damage to\neach hero.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 15,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          }
+        ]
+      },
+      "record_sha256": "1f1340ac888fbf722452d923cfa463fd58dac231a638df6073303549002405ac",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "AT_012",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "AT_049",
+        "dbf_id": 2615,
+        "name": "雷霆崖勇士",
+        "name_en": "Thunder Bluff Valiant",
+        "text": "<b>战吼，激励：</b>使你的图腾获得+2攻击力。",
+        "text_en": "<b>Battlecry and Inspire:</b>\nGive your Totems\n+2 Attack.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          }
+        ]
+      },
+      "record_sha256": "a681bf02c454984a83d35b39d24ad45ae3b7a46b3a29c4857d08c4dac4b85b1f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "AT_049",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BRM_028",
+        "dbf_id": 2262,
+        "name": "索瑞森大帝",
+        "name_en": "Emperor Thaurissan",
+        "text": "在你的回合结束时，你所有手牌的法力值消耗减少（1）点。",
+        "text_en": "At the end of your turn, reduce the Cost of cards\nin your hand by (1).",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 14,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          }
+        ]
+      },
+      "record_sha256": "1300a30895a938b0b65d3afe0dd39abada5108efb415229c7e3a82a9fb0f0541",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BRM_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CFM_685",
+        "dbf_id": 40703,
+        "name": "唐·汉古",
+        "name_en": "Don Han'Cho",
+        "text": "<b>战吼：</b>随机使你手牌中的一张随从牌获得+5/+5。",
+        "text_en": "<b>Battlecry:</b> Give a\nrandom minion in your hand +5/+5.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 532,
+          "GRIMY_GOONS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyson Murphy"
+          }
+        ]
+      },
+      "record_sha256": "2351bbca7cfda0e0289db42669984622542aac5afb51bae05a05fe3063ad49ff",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter",
+          "paladin",
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CFM_685",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "OG_234",
+        "dbf_id": 38764,
+        "name": "夜色镇炼金师",
+        "name_en": "Darkshire Alchemist",
+        "text": "<b>战吼：</b>\n恢复#5点生命值。",
+        "text_en": "<b>Battlecry:</b> Restore\n#5 Health.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 21,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chris Seaman"
+          }
+        ]
+      },
+      "record_sha256": "32aefb761bf84d67e041e5338435426e148eec5858001ae41732cfced00d3077",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "OG_234",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "AT_028",
+        "dbf_id": 2765,
+        "name": "影踪骁骑兵",
+        "name_en": "Shado-Pan Rider",
+        "text": "<b>连击：</b>\n获得+4攻击力。",
+        "text_en": "<b>Combo:</b> Gain +4 Attack.",
+        "cost": 5,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 15,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ryan Metcalf"
+          }
+        ]
+      },
+      "record_sha256": "c44c8937313976a838a201c9d6e02d338697b7ebe7b55b6a99958011179abe9a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "AT_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "AT_090",
+        "dbf_id": 2497,
+        "name": "穆克拉的勇士",
+        "name_en": "Mukla's Champion",
+        "text": "<b>激励：</b>使你的其他随从获得+1/+1。",
+        "text_en": "<b>Inspire:</b> Give your other minions +1/+1.",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 15,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          }
+        ]
+      },
+      "record_sha256": "e49884e65b7cd9caaf78c742590828dd1798b444807501f5b1989670a9d26aa2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "AT_090",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CFM_756",
+        "dbf_id": 40574,
+        "name": "兽人铸甲师",
+        "name_en": "Alley Armorsmith",
+        "text": "<b>嘲讽</b>\n每当本随从造成伤害时，获得等量的护甲值。",
+        "text_en": "[x]<b>Taunt</b>\nWhenever this minion\ndeals damage, gain\nthat much Armor.",
+        "cost": 5,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 25,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "a41ded19974ee967a94310a93e570b1904d4271d4ca265630d4068e7d353033e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CFM_756",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_BOT_576",
+        "dbf_id": 130525,
+        "name": "疯狂的药剂师",
+        "name_en": "Crazed Chemist",
+        "text": "<b>连击：</b>使一个友方随从获得+4攻击力。",
+        "text_en": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "858": 49494,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 49494
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "49494",
+              "type": "Int",
+              "value": "49494"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "afc563b4e7ecf5005a2f34063f0e76fbdc0bdfa54d1a918fb41159d4d6a08b2e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_BOT_576",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "AT_012": {
+      "sha256": "86b47a1f76327e57a9332b496c84889c232c742776e90d820749d16456959778"
+    },
+    "AT_049": {
+      "sha256": "b2919af1fbaabf8e3ede155ba7978b9f21da1d2ec431e596f7a54606ab90fb22"
+    },
+    "BRM_028": {
+      "sha256": "a8b4cdb92bd38c24932addeadbe1c8ff8c10b881b792fb7d12a3948da24029b7"
+    },
+    "CFM_685": {
+      "sha256": "057b4a527685535ac39e51f37c4a24d8906c5ebba8d8ea6e7be062d426987d47"
+    },
+    "OG_234": {
+      "sha256": "1518ef8ace5ae825a554f43cfa8b2b76d15555cbdd08c8480d8bd56e65173d40"
+    },
+    "AT_028": {
+      "sha256": "ef62d9dc349806984e5606e1210a6ee26e25d9f4d9051d4d250d6fd90dcb3904"
+    },
+    "AT_090": {
+      "sha256": "0ce3940ab09af6a750f444ea3f72af1868874f668c90997e9f0c8e9e398f1a06"
+    },
+    "CFM_756": {
+      "sha256": "3866d5a6f08e87210ffe2f3fd45a73ed71677b7dfbb4190023f5cd5992d29969"
+    },
+    "CORE_BOT_576": {
+      "sha256": "6d1cab16caa28675118758239d2784994cc9e8e21c24e96e8c54614a55583d43"
+    }
+  },
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_040",
+        "dbf_id": 120782,
+        "name": "消散的回忆",
+        "name_en": "Fading Memory",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Get a\nrandom 5-Cost minion from the past.",
+        "cost": 4,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "9a491cc6054857214a6c6c71791f83c8e908dd4e3226f73f18beac9981e1c782",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_040",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "collectible_candidate_roots": [],
+  "necessary_cross_series_collectibles": [
+    "WON_058",
+    "WON_085",
+    "WON_133",
+    "WON_137",
+    "WON_315",
+    "WON_316",
+    "WON_328",
+    "WON_339",
+    "WON_329",
+    "BT_249",
+    "UNG_064",
+    "BOT_576"
+  ],
+  "necessary_noncollectibles": [],
+  "new_definition_ids": [
+    "WON_058",
+    "WON_085",
+    "WON_133",
+    "WON_137",
+    "WON_315",
+    "WON_316",
+    "WON_328",
+    "WON_339",
+    "WON_329",
+    "BT_249",
+    "UNG_064",
+    "BOT_576"
+  ],
+  "official_observations": [
+    {
+      "card_id": "WON_058",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102592-zh_CN.json",
+      "response_sha256": "20eae2bd3f6ca3c3e2c1d872efee302e79c8151477e26cb606196d4b9d52add8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102592&locale=zh_CN",
+      "face": {
+        "id": 102592,
+        "collectible": 1,
+        "slug": "102592-spawn-of-shadows",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "暗影子嗣",
+        "text": "<b>战吼，激励：</b>对每个英雄造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c96bcc23e3bc7c5e730bf7e5d0eaddb6e876fb6b55b740e5d8af338859f305c.png",
+        "imageGold": "",
+        "flavorText": "只要跟暗影两字沾边的，多半不是什么好人，也不会有什么好事。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e7a2e43c9a98a7b723445620d7ef8037274682a15b902afc96cfe996068e9e4.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          2551
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102592&locale=zh_CN",
+        "sha256": "20eae2bd3f6ca3c3e2c1d872efee302e79c8151477e26cb606196d4b9d52add8",
+        "bytes": 846,
+        "observed_at": "2026-10-18T01:10:15.661956+00:00"
+      }
+    },
+    {
+      "card_id": "WON_058",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102592-en_US.json",
+      "response_sha256": "311fa0887980b5428df2a64e3429911104e316c2768d99d022ff58d8045b267e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102592&locale=en_US",
+      "face": {
+        "id": 102592,
+        "collectible": 1,
+        "slug": "102592-spawn-of-shadows",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Spawn of Shadows",
+        "text": "<b>Battlecry and Inspire:</b> Deal 4 damage to each hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f707f4a7a4a23a395cb3ad24e466e3d01e4ace2e30b2798f0ef692943b96e00d.png",
+        "imageGold": "",
+        "flavorText": "What did you expect to happen? He's a Spawn. Of Shadows.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e7a2e43c9a98a7b723445620d7ef8037274682a15b902afc96cfe996068e9e4.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          2551
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102592&locale=en_US",
+        "sha256": "311fa0887980b5428df2a64e3429911104e316c2768d99d022ff58d8045b267e",
+        "bytes": 817,
+        "observed_at": "2026-10-18T01:10:15.562477+00:00"
+      }
+    },
+    {
+      "card_id": "WON_085",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102627-zh_CN.json",
+      "response_sha256": "d54c392669d41a1863d6bd025aa76b46e6a6335f79395c657635c1664a771330",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102627&locale=zh_CN",
+      "face": {
+        "id": 102627,
+        "collectible": 1,
+        "slug": "102627-thunder-bluff-valiant",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "雷霆崖勇士",
+        "text": "<b>战吼，激励：</b>使你的图腾获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1757d50410973935ad71c6c30c65ec3923be0927e8239a9de429518fc015cac3.png",
+        "imageGold": "",
+        "flavorText": "用图腾做武器并不算犯规。至少赛事规则里没提到过这点。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5fb7504ce2760021d63e93a9d118930924017eacfe6acb027dbbc6b7f0b6bca6.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          2615
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102627&locale=zh_CN",
+        "sha256": "d54c392669d41a1863d6bd025aa76b46e6a6335f79395c657635c1664a771330",
+        "bytes": 829,
+        "observed_at": "2026-10-18T01:10:15.590313+00:00"
+      }
+    },
+    {
+      "card_id": "WON_085",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102627-en_US.json",
+      "response_sha256": "61fa75449d60a6136cd8c25488ebb8adb950f28946da75735ad831e6c079df31",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102627&locale=en_US",
+      "face": {
+        "id": 102627,
+        "collectible": 1,
+        "slug": "102627-thunder-bluff-valiant",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Thunder Bluff Valiant",
+        "text": "<b>Battlecry and Inspire:</b> Give your Totems +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fa473aafc672bf0fc74d5b8c54b90481f1f2b2a3e5eb1d02ce87c9cb1ec1565.png",
+        "imageGold": "",
+        "flavorText": "Allowing totems to attack is not cheating. I mean, there isn't anything in the rule books about it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5fb7504ce2760021d63e93a9d118930924017eacfe6acb027dbbc6b7f0b6bca6.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          2615
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102627&locale=en_US",
+        "sha256": "61fa75449d60a6136cd8c25488ebb8adb950f28946da75735ad831e6c079df31",
+        "bytes": 853,
+        "observed_at": "2026-10-18T01:10:15.450400+00:00"
+      }
+    },
+    {
+      "card_id": "WON_133",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102677-zh_CN.json",
+      "response_sha256": "dde16e72a7bd692db23d3b84eeaa552bb8b6a5ef204b4199f79f57c82abda7c2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102677&locale=zh_CN",
+      "face": {
+        "id": 102677,
+        "collectible": 1,
+        "slug": "102677-emperor-thaurissan",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "索瑞森大帝",
+        "text": "在你的回合结束时，你所有手牌的法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08e67c53ba2cfb3af79c5fb35e1211cf73bfcbab63fc4bf45028a30de09d1ea0.png",
+        "imageGold": "",
+        "flavorText": "把一个邪恶的炎魔之王召唤到这个世界上，然后看着这个家伙奴役了他所有的子民并非是他最为后悔的事情。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e89828421e1a864137e37f9d0b1c163f46f6c4a241ecb2cfd4587e587e647a99.png",
+        "copyOfCardId": [
+          2262
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102677&locale=zh_CN",
+        "sha256": "dde16e72a7bd692db23d3b84eeaa552bb8b6a5ef204b4199f79f57c82abda7c2",
+        "bytes": 894,
+        "observed_at": "2026-10-18T01:10:16.156008+00:00"
+      }
+    },
+    {
+      "card_id": "WON_133",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102677-en_US.json",
+      "response_sha256": "5877b7abdc0e0033db751389c9c2b6ef66c73549f2102ede43e8c0e7d6ea3ef1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102677&locale=en_US",
+      "face": {
+        "id": 102677,
+        "collectible": 1,
+        "slug": "102677-emperor-thaurissan",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Emperor Thaurissan",
+        "text": "At the end of your turn, reduce the Cost of cards in your hand by (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/129f33d691d8890f2ddecd9b6cbde91a4428b2361825f499a358d785860dc6e5.png",
+        "imageGold": "",
+        "flavorText": "His second greatest regret is summoning an evil Firelord who enslaved his entire people.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e89828421e1a864137e37f9d0b1c163f46f6c4a241ecb2cfd4587e587e647a99.png",
+        "copyOfCardId": [
+          2262
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102677&locale=en_US",
+        "sha256": "5877b7abdc0e0033db751389c9c2b6ef66c73549f2102ede43e8c0e7d6ea3ef1",
+        "bytes": 832,
+        "observed_at": "2026-10-18T01:10:16.297857+00:00"
+      }
+    },
+    {
+      "card_id": "WON_137",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102682-zh_CN.json",
+      "response_sha256": "345b276c3f910bc5bb433120d9fd71c6e726341a583b287d7e577798e353c9ef",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102682&locale=zh_CN",
+      "face": {
+        "id": 102682,
+        "collectible": 1,
+        "slug": "102682-don-hancho",
+        "classId": 12,
+        "multiClassIds": [
+          3,
+          5,
+          10
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 5,
+        "artistName": "Tyson Murphy",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "唐·汉古",
+        "text": "<b>战吼：</b>随机使你手牌中的一张随从牌获得+5/+5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/581e245cec4e77e073053c724644b37cc218a63f752cde636f38bb1ff4aff5c5.png",
+        "imageGold": "",
+        "flavorText": "作为污手党家族的主心骨，汉有时候真想把愚钝的古扫地出门，但他没法这么做。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9466723711797b3e0c37d5733174b952a01e9e1bb62046d19d79efc8ac5a279e.png",
+        "keywordIds": [
+          8,
+          27
+        ],
+        "copyOfCardId": [
+          40703
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          482
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102682&locale=zh_CN",
+        "sha256": "345b276c3f910bc5bb433120d9fd71c6e726341a583b287d7e577798e353c9ef",
+        "bytes": 879,
+        "observed_at": "2026-10-18T01:10:16.418555+00:00"
+      }
+    },
+    {
+      "card_id": "WON_137",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102682-en_US.json",
+      "response_sha256": "600e9c247774d7b81049c4f9a874257497615bd76c5c62480ca827c17d10d1e7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102682&locale=en_US",
+      "face": {
+        "id": 102682,
+        "collectible": 1,
+        "slug": "102682-don-hancho",
+        "classId": 12,
+        "multiClassIds": [
+          3,
+          5,
+          10
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 5,
+        "artistName": "Tyson Murphy",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Don Han'Cho",
+        "text": "<b>Battlecry:</b> Give a random minion in your hand +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6bd1ddb0242ed81d393928bf0f1d11e44e4e1fb9a3be469f6fdaf2ac37e94df9.png",
+        "imageGold": "",
+        "flavorText": "The brilliant mastermind of the Grimy Goons, Han sometimes thinks about ditching the idiot Cho, but that would just tear him apart.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9466723711797b3e0c37d5733174b952a01e9e1bb62046d19d79efc8ac5a279e.png",
+        "keywordIds": [
+          8,
+          27
+        ],
+        "copyOfCardId": [
+          40703
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          482
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=102682&locale=en_US",
+        "sha256": "600e9c247774d7b81049c4f9a874257497615bd76c5c62480ca827c17d10d1e7",
+        "bytes": 891,
+        "observed_at": "2026-10-18T01:10:16.641960+00:00"
+      }
+    },
+    {
+      "card_id": "WON_315",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103218-zh_CN.json",
+      "response_sha256": "fea6a50782780becbaa70bfd1d38be83c5d6f976eab3260b6a7b1fe29832153b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103218&locale=zh_CN",
+      "face": {
+        "id": 103218,
+        "collectible": 1,
+        "slug": "103218-darkshire-alchemist",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "夜色镇炼金师",
+        "text": "<b>战吼：</b> 恢复 5点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05ad4971f7727cfaaae956e903c383a42d57083851446030472beef3305d76b0.png",
+        "imageGold": "",
+        "flavorText": "她最拿手的甜点就是巧克力熔岩漏斗蛋糕。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0988175e7b2b42425f8f557a524fed2338da6087b15a6903cf953ba809c42a0.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          38764
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103218&locale=zh_CN",
+        "sha256": "fea6a50782780becbaa70bfd1d38be83c5d6f976eab3260b6a7b1fe29832153b",
+        "bytes": 787,
+        "observed_at": "2026-10-18T01:10:16.879726+00:00"
+      }
+    },
+    {
+      "card_id": "WON_315",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103218-en_US.json",
+      "response_sha256": "b8385367b726af5a5667f8de5c21338ab441ae712d7f37ec97424b9dda3e5771",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103218&locale=en_US",
+      "face": {
+        "id": 103218,
+        "collectible": 1,
+        "slug": "103218-darkshire-alchemist",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Darkshire Alchemist",
+        "text": "<b>Battlecry:</b> Restore 5 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aea3bd5d3290c5f64ef246fd348ab291798b02c9da76b246e69d04c0835b62a6.png",
+        "imageGold": "",
+        "flavorText": "The secret ingredient: liquified funnel cake.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0988175e7b2b42425f8f557a524fed2338da6087b15a6903cf953ba809c42a0.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          38764
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103218&locale=en_US",
+        "sha256": "b8385367b726af5a5667f8de5c21338ab441ae712d7f37ec97424b9dda3e5771",
+        "bytes": 771,
+        "observed_at": "2026-10-18T01:10:17.188537+00:00"
+      }
+    },
+    {
+      "card_id": "WON_316",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103219-zh_CN.json",
+      "response_sha256": "7e961ab5369b677a29a041c7d26f2676360535d2bb1aa6bc946bfe98612afd12",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103219&locale=zh_CN",
+      "face": {
+        "id": 103219,
+        "collectible": 1,
+        "slug": "103219-shado-pan-rider",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Ryan Metcalf",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "影踪骁骑兵",
+        "text": "<b>连击：</b> 获得+4攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59da2c0655ec43e13974a36248f944479e9a3d0fbe9b27495a85eacdcd857926.png",
+        "imageGold": "",
+        "flavorText": "在经历完锦绣谷一役后，他决定好好度个假。通常他的避暑方式就是爬到雪山顶上去干掉几个雪人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2951bb135a1ace5bf2bba97884b6bdeadec391cfddb8ca200d010733b48b32b3.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          2765
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103219&locale=zh_CN",
+        "sha256": "7e961ab5369b677a29a041c7d26f2676360535d2bb1aa6bc946bfe98612afd12",
+        "bytes": 852,
+        "observed_at": "2026-10-18T01:10:17.282560+00:00"
+      }
+    },
+    {
+      "card_id": "WON_316",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103219-en_US.json",
+      "response_sha256": "e3ae950824714ef4b1acdb84aa1992ea48e238c9249dfd7ba818330a4a9981d6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103219&locale=en_US",
+      "face": {
+        "id": 103219,
+        "collectible": 1,
+        "slug": "103219-shado-pan-rider",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Ryan Metcalf",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Shado-Pan Rider",
+        "text": "<b>Combo:</b> Gain +4 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/982e5b93799e18178a49420b4c6314879acd1e6aad5917ce2ef701f1231148ff.png",
+        "imageGold": "",
+        "flavorText": "He needed a break after that business in the Vale of Eternal Blossoms. Naturally, he chose to spend his vacation in an icy snowscape killing monsters.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2951bb135a1ace5bf2bba97884b6bdeadec391cfddb8ca200d010733b48b32b3.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          2765
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103219&locale=en_US",
+        "sha256": "e3ae950824714ef4b1acdb84aa1992ea48e238c9249dfd7ba818330a4a9981d6",
+        "bytes": 862,
+        "observed_at": "2026-10-18T01:10:17.360126+00:00"
+      }
+    },
+    {
+      "card_id": "WON_328",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103231-zh_CN.json",
+      "response_sha256": "7335ad69a91e0919588c1019c2fa5c830d8741104da3fd94c7bcbbb2305bd62d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103231&locale=zh_CN",
+      "face": {
+        "id": 103231,
+        "collectible": 1,
+        "slug": "103231-muklas-champion",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "穆克拉的勇士",
+        "text": "<b>激励：</b>使你的其他随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0d6d2f41071394a0ad7071f9bd471e75bf4214d4f4f52c73d741c8d08bffdbd.png",
+        "imageGold": "",
+        "flavorText": "相比一般的猩猩而言，他显得稳重多了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a52890083560a24a7c547e1e9b2e480940b4c8a037650977f9a82fd7dd568ab.png",
+        "keywordIds": [
+          20
+        ],
+        "copyOfCardId": [
+          2497
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103231&locale=zh_CN",
+        "sha256": "7335ad69a91e0919588c1019c2fa5c830d8741104da3fd94c7bcbbb2305bd62d",
+        "bytes": 808,
+        "observed_at": "2026-10-18T01:10:17.578704+00:00"
+      }
+    },
+    {
+      "card_id": "WON_328",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103231-en_US.json",
+      "response_sha256": "507bad0ea69883a20dc646f6719652e6deddd93f96ad155db8b53f949536483d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103231&locale=en_US",
+      "face": {
+        "id": 103231,
+        "collectible": 1,
+        "slug": "103231-muklas-champion",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Mukla's Champion",
+        "text": "<b>Inspire:</b> Give your other minions +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0fa3548731b6dd74f4f24f8e8916784c3b3a4df4f663540cb4fab9c21d3efe3.png",
+        "imageGold": "",
+        "flavorText": "An elegant gorilla, for a more civilized age.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a52890083560a24a7c547e1e9b2e480940b4c8a037650977f9a82fd7dd568ab.png",
+        "keywordIds": [
+          20
+        ],
+        "copyOfCardId": [
+          2497
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103231&locale=en_US",
+        "sha256": "507bad0ea69883a20dc646f6719652e6deddd93f96ad155db8b53f949536483d",
+        "bytes": 792,
+        "observed_at": "2026-10-18T01:10:18.353356+00:00"
+      }
+    },
+    {
+      "card_id": "WON_339",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103242-zh_CN.json",
+      "response_sha256": "23ee9bb4565cd798d58270547c7ad64a58613d87ac00a9f9b1553b67baddf205",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103242&locale=zh_CN",
+      "face": {
+        "id": 103242,
+        "collectible": 1,
+        "slug": "103242-alley-armorsmith",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "兽人铸甲师",
+        "text": "<b>嘲讽</b> 每当本随从造成伤害时，获得等量的护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22275da7c7a2698195e0cbb8c8cdbc2eb38cce66e980bfcbe07e9d2261da153c.png",
+        "imageGold": "",
+        "flavorText": "她每天凌晨4点就爬起来打铁了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d5c34843de7781d652e64e8c5e6b29fc3d9ee63b910b1a95115c910fe2e76af.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          40574
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103242&locale=zh_CN",
+        "sha256": "23ee9bb4565cd798d58270547c7ad64a58613d87ac00a9f9b1553b67baddf205",
+        "bytes": 806,
+        "observed_at": "2026-10-18T01:10:18.014544+00:00"
+      }
+    },
+    {
+      "card_id": "WON_339",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103242-en_US.json",
+      "response_sha256": "55c60a83afc5dcdb143eb6ce3abd893ea8010e8878ef0c518b8b654c401404e0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103242&locale=en_US",
+      "face": {
+        "id": 103242,
+        "collectible": 1,
+        "slug": "103242-alley-armorsmith",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Alley Armorsmith",
+        "text": "<b>Taunt</b> Whenever this minion deals damage, gain that much Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2cba0ea8ddb1515b97f93e9c463fbbc9b7d1ece78b2f155fa6fc9991373a59cc.png",
+        "imageGold": "",
+        "flavorText": "The rent is cheap and she passes the savings onto YOU!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d5c34843de7781d652e64e8c5e6b29fc3d9ee63b910b1a95115c910fe2e76af.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          40574
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103242&locale=en_US",
+        "sha256": "55c60a83afc5dcdb143eb6ce3abd893ea8010e8878ef0c518b8b654c401404e0",
+        "bytes": 813,
+        "observed_at": "2026-10-18T01:10:18.170978+00:00"
+      }
+    },
+    {
+      "card_id": "WON_329",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103232-zh_CN.json",
+      "response_sha256": "780041bba05f0ab49236342d53deb2212fdc1c159a2832fb8220e66a67a63b18",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103232&locale=zh_CN",
+      "face": {
+        "id": 103232,
+        "collectible": 1,
+        "slug": "103232-blackwing-corruptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Greg Staples",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "黑翼腐蚀者",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，则造成5点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39ca755af7c8706f29019df278578e00cab50c20787371c260d03ff0428d1f81.png",
+        "imageGold": "",
+        "flavorText": "当他把几本漫画书和几张摇滚碟片带回黑石山的时候，他就获得了“腐蚀者”的称号。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f8bdba703a68104fac9b27138234b70ce9205d974f0fe6b9fbab47097e8e8cc.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          2409
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103232&locale=zh_CN",
+        "sha256": "780041bba05f0ab49236342d53deb2212fdc1c159a2832fb8220e66a67a63b18",
+        "bytes": 872,
+        "observed_at": "2026-10-18T01:10:18.281681+00:00"
+      }
+    },
+    {
+      "card_id": "WON_329",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\103232-en_US.json",
+      "response_sha256": "6074a9dd6780e1c49fbeaa5ee23b2bd7d513a076f54ba068c52e954084b51470",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103232&locale=en_US",
+      "face": {
+        "id": 103232,
+        "collectible": 1,
+        "slug": "103232-blackwing-corruptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Greg Staples",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Blackwing Corruptor",
+        "text": "<b>Battlecry:</b> If you're holding a Dragon, deal 5 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9d8edcb542adfb136fab718fca1a5bc41e554f4853762c6d9a138490f7b3988.png",
+        "imageGold": "",
+        "flavorText": "He got his name when he gave Blackwing some comic books and rock & roll records.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f8bdba703a68104fac9b27138234b70ce9205d974f0fe6b9fbab47097e8e8cc.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          2409
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=103232&locale=en_US",
+        "sha256": "6074a9dd6780e1c49fbeaa5ee23b2bd7d513a076f54ba068c52e954084b51470",
+        "bytes": 831,
+        "observed_at": "2026-10-18T01:10:18.770295+00:00"
+      }
+    },
+    {
+      "card_id": "BT_249",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\57165-zh_CN.json",
+      "response_sha256": "d88cbebc2003131bb4a75211fcf49ef54468d8cfc87f5a5031cedbd288766082",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=57165&locale=zh_CN",
+      "face": {
+        "id": 57165,
+        "collectible": 1,
+        "slug": "57165-scrap-golem",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "废铁魔像",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>获得等同于本随从攻击力的护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b7363996258eea3e792ca1faf74e8308129efc746b132ff7c536f777f87a732b.png",
+        "imageGold": "",
+        "flavorText": "这是我最后的护甲，收下吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/250b6d24db4b2fb5086b315b581d74045d5b6c3eebde8c5d674276d1e206baf7.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=57165&locale=zh_CN",
+        "sha256": "d88cbebc2003131bb4a75211fcf49ef54468d8cfc87f5a5031cedbd288766082",
+        "bytes": 792,
+        "observed_at": "2026-10-18T01:10:19.078696+00:00"
+      }
+    },
+    {
+      "card_id": "BT_249",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\57165-en_US.json",
+      "response_sha256": "b4a9d9eb1737ba92f1d28ede8d4876faeb1eafbfd4260de8d131d76ae8c7c8e9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=57165&locale=en_US",
+      "face": {
+        "id": 57165,
+        "collectible": 1,
+        "slug": "57165-scrap-golem",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Scrap Golem",
+        "text": "<b>Taunt</b>. <b>Deathrattle</b>: Gain Armor equal to this minion's Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b8784b92d7d495acc94cc71e14524cc1fd6a42a93fd824660a1c678622b87da.png",
+        "imageGold": "",
+        "flavorText": "Abuse, reuse, recycle.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/250b6d24db4b2fb5086b315b581d74045d5b6c3eebde8c5d674276d1e206baf7.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=57165&locale=en_US",
+        "sha256": "b4a9d9eb1737ba92f1d28ede8d4876faeb1eafbfd4260de8d131d76ae8c7c8e9",
+        "bytes": 769,
+        "observed_at": "2026-10-18T01:10:19.001077+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_064",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41217-zh_CN.json",
+      "response_sha256": "2d931d66d77559dbbe97ef6d62ae9c66ece47c629f4574f8f63074750be8ebfd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41217&locale=zh_CN",
+      "face": {
+        "id": 41217,
+        "collectible": 1,
+        "slug": "41217-vilespine-slayer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Efrem Palacios",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "邪脊吞噬者",
+        "text": "<b>连击：</b> 消灭一个随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28a7d3be33d8cd680628f0fc3d9fc9faa96a77a379c5214914f92735b1a22279.png",
+        "imageGold": "",
+        "flavorText": "它会用舌头抽晕你，再把你吞下去。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c0a162b8c8b6b975295400b9d5686635bb9c2fbf5e6be1d9f73e228f803afad.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41217&locale=zh_CN",
+        "sha256": "2d931d66d77559dbbe97ef6d62ae9c66ece47c629f4574f8f63074750be8ebfd",
+        "bytes": 746,
+        "observed_at": "2026-10-18T01:10:19.202803+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_064",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41217-en_US.json",
+      "response_sha256": "6cd7efd97075942e9b41be6cbda32a6ac0b991a89c8def5b3150770d5a8b30b0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41217&locale=en_US",
+      "face": {
+        "id": 41217,
+        "collectible": 1,
+        "slug": "41217-vilespine-slayer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Efrem Palacios",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Vilespine Slayer",
+        "text": "<b>Combo:</b> Destroy a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81f0d5605c93dc66752604a2fb74e14f57f545fc6b4420ee6a8088845193f881.png",
+        "imageGold": "",
+        "flavorText": "'Cause slayers gonna slay, slay, slay, slay, slay.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c0a162b8c8b6b975295400b9d5686635bb9c2fbf5e6be1d9f73e228f803afad.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=41217&locale=en_US",
+        "sha256": "6cd7efd97075942e9b41be6cbda32a6ac0b991a89c8def5b3150770d5a8b30b0",
+        "bytes": 742,
+        "observed_at": "2026-10-18T01:10:19.474122+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_576",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\49494-zh_CN.json",
+      "response_sha256": "e0f351c131e2a3dcf9f553f84154c2975a8149c765c3ffc1c0c5283f97a936f1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=49494&locale=zh_CN",
+      "face": {
+        "id": 49494,
+        "collectible": 1,
+        "slug": "49494-crazed-chemist",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Max Grecke",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "疯狂的药剂师",
+        "text": "<b>连击：</b>使一个友方随从获得+4攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9ebe3e4ae5a719be7d2a8bfcdcdc862b11ab396b31c3dd45021533d76358f9c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34c8f1244b920648ee24b92f7e85e5a05d492f9e40bd344f88958704714c4ae0.png",
+        "flavorText": "不疯魔，不成活。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35633a9c862a2b5d63cd1597ce9cf9d9d3abcd1f5460ebc592b4007f8f88767e.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          130525
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=49494&locale=zh_CN",
+        "sha256": "e0f351c131e2a3dcf9f553f84154c2975a8149c765c3ffc1c0c5283f97a936f1",
+        "bytes": 882,
+        "observed_at": "2026-10-18T01:10:19.704886+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_576",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\49494-en_US.json",
+      "response_sha256": "50982744d8c6535298aa5d1da1de675757eca9482c6cd2c04c28e7ac72f53087",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=49494&locale=en_US",
+      "face": {
+        "id": 49494,
+        "collectible": 1,
+        "slug": "49494-crazed-chemist",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Max Grecke",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Crazed Chemist",
+        "text": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/835d8020cf03f7f2b5091ffe2008568a57393aec0905c4a046fb9360ea1a796d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31d0e64d706b2ec4ba49a33852aad8c04424392e1a33bd5628a2860f34ed4a22.png",
+        "flavorText": "You don't have to be crazy to work here, but it helps.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35633a9c862a2b5d63cd1597ce9cf9d9d3abcd1f5460ebc592b4007f8f88767e.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          130525
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=49494&locale=en_US",
+        "sha256": "50982744d8c6535298aa5d1da1de675757eca9482c6cd2c04c28e7ac72f53087",
+        "bytes": 898,
+        "observed_at": "2026-10-18T01:10:19.794757+00:00"
+      }
+    },
+    {
+      "card_id": "AT_012",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2551-zh_CN.json",
+      "response_sha256": "93aaee8d197f9ca0784dc6b4b3c7d1d33abdfdb393cef094fae87139afa18c2a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2551&locale=zh_CN",
+      "face": {
+        "id": 2551,
+        "collectible": 1,
+        "slug": "2551-spawn-of-shadows",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "暗影子嗣",
+        "text": "<b>战吼，激励：</b>对每个英雄造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f753cf1c37ddf6476ab297052faf6bcc47d37246ab8272e041e8c98b0deff4c.png",
+        "imageGold": "",
+        "flavorText": "只要跟暗影两字沾边的，多半不是什么好人，也不会有什么好事。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/030370787e0b67a1ddf06d298b94a9535ed1226af2d51af7d2c9d13c3466d4e5.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          102592
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2551&locale=zh_CN",
+        "sha256": "93aaee8d197f9ca0784dc6b4b3c7d1d33abdfdb393cef094fae87139afa18c2a",
+        "bytes": 842,
+        "observed_at": "2026-10-18T00:19:07.978464+00:00"
+      }
+    },
+    {
+      "card_id": "AT_012",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2551-en_US.json",
+      "response_sha256": "6814a5200f399d18b24e196f1c9926ffc7b3ef3ad017839a777f41ba77dc20f5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2551&locale=en_US",
+      "face": {
+        "id": 2551,
+        "collectible": 1,
+        "slug": "2551-spawn-of-shadows",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Spawn of Shadows",
+        "text": "<b>Battlecry and Inspire:</b> Deal 4 damage to each hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9fb025a0f28f60d7d698acdab8f13a199796c6f6539cbb9b49fe32c51b89c97.png",
+        "imageGold": "",
+        "flavorText": "What did you expect to happen? He's a Spawn. Of Shadows.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/030370787e0b67a1ddf06d298b94a9535ed1226af2d51af7d2c9d13c3466d4e5.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          102592
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2551&locale=en_US",
+        "sha256": "6814a5200f399d18b24e196f1c9926ffc7b3ef3ad017839a777f41ba77dc20f5",
+        "bytes": 813,
+        "observed_at": "2026-10-18T00:19:07.909422+00:00"
+      }
+    },
+    {
+      "card_id": "AT_049",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2615-zh_CN.json",
+      "response_sha256": "80067515f7e253f296ee4909950e7f61cf4bf218f14526f83a564003bdbe7c83",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2615&locale=zh_CN",
+      "face": {
+        "id": 2615,
+        "collectible": 1,
+        "slug": "2615-thunder-bluff-valiant",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "雷霆崖勇士",
+        "text": "<b>战吼，激励：</b>使你的图腾获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcf6550e8bba2a9409b586e2e5024b1f76d7aaa9ec825ac7044ebdac105f6797.png",
+        "imageGold": "",
+        "flavorText": "用图腾做武器并不算犯规。至少赛事规则里没提到过这点。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f59dcd2836b4eb104d54024466bb5abcb0db7e45be63813e7da8d89bc869cf0e.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          102627
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2615&locale=zh_CN",
+        "sha256": "80067515f7e253f296ee4909950e7f61cf4bf218f14526f83a564003bdbe7c83",
+        "bytes": 825,
+        "observed_at": "2026-10-17T23:21:53.249580+00:00"
+      }
+    },
+    {
+      "card_id": "AT_049",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2615-en_US.json",
+      "response_sha256": "5db70b35bf09c06dfbe9dd24643cf890f70d88e37b0e341d3c02d2ad2132a28d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2615&locale=en_US",
+      "face": {
+        "id": 2615,
+        "collectible": 1,
+        "slug": "2615-thunder-bluff-valiant",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Thunder Bluff Valiant",
+        "text": "<b>Battlecry and Inspire:</b> Give your Totems +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/102f3dd5ca90ea1f92ebfbe24a269556b4732b02f8a3f3f010489ec60b906ae9.png",
+        "imageGold": "",
+        "flavorText": "Allowing totems to attack is not cheating. I mean, there isn't anything in the rule books about it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f59dcd2836b4eb104d54024466bb5abcb0db7e45be63813e7da8d89bc869cf0e.png",
+        "keywordIds": [
+          8,
+          20
+        ],
+        "copyOfCardId": [
+          102627
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2615&locale=en_US",
+        "sha256": "5db70b35bf09c06dfbe9dd24643cf890f70d88e37b0e341d3c02d2ad2132a28d",
+        "bytes": 849,
+        "observed_at": "2026-10-17T23:21:54.038261+00:00"
+      }
+    },
+    {
+      "card_id": "BRM_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2262-zh_CN.json",
+      "response_sha256": "f19c68e898d59dfa44289226db086a4c912bcc2b0f74796fe6d869ed092ab880",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2262&locale=zh_CN",
+      "face": {
+        "id": 2262,
+        "collectible": 1,
+        "slug": "2262-emperor-thaurissan",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "索瑞森大帝",
+        "text": "在你的回合结束时，你所有手牌的法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ea31b1ee9b038ad81cdb46e9e54474f619ec44885bea6a5a1ae7ff78f23ff57.png",
+        "imageGold": "",
+        "flavorText": "把一个邪恶的炎魔之王召唤到这个世界上，然后看着这个家伙奴役了他所有的子民并非是他最为后悔的事情。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e89828421e1a864137e37f9d0b1c163f46f6c4a241ecb2cfd4587e587e647a99.png",
+        "copyOfCardId": [
+          102677
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2262&locale=zh_CN",
+        "sha256": "f19c68e898d59dfa44289226db086a4c912bcc2b0f74796fe6d869ed092ab880",
+        "bytes": 890,
+        "observed_at": "2026-10-18T00:19:08.824143+00:00"
+      }
+    },
+    {
+      "card_id": "BRM_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2262-en_US.json",
+      "response_sha256": "35a1ab23904631718bf70464551f0550e552fae7dabf1603456eb574e686abfc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2262&locale=en_US",
+      "face": {
+        "id": 2262,
+        "collectible": 1,
+        "slug": "2262-emperor-thaurissan",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Emperor Thaurissan",
+        "text": "At the end of your turn, reduce the Cost of cards in your hand by (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3b31204563077ea850bafda44df128431d9caff1fbb06146409a01281e4814c.png",
+        "imageGold": "",
+        "flavorText": "His second greatest regret is summoning an evil Firelord who enslaved his entire people.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e89828421e1a864137e37f9d0b1c163f46f6c4a241ecb2cfd4587e587e647a99.png",
+        "copyOfCardId": [
+          102677
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2262&locale=en_US",
+        "sha256": "35a1ab23904631718bf70464551f0550e552fae7dabf1603456eb574e686abfc",
+        "bytes": 828,
+        "observed_at": "2026-10-18T00:19:08.629420+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_685",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\40703-zh_CN.json",
+      "response_sha256": "5d6cad530abc86aab922b594a38ce1123d71b50028a1d8b496d16d073f23d5b8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40703&locale=zh_CN",
+      "face": {
+        "id": 40703,
+        "collectible": 1,
+        "slug": "40703-don-hancho",
+        "classId": 12,
+        "multiClassIds": [
+          3,
+          5,
+          10
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 5,
+        "artistName": "Tyson Murphy",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "唐·汉古",
+        "text": "<b>战吼：</b>随机使你手牌中的一张随从牌获得+5/+5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fce12aefb975b4046e1dc556a3e723aea488130a3f58ecaca88c2b86dd84407d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3192a0a80ac3c06e841c49ebd8f5dabf1c1021c0a46515cd1d443f2df47746aa.png",
+        "flavorText": "作为污手党家族的主心骨，汉有时候真想把愚钝的古扫地出门，但他没法这么做。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9466723711797b3e0c37d5733174b952a01e9e1bb62046d19d79efc8ac5a279e.png",
+        "keywordIds": [
+          8,
+          27
+        ],
+        "copyOfCardId": [
+          102682
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          482
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40703&locale=zh_CN",
+        "sha256": "5d6cad530abc86aab922b594a38ce1123d71b50028a1d8b496d16d073f23d5b8",
+        "bytes": 994,
+        "observed_at": "2026-10-17T23:21:52.535505+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_685",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\40703-en_US.json",
+      "response_sha256": "7fa0273b5d74dfd63996c8f277fdb2d03f8175237e61ec5b0386c277d1c8e3e5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40703&locale=en_US",
+      "face": {
+        "id": 40703,
+        "collectible": 1,
+        "slug": "40703-don-hancho",
+        "classId": 12,
+        "multiClassIds": [
+          3,
+          5,
+          10
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 5,
+        "artistName": "Tyson Murphy",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Don Han'Cho",
+        "text": "<b>Battlecry:</b> Give a random minion in your hand +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c5c52bcaadc8e19ff901fe28787a2b2e61942a38ac87e0c4d00b9c9e022b45e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d54667667dff02059d85375317135c029f356adc48e395a6a830464ebde788da.png",
+        "flavorText": "The brilliant mastermind of the Grimy Goons, Han sometimes thinks about ditching the idiot Cho, but that would just tear him apart.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9466723711797b3e0c37d5733174b952a01e9e1bb62046d19d79efc8ac5a279e.png",
+        "keywordIds": [
+          8,
+          27
+        ],
+        "copyOfCardId": [
+          102682
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          482
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40703&locale=en_US",
+        "sha256": "7fa0273b5d74dfd63996c8f277fdb2d03f8175237e61ec5b0386c277d1c8e3e5",
+        "bytes": 1006,
+        "observed_at": "2026-10-17T23:21:52.946991+00:00"
+      }
+    },
+    {
+      "card_id": "OG_234",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\38764-zh_CN.json",
+      "response_sha256": "6bafbe277839800103e28b100d3a58d4153cdd79018e9daa2dc230c360784a21",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=38764&locale=zh_CN",
+      "face": {
+        "id": 38764,
+        "collectible": 1,
+        "slug": "38764-darkshire-alchemist",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "夜色镇炼金师",
+        "text": "<b>战吼：</b> 恢复 5点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ff1b59b5f6ca6c08452a68f87e3887acf4968f9691cbc3a8748a4e25fcb1871.png",
+        "imageGold": "",
+        "flavorText": "她最拿手的甜点就是巧克力熔岩漏斗蛋糕。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0988175e7b2b42425f8f557a524fed2338da6087b15a6903cf953ba809c42a0.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          103218
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=38764&locale=zh_CN",
+        "sha256": "6bafbe277839800103e28b100d3a58d4153cdd79018e9daa2dc230c360784a21",
+        "bytes": 784,
+        "observed_at": "2026-10-17T22:59:57.007286+00:00"
+      }
+    },
+    {
+      "card_id": "OG_234",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\38764-en_US.json",
+      "response_sha256": "01bf4ee9e937d9dca60f8c632fc484bce2bf2b446d31f77bd336cc5fda404cf1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=38764&locale=en_US",
+      "face": {
+        "id": 38764,
+        "collectible": 1,
+        "slug": "38764-darkshire-alchemist",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Darkshire Alchemist",
+        "text": "<b>Battlecry:</b> Restore 5 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/819b66fc1f31265a65d171ce7b561e6221d486ac89ecb5c01d67255968e987b9.png",
+        "imageGold": "",
+        "flavorText": "The secret ingredient: liquified funnel cake.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0988175e7b2b42425f8f557a524fed2338da6087b15a6903cf953ba809c42a0.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          103218
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=38764&locale=en_US",
+        "sha256": "01bf4ee9e937d9dca60f8c632fc484bce2bf2b446d31f77bd336cc5fda404cf1",
+        "bytes": 768,
+        "observed_at": "2026-10-17T22:59:57.241553+00:00"
+      }
+    },
+    {
+      "card_id": "AT_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2765-zh_CN.json",
+      "response_sha256": "9f74ae94188abdc08c38fed42fd76bd66212dac21747c18e6529bcd41664f451",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2765&locale=zh_CN",
+      "face": {
+        "id": 2765,
+        "collectible": 1,
+        "slug": "2765-shado-pan-rider",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Ryan Metcalf",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "影踪骁骑兵",
+        "text": "<b>连击：</b> 获得+4攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c0bba8a278e1d34f86e1ed248fbfb380888dfb43e617345aaac86cebc20ddd4.png",
+        "imageGold": "",
+        "flavorText": "在经历完锦绣谷一役后，他决定好好度个假。通常他的避暑方式就是爬到雪山顶上去干掉几个雪人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f94f0405f4baf25bcce6a631aec8a93d8e2d9dff6fd2252f8ef979816da61b2.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          103219
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2765&locale=zh_CN",
+        "sha256": "9f74ae94188abdc08c38fed42fd76bd66212dac21747c18e6529bcd41664f451",
+        "bytes": 848,
+        "observed_at": "2026-10-17T22:59:55.078791+00:00"
+      }
+    },
+    {
+      "card_id": "AT_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2765-en_US.json",
+      "response_sha256": "ff423b591ff9ac81bb641eab2965ae45037978736b8f7b492ff2a929f9938179",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2765&locale=en_US",
+      "face": {
+        "id": 2765,
+        "collectible": 1,
+        "slug": "2765-shado-pan-rider",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Ryan Metcalf",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Shado-Pan Rider",
+        "text": "<b>Combo:</b> Gain +4 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a218a7472561e1d3e70b4d23722206ea3d73ede4ef7518013ebbd0936e3ef81.png",
+        "imageGold": "",
+        "flavorText": "He needed a break after that business in the Vale of Eternal Blossoms. Naturally, he chose to spend his vacation in an icy snowscape killing monsters.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f94f0405f4baf25bcce6a631aec8a93d8e2d9dff6fd2252f8ef979816da61b2.png",
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          103219
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2765&locale=en_US",
+        "sha256": "ff423b591ff9ac81bb641eab2965ae45037978736b8f7b492ff2a929f9938179",
+        "bytes": 858,
+        "observed_at": "2026-10-17T22:59:55.296516+00:00"
+      }
+    },
+    {
+      "card_id": "AT_090",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2497-zh_CN.json",
+      "response_sha256": "6023516fd10e6c7af6eda84b009ef92ca0696865648b369c1b3a387cfa21e325",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2497&locale=zh_CN",
+      "face": {
+        "id": 2497,
+        "collectible": 1,
+        "slug": "2497-muklas-champion",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "穆克拉的勇士",
+        "text": "<b>激励：</b>使你的其他随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2e8b058018104a720c151ac1e1ea7b01eb7df8450720fd0540140e4e7ea1bfe.png",
+        "imageGold": "",
+        "flavorText": "相比一般的猩猩而言，他显得稳重多了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae976fde6c90bf69a2cf7def6bd7b39b803008451eb7c078f56c122a4f7d087d.png",
+        "keywordIds": [
+          20
+        ],
+        "copyOfCardId": [
+          103231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2497&locale=zh_CN",
+        "sha256": "6023516fd10e6c7af6eda84b009ef92ca0696865648b369c1b3a387cfa21e325",
+        "bytes": 804,
+        "observed_at": "2026-10-17T23:21:52.897159+00:00"
+      }
+    },
+    {
+      "card_id": "AT_090",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\2497-en_US.json",
+      "response_sha256": "1fd25f8269175bfefd8954f1474d2b1ff4743de95416d6d64caacfd52f8548dc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2497&locale=en_US",
+      "face": {
+        "id": 2497,
+        "collectible": 1,
+        "slug": "2497-muklas-champion",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Mukla's Champion",
+        "text": "<b>Inspire:</b> Give your other minions +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/852541e4ca0e7a4b4039024916c411385ec5f7c60a8029c0d77e17964570612d.png",
+        "imageGold": "",
+        "flavorText": "An elegant gorilla, for a more civilized age.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae976fde6c90bf69a2cf7def6bd7b39b803008451eb7c078f56c122a4f7d087d.png",
+        "keywordIds": [
+          20
+        ],
+        "copyOfCardId": [
+          103231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=2497&locale=en_US",
+        "sha256": "1fd25f8269175bfefd8954f1474d2b1ff4743de95416d6d64caacfd52f8548dc",
+        "bytes": 788,
+        "observed_at": "2026-10-17T23:21:53.068624+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_756",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\40574-zh_CN.json",
+      "response_sha256": "7e33aaefb4fa4d2f8d1fecc6b3dae25e1ffadc681b6dae98b3166f3b3922b285",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40574&locale=zh_CN",
+      "face": {
+        "id": 40574,
+        "collectible": 1,
+        "slug": "40574-alley-armorsmith",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "兽人铸甲师",
+        "text": "<b>嘲讽</b> 每当本随从造成伤害时，获得等量的护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47c18f04d210afc11a77351cfacaf32f03734dd58cff6d8555da0e433846dfaa.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9d0a5850eae7ba530de71cb09e9bed2e72521ad65fcd15b52fc8648c7b2dda1.png",
+        "flavorText": "她每天凌晨4点就爬起来打铁了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d5c34843de7781d652e64e8c5e6b29fc3d9ee63b910b1a95115c910fe2e76af.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          103242
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40574&locale=zh_CN",
+        "sha256": "7e33aaefb4fa4d2f8d1fecc6b3dae25e1ffadc681b6dae98b3166f3b3922b285",
+        "bytes": 921,
+        "observed_at": "2026-10-18T00:51:28.031677+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_756",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\40574-en_US.json",
+      "response_sha256": "c131012897dd00cc06235705c3321e9dc8fd4b1e624b62a44caade3f0ccfb3dc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40574&locale=en_US",
+      "face": {
+        "id": 40574,
+        "collectible": 1,
+        "slug": "40574-alley-armorsmith",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Alley Armorsmith",
+        "text": "<b>Taunt</b> Whenever this minion deals damage, gain that much Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4645d09362ba097ebc87c811cef6495239be9b108277ea442151a467e750377b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/365b8b91fdce06fd5d1420c8e3b532557d1c779f248857fa313ac59d410ff018.png",
+        "flavorText": "The rent is cheap and she passes the savings onto YOU!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d5c34843de7781d652e64e8c5e6b29fc3d9ee63b910b1a95115c910fe2e76af.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          103242
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=40574&locale=en_US",
+        "sha256": "c131012897dd00cc06235705c3321e9dc8fd4b1e624b62a44caade3f0ccfb3dc",
+        "bytes": 928,
+        "observed_at": "2026-10-18T00:51:28.058105+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BOT_576",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130525-zh_CN.json",
+      "response_sha256": "d25c47d937d1c576ac13ec6f038f73fabab58a2e537f7b5c32b5b2ba776ca918",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130525&locale=zh_CN",
+      "face": {
+        "id": 130525,
+        "collectible": 1,
+        "slug": "130525-crazed-chemist",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Max Grecke",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "疯狂的药剂师",
+        "text": "<b>连击：</b>使一个友方随从获得+4攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef2c675ca0e450fd6023c94c036ffe3aca3363a5c491bab0670ffb1dc307de37.png",
+        "imageGold": "",
+        "flavorText": "不疯魔，不成活。",
+        "cropImage": null,
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          49494
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130525&locale=zh_CN",
+        "sha256": "d25c47d937d1c576ac13ec6f038f73fabab58a2e537f7b5c32b5b2ba776ca918",
+        "bytes": 649,
+        "observed_at": "2026-10-18T01:12:29.167832+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BOT_576",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130525-en_US.json",
+      "response_sha256": "3fa93f31fce4a3de2349445a84fba2be716f0c2a372d0ac91f807742e3cac3ea",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130525&locale=en_US",
+      "face": {
+        "id": 130525,
+        "collectible": 1,
+        "slug": "130525-crazed-chemist",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Max Grecke",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Crazed Chemist",
+        "text": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/549cfdb9826dcf593e6dc3257d60aaef5a127d3076b36ba60ca9c939a1f30c1d.png",
+        "imageGold": "",
+        "flavorText": "You don't have to be crazy to work here, but it helps.",
+        "cropImage": null,
+        "keywordIds": [
+          13
+        ],
+        "copyOfCardId": [
+          49494
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130525&locale=en_US",
+        "sha256": "3fa93f31fce4a3de2349445a84fba2be716f0c2a372d0ac91f807742e3cac3ea",
+        "bytes": 665,
+        "observed_at": "2026-10-18T01:12:29.382249+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120782-zh_CN.json",
+      "response_sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "消散的回忆",
+        "text": "<b>亡语：</b>&随机获取一张来自过去的法力值消耗为（5）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/124dbe1ae668610b47aa809dc0d8421a3300d3c91c4abb1c8ab9bf4172e1305f.png",
+        "imageGold": "",
+        "flavorText": "我想到了一条绝妙的卡牌趣文……怎么又忘了？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=zh_CN",
+        "sha256": "b0c646e4c4847d684ab92528910ea3a0049e2074ae2396b2afc5a351c1c83aa5",
+        "bytes": 832,
+        "observed_at": "2026-10-17T16:37:15.061765+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_040",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120782-en_US.json",
+      "response_sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+      "face": {
+        "id": 120782,
+        "collectible": 1,
+        "slug": "120782-fading-memory",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "Fading Memory",
+        "text": "<b>Deathrattle:</b>& Get a random 5-Cost minion from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13e8b54c21ae8be793ac75e2a8f0d773da7e299fbc0481a7da0db6541fe29ba7.png",
+        "imageGold": "",
+        "flavorText": "I had the best idea for flavor text! …what was it again?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9898df6fcffba42f4249132b1295ca5b4381de2611a99fa8e71bce04040bdf.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120782&locale=en_US",
+        "sha256": "4a252e7c640ca7707197b20622969ea2db179261f94e2db2c7249c26fe43a3fb",
+        "bytes": 797,
+        "observed_at": "2026-10-17T16:37:15.541325+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "exact_parent_child_links": [],
+  "source_tag_links": [],
+  "named_dependency_links": [],
+  "reviewed_declaration_aliases": {
+    "WON_058": "AT_012",
+    "WON_085": "AT_049",
+    "WON_133": "BRM_028",
+    "WON_137": "CFM_685",
+    "WON_315": "OG_234",
+    "WON_316": "AT_028",
+    "WON_328": "AT_090",
+    "WON_339": "CFM_756"
+  },
+  "additional_reused_combo_source": {
+    "BOT_576": "CORE_BOT_576"
+  },
+  "alias_face_checks": [
+    {
+      "card_id": "WON_058",
+      "source_id": "AT_012",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "86b47a1f76327e57a9332b496c84889c232c742776e90d820749d16456959778"
+    },
+    {
+      "card_id": "WON_085",
+      "source_id": "AT_049",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "b2919af1fbaabf8e3ede155ba7978b9f21da1d2ec431e596f7a54606ab90fb22"
+    },
+    {
+      "card_id": "WON_133",
+      "source_id": "BRM_028",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "a8b4cdb92bd38c24932addeadbe1c8ff8c10b881b792fb7d12a3948da24029b7"
+    },
+    {
+      "card_id": "WON_137",
+      "source_id": "CFM_685",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "057b4a527685535ac39e51f37c4a24d8906c5ebba8d8ea6e7be062d426987d47"
+    },
+    {
+      "card_id": "WON_315",
+      "source_id": "OG_234",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "1518ef8ace5ae825a554f43cfa8b2b76d15555cbdd08c8480d8bd56e65173d40"
+    },
+    {
+      "card_id": "WON_316",
+      "source_id": "AT_028",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "ef62d9dc349806984e5606e1210a6ee26e25d9f4d9051d4d250d6fd90dcb3904"
+    },
+    {
+      "card_id": "WON_328",
+      "source_id": "AT_090",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "0ce3940ab09af6a750f444ea3f72af1868874f668c90997e9f0c8e9e398f1a06"
+    },
+    {
+      "card_id": "WON_339",
+      "source_id": "CFM_756",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "3866d5a6f08e87210ffe2f3fd45a73ed71677b7dfbb4190023f5cd5992d29969"
+    },
+    {
+      "card_id": "BOT_576",
+      "source_id": "CORE_BOT_576",
+      "complete_printed_face_equal": true,
+      "zh_and_en_rules_equal": true,
+      "classes_rarity_runes_tribes_factions_subtypes_equal": true,
+      "source_definition_sha256": "6d1cab16caa28675118758239d2784994cc9e8e21c24e96e8c54614a55583d43"
+    }
+  ],
+  "pool_predicate_qualifications": [
+    {
+      "card_id": "WON_058",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "AT_012"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_085",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "AT_049"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_133",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "BRM_028"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_137",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "CFM_685"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_315",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "OG_234"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_316",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "AT_028"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_328",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "AT_090"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_339",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "CFM_756"
+      ],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "WON_329",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "BT_249",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "UNG_064",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [],
+      "exact_source_pool_certified": false
+    },
+    {
+      "card_id": "BOT_576",
+      "source": "TIME_040",
+      "printed_cost": 5,
+      "collectible": true,
+      "standard_candidate": false,
+      "registered_same_text_source_ids": [
+        "CORE_BOT_576"
+      ],
+      "exact_source_pool_certified": false
+    }
+  ],
+  "unsupported_source_cards": [
+    "TIME_040"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "Twelve actual necessary printed5cost collectible candidate dependencies, zero Standard roots. Eight independently registered WON declarations reuse fully pinned existing sources; BOT_576 additionally reuses complete native CORE_BOT_576 Combo declaration. No global alias/generation-family or exact past-pool certification.",
+    "aliases": "All9 reused source rows and full definitions pinned. Every reused face matches complete cost/attack/health/type/collectibility, normalized full Chinese/English rules and exact classes/rarity/runes/tribes/factions/subtypes. New ID/name/printed fields and actual new metadata only are taken from new raw; all target specs, conditions, keywords, trigger/Combo/end/cost and remaining declaration fields stay source-exact. Old definitions and behavior programs unchanged.",
+    "original_entries": "WON_058 BC+own successful manual Inspire one both-hero4 MINION_ABILITY batch; WON_085 BC+Inspire current friendly Totems+2Attack; WON_133 classified owner EndTurnSpec and fresh current-hand exact references delta-1; WON_137 native random stored minion+5/+5; WON_315 ordinary targeted Heal5 EFFECT; WON_316 native Combo self+4Attack; WON_328 own manual Inspire other original friends+1/+1; WON_339 exact dealt HealthResult damage_dealt armor reward. All original callback IDs/continuations reused.",
+    "dragon": "WON_329 targeted BC5 MINION_ABILITY requires another current own hand Dragon. Registered pure player DTO target rule uses current tribes/exclusions, excludes original physical source by own ref; unknown relevant tribes fail. IF_AVAILABLE yields no target when condition false and mandatory valid character when true. Body rechecks same actual context with public has_any_tribe, preserving ordinary target/payment/rollback and player input proof; no new target_condition domain.",
+    "death": "BT_249 Taunt Deathrattle requires original activation; natural death uses immutable original DeathRecord.attack, nonnatural activation uses original captured context source.attack, clamped0. Ordinary GainArmor goes to original accepted controller and ignores later corpse/source replacement. Existing native repetition captures its own windows; no new counter or source lookup.",
+    "combos": "UNG_064 native printed Combo/conditional IF_AVAILABLE any BOARD MINION target destroys exact selected recipient via ordinary Destroy; inactive Combo no target/body. BOT_576 retains original full friendly minion Combo target contract and existing+4Attack body, no Battlecry substitution. WON_316 self Combo remains independent.",
+    "evidence": "Twenty-two complete original rows and44 strict bilingual primary faces; initial13/26 preparation also kept. No API/tag/named relation manufactured from alias checks; separate12 pool predicates remain unverified exact eligibility. All metadata finalized before freeze.",
+    "limits": "M0 fixed CN patch/legal/generated pools, M6 precise target/hand Dragon/Combo/death-attack/end/Inspire/health/source windows and complete actual reachable content remain open. No public code/program/state/effect, identity version, central assembly, old content or local generated pool change."
+  }
+}
