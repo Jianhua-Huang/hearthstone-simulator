@@ -1,0 +1,584 @@
+{
+  "schema": 1,
+  "batch": "P90",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_974",
+        "dbf_id": 126874,
+        "name": "被绑的大法师",
+        "name_en": "Captured Archmage",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。@<i>（@/4）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 4 other\nCaptured Archmages die this\ngame, cast 'Fireball' at\n_a random enemy.@ <i>(@/4)</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "9ed0db46cd8cc380dece1d87a4140f541fd129a75e32fbc9e199dd088c306e18",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_974",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_029",
+        "dbf_id": 315,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e5d6003a35de8d5a7cc21d1744d22d3aa569b62ef5085f523727966459d54996",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_029",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire",
+      "definition_sha256": "00f3568b9f3302d8ea2b14459f5612ca6ae167dafeb14ecf424b5d506cc79088"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "FIR_914",
+        "dbf_id": 115638,
+        "name": "焚火之力",
+        "name_en": "Smoldering Strength",
+        "text": "使一个友方随从获得+{0}/+{0}。<i>（每回合都会升级，但本牌会在{1}回合后弃掉！）</i>@使一个友方随从获得+{0}/+{0}。<i>（本牌会在本回合弃掉！）</i>",
+        "text_en": "Give a friendly minion +{0}/+{0}.\n<i>(Upgrades each turn,\nbut discards after {1}!)</i>@Give a friendly\nminion +{0}/+{0}.\n<i>(Discards this turn!)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1,
+          "IMMOLATING": 1,
+          "IMMOLATESTAGE": 3,
+          "SUPPRESS_IMMOLATE_VISUAL_FOR_OPPONENT": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "af33d9fe2a7e86d958c7cbc07e15fe1be3aac4d1127d8502708f0c15a536b656",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "FIR_914",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "FIR_916",
+        "dbf_id": 115640,
+        "name": "焚火飞升",
+        "name_en": "Smoldering Ascent",
+        "text": "对所有敌方随从造成${0}点伤害。<i>（每回合都会升级，但本牌会在{1}回合后弃掉！）</i>@对所有敌方随从造成${0}点伤害。<i>（本牌会在本回合弃掉！）</i>",
+        "text_en": "Deal ${0} damage to all enemy minions. <i>(Upgrades each turn,\nbut discards after {1}!)</i>@Deal ${0} damage to all enemy minions.\n<i>(Discards this turn!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1,
+          "IMMOLATING": 1,
+          "IMMOLATESTAGE": 3,
+          "SUPPRESS_IMMOLATE_VISUAL_FOR_OPPONENT": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edward Frayna"
+          }
+        ]
+      },
+      "record_sha256": "f5f9dcfdcbab32723e5d9a568b3e91d5c6d5191ffdba699d4304be6b447a23b9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "FIR_916",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "new_definition_ids": [
+    "JAIL_974"
+  ],
+  "collectible_candidate_roots": [
+    "JAIL_974"
+  ],
+  "necessary_cross_series_collectibles": [],
+  "necessary_noncollectibles": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_974",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\126874-zh_CN.json",
+      "response_sha256": "31b4ada160799b369341db5f2c193aadd918ab3926aa319c0563d4ee7b63c1b7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126874&locale=zh_CN",
+      "face": {
+        "id": 126874,
+        "collectible": 1,
+        "slug": "126874-captured-archmage",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "被绑的大法师",
+        "text": "<b>亡语：</b>在本局对战中，如果你有4个其他被绑的大法师死亡，随机对一个敌人施放火球术。 <i>（ /4）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78409a039d6a9cb0606fdd0e84f3b1bc09ba66c23dc53e510d1ac82f2eb81f30.png",
+        "imageGold": "",
+        "flavorText": "第一步：死。第二步：去世。第三步：玩儿完。第四步：一命呜呼。第五到十步：施放火球术！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8c50409fe00bb2a400c7adc108dba8ce94dc16101b35ee9f26b16dfd53143b9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126874&locale=zh_CN",
+        "sha256": "31b4ada160799b369341db5f2c193aadd918ab3926aa319c0563d4ee7b63c1b7",
+        "bytes": 937,
+        "observed_at": "2026-10-18T05:21:22.796233+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_974",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\126874-en_US.json",
+      "response_sha256": "5bf55ec795f5227a8ef6f0d48cda6896b679e2bb407120818200b5aa8f59945e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126874&locale=en_US",
+      "face": {
+        "id": 126874,
+        "collectible": 1,
+        "slug": "126874-captured-archmage",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Captured Archmage",
+        "text": "<b>Deathrattle:</b> If you had 4 other Captured Archmages die this game, cast 'Fireball' at a random enemy. <i>( /4)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b94bd86b1dea1c5d7ce4153159e36166bd4fcd135a86ac7289ab8fddc495b51.png",
+        "imageGold": "",
+        "flavorText": "Step One: Die. Step Two: Perish. Step Three: Pass away. Step Four: Bite the dust. Steps Five-Ten: FIREBALL!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8c50409fe00bb2a400c7adc108dba8ce94dc16101b35ee9f26b16dfd53143b9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126874&locale=en_US",
+        "sha256": "5bf55ec795f5227a8ef6f0d48cda6896b679e2bb407120818200b5aa8f59945e",
+        "bytes": 895,
+        "observed_at": "2026-10-18T05:21:22.974745+00:00"
+      }
+    }
+  ],
+  "rejected_complete_primary_observations": [
+    {
+      "card_id": "FIR_914",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\115638-zh_CN.json",
+      "response_sha256": "19022c63a1d120535612fb68857b17634cb491681635cc9768e5d607f3be4b4d",
+      "face": {
+        "id": 115638,
+        "collectible": 1,
+        "slug": "115638-smoldering-strength",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "焚火之力",
+        "text": "使一个友方随从获得+ /+ 。<i>（每回合都会升级，但本牌会在 回合后弃掉！）</i> 使一个友方随从获得+ /+ 。<i>（本牌会在本回合弃掉！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb34f3dddd6c7b5cdd8e1552255c251e21f39d55edbbd59d4bc0ae95f42fc923.png",
+        "imageGold": "",
+        "flavorText": "有了火气自然就有力气。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4e5de3a92fdcab0e58b0112a1dfffab57efa7aef51a634c90d8bc1df6da53ab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115638&locale=zh_CN",
+        "sha256": "19022c63a1d120535612fb68857b17634cb491681635cc9768e5d607f3be4b4d",
+        "bytes": 857,
+        "observed_at": "2026-10-18T05:21:21.904574+00:00"
+      },
+      "rejection": "Official card rules drift: FIR_914"
+    },
+    {
+      "card_id": "FIR_914",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\115638-en_US.json",
+      "response_sha256": "aa0e35342259c594e1de180a1a5a554c4d0f35248e3410df4843a102ba51d86d",
+      "face": {
+        "id": 115638,
+        "collectible": 1,
+        "slug": "115638-smoldering-strength",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "Smoldering Strength",
+        "text": "Give a friendly minion + /+ . <i>(Upgrades each turn, but discards after !)</i> Give a friendly minion + /+ . <i>(Discards this turn!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8187d382530865d64b407977cc1d401015fab985a19fb37f8a150e8a745c5d2.png",
+        "imageGold": "",
+        "flavorText": "You'll get it when you're smolder.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4e5de3a92fdcab0e58b0112a1dfffab57efa7aef51a634c90d8bc1df6da53ab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115638&locale=en_US",
+        "sha256": "aa0e35342259c594e1de180a1a5a554c4d0f35248e3410df4843a102ba51d86d",
+        "bytes": 818,
+        "observed_at": "2026-10-18T05:21:21.904574+00:00"
+      },
+      "rejection": "Official card rules drift: FIR_914"
+    },
+    {
+      "card_id": "FIR_916",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\115640-zh_CN.json",
+      "response_sha256": "d2d54fce65dd8719fbe729f183d515f49205291e129a539cf9468a7c4e80f76e",
+      "face": {
+        "id": 115640,
+        "collectible": 1,
+        "slug": "115640-smoldering-ascent",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Edward Frayna",
+        "manaCost": 2,
+        "name": "焚火飞升",
+        "text": "对所有敌方随从造成 点伤害。<i>（每回合都会升级，但本牌会在 回合后弃掉！）</i> 对所有敌方随从造成 点伤害。<i>（本牌会在本回合弃掉！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45881277752642e68ea332558e83a80fc26b7cdb91895f079cadc64d42ab07d2.png",
+        "imageGold": "",
+        "flavorText": "众所周知，飞行时距离太阳过近会掉下来。但如果你飞行时径直冲向太阳，就会变成这样。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ebf343762d0805e6c05a348620869e83e60d1ae16ae6f6158759c3a0b69c7a4.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115640&locale=zh_CN",
+        "sha256": "d2d54fce65dd8719fbe729f183d515f49205291e129a539cf9468a7c4e80f76e",
+        "bytes": 954,
+        "observed_at": "2026-10-18T05:21:21.904574+00:00"
+      },
+      "rejection": "Official card rules drift: FIR_916"
+    },
+    {
+      "card_id": "FIR_916",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\.codex\\worktrees\\4d96\\炉石模拟器\\outputs\\card-parallel-p90-20261018\\official-cache-03\\115640-en_US.json",
+      "response_sha256": "9fcead655ebab38885700984281405ff5986a0558f0fd35d55f40cfab0d909c6",
+      "face": {
+        "id": 115640,
+        "collectible": 1,
+        "slug": "115640-smoldering-ascent",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Edward Frayna",
+        "manaCost": 2,
+        "name": "Smoldering Ascent",
+        "text": "Deal damage to all enemy minions. <i>(Upgrades each turn, but discards after !)</i> Deal damage to all enemy minions. <i>(Discards this turn!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8e5537429f191696287a6e1830618abb0ef9a61c2ad35f561d0f487ad7a1fe9.png",
+        "imageGold": "",
+        "flavorText": "We all know what happens when you fly too close to the sun. But THIS is what happens when you fly straight into it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ebf343762d0805e6c05a348620869e83e60d1ae16ae6f6158759c3a0b69c7a4.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115640&locale=en_US",
+        "sha256": "9fcead655ebab38885700984281405ff5986a0558f0fd35d55f40cfab0d909c6",
+        "bytes": 905,
+        "observed_at": "2026-10-18T05:21:22.793955+00:00"
+      },
+      "rejection": "Official card rules drift: FIR_916"
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "JAIL_974": {
+      "@": ""
+    }
+  },
+  "skipped": [
+    {
+      "card_id": "FIR_914",
+      "whole_card_deferred": true,
+      "reason": "Complete official primary omits rule-body {0}/{1}; current strict comparator does not permit numeric-rule placeholder removal. Public held growth capability is present, but strict new primary source check failed. No implementation or partial face certification."
+    },
+    {
+      "card_id": "FIR_916",
+      "whole_card_deferred": true,
+      "reason": "Complete official primary omits rule-body {0}/{1}; current strict comparator does not permit numeric-rule placeholder removal. Public held growth capability is present, but strict new primary source check failed. No implementation or partial face certification."
+    }
+  ],
+  "unsupported_source_cards": [
+    "FIR_914",
+    "FIR_916"
+  ],
+  "exact_parent_child_links": [],
+  "source_tag_links": [],
+  "named_dependency_links": [
+    {
+      "parent": "JAIL_974",
+      "child": "CS2_029",
+      "basis": "Both complete primary rules explicitly name Fireball; existing complete executable declaration retained. Not an API child or source-tag edge."
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "CS2_029": "00f3568b9f3302d8ea2b14459f5612ca6ae167dafeb14ecf424b5d506cc79088"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false,
+  "policies": {
+    "scope": "One actual Standard root accepted from3 locked roots; two whole source-blocked cards unregistered. No historical aliases or arbitrary dependencies used to fill quota.",
+    "death": "Count actual own-controller board death occurrences recorded as JAIL_974, excluding this invocation original DeathRecord.id when present. At least4 other occurrences qualify, including committed simultaneous deaths. Real live TriggerDeathrattles and inherited native abilities use their actual accepted carrier; no requirement for four current bodies or distinct entity ids.",
+    "cast": "Use actual accepted live or retired Deathrattle carrier and native CastSpell Fireball, random automatic ENEMY_IF_AVAILABLE preference. A pure shared automatic eligibility check detects an empty enemy domain and uses explicit enemy hero as an ordinary failed cast attempt, preventing friendly fallback under target restrictions. Actual native cast targets/RNG/events/Spell Damage/counter windows remain engine-owned.",
+    "source": "Four complete fixed original rows, two strict new bilingual primary faces, four complete rejected primary bodies with receipts retained. Existing Fireball complete declaration pinned, no refetch of its already accepted primary.",
+    "limits": "Finite internal consumer contract, not formal Standard pool or CN certification. Original casts, payment, choice/replay and hidden state use existing public engine. Public kernel/central assembly/identity/ledgers unchanged."
+  }
+}
