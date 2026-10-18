@@ -5,7 +5,8 @@ import operator
 from .effects import Effect, _grant
 from .lifecycle import active_abilities, attachment_id
 from .model import (AbilityInstance, AttackPolicySpec, AttackPolicyCondition, CurrentTurnFactQuery,
-                    AttackSourceBinding, AttackSourcePolicy, BoardPresenceReference, CardType, Keyword, Zone)
+                    AttackSourceBinding, AttackSourcePolicy, BoardPresenceReference, CardType, Keyword, Zone,
+                    OwnerTurnExpiry)
 from .board_presence import attack_source_enabled, resolve_board_presence, validate_attack_source_binding
 from .sacrifice import MinionReference, reference_value, live_minion
 
@@ -112,6 +113,28 @@ def ignores_taunt(state,attacker):
     return False
 
 
+def next_owner_end(state, player_id):
+    """The player's next actual turn end, including an intervening extra turn."""
+    from .timed_keywords import owner_deadline
+    return owner_deadline(state,player_id,'turn_ended',2 if player_id==state.active_player else 1)
+
+
+def validate_next_owner_end(state, expiry):
+    from .timed_keywords import validate_deadline
+    if type(expiry)is not OwnerTurnExpiry or expiry.boundary!='turn_ended':
+        raise ValueError('Attack sleep requires an original next-owner-end clock')
+    origin=expiry.created_owner_turn_id
+    if origin is None:
+        if state.opening is None:raise ValueError('Missing original attack clock interval')
+        active=state.opening.first_player
+    elif not state.owner_turn_history:
+        active=state.active_player
+    else:
+        if not 1<=origin<=len(state.owner_turn_history):raise ValueError('Future attack clock creation interval')
+        active=state.owner_turn_history[origin-1].player_id
+    validate_deadline(state,expiry,2 if expiry.player_id==active else 1)
+
+
 @dataclass(frozen=True)
 class GrantAttackPolicy(Effect):
     target_id: int
@@ -120,12 +143,20 @@ class GrantAttackPolicy(Effect):
     expires_turn: int | None = None
     source_binding: AttackSourceBinding | None = None
     recipient: MinionReference | None = None
+    until_next_turn_end: OwnerTurnExpiry | None = None
 
     def __post_init__(self):
         _grant(self.target_id, self.source_id, self.expires_turn)
         if type(self.spec) is not AttackPolicySpec:
             raise ValueError('GrantAttackPolicy requires AttackPolicySpec')
         self.spec.__post_init__()
+        if self.until_next_turn_end is not None:
+            if(type(self.until_next_turn_end)is not OwnerTurnExpiry or self.expires_turn is not None or
+                    self.source_binding is not None or self.source_id is None or self.recipient is None or
+                    self.spec!=AttackPolicySpec('cannot_attack')):
+                raise ValueError('Next-owner-end attack restriction requires its one captured minion and independent policy')
+            self.until_next_turn_end.__post_init__()
+            if self.until_next_turn_end.boundary!='turn_ended':raise ValueError('Attack restriction requires an owner end')
         if self.recipient is not None:
             reference_value(self.recipient)
             if self.recipient.entity_id != self.target_id:
@@ -140,6 +171,7 @@ class GrantAttackPolicy(Effect):
 
     def validate_in_state(self, state):
         self.__post_init__()
+        if self.until_next_turn_end is not None:validate_next_owner_end(state,self.until_next_turn_end)
         if self.recipient is None:return
         ref=self.recipient;entity=state.entities.get(ref.entity_id)
         if entity is None or ref.zone_epoch>entity.zone_epoch or ref.entered_order>=state.next_order:
@@ -169,7 +201,8 @@ def grant(r, effect):
         return ()
     ability = AbilityInstance(attachment_id(r.state), 'attack_policy', source_id=effect.source_id,
                              attack_policy=effect.spec, expires_turn=effect.expires_turn,
-                             attack_source_binding=effect.source_binding)
+                             attack_source_binding=effect.source_binding,
+                             attack_policy_expiry=effect.until_next_turn_end)
     entity.abilities.append(ability)
     r.refresh_auras()
     r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,

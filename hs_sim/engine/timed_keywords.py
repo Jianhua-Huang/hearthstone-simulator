@@ -42,7 +42,7 @@ def expire(r, boundary, turn, player_id):
     from .lifecycle import remove_attachments
     expired = []
     for entity in r.state.entities.values():
-        ids = tuple(a.id for a in entity.abilities for expiry in (a.keyword_expiry,a.health_rule_expiry) if expiry is not None and
+        ids = tuple(a.id for a in entity.abilities for expiry in (a.keyword_expiry,a.health_rule_expiry,a.attack_policy_expiry) if expiry is not None and
             expiry.boundary == boundary and expiry.player_id == player_id and
             expiry.owner_turn_index <= owner_turn_index(r.state, player_id))
         numeric_ids = tuple(e.id for e in entity.enchantments if e.owner_turn_expiry is not None and
@@ -150,6 +150,12 @@ def validate_boundary(game):
                 if (expiry.owner_turn_index < index or expiry.owner_turn_index == index and
                         (expiry.boundary == 'turn_started' or previous.closed)):
                     raise ValueError('Expired timed keyword at action boundary')
+            expiry=ability.attack_policy_expiry
+            if expiry is not None:
+                previous=next((v for v in reversed(state.owner_turn_history)if v.player_id==expiry.player_id),None)
+                index=previous.owner_index if previous is not None else 0
+                if expiry.owner_turn_index<index or expiry.owner_turn_index==index and previous.closed:
+                    raise ValueError('Expired timed attack restriction at action boundary')
 
 
 def public_durations(entity):

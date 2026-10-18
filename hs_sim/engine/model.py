@@ -2667,6 +2667,7 @@ class AbilityInstance:
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
     spell_base_value: SpellBaseDamageValue | None = None
+    attack_policy_expiry: OwnerTurnExpiry | None = None
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
@@ -3049,6 +3050,13 @@ class AbilityInstance:
                 raise ValueError('Owner health expiry requires one independent health-rule clock')
             self.health_rule_expiry.__post_init__()
             if self.health_rule_expiry.boundary!='turn_started':raise ValueError('Health rule expiry requires an actual owner start')
+        if self.attack_policy_expiry is not None:
+            if(type(self.attack_policy_expiry)is not OwnerTurnExpiry or self.kind!='attack_policy' or
+                    self.origin!='granted' or self.source_id is None or self.expires_turn is not None or
+                    self.attack_source_binding is not None or self.attack_policy!=AttackPolicySpec('cannot_attack')):
+                raise ValueError('Timed sleep requires one independent granted attack restriction')
+            self.attack_policy_expiry.__post_init__()
+            if self.attack_policy_expiry.boundary!='turn_ended':raise ValueError('Timed sleep requires an owner end')
         if self.kind == 'cost_aura':
             if type(self.cost_aura) is not CostAuraSpec:
                 raise ValueError('Cost aura requires CostAuraSpec')
@@ -10716,6 +10724,10 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                         from .timed_keywords import validate_deadline
                         if entity.kind!=CardType.HERO:raise ValueError('Owner health deadline requires a hero carrier')
                         validate_deadline(state,attachment.health_rule_expiry)
+                    if attachment.attack_policy_expiry is not None:
+                        from .attack_policies import validate_next_owner_end
+                        if entity.kind!=CardType.MINION:raise ValueError('Timed attack restriction requires a minion carrier')
+                        validate_next_owner_end(state,attachment.attack_policy_expiry)
                 elif attachment.owner_turn_expiry is not None:
                     from .timed_keywords import validate_deadline
                     if entity.kind not in (CardType.MINION, CardType.HERO):
@@ -10871,6 +10883,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_result(state, registry, result_from_payload(record.cause.result))
         for attachment in (*record.abilities, *record.enchantments):
             validate_attachment(attachment)
+            if isinstance(attachment,AbilityInstance) and attachment.attack_policy_expiry is not None:
+                from .attack_policies import validate_next_owner_end
+                if kind!=CardType.MINION or attachment.attack_policy_expiry.created_turn>record.turn:
+                    raise ValueError('Frozen attack deadline exceeds its original minion death')
+                validate_next_owner_end(state,attachment.attack_policy_expiry)
             if type(attachment) is Enchantment and attachment.hand_play_lock is not None:
                 from .hand_play_locks import validate_clock
                 if attachment.hand_play_lock.deadline.created_turn > record.turn:

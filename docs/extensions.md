@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要宁静旷林式定时沉睡时，以`GrantAttackPolicy.until_next_turn_end`携带原`next_owner_end`期限和捕获随从；不要赋予休眠或使用全局回合奇偶，见[原结束时钟契约](m3-owner-end-attack-sleep.md)。
+
 未来随从模板用`UpgradeMinionFamily`更新具名家族，`FamilyReference`冻结原修订，`SummonFamilyMember`再交普通召唤；不要直接修改已召唤实物或从实现覆盖裁池，见[动物伙伴契约](m3-future-companion-families.md)。
 
 真实动物伙伴消费者调用`companion_effects`，由既有`ProducerQuantitySpec`报价额外逻辑单位，继续交普通`SummonByCard`逐次执行；不要把它替换为对已选材料的普通召唤倍率，见[契约](m3-companion-quantity.md)。

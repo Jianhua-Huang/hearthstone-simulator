@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 395
+SNAPSHOT_SCHEMA_VERSION = 396
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -361,6 +361,8 @@ def _ability_from_dict(value):
         row['keyword_expiry'] = KeywordExpiry(**_row(row['keyword_expiry'], KeywordExpiry))
     if row['health_rule_expiry'] is not None:
         row['health_rule_expiry'] = KeywordExpiry(**_row(row['health_rule_expiry'], KeywordExpiry))
+    if row['attack_policy_expiry'] is not None:
+        row['attack_policy_expiry'] = KeywordExpiry(**_row(row['attack_policy_expiry'], KeywordExpiry))
     if row['summon_quantity'] is not None:
         from .summon_quantities import from_dict as quantity_from_dict
         from .model import SummonQuantitySpec
