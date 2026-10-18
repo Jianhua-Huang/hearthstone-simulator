@@ -402,6 +402,11 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)
+            if material.profile=='discard_summon_copy' and (
+                    request.player_id!=material.discard.player_id or
+                    request.cause.player_id!=request.player_id or
+                    (request.cause.turn,request.cause.action)!=(material.discard.turn,material.discard.action)):
+                raise ValueError('Discard summon changed its original recipient or causing window')
             if material.minion_grant is not None and material.grant_source_id!=request.cause.source.entity_id:
                 raise ValueError('Copy entry grant source differs from the original summon cause')
         elif type(material)is RecruitEntryMaterial:
@@ -443,7 +448,7 @@ def deliver(r,effect):
         elif root.request.materials and type(root.request.materials[0])is RecruitEntryMaterial:pass
         elif root.request.materials and type(root.request.materials[0])is CopyEntryMaterial:
             material=root.request.materials[0]
-            if material.profile=='board_copy':r.emit('summon_failed',player_id=root.request.player_id,card_id=material.card_id,reason='board_full')
+            if material.profile in ('board_copy','discard_summon_copy'):r.emit('summon_failed',player_id=root.request.player_id,card_id=material.card_id,reason='board_full')
         else:r.emit('random_choice_skipped',source_id=root.request.cause.source.entity_id,reason='empty_pool'if not root.request.materials else 'board_full')
         return ()
     material=root.request.materials[root.selected];entity=None
@@ -463,6 +468,7 @@ def deliver(r,effect):
             entity=create_body(r,material,root.request.player_id,position)
         else:
             components=()
+            if type(material)is CopyEntryMaterial:components=material.components
             if type(material) is PhysicalReplayEntryMaterial:
                 from .offered_card_execution import components_for_entry
                 components=components_for_entry(r.state,r.registry,material)
@@ -602,8 +608,13 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
     for material in root.request.materials:
         if type(material)is ResurrectionEntryMaterial and(material.captured_turn,material.captured_action,material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):raise ValueError('Death material is not from actual entry acceptance window')
         copy_material=material.copy if type(material)is RecruitEntryMaterial else material
-        if type(copy_material)is CopyEntryMaterial and (copy_material.captured_turn,copy_material.captured_action,copy_material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):
-            raise ValueError('Copy material is not from its actual entry acceptance window')
+        if type(copy_material)is CopyEntryMaterial:
+            if copy_material.profile=='discard_summon_copy':
+                if (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
+                        copy_material.next_attachment_id>plan.next_attachment_id):
+                    raise ValueError('Original discarded material is newer than its summon acceptance')
+            elif (copy_material.captured_turn,copy_material.captured_action,copy_material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):
+                raise ValueError('Copy material is not from its actual entry acceptance window')
     if plan.turn>state.turn or plan.action>state.action_number or plan.next_attachment_id>state.next_attachment_id:raise ValueError('Future summon acceptance plan')
     if root.request.cause.turn>plan.turn or root.request.cause.action>plan.action:raise ValueError('Cause is newer than its accepted summon plan')
     if [f.carrier.entity_id for f in plan.facts]!=sorted(f.carrier.entity_id for f in plan.facts):raise ValueError('Reordered original summon carrier inventory')

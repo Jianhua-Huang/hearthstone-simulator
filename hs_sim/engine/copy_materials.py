@@ -176,8 +176,8 @@ class CopyEntryMaterial:
         if type(self.origin)is not SourceAllocationFact:raise ValueError('Copy material requires original physical allocation')
         self.origin.__post_init__()
         if self.origin.card_id!=self.card_id or self.origin.kind!=CardType.MINION:raise ValueError('Copy material differs from its physical minion face')
-        if self.profile not in ('board_copy','stored_copy','discard_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
-        zones=(Zone.BOARD,)if self.profile=='board_copy'else(Zone.GRAVEYARD,)if self.profile=='discard_copy'else(Zone.HAND,Zone.DECK)
+        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
+        zones=(Zone.BOARD,)if self.profile=='board_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
         if self.origin.zone not in zones:raise ValueError('Copy recipe has another original zone')
         for n,floor in (('captured_turn',1),('captured_action',0),('next_attachment_id',1)):_integer(getattr(self,n),'copy material '+n,floor)
         if (self.mode=='current')!=(self.local is not None):raise ValueError('Copy local state differs from current/base recipe')
@@ -187,7 +187,7 @@ class CopyEntryMaterial:
             for x in (*self.local.enchantments,*self.local.abilities):
                 if x.id>=self.next_attachment_id or x.source_id is not None and x.source_id>=self.origin.next_entity_id:
                     raise ValueError('Future copied attachment or source identity')
-        if self.profile=='discard_copy':
+        if self.profile in ('discard_copy','discard_summon_copy'):
             from .discard_history import material_value
             material_value(self.discard)
             row=self.discard
@@ -204,35 +204,47 @@ class CopyEntryMaterial:
             size_value(self.jade_size)
         if self.entry_herald_count is not None:
             _integer(self.entry_herald_count,'captured stored entry herald count',0)
-            if self.profile not in ('stored_copy','discard_copy')or self.mode!='current'or self.local.herald_rank is not None:raise ValueError('Deferred entry strength requires an uninitialized stored current copy')
+            if self.profile not in ('stored_copy','discard_copy','discard_summon_copy')or self.mode!='current'or self.local.herald_rank is not None:raise ValueError('Deferred entry strength requires an uninitialized stored current copy')
+
+    @property
+    def components(self):
+        return self.discard.components if self.profile=='discard_summon_copy' else ()
 
     @classmethod
     def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None,on_summon=None,minion_grant=None,grant_source_id=None):
-        if source.components:raise ValueError('Composite copy material is unsupported by this ordinary profile')
-        if profile=='discard_copy':
-            from .discard_history import validate_material as validate_discard
+        if source.components and profile!='discard_summon_copy':raise ValueError('Composite copy material is unsupported by this ordinary profile')
+        if profile in ('discard_copy','discard_summon_copy'):
+            from .discard_history import validate_material,validate_base_copy
+            validate_discard=validate_base_copy if profile=='discard_summon_copy' else validate_material
             if registry is None:raise ValueError('Discard capture requires its original registry')
             validate_discard(state,registry,discard)
             if source is not state.entities[discard.entity_id] or player_id!=discard.player_id:
                 raise ValueError('Discard copy capture lost its original physical source and recipient')
         entry_count=None
-        if registry is not None and mode=='current'and profile in ('stored_copy','discard_copy')and source.herald_rank is None and registry.card(source.card_id).herald_scaling:
+        if registry is not None and mode=='current'and profile in ('stored_copy','discard_copy','discard_summon_copy')and source.herald_rank is None and registry.card(source.card_id).herald_scaling:
             from .herald import herald_count
             entry_count=herald_count(state,player_id)
         local=CopyLocalState.capture(source)if mode=='current'else None
-        if profile=='discard_copy'and local is not None:local=replace(local,hand_lifetime=None)
+        if profile in ('discard_copy','discard_summon_copy')and local is not None:local=replace(local,hand_lifetime=None)
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
             state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
             source.dormancy is not None and profile == 'board_copy' and mode == 'current')
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
-        if profile=='discard_copy':validate_scope(state,registry,result,hand_copy=True)
+        if profile in ('discard_copy','discard_summon_copy'):validate_scope(state,registry,result,hand_copy=profile=='discard_copy')
         return result
 
 
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
-    material.__post_init__();validate_plain_material(registry,SummonEntryMaterial(material.card_id))
+    material.__post_init__()
+    if material.profile=='discard_summon_copy':
+        from .discard_history import validate_base_recipe
+        validate_base_recipe(registry,material.discard)
+        card=registry.card(material.card_id)
+        if not card.hand_playable or card.choice_only:
+            raise ValueError('Discard summon requires its original physical minion face')
+    else:validate_plain_material(registry,SummonEntryMaterial(material.card_id))
     if material.on_summon is not None:registry.behavior(material.on_summon)
     if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
         raise ValueError('Dormant copy requires its printed entry dormancy')
@@ -246,7 +258,7 @@ def validate_material(registry,material,*,hand_copy=False):
             material.local.base_attack, material.local.base_health, material.local.base_cost) != (
             material.jade_size, material.jade_size, min(10, material.jade_size)):
         raise ValueError('Copied Jade base differs from its frozen innate size')
-    needs_entry_rank=material.mode=='current'and material.profile in ('stored_copy','discard_copy')and material.local.herald_rank is None and registry.card(material.card_id).herald_scaling
+    needs_entry_rank=material.mode=='current'and material.profile in ('stored_copy','discard_copy','discard_summon_copy')and material.local.herald_rank is None and registry.card(material.card_id).herald_scaling
     if needs_entry_rank!=(material.entry_herald_count is not None):raise ValueError('Stored copy lost its captured deferred entry strength')
     if material.local is not None:
         from .cthun import is_cthun
@@ -275,10 +287,13 @@ def validate_material(registry,material,*,hand_copy=False):
 
 def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
     validate_material(registry,material,hand_copy=hand_copy);validate_allocation(state,registry,material.origin,closed=closed)
+    if material.profile=='discard_summon_copy':
+        from .discard_history import validate_base_copy
+        validate_base_copy(state,registry,material.discard)
     if material.local is not None:
         if any(a.deathrattle_memory is not None for a in material.local.abilities):
             from .deathrattle_memory import validate_carrier
-            validate_carrier(state,registry,material.card_id,material.origin.kind,material.local.abilities)
+            validate_carrier(state,registry,material.card_id,material.origin.kind,material.local.abilities,material.components)
         from .cthun import validate_stamp
         for attachment in (*material.local.enchantments, *material.local.abilities):
             validate_stamp(state, registry, attachment)
@@ -325,7 +340,8 @@ def apply(r,material,entity):
         entity.damage,entity.corpse_value=local.damage,local.corpse_value
         source=Entity(material.origin.entity_id,material.card_id,material.origin.owner,material.origin.controller,material.origin.zone,
             herald_rank=local.herald_rank,enchantments=list(local.enchantments),abilities=list(local.abilities),
-            silenced=local.silenced,hand_lifetime=local.hand_lifetime,choose_branch=local.choose_branch,jade_size=material.jade_size)
+            silenced=local.silenced,hand_lifetime=local.hand_lifetime,choose_branch=local.choose_branch,jade_size=material.jade_size,
+            components=material.components)
         from .lifecycle import copy_attachments
         copy_attachments(r.state,source,entity,rebind_printed=True)
         if material.entry_herald_count is not None:

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+马洛拉克从原`card_discarded`上下文调用`discard_summons.capture`，将`discard_summon_copy`材料交给普通`SummonByCard`；冻结材料与数量接受分窗，旧回手复制范围保持，见[契约](m3-discard-summon-copy.md)。
+
 红玉圣殿用有限`next_healing_damage`玩家声明及原地标入口，完整`HealBatch`和固有吸血恢复组沿普通转换管线；不把群体效果退化为首包或事后伤害，见[契约](m3-next-healing-conversion.md)。
 
 真实英雄攻击条件可注册纯`PlayerTargetRuleSpec`并读取本人`hero_attacked_this_turn`，搭配普通`IF_AVAILABLE`；原视图/私有游标及恢复契约见[说明](m3-hero-attack-player-targets.md)，不要造印刷关键词或读当前攻击次数。

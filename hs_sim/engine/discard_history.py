@@ -308,9 +308,9 @@ def validate_frame_materials(state, registry, frame):
         row = value.discard if type(value) is ReturnToHand else value.card if type(value) is BuffStoredCard else None
         if row is not None and (type(value) is ReturnToHand or type(row) is DiscardRecord):
             validate_material(scope,registry,row)
-        if type(value)is CopyEntryMaterial and value.profile=='discard_copy':
-            validate_copy(scope,registry,value,hand_copy=True)
-            validate_material(scope,registry,value.discard)
+        if type(value)is CopyEntryMaterial and value.profile in ('discard_copy','discard_summon_copy'):
+            validate_copy(scope,registry,value,hand_copy=value.profile=='discard_copy')
+            if value.profile=='discard_copy':validate_material(scope,registry,value.discard)
         if is_dataclass(value) and not isinstance(value,type):
             for field in fields(value):visit(getattr(value,field.name),scope)
         elif isinstance(value,(tuple,list)):
