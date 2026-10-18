@@ -32,6 +32,10 @@ class CreateTemporaryCard(Effect):
 
 
 def create_temporary_card(r, effect):
+    materialize_temporary_card(r, effect)
+
+
+def materialize_temporary_card(r, effect):
     effect.__post_init__()
     definition=r.registry.card(effect.card_id)
     if not definition.hand_playable:
@@ -57,6 +61,7 @@ def create_temporary_card(r, effect):
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,reason='temporary')
     else:
         r.emit('card_added_to_hand',source_id=effect.source_id,target_id=entity.id,player_id=player.id,reason='temporary')
+    return entity
 
 
 

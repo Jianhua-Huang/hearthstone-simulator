@@ -285,6 +285,9 @@ def start_entry(r,effect):
         continuation=(*continuation,SetDiscoveredMinionStats(root.id,effect.index))
     if root.spec.copy_selected_to_hand:
         continuation=(*continuation,CopyDiscoveredCardToHand(root.id,effect.index))
+    from .discovery_delivery import PublishDiscoveredSummon,queue
+    notification=queue(r,PublishDiscoveredSummon(chosen[effect.index].result,child_id))
+    continuation=(*continuation,notification)
     if root.phase=='delivering'and len(root.entry_root_ids)<len(chosen):
         continuation=(*continuation,StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)))
     return continuation

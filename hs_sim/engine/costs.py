@@ -563,7 +563,7 @@ def attach_cost(state, entity, spec, source_id=None, expires_turn=None):
     return attachment
 
 
-def modify_cost(r, effect, *, player_effect_id=None):
+def modify_cost(r, effect, *, player_effect_id=None, allow_dormant=False):
     from .lifecycle import attachment_id, refresh_entity
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Cost attachment source does not exist')
@@ -585,7 +585,9 @@ def modify_cost(r, effect, *, player_effect_id=None):
         r.emit('cost_modifier_added', player_id=player.id, source_id=effect.source_id, modifier_id=modifier.id)
         return
     entity = r.state.entities.get(effect.target_id)
-    if entity is None or not entity.active:
+    dormant = (allow_dormant and entity is not None and entity.zone == Zone.BOARD and
+               entity.dormancy is not None and entity.health > 0 and not entity.doomed)
+    if entity is None or not entity.active and not dormant:
         r.stale(effect, effect.target_id)
         return
     if isinstance(effect, GrantCostAura):

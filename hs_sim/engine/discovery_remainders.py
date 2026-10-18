@@ -68,11 +68,15 @@ def begin(r, discovery):
         raise ValueError('Unselected shuffle requires the actual complete discovery result')
     # The ordinary creator publishes first; acquisition reactions run before
     # the returned shuffle continuation. Never find a later same-face card.
+    delivery_cursor=len(r.game._events)
     entity = create_hand_card(r, AddToHand(spec.player_id, discovery.selection.card_id, spec.source_id))
+    from .discovery_delivery import finish_for_entity
+    notification = finish_for_entity(r, discovery.choice_result, entity,
+        AddToHand(spec.player_id, discovery.selection.card_id, spec.source_id),delivery_cursor)
     work = ShuffleDiscoveryRemainder(discovery, r.game._generation_context,
                                     SourceAllocationFact.capture(r.state, entity))
     emit(r, ACCEPTED, work)
-    return (work,)
+    return (work, notification)
 
 
 def ledger(game):

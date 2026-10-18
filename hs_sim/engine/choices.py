@@ -82,6 +82,10 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .discovery import ResolvePoolDiscovery
     from .hand_choice_followups import ResolveHandFollowupChoice
     from .assemble_offers import ResolveAssemble
+    from .model import ChoicePurpose
+    from .stored_gift_discovery import SelectGiftedDeckCard
+    from .summon_sources import ResurrectMinion
+    from .discovery_delivery import MaterializeDiscoveredCard, MaterializeDiscoveredResurrection, recipe_types
     def selected_effect(effect):
         if type(effect) is ResolveAssemble:
             return replace(effect,result=result)
@@ -89,7 +93,19 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
             return replace(effect, result=result)
         if type(effect)is ResolvePoolDiscovery:
             return replace(effect,choice_result=result)
+        if type(effect) is SelectGiftedDeckCard:
+            return replace(effect, result=result)
+        if result.choice.purpose == ChoicePurpose.CARD_DISCOVERY:
+            if type(effect) in recipe_types():
+                return MaterializeDiscoveredCard(result, effect)
+            if type(effect) is ResurrectMinion:
+                return MaterializeDiscoveredResurrection(result, effect)
+            raise ResolutionError('Card discovery requires a typed original delivery producer')
         return effect
+    if result.choice.purpose == ChoicePurpose.CARD_DISCOVERY and on_select is not None:
+        raise ResolutionError('Card discovery callback requires a typed original delivery producer')
+    if result.choice.purpose == ChoicePurpose.CARD_DISCOVERY and not any(option.effects for option in options if option.id in result.selected_ids):
+        return [MaterializeDiscoveredCard(result, None)]
     return [*callback, *(selected_effect(effect) for option in options if option.id in result.selected_ids for effect in option.effects)]
 
 

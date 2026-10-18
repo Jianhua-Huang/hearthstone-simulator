@@ -7,7 +7,7 @@ from .dark_gifts import DARK_GIFTS, GrantDarkGift
 from .discovery import sample_eligible_gifts
 from .effects import ChoiceOption, Effect, RequestChoice, _integer, _player
 from .errors import ResolutionLimitExceeded
-from .model import CardPreview, CardType, ChoicePurpose, Zone
+from .model import CardPreview, CardType, ChoicePurpose, ChoiceResult, Zone
 from .pools import PoolQuery
 from .zones import CardReference, MoveCard, reference_entity, source_exists, zone_candidates
 
@@ -57,6 +57,7 @@ class SelectGiftedDeckCard(Effect):
     request: DiscoverDeckDarkGift
     offered: tuple[StoredGiftOffer, ...]
     index: int
+    result: ChoiceResult | None = None
 
     def __post_init__(self):
         if type(self.request) is not DiscoverDeckDarkGift:
@@ -74,6 +75,9 @@ class SelectGiftedDeckCard(Effect):
             raise ValueError('Stored gift offers require distinct physical cards and gifts')
         _integer(self.index, 'stored gift selection index', 0)
         if self.index >= len(self.offered): raise ValueError('Stored gift index is outside its offers')
+        if self.result is not None:
+            if type(self.result) is not ChoiceResult:raise ValueError('Stored gift requires a complete actual result')
+            self.result.__post_init__()
 
 
 def preview(offer):
@@ -111,13 +115,30 @@ def discover(r, effect):
 
 def select(r, effect):
     effect.__post_init__(); request = effect.request; source_exists(r, request.source_id)
+    if effect.result is None:
+        # Existing direct internal grant/move recipes are not a committed
+        # discovery. Genuine choice execution always binds its actual result.
+        offer=effect.offered[effect.index]
+        if reference_entity(r,offer.card)is None:return ()
+        gift=gift_by_id(offer.gift_id)
+        return (GrantDarkGift(offer.card,gift.id,request.source_id),
+            MoveCard(offer.card,request.player_id,Zone.DECK if gift.destination=='deck_top'else Zone.HAND,
+                position='top'if gift.destination=='deck_top'else'bottom',source_id=request.source_id))
+    from .card_discoveries import require_original_result
+    from .discovery_delivery import MaterializeDiscoveredCard
+    require_original_result(r.state,effect.result)
+    result=effect.result;choice=result.choice
+    if (choice.purpose!=ChoicePurpose.CARD_DISCOVERY or choice.options!=tuple(o.item for o in options_for(r.registry,request,effect.offered)) or
+            (choice.player_id,choice.source_id,choice.prompt)!=(request.player_id,request.source_id,PROMPT) or
+            result.selected_ids!=(f'stored-gift-{effect.index+1}',)):
+        raise ValueError('Stored gift lost its original complete selected result')
     offer = effect.offered[effect.index]; entity = reference_entity(r, offer.card)
-    if entity is None: return ()
+    if entity is None:return (MaterializeDiscoveredCard(result,None),)
     if entity.kind != CardType.MINION: raise ValueError('Stored Dark Gift selected a non-minion')
     gift = gift_by_id(offer.gift_id)
     return (GrantDarkGift(offer.card, gift.id, request.source_id),
-            MoveCard(offer.card, request.player_id, Zone.DECK if gift.destination == 'deck_top' else Zone.HAND,
-                     position='top' if gift.destination == 'deck_top' else 'bottom', source_id=request.source_id))
+            MaterializeDiscoveredCard(result,MoveCard(offer.card, request.player_id, Zone.DECK if gift.destination == 'deck_top' else Zone.HAND,
+                     position='top' if gift.destination == 'deck_top' else 'bottom', source_id=request.source_id)))
 
 
 def validate_choice(game):

@@ -131,7 +131,11 @@ def deliver_and_summon_copy(r,effect):
     from .effects import AddToHand
     from .opening import create_hand_card
     from .model import Zone
+    delivery_cursor=len(r.game._events)
     entity=create_hand_card(r,AddToHand(spec.player_id,effect.discovery.selection.card_id,spec.source_id))
+    from .discovery_delivery import finish_for_entity
+    notification=finish_for_entity(r,effect.discovery.choice_result,entity,
+        AddToHand(spec.player_id,effect.discovery.selection.card_id,spec.source_id),delivery_cursor)
     if entity.zone==Zone.HAND:
         from .copy_materials import CopyEntryMaterial
         material=CopyEntryMaterial.capture(r.state,entity,'stored_copy','current',spec.summon_copy_stats,
@@ -139,7 +143,7 @@ def deliver_and_summon_copy(r,effect):
     else:material=SummonEntryMaterial(entity.card_id,spec.summon_copy_stats)
     # The actual created object and its material/quantity are accepted before
     # acquisition reactions. Public creation and summon checkpoints still run.
-    return accept(r,SummonByCard(spec.player_id,(material,),spec.cause))
+    return (*accept(r,SummonByCard(spec.player_id,(material,),spec.cause)),notification)
 
 
 def validate_cost_healing(registry,effect):
@@ -211,6 +215,14 @@ def sample_eligible_gifts(r, members, faces):
 
 
 def deliver_pick(spec, pick):
+    from .discovery_delivery import MaterializeDiscoveredCard
+    work=pick_requests(spec,pick)
+    if spec.destination=='board':return work
+    if pick.result is None:raise ValueError('Original discovery delivery lost its complete selected result')
+    return (MaterializeDiscoveredCard(pick.result,work[0]),*work[1:])
+
+
+def pick_requests(spec, pick):
     if pick.gift is None:return deliver_generated(spec,(pick.card_id,))
     gift=pick.gift
     delta=gift.cost_delta+(spec.cost.delta if spec.cost is not None else 0)

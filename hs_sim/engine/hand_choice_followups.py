@@ -246,6 +246,9 @@ def resolve(r, effect):
     else:
         if reference_entity(r, option.card) is None:
             update(r.state, root, status='not_hand' if phase == 'initial' else 'completed', **{phase+'_result': effect.result})
+            if phase=='initial':
+                from .discovery_delivery import MaterializeDiscoveredCard
+                return (MaterializeDiscoveredCard(effect.result,None),)
             return ()
         if operation == 'copy_current':
             delivery = CopyCard(option.card, req.player_id, source_id=req.source_id)
@@ -257,6 +260,26 @@ def resolve(r, effect):
             handler, expected = move_card, option.card.entity_id
     root = update(r.state, root, status=phase+'_delivery', **{phase+'_result': effect.result,
         phase+'_entity_id': expected, phase+'_delivery_pending': True})
+    if phase=='initial':
+        from .discovery_delivery import finish_for_entity
+        delivery_cursor=len(r.game._events)
+        work=()
+        if type(delivery)is AddToHand:
+            from .opening import create_hand_card
+            entity=create_hand_card(r,delivery)
+        elif type(delivery)is CopyCard:
+            from .zones import copy_physical_card
+            entity=copy_physical_card(r,delivery)
+        elif delivery.draw:
+            entity=reference_entity(r,delivery.card)
+            work=handler(r,delivery)or()
+        else:
+            from .zones import move_physical_card
+            entity=move_physical_card(r,delivery)
+        if entity is not None and entity.id!=expected:
+            raise ResolutionError('Map actual output disagrees with its original hand-entry reservation')
+        notification=finish_for_entity(r,effect.result,entity,delivery,delivery_cursor)
+        return (*work,FinishHandFollowupDelivery(root.id,phase),notification)
     work = handler(r, delivery)
     return (*(() if work is None else work), FinishHandFollowupDelivery(root.id, phase))
 

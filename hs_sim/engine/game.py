@@ -450,6 +450,8 @@ class Game:
         validate_invariants(self._state, self.registry)
         from .card_discoveries import validate_boundary as validate_card_discovery_boundary
         validate_card_discovery_boundary(self)
+        from .discovery_delivery import validate_boundary as validate_discovery_delivery_boundary
+        validate_discovery_delivery_boundary(self)
         from .hand_mirrors import validate_game as validate_hand_mirrors
         validate_hand_mirrors(self)
         from .mana_ranks import validate_state as validate_mana_rank_state
