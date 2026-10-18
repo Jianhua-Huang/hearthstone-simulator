@@ -2701,6 +2701,7 @@ class AbilityInstance:
     deathrattle_inherited_from: tuple[int, int] | None = None
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
+    native_producer_quantity_card_id: str | None = None
     spell_base_value: SpellBaseDamageValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
@@ -2720,6 +2721,15 @@ class AbilityInstance:
             if self.origin!='printed'or self.source_id is None or any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed):
                 raise ValueError('Turn draw suppression requires one removable native printed source')
         elif self.turn_draw_card_id is not None:raise ValueError('Only turn draw suppression carries its declaration')
+        if self.kind == 'native_producer_quantity':
+            _name(self.native_producer_quantity_card_id, 'native producer quantity declaration')
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'native_producer_quantity_card_id'}
+            if self.origin != 'printed' or self.source_id is None or any(
+                    getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed):
+                raise ValueError('Native quantity requires one removable pure printed source')
+        elif self.native_producer_quantity_card_id is not None:
+            raise ValueError('Only native quantity sources carry their declaration')
         if self.kind=='spell_base_value':
             if type(self.spell_base_value)is not SpellBaseDamageValue:raise ValueError('Native spell requires its complete typed base value')
             self.spell_base_value.__post_init__()
@@ -2910,7 +2920,7 @@ class AbilityInstance:
         _optional_id(self.source_id, "ability source_id")
         _optional_id(self.expires_turn, "ability expires_turn")
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'spell_base_value', 'spell_stat_value', 'prepare'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -10843,6 +10853,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_corpse_gain_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .turn_start_draws import validate_carrier as validate_turn_draw_carrier
                 validate_turn_draw_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
+                from .native_producer_quantities import validate_carrier as validate_native_quantity_carrier
+                validate_native_quantity_carrier(registry,entity.card_id,entity.kind,attachments,entity.components)
                 from .native_spell_values import validate_carrier as validate_native_spell_carrier
                 validate_native_spell_carrier(state,registry,entity.card_id,entity.kind,attachments)
                 from .health_rules import validate_school_spell_damage_carrier
@@ -11018,6 +11030,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_corpse_gain_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .turn_start_draws import validate_carrier as validate_turn_draw_carrier
         validate_turn_draw_carrier(registry,record.card_id,kind,record.abilities,record.components)
+        from .native_producer_quantities import validate_carrier as validate_native_quantity_carrier
+        validate_native_quantity_carrier(registry,record.card_id,kind,record.abilities,record.components)
         from .native_spell_values import validate_carrier as validate_native_spell_carrier
         validate_native_spell_carrier(state,registry,record.card_id,kind,record.abilities)
         from .health_rules import validate_school_spell_damage_carrier

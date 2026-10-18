@@ -86,6 +86,8 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('corpse_gain', corpse_gain_card_id=definition.id)
     if registry is not None and definition.id in registry.turn_draw_profiles:
         add('turn_draw_suppression',turn_draw_card_id=definition.id)
+    if registry is not None and definition.id in registry.native_producer_quantity_profiles:
+        add('native_producer_quantity',native_producer_quantity_card_id=definition.id)
     if definition.cleave:
         add('cleave')
     if definition.on_play:

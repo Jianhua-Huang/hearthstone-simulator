@@ -54,7 +54,21 @@ def next_body(c, name):
                           None if c.play is None else c.play.id)
 
 
+def register_cannoneer_behaviors(registry):
+    from hs_sim.engine.native_producer_quantities import CANNONEER_SHOT, count
+    def cannon(c):
+        amount = count(c.state, registry, c.player_id, c.source.card_id, CANNONEER_SHOT)
+        return tuple(next_body(c, 'cannon_execute') for _ in range(amount))
+    # The classified end-turn context is frozen before sibling bodies execute.
+    # Accept this producer in a fresh ordinary continuation, once per body.
+    registry.register_behavior(PREFIX+'cannon', lambda c: (next_body(c, 'cannon_accept_shots'),))
+    registry.register_behavior(PREFIX+'cannon_accept_shots', cannon)
+    registry.register_behavior(PREFIX+'cannon_execute', lambda c: (
+        RandomDamage(characters(c, registry, 3-c.player_id), 1, c.source_id, DamageKind.MINION_ABILITY),))
+
+
 def register_native_followup_cards(registry):
+    register_cannoneer_behaviors(registry)
     def spawn(c, card_id):
         request = SummonByCard(c.player_id, (SummonEntryMaterial(card_id),), SummonCause.capture(c))
         return (request, request)
@@ -78,9 +92,6 @@ def register_native_followup_cards(registry):
         'infestation': lambda c: (Draw(c.player_id, 2, c.source_id), next_body(c, 'leeches')),
         'cannons': lambda c: spawn(c, 'CAP_107t'),
         'leeches': lambda c: spawn(c, 'EDR_810t'),
-        'cannon': lambda c: (next_body(c, 'cannon_execute'),),
-        'cannon_execute': lambda c: (RandomDamage(characters(c, registry, 3-c.player_id), 1,
-                                        c.source_id, DamageKind.MINION_ABILITY),),
         'leech': lambda c: (next_body(c, 'leech_execute'),),
         'leech_execute': leech,
     }

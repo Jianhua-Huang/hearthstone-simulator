@@ -153,6 +153,7 @@ class Registry:
         self._kindred_profiles: dict[str, KindredProfile] = {}
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
+        self._native_producer_quantity_profiles = {}
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
@@ -306,6 +307,9 @@ class Registry:
     def turn_draw_profiles(self):return MappingProxyType(self._turn_draw_profiles)
 
     @property
+    def native_producer_quantity_profiles(self):return MappingProxyType(self._native_producer_quantity_profiles)
+
+    @property
     def historical_deathrattle_spells(self):
         return frozenset(self._historical_deathrattle_spells)
 
@@ -379,6 +383,14 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._turn_draw_profiles:raise ValueError('Duplicate native turn draw profile')
         self._turn_draw_profiles[profile.card_id]=profile
+
+    def register_native_producer_quantity_profile(self,profile):
+        self._require_mutable()
+        from .native_producer_quantities import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._native_producer_quantity_profiles:
+            raise ValueError('Duplicate native producer quantity profile')
+        self._native_producer_quantity_profiles[profile.card_id]=profile
 
     def register_spell_value_profile(self,profile):
         self._require_mutable()
@@ -1605,6 +1617,8 @@ class Registry:
             raise ValueError('Historical Deathrattle prerequisites require registered spells')
         from .turn_start_draws import validate_profile as validate_turn_draw_profile
         for profile in self._turn_draw_profiles.values():validate_turn_draw_profile(self,profile)
+        from .native_producer_quantities import validate_profile as validate_native_quantity_profile
+        for profile in self._native_producer_quantity_profiles.values():validate_native_quantity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -1939,6 +1953,9 @@ class Registry:
             payload['spell_target_profiles']=[asdict(self._spell_target_profiles[k])for k in sorted(self._spell_target_profiles)]
         if self._turn_draw_profiles:
             payload['turn_draw_profiles']=[asdict(self._turn_draw_profiles[k])for k in sorted(self._turn_draw_profiles)]
+        if self._native_producer_quantity_profiles:
+            payload['native_producer_quantity_profiles']=[asdict(self._native_producer_quantity_profiles[k])
+                for k in sorted(self._native_producer_quantity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
         if self._hero_health_target_profiles:

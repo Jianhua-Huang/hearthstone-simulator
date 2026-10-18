@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CAP_107t",
+        "dbf_id": 127012,
+        "name": "火炮手",
+        "name_en": "Cannoneer",
+        "text": "在你的回合结束时，随机对一个敌人造成1点伤害。",
+        "text_en": "[x]At the end of your turn,\ndeal 1 damage to a\nrandom enemy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "ccd467cb0e88628485075c962e83b0ef797981e556c2ed39a0b8ae8e59938894",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_107t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CAP_106e",
+        "dbf_id": 132269,
+        "name": "狂轰滥炸",
+        "name_en": "Bombardment",
+        "text": "你的火炮手额外发射一次。",
+        "text_en": "Your Cannoneers fire an additional shot.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9393b4469ce7695b0ec624c6b4a803f7697bd70cdac7e8519324dbd69e998a97",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_106e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policies": [
+    "Two ordinary repeated discoveries from the complete current-class/neutral collectible Beast minion domain, replacement between discoveries; source class is not the actor class.",
+    "Reuse CreatedMinionGrant(attack=5,health=5), not CreatedMinionStats: this is an additive creation grant. Each original selected output is created directly at own deck bottom with its complete numbers before the first notification.",
+    "After-each delivery: first original output and reactions complete before the second offer. No hand transfer, shuffle, extra acquisition or silent omission of unknown eligible definitions.",
+    "Current class policy, offer/delivery ordering, initial creation and exact CN behavior remain local policies pending calibration. No complete formal Standard pool or reachability claim."
+  ],
+  "batch": "K213-cannoneer-shot-quantity",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_106",
+        "dbf_id": 127019,
+        "name": "克罗雷船长",
+        "name_en": "Captain Crowley",
+        "text": "你的火炮手额外开火一次。<b>战吼：</b>召唤两个1/1的火炮手。",
+        "text_en": "[x]Your Cannoneers fire\nan additional shot.\n<b>Battlecry</b>: Summon\n_two 1/1 Cannoneers.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TAG_SCRIPT_DATA_NUM_2": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127012,
+          "MINI_SET": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4128": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leroy Steinmann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "97b5a7a0236bc0aa159b0fc0d01c0b57d00216d827ebc3c78e81e5dcc2ef2212",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CAP_106",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "CAP_106",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\127019-zh_CN.json",
+      "response_sha256": "30cfea372aac40b8d00ed36a5e0da0aee6263c279cd6f08f373f5ca7b67479e2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127019&locale=zh_CN",
+      "face": {
+        "id": 127019,
+        "collectible": 1,
+        "slug": "127019-captain-crowley",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Leroy Steinmann",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "克罗雷船长",
+        "text": "你的火炮手额外开火一次。<b>战吼：</b>召唤两个1/1的火炮手。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3be511fcefb4f4fa525f4f4d7874bc878505f2bda99f08d995ba503b77f88965.png",
+        "imageGold": "",
+        "flavorText": "那个懦弱的高弗雷躲在影牙城堡里太久了。达利乌斯不在乎他的合作伙伴都是谁，佣兵也好，海盗也好……只要他能够伸张正义。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00e815d88019ca06b3d1a9be6a66735a4308b59a4580c3431489ba17c0de6583.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127019&locale=zh_CN",
+        "sha256": "30cfea372aac40b8d00ed36a5e0da0aee6263c279cd6f08f373f5ca7b67479e2",
+        "bytes": 935,
+        "observed_at": "2026-10-18T18:05:41.609590+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_106",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\127019-en_US.json",
+      "response_sha256": "dc441c2b38a48da5b2d533f28995ee7b4870eaa7fe33a9f538501ec613858877",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127019&locale=en_US",
+      "face": {
+        "id": 127019,
+        "collectible": 1,
+        "slug": "127019-captain-crowley",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Leroy Steinmann",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Captain Crowley",
+        "text": "Your Cannoneers fire an additional shot. <b>Battlecry</b>: Summon two 1/1 Cannoneers.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37e760be7ca4ab4812b454eb0b216003c9bf4b6200f9bb7c8ffaf7ec88b7ca58.png",
+        "imageGold": "",
+        "flavorText": "The coward Godfrey had hidden in Shadowfang Keep for long enough. Darius didn’t care whom he had to work with. Mercenaries… pirates… all that mattered was justice.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00e815d88019ca06b3d1a9be6a66735a4308b59a4580c3431489ba17c0de6583.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127019&locale=en_US",
+        "sha256": "dc441c2b38a48da5b2d533f28995ee7b4870eaa7fe33a9f538501ec613858877",
+        "bytes": 936,
+        "observed_at": "2026-10-18T18:05:41.229545+00:00"
+      }
+    }
+  ]
+}
