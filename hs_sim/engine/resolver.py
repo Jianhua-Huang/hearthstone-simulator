@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v467'
+CORE_EFFECTS_VERSION = 'core-effects-v468'
 
 
 class Mechanics:
@@ -983,6 +983,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
     # consume in packet order without an intervening death checkpoint.
     state = deepcopy(r.state)
     rules = rule_sources(state)
+    pending_events = []
     if player_effect is not None and (combat is not None or len(instructions)!=1 or partition_request is not None):
         raise ResolutionError('Logical player damage requires one independent non-combat packet')
     if numeric_limit is not None and (combat is not None or split_link is not None or
@@ -1006,7 +1007,13 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
         instruction.__post_init__()
         if instruction.on_result is not None:
             r.registry.behavior(instruction.on_result)
-    pending_events = []
+    from .next_healing_conversion import claim as claim_healing_conversion
+    healing_rules = claim_healing_conversion(r, state, packets, rules, pending_events)
+    if healing_rules is not rules:
+        packets = [prepare_health(state, r.registry, instruction, rules=healing_rules,
+            split_link=split_link, numeric_limit=numeric_limit, apply_spell_bonus=apply_spell_bonus,
+            player_effect=player_effect, player_effect_owner=player_effect_owner)
+                   for instruction in instructions]
     lifesteals = []
     callbacks = {}
     batch_id, packet_index = len(r.game._events)+1, 0
@@ -1089,11 +1096,16 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
         settle(packet, instruction.on_result)
     # Converted lifesteal damage must not create another lifesteal restoration.
     # This explicit guard is separate from the engineering resolution budget.
-    for source_packet, amount in lifesteals:
-        hero_id = state.players[source_packet.source_controller].hero_id
-        instruction = Heal(hero_id, amount, source_packet.source_id, source_packet.healing_kind)
-        packet = prepare_health(state, r.registry, instruction, rules=rules,
-                                from_lifesteal=True, source_packet=source_packet)
+    restorations = [(source_packet, Heal(state.players[source_packet.source_controller].hero_id,
+        amount, source_packet.source_id, source_packet.healing_kind)) for source_packet, amount in lifesteals]
+    restored_packets = [prepare_health(state, r.registry, instruction, rules=rules,
+        from_lifesteal=True, source_packet=source_packet) for source_packet, instruction in restorations]
+    restoration_rules = claim_healing_conversion(r, state, restored_packets, rules, pending_events)
+    if restoration_rules is not rules:
+        restored_packets = [prepare_health(state, r.registry, instruction, rules=restoration_rules,
+            from_lifesteal=True, source_packet=source_packet) for source_packet, instruction in restorations]
+    for (source_packet, instruction), packet in zip(restorations, restored_packets):
+        amount = instruction.amount
         marker = len(pending_events)
         actual = settle(packet)
         pending_events.insert(marker, ('lifesteal', dict(source_id=packet.source_id, target_id=packet.target_id,

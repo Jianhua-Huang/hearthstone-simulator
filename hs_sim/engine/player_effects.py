@@ -106,16 +106,21 @@ def validate_consumption(state, registry, effect):
     return None
 
 
-def consume(r, effect):
+def consume(r, effect, *, pending_events=None):
     try:
         current = validate_consumption(r.state, r.registry, effect)
     except ValueError as exc:
         raise ResolutionError(str(exc)) from exc
     if current is None:
         return ()
+    if pending_events is not None and (r.registry.player_effect(current.spec_id).kind != 'next_healing_damage' or
+                                      effect.on_success):
+        raise ResolutionError('Atomic health consumption only accepts its finite conversion with no separate payload')
     # Removal is committed before its event can capture reentrant callbacks.
     # Ordinary RemovePlayerEffect and countdown/expiry semantics stay intact.
-    remove(r, RemovePlayerEffect(effect.player_id, current.id))
+    event = remove(r, RemovePlayerEffect(effect.player_id, current.id), atomic=pending_events is not None)
+    if pending_events is not None and event is not None:
+        pending_events.append(event)
     return effect.on_success
 
 
@@ -125,6 +130,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
+    if spec.kind == 'next_healing_damage' and (source.card_id != spec.card_id or effect.capture_health_source):
+        raise ResolutionError('Next-healing program requires its own original card and no independent damage source')
     if spec.kind == 'adaptations':
         from .allocation_facts import SourceAllocationFact, validate_allocation
         from .model import validate_adaptations
@@ -258,7 +265,7 @@ def manual_play_allowed(state, registry, player_id, card_kind):
 
 def due_turn_rules(state, registry, turn):
     return tuple((player.id, effect) for player in state.players.values() for effect in player.player_effects
-                 if registry.player_effect(effect.spec_id).kind in ('turn_rule','next_spell_damage') and effect.created_turn <= turn)
+                 if registry.player_effect(effect.spec_id).kind in ('turn_rule','next_spell_damage','next_healing_damage') and effect.created_turn <= turn)
 
 
 def expire_turn_rules(r, turn):
@@ -295,15 +302,24 @@ def claim_next_spell_damage(r, record):
     return accepted
 
 
-def remove(r, effect):
+def remove(r, effect, *, atomic=False):
     instance = matching(r, effect)
     if instance is None:
         return
+    if atomic and r.registry.player_effect(instance.spec_id).kind != 'next_healing_damage':
+        raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
-    r.refresh_auras()
-    r.emit('player_effect_removed', source_id=instance.source_id, player_id=effect.player_id,
-           **public_effect(r.registry, instance))
+    if not atomic:
+        r.refresh_auras()
+    data = dict(source_id=instance.source_id, player_id=effect.player_id,
+                **public_effect(r.registry, instance))
+    if not atomic:
+        r.emit('player_effect_removed', **data)
+    else:
+        # No numeric or aura contribution exists on this finite kind. Leave
+        # both derived-stat refresh and reactions at the normal batch boundary.
+        return 'player_effect_removed', data
 
 
 def turn_countdowns(r, player, event):
