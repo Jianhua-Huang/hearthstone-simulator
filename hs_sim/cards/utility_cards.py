@@ -10,6 +10,7 @@ from hs_sim.engine.effects import (Buff, Destroy, DestroyBatch, Draw, Freeze, Ga
     SpendResource, Summon, Transform)
 from hs_sim.engine.hand_upgrades import BuffStoredCard
 from hs_sim.engine.locations import DestroyLocation
+from hs_sim.engine.sacrifice import DestroyCapturedMinion,MinionReference
 from hs_sim.engine.model import (CardDefinition, CardType, EndTurnSpec, HandActionSpec,
     Keyword, Resource, TargetMode, TargetSpec, TriggerSpec, Zone)
 from hs_sim.engine.pools import PoolCard
@@ -23,7 +24,7 @@ from .metadata import metadata_from_record
 
 
 BATCH_PATH = Path(__file__).resolve().parents[2]/'data/cards/utility-effects-v1.json'
-BATCH_HASH = '2216d1f31512c9b24e2ff8bc98f6830eee3f236cf4a180bdc2b7600b77a27323'
+BATCH_HASH = 'fc7649ad14b65ce1371bbd36035fa3c0b379cbf751c2e9e76ee1ced47ff003a7'
 SCOPES = ('target','self','event_target','friendly','enemy','own_hero','enemy_weapon',
     'friendly_minions','other_friendly_minions','enemy_minions','all_minions',
     'all_board','adjacent_friendly_minions','friendly_hand_minions')
@@ -74,8 +75,12 @@ class UtilityStep:
             raise ValueError('Utility filters require explicit typed values')
         if any(type(s) is not UtilityStep for s in (*self.success,*self.failure)):
             raise ValueError('Resource branches require reviewed utility steps')
-        if self.operation != 'spend_corpses' and (self.success or self.failure):
-            raise ValueError('Only resource spending declares result branches')
+        if self.operation != 'spend_corpses' and self.failure:
+            raise ValueError('Only resource spending declares failure branches')
+        if self.success and self.operation not in ('spend_corpses','destroy'):
+            raise ValueError('Only resource spending and captured destruction declare success branches')
+        if self.operation == 'destroy' and self.success and self.scope != 'target':
+            raise ValueError('Destruction rewards require one original target')
         if self.operation != 'buff' and (self.attack or self.health or self.temporary):
             raise ValueError('Only buffs declare stats and expiry')
         if self.operation not in ('heal','damage','draw','armor','overload','spend_corpses') and self.amount:
@@ -170,7 +175,13 @@ def step_body(context, step, registry, is_spell, success_id=None, failure_id=Non
                                               context.source_id,expiry))
             else: effects.append(Buff(eid,step.attack,step.health,context.source_id,expiry))
         elif op == 'keyword': effects.append(GrantKeyword(eid,step.keyword,context.source_id))
-        elif op == 'destroy': effects.append(Destroy(eid,context.source_id))
+        elif op == 'destroy':
+            if success_id is None:effects.append(Destroy(eid,context.source_id))
+            else:
+                victim=context.state.entities[eid]
+                if victim.kind==CardType.MINION and victim.zone==Zone.BOARD and victim.active and victim.health>0 and not victim.doomed:
+                    effects.append(DestroyCapturedMinion(MinionReference.capture(victim),context.source_id,
+                        (InvokeBehavior(success_id,context.source_id,context.player_id,context.target_id),)))
         elif op == 'destroy_location': effects.append(DestroyLocation(eid,context.source_id))
         elif op == 'transform': effects.append(Transform(eid,step.card_id))
         elif op == 'silence': effects.append(Silence(eid))

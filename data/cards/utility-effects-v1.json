@@ -4575,12 +4575,14 @@
           "on_play": [
             {
               "operation": "destroy",
-              "scope": "target"
-            },
-            {
-              "operation": "armor",
-              "scope": "friendly",
-              "amount": 8
+              "scope": "target",
+              "success": [
+                {
+                  "operation": "armor",
+                  "scope": "friendly",
+                  "amount": 8
+                }
+              ]
             }
           ]
         }

@@ -1926,7 +1926,7 @@ class RepeatCostFilter:
     quote_profile_id: str | None = None
 
     def __post_init__(self):
-        if type(self.basis) is not str or self.basis not in ('printed', 'local', 'submitted_quote', 'window_quote'):
+        if type(self.basis) is not str or self.basis not in ('printed', 'local', 'submitted_quote', 'window_quote','cast_quote'):
             raise ValueError('Unsupported repeat cost basis')
         for name in ('minimum', 'maximum'):
             if getattr(self, name) is not None:
@@ -7471,13 +7471,13 @@ class SpellCastRecord:
         _name(self.card_id, 'cast card')
         for name in ('target_id', 'caster_id', 'play_id', 'draw_id', 'recast_id'):
             _optional_id(getattr(self, name), name)
-        if self.player_id not in (1, 2) or self.origin not in ('hand', 'repeat', 'effect', 'draw', 'history'):
+        if self.player_id not in (1, 2) or self.origin not in ('hand', 'repeat', 'effect', 'draw', 'history','native_repeat'):
             raise ValueError('Invalid spell cast source')
         if self.choices not in ('player', 'random'):
             raise ValueError('Invalid spell choice policy')
         if self.from_zone is not None and (type(self.from_zone) is not Zone or self.from_zone not in (Zone.HAND, Zone.DECK)):
             raise ValueError('Invalid spell origin zone')
-        automatic = self.origin in ('effect', 'draw', 'history')
+        automatic = self.origin in ('effect', 'draw', 'history','native_repeat')
         if self.target_selection is not None:
             from .automatic_targets import AutomaticTargetSelection
             if type(self.target_selection) is not AutomaticTargetSelection or not automatic:
@@ -7490,7 +7490,7 @@ class SpellCastRecord:
                 raise ValueError('Cast target differs from its complete accepted automatic selection')
         if automatic != (self.play_id is None):
             raise ValueError('Hand/repeat casts require a play, effect casts cannot invent one')
-        if (self.origin == 'repeat') != (self.iteration > 1):
+        if (self.origin in ('repeat','native_repeat')) != (self.iteration > 1):
             raise ValueError('Invalid cast iteration')
         if not automatic and (self.from_zone != Zone.HAND or self.caster_id is not None or self.choices != 'player'):
             raise ValueError('Invalid played spell provenance')
@@ -7508,8 +7508,8 @@ class SpellCastRecord:
             raise ValueError('A recorded played spell must have entered its payload')
         if (self.origin == 'draw') != (self.draw_id is not None) or self.origin == 'draw' and self.from_zone != Zone.DECK:
             raise ValueError('Drawn spell requires its deck draw provenance')
-        if ((self.origin == 'history') != (self.recast_id is not None) or
-                self.origin == 'history' and (self.recast_id >= self.id or self.from_zone is not None)):
+        if ((self.origin in ('history','native_repeat')) != (self.recast_id is not None) or
+                self.origin in ('history','native_repeat') and (self.recast_id >= self.id or self.from_zone is not None)):
             raise ValueError('Historical casting requires an earlier cast and a new entity')
 
 

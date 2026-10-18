@@ -15,6 +15,9 @@ def validate_repeat_cost_declaration(registry, spec):
         raise ValueError('Repeat cost declaration requires SpellRepeatSpec')
     spec.__post_init__()
     value = spec.match.recipient_cost if spec.match is not None else None
+    if value is not None and value.basis=='cast_quote':
+        if (spec.casts,spec.class_mode,value.minimum,value.maximum)!=(2,'any',1,1) or spec.match.recipient_metadata is not None or spec.match.source_eligibility is not None:
+            raise ValueError('Native cast price supports the real one-cost twice profile only')
     if value is not None and value.basis == 'window_quote':
         registry.cost_query_profile(value.quote_profile_id).__post_init__()
     return value
@@ -132,7 +135,7 @@ def _cost_matches(value, definition, submitted_cost, facts):
         amount = facts.printed_cost
     elif value.basis == 'local':
         amount = facts.local_amount
-    elif value.basis == 'submitted_quote':
+    elif value.basis in ('submitted_quote','cast_quote'):
         if type(submitted_cost) is not HandPlayCostReceipt:
             raise ValueError('Submitted cost matching requires its payment-before receipt')
         submitted_cost.__post_init__()

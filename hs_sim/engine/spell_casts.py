@@ -17,8 +17,8 @@ from .automatic_targets import (AutomaticTargetPreference, AutomaticTargetProof,
 
 
 CONDITIONS = ('combo', 'outcast', 'finale', 'quickdraw', 'manathirst')
-CAST_ORIGINS = ('hand', 'repeat', 'effect', 'draw', 'history')
-AUTOMATIC_ORIGINS = ('effect', 'draw', 'history')
+CAST_ORIGINS = ('hand', 'repeat', 'effect', 'draw', 'history','native_repeat')
+AUTOMATIC_ORIGINS = ('effect', 'draw', 'history','native_repeat')
 
 
 def cast_record(state, cast_id):
@@ -251,6 +251,8 @@ def effective_definition(definition, conditions):
 
 
 def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None):
+    from .one_cost_casts import capture_automatic,accept_automatic
+    native_repeat=capture_automatic(r,entity,effect.player_id)
     from .play_history import played_cards
     from .targeting import accepts_target, target_spec
     definition = r.registry.card(entity.card_id)
@@ -304,7 +306,8 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
                cast_id=record.id, reason=failure)
         return choose_tail
     behaviors = tuple(a.behavior_id for a in active_abilities(entity, 'on_play'))
-    return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof), *choose_tail)
+    native_tail=accept_automatic(r,record,behaviors,native_repeat)
+    return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof), *native_tail,*choose_tail)
 
 
 def cast_generated(r, effect):
@@ -466,12 +469,19 @@ def validate_history(state, registry):
                     play.completed and not record.completed or play.interrupted and not(record.completed or record.interrupted)):
                 raise ValueError('Spell cast and hand play disagree')
             iterations[play.id] = ordinal
-        if record.recast_id is not None:
+        if record.origin == 'history':
             original = cast_record(state,record.recast_id)
             entity = state.entities[record.source_id]
             if (original.card_id != record.card_id or entity.origin_entity_id != original.source_id or
                     record.source_id <= original.source_id):
                 raise ValueError('Historical spell has inconsistent original provenance')
+        if record.origin == 'native_repeat':
+            original = cast_record(state,record.recast_id)
+            if (original.origin not in ('effect','draw','history') or not original.completed or original.failure is not None or
+                    (record.source_id,record.card_id,record.player_id,record.target_id,record.branch_id,record.choices) !=
+                    (original.source_id,original.card_id,original.player_id,original.target_id,original.branch_id,original.choices) or
+                    any(getattr(record,k)!=getattr(original,k) for k in CONDITIONS)):
+                raise ValueError('Native repeated spell changed its accepted original cast')
         last_turn, last_action = record.turn, record.action
     for play in state.play_history:
         if play.kind == CardType.SPELL and play.completed and play.id not in iterations:
@@ -479,6 +489,8 @@ def validate_history(state, registry):
 
 
 def validate_boundary(game):
+    from .one_cost_casts import validate_boundary as validate_native_repeat_boundary
+    validate_native_repeat_boundary(game)
     validate_target_origins(game)
     if any(c.recorded_event > len(game._events) for c in game._state.cast_history):
         raise ValueError('Cast allocation cursor is newer than the actual event boundary')
