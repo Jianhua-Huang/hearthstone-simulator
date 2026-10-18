@@ -38,8 +38,14 @@ class TransformStoredFromPool(Effect):
         self.query.__post_init__(); _source(self.source_id); validate_policy(self.policy)
         if type(self.empty) is not str or self.empty not in ('skip', 'error'):
             raise ValueError('Unknown stored transformation empty policy')
-        if (self.retained_stats is None) != (self.retained_cost is None):
-            raise ValueError('Retained hand transformation requires both stats and numeric Cost')
+        if self.retained_stats is not None and self.retained_cost is None:
+            raise ValueError('Retained hand stats require their numeric Cost')
+        if self.retained_cost is not None:
+            _integer(self.retained_cost, 'retained stored transformation cost', 0)
+        if self.retained_stats is None and self.retained_cost is not None:
+            if (self.target.zone != Zone.HAND or self.source_id is None or
+                    self.query.kinds != (CardType.SPELL,) or self.query.collectible is not True):
+                raise ValueError('Cost-only retention requires a source-bound hand-to-spell transformation')
         if self.retained_stats is not None:
             validate_summon_stats(self.retained_stats)
             _integer(self.retained_cost, 'retained stored transformation cost', 0)

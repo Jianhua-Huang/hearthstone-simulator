@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "batch": "K208-hand-spell-transform",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_313",
+        "dbf_id": 126111,
+        "name": "偷贩炼金师",
+        "name_en": "Bootleg Alchemist",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌，将其变形成为法力值消耗增加（5）点的法术牌<i>（保留其原始法力值消耗）。</i>",
+        "text_en": "[x]<b>Battlecry:</b> Choose a card in\nyour hand. Transform it into\n_a spell that costs (5) more\n___<i>(keeps its original Cost).</i>",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "102c703573e1d0749bead4bf8bb5b8f37357c077bfe42f9d69a132e7ee1b56af",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_313",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_313e",
+        "dbf_id": 131362,
+        "name": "偷贩",
+        "name_en": "Bootleg",
+        "text": "变形后保留原消耗。",
+        "text_en": "Transformed and kept Cost.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9c558bdaa3e8aad67bb920afde3222ddc01dbdea9506260bface5a5c1a651dc5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_313e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_313",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126111-zh_CN.json",
+      "response_sha256": "49431a7403672bc3e48899caaeaa660b472bc8f4a01bf5448f156258662febea",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126111&locale=zh_CN",
+      "face": {
+        "id": 126111,
+        "collectible": 1,
+        "slug": "126111-bootleg-alchemist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Felideus Bubastis",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "偷贩炼金师",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌，将其变形成为法力值消耗增加（5）点的法术牌<i>（保留其原始法力值消耗）。</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c14524449192b9dfe56ec644535e48ea29f2868c6e8f774e23302a8f0d89ed2.png",
+        "imageGold": "",
+        "flavorText": "注意！饮用之前要脚拌均匀！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cd14715309ff39b166fbb8b2937b1de069f9dc2f833199d88a09c1be8d7cbe5.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126111&locale=zh_CN",
+        "sha256": "49431a7403672bc3e48899caaeaa660b472bc8f4a01bf5448f156258662febea",
+        "bytes": 862,
+        "observed_at": "2026-10-18T17:03:21.205486+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_313",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126111-en_US.json",
+      "response_sha256": "2d15109e9f7ebf39fd42a3a6a7aee29a9eab8b2a2571e9b7487c288c69129101",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126111&locale=en_US",
+      "face": {
+        "id": 126111,
+        "collectible": 1,
+        "slug": "126111-bootleg-alchemist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Felideus Bubastis",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Bootleg Alchemist",
+        "text": "<b>Battlecry:</b> Choose a card in your hand. Transform it into a spell that costs (5) more <i>(keeps its original Cost).</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f1a5d53d58005de49347a46bc141fe4c37184448910160c704385d9a75fdebf.png",
+        "imageGold": "",
+        "flavorText": "Careful! This potion has a bit of a KICK to it!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cd14715309ff39b166fbb8b2937b1de069f9dc2f833199d88a09c1be8d7cbe5.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126111&locale=en_US",
+        "sha256": "2d15109e9f7ebf39fd42a3a6a7aee29a9eab8b2a2571e9b7487c288c69129101",
+        "bytes": 841,
+        "observed_at": "2026-10-18T17:03:21.260710+00:00"
+      }
+    }
+  ],
+  "policies": [
+    "One actual original friendly hand card of any playable type; source is already on board. Ordinary effect choice, not Discover; duplicate physical cards remain distinct.",
+    "Freeze the original reference, actual current quoted Cost for the destination tier (+5), and local attachment Cost for retention at offer acceptance. External ongoing modifiers reapply normally to the new spell; this is local policy pending CN calibration.",
+    "Only the selected domain uses the complete versioned constructed.cards host pool, all classes, collectible spells; unknown eligible definitions fail explicitly, no fallback/cropped pool.",
+    "Ordinary physical transformation retains the original entity and installs only the retained Cost before the first transformation notification; no cast, acquisition, draw, summon or battlecry of the new face.",
+    "No claim of complete formal Standard pool, full reachability or CN timing/cost calibration."
+  ]
+}
