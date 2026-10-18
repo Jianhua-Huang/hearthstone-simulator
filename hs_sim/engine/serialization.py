@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 394
+SNAPSHOT_SCHEMA_VERSION = 395
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1442,6 +1442,9 @@ def state_from_dict(value: dict) -> GameState:
     from .model import CthunGrowthRecord
     value['cthun_history'] = [CthunGrowthRecord(**_row(item, CthunGrowthRecord))
                               for item in _list(value['cthun_history'], 'Cthun history')]
+    from .minion_families import FamilyReplacementRecord, from_dict as family_from_dict
+    value['minion_family_history'] = [family_from_dict(FamilyReplacementRecord, item)
+        for item in _list(value['minion_family_history'], 'Minion family history')]
     mains = value['galakrond_mains']
     if type(mains) is not dict or set(mains) != {'1', '2'}:
         raise ValueError('Main Galakronds require the two canonical player keys')

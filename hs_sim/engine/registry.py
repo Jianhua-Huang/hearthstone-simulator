@@ -207,6 +207,7 @@ class Registry:
         self._modular_faces = {}
         self._jade_families = {}
         self._cthun_profile = None
+        self._minion_family_profiles = {}
         from .choose_one import DISPATCH, dispatch
         self._behaviors: dict[str, Behavior] = {DISPATCH: lambda c: dispatch(self, c)}
         from .dark_gifts import LIVING_NIGHTMARE_BEHAVIOR, living_nightmare
@@ -843,6 +844,26 @@ class Registry:
         if self._cthun_profile is not None:
             raise ValueError('Cthun profile is already registered')
         self._cthun_profile = profile
+
+    @property
+    def minion_family_profiles(self):
+        return MappingProxyType(self._minion_family_profiles)
+
+    def minion_family_profile(self, family_id):
+        try:
+            return self._minion_family_profiles[family_id]
+        except KeyError as exc:
+            raise UnsupportedDefinitionError('Unknown minion family: '+str(family_id)) from exc
+
+    def register_minion_family_profile(self, profile):
+        from .minion_families import MinionFamilyProfile
+        self._require_mutable()
+        if type(profile) is not MinionFamilyProfile:
+            raise ValueError('Expected exact MinionFamilyProfile')
+        profile.__post_init__()
+        if profile.id in self._minion_family_profiles:
+            raise ValueError('Duplicate minion family')
+        self._minion_family_profiles[profile.id] = profile
 
     def register_jade_family(self, family):
         from .jade import JadeGolemFamily
@@ -1661,6 +1682,8 @@ class Registry:
         validate_jade_families(self)
         from .cthun import validate_profile as validate_cthun_profile
         validate_cthun_profile(self)
+        from .minion_families import validate_profiles as validate_minion_families
+        validate_minion_families(self)
         from .excavate import validate_profiles
         validate_profiles(self)
         from .shatter import validate_definitions
@@ -1920,6 +1943,9 @@ class Registry:
             payload['jade_families'] = [asdict(self._jade_families[k]) for k in sorted(self._jade_families)]
         if self._cthun_profile is not None:
             payload['cthun_profile'] = asdict(self._cthun_profile)
+        if self._minion_family_profiles:
+            payload['minion_family_profiles'] = [asdict(self._minion_family_profiles[k])
+                for k in sorted(self._minion_family_profiles)]
         if self._body_target_profiles:
             payload['body_target_profiles'] = [asdict(self._body_target_profiles[i]) for i in sorted(self._body_target_profiles)]
         if self._body_target_bindings:

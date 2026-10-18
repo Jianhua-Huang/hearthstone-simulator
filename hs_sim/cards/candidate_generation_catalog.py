@@ -11,7 +11,7 @@ from .metadata import metadata_from_record,validate_race_pin
 
 ROOT=Path(__file__).resolve().parents[2]
 BATCH_PATH=ROOT/'data/cards/candidate-generation-catalog-v1.json'
-BATCH_HASH='155383fab0ea5d2aab9ac068a68c88136e2773ca5286e1e24cf975354a6075c2'
+BATCH_HASH='38cd8f1fb59d8e03b4e818d5d984d095530623739cb13f80ac83756928c514fc'
 COST_PATH=ROOT/'data/cards/candidate-printed-cost-evidence-v1.json'
 COST_HASH='81830c992ae467457070603209b2fe1b82c4510362e16514ec0323642a12d0e3'
 ATTACK_PATH=ROOT/'data/cards/candidate-printed-attack-evidence-v1.json'
@@ -27,7 +27,7 @@ def load_batch():
         raise TargetValidationError('Unreviewed independent candidate generation catalog')
     ids=tuple(row['record']['id']for row in data['cards'])
     if(len(ids)!=1188 or len(set(ids))!=1188 or ids!=tuple(data['candidate_root_ids'])or
-            tuple(data['keyword_tags'])!=KEYWORD_TAGS or data['printed_keyword_overrides']!={'JAIL_890':['taunt']}):
+            tuple(data['keyword_tags'])!=KEYWORD_TAGS or data['printed_keyword_overrides']!={'JAIL_890':['taunt'],'MEND_303':['taunt']}):
         raise TargetValidationError('Candidate catalog lost its complete fixed source scope')
     if data['policy']!=json.loads(POLICY_PATH.read_text(encoding='utf-8')):
         raise TargetValidationError('Candidate catalog differs from the fixed candidate policy')

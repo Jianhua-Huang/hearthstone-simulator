@@ -60,6 +60,16 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
         for row in d['cards']:
             raw=row['record'];meta=self.rows[raw['id']];self.assertEqual(canonical_digest(raw),row['record_sha256']);self.assertTrue(meta.metadata.collectible);self.assertIsNotNone(meta.metadata.tribes);self.assertIsNotNone(meta.metadata.factions);self.assertIsNotNone(meta.metadata.subtypes);self.assertIsInstance(meta.battlecry,bool)
 
+    def test_elekk_unconditional_taunt_has_original_and_both_primary_evidence(self):
+        raw=next(x['record']for x in self.data['cards']if x['record']['id']=='MEND_303')
+        self.assertNotIn('TAUNT',raw['tags'])
+        self.assertTrue(any(x.get('attributes',{}).get('name')=='TAUNT'for x in raw['unmapped_xml_nodes']))
+        faces=[x for x in self.data['official_observations']['observations']if x['card_id']=='MEND_303']
+        self.assertEqual({x['locale']for x in faces},{'zh_CN','en_US'})
+        self.assertTrue(all(x['face']['id']==123491 for x in faces))
+        self.assertEqual(self.rows['MEND_303'].keywords,(Keyword.TAUNT,))
+        self.assertEqual(self.r.pool_card('MEND_303').keywords,(Keyword.TAUNT,))
+
     def test_catalog_adds_only_missing_metadata_never_executable_placeholders_or_pools(self):
         with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):before=build_registry()
         after=self.r;missing=set(self.rows)-set(before.cards)

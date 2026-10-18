@@ -1296,6 +1296,9 @@
   "printed_keyword_overrides": {
     "JAIL_890": [
       "taunt"
+    ],
+    "MEND_303": [
+      "taunt"
     ]
   },
   "cost_evidence": {
@@ -67217,6 +67220,10 @@
     {
       "card_id": "CATA_492",
       "rule": "Location printed HERALD tag preserved; on_use body remains the only activation entry."
+    },
+    {
+      "card_id": "MEND_303",
+      "rule": "Unconditional printed Taunt in both complete official faces and original text, absent raw runtime TAUNT tag; retained original ReferencedTag is not a generic inference rule."
     }
   ],
   "official_observations": {
@@ -67500,6 +67507,96 @@
           ],
           "isZilliaxFunctionalModule": false,
           "isZilliaxCosmeticModule": false
+        }
+      },
+      {
+        "card_id": "MEND_303",
+        "locale": "zh_CN",
+        "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123491-zh_CN.json",
+        "response_sha256": "59edc08d9e1df29cb6490ba95a37570d31166fa3e2c37549621c42c77ca2270b",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123491&locale=zh_CN",
+        "face": {
+          "id": 123491,
+          "collectible": 1,
+          "slug": "123491-migrating-elekk",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Kleston Marques",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "迁徙的雷象",
+          "text": "<b>嘲讽。战吼：</b>将你此后的动物伙伴替换为法力值消耗增加（1）点的随机野兽。",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d773712ccc43af376e549a6a6143cd522e749f3f285591c5f3b6e6e92fe9b2a4.png",
+          "imageGold": "",
+          "flavorText": "每隔几个扩展包，大群的雷象就会开始长途迁徙，同时标志着猎人的强势崛起。",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e1d024b5f580851acec3bc76b6a5081268b6bc16d9ab51139439b7df76e5c2d.png",
+          "childIds": [
+            100,
+            226,
+            959
+          ],
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "observation": {
+          "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123491&locale=zh_CN",
+          "sha256": "59edc08d9e1df29cb6490ba95a37570d31166fa3e2c37549621c42c77ca2270b",
+          "bytes": 923,
+          "observed_at": "2026-10-18T10:40:31.226437+00:00"
+        }
+      },
+      {
+        "card_id": "MEND_303",
+        "locale": "en_US",
+        "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123491-en_US.json",
+        "response_sha256": "74ecf372bed20513767927ad59d5327d9e584bafad7a54a2add95bc7223d09da",
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123491&locale=en_US",
+        "face": {
+          "id": 123491,
+          "collectible": 1,
+          "slug": "123491-migrating-elekk",
+          "classId": 3,
+          "multiClassIds": [],
+          "minionTypeId": 20,
+          "cardTypeId": 4,
+          "cardSetId": 1980,
+          "rarityId": 3,
+          "artistName": "Kleston Marques",
+          "health": 3,
+          "attack": 2,
+          "manaCost": 2,
+          "name": "Migrating Elekk",
+          "text": "<b>Taunt. Battlecry:</b> Replace your future Animal Companions with random Beasts that cost (1) more.",
+          "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fa633a65889756bc02098a3f72dc34338f5a68e781d00d04c19fba528c3adb4.png",
+          "imageGold": "",
+          "flavorText": "Great herds of these travel across the plains every few expansions, signifying the return of the hunter meta.",
+          "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e1d024b5f580851acec3bc76b6a5081268b6bc16d9ab51139439b7df76e5c2d.png",
+          "childIds": [
+            100,
+            226,
+            959
+          ],
+          "keywordIds": [
+            1,
+            8
+          ],
+          "isZilliaxFunctionalModule": false,
+          "isZilliaxCosmeticModule": false
+        },
+        "observation": {
+          "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123491&locale=en_US",
+          "sha256": "74ecf372bed20513767927ad59d5327d9e584bafad7a54a2add95bc7223d09da",
+          "bytes": 918,
+          "observed_at": "2026-10-18T10:40:31.055095+00:00"
         }
       }
     ]

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+未来随从模板用`UpgradeMinionFamily`更新具名家族，`FamilyReference`冻结原修订，`SummonFamilyMember`再交普通召唤；不要直接修改已召唤实物或从实现覆盖裁池，见[动物伙伴契约](m3-future-companion-families.md)。
+
 真实动物伙伴消费者调用`companion_effects`，由既有`ProducerQuantitySpec`报价额外逻辑单位，继续交普通`SummonByCard`逐次执行；不要把它替换为对已选材料的普通召唤倍率，见[契约](m3-companion-quantity.md)。
 
 真实魔网数值及额外效果在原CAST报价，永久玩家声明、逐单位随机/召唤/抽牌继续复用公共执行器；选择预览与物理施法区分见[魔网契约](m3-native-leylines.md)。

@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 from hs_sim.engine.effects import ChoiceOption,RequestChoice
 from hs_sim.engine.model import AuraSpec,CardDefinition,CardType,Keyword,SummonProducerProfile
+from hs_sim.engine.minion_families import (MinionFamilyProfile,SummonFamilyMember,
+    capture as capture_family,members as family_members)
 from hs_sim.engine.pools import PoolCard
 from hs_sim.engine.producer_amounts import decisions,source_kind
 from hs_sim.engine.summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial,validate_cause
@@ -16,6 +18,7 @@ BATCH_HASH='f2449788713574047bda45e1cb3aec96251998b0f59ad9c83e8d5c5474547aaf'
 PREFIX='cards.fixed_companions.'
 COMPANIONS=('NEW1_034','NEW1_033','NEW1_032')
 COMPANION_UNIT=PREFIX+'animal_companions'
+COMPANION_FAMILY=PREFIX+'future'
 SCRIPTS={'CORE_NEW1_031':'random_companion','CORE_OG_211':'all_companions','CORE_TRL_900':'fill_lynx',
     'NEW1_034':'huffer','NEW1_033':'leokk','NEW1_032':'misha','TRL_348t':'lynx'}
 
@@ -46,6 +49,18 @@ def companion_effects(context,registry,mode='random'):
     rows=decisions(registry,profile,cause,source_kind(registry,cause),
         3 if mode=='all'else 1,inventory)
     additional=sum(row.additional for row in rows)
+    family=capture_family(context.state,registry,COMPANION_FAMILY,context.player_id)
+    if family.revision:
+        values=family_members(context.state,registry,family)
+        random_entry=SummonFamilyMember(family,cause)
+        tail=(random_entry,)*additional
+        if mode=='random':return(random_entry,*tail)
+        if mode=='all':return(*(SummonFamilyMember(family,cause,i)for i in range(len(values))),*tail)
+        options=tuple(ChoiceOption(COMPANIONS[i],
+            registry.card(value.card_id).name if value.card_id is not None else '无伙伴（'+str(value.cost)+'费）',
+            (SummonFamilyMember(family,cause,i),*tail),card_id=value.card_id)
+            for i,value in enumerate(values))
+        return(RequestChoice(context.player_id,options,context.source_id),)
     random_entry=SummonByCard(context.player_id,materials,cause,selection='random')
     tail=(random_entry,)*additional
     if mode=='random':return(random_entry,*tail)
@@ -62,6 +77,8 @@ def register_fixed_companion_cards(registry):
         raise TargetValidationError('Fixed companion identities/order changed')
     for mode,policy in (('random','single_random_board'),('all','ordered_board_group'),('choice','choice_board')):
         registry.register_summon_producer_profile(SummonProducerProfile(PREFIX+mode,COMPANION_UNIT,mode=policy))
+    registry.register_minion_family_profile(MinionFamilyProfile(COMPANION_FAMILY,
+        'animal-companions-cn37-local-v1',COMPANIONS,'constructed.cards','beast'))
     bodies=dict(random_companion=lambda c:companion_effects(c,registry),
         all_companions=lambda c:companion_effects(c,registry,'all'),
         fill_lynx=lambda c:(FillHandWithCard(c.player_id,batch['lynx_card_id'],c.source_id),))

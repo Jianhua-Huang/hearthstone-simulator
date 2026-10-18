@@ -524,6 +524,8 @@ class Game:
         from .pool_summons import validate_boundary as validate_pool_summon_boundary,validate_closed_events as validate_pool_summon_events
         validate_pool_summon_boundary(self)
         validate_pool_summon_events(self)
+        from .minion_families import validate_boundary as validate_minion_families
+        validate_minion_families(self)
         from .ordered_group_batches import validate_boundary as validate_ordered_group_boundary,validate_closed_events as validate_ordered_group_events
         validate_ordered_group_boundary(self)
         validate_ordered_group_events(self)

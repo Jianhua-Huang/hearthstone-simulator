@@ -69,6 +69,13 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .minion_families import (UpgradeMinionFamily, SummonFamilyMember,
+            validate_request as validate_family_upgrade, validate_summon as validate_family_summon)
+        if self.origin_state is not None:
+            if type(value) is UpgradeMinionFamily:
+                validate_family_upgrade(self.origin_state, self.registry, value, closed=True)
+            elif type(value) is SummonFamilyMember:
+                validate_family_summon(self.origin_state, self.registry, value, closed=True)
         if (type(value) is model.PaidTargetObservation and self.origin_events is not None and
                 value.original_event_cursor > len(self.origin_events)):
             raise ValueError('Original player target cursor exceeds actual retained events')
