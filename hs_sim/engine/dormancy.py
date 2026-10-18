@@ -1,7 +1,7 @@
 """Dormancy lifecycle and serializable countdown work (provisional R-040/041)."""
 from dataclasses import dataclass, replace
 
-from .effects import Effect, _integer, _source
+from .effects import Buff, Effect, _integer, _source
 from .errors import ResolutionError
 from .lifecycle import active_abilities, attachment_id
 from .model import CardType, DormancyState, Zone
@@ -41,6 +41,23 @@ class AwakenCapturedMinion(Effect):
         reference_value(self.reference)
         _integer(self.dormancy_id,'original dormancy instance',1)
         _source(self.source_id)
+
+
+@dataclass(frozen=True)
+class GrowDormantMinion(Effect):
+    """Self-growth belonging to one captured physical dormancy interval."""
+    reference: MinionReference
+    dormancy_id: int
+    attack: int
+    health: int
+
+    def __post_init__(self):
+        reference_value(self.reference)
+        _integer(self.dormancy_id, 'original dormancy instance', 1)
+        _integer(self.attack, 'dormant attack growth', 0)
+        _integer(self.health, 'dormant health growth', 0)
+        if not (self.attack or self.health):
+            raise ValueError('Dormant self-growth requires a positive stat delta')
 
 
 @dataclass(frozen=True)
@@ -121,6 +138,20 @@ def awaken_captured(r,effect):
     return awaken(r,AwakenMinion(entity.id,effect.source_id))
 
 
+def grow_dormant(r, effect):
+    effect.__post_init__()
+    entity = same_instance(r.state, effect.reference)
+    if (entity is None or entity.starship_building or entity.dormancy is None or
+            entity.dormancy.id != effect.dormancy_id):
+        r.stale(effect, effect.reference.entity_id)
+        return ()
+    # Ordinary Buff deliberately rejects dormant targets. This finite self
+    # entry only bypasses that eligibility gate; attachment/stat/lifecycle and
+    # stats_changed reactions remain owned by the ordinary installer.
+    from .resolver import _buff_to
+    _buff_to(r, Buff(entity.id, effect.attack, effect.health, entity.id), entity)
+
+
 def advance(r, effect):
     entity = _target(r, effect, dormant=True)
     if entity is None:
@@ -195,5 +226,6 @@ def capture_board_full(r):
 def register_dormancy(mechanics):
     for kind, handler in ((MakeDormant, make_dormant), (AwakenMinion, awaken),
                           (AwakenCapturedMinion, awaken_captured),
+                          (GrowDormantMinion, grow_dormant),
                           (AdvanceDormancy, advance), (TickDormancy, tick)):
         mechanics.register(kind, handler)

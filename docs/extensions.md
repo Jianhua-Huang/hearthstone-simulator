@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实休眠自身增长使用`GrowDormantMinion`和原休眠实例，不能放宽所有普通Buff的active要求；自动结果抽样和唤醒继续共用原管线，见[契约](m3-dormant-self-growth.md)。
+
 需要原未选发现内容时，使用`offer_for_result`、`unselected_options`及`unselected_materials`读取原实际完整配方与菜单原窗口物理材料，不从预览或后来实体反推。配方与材料保存不执行其余选项，见[原配方](m3-original-discovery-offers.md)及[原卡材料](m3-offered-card-materials.md)，不能虚构旧出牌记录。
 
 需要“发现的那张实际卡”时使用原生产者连接的 `DiscoveryCompletion` 与 `card_discovered`，从该语义事件读取原收件事实，不扫描同名手牌或诊断事件；减费沿普通费用附件执行，见[契约](m3-discovery-delivery.md)。
