@@ -25,7 +25,7 @@ from .generated_body_targets import GeneratedBodyTargetAcceptance
 from .generated_choose_one import GeneratedChooseOneReceipt, GeneratedChooseOneProof
 from .generated_activation_receipts import RETAINED_PROFILE
 from .lifecycle import active_abilities
-from .model import BattlecryPayload, CardDefinition, CardType, ComboPayload, ComboAcceptanceReceipt, GameState, Zone
+from .model import BattlecryPayload, CardDefinition, CardType, ComboPayload, ComboAcceptanceReceipt, GameState, HeldOpponentCopyMatch, Zone
 from .rules import Ruleset
 from .whole_card_history import integer
 from .whole_card_replay_ledger import ReplayChildStatus, top_root, with_root
@@ -66,8 +66,15 @@ class PhysicalReplayProgress:
     outcome_id: int | None = None
     body_targets: GeneratedBodyTargetAcceptance | None = None
     choose_one: GeneratedChooseOneReceipt | None = None
+    held_opponent_copy: HeldOpponentCopyMatch | None = None
 
     def __post_init__(self):
+        if self.held_opponent_copy is not None:
+            if type(self.held_opponent_copy) is not HeldOpponentCopyMatch or self.source is None:
+                raise ValueError('Physical Battlecry requires its original held copied-play fact')
+            self.held_opponent_copy.__post_init__()
+            if self.held_opponent_copy.source_id != self.source.entity_id or not self.battlecries:
+                raise ValueError('Physical held copied-play fact borrowed another body')
         integer(self.child_id, 'actual physical replay child')
         integer(self.cursor, 'physical body cursor', 0)
         if (type(self.player_id) is not int or self.player_id not in (1, 2)
@@ -453,9 +460,12 @@ def prepare(r, effect):
     if len(battlecries) * bc_count + len(bodies) + len(combos) * combo_count > r.rules.max_resolution_steps:
         from .errors import ResolutionLimitExceeded
         raise ResolutionLimitExceeded('Complete generated Battlecry body exceeds resolution budget')
+    from .held_opponent_copies import freeze_physical
+    held_copy = freeze_physical(before, r.registry, progress.source.entity_id, battlecries)
     progress = replace(progress, **conditions, selection=selection, on_play=bodies, battlecries=battlecries, combos=combos,
         phase='completed' if failure else 'running', failure=failure, activation=activation,
-        battlecry_repeat_acceptance=bc_repeat, combo_repeat_acceptance=combo_repeat,body_targets=body_targets)
+        battlecry_repeat_acceptance=bc_repeat, combo_repeat_acceptance=combo_repeat,body_targets=body_targets,
+        held_opponent_copy=held_copy)
     if not failure and activation.profile_id == RETAINED_PROFILE:
         from .generated_retained_acceptance import capture_from_state
         retained = capture_from_state(before, r.registry, progress, r.rules.max_resolution_steps)
@@ -487,6 +497,9 @@ def validate_body_proof(proof, registry):
     if prior is None or root.active_child_id != accepted.child_id or not current_source(state, prior):
         raise ValueError('Physical proof lost its real installed primary source')
     definition, conditions, bodies, battlecries, combos = original_body(state, registry, prior)
+    from .held_opponent_copies import freeze_physical
+    if accepted.held_opponent_copy != freeze_physical(state, registry, prior.source.entity_id, battlecries):
+        raise ValueError('Physical body changed its original held copied-play condition')
     from .generated_body_targets import selected_binding,root_definition,validate as validate_body_targets
     binding=selected_binding(registry,prior.card_id,proof.acceptance.request)
     if (binding is not None)!=(accepted.body_targets is not None):
@@ -509,7 +522,8 @@ def validate_body_proof(proof, registry):
         raise ValueError('Physical proof exceeds its original generated Battlecry resolution budget')
     expected = replace(prior, **conditions, selection=accepted.selection, on_play=bodies,
         battlecries=battlecries, combos=combos, phase='running', activation=activation,
-        battlecry_repeat_acceptance=bc_repeat, combo_repeat_acceptance=combo_repeat,body_targets=accepted.body_targets)
+        battlecry_repeat_acceptance=bc_repeat, combo_repeat_acceptance=combo_repeat,body_targets=accepted.body_targets,
+        held_opponent_copy=accepted.held_opponent_copy)
     if activation.profile_id == RETAINED_PROFILE:
         from .generated_retained_acceptance import capture_from_state
         retained = capture_from_state(state, registry, expected, proof.rules.max_resolution_steps)
@@ -569,6 +583,7 @@ def advance(r, effect):
     put(r.state, progress)
     if kind == 'battlecry':
         from .battlecry_sources import BeginIndirectBattlecry, begin
+        from .held_opponent_copies import needs_battlecry_fact
         # Full-card target accepted once; each declared BC validates that target
         # through its existing indirect route, not a fake paid activation.
         from .generated_body_targets import target_for
@@ -577,7 +592,8 @@ def advance(r, effect):
             targeting='explicit', choices=proof.acceptance.request.choices, physical_child_id=progress.child_id,
             outcome_id=progress.outcome_id, iteration=iteration_at(progress, progress.cursor - 1),
             repeat_index=battlecry_repetition_at(progress, progress.cursor - 1)
-                if progress.activation.profile_id == RETAINED_PROFILE else 1))
+                if progress.activation.profile_id == RETAINED_PROFILE else 1,
+            held_opponent_copy=progress.held_opponent_copy if needs_battlecry_fact(r.registry,payload) else None))
     elif kind == 'combo':
         from .generated_combo_repeats import BeginGeneratedCombo, begin as begin_generated_combo
         result = begin_generated_combo(r, BeginGeneratedCombo(progress.child_id, payload,
@@ -845,6 +861,8 @@ def progress_from_dict(value):
     if type(value) is not dict or set(value) != {f.name for f in fields(PhysicalReplayProgress)}:
         raise ValueError('Physical activation wire fields differ from its concrete type')
     data = dict(value); data['kind'] = CardType(data['kind'])
+    from .serialization import _held_opponent_copy_match_from_dict
+    data['held_opponent_copy'] = _held_opponent_copy_match_from_dict(data['held_opponent_copy'])
     if data['source'] is not None: data['source'] = allocation_from_dict(data['source'])
     if data['selection'] is not None: data['selection'] = selection_from_dict(data['selection'])
     if data['body_targets'] is not None:

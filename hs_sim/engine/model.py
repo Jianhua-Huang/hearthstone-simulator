@@ -8768,8 +8768,13 @@ class BattlecryRecord:
     physical_child_id: int | None = None
     indirect_body_id: int | None = None
     historical_body_id: int | None = None
+    held_opponent_copy: HeldOpponentCopyMatch | None = None
 
     def __post_init__(self):
+        if self.held_opponent_copy is not None:
+            if type(self.held_opponent_copy) is not HeldOpponentCopyMatch:
+                raise ValueError('Battlecry requires its typed original held copied-play condition')
+            self.held_opponent_copy.__post_init__()
         for key in ('id','source_id','iteration','repeat_index'):
             _int(getattr(self,key), 'Battlecry '+key, 1)
         for key in ('play_id','batch_id','caster_id','history_id','parent_id','history_play_id','physical_child_id','indirect_body_id','historical_body_id'):

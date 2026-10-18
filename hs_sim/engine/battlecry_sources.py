@@ -8,7 +8,7 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import BattlecryPayload, BattlecryRecord, CardType, _name
+from .model import BattlecryPayload, BattlecryRecord, CardType, HeldOpponentCopyMatch, _name
 from .sacrifice import MinionReference, reference_value, live_minion
 from .targeting import effect_policies, select_effect_target
 
@@ -131,8 +131,13 @@ class BeginIndirectBattlecry(Effect):
     indirect_body_id: int | None = None
     historical_profile_id: str | None = None
     historical_body_id: int | None = None
+    held_opponent_copy: HeldOpponentCopyMatch | None = None
 
     def __post_init__(self):
+        if self.held_opponent_copy is not None:
+            if self.origin != 'effect' or type(self.held_opponent_copy) is not HeldOpponentCopyMatch:
+                raise ValueError('Only effect origins carry their original captured held copied-play fact')
+            self.held_opponent_copy.__post_init__()
         _integer(self.source_id,'Battlecry carrier',1); _player(self.player_id)
         _name(self.card_id,'Battlecry carrier card'); _source(self.caster_id); _source(self.history_id)
         if type(self.payload) is not BattlecryPayload: raise ValueError('Expected captured Battlecry payload')
@@ -192,9 +197,10 @@ def trigger(r,effect):
         raise ResolutionError('Independent target carrier requires its own indirect origin producer')
     # Acceptance freezes every declared payload. Later deaths, silence or morphs
     # do not substitute the next ability in an already accepted sequence.
+    from .held_opponent_copies import freeze_carrier
     return tuple(BeginIndirectBattlecry(entity.id,entity.controller,entity.card_id,p,
         caster_id=effect.source_id,target_id=effect.target_id,targeting=effect.targeting,
-        choices=effect.choices) for p in capture(entity))
+        choices=effect.choices,held_opponent_copy=freeze_carrier(r.state,r.registry,entity,p)) for p in capture(entity))
 
 
 def historical_record(state,record_id,player_id):
@@ -250,6 +256,8 @@ def validate_payload(state,registry,source_id,card_id,payload,caster_id=None):
 
 def validate_start(state,registry,effect):
     effect.__post_init__()
+    from .held_opponent_copies import indirect_fact
+    indirect_fact(state, registry, effect)
     if effect.historical_body_id is not None:
         from .historical_body_targets import accepted_start
         accepted_start(state,effect)
@@ -305,6 +313,7 @@ def begin(r,effect,*,historical_sequence=None):
         target,failure=select_effect_target(r,source,definition,effect.targeting,effect.target_id,
             excluded_ids=(source.id,) if effect.exclude_source_target else ())
     parent=next((b.id for b in reversed(r.state.battlecry_history) if not b.completed and not b.interrupted),None)
+    from .held_opponent_copies import indirect_fact
     record=BattlecryRecord(len(r.state.battlecry_history)+1,effect.source_id,effect.player_id,
         effect.card_id,r.state.turn,r.state.action_number,target,None,effect.payload,None,
         origin=effect.origin,caster_id=effect.caster_id,history_id=effect.history_id,parent_id=parent,
@@ -312,7 +321,8 @@ def begin(r,effect,*,historical_sequence=None):
         history_player_id=effect.history_player_id,controller_policy=effect.controller_policy,
         exclude_source_target=effect.exclude_source_target, physical_child_id=effect.physical_child_id,
         outcome_id=effect.outcome_id, iteration=effect.iteration, repeat_index=effect.repeat_index,
-        indirect_body_id=effect.indirect_body_id,historical_body_id=effect.historical_body_id)
+        indirect_body_id=effect.indirect_body_id,historical_body_id=effect.historical_body_id,
+        held_opponent_copy=indirect_fact(r.state,r.registry,effect))
     validate_indirect_record(r.state,r.registry,record,before_binding=True)
     r.state.battlecry_history.append(record)
     if effect.physical_child_id is not None:
@@ -343,6 +353,8 @@ def automatic_choice(r,choice,options,on_select):
 
 def validate_indirect_record(state,registry,record,*,before_binding=False):
     record.__post_init__()
+    from .held_opponent_copies import validate_battlecry
+    validate_battlecry(state, registry, record)
     if (record.origin in ('history','played_history') and record.historical_body_id is None and
             any(card == record.card_id for card,_ in registry.historical_battlecry_bindings)):
         raise ValueError('Historical record requires its own connected target producer')

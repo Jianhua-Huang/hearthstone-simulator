@@ -4,6 +4,7 @@ Copy origin is physical card state, independent of face/class and current source
 control. The hand condition reuses existing progress and immutable PlayRecords.
 """
 from dataclasses import replace
+from .errors import ResolutionError
 
 from .model import (CardCopyOrigin, CardType, HandProgressSpec,
                     HeldOpponentCopyMatch)
@@ -122,3 +123,105 @@ def validate_ability(state, registry, a):
     if (len(ids) > 1 or a.progress_value != len(ids) or a.progress_completions != len(ids) or
             a.consumed != bool(ids)):
         raise ValueError('Held copied-play progress differs from its first committed witness')
+
+
+def needs_battlecry_fact(registry, payload):
+    spec = registry.card(payload.card_id).hand_progress
+    return spec is not None and spec.kind == KIND
+
+
+def freeze_play(state, registry, play, payload):
+    if not needs_battlecry_fact(registry, payload): return None
+    if play.submitted_cost is None:
+        raise ResolutionError('Held copied-play Battlecry lost its original paid hand input')
+    original = play.submitted_cost.quote.quote_input
+    a = next((a for a in original.abilities if a.kind == 'hand_progress' and a.hand_progress.kind == KIND), None)
+    if a is None:
+        raise ResolutionError('Original Battlecry hand input has no held copied-play declaration')
+    result = HeldOpponentCopyMatch(play.player_id, play.turn, play.action, play.source_id,
+        play.hand_entry_id, play.id, witness_ids(original.abilities))
+    validate_match(result, state, registry)
+    return result
+
+
+def freeze_carrier(state, registry, source, payload):
+    if not needs_battlecry_fact(registry, payload): return None
+    if ability(source) is None:
+        raise ResolutionError('Effect Battlecry carrier has no original held copied-play declaration')
+    return capture_cost(state, registry, source.controller, source.id)
+
+
+def freeze_physical(state, registry, source_id, payloads):
+    payload = next((p for p in payloads if needs_battlecry_fact(registry, p)), None)
+    return None if payload is None else freeze_carrier(state, registry, state.entities[source_id], payload)
+
+
+def _effect_fact(state, registry, value, fact):
+    if type(fact) is not HeldOpponentCopyMatch or fact.source_id != value.source_id:
+        raise ValueError('Effect Battlecry lost its original held copied-play source')
+    validate_match(fact, state, registry)
+    if value.physical_child_id is not None:
+        from .whole_card_physical import child_for
+        expected = child_for(state, value.physical_child_id).physical.held_opponent_copy
+    elif value.indirect_body_id is not None:
+        # Mind Sweeper has no target declaration or registered bound producer.
+        # Do not invent a target-profile combination to add this native card.
+        raise ValueError('Held copied-play Battlecry has no reviewed bound-target origin')
+    else:
+        if fact.player_id != value.player_id:
+            raise ValueError('Held copied-play effect changed its original captured player')
+        expected = fact
+        # While the original declaration and hand residence still exist, the
+        # accepted state cannot borrow an unrelated witness. Reentry, silence
+        # or replacement legitimately leaves only the frozen original fact.
+        source = state.entities[value.source_id]
+        a = ability(source)
+        if (a is not None and source.hand_entry_id == fact.hand_entry_id and
+                any(b.id == value.payload.ability_id for b in source.abilities) and
+                witness_ids(source.abilities) != fact.play_ids):
+            raise ValueError('Held copied-play effect differs from its unchanged original carrier')
+    if fact != expected:
+        raise ValueError('Held copied-play Battlecry differs from its accepted physical or bound fact')
+    return fact
+
+
+def indirect_fact(state, registry, value):
+    if not needs_battlecry_fact(registry, value.payload):
+        if value.held_opponent_copy is not None:
+            raise ValueError('Unrelated Battlecry cannot invent a held copied-play condition')
+        return None
+    if value.origin == 'history':
+        from .battlecries import battlecry_record
+        original = battlecry_record(state, value.history_id)
+        if original.held_opponent_copy is None:
+            raise ValueError('Historical Battlecry lost its original held copied-play condition')
+        return original.held_opponent_copy
+    if value.origin == 'played_history':
+        from .play_history import play_record
+        return freeze_play(state, registry, play_record(state, value.history_play_id), value.payload)
+    return _effect_fact(state, registry, value, value.held_opponent_copy)
+
+
+def validate_battlecry(state, registry, record):
+    if record.origin == 'hand':
+        from .play_history import play_record
+        expected = freeze_play(state, registry, play_record(state, record.play_id), record.payload)
+    else:
+        expected = indirect_fact(state, registry, record)
+    if record.held_opponent_copy != expected:
+        raise ValueError('Battlecry changed its original held copied-play condition')
+    fact = record.held_opponent_copy
+    if fact is not None:
+        validate_match(fact, state, registry)
+        if fact.turn > record.turn or fact.action > record.action:
+            raise ValueError('Held copied-play condition postdates its original Battlecry')
+
+
+def satisfied(context):
+    record = context.battlecry
+    if (record is None or record.id > len(context.state.battlecry_history) or
+            context.state.battlecry_history[record.id - 1] != record or
+            (record.source_id, record.player_id) != (context.source_id, context.player_id) or
+            record.held_opponent_copy is None):
+        raise ResolutionError('Held copied-play body requires its original accepted Battlecry')
+    return record.held_opponent_copy.matched

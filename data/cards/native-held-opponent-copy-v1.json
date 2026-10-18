@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "batch": "K195-held-opponent-copy-cost",
+  "batch": "K195-K196-held-opponent-copies",
   "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
   "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
   "cards": [
@@ -63,6 +63,69 @@
         "subtypes": []
       },
       "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "JAIL_432",
+        "dbf_id": 126122,
+        "name": "心灵扫荡者",
+        "name_en": "Mind Sweeper",
+        "text": "<b>战吼：</b>如果你在本牌在你手牌中时使用过对手卡牌的复制，对所有敌方随从造成2点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> If you played a copy\nof an opponent's card while\nholding this, deal 2 damage\nto all enemy minions.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "0cab3b3310324251fa5fa1702e98d409eb008b5fed8af3e5f10a24b75235429a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_432",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
     }
   ],
   "dependencies": [],
@@ -137,6 +200,82 @@
         "bytes": 790,
         "observed_at": "2026-10-18T11:28:38.282994+00:00"
       }
+    },
+    {
+      "card_id": "JAIL_432",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126122-zh_CN.json",
+      "response_sha256": "4d01f56f5d145dd0d8e2daf8245ab7161a05d31ad1830b0c3d7349d0eccde21a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126122&locale=zh_CN",
+      "face": {
+        "id": 126122,
+        "collectible": 1,
+        "slug": "126122-mind-sweeper",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "心灵扫荡者",
+        "text": "<b>战吼：</b>如果你在本牌在你手牌中时使用过对手卡牌的复制，对所有敌方随从造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1cbe320b038e8e7d526b9f767ce4665605582d014c4a2d0f61aa96a0e319bd06.png",
+        "imageGold": "",
+        "flavorText": "扫荡结果： [ ][ ][ ] [ ] [ ] [ ][ ][ ]",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f57eb155cd8509bd7c274764aef446d0d9722668d8d174f72d359d71e421ea07.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126122&locale=zh_CN",
+        "sha256": "4d01f56f5d145dd0d8e2daf8245ab7161a05d31ad1830b0c3d7349d0eccde21a",
+        "bytes": 824,
+        "observed_at": "2026-10-18T11:51:13.458417+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_432",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126122-en_US.json",
+      "response_sha256": "bbea0e4a054cc7a14fd7afef3ef9684379d103f3a1acdf4f8ccb55fe0a1c6425",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126122&locale=en_US",
+      "face": {
+        "id": 126122,
+        "collectible": 1,
+        "slug": "126122-mind-sweeper",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Mind Sweeper",
+        "text": "<b>Battlecry:</b> If you played a copy of an opponent's card while holding this, deal 2 damage to all enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afab9320e2ad5e8cc537220ced05f6868814689c29722677e461a58da10749ef.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f57eb155cd8509bd7c274764aef446d0d9722668d8d174f72d359d71e421ea07.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126122&locale=en_US",
+        "sha256": "bbea0e4a054cc7a14fd7afef3ef9684379d103f3a1acdf4f8ccb55fe0a1c6425",
+        "bytes": 769,
+        "observed_at": "2026-10-18T11:51:13.487772+00:00"
+      }
     }
   ],
   "formal_pool_complete": false,
@@ -145,7 +284,8 @@
     "Immediate physical copy source controller is frozen when copied; class and matching card names are not substitutes. Copying an own copy creates a new immediate own-source fact.",
     "Same physical card keeps copy origin through ordinary face replacement; Shatter derivatives keep credit independent of diagnostic origin_entity_id. Historical official 36.0.1 supports transformed copied cards; exact CN37 and copy-of-copy cases remain M6.",
     "One original paid hand play updates all other continuously held listeners atomically before commitment reactions. Countered paid plays count; effect casts, summons, acquisition and hand actions do not.",
-    "Hand reentry resets the condition; explicit current copy inherits earned progress, base copy does not. Intrinsic set-to-one is before local cost edits and external costs."
+    "Hand reentry resets the condition; explicit current copy inherits earned progress, base copy does not. Intrinsic set-to-one is before local cost edits and external costs.",
+    "Mind Sweeper hand Battlecries freeze original submitted hand progress; effect origins freeze at their original trigger or generated body acceptance. Activation/played history keeps the original condition, while damage reads current execution-player enemies. Exact CN37 windows remain M6."
   ],
   "historical_primary_sources": [
     {

@@ -79,9 +79,11 @@ def begin(r, effect):
     if play.completed or play.interrupted or play.kind not in (CardType.MINION, CardType.WEAPON, CardType.HERO):
         raise ResolutionError('Battlecry requires an active character or weapon play')
     from .paid_body_targets import body_target
+    from .held_opponent_copies import freeze_play
     record = BattlecryRecord(len(r.state.battlecry_history)+1, play.source_id,
         effect.player_id, play.card_id, r.state.turn, r.state.action_number, body_target(play, effect.payload, 'battlecry'),
-        effect.play_id, effect.payload, effect.batch_id, effect.repeat_index, outcome_id=effect.outcome_id, iteration=effect.iteration)
+        effect.play_id, effect.payload, effect.batch_id, effect.repeat_index, outcome_id=effect.outcome_id, iteration=effect.iteration,
+        held_opponent_copy=freeze_play(r.state, r.registry, play, effect.payload))
     validate_record(r.state, r.registry, record)
     if any((b.play_id, b.payload.ability_id, b.outcome_id, b.iteration, b.repeat_index) ==
            (record.play_id, record.payload.ability_id, record.outcome_id, record.iteration, record.repeat_index)
@@ -119,6 +121,8 @@ def validate_record(state, registry, record):
     if record.origin != 'hand':
         from .battlecry_sources import validate_indirect_record
         return validate_indirect_record(state, registry, record)
+    from .held_opponent_copies import validate_battlecry
+    validate_battlecry(state, registry, record)
     from .play_history import play_record
     play = play_record(state, record.play_id)
     from .paid_body_targets import body_target
@@ -204,9 +208,11 @@ def validate_boundary(game):
         work.__post_init__()
         from .play_history import play_record
         play = play_record(game._state, work.play_id)
+        from .held_opponent_copies import freeze_play
         test = BattlecryRecord(len(game._state.battlecry_history)+1, play.source_id, work.player_id,
             play.card_id, game._state.turn, game._state.action_number, body_target(play, work.payload, 'battlecry'), play.id,
-            work.payload, work.batch_id, work.repeat_index, outcome_id=work.outcome_id, iteration=work.iteration)
+            work.payload, work.batch_id, work.repeat_index, outcome_id=work.outcome_id, iteration=work.iteration,
+            held_opponent_copy=freeze_play(game._state, game.registry, play, work.payload))
         validate_record(game._state, game.registry, test)
         key = (work.play_id, work.payload.ability_id, work.outcome_id, work.iteration, work.repeat_index)
         if key in starts or any((b.play_id,b.payload.ability_id,b.outcome_id,b.iteration,b.repeat_index)==key for b in game._state.battlecry_history):

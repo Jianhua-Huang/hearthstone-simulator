@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 398
+SNAPSHOT_SCHEMA_VERSION = 399
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1322,6 +1322,7 @@ def state_from_dict(value: dict) -> GameState:
     battlecries=[]
     for item in _list(value['battlecry_history'], 'Battlecry history'):
         row=_row(item,BattlecryRecord)
+        row['held_opponent_copy'] = _held_opponent_copy_match_from_dict(row['held_opponent_copy'])
         row['payload']=BattlecryPayload(**_row(row['payload'],BattlecryPayload))
         battlecries.append(BattlecryRecord(**row))
     value['battlecry_history']=battlecries
@@ -1585,6 +1586,14 @@ def end_turn_rng_from_json(value):
     state = (value[0], tuple(value[1]), value[2])
     validate_end_turn_rng(state)
     return state
+
+
+def _held_opponent_copy_match_from_dict(value):
+    from .model import HeldOpponentCopyMatch
+    if value is None: return None
+    row = _row(value, HeldOpponentCopyMatch)
+    row['play_ids'] = tuple(_list(row['play_ids'], 'original held copied-play witnesses'))
+    return HeldOpponentCopyMatch(**row)
 
 
 def _copy_origin_from_dict(value):

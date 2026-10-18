@@ -1762,3 +1762,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 真实发现余项整卡执行用PlayDiscoveredOptions(player_id, source_id, discovery_id)，交入实际原发现ID，保留原菜单顺序与固有材料，不能借历史play ID。原装备续接义务可给ModifyWeapon传入EquippedWeaponReference，避免晚窗口误改替换或重入的装备；完整范围和国服待验证政策见[执行契约](m3-original-offer-execution.md)。
 
 无拘之魂使用HandProgressSpec('opponent_copy_play')与IntrinsicCostSpec(set_to=1, condition='held_opponent_copy', history_profile_id='hand.held-opponent-copy-play-v1')；复制来源由公共物理复制入口冻结，不由卡牌扫描隐藏原牌库。限定资格与用法见[契约](m3-held-opponent-copy-cost.md)。
+
+原复制持牌战吼在BattlecryRecord保存held_opponent_copy；效果请求与整卡主体承接自己的接受事实，适配只用satisfied(context)及原DamageBatch，不读更晚载体。声明、历史与未登记定向来源边界见[契约](m3-held-opponent-copy-battlecry.md)。
