@@ -53,9 +53,10 @@ def registry(mode='all', role='writer'):
         return DiscoverFromPool(c.player_id, POOL, TWOS, source_id=c.source_id, **extra)
     def menu(c, *, bad=False):
         return RequestChoice(c.player_id, tuple(ChoiceOption(cid, cid,
-            (InvokeBehavior(P+'fail', c.source_id, c.player_id),) if bad else (AddToHand(c.player_id, cid, c.source_id),),
+            (AddToHand(c.player_id, cid, c.source_id),),
             card_id=cid) for cid in (A, B)), c.source_id,
-            purpose=ChoicePurpose.CARD_DISCOVERY if bad else ChoicePurpose.EFFECT)
+            purpose=ChoicePurpose.CARD_DISCOVERY if bad else ChoicePurpose.EFFECT,
+            on_select=P+'fail' if bad else None)
     bodies = {
         DISC: lambda c: (discover(c),),
         GEN: lambda c: (GenerateFromPool(c.player_id, POOL, TWOS, source_id=c.source_id),),

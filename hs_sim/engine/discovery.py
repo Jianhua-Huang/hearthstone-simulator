@@ -396,6 +396,9 @@ def resolve_discovery(r, effect):
                 sort_keys=True,separators=(',',':')),_capture=False)
     committed=replace(effect.selection,result=effect.choice_result)
     continued=ContinuePoolDiscovery(spec,(*batch.selections,committed),batch.producer_id)
+    if spec.keep_all_corpse_cost is not None:
+        from .discovery_keep import begin
+        return (*begin(r,effect),continued)
     if batch.producer_id is not None:
         from .discovery_summons import select_offer
         delivery=select_offer(r,effect)
@@ -409,6 +412,8 @@ def resolve_discovery(r, effect):
 
 
 def validate_boundary(game):
+    from .discovery_keep import validate_boundary as validate_kept
+    validate_kept(game)
     from .discovery_remainders import validate_boundary as validate_remainders
     validate_remainders(game)
     frame=game._frame; choice=game._state.pending_choice
@@ -475,3 +480,5 @@ def register(mechanics):
     mechanics.register(DeliverAndSummonDiscoveredMinion,deliver_and_summon_copy)
     from .discovery_remainders import register as register_remainders
     register_remainders(mechanics)
+    from .discovery_keep import register as register_kept
+    register_kept(mechanics)
