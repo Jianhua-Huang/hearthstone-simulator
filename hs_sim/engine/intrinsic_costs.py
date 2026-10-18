@@ -8,7 +8,7 @@ from dataclasses import replace
 
 from .model import (CardType, IntrinsicCostOperationFact, IntrinsicCostSpec,
                     IntrinsicCostStageFact, OwnerTurnQueryBoundaryFact, PlayedTypeQuery, HeroHealedTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch,
-                    CostPresenceMatch, PRESENCE_COST_CONDITIONS, DeckShuffleCostMatch, CardDiscoveredTurnMatch)
+                    CostPresenceMatch, PRESENCE_COST_CONDITIONS, DeckShuffleCostMatch, CardDiscoveredTurnMatch, HeldOpponentCopyMatch)
 from .owner_turns import (query_for_definition, query_previous_owner_turn,
                           share_tribes, validate_accepted_prefix, validate_face,
                           validate_history)
@@ -20,6 +20,8 @@ PROFILE = 'cost.intrinsic.before-local-v1'
 
 
 def validate_definition_intrinsics(definition):
+    from .held_opponent_copies import validate_definition as validate_held_copies
+    validate_held_copies(definition)
     if type(definition.pay_health_if_hero_healed)is not bool:raise ValueError('Conditional health payment requires bool')
     if definition.pay_health_if_hero_healed:
         if definition.cost_payment.value!='mana' or definition.intrinsic_costs!=(IntrinsicCostSpec(
@@ -179,7 +181,7 @@ def capture_intrinsic_stage(state, registry, player_id, card_id, base_cost, *, s
 
 
 def _capture_stage(state, registry, player_id, card_id, base_cost, board, hand, hero, personal,
-                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None, current_presence=None, current_shuffle=None, current_discovery=None, source_id=None, current_kindred=None):
+                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None, current_presence=None, current_shuffle=None, current_discovery=None, current_held_copy=None, source_id=None, current_kindred=None):
     """Retained replay passes frozen original quantity/zone operands, never today's zones.
 
 Original payment/window proof uses capture_intrinsic_stage to requery the
@@ -200,7 +202,10 @@ complete actual zone inventories. Compact history cannot authenticate an unsigne
     from .cost_presence import capture as capture_presence
     from .deck_shuffles import capture_cost as capture_shuffles
     from .card_discoveries import capture_turn_match
+    from .held_opponent_copies import capture_cost as capture_held_copy
     conditions = (() if not definition.intrinsic_costs else
+        (current_held_copy if current_held_copy is not None else capture_held_copy(state, registry, player_id, source_id),)
+            if definition.intrinsic_costs[0].condition == 'held_opponent_copy' else
         (current_discovery if current_discovery is not None else capture_turn_match(state, player_id),)
             if definition.intrinsic_costs[0].condition == 'card_discovered_this_turn' else
         (current_shuffle if current_shuffle is not None else capture_shuffles(state,player_id),) if definition.intrinsic_costs[0].condition == 'own_deck_shuffle_count' else
@@ -294,7 +299,12 @@ def validate_intrinsic_stage_fact(registry, fact):
     validate_character_fact(registry, definition, fact.player_character_attacks)
     if (fact.kind, fact.printed_cost, fact.rules) != (definition.kind, definition.cost, definition.intrinsic_costs):
         raise ValueError('Frozen intrinsic stage differs from its pinned declaration')
-    if fact.rules and fact.rules[0].condition == 'own_deck_shuffle_count':
+    if fact.rules and fact.rules[0].condition == 'held_opponent_copy':
+        # Typed shape, independent declaration and exact original window are
+        # checked above. Live history qualification is checked by validate_match
+        # in validate_accepted_intrinsic_prefix, never an owner-turn query.
+        fact.condition_facts[0].__post_init__()
+    elif fact.rules and fact.rules[0].condition == 'own_deck_shuffle_count':
         fact.condition_facts[0].__post_init__()
     elif fact.rules and fact.rules[0].condition in PRESENCE_COST_CONDITIONS:
         from .cost_presence import validate_match
@@ -511,6 +521,9 @@ def validate_intrinsic_history_prefix(fact, state, registry):
     if fact.condition_facts and type(fact.condition_facts[0]) is CostPresenceMatch:
         from .cost_presence import validate_prefix
         validate_prefix(fact.condition_facts[0],state,registry)
+    if fact.condition_facts and type(fact.condition_facts[0]) is HeldOpponentCopyMatch:
+        from .held_opponent_copies import validate_match
+        validate_match(fact.condition_facts[0], state, registry)
     before = deepcopy(state)
     if fact.condition_facts and type(fact.condition_facts[0]) is CardDiscoveredTurnMatch:
         from .card_discoveries import validate_turn_prefix
@@ -553,11 +566,12 @@ def validate_intrinsic_history_prefix(fact, state, registry):
                               current_presence=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is CostPresenceMatch else None,
                               current_shuffle=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is DeckShuffleCostMatch else None,
                               current_discovery=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is CardDiscoveredTurnMatch else None,
+                              current_held_copy=fact.condition_facts[0] if fact.condition_facts and type(fact.condition_facts[0]) is HeldOpponentCopyMatch else None,
                               current_kindred=fact.kindred_sources)
     if expected != fact:
         raise ValueError('Intrinsic relation differs from its complete captured history prefix')
     # A closed selected interval cannot receive additional later hand submissions.
-    if fact.condition_facts and type(fact.condition_facts[0]) not in (HeroHealedTurnMatch, CardDiscoveredTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch, CostPresenceMatch, DeckShuffleCostMatch) and fact.condition_facts[0].owner_turn is not None:
+    if fact.condition_facts and type(fact.condition_facts[0]) not in (HeroHealedTurnMatch, CardDiscoveredTurnMatch, CurrentDeckCountMatch, PermanentManaMatch, HandOtherClassMatch, CostPresenceMatch, DeckShuffleCostMatch, HeldOpponentCopyMatch) and fact.condition_facts[0].owner_turn is not None:
         selected = fact.condition_facts[0]
         current_faces = tuple(play.played_face for play in state.play_history
             if (play.played_face.owner_turn_id, play.player_id, play.kind) ==

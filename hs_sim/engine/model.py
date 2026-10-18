@@ -1053,7 +1053,7 @@ class HandProgressSpec:
                 self.upgrade_card_id is not None or self.on_progress is not None or
                 self.on_complete is None or self.health_to_durability or self.amount_basis != 'one'):
             raise ValueError('Native deck listeners require repeated single-event completion bodies')
-        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast', 'mana_spent'):
+        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast', 'mana_spent', 'opponent_copy_play'):
             raise ValueError('Unknown hand progress kind')
         if type(self.amount_basis) is not str or self.amount_basis not in ('one', 'event_amount'):
             raise ValueError('Unknown hand progress amount basis')
@@ -1080,7 +1080,9 @@ class HandProgressSpec:
             raise ValueError('Repeated progress uses callbacks; next forms declare their own stages')
         if self.health_to_durability and self.upgrade_card_id is None:
             raise ValueError('Health conversion requires an upgrade form')
-        if self.kind in ('spell_cast','mana_spent'):
+        if self.kind == 'opponent_copy_play' and (self.goal != 1 or self.condition_id != 'always' or self.zone != Zone.HAND):
+            raise ValueError('Held opponent copies require one original hand-play witness')
+        if self.kind in ('spell_cast','mana_spent','opponent_copy_play'):
             if any(x is not None for x in (self.upgrade_card_id,self.on_progress,self.on_complete)) or self.repeat or self.health_to_durability:
                 raise ValueError('Held resource facts cannot upgrade, repeat or invoke callbacks')
         elif self.upgrade_card_id is None and self.on_complete is None:
@@ -3538,6 +3540,22 @@ class SecretSpec:
 
 
 @dataclass(frozen=True)
+class CardCopyOrigin:
+    """Immediate physical copy source, frozen before either face/controller changes."""
+    entity_id: int
+    card_id: str
+    owner: int
+    controller: int
+
+    def __post_init__(self):
+        _int(self.entity_id, 'copied physical source', 1)
+        _name(self.card_id, 'copied original face')
+        for value in (self.owner, self.controller):
+            if type(value) is not int or value not in (1, 2):
+                raise ValueError('Copied source requires its original owner and controller')
+
+
+@dataclass(frozen=True)
 class HandEntryRecord:
     """A successful physical entry to a hand, distinct from draw attempts."""
     id: int
@@ -4861,6 +4879,37 @@ class PermanentManaMatch:
 
 
 @dataclass(frozen=True)
+class HeldOpponentCopyMatch:
+    player_id: int
+    turn: int
+    action: int
+    source_id: int | None
+    hand_entry_id: int | None
+    next_play_id: int
+    play_ids: tuple[int, ...]
+
+    def __post_init__(self):
+        if type(self.player_id) is not int or self.player_id not in (1, 2):
+            raise ValueError('Held copied-play price requires its actual payer')
+        _int(self.turn, 'held copied-play turn', 1)
+        _int(self.action, 'held copied-play action', 0)
+        _int(self.next_play_id, 'held copied-play bound', 1)
+        _optional_id(self.source_id, 'held copied-play subject')
+        _optional_id(self.hand_entry_id, 'held copied-play entry')
+        if type(self.play_ids) is not tuple or len(self.play_ids) > 1:
+            raise ValueError('Held copied-play price requires at most its first witness')
+        if self.source_id is None and (self.hand_entry_id is not None or self.play_ids):
+            raise ValueError('Generated price cannot borrow earned physical hand progress')
+        for value in self.play_ids:
+            _int(value, 'held copied-play witness', 1)
+            if value >= self.next_play_id:
+                raise ValueError('Held copied-play witness exceeds its original prefix')
+
+    @property
+    def matched(self): return bool(self.play_ids)
+
+
+@dataclass(frozen=True)
 class IntrinsicCostSpec:
     delta: int = 0
     set_to: int | None = None
@@ -4879,7 +4928,7 @@ class IntrinsicCostSpec:
         if type(self.condition) is not str or self.condition not in (
                 'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
                 'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
-                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count', 'card_discovered_this_turn'):
+                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count', 'card_discovered_this_turn', 'held_opponent_copy'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
         if self.condition == 'current_deck_count':
             _int(self.card_count, 'intrinsic current deck threshold', 0)
@@ -4897,6 +4946,8 @@ class IntrinsicCostSpec:
             raise ValueError('Other intrinsic conditions cannot invent a mana threshold')
         if self.condition == 'hand_other_class' and (self.delta != 0 or self.set_to is None or self.minimum != 0):
             raise ValueError('Hand other-class price requires one fixed cost assignment')
+        if self.condition == 'held_opponent_copy' and (self.delta != 0 or self.set_to != 1 or self.minimum != 0):
+            raise ValueError('Held copied-play price requires its real fixed one-cost assignment')
         if self.condition in ('hand_other_dragon', 'board_dormant_minion') and (
                 self.delta >= 0 or self.set_to is not None or self.minimum != 0):
             raise ValueError('Current presence price requires one flat discount')
@@ -4907,7 +4958,8 @@ class IntrinsicCostSpec:
             raise ValueError('Shuffle count requires the finite one-per-operation discount')
         if self.condition == 'card_discovered_this_turn' and (self.delta != 0 or self.set_to != 0 or self.minimum != 0):
             raise ValueError('Discovery price supports the real conditional zero-cost assignment')
-        history = ('deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
+        history = ('hand.held-opponent-copy-play-v1' if self.condition == 'held_opponent_copy' else
+                   'deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
                    'deck.current-count-v1' if self.condition == 'current_deck_count' else
                    'mana.permanent-crystals-v1' if self.condition == 'permanent_mana_at_least' else
                    'hand.current-other-class-v1' if self.condition == 'hand_other_class' else
@@ -5369,7 +5421,7 @@ class IntrinsicCostStageFact:
     amount: int
     boundary: OwnerTurnQueryBoundaryFact
     rules: tuple[IntrinsicCostSpec, ...]
-    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch, ...]
+    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch | HeldOpponentCopyMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
     hand_cards: HandCountCostFact | CoinHandCountCostFact | None = None
@@ -5640,7 +5692,8 @@ class IntrinsicCostStageFact:
                 raise ValueError('Multiple intrinsic formulas require a real reviewed source')
         if type(self.rules) is not tuple or any(type(rule) is not IntrinsicCostSpec for rule in self.rules):
             raise ValueError('Intrinsic stage requires complete immutable rules')
-        condition_cls = (DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
+        condition_cls = (HeldOpponentCopyMatch if self.rules and self.rules[0].condition == 'held_opponent_copy' else
+                         DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
                          CardDiscoveredTurnMatch if self.rules and self.rules[0].condition == 'card_discovered_this_turn' else
                          CurrentDeckCountMatch if self.rules and self.rules[0].condition == 'current_deck_count' else
                          PermanentManaMatch if self.rules and self.rules[0].condition == 'permanent_mana_at_least' else
@@ -5705,6 +5758,17 @@ class IntrinsicCostStageFact:
         if any(f.player_id != self.player_id for f in self.condition_facts):
             raise ValueError('Intrinsic stage borrowed another payer history')
         for condition in self.condition_facts:
+            if type(condition) is HeldOpponentCopyMatch:
+                if (self.kind != CardType.SPELL or len(self.rules) != 1 or
+                        (condition.turn, condition.action, condition.next_play_id) !=
+                        (self.boundary.turn, self.boundary.action, self.boundary.play_history_length + 1) or
+                        any(getattr(self, name) is not None for name in ('board_minions', 'hand_cards', 'hero_missing_health',
+                            'player_spells', 'player_hero_powers', 'player_spell_mana', 'minion_deaths', 'player_overload',
+                            'player_played_class', 'hero_health_changes', 'player_draws', 'weapon_attack', 'player_armor',
+                            'player_summons', 'player_elemental_streak', 'player_corpses', 'hero_damage_taken',
+                            'player_spell_damage', 'player_character_attacks'))):
+                    raise ValueError('Held copied-play price changed its independent Spell rule or original window')
+                continue
             if type(condition) is CardDiscoveredTurnMatch:
                 if (self.kind != CardType.SPELL or len(self.rules) != 1 or
                         (condition.turn, condition.action) != (self.boundary.turn, self.boundary.action) or
@@ -5804,7 +5868,7 @@ class GeneratedCostQuoteFact:
             raise ValueError('Generated intrinsic stage differs from its hypothetical subject')
         if self.intrinsic.hand_cards is not None and self.intrinsic.hand_cards.subject_id is not None:
             raise ValueError('Generated hand count cannot borrow a physical subject')
-        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is CostPresenceMatch and self.intrinsic.condition_facts[0].source_id is not None:
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) in (CostPresenceMatch, HeldOpponentCopyMatch) and self.intrinsic.condition_facts[0].source_id is not None:
             raise ValueError('Generated presence cannot borrow a physical subject')
         for name in ('local_amount', 'amount'): _int(getattr(self, name), 'generated fact '+name, 0)
         if type(self.local_payment) is not PaymentType or type(self.payment) is not PaymentType:
@@ -6046,8 +6110,12 @@ class CostQuoteFact:
                 self.quote_input.player_id, self.quote_input.card_id, self.quote_input.kind, self.quote_input.base_cost):
             raise ValueError('Physical intrinsic stage differs from its captured subject')
         board = self.intrinsic.board_minions
-        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is CostPresenceMatch and self.intrinsic.condition_facts[0].source_id != self.quote_input.source_id:
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) in (CostPresenceMatch, HeldOpponentCopyMatch) and self.intrinsic.condition_facts[0].source_id != self.quote_input.source_id:
             raise ValueError('Physical presence price differs from its captured subject')
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is HeldOpponentCopyMatch:
+            from .held_opponent_copies import witness_ids
+            if self.intrinsic.condition_facts[0].play_ids != witness_ids(self.quote_input.abilities):
+                raise ValueError('Physical copied-play price differs from its captured hand progress')
         if board is not None and self.quote_input.source_id >= board.next_entity_id:
             raise ValueError('Physical board price subject is newer than its captured allocator')
         if self.intrinsic.hand_cards is not None and self.intrinsic.hand_cards.subject_id != self.quote_input.source_id:
@@ -6150,6 +6218,10 @@ class HandPlayCostReceipt:
         hand = self.quote.intrinsic.hand_cards
         if hand is not None and self.quote.quote_input.source_id not in hand.hands[self.quote.quote_input.player_id - 1]:
             raise ValueError('Submitted hand price lost its own original hand resident')
+        conditions = self.quote.intrinsic.condition_facts
+        if self.quote_origin == 'current_hand' and conditions and type(conditions[0]) is HeldOpponentCopyMatch:
+            if conditions[0].hand_entry_id != self.hand_entry_id:
+                raise ValueError('Held copied-play price changed its submitted hand acquisition')
 
 
 @dataclass(frozen=True)
@@ -6175,6 +6247,11 @@ class SpellCostFacts:
                 self.intrinsic.printed_cost) != (self.cost_input.player_id, self.cost_input.card_id,
                 self.cost_input.kind, self.cost_input.base_cost, self.printed_cost):
             raise ValueError('Spell intrinsic stage differs from its original physical operands')
+        if self.intrinsic.condition_facts and type(self.intrinsic.condition_facts[0]) is HeldOpponentCopyMatch:
+            from .held_opponent_copies import witness_ids
+            condition = self.intrinsic.condition_facts[0]
+            if condition.source_id != self.cost_input.source_id or condition.play_ids != witness_ids(self.cost_input.abilities):
+                raise ValueError('Spell copied-play price differs from its captured physical hand progress')
         if type(self.local_payment) is not PaymentType:
             raise ValueError('Spell local cost fact requires a payment account')
         if type(self.window_quotes) is not tuple or any(type(q) is not CostQuoteFact for q in self.window_quotes):
@@ -6785,8 +6862,15 @@ class PlayRecord:
     body_targets: PaidBodyTargetReceipt | None = None
     board_player_id: int | None = None
     hand_neighbors: tuple[HandNeighborFact, ...] | None = None
+    copy_origin: CardCopyOrigin | None = None
 
     def __post_init__(self):
+        if self.copy_origin is not None:
+            if type(self.copy_origin) is not CardCopyOrigin:
+                raise ValueError('Hand play requires its typed original copy source')
+            self.copy_origin.__post_init__()
+            if self.copy_origin.entity_id >= self.source_id:
+                raise ValueError('Hand play borrowed a future copy source')
         if self.hand_neighbors is not None:
             if type(self.hand_neighbors)is not tuple or any(type(x)is not HandNeighborFact for x in self.hand_neighbors):
                 raise ValueError('Hand play requires immutable original physical neighbors')
@@ -9175,6 +9259,7 @@ class Entity:
     abilities: list[AbilityInstance] = field(default_factory=list)
     silenced: bool = False
     origin_entity_id: int | None = None
+    copy_origin: CardCopyOrigin | None = None
     # Explicit replacement transformations invalidate original-deck credit.
     # This physical-recipient provenance is not copied from another entity.
     face_replaced: bool = False
@@ -10414,6 +10499,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_held_spell_ability(state,registry,attachment)
             from .held_mana import validate_ability as validate_held_mana_ability
             validate_held_mana_ability(state,registry,attachment)
+            from .held_opponent_copies import validate_ability as validate_held_copy_ability
+            validate_held_copy_ability(state,registry,attachment)
             from .hand_progress import validate_cast_progress
             validate_cast_progress(state, attachment)
             for key in attachment.progress_keys:
@@ -10652,6 +10739,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         _bool(entity.face_replaced, f"entity {entity_id} face_replaced")
         if entity.origin_entity_id is not None and entity.origin_entity_id not in state.entities:
             raise ValueError(f"entity {entity_id} refers to a missing origin entity")
+        from .held_opponent_copies import validate_origin
+        validate_origin(state, registry, entity.copy_origin, entity.id)
         for name, cls in (("abilities", AbilityInstance), ("enchantments", Enchantment)):
             attachments = getattr(entity, name)
             if not isinstance(attachments, list) or any(not isinstance(item, cls) for item in attachments):

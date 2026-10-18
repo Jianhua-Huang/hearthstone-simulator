@@ -330,6 +330,8 @@ def accept_copy(r,effect,source,profile):
 
 def apply(r,material,entity):
     entity.origin_entity_id=material.origin.entity_id
+    from .held_opponent_copies import copy_origin
+    entity.copy_origin=copy_origin(material.origin)
     if material.jade_size is not None:
         from .jade import imprint
         imprint(entity, material.jade_size)

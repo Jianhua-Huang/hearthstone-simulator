@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 397
+SNAPSHOT_SCHEMA_VERSION = 398
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -880,6 +880,14 @@ def _intrinsic_stage_from_dict(value):
             condition['selected_ids']=tuple(_list(condition['selected_ids'],'original selected shuffle operations'))
             conditions.append(DeckShuffleCostMatch(**condition))
         row['condition_facts']=tuple(conditions)
+    elif row['rules'] and row['rules'][0].condition == 'held_opponent_copy':
+        from .model import HeldOpponentCopyMatch
+        conditions = []
+        for value in _list(row['condition_facts'], 'original held copied-play conditions'):
+            condition = _row(value, HeldOpponentCopyMatch)
+            condition['play_ids'] = tuple(_list(condition['play_ids'], 'original copied-play witnesses'))
+            conditions.append(HeldOpponentCopyMatch(**condition))
+        row['condition_facts'] = tuple(conditions)
     elif row['rules'] and row['rules'][0].condition == 'card_discovered_this_turn':
         from .model import CardDiscoveredTurnMatch
         from .card_discoveries import record_from_dict
@@ -1208,6 +1216,7 @@ def state_from_dict(value: dict) -> GameState:
     plays=[]
     for item in _list(value['play_history'], 'play history'):
         row=_row(item, PlayRecord)
+        row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
         if row['body_targets'] is not None:
             from .paid_body_retries import receipt_from_dict
             row['body_targets'] = receipt_from_dict(row['body_targets'])
@@ -1578,8 +1587,14 @@ def end_turn_rng_from_json(value):
     return state
 
 
+def _copy_origin_from_dict(value):
+    from .model import CardCopyOrigin
+    return None if value is None else CardCopyOrigin(**_row(value, CardCopyOrigin))
+
+
 def entity_from_dict(row):
     row = _row(row, Entity)
+    row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
     if row['choose_branch'] is not None:
         from .choose_branch_state import selection_from_dict
         row['choose_branch'] = selection_from_dict(row['choose_branch'])

@@ -52,7 +52,8 @@ class FinishPaidHandAcceptance(Effect):
         # postpayment base plus its one complete typed prepared append. The
         # base is independently a valid codec state before Combo exists.
         state = deepcopy(self.submission_base)
-        state.play_history.append(self.proof.prepared_play)
+        from .play_history import commit_play
+        commit_play(state, self.proof.prepared_play)
         return state
 
     def __post_init__(self):

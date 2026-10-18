@@ -478,6 +478,8 @@ def copy_stored_minion(r, effect):
     if len(r.player(effect.player_id).board) >= r.rules.max_board: return ()
     entity = r.create_entity(effect.player_id, source.card_id, Zone.BOARD, effect.position, components=source.components)
     entity.origin_entity_id = source.id
+    from .held_opponent_copies import copy_origin
+    entity.copy_origin = copy_origin(source)
     from .jade import inherit_printed
     inherit_printed(source, entity)
     if effect.mode == 'current':

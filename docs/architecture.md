@@ -1379,3 +1379,5 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 内部发现交付可从原 create_deck_card / move_physical_card 直接取得真实创建或移动对象；旧效果handler保持原续接约定，返回对象不能入解释器或玩家DTO。范围、原驻留及未完成统一发现收据见[契约](m3-materialization-results.md)。
 
 原发现未选项使用独立OfferedCardSelection连接既有整卡解释器，菜单槽和付费出牌历史分开定位，原冻结材料在进入前交给公共施法、召唤、装备和英雄安装管线。完整主体、黑暗之赐、嵌套、原武器耐久及待国服政策见[执行契约](m3-original-offer-execution.md)。
+
+真实对手复制条件以独立CardCopyOrigin冻结原直接来源，原提交、持牌进度和固有费用共享既有管线；不以职业或诊断origin替代复制。来源变形、费用事实和恢复边界见[契约](m3-held-opponent-copy-cost.md)。

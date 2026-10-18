@@ -200,7 +200,17 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         hand_neighbors=neighbors,
         hand_derivatives=capture(source,registry.card(source.card_id)),branch_id=branch_id,
         battlecries=capture_battlecries(source),combos=capture_combos(source),
-        played_face=freeze_played_face(state,registry,source,len(state.play_history)+1))
+        played_face=freeze_played_face(state,registry,source,len(state.play_history)+1),
+        copy_origin=source.copy_origin)
+
+
+def commit_play(state, record):
+    """One paid append shared by execution and its complete payment projection."""
+    if record.id != len(state.play_history) + 1:
+        raise ValueError('Physical hand play must append its original next identity')
+    state.play_history.append(record)
+    from .held_opponent_copies import note_play
+    note_play(state, record)
 
 
 def play_record(state, play_id):
@@ -275,6 +285,10 @@ def validate_history(state, registry):
         if type(record) is not PlayRecord:
             raise ValueError('History requires immutable play records')
         record.__post_init__()
+        from .held_opponent_copies import validate_origin
+        validate_origin(state, registry, record.copy_origin, record.source_id)
+        if record.source_id not in state.entities or record.copy_origin != state.entities[record.source_id].copy_origin:
+            raise ValueError('Hand play changed its original physical copy source')
         from .paid_body_targets import validate_receipt
         validate_receipt(state, registry, record)
         if record.submitted_cost is None:

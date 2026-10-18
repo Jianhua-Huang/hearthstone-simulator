@@ -89,6 +89,8 @@ def apply_material(r, selection, slot_id, entity):
         apply(r, material.copied, entity)
     elif material.physical is not None:
         source = material.physical.entity()
+        from .held_opponent_copies import copy_origin
+        entity.copy_origin = copy_origin(source)
         from .jade import inherit_printed
         inherit_printed(source, entity)
         if copy_mode(r.state, option) == 'current':
@@ -100,6 +102,10 @@ def apply_material(r, selection, slot_id, entity):
             if source.zone == Zone.BOARD: entity.damage = 0
     elif material.death is not None or material.discard is not None:
         row = material.death or material.discard
+        from .model import CardCopyOrigin
+        entity.copy_origin = CardCopyOrigin(row.entity_id, row.card_id,
+            row.owner if material.death is not None else row.card.owner,
+            row.controller if material.death is not None else row.player_id)
         from .jade import inherit_printed
         from .model import Entity, Zone
         inherit_printed(Entity(row.entity_id, row.card_id, row.owner if material.death else row.card.owner,

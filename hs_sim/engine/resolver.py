@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v480'
+CORE_EFFECTS_VERSION = 'core-effects-v481'
 
 
 class Mechanics:
@@ -1482,7 +1482,8 @@ def play_from_hand(r, effect):
         record, paid_hand_proof = capture_paid_hand_cost_proof(r, record, quote)
     pay_quote(r,player,entity,quote,exclude_held_source=True)
     paid_hand_submission_base = None if paid_hand_proof is None else deepcopy(r.state)
-    r.state.play_history.append(record)
+    from .play_history import commit_play
+    commit_play(r.state, record)
     paid_hand_tail = None
     if paid_hand_proof is not None:
         from .paid_hand_acceptance import make_tail
@@ -2055,6 +2056,8 @@ def copy_minion(r, effect):
         return
     entity = r.create_entity(player.id, source.card_id, Zone.BOARD, effect.position, components=source.components)
     entity.origin_entity_id = source.id
+    from .held_opponent_copies import copy_origin
+    entity.copy_origin = copy_origin(source)
     from .jade import inherit_printed
     inherit_printed(source, entity)
     if effect.mode == 'current':

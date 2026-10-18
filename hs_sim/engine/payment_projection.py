@@ -177,7 +177,8 @@ def validate_spell_payment_submission(before, quote, prepared_play, submission_s
         raise ValueError('Payment proof does not belong to this next prepared hand play')
     expected = _project_payment(before, quote, registry=registry, cause_reason='PlayFromHand', capture_stages=False)
     # This is comparison of the actual next append, never eligibility querying.
-    expected.play_history.append(prepared_play)
+    from .play_history import commit_play
+    commit_play(expected, prepared_play)
     if expected != submission_state:
         raise ValueError('Spell submission changed its complete projected payment boundary')
 

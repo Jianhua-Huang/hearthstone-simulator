@@ -867,6 +867,8 @@ def copy_physical_card(r, effect):
                              components=()if material is not None else source.components)
     origin_id=material.origin.entity_id if material is not None else source.id
     entity.origin_entity_id = origin_id
+    from .held_opponent_copies import copy_origin
+    entity.copy_origin = copy_origin(material.origin if material is not None else source)
     from .jade import inherit_printed
     if material is not None:
         apply(r,material,entity)

@@ -64,6 +64,7 @@ def next_change(state, registry, mapping):
 def inherit(r, source, destination):
     # Keep each new face's printed abilities; only instance modifications carry.
     destination.origin_entity_id = source.id
+    destination.copy_origin = source.copy_origin
     destination.hand_lifetime = source.hand_lifetime
     destination.enchantments = [replace(e, id=attachment_id(r.state)) for e in source.enchantments]
     destination.abilities.extend(replace(a, id=attachment_id(r.state)) for a in source.abilities if a.origin != 'printed')
