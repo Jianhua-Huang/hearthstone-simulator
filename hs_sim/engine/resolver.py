@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v485'
+CORE_EFFECTS_VERSION = 'core-effects-v486'
 
 
 class Mechanics:
@@ -1821,7 +1821,7 @@ def grant_ability(r, effect):
     _grant_to(r, effect, entity)
 
 
-def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None):
+def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None, consumed_card_id=None):
     """Install ordinary ability material after the caller binds the recipient."""
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     if entity.id != effect.target_id or pending and (entity.kind != CardType.MINION or entity.zone != Zone.PLAY):
@@ -1845,6 +1845,13 @@ def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=No
         kind, fields['spell_damage'] = 'spell_damage', effect.amount
     elif isinstance(effect, GrantDeathrattle):
         kind, fields['behavior_id'] = 'deathrattle', effect.behavior_id
+        if consumed_card_id is not None:
+            from .consumed_cards import record as consumed_record
+            original = consumed_record(r.state, consumed_card_id)
+            if (original.source.entity_id, original.profile_id, original.ability_id) != (entity.id, grant_card_id, r.state.next_attachment_id):
+                raise ResolutionError('Consumed grant lost its original source or allocation')
+            fields['consumed_card_id'] = consumed_card_id
+            fields['deathrattle_card_id'] = original.profile_id
         fields['deathrattle_grant_card_id'] = (grant_card_id if grant_card_id is not None else
             r.state.entities[effect.source_id].card_id if effect.source_id else None)
     elif isinstance(effect, GrantTrigger):
@@ -2396,6 +2403,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_deathrattles(mechanics)
     from .source_kills import register as register_source_kills
     register_source_kills(mechanics)
+    from .consumed_cards import register as register_consumed_cards
+    register_consumed_cards(mechanics)
     from .power_payloads import register as register_power_payloads
     register_power_payloads(mechanics)
     from .end_turns import register as register_end_turns

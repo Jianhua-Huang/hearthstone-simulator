@@ -96,6 +96,8 @@ def validate_ability(state, registry, ability):
     validate_inherited(state,registry,ability)
     from .deathrattle_memory import validate_ability as validate_memory_ability
     validate_memory_ability(state,registry,ability)
+    from .consumed_cards import validate_payload as validate_consumed_payload
+    validate_consumed_payload(state,registry,ability)
     registry.behavior(ability.behavior_id)
     if ability.id>=state.next_attachment_id:
         raise ValueError('Deathrattle ID exceeds the current/historical attachment counter')

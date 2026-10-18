@@ -109,6 +109,9 @@ class CapturedCardCopyMaterial:
 def validate_captured_card_copy(state,registry,material):
     if type(material)is not CapturedCardCopyMaterial:raise ValueError('Expected captured card copy material')
     material.__post_init__();validate_allocation(state,registry,material.origin)
+    from .consumed_cards import validate_payload as validate_consumed_payload
+    for ability in material.local.abilities:
+        validate_consumed_payload(state,registry,ability)
     if material.turn>state.turn or material.action>state.action_number or material.next_attachment_id>state.next_attachment_id:
         raise ValueError('Captured copy has future acceptance bounds')
     for cid in material.components:registry.card(cid)

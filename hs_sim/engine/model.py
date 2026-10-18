@@ -2659,6 +2659,7 @@ class AbilityInstance:
     keyword_expiry: KeywordExpiry | None = None
     deathrattle_card_id: str | None = None
     deathrattle_grant_card_id: str | None = None
+    consumed_card_id: int | None = None
     hero_power_repeat: HeroPowerRepeatSpec | None = None
     end_turn: EndTurnSpec | None = None
     end_turn_repeat: EndTurnRepeatSpec | None = None
@@ -2851,6 +2852,9 @@ class AbilityInstance:
             raise ValueError('Deathrattle grant provenance requires an identified grant')
         if self.kind=='deathrattle' and self.origin=='granted' and self.source_id is not None and self.deathrattle_grant_card_id is None:
             raise ValueError('Identified Deathrattle grant requires its captured source card')
+        _optional_id(self.consumed_card_id, 'consumed native card')
+        if self.consumed_card_id is not None and (self.kind != 'deathrattle' or self.origin != 'granted' or self.deathrattle_card_id is None):
+            raise ValueError('Consumed card parameters require an identified granted Deathrattle')
         if self.timed_keyword is not None:
             if type(self.timed_keyword) is not TimedKeywordSpec:
                 raise ValueError('Expected TimedKeywordSpec')
@@ -10154,6 +10158,7 @@ class GameState:
     hand_entries: list[HandEntryRecord] = field(default_factory=list)
     deck_shuffle_history: list = field(default_factory=list)
     discard_history: list = field(default_factory=list)
+    consumed_card_history: list = field(default_factory=list)
     next_discard_id: int = 1
     magnetic_history: list[MagneticRecord] = field(default_factory=list)
     colossal_history: list[ColossalRecord] = field(default_factory=list)
@@ -11114,6 +11119,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_weapon_output_history(state, registry)
     from .deathrattles import validate_history as validate_deathrattle_history
     validate_deathrattle_history(state,registry)
+    from .consumed_cards import validate_state as validate_consumed_cards
+    validate_consumed_cards(state,registry)
     from .end_turns import validate_history as validate_end_turn_history
     validate_end_turn_history(state, registry)
     from .whole_card_replay_state import validate_history as validate_whole_card_replay_history

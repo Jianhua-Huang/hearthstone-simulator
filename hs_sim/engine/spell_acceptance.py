@@ -508,6 +508,7 @@ def _bind_prefix_and_references(original, state, registry):
                 ('next_entity_id', 'next_attachment_id', 'next_order', 'next_death_id', 'next_death_batch')) or
             len(state.play_history) < len(original.play_history) or
             state.death_history[:len(original.death_history)] != original.death_history or
+            state.consumed_card_history[:len(original.consumed_card_history)] != original.consumed_card_history or
             state.spell_policy_receipts[:len(original.spell_policy_receipts)] != original.spell_policy_receipts):
         raise ValueError('Spell acceptance moved its complete history/allocation prefix backwards')
     for old, new in zip(original.play_history, state.play_history):

@@ -536,6 +536,8 @@ class Game:
         validate_hand_followup_boundary(self)
         from .temporary_hands import validate_boundary as validate_temporary_hand_boundary
         validate_temporary_hand_boundary(self)
+        from .consumed_cards import validate_boundary as validate_consumed_card_boundary
+        validate_consumed_card_boundary(self)
         from .hand_deadlines import validate_boundary as validate_hand_deadline_boundary
         validate_hand_deadline_boundary(self)
         from .interactables import validate_boundary as validate_interactable_boundary

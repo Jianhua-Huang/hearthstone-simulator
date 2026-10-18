@@ -154,6 +154,7 @@ class Registry:
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
         self._historical_deathrattle_spells = set()
+        self._consumption_profiles = {}
         self._spell_value_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
@@ -281,6 +282,19 @@ class Registry:
     @property
     def player_effects(self) -> Mapping[str, PlayerEffectSpec]:
         return MappingProxyType(self._player_effects)
+
+    @property
+    def consumption_profiles(self):
+        return MappingProxyType(self._consumption_profiles)
+
+    def register_consumption_profile(self, profile):
+        if self._frozen:
+            raise ValueError('Registry is frozen')
+        from .consumed_cards import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._consumption_profiles:
+            raise ValueError('Duplicate native consumption profile')
+        self._consumption_profiles[profile.card_id] = profile
 
     @property
     def kindred_profiles(self):return MappingProxyType(self._kindred_profiles)
@@ -1584,6 +1598,9 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .consumed_cards import validate_profile as validate_consumption_profile
+        for profile in self._consumption_profiles.values():
+            validate_consumption_profile(self, profile)
         if any(self.card(cid).kind != CardType.SPELL for cid in self._historical_deathrattle_spells):
             raise ValueError('Historical Deathrattle prerequisites require registered spells')
         from .turn_start_draws import validate_profile as validate_turn_draw_profile
@@ -1909,6 +1926,8 @@ class Registry:
                    "use_rules": sorted(self._use_rules),
                    "target_visibility": self._target_visibility, "use_visibility": self._use_visibility}
         # Preserve old registry fingerprints when this additive API is unused.
+        if self._consumption_profiles:
+            payload['consumption_profiles']=[asdict(self._consumption_profiles[k]) for k in sorted(self._consumption_profiles)]
         if self._historical_deathrattle_spells:
             payload['historical_deathrattle_spells']=sorted(self._historical_deathrattle_spells)
         if self._kindred_profiles:
