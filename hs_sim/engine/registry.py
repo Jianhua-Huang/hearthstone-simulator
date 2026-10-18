@@ -1432,7 +1432,8 @@ class Registry:
                 raise ValueError('Weapons cannot receive redirected health effects')
         if (not isinstance(card.cost_auras, tuple) or any(type(a) is not CostAuraSpec for a in card.cost_auras)):
             raise ValueError('cost_auras must be a tuple of CostAuraSpec')
-        if card.cost_auras and card.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION):
+        if card.cost_auras and card.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION) and not (
+                card.kind == CardType.SPELL and all(a.hand_adjacent for a in card.cost_auras)):
             raise ValueError('Cost auras require a minion, weapon or location')
         for aura in card.cost_auras:
             aura.__post_init__()
@@ -1920,6 +1921,7 @@ class Registry:
             for spec in data['cost_auras']:
                 if not spec['first_per_turn']: spec.pop('first_per_turn')
                 if spec['every_nth_per_turn'] is None: spec.pop('every_nth_per_turn')
+                if not spec['hand_adjacent']: spec.pop('hand_adjacent')
             return data
         definitions = []
         for card_id in sorted(self._cards):

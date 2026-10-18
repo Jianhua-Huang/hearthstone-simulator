@@ -288,7 +288,7 @@ class GrantCostAura(Effect):
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
         _cost_attachment(self, CostAuraSpec)
-        if self.spec.tribes_any or self.spec.first_per_turn or self.spec.every_nth_per_turn is not None:
+        if self.spec.tribes_any or self.spec.first_per_turn or self.spec.every_nth_per_turn is not None or self.spec.hand_adjacent:
             raise ValueError('Native filtered cost aura grants are not supported')
 
 

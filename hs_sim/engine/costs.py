@@ -79,7 +79,8 @@ def quote_input(state, registry, value, *, profile_id=None):
         payment=intrinsic_payment(definition,intrinsic))
     amount, payment, external = _external_quote(state, registry, value.player_id,
         definition, local_amount, local_payment, has_battlecry(value.abilities), value.enchantments,
-        abilities=value.abilities,hand_lifetime=value.hand_lifetime,minimum_cost=value.minimum_cost)
+        abilities=value.abilities,hand_lifetime=value.hand_lifetime,minimum_cost=value.minimum_cost,
+        physical_id=value.source_id)
     local = tuple(CostContribution('local_enchantment', value.player_id,
         value.source_id, enchantment=e) for e in value.enchantments)
     return CostQuoteFact(profile_id, value, local_amount, local_payment,
@@ -212,6 +213,10 @@ def quote_generated_cost(state, registry, player_id, card_id, *, cost=None, mini
 
 def validate_cost_aura_definition(card):
     """Only the necessary native ordinary source is added to existing cost auras."""
+    held = tuple(s for s in card.cost_auras if s.hand_adjacent)
+    if held and (card.kind != CardType.SPELL or len(card.cost_auras) != 1 or
+            card.secret is not None or card.quest is not None or card.ongoing_effect_id is not None):
+        raise ValueError('Adjacent hand cost source requires one native ordinary spell declaration')
     tribal = tuple(s for s in card.cost_auras if s.tribes_any or s.first_per_turn or s.every_nth_per_turn is not None)
     if tribal:
         from .stat_relations import validate_ordinary_face
@@ -231,6 +236,12 @@ def validate_cost_aura_carrier(registry, card_id, kind, abilities, components=()
     for ability in rows:
         ability.__post_init__()
     card = registry.card(card_id)
+    held = tuple(a for a in rows if a.cost_aura.hand_adjacent)
+    if held or any(s.hand_adjacent for s in card.cost_auras):
+        validate_cost_aura_definition(card)
+        if (kind != CardType.SPELL or components or len(rows) != 1 or
+                rows[0].origin != 'printed' or rows[0].cost_aura not in card.cost_auras):
+            raise ValueError('Adjacent hand cost carrier lost its native spell declaration')
     if not any(a.cost_aura.tribes_any or a.cost_aura.first_per_turn or a.cost_aura.every_nth_per_turn is not None for a in rows) and not any(
             s.tribes_any or s.first_per_turn or s.every_nth_per_turn is not None for s in card.cost_auras):
         return
@@ -279,13 +290,18 @@ def validated_cost_source_inventory(state, registry):
 
 
 def _external_quote(state, registry, player_id, definition, amount, payment, current_battlecry, enchantments=(),
-                    *,abilities=None,hand_lifetime=None,minimum_cost=0):
+                    *,abilities=None,hand_lifetime=None,minimum_cost=0,physical_id=None):
     validated_cost_source_inventory(state, registry)
     player = state.players[player_id]
     modifiers = [(m.id, m.spec, CostContribution('player_modifier', player.id,
         None, modifier=m)) for m in player.cost_modifiers if m.scope == CostScope.CARD]
     sources = [i for owner in state.players.values()
                for i in (*owner.board, *([owner.weapon_id] if owner.weapon_id is not None else []))]
+    subject = state.entities.get(physical_id)
+    if subject is not None and (subject.controller, subject.card_id, subject.kind) == (
+            player_id, definition.id, definition.kind):
+        from .hand_neighbors import current_hand_neighbors
+        sources.extend(current_hand_neighbors(state, physical_id))
     first_rows = cast_rows = tribal_inputs = None
     from .native_conditions import matches as native_provider_matches
     for source_id in sources:
@@ -297,6 +313,8 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
             if (ability.kind != 'cost_aura' or ability.consumed or not (
                     ability.cost_aura.relation == 'any' or
                     (source.controller == player_id) == (ability.cost_aura.relation == 'friendly'))):
+                continue
+            if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
                 continue
             if not native_provider_matches(state,source,ability.native_condition):continue
             first = None

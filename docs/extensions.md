@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+黏弹式当前相邻手牌增费用`CostAuraSpec(CostSpec(delta=1), hand_adjacent=True)`，只支持原生普通法术来源，不通过动态授予或永久修改邻牌费用实现。当前位置、生成/已离手报价和支付证明见[契约](m2-adjacent-hand-cost-auras.md)。
+
 需要原来源击杀复活时使用`KillSourceReference`和`ResurrectKilledMinions`；全体攻击用`AttackAllOtherMinions`，不要另记推断击杀或直接施加模拟战斗伤害，见[契约](m3-source-kill-recovery.md)。
 
 历史亡语使用`TriggerHistoricalDeathrattles`，不要将旧亡语授予施法者、复活墓地实体或伪造自然死亡；手动非空前置条件及有限保存边界见[契约](m3-historical-deathrattles.md)。

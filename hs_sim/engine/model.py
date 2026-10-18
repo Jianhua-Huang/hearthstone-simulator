@@ -584,6 +584,7 @@ class CostAuraSpec:
     tribes_any: tuple[str, ...] = ()
     first_per_turn: bool = False
     every_nth_per_turn: int | None = None
+    hand_adjacent: bool = False
 
     def __post_init__(self):
         if type(self.cost) is not CostSpec:
@@ -593,6 +594,10 @@ class CostAuraSpec:
             raise ValueError('Invalid cost aura payer relation')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _bool(self.first_per_turn, 'first-per-turn cost aura')
+        _bool(self.hand_adjacent, 'adjacent hand cost aura')
+        if self.hand_adjacent and (self.relation != 'friendly' or self.cost != CostSpec(delta=1) or
+                self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None):
+            raise ValueError('Adjacent hand auras require the ordinary friendly one-cost increase')
         if self.every_nth_per_turn is not None:
             _int(self.every_nth_per_turn, 'periodic turn cost interval', 2)
             if (self.first_per_turn or self.relation != 'friendly' or
@@ -3121,7 +3126,7 @@ class AbilityInstance:
             if type(self.cost_aura) is not CostAuraSpec:
                 raise ValueError('Cost aura requires CostAuraSpec')
             self.cost_aura.__post_init__()
-            if (self.cost_aura.tribes_any or self.cost_aura.first_per_turn or self.cost_aura.every_nth_per_turn is not None) and (
+            if (self.cost_aura.tribes_any or self.cost_aura.first_per_turn or self.cost_aura.every_nth_per_turn is not None or self.cost_aura.hand_adjacent) and (
                     self.origin != 'printed' or self.source_id is None or self.consumed or
                     self.expires_turn is not None or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Native filtered cost auras require removable unconsumed printed provenance')
@@ -10938,7 +10943,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                         entity.kind not in (CardType.MINION, CardType.HERO, CardType.WEAPON)):
                     raise ValueError('Invalid attack policy carrier')
                 if (isinstance(attachment, AbilityInstance) and attachment.kind == 'cost_aura' and
-                        entity.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION)):
+                        entity.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION) and not (
+                            entity.kind == CardType.SPELL and attachment.cost_aura.hand_adjacent)):
                     raise ValueError('Invalid cost aura carrier')
                 if (isinstance(attachment,AbilityInstance) and attachment.end_turn_spec is not None and
                         entity.kind not in (CardType.MINION,CardType.WEAPON,CardType.LOCATION,CardType.HERO_POWER,CardType.HERO)):
