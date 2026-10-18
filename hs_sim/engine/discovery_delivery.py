@@ -18,7 +18,8 @@ COMPLETED = 'card_discovered'
 def recipe_types():
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard)
+    from .discovery_destinations import DeliverDiscoveredSpell
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell)
 
 
 def recipe_face(request):
@@ -158,6 +159,7 @@ def materialize(r, effect):
     effect.__post_init__(); require_original_result(r.state, effect.result)
     cursor = len(r.game._events)
     request = effect.recipe; entity = None; work = ()
+    from .discovery_destinations import DeliverDiscoveredSpell,materialize as materialize_destination
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     if type(request) is AddToHand:
@@ -183,6 +185,8 @@ def materialize(r, effect):
     elif type(request) is CreateTemporaryCard:
         from .temporary_cards import materialize_temporary_card
         entity = materialize_temporary_card(r, request)
+    elif type(request)is DeliverDiscoveredSpell:
+        entity=materialize_destination(r,request)
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 
@@ -218,6 +222,8 @@ def resurrect(r, effect):
 
 def validate_completion(state, registry, completion, *, closed=False):
     completion.__post_init__(); require_original_result(state, completion.result)
+    from .discovery_destinations import validate_completion as validate_destination_completion
+    validate_destination_completion(completion,registry)
     if completion.recipient is not None:
         validate_allocation(state, registry, completion.recipient, closed=closed)
     if completion.summon_root_id is not None:

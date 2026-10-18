@@ -458,12 +458,17 @@ def resolve_discovery(r, effect):
         from .discovery_remainders import begin
         delivery=begin(r,effect)
     elif spec.summon_copy_stats is not None or spec.summon_copy_corpse_cost is not None:delivery=(DeliverAndSummonDiscoveredMinion(effect,r.game._generation_context),)
+    elif spec.destination=='hand_or_opponent_top':
+        from .discovery_destinations import begin
+        delivery=begin(r,effect)
     else:delivery=deliver_pick(spec,committed) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)
 
 
 def validate_boundary(game):
+    from .discovery_destinations import validate_boundary as validate_destination_boundary
+    validate_destination_boundary(game)
     from .discovery_keep import validate_boundary as validate_kept
     validate_kept(game)
     from .discovery_remainders import validate_boundary as validate_remainders
@@ -538,3 +543,5 @@ def register(mechanics):
     register_remainders(mechanics)
     from .discovery_keep import register as register_kept
     register_kept(mechanics)
+    from .discovery_destinations import register as register_destinations
+    register_destinations(mechanics)

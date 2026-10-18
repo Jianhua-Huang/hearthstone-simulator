@@ -1317,7 +1317,7 @@ class Registry:
         expected = {card.hand_progress.keyword} if card.hand_progress is not None and card.hand_progress.keyword else set()
         if markers != expected:
             raise ValueError('Corrupt/Infuse markers require matching hand progress')
-        if card.choice_only and (card.kind != CardType.SPELL or card.cost or card.attack or card.health or
+        if card.choice_only and (card.kind != CardType.SPELL or card.attack or card.health or
                 card.on_play is not None or card.keywords or card.hand_actions or card.opening_hooks or
                 card.targeting is not None or card.requires_target or card.spell_damage):
             raise ValueError('Choice-only definitions describe options, not playable effects')

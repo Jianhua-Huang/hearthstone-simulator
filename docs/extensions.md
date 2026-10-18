@@ -1801,3 +1801,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 需要原抽到牌本回合减费时用DrawWithTemporaryCostReduction(player_id, reduction, source_id, expires_turn)，期限必须是实际当前回合；原hand交付在反应后以ModifyStoredCost处理，不搜索同名或后续抽牌。旧永久请求保持，见[契约](m3-temporary-draw-discount.md)。
+
+
+亢祖式一次当前职业法术发现可用DiscoverFromPool(destination="hand_or_opponent_top")；原Spec须纯三选、一个发现且无额外材料。DeliverDiscoveredSpell绑定原池结果和实际去向决定，继续普通MaterializeDiscoveredCard/DiscoveryCompletion，不先入手再猜目标。两个真实选项仅展示印刷费用，不参与出牌支付，见[契约](m3-discovered-spell-destination.md)。

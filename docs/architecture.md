@@ -1420,3 +1420,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 真实原抽牌的本回合减费以独立有限请求复用draw_discount及原手牌驻留引用，旧永久/匹配请求形状保持；期限、区域与信息仍交普通管线。固定展示核对与可见性证据边界见[契约](m3-temporary-draw-discount.md)。
+
+
+真实发现后选择去向使用有限hand_or_opponent_top交付模式，原发现与第二个普通菜单各守原身份，延后调用普通材料化及完成收据；对手收件不改原发现者。非物理选项保留真实印刷费用，见[契约](m3-discovered-spell-destination.md)。

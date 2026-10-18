@@ -774,8 +774,11 @@ class FillHandFromPool(Effect):
 
 
 def validate_delivery(effect):
-    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck'):
+    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck','hand_or_opponent_top'):
         raise ValueError('Invalid generation replacement or destination')
+    if effect.destination=='hand_or_opponent_top':
+        from .discovery_destinations import validate_spec
+        validate_spec(effect)
     from .zones import position_value
     position_value(effect.position)
     if effect.destination != 'deck' and effect.position != 'random':

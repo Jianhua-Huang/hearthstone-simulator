@@ -82,6 +82,7 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .resolver import ResolveChoiceResult
     callback = [ResolveChoiceResult(result, on_select, kindred)] if on_select is not None else []
     from .discovery import ResolvePoolDiscovery
+    from .discovery_destinations import DeliverDiscoveredSpell
     from .hand_choice_followups import ResolveHandFollowupChoice
     from .assemble_offers import ResolveAssemble
     from .model import ChoicePurpose
@@ -95,6 +96,8 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
             return replace(effect, result=result)
         if type(effect)is ResolvePoolDiscovery:
             return replace(effect,choice_result=result)
+        if type(effect)is DeliverDiscoveredSpell:
+            return replace(effect,decision=result)
         if type(effect) is SelectGiftedDeckCard:
             return replace(effect, result=result)
         if result.choice.purpose == ChoicePurpose.CARD_DISCOVERY:
