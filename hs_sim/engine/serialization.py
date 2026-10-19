@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 451
+SNAPSHOT_SCHEMA_VERSION = 452
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -327,6 +327,9 @@ def _ability_from_dict(value):
     if row['native_condition'] is not None:
         from .model import NativeSourceCondition
         row['native_condition']=NativeSourceCondition(**_row(row['native_condition'],NativeSourceCondition))
+    if row['spell_mirror'] is not None:
+        from .model import SpellMirrorBinding
+        row['spell_mirror']=SpellMirrorBinding(**_row(row['spell_mirror'],SpellMirrorBinding))
     if row['hand_mirror'] is not None:
         from .model import HandMirrorBinding
         row['hand_mirror']=HandMirrorBinding(**_row(row['hand_mirror'],HandMirrorBinding))

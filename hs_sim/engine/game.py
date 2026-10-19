@@ -461,6 +461,8 @@ class Game:
         validate_discovery_delivery_boundary(self)
         from .hand_mirrors import validate_game as validate_hand_mirrors
         validate_hand_mirrors(self)
+        from .spell_mirrors import validate_game as validate_spell_mirrors
+        validate_spell_mirrors(self)
         from .mana_ranks import validate_state as validate_mana_rank_state
         validate_mana_rank_state(self._state, self.registry)
         from .unidentified import validate_state as validate_unidentified_state

@@ -1908,3 +1908,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 瓦洛复用原手牌/牌库监听和赐福安装器，真实新授予统一通知，复制已有赐福不再回响。甜美梦境只保留明确赐福材料，费用中的来源部分仍清除；见[契约](m3-wallow-dark-gift-echo.md)。
 
 时光之主诺兹多姆从原完成出牌读取固定目标的印刷系列，再由带原实例检查的推进入口调用既有休眠倒计时；完整衍生物系列及最新系列政策边界见[契约](m3-timelord-printed-expansion.md)。
+
+殒命暗影在原施法主体接受时复制当前物理法术材料，独立原生手牌绑定跨自身换面保留，晚入手不追溯施法；复制、转手、退出和私有通知复用边界见[契约](m3-native-spell-mirror.md)。

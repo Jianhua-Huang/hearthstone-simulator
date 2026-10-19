@@ -2611,6 +2611,16 @@ class NativeSourceCondition:
 
 
 @dataclass(frozen=True)
+class SpellMirrorBinding:
+    declaring_card_id: str
+    cast_id: int | None = None
+
+    def __post_init__(self):
+        _name(self.declaring_card_id, 'native spell mirror origin')
+        _optional_id(self.cast_id, 'native spell mirror cast')
+
+
+@dataclass(frozen=True)
 class HandMirrorSpec:
     attack: int = 3
     health: int = 4
@@ -2876,6 +2886,7 @@ class AbilityInstance:
     reborn_policy: str | None = None
     hero_power_use_aura: HeroPowerUseAuraSpec | None = None
     hand_mirror: HandMirrorBinding | None = None
+    spell_mirror: SpellMirrorBinding | None = None
     native_condition: NativeSourceCondition | None = None
     deathrattle_memory: DeathrattleMemory | None = None
     carved_spell_id: str | None = None
@@ -3029,6 +3040,15 @@ class AbilityInstance:
                     any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed)):
                 raise ValueError('Hand mirror requires a pure native source')
         elif self.kind=='hand_mirror':raise ValueError('Hand mirror lost its native binding')
+        if self.spell_mirror is not None:
+            from dataclasses import fields
+            if type(self.spell_mirror) is not SpellMirrorBinding:raise ValueError('Spell mirror requires its native binding')
+            self.spell_mirror.__post_init__()
+            allowed={'id','kind','source_id','origin','spell_mirror'}
+            if (self.kind!='spell_mirror' or self.origin!='printed' or self.source_id is None or
+                    any(getattr(self,f.name)!=f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Spell mirror requires a pure native source')
+        elif self.kind=='spell_mirror':raise ValueError('Spell mirror lost its native binding')
         validate_reborn_policy(self.reborn_policy, self.keyword)
         if self.reborn_policy is not None and (self.kind != 'keyword' or self.origin not in ('granted','printed') or
                 self.remove_on_silence is not True or self.timed_keyword is not None or
@@ -3158,7 +3178,7 @@ class AbilityInstance:
         if self.divine_shield_hits and (self.kind!='keyword' or self.keyword!=Keyword.DIVINE_SHIELD or
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
-        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
+        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
             if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'transform_replacement':
@@ -11399,6 +11419,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError('Invalid hand progress carrier or duplicate instance')
         from .hand_mirrors import validate_entity as validate_hand_mirror_entity
         validate_hand_mirror_entity(state,registry,entity)
+        from .spell_mirrors import validate_entity as validate_spell_mirror_entity
+        validate_spell_mirror_entity(state,registry,entity)
         defining = [a for a in entity.abilities if a.kind == 'defining_hand_source']
         if len(defining) > 1:
             raise ValueError('Duplicate native defining source on a physical card')

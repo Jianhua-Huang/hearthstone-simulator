@@ -114,6 +114,9 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('hand_progress', hand_progress=definition.hand_progress)
     if definition.defining_hand_source is not None and entity.zone in (Zone.HAND, Zone.DECK):
         add('defining_hand_source', hand_progress=definition.defining_hand_source, defining_card_id=definition.id)
+    if registry is not None and definition.id in registry.spell_mirror_ids and entity.zone == Zone.HAND:
+        from .model import SpellMirrorBinding
+        add('spell_mirror',spell_mirror=SpellMirrorBinding(definition.id))
     if definition.hand_mirror is not None and entity.zone == Zone.HAND:
         from .model import HandMirrorBinding
         add('hand_mirror',hand_mirror=HandMirrorBinding(definition.id,entity.controller))
@@ -282,8 +285,8 @@ def copy_attachments(state, source, destination, *, rebind_printed=False):
         if permit is not None:
             permit = replace(permit, permitted_ability_id=ability_ids.get(
                 permit.permitted_ability_id, permit.permitted_ability_id))
-        if ability.kind=='hand_mirror'and destination.zone!=Zone.HAND:continue
-        native_self=ability.kind=='hand_mirror'or ability.origin=='printed'and ability.reborn_policy is not None
+        if ability.kind in ('hand_mirror','spell_mirror') and destination.zone!=Zone.HAND:continue
+        native_self=ability.kind in ('hand_mirror','spell_mirror')or ability.origin=='printed'and ability.reborn_policy is not None
         rebound_source=destination.id if native_self or rebind_printed and ability.origin=='printed'and ability.source_id==source.id else ability.source_id
         destination.abilities.append(replace(ability, id=ability_ids[ability.id], source_id=rebound_source, printed_attack_permit=permit))
     destination.silenced = source.silenced
@@ -330,7 +333,7 @@ def renew_hand_progress(state, entity, *, previous_zone=None, hand_transfer=Fals
                         for a in entity.abilities if a.kind != 'defining_hand_source' or
                         entity.zone in (Zone.HAND, Zone.DECK) and previous_zone != Zone.HAND or
                         hand_transfer and entity.zone == Zone.HAND]
-    entity.abilities=[a for a in entity.abilities if a.kind!='hand_mirror'or entity.zone==Zone.HAND]
+    entity.abilities=[a for a in entity.abilities if a.kind not in ('hand_mirror','spell_mirror')or entity.zone==Zone.HAND]
 
 
 def apply_summon_stats(state, entity, spec):

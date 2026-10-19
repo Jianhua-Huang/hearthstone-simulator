@@ -148,6 +148,7 @@ class Registry:
         self._version = version
         self._cards: dict[str, CardDefinition] = {}
         self._hand_mirror_ids = frozenset()
+        self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._kindred_profiles: dict[str, KindredProfile] = {}
@@ -1007,6 +1008,17 @@ class Registry:
         if definition.hand_mirror is not None:self._hand_mirror_ids=self._hand_mirror_ids|{definition.id}
 
     @property
+    def spell_mirror_ids(self):
+        return self._spell_mirror_ids
+
+    def register_spell_mirror(self, card_id):
+        self._require_mutable()
+        from .spell_mirrors import validate_declaration
+        validate_declaration(self, card_id)
+        if card_id in self._spell_mirror_ids:raise ValueError('Duplicate native spell mirror')
+        self._spell_mirror_ids = self._spell_mirror_ids | {card_id}
+
+    @property
     def hand_mirror_ids(self):
         return self._hand_mirror_ids
 
@@ -1686,6 +1698,8 @@ class Registry:
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .spell_mirrors import validate_declaration as validate_spell_mirror_declaration
+        for card_id in self._spell_mirror_ids:validate_spell_mirror_declaration(self,card_id)
         from .carved_spells import validate_profile as validate_carved_profile
         for profile in self._carved_spell_profiles.values():validate_carved_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -2036,6 +2050,8 @@ class Registry:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._spell_mirror_ids:
+            payload['spell_mirror_ids']=sorted(self._spell_mirror_ids)
         if self._carved_spell_profiles:
             payload['carved_spell_profiles']=[asdict(self._carved_spell_profiles[k])for k in sorted(self._carved_spell_profiles)]
         if self._hero_health_target_profiles:
