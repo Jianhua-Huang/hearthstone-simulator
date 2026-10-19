@@ -75,7 +75,7 @@ def capture(r, option):
     """Read original producer work. Never run it, sample, allocate or move."""
     from .effects import AddToHand
     from .sideboards import _TakeSideboardCard
-    from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
+    from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard, SelectDeckTake
     from .temporary_cards import CreateTemporaryCard
     from .discovery import ResolvePoolDiscovery
     from .stored_gift_discovery import SelectGiftedDeckCard
@@ -96,7 +96,7 @@ def capture(r, option):
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     if type(work) in (CopyCard, MoveCard, DiscardCard):
         return _physical(r, option, work.card)
-    if type(work) is SelectGiftedDeckCard:
+    if type(work) in (SelectGiftedDeckCard, SelectDeckTake):
         return _physical(r, option, work.offered[work.index].card)
     if type(work)is CopyOpponentDeckOffer:
         return _physical(r,option,work.offered[work.index].material)

@@ -87,6 +87,7 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .assemble_offers import ResolveAssemble
     from .model import ChoicePurpose
     from .stored_gift_discovery import SelectGiftedDeckCard
+    from .zones import SelectDeckTake
     from .summon_sources import ResurrectMinion
     from .discovery_delivery import MaterializeDiscoveredCard, MaterializeDiscoveredResurrection, recipe_types
     def selected_effect(effect):
@@ -99,6 +100,8 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
         if type(effect)is DeliverDiscoveredSpell:
             return replace(effect,decision=result)
         if type(effect) is SelectGiftedDeckCard:
+            return replace(effect, result=result)
+        if type(effect) is SelectDeckTake:
             return replace(effect, result=result)
         if result.choice.purpose == ChoicePurpose.CARD_DISCOVERY:
             if type(effect) in recipe_types():

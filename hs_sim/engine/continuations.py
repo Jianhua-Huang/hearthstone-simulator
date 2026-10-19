@@ -771,6 +771,8 @@ def validate_frame(game):
     validate_dredge_choice(game)
     from .stored_gift_discovery import validate_choice as validate_stored_gift_choice
     validate_stored_gift_choice(game)
+    from .zones import validate_deck_take_choice
+    validate_deck_take_choice(game)
     if len(frame.prefix) + len(frame.continuation) > game.ruleset.max_resolution_steps:
         raise ValueError('Suspended work queue exceeds resolution budget')
     from .starships import FinishStarshipLaunch

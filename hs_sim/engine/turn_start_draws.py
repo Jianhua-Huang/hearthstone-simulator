@@ -12,6 +12,29 @@ class TurnDrawSuppressionProfile:
     def __post_init__(self):_name(self.card_id,'native turn draw provider')
 
 
+@dataclass(frozen=True)
+class TurnDrawReplacementProfile:
+    spec_id: str
+    behavior_id: str
+
+    def __post_init__(self):
+        _name(self.spec_id, 'turn draw player program')
+        _name(self.behavior_id, 'turn draw replacement behavior')
+
+
+def validate_replacement_profile(registry, profile):
+    from .model import PlayerEffectSpec
+    if type(profile) is not TurnDrawReplacementProfile:
+        raise ValueError('Expected a native turn draw replacement profile')
+    profile.__post_init__()
+    spec = registry.player_effect(profile.spec_id)
+    registry.behavior(profile.behavior_id)
+    if spec != PlayerEffectSpec(spec.id, spec.card_id):
+        raise ValueError('Turn draw replacement requires one independent permanent player program')
+    if registry.card(spec.card_id).kind != CardType.MINION:
+        raise ValueError('Native turn draw replacement requires its printed minion source')
+
+
 def validate_profile(registry,profile):
     if type(profile)is not TurnDrawSuppressionProfile:raise ValueError('Expected native turn draw profile')
     profile.__post_init__();card=registry.card(profile.card_id)
@@ -54,6 +77,14 @@ def draw(r,request):
     sources=providers(r.state,r.registry,request.player_id)
     if sources:
         r.emit('turn_draw_suppressed',player_id=request.player_id,source_ids=sources);return()
+    # Existing duplicate program instances retain their own identity. A single
+    # scheduled draw has one replacement; the most recently installed wins.
+    for instance in reversed(r.player(request.player_id).player_effects):
+        profile = r.registry.turn_draw_replacement_profiles.get(instance.spec_id)
+        if profile is not None:
+            validate_replacement_profile(r.registry, profile)
+            return (r.call(profile.behavior_id, instance.source_id, request.player_id,
+                player_effect=instance),)
     return(Draw(request.player_id),)
 
 

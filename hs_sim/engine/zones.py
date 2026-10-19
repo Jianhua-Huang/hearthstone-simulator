@@ -13,7 +13,7 @@ from .construction import integer, name
 from .effects import AddToHand, ChoiceOption, Draw, Effect, RequestChoice, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import copy_attachments, reset_to_definition
-from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, SummonStats, Zone, validate_summon_stats
+from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, SummonStats, Zone, validate_summon_stats, CardPreview, ChoiceResult
 from .sacrifice import MinionReference, live_minion
 from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
@@ -647,9 +647,18 @@ class ChooseFromZone(Effect):
     source_id: int | None = None
     prompt: str = '选择一张牌'
     discovery: bool = False
+    cost: CostSpec | None = None
+    destroy_unchosen: bool = False
 
     def __post_init__(self):
         _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
+        validate_generated_cost(self.cost, None)
+        if type(self.destroy_unchosen) is not bool:
+            raise ValueError('Unchosen deck destruction requires an explicit boolean')
+        if (self.cost is not None or self.destroy_unchosen) and (
+                self.operation != 'take' or self.zone != Zone.DECK or self.owner_id != self.player_id or
+                self.distinct != 'entity' or self.discovery is not True):
+            raise ValueError('Enriched physical deck discovery requires own-deck take with actual card discovery')
         filter_value(self.query); _source(self.source_id); name(self.prompt, 'choice prompt')
         if type(self.discovery) is not bool:
             raise ValueError('Zone discovery requires explicit genuine-card intent')
@@ -665,6 +674,46 @@ class ChooseFromZone(Effect):
             raise ValueError('Discard choice requires hand cards')
         if self.operation in ('top', 'bottom') and self.zone != Zone.DECK:
             raise ValueError('Reposition choice requires deck cards')
+
+
+@dataclass(frozen=True)
+class DeckTakeOffer:
+    card: CardReference
+    face: CardPreview
+
+    def __post_init__(self):
+        reference_value(self.card)
+        if self.card.zone != Zone.DECK or type(self.face) is not CardPreview:
+            raise ValueError('Deck discovery requires its original stored card and preview')
+        self.face.__post_init__()
+
+
+@dataclass(frozen=True)
+class SelectDeckTake(Effect):
+    request: ChooseFromZone
+    offered: tuple[DeckTakeOffer, ...]
+    index: int
+    result: ChoiceResult | None = None
+
+    def __post_init__(self):
+        if type(self.request) is not ChooseFromZone:
+            raise ValueError('Deck selection requires its actual original zone request')
+        self.request.__post_init__()
+        if self.request.cost is None and not self.request.destroy_unchosen:
+            raise ValueError('Plain zone choices retain their original delivery')
+        if type(self.offered) is not tuple or not self.offered or any(type(x) is not DeckTakeOffer for x in self.offered):
+            raise ValueError('Deck selection requires its complete ordered original offers')
+        for offer in self.offered:
+            offer.__post_init__()
+            if offer.card.player_id != self.request.player_id:
+                raise ValueError('Deck selection borrowed another original owner')
+        if len({x.card.entity_id for x in self.offered}) != len(self.offered):
+            raise ValueError('Deck discovery repeated a physical offered card')
+        integer(self.index, 'selected deck offer', 0)
+        if self.index >= len(self.offered):raise ValueError('Selected deck offer is outside its original inventory')
+        if self.result is not None:
+            if type(self.result) is not ChoiceResult:raise ValueError('Deck selection requires its actual result')
+            self.result.__post_init__()
 
 
 @dataclass(frozen=True)
@@ -1114,9 +1163,68 @@ def sample_zone_choices(r, effect):
     return offered
 
 
+def deck_take_options(registry, request, offered):
+    return tuple(ChoiceOption(f'zone-{index+1}', registry.card(offer.card.card_id).name,
+        (SelectDeckTake(request, offered, index),), card_id=offer.card.card_id, preview=offer.face)
+        for index, offer in enumerate(offered))
+
+
+def select_deck_take(r, effect):
+    effect.__post_init__()
+    from .card_discoveries import require_original_result
+    from .discovery_delivery import MaterializeDiscoveredCard
+    from .model import ChoicePurpose
+    request = effect.request
+    source_exists(r, request.source_id)
+    if effect.result is None:
+        raise ResolutionError('Enriched deck selection requires its actual committed discovery')
+    require_original_result(r.state, effect.result)
+    choice = effect.result.choice
+    if (choice.purpose != ChoicePurpose.CARD_DISCOVERY or
+            (choice.player_id, choice.source_id, choice.prompt) != (request.player_id, request.source_id, request.prompt) or
+            choice.options != tuple(o.item for o in deck_take_options(r.registry, request, effect.offered)) or
+            effect.result.selected_ids != (f'zone-{effect.index+1}',)):
+        raise ResolutionError('Deck selection changed its original complete request or offers')
+    selected = effect.offered[effect.index].card
+    work = (ModifyStoredCost(selected, request.cost, request.source_id),) if request.cost is not None else ()
+    work += (MaterializeDiscoveredCard(effect.result,
+        MoveCard(selected, request.player_id, Zone.HAND, source_id=request.source_id)),)
+    others = tuple(o.card for i, o in enumerate(effect.offered) if i != effect.index)
+    if request.destroy_unchosen and others:
+        work += (DestroyDeckBatch(others, request.source_id),)
+    return work
+
+
+def validate_deck_take_choice(game):
+    choice, frame = game._state.pending_choice, game._frame
+    if choice is None or not any(type(e) is SelectDeckTake for o in frame.options for e in o.effects):
+        return
+    branches = tuple(o.effects[0] for o in frame.options if len(o.effects) == 1 and type(o.effects[0]) is SelectDeckTake)
+    if len(branches) != len(frame.options) or not branches:
+        raise ValueError('Deck discovery lost an original physical branch')
+    first = branches[0]
+    first.__post_init__()
+    from .model import ChoicePurpose
+    if (choice.purpose != ChoicePurpose.CARD_DISCOVERY or choice.min_count != 1 or choice.max_count != 1 or
+            choice.repeat_key is not None or frame.on_select is not None or
+            (choice.player_id, choice.source_id, choice.prompt) !=
+                (first.request.player_id, first.request.source_id, first.request.prompt) or
+            frame.options != deck_take_options(game.registry, first.request, first.offered)):
+        raise ValueError('Deck discovery disagrees with its original complete offered material')
+    for offer in first.offered:
+        entity = game._state.entities.get(offer.card.entity_id)
+        if entity is None or CardReference.capture(entity) != offer.card or CardPreview.capture(entity) != offer.face:
+            raise ValueError('Deck discovery no longer matches its actual original physical preview')
+
+
 def choose_from_zone(r, effect):
     offered=sample_zone_choices(r,effect)
     if not offered:return ()
+    if effect.cost is not None or effect.destroy_unchosen:
+        from .model import ChoicePurpose
+        original = tuple(DeckTakeOffer(card, CardPreview.capture(r.state.entities[card.entity_id])) for card in offered)
+        return (RequestChoice(effect.player_id, deck_take_options(r.registry, effect, original), source_id=effect.source_id,
+            prompt=effect.prompt, purpose=ChoicePurpose.CARD_DISCOVERY),)
     options = []
     for index, card in enumerate(offered, 1):
         if effect.operation == 'copy_base':
@@ -1185,6 +1293,8 @@ def modify_stored_cost(r,effect):
 
 
 def register_zones(mechanics):
+    mechanics.register_payload_type(DeckTakeOffer)
+    mechanics.register(SelectDeckTake, select_deck_take)
     mechanics.register_payload_type(CapturedCardCopyMaterial)
     mechanics.register(ModifyStoredCost,modify_stored_cost)
     mechanics.register_payload_type(CardReference)
