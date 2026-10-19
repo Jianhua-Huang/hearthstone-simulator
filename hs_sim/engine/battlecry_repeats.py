@@ -23,9 +23,12 @@ def capture_plan_from_state(state, registry, player_id, recipient):
     _player(player_id)
     repetitions = 1
     contributors = []
-    for entity_id in state.players[player_id].board:
+    for entity_id in (*state.players[player_id].board,*state.players[player_id].hero_power_ids):
         entity = state.entities[entity_id]
-        if entity.kind != CardType.MINION or not entity.active or entity.doomed or entity.health <= 0:
+        if entity.kind==CardType.HERO_POWER:
+            from .passive_hero_powers import repeat_source_matches
+            if not repeat_source_matches(state,registry,entity,recipient):continue
+        elif entity.kind != CardType.MINION or not entity.active or entity.doomed or entity.health <= 0:
             continue
         for ability in active_abilities(entity, 'battlecry_repeat'):
             spec = ability.battlecry_repeat
@@ -66,7 +69,7 @@ def validate_plan(state, registry, plan, recipient):
         raise ValueError('Invalid captured Battlecry repeat contributor')
     # Sources may legitimately have been silenced, consumed or removed later.
     # An identity that still survives must nevertheless retain its own family;
-    # a Hero Power or other attachment ID cannot stand in for a BC policy.
+    # A raw skill entity ID or unrelated attachment cannot stand in for a BC policy.
     from .spell_acceptance import _live_attachments
     live = _live_attachments(state)
     known = []

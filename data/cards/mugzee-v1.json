@@ -1,0 +1,543 @@
+{
+  "batch": "K292",
+  "task": {
+    "schema": 1,
+    "batch": "K292-mugzee",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k291-lost-city/inventory-01.json",
+    "candidate_inventory_sha256": "5fd44747e34f2dca24eb24d5fd6539da5fd0e45c6194294d5f35d91a4ac33287",
+    "roots": [
+      "JAIL_800"
+    ],
+    "dependencies": [
+      "JAIL_800hp1",
+      "JAIL_800hp2"
+    ],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "JAIL_800e",
+      "JAIL_800hp1e",
+      "JAIL_800hp2e"
+    ],
+    "official_ids": [
+      "JAIL_800",
+      "JAIL_800hp1",
+      "JAIL_800hp2"
+    ],
+    "numeric_normalizations": {
+      "JAIL_800hp1": {
+        "cost": 0
+      },
+      "JAIL_800hp2": {
+        "cost": 0
+      }
+    },
+    "display_normalizations": {
+      "JAIL_800hp1": {
+        "@": ""
+      },
+      "JAIL_800hp2": {
+        "@": "",
+        "{0}": ""
+      }
+    },
+    "effect_groups": [
+      {
+        "effect": "Actual original opening eligibility installs passive Mug/Zee powers; native first-minion price after third owner turn and every-fifth-minion Battlecry max plan. No invented combinations.",
+        "cards": [
+          "JAIL_800"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/mugzee_card.py",
+      "data/cards/mugzee-v1.json",
+      "tests/test_mugzee_card.py"
+    ]
+  },
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_800",
+        "dbf_id": 126416,
+        "name": "穆格·兹伊",
+        "name_en": "Mug'Zee",
+        "text": "<b>对战开始时：</b>如果你的套牌中没有其他随从牌，获得穆格的英雄技能。如果没有法术牌，获得兹伊的技能！",
+        "text_en": "[x]<b>Start of Game:</b> If your deck\nhas no other minions, get\nMug's Hero Power. If it has\nno spells, get Zee's!",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "START_OF_GAME_KEYWORD": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "MUG_ZEE": 1,
+          "4818": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4818"
+          }
+        ]
+      },
+      "record_sha256": "6c9a0e0137d95314dded09bfb23154c3eaf2c6b719c5b658b26b4a260c83e5f5"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_800hp1",
+        "dbf_id": 127468,
+        "name": "穆格的魔法",
+        "name_en": "Mug's Magic",
+        "text": "<b>被动</b>\n每回合中，你的第一个随从法力值消耗减少（2）点。<i>（第3回合解锁）</i>@<b>被动</b>\n每回合中，你的第一个随从法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Passive</b>\nYour first minion each\nturn costs (2) less.\n<i>(Unlocks on Turn 3.)</i>@[x]<b>Passive</b>\nYour first minion each\nturn costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 10,
+          "HIDE_COST": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126416,
+          "LOCK_VISUAL": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "f3dc409398396926b64767b76d8da9fa245018c58bf0ba3696930ff63ec868cc"
+    },
+    {
+      "record": {
+        "id": "JAIL_800hp2",
+        "dbf_id": 127476,
+        "name": "兹伊的力量",
+        "name_en": "Zee's Might",
+        "text": "<b><b>被动</b></b>\n你每使用五张随从牌，第五个随从的<b>战吼</b>会触发两次。@<i>（还剩{0}个！）</i>@<i>（已经就绪！）</i>",
+        "text_en": "[x]<b><b>Passive</b></b>\nEvery fifth minion you\nplay triggers its <b>Battlecry</b>\ntwice.@ <i>({0} left!)</i>@ <i>(Ready!)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 10,
+          "CUSTOM_KEYWORD_EFFECT": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126416,
+          "ENTITY_TAG_THRESHOLD_TAG_ID": 2,
+          "ENTITY_TAG_THRESHOLD_VALUE": 5,
+          "BACON_TRIGGER_UPBEAT": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "7b49c6e6c3b62235005236038ee7842ec6b9c825c19e2f559a74380c1900bc70"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_800e",
+        "dbf_id": 126417,
+        "name": "杯卑磕砸",
+        "name_en": "Mean Mug",
+        "text": "在本局对战中，每回合中你的第一个随从法力值消耗减少（2）点。",
+        "text_en": "Your first minion each turn costs (2) less this game.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e07d013ed33ce0e22f4b4be08bef1f9b7e18862615077a076c6c3473dcf2a65b"
+    },
+    {
+      "record": {
+        "id": "JAIL_800hp1e",
+        "dbf_id": 127533,
+        "name": "穆格的魔法",
+        "name_en": "Mug's Magic",
+        "text": "你使用的下一张随从牌法力值消耗减少（2）点。",
+        "text_en": "The next minion you play costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 6,
+          "CANT_BE_SILENCED": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "67d11d40df728df5c60624f0da7bec33d102c7c609203c08b2f1899be8230650"
+    },
+    {
+      "record": {
+        "id": "JAIL_800hp2e",
+        "dbf_id": 127477,
+        "name": "兹伊的战吼翻倍",
+        "name_en": "Zee Battlecry Doubler",
+        "text": "你的下一个随从的<b>战吼</b>会触发两次。",
+        "text_en": "Your next minion's <b>Battlecry</b> triggers twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "71e169d4cabc4c0e8844c1b40b79f1d49c5ac69aa0a40b2bb5134e2b9e23e15b"
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_800",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126416-zh_CN.json",
+      "response_sha256": "84c0dbf9f1a722f736d167e82167f4633acbc84b5be10cb87fbd050c9657ede2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126416&locale=zh_CN",
+      "face": {
+        "id": 126416,
+        "collectible": 1,
+        "slug": "126416-mugzee",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "穆格·兹伊",
+        "text": "<b>对战开始时：</b>如果你的套牌中没有其他随从牌，获得穆格的英雄技能。如果没有法术牌，获得兹伊的技能！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/affd82a531552b7843e2f9a8dc8ac8e3e2bd982a059c369e5a3b2ec81a2c627a.png",
+        "imageGold": "",
+        "flavorText": "穆格·兹伊在加乐宫一炮打响之前，他在加基森给那些财团办过不少事。这么说吧，他回不去了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e2381608b79d9c3e7024bc93b4f2860877b16f695e4f830c10b74f2d6d06ffd.png",
+        "childIds": [
+          127468,
+          127476
+        ],
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126416&locale=zh_CN",
+        "sha256": "84c0dbf9f1a722f736d167e82167f4633acbc84b5be10cb87fbd050c9657ede2",
+        "bytes": 976,
+        "observed_at": "2026-10-19T23:42:20.712596+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_800",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126416-en_US.json",
+      "response_sha256": "78b40dd7b015a4b8b8765db3a8d74063ed0d7ab07c17e00ae6f28a189c65484e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126416&locale=en_US",
+      "face": {
+        "id": 126416,
+        "collectible": 1,
+        "slug": "126416-mugzee",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Mug'Zee",
+        "text": "<b>Start of Game:</b> If your deck has no other minions, get Mug's Hero Power. If it has no spells, get Zee's!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0952a0b7158c94d59398dea3f6b4bb116aabab9b4995e751ca3077af5c58bde3.png",
+        "imageGold": "",
+        "flavorText": "Before he hit the big time at The Gallagio, Mug’Zee did a bit of work for the cartels back in Gadgetzan. Let’s just say he won’t be going back.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e2381608b79d9c3e7024bc93b4f2860877b16f695e4f830c10b74f2d6d06ffd.png",
+        "childIds": [
+          127468,
+          127476
+        ],
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126416&locale=en_US",
+        "sha256": "78b40dd7b015a4b8b8765db3a8d74063ed0d7ab07c17e00ae6f28a189c65484e",
+        "bytes": 952,
+        "observed_at": "2026-10-19T23:42:20.675961+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_800hp1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127468-zh_CN.json",
+      "response_sha256": "d3e9e09d853e7c852f945526e28b8c6724745a021faf5af8d81acd9ffa4e5f64",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127468&locale=zh_CN",
+      "face": {
+        "id": 127468,
+        "collectible": 0,
+        "slug": "127468-mugs-magic",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Vlad Botos",
+        "manaCost": 0,
+        "name": "穆格的魔法",
+        "text": "<b>被动</b> 每回合中，你的第一个随从法力值消耗减少（2）点。<i>（第3回合解锁）</i> <b>被动</b> 每回合中，你的第一个随从法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76c22711fb767b5d6df521d14370b081b7e255505b08645109e330902116885e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126416,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127468&locale=zh_CN",
+        "sha256": "d3e9e09d853e7c852f945526e28b8c6724745a021faf5af8d81acd9ffa4e5f64",
+        "bytes": 718,
+        "observed_at": "2026-10-19T23:42:20.365179+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_800hp1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127468-en_US.json",
+      "response_sha256": "535020812b057e2fd21cc1c2696de27c01088ea75be327c63ec9fe17a5084d3f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127468&locale=en_US",
+      "face": {
+        "id": 127468,
+        "collectible": 0,
+        "slug": "127468-mugs-magic",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Vlad Botos",
+        "manaCost": 0,
+        "name": "Mug's Magic",
+        "text": "<b>Passive</b> Your first minion each turn costs (2) less. <i>(Unlocks on Turn 3.)</i> <b>Passive</b> Your first minion each turn costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aed20c362196b522538c1cb6d1053fda3196838f59110c141cdbf70e272e955b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126416,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127468&locale=en_US",
+        "sha256": "535020812b057e2fd21cc1c2696de27c01088ea75be327c63ec9fe17a5084d3f",
+        "bytes": 661,
+        "observed_at": "2026-10-19T23:42:20.471970+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_800hp2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127476-zh_CN.json",
+      "response_sha256": "e2d15b7a24be073ed6aeaac1d87828f4cbd5461d3b2c87b21f9dea2bd6f6aeb7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127476&locale=zh_CN",
+      "face": {
+        "id": 127476,
+        "collectible": 0,
+        "slug": "127476-zees-might",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 0,
+        "name": "兹伊的力量",
+        "text": "<b><b>被动</b></b> 你每使用五张随从牌，第五个随从的<b>战吼</b>会触发两次。 <i>（还剩 个！）</i> <i>（已经就绪！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e4c9c770cb4019e5f5570cd3fc922645f398d04e218ff96f58dd89b5fa49939.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126416,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127476&locale=zh_CN",
+        "sha256": "e2d15b7a24be073ed6aeaac1d87828f4cbd5461d3b2c87b21f9dea2bd6f6aeb7",
+        "bytes": 682,
+        "observed_at": "2026-10-19T23:42:21.938420+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_800hp2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127476-en_US.json",
+      "response_sha256": "30a217f8bc70b83b4179f4cdf72d201e40e028bd3c57d85e5114f5a8603d3c96",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127476&locale=en_US",
+      "face": {
+        "id": 127476,
+        "collectible": 0,
+        "slug": "127476-zees-might",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 0,
+        "name": "Zee's Might",
+        "text": "<b><b>Passive</b></b> Every fifth minion you play triggers its <b>Battlecry</b> twice. <i>( left!)</i> <i>(Ready!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c6a6e88b334bdb4a43a8eae87b1cf6c571804f5bf242e8cb466f8ecd841491b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126416,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127476&locale=en_US",
+        "sha256": "30a217f8bc70b83b4179f4cdf72d201e40e028bd3c57d85e5114f5a8603d3c96",
+        "bytes": 640,
+        "observed_at": "2026-10-19T23:42:22.223526+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "opening_basis": "original submitted main deck; exclude original MugZee identity when testing other minions",
+    "mug_unlock": "third actual owner turn, not current max mana",
+    "zee_ordinal": "committed minion hand roots including the current root, modulo five; prior nonbattlecry/countered minions count",
+    "simultaneous_powers": "Mug primary then Zee additional; independent original eligibility",
+    "prohibition": "use existing shared hero power prohibition",
+    "cn_calibrated": false
+  }
+}

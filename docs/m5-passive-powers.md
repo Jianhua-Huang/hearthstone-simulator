@@ -1,5 +1,7 @@
 # M5-12c-03a：被动英雄技能与首张匹配出牌
 
+穆格·兹伊的两种真实被动技能扩展为装备中的原生费用/战吼来源，无需伪造监听主体；手动禁止与原技能槽复用。有限资格及原历史见[契约](m3-mugzee-passive-powers.md)。
+
 以下为03a原批次记录：`prototype-v75` / `core-effects-v75`、snapshot schema 74、`representative-m5-v38`、`player-view-v44`；旧 1～71 快照明确拒绝，玩家命令 v6、外层 replay 1 保持。[54 项专项](../tests/test_m5_passive_powers.py)内部通过，完整回归结果见 [项目状态](project-status.md)。03a 是 03 的一个公共依赖增量，八技能已有实验适配，该原批次当时未覆盖额外技能；后续已由[多技能契约](m5-multiple-powers.md)扩展独立槽位、安装/移除和用途生命周期，实际主体身份见[技能主体契约](m5-power-payloads.md)。这些公共入口不等于所有来源或精确国服规则已验收。
 
 ## 被动与主动声明

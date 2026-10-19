@@ -1903,6 +1903,8 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 满场跨本人回合任务可用QUEST_FULL_BOARD_TURNS，满手后空手任务可用QUEST_FULL_THEN_EMPTY_HAND及目标2；它们是有限订阅，回调仍返回原AdvanceQuest与原具名奖励。不要枚举所有手牌变化事件或另设计数器，具体接受窗与保存见[契约](m3-quest-area-state.md)。
 
 
+原生被动技能的首随从减费和每第五张战吼只登记PassiveHeroPowerProfile，不另装整局计数器。使用原技能槽、费用事实及max计划；声明与保存边界见[契约](m3-mugzee-passive-powers.md)。
+
 Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基础；固定两张/余集分配使用SplitFixedRewards，保持完整原奖励域。接口及待校准范围见[契约](m3-lost-city-rewards.md)。
 
 任务奖励行为中的直接AddToHand沿原完成原因接受容量等待；后续定制回调须显式携带原原因，不将任意造牌改为补发。有限范围及边界见[契约](m3-quest-hand-rewards.md)。

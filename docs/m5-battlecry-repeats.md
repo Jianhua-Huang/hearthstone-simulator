@@ -1,5 +1,7 @@
 # M5-13d-02a：场上战吼重复与独立批次
 
+兹伊的真实被动技能按原随从出牌序号向既有max计划贡献一次原生声明，接受后不因换技能而改次数。有限技能来源与校准边界见[契约](m3-mugzee-passive-powers.md)。
+
 此场上重复增量交付时为 `prototype-v74` / `core-effects-v74`、snapshot schema 73、representative-m5-v37；观察 v43、命令 v7、外层 replay 1 保持。旧快照 1～72 明确拒绝。本篇保留场上增量的历史验收；玩家次数/期限已由[13d-02b](m5-battlecry-modifiers.md)扩展，真实抑制与间接/历史来源继续归M5。
 
 ## 声明与捕获

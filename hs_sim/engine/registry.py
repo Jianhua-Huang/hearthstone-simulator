@@ -152,6 +152,7 @@ class Registry:
         self._assemble_templates = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
+        self._passive_hero_power_profiles = {}
         self._kindred_profiles: dict[str, KindredProfile] = {}
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
@@ -353,6 +354,16 @@ class Registry:
 
     @property
     def minion_base_stats_profiles(self):return MappingProxyType(self._minion_base_stats_profiles)
+
+    @property
+    def passive_hero_power_profiles(self):return MappingProxyType(self._passive_hero_power_profiles)
+
+    def register_passive_hero_power_profile(self,profile):
+        self._require_mutable()
+        from .passive_hero_powers import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._passive_hero_power_profiles:raise ValueError('Duplicate passive power profile')
+        self._passive_hero_power_profiles[profile.card_id]=profile
 
     def register_minion_base_stats_profile(self,profile):
         self._require_mutable()
@@ -1542,7 +1553,8 @@ class Registry:
         if (not isinstance(card.cost_auras, tuple) or any(type(a) is not CostAuraSpec for a in card.cost_auras)):
             raise ValueError('cost_auras must be a tuple of CostAuraSpec')
         if card.cost_auras and card.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION) and not (
-                card.kind == CardType.SPELL and all(a.hand_adjacent for a in card.cost_auras)):
+                card.kind == CardType.SPELL and all(a.hand_adjacent for a in card.cost_auras)) and not (
+                card.kind==CardType.HERO_POWER and card.passive_hero_power):
             raise ValueError('Cost auras require a minion, weapon or location')
         for aura in card.cost_auras:
             aura.__post_init__()
@@ -1589,7 +1601,7 @@ class Registry:
         if (type(card.battlecry_repeats) is not tuple or
                 any(type(a) is not BattlecryRepeatSpec for a in card.battlecry_repeats)):
             raise ValueError('battlecry_repeats requires a tuple of BattlecryRepeatSpec')
-        if card.battlecry_repeats and card.kind != CardType.MINION:
+        if card.battlecry_repeats and card.kind != CardType.MINION and not(card.kind==CardType.HERO_POWER and card.passive_hero_power):
             raise ValueError('Battlecry repeat aura sources must be minions')
         for spec in card.battlecry_repeats: spec.__post_init__()
         from .model import ComboRepeatSpec
@@ -1662,7 +1674,7 @@ class Registry:
         if type(card.passive_hero_power) is not bool:
             raise ValueError('passive_hero_power must be boolean')
         if card.passive_hero_power and (card.kind != CardType.HERO_POWER or card.on_use is not None or
-                not card.triggers or card.cost != 0 or card.uses_per_turn != 1 or card.use_rule != 'always' or
+                not(card.triggers or card.cost_auras or card.battlecry_repeats) or card.cost != 0 or card.uses_per_turn != 1 or card.use_rule != 'always' or
                 card.requires_board_space or card.requires_target or card.targeting is not None or
                 card.target_rule != 'any_entity' or card.rewind is not None):
             raise ValueError('Passive powers require triggers and no manual activation declaration')
@@ -1741,6 +1753,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .passive_hero_powers import validate_profile as validate_passive_power_profile
+        for profile in self._passive_hero_power_profiles.values():validate_passive_power_profile(self,profile)
         from .minion_base_programs import validate_profile as validate_minion_base_profile
         for profile in self._minion_base_stats_profiles.values():validate_minion_base_profile(self,profile)
         from .consumed_cards import validate_profile as validate_consumption_profile
@@ -1954,6 +1968,8 @@ class Registry:
                 if limb.kind!=CardType.MINION or limb.choice_only or limb.starship_for or limb.colossal:
                     raise ValueError('Appendages must be physical, non-composite, non-Colossal minions')
             self._validate_card(card)
+            from .passive_hero_powers import validate_declared_card as validate_passive_declared_card
+            validate_passive_declared_card(self,card)
             for spec in (*card.spell_repeats, *card.battlecry_repeats,
                          *card.combo_repeats, *card.deathrattle_repeats,
                          *card.hero_power_repeats, *card.end_turn_repeats):
@@ -2195,5 +2211,7 @@ class Registry:
             payload['player_target_rules'] = [asdict(self._player_target_rules[i]) for i in sorted(self._player_target_rules)]
         if self._minion_base_stats_profiles:
             payload['minion_base_stats_profiles']=[asdict(self._minion_base_stats_profiles[k])for k in sorted(self._minion_base_stats_profiles)]
+        if self._passive_hero_power_profiles:
+            payload['passive_hero_power_profiles']=[asdict(self._passive_hero_power_profiles[k])for k in sorted(self._passive_hero_power_profiles)]
         serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(serialized.encode("utf-8")).hexdigest()

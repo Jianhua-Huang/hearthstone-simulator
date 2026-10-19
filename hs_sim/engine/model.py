@@ -11459,13 +11459,15 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                     raise ValueError('Invalid attack policy carrier')
                 if (isinstance(attachment, AbilityInstance) and attachment.kind == 'cost_aura' and
                         entity.kind not in (CardType.MINION, CardType.WEAPON, CardType.LOCATION) and not (
-                            entity.kind == CardType.SPELL and attachment.cost_aura.hand_adjacent)):
+                            entity.kind == CardType.SPELL and attachment.cost_aura.hand_adjacent) and not (
+                            entity.kind==CardType.HERO_POWER and entity.card_id in registry.passive_hero_power_profiles)):
                     raise ValueError('Invalid cost aura carrier')
                 if (isinstance(attachment,AbilityInstance) and attachment.end_turn_spec is not None and
                         entity.kind not in (CardType.MINION,CardType.WEAPON,CardType.LOCATION,CardType.HERO_POWER,CardType.HERO)):
                     raise ValueError('Invalid classified end-turn carrier')
                 if (isinstance(attachment, AbilityInstance) and attachment.kind in ('spell_repeat','battlecry_repeat','combo_repeat','deathrattle_repeat','hero_power_repeat','end_turn_repeat') and
-                        entity.kind != CardType.MINION):
+                        entity.kind != CardType.MINION and not(entity.kind==CardType.HERO_POWER and
+                            attachment.kind=='battlecry_repeat'and entity.card_id in registry.passive_hero_power_profiles)):
                     raise ValueError('Invalid spell repeat aura carrier')
                 if isinstance(attachment, AbilityInstance) and attachment.kind=='card_spell_repeat' and entity.kind!=CardType.SPELL:
                     raise ValueError('Invalid card spell repeat carrier')
@@ -11719,6 +11721,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_quest_hand_rewards(state,registry)
     from .minion_base_programs import validate_shape as validate_minion_base_programs
     validate_minion_base_programs(state,registry)
+    from .passive_hero_powers import validate_state as validate_passive_hero_powers
+    validate_passive_hero_powers(state,registry)
     from .hand_deadlines import validate_shape as validate_hand_deadlines
     validate_hand_deadlines(state,registry)
     from .live_hand_spells import validate_shape as validate_live_hand_spells

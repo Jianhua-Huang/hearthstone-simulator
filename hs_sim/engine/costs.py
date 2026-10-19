@@ -213,6 +213,10 @@ def quote_generated_cost(state, registry, player_id, card_id, *, cost=None, mini
 
 def validate_cost_aura_definition(card):
     """Only the necessary native ordinary source is added to existing cost auras."""
+    if card.kind==CardType.HERO_POWER and card.cost_auras:
+        from .passive_hero_powers import validate_native_face
+        validate_native_face(card)
+        return
     held = tuple(s for s in card.cost_auras if s.hand_adjacent)
     if held and (card.kind != CardType.SPELL or len(card.cost_auras) != 1 or
             card.secret is not None or card.quest is not None or card.ongoing_effect_id is not None):
@@ -228,6 +232,10 @@ def validate_cost_aura_definition(card):
 def validate_cost_aura_carrier(registry, card_id, kind, abilities, components=()):
     rows = tuple(a for a in abilities if a.kind == 'cost_aura')
     if not rows:
+        return
+    if kind==CardType.HERO_POWER:
+        from .passive_hero_powers import validate_carrier
+        validate_carrier(registry,card_id,kind,abilities,components)
         return
     native=registry.cards.get(card_id)
     if native is not None and native.native_condition is not None or any(a.native_condition is not None for a in rows):
@@ -297,6 +305,8 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         None, modifier=m)) for m in player.cost_modifiers if m.scope == CostScope.CARD]
     sources = [i for owner in state.players.values()
                for i in (*owner.board, *([owner.weapon_id] if owner.weapon_id is not None else []))]
+    from .passive_hero_powers import cost_sources as passive_power_cost_sources
+    sources.extend(passive_power_cost_sources(state,registry))
     subject = state.entities.get(physical_id)
     if subject is not None and (subject.controller, subject.card_id, subject.kind) == (
             player_id, definition.id, definition.kind):

@@ -1522,6 +1522,8 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 任务区域条件以两种有限状态订阅复用原通知捕获与AdvanceQuest；当前容量和真实本人区间在分配回调前检查，原条件进入既有RuleContext快照，原实例/完成保护及奖励保持。见[任务区域状态契约](m3-quest-area-state.md)。
 
 
+真实被动英雄技能通过原CostAuraSpec和BattlecryRepeatSpec参与费用/次数管线，装备资格由有限profile声明；主/额外槽、原历史与完整接受计划复用，见[穆格·兹伊契约](m3-mugzee-passive-powers.md)。
+
 原生永久随从基础层置于普通有序属性之前，已有场上组的一次设值复用原属性执行器；完整固定奖励分配沿普通造牌和洗入。真实失落之城来源及有限边界见[契约](m3-lost-city-rewards.md)。
 
 真实任务手牌奖励在满手时保存原完成和创建配方，有空位后委托公共造牌；普通造牌溢出保持。有限来源、保存及待校准排序见[契约](m3-quest-hand-rewards.md)。
