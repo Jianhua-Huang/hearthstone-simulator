@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+地标亡语可用原`GrantDeathrattle(location_id, behavior_id, source_id)`；只接受活跃的场上地标。欢迎回家先用`RefreshLocation`清冷却，亡语以原`SummonCause.capture(context)`交给完整池召唤，见[契约](m4-locations.md#欢迎回家的亡语授予)。
+
 万能钥匙式刷新用有限`DiscoverFromPool.refresh_card_id`，传入真实choice_only控制面；一次三选普通法术发现由原选择提交保存风险，卡牌适配不自行循环、掷骰或修改发现历史。菜单材料和恢复边界见[契约](m3-skeleton-key-refresh.md)。
 
 腐毒贿赂式交付使用有限`DiscoverFromPool.paired_choose_one`；原组合分支在首次创建通知前安装，派生复制按原选中卡ID独立交付，见[契约](m3-choose-one-bribe.md)。

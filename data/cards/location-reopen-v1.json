@@ -1,0 +1,213 @@
+{
+  "batch": "K239-location-reopen",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_EVENT_997",
+        "dbf_id": 123416,
+        "name": "欢迎回家",
+        "name_en": "Welcome Home!",
+        "text": "重新开启一个地标，使其获得“<b>亡语：</b>随机召唤一个法力值消耗为（3）的随从。”",
+        "text_en": "Reopen a location. Give it \"<b>Deathrattle:</b> Summon a random\n3-Cost minion.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2c33665a18eba8a1dc11d345947ed27fc4399389485cb58f7b491422ed37e77b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_EVENT_997",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_EVENT_997e",
+        "dbf_id": 123417,
+        "name": "新的住户",
+        "name_en": "New Resident",
+        "text": "<b>亡语：</b>随机召唤一个法力值消耗为（3）的随从。",
+        "text_en": "<b>Deathrattle:</b> Summon a random 3-Cost minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "57188722354b6e6b3a7f761ee67c125bcd9e40c0c6b700f7c7eafb52201392f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_EVENT_997e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_EVENT_997",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k239-location-reopen\\official-cache-01\\123416-zh_CN.json",
+      "response_sha256": "6bf1316f97ec10488b870005f1eff18ad63ddaf95d3e9e6bfc467ab4de90d8f0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123416&locale=zh_CN",
+      "face": {
+        "id": 123416,
+        "collectible": 1,
+        "slug": "123416-welcome-home",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "欢迎回家",
+        "text": "重新开启一个地标，使其获得“<b>亡语：</b>随机召唤一个法力值消耗为（3）的随从。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/476dbc7d0ff84cb4f8086612e04457bd9809c049a59684d3a9d5edd173e352f4.png",
+        "imageGold": "",
+        "flavorText": "甩掉鞋子，点亮火炉，搓一局吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce167405b643c0e8c4b4f6f1ccd5de42fde161d23e03d868b0e2d27badee1f22.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123416&locale=zh_CN",
+        "sha256": "6bf1316f97ec10488b870005f1eff18ad63ddaf95d3e9e6bfc467ab4de90d8f0",
+        "bytes": 793,
+        "observed_at": "2026-10-19T03:13:59.266602+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_EVENT_997",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k239-location-reopen\\official-cache-01\\123416-en_US.json",
+      "response_sha256": "5fd8966cfebe0173d20ef8861f866baca70486fed59ab033e3facdb8e162214b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123416&locale=en_US",
+      "face": {
+        "id": 123416,
+        "collectible": 1,
+        "slug": "123416-welcome-home",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Welcome Home!",
+        "text": "Reopen a location. Give it \"<b>Deathrattle:</b> Summon a random 3-Cost minion.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c09da2b0086e7d6c2e6ed0f1b9ac5f294fb2741586fdc4050153664da0bf13e.png",
+        "imageGold": "",
+        "flavorText": "Kick off your boots, light the hearth, and deal a fresh hand!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce167405b643c0e8c4b4f6f1ccd5de42fde161d23e03d868b0e2d27badee1f22.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123416&locale=en_US",
+        "sha256": "5fd8966cfebe0173d20ef8861f866baca70486fed59ab033e3facdb8e162214b",
+        "bytes": 775,
+        "observed_at": "2026-10-19T03:13:59.240402+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "target": "Any actual live board location, including opponent and already open locations. Reopen clears cooldown only; it does not restore durability.",
+    "grant": "One ordinary independent permanent Deathrattle ability per successful cast, using the existing ability/source/expiry/history and natural location death machinery. No printed enchantment definition or location combat state.",
+    "summon": "Each actual Deathrattle queries the complete host version pool for collectible three-cost minions across classes and uses original deathrattle summon attribution. Unknown eligible candidates fail explicitly; empty complete pool consumes no RNG.",
+    "pending_cn": [
+      "targeting of already open locations",
+      "precise reopen and ability-grant reaction windows",
+      "location final use versus natural Deathrattle order",
+      "formal three-cost generation eligibility"
+    ],
+    "cn_calibrated": false
+  }
+}

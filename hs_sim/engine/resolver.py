@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v522'
+CORE_EFFECTS_VERSION = 'core-effects-v523'
 
 
 class Mechanics:
@@ -1861,6 +1861,12 @@ def grant_ability(r, effect):
         entity = candidate
         if isinstance(effect, GrantKeyword) and effect.keyword not in WEAPON_KEYWORDS:
             raise ResolutionError('Unsupported weapon keyword transfer')
+    elif (candidate is not None and candidate.zone == Zone.BOARD and
+            candidate.kind == CardType.LOCATION and isinstance(effect, GrantDeathrattle)):
+        if not candidate.active or candidate.durability <= 0 or candidate.doomed:
+            r.stale(effect, effect.target_id)
+            return
+        entity = candidate
     else:
         entity = r.live_character(effect.target_id) if isinstance(effect, (GrantKeyword, GrantSpellDamage)) else board_minion(r, effect)
     if entity is None:
