@@ -202,6 +202,13 @@ class FrameCodec:
         if type(value) is RotatePrintedHandBonuses and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         from .destruction_resources import DestroyMinionsForResources, CompleteDestroyedResources, validate_material as validate_destruction_resources
+        from .destruction_resummon_spells import DestroyForResummonSpells, CompleteResummonSpells, DestroyedSpellGroup, SpellResummonValue, validate_group as validate_destroyed_spell_group, validate_value as validate_resummon_value
+        if type(value) in (DestroyForResummonSpells, CompleteResummonSpells) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
+        if type(value) is DestroyedSpellGroup and self.origin_state is not None:
+            validate_destroyed_spell_group(self.origin_state, self.registry, value)
+        if type(value) is SpellResummonValue and self.origin_state is not None:
+            validate_resummon_value(self.origin_state, self.registry, value)
         if type(value) in (DestroyMinionsForResources, CompleteDestroyedResources) and self.origin_state is not None:
             validate_destruction_resources(self.origin_state, self.registry, value)
         if type(value) in (effects.ForceAttack, effects.CopyMinion) and self.origin_state is not None:

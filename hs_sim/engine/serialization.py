@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 441
+SNAPSHOT_SCHEMA_VERSION = 442
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -308,6 +308,9 @@ def _hand_progress_spec(value):
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['spell_resummon_value'] is not None:
+        from .destruction_resummon_spells import value_from_dict
+        row['spell_resummon_value'] = value_from_dict(row['spell_resummon_value'])
     if row['deathrattle_inherited_from'] is not None:
         row['deathrattle_inherited_from']=tuple(_list(row['deathrattle_inherited_from'],'inherited physical Deathrattle'))
     if row['spell_base_value'] is not None:

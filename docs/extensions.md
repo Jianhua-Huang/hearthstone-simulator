@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实清场生成原组召回法术时，用DestroyForResummonSpells连接注册的SpellResummonProfile；奖励沿有限原生参数绑定，不从后来死亡总表或卡牌层可变列表重建。普通复活、当前复制及历史继承见[原消灭组契约](m3-destruction-resummon-spells.md)。
+
 真实手牌猜牌使用有限GuessOpponentHandCard，不套用全真手牌检视或直接记住对手实体。奖励用原MinionReference连接既有BuffCapturedMinion；原牌库候选、私有答案和本地政策见[猜牌契约](m3-hand-guess.md)。
 
 真实临时牌任务使用原完成PlayRecord及submitted_cost.quote.quote_input.hand_lifetime，不从离手后的实体或卡名猜测。裂隙投牌委托原交互物，召唤携带原物体SummonCause；不要伪造弃牌或另写使用次数，见[配方契约](m3-underfel-rift.md)。

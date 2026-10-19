@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "batch": "K269-ectoplasmic-execution",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_805",
+        "dbf_id": 127092,
+        "name": "灵质处决",
+        "name_en": "Slime 'em!",
+        "text": "消灭所有随从。每个\n玩家各获取一张法力值消耗\n为（3）的法术牌，该法术可以重新召唤其\n被消灭的随从。",
+        "text_en": "[x]Destroy all minions.\nEach player gets a\n3-Cost spell that\nresummons theirs.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 127118,
+          "SPELL_SCHOOL": 6,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "dfe85f9f72d25bb63ebf7693ff09f5caf7a2aa182b956da2a6bc727982583491",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CAP_805",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CAP_805t",
+        "dbf_id": 127118,
+        "name": "灵质",
+        "name_en": "Ectoplasm",
+        "text": "重新召唤被本次灵质处决消灭的所有友方随从。",
+        "text_en": "Resummon all\nfriendly minions that were slimed.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "7061647fd3dddab468d36d4bd596cc1d4dc1e14e07af02b0074da9feb94c3724",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_805t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CAP_805",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127092-zh_CN.json",
+      "response_sha256": "27acee3e855a478041aad8e0a44b941f6618276565da74d61c561afcafb62319",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127092&locale=zh_CN",
+      "face": {
+        "id": 127092,
+        "collectible": 1,
+        "slug": "127092-slime-em",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Vika Yarova",
+        "manaCost": 4,
+        "name": "灵质处决",
+        "text": "消灭所有随从。每个 玩家各获取一张法力值消耗 为（3）的法术牌，该法术可以重新召唤其 被消灭的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b854d8af61e8920c8855143ca9b5337203edae774e447c650df1d36a2b94badd.png",
+        "imageGold": "",
+        "flavorText": "“天呐……太灵了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/821aa5ae533777d00767f14fe5785cb9a660f487534cdff68226ce22512a8f9c.png",
+        "childIds": [
+          127118
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127092&locale=zh_CN",
+        "sha256": "27acee3e855a478041aad8e0a44b941f6618276565da74d61c561afcafb62319",
+        "bytes": 820,
+        "observed_at": "2026-10-19T14:19:30.280189+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_805",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127092-en_US.json",
+      "response_sha256": "8a6e785de9bcf9bf2834120ed476d498d6d0a52a5ca29b9402bc20e9354516a4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127092&locale=en_US",
+      "face": {
+        "id": 127092,
+        "collectible": 1,
+        "slug": "127092-slime-em",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Vika Yarova",
+        "manaCost": 4,
+        "name": "Slime 'em!",
+        "text": "Destroy all minions. Each player gets a 3-Cost spell that resummons theirs.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/816a30a382a93513085314a2a03bc5c0b41979462d2fab682768acd7251f5ebd.png",
+        "imageGold": "",
+        "flavorText": "\"Hell... it's about slime!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/821aa5ae533777d00767f14fe5785cb9a660f487534cdff68226ce22512a8f9c.png",
+        "childIds": [
+          127118
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127092&locale=en_US",
+        "sha256": "8a6e785de9bcf9bf2834120ed476d498d6d0a52a5ca29b9402bc20e9354516a4",
+        "bytes": 750,
+        "observed_at": "2026-10-19T14:19:22.339574+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_805t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127118-zh_CN.json",
+      "response_sha256": "0144d613fb2971c76a7745de964fe352bbee5d81431912702ee4b637d290ab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127118&locale=zh_CN",
+      "face": {
+        "id": 127118,
+        "collectible": 0,
+        "slug": "127118-ectoplasm",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "manaCost": 3,
+        "name": "灵质",
+        "text": "重新召唤被本次灵质处决消灭的所有友方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/018c25f546c0fb38728dc66f6efae0193c578f5794cdc18f39972d3ae86ed98a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127092,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127118&locale=zh_CN",
+        "sha256": "0144d613fb2971c76a7745de964fe352bbee5d81431912702ee4b637d290ab38",
+        "bytes": 591,
+        "observed_at": "2026-10-19T14:19:22.247410+00:00"
+      }
+    },
+    {
+      "card_id": "CAP_805t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\127118-en_US.json",
+      "response_sha256": "7e299a5b763cf17a99ae42e4f72ebe04b91a356259883ca83fbc0d944e4ea54d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127118&locale=en_US",
+      "face": {
+        "id": 127118,
+        "collectible": 0,
+        "slug": "127118-ectoplasm",
+        "classId": 6,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "manaCost": 3,
+        "name": "Ectoplasm",
+        "text": "Resummon all friendly minions that were slimed.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d58663401a523702c576c6a2320b7623aedbed6d88b9165510f173a551630995.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127092,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127118&locale=en_US",
+        "sha256": "7e299a5b763cf17a99ae42e4f72ebe04b91a356259883ca83fbc0d944e4ea54d",
+        "bytes": 578,
+        "observed_at": "2026-10-19T14:19:22.064510+00:00"
+      }
+    }
+  ],
+  "source_verified": true,
+  "official_faces_verified": 4,
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "policy": {
+    "original_group": "Capture all active living non-doomed original board minions together; use original DestroyBatch and genuine original destruction causes, including empty groups.",
+    "reward": "One native parameterized three-cost Ectoplasm per original player; original caster receives first; original side stays frozen when copied or stolen.",
+    "resummon": "Original side board order, ordinary base resurrection into current spell caster board; later Deathrattle/Reborn/other deaths are not added; normal summon quantities/capacity/lifecycle.",
+    "local_policies_pending_cn": [
+      "exact notification and recipient delivery order",
+      "left-to-right resummon order",
+      "deferred-death window and special printed resurrection forms",
+      "copied/stolen/whole-card/historical casts follow existing physical native value pipeline"
+    ]
+  }
+}

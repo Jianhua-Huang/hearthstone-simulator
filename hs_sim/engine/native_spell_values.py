@@ -15,6 +15,9 @@ class SpellBaseDamageProfile:
 
 
 def validate_profile(registry,profile):
+    from .destruction_resummon_spells import SpellResummonProfile, validate_profile as validate_resummon_profile
+    if type(profile) is SpellResummonProfile:
+        return validate_resummon_profile(registry, profile)
     from .retained_spell_damage import ReturningDamageProfile, validate_profile as validate_returning
     if type(profile) is ReturningDamageProfile:
         return validate_returning(registry,profile)
@@ -28,6 +31,9 @@ def validate_profile(registry,profile):
 
 
 def validate_ability(state,registry,ability):
+    if ability.kind == 'spell_resummon_value':
+        from .destruction_resummon_spells import validate_ability as validate_resummon_ability
+        return validate_resummon_ability(state, registry, ability)
     if ability.kind == 'spell_stat_value':
         from .destruction_spell_values import validate_ability as validate_stat_ability
         return validate_stat_ability(state, registry, ability)
@@ -49,12 +55,13 @@ def validate_ability(state,registry,ability):
         raise ValueError('Native spell value borrowed an unrelated source body')
 
 
-VALUE_KINDS = ('spell_base_value', 'spell_stat_value')
+VALUE_KINDS = ('spell_base_value', 'spell_stat_value', 'spell_resummon_value')
 
 
 def ability_value(ability):
     if ability.kind == 'spell_base_value': return ability.spell_base_value
     if ability.kind == 'spell_stat_value': return ability.spell_stat_value
+    if ability.kind == 'spell_resummon_value': return ability.spell_resummon_value
     raise ValueError('Expected a complete native spell value ability')
 
 
@@ -74,6 +81,9 @@ def validate_carrier(state,registry,card_id,kind,abilities):
 
 
 def install(state,registry,entity,value):
+    from .destruction_resummon_spells import SpellResummonValue, install as install_resummon_value
+    if type(value) is SpellResummonValue:
+        return install_resummon_value(state, registry, entity, value)
     from .model import SpellStatGrantValue,SpellRemainderDamageValue
     if type(value) is SpellRemainderDamageValue:
         from .retained_spell_damage import install as install_returning
@@ -174,3 +184,5 @@ def register(mechanics):
     register_returning(mechanics)
     from .destruction_spell_values import register as register_stat_values
     register_stat_values(mechanics)
+    from .destruction_resummon_spells import register as register_resummon_values
+    register_resummon_values(mechanics)

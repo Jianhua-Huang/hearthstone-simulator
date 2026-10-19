@@ -2863,6 +2863,7 @@ class AbilityInstance:
     native_producer_quantity_card_id: str | None = None
     spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
+    spell_resummon_value: object | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
     spell_aura_id: int | None = None
 
@@ -2939,6 +2940,18 @@ class AbilityInstance:
                 raise ValueError('Native stat spell cannot mix unrelated ability material')
         elif self.spell_stat_value is not None:
             raise ValueError('Only native stat spells carry frozen bonuses')
+        if self.kind == 'spell_resummon_value':
+            from .destruction_resummon_spells import SpellResummonValue
+            from dataclasses import fields
+            if type(self.spell_resummon_value) is not SpellResummonValue:
+                raise ValueError('Native resummoning spell requires its complete original group')
+            self.spell_resummon_value.__post_init__()
+            allowed = {'id', 'kind', 'source_id', 'origin', 'spell_resummon_value'}
+            if (self.origin != 'granted' or self.source_id is None or
+                    any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Native resummoning spell cannot mix unrelated material')
+        elif self.spell_resummon_value is not None:
+            raise ValueError('Only resummoning spells carry an original destruction group')
         if self.kind == 'corpse_gain':
             _name(self.corpse_gain_card_id, 'native corpse gain card')
             if self.origin != 'printed' or self.source_id is None or not self.remove_on_silence:
@@ -3117,7 +3130,7 @@ class AbilityInstance:
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'transform_replacement':
             from dataclasses import fields
@@ -7658,10 +7671,11 @@ class SpellCastRecord:
             raise ValueError('Spell target identity and original allocation must agree')
         from .stored_spell_damage import validate_local_ability
         if self.native_spell_value is not None:
-            if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind not in ('spell_base_value', 'spell_stat_value'):
+            if type(self.native_spell_value)is not AbilityInstance or self.native_spell_value.kind not in ('spell_base_value', 'spell_stat_value', 'spell_resummon_value'):
                 raise ValueError('Native cast value requires its complete original physical ability')
             self.native_spell_value.__post_init__()
-            value = self.native_spell_value.spell_base_value if self.native_spell_value.kind == 'spell_base_value' else self.native_spell_value.spell_stat_value
+            from .native_spell_values import ability_value
+            value = ability_value(self.native_spell_value)
             if not self.payload_started or self.failure is not None or value.card_id!=self.card_id:
                 raise ValueError('Native cast value differs from its accepted original face')
         if type(self.local_spell_damage) is not tuple:
