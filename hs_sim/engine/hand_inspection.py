@@ -68,6 +68,117 @@ def selected_hand(context):
     return ref, entry, material['context']
 
 
+@dataclass(frozen=True)
+class GuessOpponentHandCard(Effect):
+    """One original hand face and up to two absent original-deck decoys."""
+    player_id: int
+    owner_id: int
+    source_id: int
+    on_select: str
+    context: str = '{}'
+
+    def __post_init__(self):
+        _player(self.player_id); _player(self.owner_id); _integer(self.source_id, 'hand guess source', 1)
+        if self.player_id == self.owner_id or type(self.on_select) is not str or not self.on_select.strip():
+            raise ValueError('Hand guess requires the other hand and a named continuation')
+        if type(self.context) is not str or type(json.loads(self.context)) is not dict:
+            raise ValueError('Hand guess context must be a serialized material object')
+
+
+def guess_identity(registry, card_id):
+    card = registry.card(card_id)
+    if not card.hand_playable:
+        raise ResolutionError('Hand guess requires complete physical card faces')
+    return registry.pool_card(card_id).generation_identity if card_id in registry.pool_cards else card_id
+
+
+def guess_decoys(registry, hand, original_deck):
+    held = {guess_identity(registry, ref.card_id) for ref in hand}
+    choices = {}
+    for card_id in original_deck:
+        identity = guess_identity(registry, card_id)
+        if identity not in held:
+            choices.setdefault(identity, card_id)
+    return tuple(choices.values())
+
+
+def guess_hand(r, effect):
+    effect.__post_init__(); source_exists(r, effect.source_id); r.registry.behavior(effect.on_select)
+    hand = zone_candidates(r, effect.owner_id, Zone.HAND, PoolQuery(), effect.player_id, effect.source_id)
+    if not hand:
+        return ()
+    origin = r.game._generation_context
+    if r.state.opening is None and (origin is None or origin.starting_decks is None):
+        raise ResolutionError('Hand guess requires the original opponent deck inventory')
+    original = r.state.players[effect.owner_id].original_deck
+    candidates = guess_decoys(r.registry, hand, original)
+    size = 1 + min(2, len(candidates))
+    if size > r.rules.max_choice_options:
+        raise ResolutionLimitExceeded('Hand guess exceeds the offered option limit')
+    chosen = r.game._rng.choice(hand)
+    decoys = tuple(r.game._rng.sample(candidates, size - 1))
+    faces = [chosen.card_id, *decoys]
+    r.game._rng.shuffle(faces)
+    material = dict(player_id=effect.player_id, owner_id=effect.owner_id, source_id=effect.source_id,
+        hand=[dict(card=asdict(ref), entry_id=r.state.entities[ref.entity_id].hand_entry_id) for ref in hand],
+        chosen_id=chosen.entity_id, original_deck=list(original), decoys=list(decoys), faces=faces,
+        context=json.loads(effect.context))
+    # All offered faces are unbound previews. Remembering the real entity or
+    # attaching its entity_id would reveal which option is actually in hand.
+    options = tuple(ChoiceOption(json.dumps(dict(card_id=cid, material=material), sort_keys=True),
+        r.registry.card(cid).name, card_id=cid) for cid in faces)
+    return (RequestChoice(effect.player_id, options, effect.source_id,
+        prompt='猜测哪张牌在对手手牌中', on_select=effect.on_select),)
+
+
+def selected_hand_guess(context, registry):
+    choice = context.choice
+    if choice is None or len(choice.selected_ids) != 1:
+        raise ResolutionError('Hand guess requires one original selected option')
+    option = next((o for o in choice.choice.options if o.id == choice.selected_ids[0]), None)
+    if option is None:
+        raise ResolutionError('Hand guess was not in the original offer')
+    raw = json.loads(option.id)
+    if type(raw) is not dict or set(raw) != {'card_id', 'material'}:
+        raise ResolutionError('Hand guess lost its original material')
+    m = raw['material']
+    if (type(m) is not dict or set(m) != {'player_id','owner_id','source_id','hand','chosen_id',
+            'original_deck','decoys','faces','context'} or type(m['context']) is not dict or
+            (m['player_id'], m['owner_id'], m['source_id']) != (context.player_id, 3-context.player_id, context.source_id)):
+        raise ResolutionError('Hand guess borrowed another original source or player')
+    _player(m['player_id']); _player(m['owner_id'])
+    _integer(m['source_id'], 'hand guess original source', 1)
+    _integer(m['chosen_id'], 'hand guess chosen physical card', 1)
+    if (type(m['hand']) is not list or any(type(m[k]) is not list or
+            any(type(cid) is not str or not cid for cid in m[k]) for k in ('original_deck','decoys','faces'))):
+        raise ResolutionError('Hand guess requires complete original typed card inventories')
+    if tuple(m['original_deck']) != context.state.players[m['owner_id']].original_deck:
+        raise ResolutionError('Hand guess changed the original opponent deck')
+    refs = []
+    for row in m['hand']:
+        if type(row) is not dict or set(row) != {'card','entry_id'}:
+            raise ResolutionError('Hand guess lost an original hand acquisition')
+        ref = CardReference(**dict(row['card'], zone=Zone(row['card']['zone'])))
+        validate_hand_link(context.state, ref, row['entry_id'])
+        if ref.player_id != m['owner_id']:
+            raise ResolutionError('Hand guess borrowed a foreign hand')
+        refs.append(ref)
+    if not refs or len({r.entity_id for r in refs}) != len(refs):
+        raise ResolutionError('Hand guess lost its distinct original hand inventory')
+    chosen = next((r for r in refs if r.entity_id == m['chosen_id']), None)
+    candidates = guess_decoys(registry, refs, m['original_deck'])
+    if (chosen is None or len(m['decoys']) != min(2,len(candidates)) or
+            len(set(m['decoys'])) != len(m['decoys']) or not set(m['decoys']) <= set(candidates) or
+            len(m['faces']) != 1+len(m['decoys']) or set(m['faces']) != {chosen.card_id,*m['decoys']}):
+        raise ResolutionError('Hand guess substituted its accepted true face or original-deck decoys')
+    if tuple(o.card_id for o in choice.choice.options) != tuple(m['faces']):
+        raise ResolutionError('Hand guess changed the complete ordered offer')
+    for offered in choice.choice.options:
+        if (offered.entity_id is not None or json.loads(offered.id) != dict(card_id=offered.card_id, material=m)):
+            raise ResolutionError('Hand guess leaked or changed an original option binding')
+    return option.card_id == chosen.card_id, m['context']
+
+
 def validate_hand_link(state, ref, entry_id):
     if type(ref) is not CardReference:
         raise ValueError('Hand selection requires a typed original reference')
@@ -176,6 +287,6 @@ def validate_investigation(state, registry, player_id, value):
 
 def register(mechanics):
     for cls, handler in ((InspectHandCards, inspect), (RememberHandForDeathrattle, remember),
-                         (DiscardRememberedHand, discard)):
+                         (DiscardRememberedHand, discard), (GuessOpponentHandCard, guess_hand)):
         mechanics.register(cls, handler)
     mechanics.register_payload_type(HandInvestigation)

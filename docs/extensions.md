@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实手牌猜牌使用有限GuessOpponentHandCard，不套用全真手牌检视或直接记住对手实体。奖励用原MinionReference连接既有BuffCapturedMinion；原牌库候选、私有答案和本地政策见[猜牌契约](m3-hand-guess.md)。
+
 真实临时牌任务使用原完成PlayRecord及submitted_cost.quote.quote_input.hand_lifetime，不从离手后的实体或卡名猜测。裂隙投牌委托原交互物，召唤携带原物体SummonCause；不要伪造弃牌或另写使用次数，见[配方契约](m3-underfel-rift.md)。
 
 真实结束强制攻击需要过量给英雄时，用已有原驻留随机攻击请求的excess_to_hero明确选项，沿原ForceAttack及窗口交付；不要另发法术伤害、先杀随从再补英雄或给普通攻击全局加效果。原预算、反击和恢复见[战斗分流契约](m2-forced-combat-excess.md)。
