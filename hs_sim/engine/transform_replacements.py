@@ -59,7 +59,8 @@ class TransformReplacementDraw:
 
 def candidates(registry, context, requested):
     if registry.card(requested).kind != CardType.MINION:raise ValueError('Replacement requires a minion destination')
-    cost=registry.card(requested).cost+2
+    from .cross_zone import transformed_cost_tier
+    cost=transformed_cost_tier(registry.card(requested).cost,2)
     rows=resolve_candidates(registry,context,POOL,PoolQuery(kinds=(CardType.MINION,),collectible=True,min_cost=cost,max_cost=cost))
     for row in rows:
         card=registry.card(row.card_id)

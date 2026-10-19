@@ -547,6 +547,15 @@ def cost_value(registry, entity, basis):
     return local_cost(entity)[0]
 
 
+def transformed_cost_tier(source_cost, delta):
+    """Published 32.2 Evolve tier; Devolve availability is resolved separately."""
+    integer(source_cost, 'original transformation cost', 0)
+    _integer(delta, 'transformation cost delta')
+    if delta > 0:
+        return min(10, source_cost + delta) if source_cost <= 10 else source_cost
+    return max(0, source_cost + delta)
+
+
 @dataclass(frozen=True)
 class TransformMinionsInZones(Effect):
     player_id: int
@@ -664,7 +673,7 @@ def prepare_transforms(r,effect,refs):
             raise ResolutionError('Transformation requires a captured minion')
         entity=current_target(r,ref)
         if entity is None:continue
-        cost=max(0,cost_value(r.registry,entity,effect.cost_basis)+effect.cost_delta)
+        cost=transformed_cost_tier(cost_value(r.registry,entity,effect.cost_basis),effect.cost_delta)
         retained=cost_value(r.registry,entity,effect.retain_cost_basis) if effect.retain_cost_basis is not None else None
         grant = None
         if effect.deathrattle_behavior_id is not None:
@@ -675,6 +684,17 @@ def prepare_transforms(r,effect,refs):
                 deathrattle_memory=DeathrattleMemory(NativeDeathrattleSpec('copy_summon'), summon_copy=material))
         step=TransformPoolTarget(ref,effect.pool_id,replace(effect.query,kinds=(CardType.MINION,),min_cost=cost,max_cost=cost),
              effect.policy,effect.player_id,hero_class,source_card_id,effect.source_id,retained,effect.empty,grant)
+        if effect.cost_delta < 0:
+            # Visit only costs that physically occur in this immutable pool.
+            # A large local cost must not cause billions of empty integer probes.
+            pool = r.registry.pool(effect.pool_id, context)
+            tiers = sorted({r.registry.pool_card(row.card_id).cost for row in pool.members
+                if r.registry.pool_card(row.card_id).cost <= cost}, reverse=True)
+            for tier in tiers:
+                probe = replace(step, query=replace(step.query, min_cost=tier, max_cost=tier), empty='skip')
+                if candidates(r.registry, context, probe):
+                    step = replace(probe, empty=effect.empty)
+                    break
         candidates(r.registry,context,step)  # Validate the entire captured batch before any RNG or mutation.
         work.append(step)
     return tuple(work)

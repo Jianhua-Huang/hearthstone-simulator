@@ -1,5 +1,7 @@
 # 原生随从的变形目的替代
 
+当前目的费用档共用[进化封顶与退化空档契约](m5-evolve-published-rules.md)，不再把下文的印刷费用加2解释为无上限相加。原目的9费或10费封顶10；具名高费替代、区域及空档等未确认细节仍保留M6。原私有证明和实际变形管线保持。
+
 胆大的魔荚人EDR_529使用[完整固定材料](../data/cards/plucky-podling-v1.json)：1费1/2萨满史诗，完整原行及两个完整双语官网主面保持。它声明有限`NativeSourceCondition('transform_destination_plus_two')`，安装纯印刷`transform_replacement`附件；没有新增CardDefinition或AbilityInstance字段、伪造关键词或任意条件表达式。
 
 ## 一个实际变形
