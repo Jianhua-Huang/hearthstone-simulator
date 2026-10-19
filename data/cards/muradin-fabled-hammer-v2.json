@@ -1,0 +1,600 @@
+{
+  "batch": "K232b-muradin-fabled-weapon",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_209",
+        "dbf_id": 119643,
+        "name": "高山之王穆拉丁",
+        "name_en": "Muradin, High King",
+        "text": "<b>奇闻</b>\n<b>突袭</b>。<b>战吼：</b>为本随从装备高山之王的战锤！<b>亡语：</b>将该战锤置入你的手牌。",
+        "text_en": "[x]<b>Fabled</b>, <b>Rush</b>. <b>Battlecry:</b>\nBring the High King's\nHammer to ME! <b>Deathrattle:</b>\nAdd it to your hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "RUSH": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "9bb226989c1c3b5521ec1387ca81b200bd2c66a2128ccc505e7e14796fa9389b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_209",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_209t",
+        "dbf_id": 119647,
+        "name": "高山之王的战锤",
+        "name_en": "High King's Hammer",
+        "text": "<b>风怒</b>。<b>亡语：</b>将本武器洗入你的牌库并永久具有+2攻击力。",
+        "text_en": "[x]<b>Windfury</b>\n<b>Deathrattle:</b> Shuffle this\ninto your deck with +2\n_Attack permanently.",
+        "cost": 6,
+        "attack": 3,
+        "health": 4,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "DEATHRATTLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "3ddd306269c1b98405672d5c22a30964d272c3c246b66354cb78ebc80354f18a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_209t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_209t2",
+        "dbf_id": 119653,
+        "name": "天神下凡形态",
+        "name_en": "Avatar Form",
+        "text": "在本回合中，使一个友方角色获得+2攻击力和“在本角色攻击后，对所有敌人造成2点伤害”。",
+        "text_en": "[x]Give a friendly character\n+2 Attack and \"After this\nattacks, deal 2 damage to\nall enemies\" this turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "883beb650b3af1b669a6cca540574e39536b468c3d129cd41a29bf17086fe768",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_209t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "source_roots": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_209e",
+        "dbf_id": 119644,
+        "name": "高山之王的战锤",
+        "name_en": "Hammer of the High King",
+        "text": "持有高山之王的战锤。<b>亡语：</b>将战锤置入你的手牌。",
+        "text_en": "Holding the High King's Hammer. <b>Deathrattle:</b> Add it to your hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c4d1666b06caa5a548379d6100aa41854e31a2cb09f8e390f1782cdd4d4e771d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_209e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_209t2e",
+        "dbf_id": 121003,
+        "name": "天神下凡形态",
+        "name_en": "Avatar Form",
+        "text": "+2攻击力。在本角色攻击后，对所有敌人造成2点伤害。",
+        "text_en": "+2 Attack and After this attacks, deal 2 damage to all enemies this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1ac4d88b6091db175c6101ea23a2cdf86cbf4d7b04992e3091b4e15da7677b8e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_209t2e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_209",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119643-zh_CN.json",
+      "response_sha256": "a12902ee17bbe133d341c55b7ed4f68f6a22e3002e03a5a22cda1d2f6009f01d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119643&locale=zh_CN",
+      "face": {
+        "id": 119643,
+        "collectible": 1,
+        "slug": "119643-muradin-high-king",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "高山之王穆拉丁",
+        "text": "<b>奇闻</b> <b>突袭</b>。<b>战吼：</b>为本随从装备高山之王的战锤！<b>亡语：</b>将该战锤置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/444a157fa8bd6900be396b2670fb61fd8d045ef7422c0860c19d132fd4a3bfde.png",
+        "imageGold": "",
+        "flavorText": "铁炉堡的史书中最为惨痛的一笔，莫过于穆拉丁国王亲手击毙了堕落的王子阿尔萨斯。巫妖王未能崛起，驭雷者团结如初，可是王子的死还是给联盟留下了一道嫌隙，永远无法弥合。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aef4d5f5ee0435acece5cd41a159c21f700ff3eeed5c180d433ce04cf1f7dd74.png",
+        "childIds": [
+          119647,
+          119653
+        ],
+        "keywordIds": [
+          8,
+          12,
+          53,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119653,
+          119647
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119643&locale=zh_CN",
+        "sha256": "a12902ee17bbe133d341c55b7ed4f68f6a22e3002e03a5a22cda1d2f6009f01d",
+        "bytes": 1141,
+        "observed_at": "2026-10-19T00:19:48.260488+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_209",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119643-en_US.json",
+      "response_sha256": "0418f83c9ace074ea1e973ccc493c2bd2f5488b83e7cc123b5333a6d01024528",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119643&locale=en_US",
+      "face": {
+        "id": 119643,
+        "collectible": 1,
+        "slug": "119643-muradin-high-king",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Timur Shevtsov",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Muradin, High King",
+        "text": "<b>Fabled</b>, <b>Rush</b>. <b>Battlecry:</b> Bring the High King's Hammer to ME! <b>Deathrattle:</b> Add it to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b6d436b77311c4953f172ce799e877a3e063965671e4ba423d9768a950a5bc2.png",
+        "imageGold": "",
+        "flavorText": "There is no story more tragic in Ironforge history than that of King Muradin slaying the corrupted Prince Arthas. The Lich King never rose to power, the Stormriders united, but the boy's death created fractures in the Alliance that would never repair.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aef4d5f5ee0435acece5cd41a159c21f700ff3eeed5c180d433ce04cf1f7dd74.png",
+        "childIds": [
+          119647,
+          119653
+        ],
+        "keywordIds": [
+          8,
+          12,
+          53,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119653,
+          119647
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119643&locale=en_US",
+        "sha256": "0418f83c9ace074ea1e973ccc493c2bd2f5488b83e7cc123b5333a6d01024528",
+        "bytes": 1134,
+        "observed_at": "2026-10-19T00:19:48.353434+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_209t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119647-zh_CN.json",
+      "response_sha256": "b1fe832069ea20bd6b6a659d5d22edc6466636644c0ccb45f536ae35f3bbf422",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119647&locale=zh_CN",
+      "face": {
+        "id": 119647,
+        "collectible": 0,
+        "slug": "119647-high-kings-hammer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "高山之王的战锤",
+        "text": "<b>风怒</b>。<b>亡语：</b>将本武器洗入你的牌库并永久具有+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9b5d557fd44865056d586870e4eba4c240a17422f9e629aed7e272117f21808.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119643,
+        "keywordIds": [
+          11,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119647&locale=zh_CN",
+        "sha256": "b1fe832069ea20bd6b6a659d5d22edc6466636644c0ccb45f536ae35f3bbf422",
+        "bytes": 670,
+        "observed_at": "2026-10-19T00:19:48.630744+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_209t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119647-en_US.json",
+      "response_sha256": "3fd306d9659635b77235fde7021c64bdfe57a2fb614d5c6af668257f1d80fca4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119647&locale=en_US",
+      "face": {
+        "id": 119647,
+        "collectible": 0,
+        "slug": "119647-high-kings-hammer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "High King's Hammer",
+        "text": "<b>Windfury</b> <b>Deathrattle:</b> Shuffle this into your deck with +2 Attack permanently.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/acca46f856363a1a1236c97fe9946d29256eb3c15bdaa13008b3c687dd3ff24d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119643,
+        "keywordIds": [
+          11,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119647&locale=en_US",
+        "sha256": "3fd306d9659635b77235fde7021c64bdfe57a2fb614d5c6af668257f1d80fca4",
+        "bytes": 667,
+        "observed_at": "2026-10-19T00:19:48.290252+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_209t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119653-zh_CN.json",
+      "response_sha256": "19a455252ffbb6afe8bcf87b071e3149f2fed91d7f85dff92381cf6e4e123d8d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119653&locale=zh_CN",
+      "face": {
+        "id": 119653,
+        "collectible": 0,
+        "slug": "119653-avatar-form",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 3,
+        "name": "天神下凡形态",
+        "text": "在本回合中，使一个友方角色获得+2攻击力和“在本角色攻击后，对所有敌人造成2点伤害”。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5f9038789ad4253e3d7c1e97ee518b24f7324952230cf4605d0f416010b1de9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119643,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119653&locale=zh_CN",
+        "sha256": "19a455252ffbb6afe8bcf87b071e3149f2fed91d7f85dff92381cf6e4e123d8d",
+        "bytes": 650,
+        "observed_at": "2026-10-19T00:19:49.082724+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_209t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119653-en_US.json",
+      "response_sha256": "6e7fa3fd6737e9b0d7db2882d5532248779168543e4b0f4b2fe734b1398482b4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119653&locale=en_US",
+      "face": {
+        "id": 119653,
+        "collectible": 0,
+        "slug": "119653-avatar-form",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 3,
+        "name": "Avatar Form",
+        "text": "Give a friendly character +2 Attack and \"After this attacks, deal 2 damage to all enemies\" this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c69e2606d53622f9e8fcead7bd8136e78c4b21a0b4d25f0b3efe489e5258a778.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119643,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119653&locale=en_US",
+        "sha256": "6e7fa3fd6737e9b0d7db2882d5532248779168543e4b0f4b2fe734b1398482b4",
+        "bytes": 623,
+        "observed_at": "2026-10-19T00:19:49.214957+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "implemented_root_ids": [
+      "TIME_209"
+    ],
+    "implemented_dependency_ids": [
+      "TIME_209t"
+    ],
+    "existing_dependency_ids": [
+      "TIME_209t2"
+    ],
+    "take": "own equipped then hand then deck first physical named companion; deterministic local priority pending CN",
+    "material": "private consumed original material; each actual Deathrattle delivers a current-material copy to its current controller",
+    "gain": "current attack and durability plus Windfury; no Hammer Deathrattle; stat and keyword material survives silence but ordinary return/transform resets it",
+    "unverified": [
+      "CN exact multiple-companion priority",
+      "physical-copy identity and retained weapon wear/enchantments",
+      "silence policy and micro timing"
+    ],
+    "shuffle": "actual original equipment death only; reset ordinary material, restore printed durability, retain own shuffle-growth and add two",
+    "rng": "ordinary one random insertion through existing shuffle history"
+  },
+  "rules_observations": [
+    {
+      "url": "https://x.com/mynty_phresh/status/1977789937279016993",
+      "observation_receipt": "outputs/card-integration-20261014/k232-muradin-fabled-hammer/primary-detail-observation-01.json",
+      "supports": [
+        "remove own Hammer from hand, deck or equipped inventory",
+        "gain weapon stats and Windfury",
+        "do not gain weapon Deathrattle"
+      ],
+      "cn37_calibrated": false
+    }
+  ]
+}

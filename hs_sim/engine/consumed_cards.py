@@ -4,13 +4,13 @@ Original material is retained for attribution and future calibration. Current
 native output policy generates base cards; consumption is neither discard nor
 death. Every granted payload refers to one immutable physical removal.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from random import Random
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
 from .copy_materials import CapturedCardCopyMaterial, from_dict as copy_from_dict, validate_captured_card_copy
-from .effects import Buff, Effect, GrantDeathrattle, _behavior, _integer, _player
-from .model import CardType, Zone, validate_end_turn_rng
+from .effects import Buff, Effect, GrantDeathrattle, GrantKeyword, _behavior, _integer, _player
+from .model import CardType, Keyword, Zone, validate_end_turn_rng
 from .sacrifice import MinionReference, reference_value, same_instance
 from .zones import CardReference, CopyCard
 
@@ -24,7 +24,7 @@ class ConsumptionProfile:
 
     def __post_init__(self):
         _behavior(self.card_id)
-        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand'):
+        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand', 'fabled_weapon'):
             raise ValueError('Unknown native consumption profile')
 
 
@@ -36,6 +36,18 @@ def validate_profile(registry, profile):
     if card.kind != CardType.MINION or card.deathrattle is None:
         raise ValueError('Native consumption requires its printed minion Deathrattle')
     registry.behavior(card.deathrattle)
+    if profile.kind == 'fabled_weapon':
+        fabled_weapon_id(registry, profile)
+
+
+def fabled_weapon_id(registry, profile):
+    """One actual named companion, never an arbitrary minion equipment slot."""
+    family = registry.fabled.get(profile.card_id)
+    weapons = () if family is None else tuple(cid for cid in family.companion_card_ids
+                                              if registry.card(cid).kind == CardType.WEAPON)
+    if len(weapons) != 1:
+        raise ValueError('Named weapon consumption requires exactly one Fabled weapon companion')
+    return weapons[0]
 
 
 @dataclass(frozen=True)
@@ -67,7 +79,8 @@ class ConsumedCardRecord:
         self.card.__post_init__()
         origin = self.card.origin
         if (self.source.kind != CardType.MINION or self.source.zone != Zone.BOARD
-                or origin.zone not in (Zone.HAND, Zone.DECK) or origin.entity_id == self.source.entity_id
+                or origin.zone not in (Zone.HAND, Zone.DECK, Zone.WEAPON) or origin.entity_id == self.source.entity_id
+                or origin.zone == Zone.WEAPON and origin.kind != CardType.WEAPON
                 or self.after_epoch != origin.zone_epoch + 1):
             raise ValueError('Consumption changed its original physical source or removal')
         if type(self.candidates) is not tuple or any(type(ref) is not CardReference for ref in self.candidates):
@@ -109,7 +122,8 @@ def validate_record(state, registry, row):
     if (row.turn > state.turn or row.action > state.action_number or row.ability_id >= state.next_attachment_id
             or state.entities[origin.entity_id].zone_epoch < row.after_epoch):
         raise ValueError('Consumption has a future source, attachment or removal')
-    expected_zone = Zone.DECK if profile.kind == 'deck_minion' else Zone.HAND
+    expected_zone = (origin.zone if profile.kind == 'fabled_weapon' else
+                     Zone.DECK if profile.kind == 'deck_minion' else Zone.HAND)
     expected_kind = {'hand_spell': CardType.SPELL, 'deck_minion': CardType.MINION}.get(profile.kind)
     expected_player = 3-row.source.controller if profile.kind == 'opponent_hand' else row.source.controller
     if (origin.zone != expected_zone or origin.controller != expected_player
@@ -120,7 +134,12 @@ def validate_record(state, registry, row):
             if ability.consumed_card_id >= row.id:
                 raise ValueError('Consumed material cannot refer to its own or future payload')
             validate_payload(state, registry, ability)
-    if profile.kind == 'hand_spell':
+    if profile.kind == 'fabled_weapon':
+        if (origin.kind != CardType.WEAPON or origin.card_id != fabled_weapon_id(registry, profile)
+                or row.candidates or row.rng_before is not None or row.rng_after is not None
+                or row.health_gain != row.card.durability):
+            raise ValueError('Fabled weapon material changed its named companion, durability or deterministic removal')
+    elif profile.kind == 'hand_spell':
         if row.candidates or row.rng_before is not None or row.rng_after is not None or row.attack_gain or row.health_gain:
             raise ValueError('Targeted absorption cannot invent a random draw or minion stats')
     else:
@@ -203,6 +222,41 @@ class ConsumeOpponentHand(Effect):
         _behavior(self.profile_id)
 
 
+@dataclass(frozen=True)
+class ConsumeFabledWeapon(Effect):
+    """Take the original named weapon from own equipped/hand/deck inventory."""
+    source: MinionReference
+    profile_id: str
+
+    def __post_init__(self):
+        reference_value(self.source)
+        _behavior(self.profile_id)
+
+
+def consume_fabled_weapon(r, effect):
+    effect.__post_init__()
+    profile = r.registry.consumption_profiles[effect.profile_id]
+    validate_profile(r.registry, profile)
+    if profile.kind != 'fabled_weapon':
+        raise ValueError('Named weapon consumption borrowed another native profile')
+    source = same_instance(r.state, effect.source)
+    if source is None or not source.active or source.health <= 0 or source.doomed:
+        return ()
+    player = r.player(source.controller)
+    cid = fabled_weapon_id(r.registry, profile)
+    # Explicit local priority pending CN calibration. Never draw, destroy or
+    # search another player's inventory, even when the named weapon is absent.
+    ids = (() if player.weapon_id is None else (player.weapon_id,)) + tuple(player.hand) + tuple(player.deck)
+    for eid in ids:
+        target = r.state.entities[eid]
+        if (target.card_id == cid and target.kind == CardType.WEAPON
+                and target.controller == source.controller and not target.doomed
+                and (target.zone != Zone.WEAPON or target.durability > 0)):
+            _capture_consumption(r, source, profile, target)
+            break
+    return ()
+
+
 def consume(r, effect):
     effect.__post_init__()
     profile = r.registry.consumption_profiles[effect.profile_id]
@@ -238,7 +292,8 @@ def consume(r, effect):
 def _capture_consumption(r, source, profile, target, candidates=(), before=None, after=None):
     material = CapturedCardCopyMaterial.capture(r.state, target)
     source_fact = SourceAllocationFact.capture(r.state, source)
-    attack, health = (target.attack, target.max_health) if profile.kind == 'deck_minion' else (0, 0)
+    attack, health = ((target.attack, target.durability) if profile.kind == 'fabled_weapon' else
+                      (target.attack, target.max_health) if profile.kind == 'deck_minion' else (0, 0))
     # The existing private storage move retires hand identity and live handles.
     from .temporary_hands import hide
     hide(r, target)
@@ -252,7 +307,20 @@ def _capture_consumption(r, source, profile, target, candidates=(), before=None,
               source, notify=False, grant_card_id=profile.card_id, consumed_card_id=row.id)
     r.emit(EVENT, source_id=source.id, target_id=target.id, player_id=source.controller,
            _capture=False, consumed_id=row.id)
-    if attack or health:
+    if profile.kind == 'fabled_weapon':
+        from .resolver import _buff_to
+        enchantment = _buff_to(r, Buff(source.id, attack, health, source.id), source, notify=False)
+        source.enchantments[-1] = replace(enchantment, remove_on_silence=False, label='held_fabled_weapon')
+        _grant_to(r, GrantKeyword(source.id, Keyword.WINDFURY, source.id), source, notify=False)
+        keyword = source.abilities[-1]
+        source.abilities[-1] = replace(keyword, remove_on_silence=False)
+        r.refresh_auras()
+        # All removal, payload and stat/keyword material precedes public reactions.
+        r.emit('stats_changed', source_id=source.id, target_id=source.id,
+               enchantment_id=enchantment.id, attack_delta=attack, health_delta=health)
+        r.emit('ability_granted', target_id=source.id, source_id=source.id,
+               ability_id=keyword.id, ability_kind='keyword')
+    elif attack or health:
         buff(r, Buff(source.id, attack=attack, health=health, source_id=source.id))
     r.emit('ability_granted', target_id=source.id, source_id=source.id,
            ability_id=row.ability_id, ability_kind='deathrattle')
@@ -301,6 +369,8 @@ def resolve(r, effect):
         return (CastSpell(capture.player_id, row.card.origin.card_id, capture.carrier_id),)
     if profile.kind == 'opponent_hand':
         return (CopyCard(row.card, row.card.origin.controller, mode='current', source_id=capture.carrier_id),)
+    if profile.kind == 'fabled_weapon':
+        return (CopyCard(row.card, capture.player_id, mode='current', source_id=capture.carrier_id),)
     return (CopyCard(row.card, capture.player_id, mode='base', source_id=capture.carrier_id),)
 
 
@@ -345,3 +415,4 @@ def register(mechanics):
     mechanics.register(ConsumeDeckMinion, consume)
     mechanics.register(ResolveConsumedDeathrattle, resolve)
     mechanics.register(ConsumeOpponentHand, consume_opponent_hand)
+    mechanics.register(ConsumeFabledWeapon, consume_fabled_weapon)

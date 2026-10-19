@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实奇闻指定武器使用`ConsumeFabledWeapon`及唯一武器同伴profile，复用原消费材料和当前复制返还；不得用通用武器装备效果给随从设槽。取用、生命周期和未证政策见[契约](m3-fabled-weapon-material.md)。
+
 死亡武器的原本体洗回使用`ShuffleGrowingWeapon`，并置于原`ShuffleDeckCards`发布者范围；必须携带同一次真实装备死亡，不用普通随从回手或新生成武器代替。自身成长与普通重置边界见[契约](m3-growing-weapon-shuffles.md)。
 
 露妮式手牌暂存使用`SendHandMinionsFuture(player_id, source_id)`；只捕获实际当前手牌随从，归还保留原实体及期间取得的牌。有限两回合/+5/+5、原开始续接和满手边界见[契约](m3-temporal-hand-return.md)。

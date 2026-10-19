@@ -4,6 +4,7 @@ from functools import lru_cache
 import json,unittest
 from hs_sim.cards import build_registry as assembled_registry
 from hs_sim.cards.muradin_fabled_hammer_cards import HAMMER,ROOT,AVATAR,PREFIX,load_batch,register_muradin_fabled_hammer_cards
+from hs_sim.cards.simple_followup_p71_cards import PREFIX as AVATAR_PREFIX
 from hs_sim.engine import (Attack,CardClass,CardDefinition,CardMetadata,CardType,EndTurn,Game,Keyword,
     PlayCard,PlayerSetup,Rarity,Scenario,SelectChoice,TriggerSpec,Zone)
 from hs_sim.engine.allocation_facts import SourceAllocationFact
@@ -18,10 +19,26 @@ from hs_sim.targets import canonical_digest
 P='hammer.test.';OTHER=P+'other';FILL=P+'filler';WATCH=P+'watch'
 
 
+@lru_cache(maxsize=1)
+def production_registry():
+    return assembled_registry()
+
+
+def family_registry():
+    r=build_registry();p=production_registry()
+    # Reuse only the actual Avatar face and its three existing executable bodies.
+    # P71's other historical dependencies are outside this family fixture.
+    r.register_card(p.card(AVATAR));r.register_pool_card(p.pool_cards[AVATAR])
+    for suffix in ('avatar','avatar_buff','avatar_damage'):
+        name=AVATAR_PREFIX+suffix;r.register_behavior(name,p.behavior(name))
+    register_muradin_fabled_hammer_cards(r)
+    return r
+
+
 @lru_cache(maxsize=None)
 def registry(role,mode=None):
     assert role in('writer','reader')
-    r=build_registry();register_muradin_fabled_hammer_cards(r)
+    r=family_registry()
     meta=CardMetadata(False,(CardClass.NEUTRAL,),Rarity.COMMON,tribes=())
     r.register_card(CardDefinition(OTHER,OTHER,CardType.WEAPON,cost=1,attack=1,durability=2,metadata=meta))
     r.register_card(CardDefinition(FILL,FILL,CardType.SPELL,metadata=meta))
@@ -73,12 +90,12 @@ class MuradinHammerDependencyTests(unittest.TestCase):
             wire=json.dumps(g.for_player(pid).observe())+json.dumps(g.for_player(pid).legal_actions())+json.dumps(g.player_events(pid))
             for field in('"rng_state"','"resolution_frame"','"death_history"',GROWTH_LABEL,'SourceAllocationFact'):self.assertNotIn(field,wire)
         return other
-    def test_a00_full_five_rows_six_faces_and_explicit_unimplemented_root(self):
+    def test_a00_full_five_rows_six_faces_and_real_fabled_root(self):
         d=load_batch();self.assertEqual(len(d['official_observations']),6)
-        for section in('dependencies','existing_dependencies','source_roots','evidence_only'):
+        for section in('cards','dependencies','existing_dependencies','evidence_only'):
             for row in d[section]:self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
-        r=assembled_registry();self.assertNotIn(ROOT,r.cards);self.assertIn(AVATAR,r.cards)
-        self.assertEqual(r.card(HAMMER),registry('writer').card(HAMMER));self.assertEqual(len(d['cards']),0)
+        r=production_registry();self.assertIn(ROOT,r.cards);self.assertIn(AVATAR,r.cards)
+        self.assertEqual(r.card(HAMMER),registry('writer').card(HAMMER));self.assertEqual(len(d['cards']),1)
     def test_a01_real_paid_windfury_weapon_dies_after_four_attacks_and_shuffles_same_entity(self):
         g=self.game();eid=self.play(g,HAMMER);self.assertEqual(g.state.players[1].mana,14)
         self.assertIn(Keyword.WINDFURY,g.state.entities[g.state.players[1].hero_id].keywords)
@@ -129,7 +146,7 @@ class MuradinHammerDependencyTests(unittest.TestCase):
         with self.assertRaises(ValueError):ShuffleGrowingWeapon(replace(fact,kind=CardType.MINION),death,1,2)
         with self.assertRaises(ValueError):ShuffleGrowingWeapon(live,death,1,2)
     def test_d02_full_assembly_does_not_register_evidence_enchantments_or_mutate_avatar(self):
-        r=assembled_registry()
+        r=production_registry()
         self.assertNotIn('TIME_209e',r.cards);self.assertNotIn('TIME_209t2e',r.cards)
         self.assertEqual((r.card(HAMMER).cost,r.card(HAMMER).attack,r.card(HAMMER).durability),(6,3,4))
         self.assertEqual(r.card(AVATAR).cost,3)

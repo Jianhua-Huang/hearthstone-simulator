@@ -69,9 +69,10 @@ class CapturedCardCopyMaterial:
         if type(self.origin)is not SourceAllocationFact or type(self.local)is not CopyLocalState:
             raise ValueError('Captured card copy requires typed original material')
         self.origin.__post_init__();self.local.__post_init__()
-        if (self.origin.zone not in(Zone.HAND,Zone.DECK,Zone.GRAVEYARD,Zone.BOARD)or self.origin.kind not in(
+        if (self.origin.zone not in(Zone.HAND,Zone.DECK,Zone.GRAVEYARD,Zone.BOARD,Zone.WEAPON)or self.origin.kind not in(
                 CardType.MINION,CardType.SPELL,CardType.WEAPON,CardType.LOCATION,CardType.HERO)or
-                self.origin.zone==Zone.BOARD and self.origin.kind!=CardType.MINION):
+                self.origin.zone==Zone.BOARD and self.origin.kind!=CardType.MINION or
+                self.origin.zone==Zone.WEAPON and self.origin.kind!=CardType.WEAPON):
             raise ValueError('Captured card copy requires an original stored/spent card or board minion')
         if type(self.components)is not tuple or any(type(cid)is not str or not cid for cid in self.components):
             raise ValueError('Captured copy requires ordered component identities')
