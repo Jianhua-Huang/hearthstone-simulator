@@ -463,6 +463,8 @@ from .tourists import TouristSpec
 __all__ += ['TouristSpec']
 from .sideboards import SideboardSpec, SideboardProfile, SideboardState, DiscoverSideboard
 __all__ += ['SideboardSpec', 'SideboardProfile', 'SideboardState', 'DiscoverSideboard']
+from .sideboards import ContrabandSideboardProfile
+__all__ += ['ContrabandSideboardProfile']
 from .deck_size_rules import DeckSizeRule
 from .void_decks import SendDeckToVoid, GetFromVoid, VoidCard
 __all__ += ['DeckSizeRule']

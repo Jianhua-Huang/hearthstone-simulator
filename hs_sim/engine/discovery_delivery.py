@@ -20,7 +20,8 @@ def recipe_types():
     from .temporary_cards import CreateTemporaryCard
     from .discovery_destinations import DeliverDiscoveredSpell
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer)
+    from .sideboards import _TakeSideboardCard
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard)
 
 
 def recipe_face(request):
@@ -50,6 +51,8 @@ def validate_recipe(result, request):
         raise ValueError('Discovery recipe borrowed another original recipient player')
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer,validate_recipe as validate_copy_recipe
     if type(request)is CopyOpponentDeckOffer:validate_copy_recipe(result,request)
+    from .sideboards import _TakeSideboardCard, validate_discovery_recipe
+    if type(request) is _TakeSideboardCard:validate_discovery_recipe(result,request)
 
 
 @dataclass(frozen=True)
@@ -166,6 +169,7 @@ def materialize(r, effect):
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer,materialize as materialize_copy
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
+    from .sideboards import _TakeSideboardCard, materialize_discovery
     if type(request) is AddToHand:
         from .opening import create_hand_card
         entity = create_hand_card(r, request)
@@ -193,6 +197,8 @@ def materialize(r, effect):
         entity=materialize_destination(r,request)
     elif type(request)is CopyOpponentDeckOffer:
         entity=materialize_copy(r,request)
+    elif type(request) is _TakeSideboardCard:
+        entity=materialize_discovery(r,request)
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 

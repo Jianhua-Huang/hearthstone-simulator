@@ -6,7 +6,7 @@ card definitions outside the main deck, not concealed live SETASIDE entities.
 from dataclasses import dataclass, replace
 
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice
-from .model import CardType, Rarity
+from .model import CardClass, CardType, ChoicePurpose, CostSpec, Rarity
 
 VERSION = 'sideboard-v1'
 
@@ -62,6 +62,48 @@ class DeckCopySideboardProfile:
             raise ValueError('Unsupported native deck-copy selection policy')
 
 
+@dataclass(frozen=True)
+class ContrabandSideboardProfile:
+    """The native three foreign-Beast slots, with their printed discount."""
+    source_card_id: str
+    max_cards: int = 3
+    cost_reduction: int = 3
+    version: str = 'contraband-sideboard-v1'
+
+    def __post_init__(self):
+        from .construction import name
+        name(self.source_card_id, 'contraband source')
+        if (type(self.max_cards) is not int or self.max_cards != 3 or
+                type(self.cost_reduction) is not int or self.cost_reduction != 3 or
+                type(self.version) is not str or self.version != 'contraband-sideboard-v1'):
+            raise ValueError('Unsupported native contraband sideboard policy')
+
+
+def contraband_member_error(profile, card_id, registry):
+    card = registry.cards.get(card_id)
+    if card is None:
+        return 'A contraband member needs an executable definition'
+    meta = card.metadata
+    source = registry.card(profile.source_card_id).metadata
+    if meta is None or meta.tribes is None:
+        return 'A contraband member needs known printed class and tribe facts'
+    if card.kind != CardType.MINION or not {'beast', 'all'}.intersection(meta.tribes):
+        return 'A contraband member must be a printed Beast minion'
+    # The native subset is foreign single-class Beasts. Dual-class exclusion
+    # follows the observed client subset, rather than widening it by guesswork.
+    if (len(meta.classes) != 1 or meta.classes == (CardClass.NEUTRAL,) or
+            set(meta.classes).intersection(source.classes)):
+        return 'A contraband member must belong to one other class'
+    return None
+
+
+def ordinary_class_members(deck, registry):
+    """Retain ordinary class/rune checks for every non-contraband occurrence."""
+    return frozenset((*deck.cards, *(cid for band in deck.sideboards
+        if type(registry.sideboards.get(band.source_card_id)) is not ContrabandSideboardProfile
+        for cid in band.cards)))
+
+
 def deck_copy_selection_error(profile, cards, registry):
     if len(cards) != 1:
         return 'A native deck-copy source needs exactly one selected minion'
@@ -91,7 +133,7 @@ class SideboardState:
 
 def validate_profiles(registry):
     for cid, profile in registry.sideboards.items():
-        if type(profile) not in (SideboardProfile, DeckCopySideboardProfile) or profile.source_card_id != cid:
+        if type(profile) not in (SideboardProfile, DeckCopySideboardProfile, ContrabandSideboardProfile) or profile.source_card_id != cid:
             raise ValueError('Sideboard profile differs from its registered source')
         profile.__post_init__()
         card = registry.card(cid)
@@ -99,10 +141,12 @@ def validate_profiles(registry):
         if (card.kind != CardType.MINION or meta is None or
                 not meta.collectible or meta.rarity != Rarity.LEGENDARY):
             raise ValueError('Sideboard source requires a collectible Legendary minion')
-        if type(profile) is SideboardProfile:
+        if type(profile) in (SideboardProfile, ContrabandSideboardProfile):
             if card.battlecry is None:
                 raise ValueError('A band sideboard requires its printed battlecry')
-            for banned_id in profile.banned_card_ids:
+            if type(profile) is ContrabandSideboardProfile and meta.classes != (CardClass.HUNTER,):
+                raise ValueError('The native contraband source requires its printed Hunter class')
+            for banned_id in profile.banned_card_ids if type(profile) is SideboardProfile else ():
                 registry.card(banned_id)
         elif not any(h.phase == 'before_deal' for h in card.opening_hooks):
             raise ValueError('A deck-copy selection requires its native before-deal opening hook')
@@ -125,6 +169,9 @@ def construction_members(deck, registry, issue, *, policy=None):
         if profile is not None and len(band.cards) > profile.max_cards:
             issue('sideboard_size', f'{cid} permits at most {profile.max_cards} band members', cid)
         copy_selection = type(profile) is DeckCopySideboardProfile
+        contraband = type(profile) is ContrabandSideboardProfile
+        if contraband and len(band.cards) != profile.max_cards:
+            issue('contraband_selection', 'The native contraband source needs exactly three members', cid)
         if copy_selection:
             error = deck_copy_selection_error(profile, band.cards, registry)
             if error is not None:
@@ -133,6 +180,10 @@ def construction_members(deck, registry, issue, *, policy=None):
                 raise ValueError('Deck-copy selection needs its actual construction policy')
         for member in band.cards:
             card = registry.cards.get(member)
+            if contraband:
+                error = contraband_member_error(profile, member, registry)
+                if error is not None:
+                    issue('contraband_selection', error, member)
             if type(profile) is SideboardProfile and (member in profile.banned_card_ids or
                     card is not None and card.opening_hooks):
                 issue('sideboard_banned', f'{member} is excluded by the sideboard policy', member)
@@ -146,6 +197,8 @@ def construction_members(deck, registry, issue, *, policy=None):
     for cid, profile in registry.sideboards.items():
         if type(profile) is DeckCopySideboardProfile and cid in deck.cards and cid not in seen:
             issue('deck_copy_selection', 'The original deck-copy source requires its construction selection', cid)
+        if type(profile) is ContrabandSideboardProfile and cid in deck.cards and cid not in seen:
+            issue('contraband_selection', 'The original contraband source requires its three members', cid)
     return tuple(members)
 
 
@@ -191,7 +244,8 @@ def _options(player_id, band, registry, source_id):
 
 def discover(r, effect):
     effect.__post_init__()
-    if type(r.registry.sideboards.get(effect.source_card_id)) is not SideboardProfile:
+    profile = r.registry.sideboards.get(effect.source_card_id)
+    if type(profile) not in (SideboardProfile, ContrabandSideboardProfile):
         raise ValueError('Unsupported sideboard source')
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ValueError('Sideboard physical source does not exist')
@@ -199,13 +253,17 @@ def discover(r, effect):
     options = () if band is None else _options(effect.player_id, band, r.registry, effect.source_id)
     # Empty or exhausted bands have no choice and consume no RNG. Offer each
     # original physical slot once; equal card faces do not collapse two slots.
+    if not options:
+        return []
     return [RequestChoice(effect.player_id, options, effect.source_id,
-        prompt='选择一张乐队成员牌')] if options else []
+        prompt='选择一张私藏野兽牌', purpose=ChoicePurpose.CARD_DISCOVERY)] if type(profile) is ContrabandSideboardProfile else [
+        RequestChoice(effect.player_id, options, effect.source_id, prompt='选择一张乐队成员牌')]
 
 
 def take(r, effect):
     effect.__post_init__()
-    if type(r.registry.sideboards.get(effect.source_card_id)) is not SideboardProfile:
+    profile = r.registry.sideboards.get(effect.source_card_id)
+    if type(profile) not in (SideboardProfile, ContrabandSideboardProfile):
         raise ValueError('A construction-only selection is not a consumable band')
     player = r.player(effect.player_id)
     band = _band(player, effect.source_card_id)
@@ -218,7 +276,21 @@ def take(r, effect):
     # acquired card and cannot restore the sideboard member.
     r.emit('sideboard_card_taken', source_id=effect.source_id, player_id=effect.player_id,
         source_card_id=effect.source_card_id, slot=effect.slot, card_id=effect.card_id, _capture=False)
-    return [AddToHand(effect.player_id, effect.card_id, effect.source_id)]
+    cost = CostSpec(delta=-profile.cost_reduction) if type(profile) is ContrabandSideboardProfile else None
+    return [AddToHand(effect.player_id, effect.card_id, effect.source_id, cost=cost)]
+
+
+def validate_discovery_recipe(result, request):
+    if (result.choice.purpose != ChoicePurpose.CARD_DISCOVERY or
+            result.selected_ids != (f'band:{request.slot}',)):
+        raise ValueError('Contraband discovery changed its original selected slot')
+
+
+def materialize_discovery(r, request):
+    if type(r.registry.sideboards.get(request.source_card_id)) is not ContrabandSideboardProfile:
+        raise ValueError('Only the native contraband profile is a card discovery producer')
+    from .opening import create_hand_card
+    return create_hand_card(r, take(r, request)[0])
 
 
 def validate_boundary(game):
@@ -285,6 +357,9 @@ def validate_player(player, registry):
         if type(profile) is DeckCopySideboardProfile and (
                 deck_copy_selection_error(profile, band.cards, registry) is not None or band.taken_slots):
             raise ValueError('Deck-copy selection changed its original member or was consumed as a band')
+        if type(profile) is ContrabandSideboardProfile and (len(band.cards) != profile.max_cards or
+                any(contraband_member_error(profile, cid, registry) is not None for cid in band.cards)):
+            raise ValueError('Contraband state changed its original foreign-Beast members')
         seen.add(band.source_card_id)
         for cid in band.cards:
             registry.card(cid)

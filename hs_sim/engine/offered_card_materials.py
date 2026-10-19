@@ -74,6 +74,7 @@ def _physical(r, option, card):
 def capture(r, option):
     """Read original producer work. Never run it, sample, allocate or move."""
     from .effects import AddToHand
+    from .sideboards import _TakeSideboardCard
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     from .discovery import ResolvePoolDiscovery
@@ -88,7 +89,7 @@ def capture(r, option):
     if not option.effects:
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     work = option.effects[0]
-    if type(work) in (AddToHand, AddToDeck, CreateTemporaryCard, ResolvePoolDiscovery):
+    if type(work) in (AddToHand, AddToDeck, CreateTemporaryCard, ResolvePoolDiscovery, _TakeSideboardCard):
         card_id = work.selection.card_id if type(work) is ResolvePoolDiscovery else work.card_id
         if card_id != option.card_id:
             raise ValueError('Offered printed recipe differs from its menu face')

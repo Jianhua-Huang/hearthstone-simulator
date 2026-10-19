@@ -224,8 +224,9 @@ def validate_deck(deck, registry, policy):
     allowed, banned = set(policy.allowed_card_ids), set(policy.banned_card_ids)
     from .fabled_decks import construction_companions
     fabled_companions = construction_companions(deck, registry, policy, issue)
-    from .sideboards import construction_members
+    from .sideboards import construction_members, ordinary_class_members
     sideboard_cards = construction_members(deck, registry, issue, policy=policy)
+    ordinary_members = ordinary_class_members(deck, registry)
     from .modular_decks import construction_identity, validate_profiles as validate_modular_profiles
     validate_modular_profiles(registry)
     # Sideboard members do not add to main deck size, but share its reviewed
@@ -248,12 +249,12 @@ def validate_deck(deck, registry, policy):
             issue('uncollectible', f'{card_id} cannot be added to a constructed deck', card_id)
         elif meta.rarity is None and card_id not in fabled_companions:
             issue('unknown_metadata', f'Missing rarity for {card_id}', card_id)
-        if CardClass.NEUTRAL not in meta.classes and deck.card_class not in meta.classes:
+        if card_id in ordinary_members and CardClass.NEUTRAL not in meta.classes and deck.card_class not in meta.classes:
             if tourist is None or card_id not in tourist.eligible_card_ids or card_id in registry.tourists:
                 issue('class', f'{card_id} does not belong to {deck.card_class} or its reviewed Tourist pool', card_id)
-        if CardClass.DEATH_KNIGHT in meta.classes and meta.runes is None:
+        if card_id in ordinary_members and CardClass.DEATH_KNIGHT in meta.classes and meta.runes is None:
             issue('unknown_runes', f'Missing rune requirements for {card_id}', card_id)
-        if meta.runes is not None and meta.runes.total:
+        if card_id in ordinary_members and meta.runes is not None and meta.runes.total:
             if deck.runes is None or any(getattr(meta.runes, rune) > getattr(deck.runes, rune)
                                          for rune in ('blood', 'frost', 'unholy')):
                 issue('rune_requirements', f'Rune loadout cannot include {card_id}', card_id)

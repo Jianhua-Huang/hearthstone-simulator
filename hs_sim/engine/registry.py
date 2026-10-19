@@ -844,10 +844,10 @@ class Registry:
         return MappingProxyType(self._sideboards)
 
     def register_sideboard(self, profile):
-        from .sideboards import SideboardProfile, DeckCopySideboardProfile
+        from .sideboards import SideboardProfile, DeckCopySideboardProfile, ContrabandSideboardProfile
         self._require_mutable()
-        if type(profile) not in (SideboardProfile, DeckCopySideboardProfile):
-            raise ValueError('Expected exact SideboardProfile or DeckCopySideboardProfile')
+        if type(profile) not in (SideboardProfile, DeckCopySideboardProfile, ContrabandSideboardProfile):
+            raise ValueError('Expected an exact registered sideboard profile type')
         profile.__post_init__()
         if profile.source_card_id in self._sideboards:
             raise ValueError('Duplicate sideboard source')
