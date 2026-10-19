@@ -10618,6 +10618,7 @@ class GameState:
     temporary_hands: list = field(default_factory=list)
     future_hands: list = field(default_factory=list)
     hand_deadlines: list = field(default_factory=list)
+    live_hand_spells: list = field(default_factory=list)
     interactable_history: list = field(default_factory=list)
     next_recruit_summon_id: int = 1
     recruit_summon_history: list = field(default_factory=list)
@@ -11648,6 +11649,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_future_hands(state,registry)
     from .hand_deadlines import validate_shape as validate_hand_deadlines
     validate_hand_deadlines(state,registry)
+    from .live_hand_spells import validate_shape as validate_live_hand_spells
+    validate_live_hand_spells(state,registry)
     from .recruit_summons import validate_history as validate_recruit_summon_history
     validate_recruit_summon_history(state,registry)
     from .resurrection_summons import validate_history as validate_resurrection_summon_history

@@ -1918,3 +1918,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 正常回合抽牌可由签名的永久程序替换为原牌库发现；选中原牌减费和其余销毁复用原区域选择、发现交付与批次操作。接口、候选材料和优先/疲劳待校准政策见[契约](m3-turn-draw-discovery.md)。
 
 手牌随从封入标本罐时，以独立remembered_hand_copy保存原材料，在公共存储变形通知前安装印刷亡语记忆；释放复用普通复制召唤。原引用、空罐、休眠及只公开名称的观察边界见[契约](m3-hand-minion-jars.md)。
+
+伊度的存活来源用一份可保存记录关联原驻留与原法术，洗入牌库不重新造牌；回手和来源清理复用普通操作。唯一提供、初始批次发布和待校准政策见[契约](m3-live-source-hand-spell.md)。

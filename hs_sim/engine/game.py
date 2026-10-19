@@ -226,6 +226,8 @@ class Game:
         from .dormancy import capture_board_full
         initial_conditions = Resolution(game)
         from .hand_parity import synchronize as synchronize_hand_parity
+        from .live_hand_spells import settle as settle_live_hand_spells
+        settle_live_hand_spells(initial_conditions)
         synchronize_hand_parity(initial_conditions, initial=True)
         initial_work = [*initial_conditions._captured, *capture_board_full(initial_conditions)]
         initial_conditions._captured.clear()
@@ -587,6 +589,8 @@ class Game:
         validate_spell_budget_boundary(self)
         from .carved_spells import validate_boundary as validate_carved_boundary
         validate_carved_boundary(self)
+        from .live_hand_spells import validate_boundary as validate_live_hand_spell_boundary
+        validate_live_hand_spell_boundary(self)
         from .cross_zone import validate_boundary as validate_cross_zone_boundary
         validate_cross_zone_boundary(self)
         from .hand_progress import validate_defining_history

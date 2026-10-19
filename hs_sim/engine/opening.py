@@ -195,7 +195,7 @@ def add_to_hand(r, effect):
     create_hand_card(r, effect)
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None):
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False):
     """Shared generated materialization; public AddToHand still returns no work."""
     player = r.player(effect.player_id)
     from .carved_spells import validate_creation as validate_carved_creation, install as install_carved
@@ -228,6 +228,15 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
     if aura_duration_source is not None:
         from .aura_duration import install as install_aura_duration
         install_aura_duration(r.state, r.registry, entity, aura_duration_source)
+    if live_hand_source is not None:
+        from .live_hand_spells import bind_created
+        bind_created(r, entity, live_hand_source)
+    if not defer_publication:announce_hand_card(r,effect,entity)
+    return entity
+
+
+def announce_hand_card(r,effect,entity):
+    player=r.player(effect.player_id);zone=entity.zone
     for viewer in effect.revealed_to:
         r.game._information.players[viewer].remember(entity)
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id)
@@ -236,7 +245,6 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,reason='generated')
     else:
         r.emit('card_added_to_hand',source_id=effect.source_id,target_id=entity.id,player_id=player.id,reason='generated')
-    return entity
 
 
 def register_opening(mechanics):

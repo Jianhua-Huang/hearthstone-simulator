@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 456
+SNAPSHOT_SCHEMA_VERSION = 457
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1242,6 +1242,8 @@ def state_from_dict(value: dict) -> GameState:
     spell_aura_rows_from_dict(value)
     from .hand_deadlines import rows_from_dict as hand_deadline_rows_from_dict
     hand_deadline_rows_from_dict(value)
+    from .live_hand_spells import rows_from_dict as live_hand_spell_rows_from_dict
+    live_hand_spell_rows_from_dict(value)
     from .recruit_summons import rows_from_dict as recruit_summon_rows_from_dict
     recruit_summon_rows_from_dict(value)
     from .resurrection_summons import rows_from_dict as resurrection_summon_rows_from_dict

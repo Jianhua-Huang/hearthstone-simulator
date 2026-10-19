@@ -1,0 +1,452 @@
+{
+  "schema": 1,
+  "task": {
+    "schema": 1,
+    "batch": "K284-live-source-hand-spell",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k283-hand-minion-jars/inventory-01.json",
+    "candidate_inventory_sha256": "574a434a02b8a119da45459014577dfe3d7ceca49810bb514173b3de8b3a6616",
+    "roots": [
+      "TLC_241"
+    ],
+    "dependencies": [
+      "TLC_241t"
+    ],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "TLC_241e",
+      "TLC_241e2"
+    ],
+    "official_ids": [
+      "TLC_241",
+      "TLC_241t"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Audit real Ido live-source hand presence, reacquisition when cast and retirement when original source leaves. Ordinary2manaHoly spell gives+2/+2 and DivineShield. Preserve actual continuous source and hand capacity rather than a fabricated Battlecry.",
+        "cards": [
+          "TLC_241"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/live_source_hand_spell_card.py",
+      "data/cards/live-source-hand-spell-v1.json",
+      "tests/test_live_source_hand_spell_card.py"
+    ]
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_241",
+        "dbf_id": 117951,
+        "name": "蛇颈龙群的伊度",
+        "name_en": "Ido of the Threshfleet",
+        "text": "当本随从存活时，你获取一张法力值消耗为（2）的神圣法术牌，该牌可以使一个随从获得+2/+2和<b>圣盾</b>。",
+        "text_en": "[x]While this is alive,\nyou get a 2-Cost Holy spell\nthat gives a minion +2/+2\nand <b>Divine Shield</b>.",
+        "cost": 4,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 117953,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cd11aa48df5f558aa9c1d24544f98170294aa3caee53ce75ba0e8c6c96fd0662",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_241",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_241t",
+        "dbf_id": 117953,
+        "name": "呼叫蛇颈龙群",
+        "name_en": "Call the Threshfleet!",
+        "text": "使一个随从获得+2/+2和<b>圣盾</b>。<i>（当伊度存活时，本牌会保留在你手中！）</i>",
+        "text_en": "Give a minion +2/+2 and <b>Divine Shield</b>. <i>(This stays in your hand while Ido is alive!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 5,
+          "SPELLCRAFT_HINT": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "013280dd3fd15e10fbdb498ad9ef3b009ebe019e2b42aa87600705b7070fe53c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_241t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_241e",
+        "dbf_id": 119685,
+        "name": "蛇颈龙骑手",
+        "name_en": "Threshrider",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "aef043c240af05c10d6738c7a2f04b3daed2343d5f7973c62cb00e3107ac55c4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_241e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_241e2",
+        "dbf_id": 123688,
+        "name": "蛇颈龙骑手追踪",
+        "name_en": "Threshrider Tracker",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c85e5d492e7ca11651e60a7f3990aee2d0236fd2192b03871c6eee7d9cb338a4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_241e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_241",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117951-zh_CN.json",
+      "response_sha256": "96c02319a6db9fd14f36cc6d18983766b0b5d0ee58f82ebc7a66ff1c0489c48d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117951&locale=zh_CN",
+      "face": {
+        "id": 117951,
+        "collectible": 1,
+        "slug": "117951-ido-of-the-threshfleet",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "蛇颈龙群的伊度",
+        "text": "当本随从存活时，你获取一张法力值消耗为（2）的神圣法术牌，该牌可以使一个随从获得+2/+2和<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de50d7c5042132574874d92f96a3c73d3447c5e1f3417dce266140cbeee4cc9d.png",
+        "imageGold": "",
+        "flavorText": "蛇颈龙：我湿，故我载。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f04c30c0e8df272b7796769df4b189bbe7aa9aa2f853e437a413f9c1ced672b.png",
+        "childIds": [
+          117953
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117951&locale=zh_CN",
+        "sha256": "96c02319a6db9fd14f36cc6d18983766b0b5d0ee58f82ebc7a66ff1c0489c48d",
+        "bytes": 867,
+        "observed_at": "2026-10-19T20:03:39.133677+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_241",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117951-en_US.json",
+      "response_sha256": "8b2534b3c6e3234d044b87d79f1c9e4a3b7a1bc5bffd3d13366ca0b2f1769744",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117951&locale=en_US",
+      "face": {
+        "id": 117951,
+        "collectible": 1,
+        "slug": "117951-ido-of-the-threshfleet",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Ido of the Threshfleet",
+        "text": "While this is alive, you get a 2-Cost Holy spell that gives a minion +2/+2 and <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45ec3d17db71a39119a3b1588db5eb4da844c91cecbc2d3a45669cd8dc22fce1.png",
+        "imageGold": "",
+        "flavorText": "Ido, therefore I am.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f04c30c0e8df272b7796769df4b189bbe7aa9aa2f853e437a413f9c1ced672b.png",
+        "childIds": [
+          117953
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117951&locale=en_US",
+        "sha256": "8b2534b3c6e3234d044b87d79f1c9e4a3b7a1bc5bffd3d13366ca0b2f1769744",
+        "bytes": 813,
+        "observed_at": "2026-10-19T20:03:39.286860+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_241t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117953-zh_CN.json",
+      "response_sha256": "40c91b6c64cd7302db174eb62a3c43c008c86f0367a4982a865c0fc8d7beb2bb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117953&locale=zh_CN",
+      "face": {
+        "id": 117953,
+        "collectible": 0,
+        "slug": "117953-call-the-threshfleet",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 2,
+        "name": "呼叫蛇颈龙群",
+        "text": "使一个随从获得+2/+2和<b>圣盾</b>。<i>（当伊度存活时，本牌会保留在你手中！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/074ccc12b6b208f6b9e0b9e16bfd14db9353501d7eef5e9a18637809f1a35f61.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117951,
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117953&locale=zh_CN",
+        "sha256": "40c91b6c64cd7302db174eb62a3c43c008c86f0367a4982a865c0fc8d7beb2bb",
+        "bytes": 681,
+        "observed_at": "2026-10-19T20:03:39.154708+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_241t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117953-en_US.json",
+      "response_sha256": "bb3b6eb0510c84fcbc70fbd8586d97f616d7dff416a5802e314d320d26ad4403",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117953&locale=en_US",
+      "face": {
+        "id": 117953,
+        "collectible": 0,
+        "slug": "117953-call-the-threshfleet",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "manaCost": 2,
+        "name": "Call the Threshfleet!",
+        "text": "Give a minion +2/+2 and <b>Divine Shield</b>. <i>(This stays in your hand while Ido is alive!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cff236ca666904af2b819bf952bb4264568919ba6eb1446731504eee6a5f1b71.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117951,
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117953&locale=en_US",
+        "sha256": "bb3b6eb0510c84fcbc70fbd8586d97f616d7dff416a5802e314d320d26ad4403",
+        "bytes": 673,
+        "observed_at": "2026-10-19T20:03:39.270756+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "supply": "one physical card per continuous source presence",
+    "return_window": "after completed physical hand play",
+    "return_recipe": "ordinary ReturnSpentSpell resets and reacquires original card",
+    "source_exit": "retire lease and privately remove original owned hand spell only",
+    "deck": "does not trigger resupply",
+    "full_hand": "ordinary one-time generated overflow, no retry",
+    "copies": "independent copies do not inherit the original supply lease",
+    "CN_calibrated": false,
+    "formal_pool_complete": false
+  }
+}

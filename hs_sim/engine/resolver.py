@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v562'
+CORE_EFFECTS_VERSION = 'core-effects-v563'
 
 
 class Mechanics:
@@ -675,6 +675,10 @@ class Resolution:
         sync(self, getattr(self, '_cause_reason', 'aura_change'))
         from .dormancy import capture_board_full
         self._captured.extend(capture_board_full(self))
+
+        if self.game._resolving:
+            from .live_hand_spells import settle
+            settle(self)
 
     def pay_cost(self, player, source):
         pay_cost(self, player, source)
@@ -2755,5 +2759,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_linked_hand_costs(mechanics)
     from .hand_minion_jars import register as register_hand_minion_jars
     register_hand_minion_jars(mechanics)
+    from .live_hand_spells import register as register_live_hand_spells
+    register_live_hand_spells(mechanics)
     return mechanics
 

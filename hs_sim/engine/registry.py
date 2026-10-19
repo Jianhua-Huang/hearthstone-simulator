@@ -162,6 +162,7 @@ class Registry:
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
         self._carved_spell_profiles = {}
+        self._live_hand_spell_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
         self._corpse_summon_profiles = {}
@@ -342,6 +343,9 @@ class Registry:
     def carved_spell_profiles(self):return MappingProxyType(self._carved_spell_profiles)
 
     @property
+    def live_hand_spell_profiles(self):return MappingProxyType(self._live_hand_spell_profiles)
+
+    @property
     def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
 
     @property
@@ -449,6 +453,13 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._carved_spell_profiles:raise ValueError('Duplicate carved spell profile')
         self._carved_spell_profiles[profile.card_id]=profile
+
+    def register_live_hand_spell_profile(self, profile):
+        self._require_mutable()
+        from .live_hand_spells import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._live_hand_spell_profiles:raise ValueError('Duplicate live hand spell source')
+        self._live_hand_spell_profiles[profile.card_id]=profile
 
     def register_hero_health_target_profile(self,profile):
         self._require_mutable()
@@ -1716,6 +1727,8 @@ class Registry:
         for card_id in self._spell_mirror_ids:validate_spell_mirror_declaration(self,card_id)
         from .carved_spells import validate_profile as validate_carved_profile
         for profile in self._carved_spell_profiles.values():validate_carved_profile(self,profile)
+        from .live_hand_spells import validate_profile as validate_live_hand_spell_profile
+        for profile in self._live_hand_spell_profiles.values():validate_live_hand_spell_profile(self, profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
         from .kindred_targets import validate_profile as validate_kindred_target_profile
@@ -2071,6 +2084,8 @@ class Registry:
             payload['spell_mirror_ids']=sorted(self._spell_mirror_ids)
         if self._carved_spell_profiles:
             payload['carved_spell_profiles']=[asdict(self._carved_spell_profiles[k])for k in sorted(self._carved_spell_profiles)]
+        if self._live_hand_spell_profiles:
+            payload['live_hand_spell_profiles']=[asdict(self._live_hand_spell_profiles[k])for k in sorted(self._live_hand_spell_profiles)]
         if self._hero_health_target_profiles:
             payload['hero_health_target_profiles']=[asdict(self._hero_health_target_profiles[k])for k in sorted(self._hero_health_target_profiles)]
         if self._generation_families:
