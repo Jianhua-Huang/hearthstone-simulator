@@ -423,6 +423,7 @@ class StatRelationSpec:
 class PaymentType(StrEnum):
     MANA = 'mana'
     HEALTH = 'health'
+    OPPONENT_HEALTH = 'opponent_health'
     ARMOR = 'armor'
     CORPSES = 'corpses'
 
@@ -699,9 +700,14 @@ class CostModifier:
             raise ValueError('Qualified next-card prices require finite ordinary card uses')
         if self.maximum_cost is not None:
             _int(self.maximum_cost,'complete current cost threshold',0)
-            if (not self.tribes_any or self.spec.payment!=PaymentType.HEALTH or self.spec.delta or
+            if (self.spec.payment!=PaymentType.OPPONENT_HEALTH and (not self.tribes_any or self.spec.payment!=PaymentType.HEALTH) or self.spec.delta or
                     self.spec.set_to is not None or self.spec.minimum or self.uses_remaining is None):
                 raise ValueError('Current price threshold requires a finite tribal payment-only Health modifier')
+        if self.spec.payment==PaymentType.OPPONENT_HEALTH and (
+                self.maximum_cost is None or self.source_id is None or self.uses_remaining is None or
+                self.scope!=CostScope.CARD or self.tribes_any or self.combo_only or self.temporary_only or
+                self.spec.card_types!=CostSpec().card_types or self.spec.card_ids or self.spec.ability is not None):
+            raise ValueError('Opponent Health requires a sourced finite bounded ordinary-card payment modifier')
         if self.tribes_any and (self.scope != CostScope.CARD or self.spec.card_types != (CardType.MINION,)or
                 not(self.spec.delta<0 and self.spec.payment is None or self.spec.set_to is not None and self.spec.payment is None or self.maximum_cost is not None)):
             raise ValueError('Tribal player prices require a minion reduction, set-price or qualified Health payment')
@@ -4787,7 +4793,7 @@ class HeroHealthChangeRecord:
             _name(getattr(self, name), 'hero health change ' + name)
         if (type(self.event_kind) is not str or self.event_kind not in (
                 'health_resolved', 'health_lost', 'health_loss_floor_resolved',
-                'max_health_gained', 'max_health_lost', 'health_spent', 'stats_changed',
+                'max_health_gained', 'max_health_lost', 'health_spent', 'opponent_health_spent', 'stats_changed',
                 'enchantment_removed', 'attachments_expired', 'hero_replaced', 'hero_recovered', 'hero_health_set')):
             raise ValueError('Unknown hero health change origin')
         if (self.health_before == self.health_after or self.health_before > self.max_health_before or

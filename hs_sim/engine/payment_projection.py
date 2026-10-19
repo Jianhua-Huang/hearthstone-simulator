@@ -67,18 +67,21 @@ def payment_plan(state, quote):
         result = project_mana_spend(player, quote.amount)
         for name in ('temporary_mana', 'mana_spent', 'mana'):
             write('player', player.id, name, getattr(player, name), getattr(result, name))
-    elif quote.payment == PaymentType.HEALTH:
+    elif quote.payment in (PaymentType.HEALTH,PaymentType.OPPONENT_HEALTH):
         from .health_loss import replacement_for, project_loss
         from .model import HealthLossKind
+        opponent = quote.payment==PaymentType.OPPONENT_HEALTH
+        if opponent:
+            hero=state.entities[state.players[3-player.id].hero_id]
         # Eligibility is taken before the original armor debit, as before.
         replacement = replacement_for(state, hero.id, HealthLossKind.PAYMENT)
-        armor = min(hero.armor, quote.amount)
+        armor = 0 if opponent else min(hero.armor, quote.amount)
         armored = deepcopy(hero); armored.armor -= armor
         result = project_loss(state, armored, quote.amount - armor,
                               HealthLossKind.PAYMENT, source.id, replacement)
         from .hero_health_history import prepare_change, snapshot as hero_health_snapshot, event_data
         before_health, after_health = hero_health_snapshot(hero), hero_health_snapshot(result.target)
-        health_row = prepare_change(state, before_health, after_health, 'health_spent')
+        health_row = prepare_change(state, before_health, after_health, f'{quote.payment.value}_spent')
         hero_health_data = tuple(sorted(event_data(before_health, after_health, health_row).items()))
         if health_row is not None:
             write('state', None, 'hero_health_change_history', state.hero_health_change_history,

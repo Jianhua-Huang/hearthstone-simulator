@@ -7,7 +7,7 @@ from hs_sim.engine import (CardDefinition, CardType, Game, PaymentType, PlayCard
     PlayerSetup, Registry, Scenario, SelectChoice)
 from hs_sim.engine.costs import quote_cost
 from hs_sim.engine.effects import ChoiceOption, GainArmor, RequestChoice
-from hs_sim.engine.model import Resource
+from hs_sim.engine.model import CostModifier, CostSpec, Resource
 from hs_sim.engine.paid_hand_acceptance import (FinishPaidHandAcceptance,
     validate_queue, validate_tail)
 from hs_sim.engine.payment_projection import (project_payment,
@@ -39,6 +39,10 @@ class PaymentValidationReuseTests(unittest.TestCase):
         before.players[1].resources[Resource.CORPSES] = 4
         before.entities[before.players[1].hero_id].armor = 3
         source = before.entities[before.players[1].hand[0]]
+        if payment_type == PaymentType.OPPONENT_HEALTH:
+            before.players[1].cost_modifiers.append(CostModifier(before.next_attachment_id,
+                CostSpec(payment=payment_type),source_id=source.id,uses_remaining=1,maximum_cost=10))
+            before.next_attachment_id += 1
         quote = replace(quote_cost(before, game.registry, source), payment=payment_type)
         prepared = prepare_play(before, game.registry, source, None, quote)
         projected = project_payment(before, quote, cause_reason='PlayFromHand')

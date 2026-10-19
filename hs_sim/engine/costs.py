@@ -358,7 +358,8 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
     complete_amount=max(complete_amount,minimum_cost)
     applied = []
     for modifier_id,spec,contribution in candidates:
-        if contribution.modifier is not None and contribution.modifier.maximum_cost is not None and complete_amount>contribution.modifier.maximum_cost:continue
+        if (contribution.modifier is not None and contribution.modifier.maximum_cost is not None and
+                complete_amount>contribution.modifier.maximum_cost and spec.payment!=PaymentType.OPPONENT_HEALTH):continue
         amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None:
             payment = spec.payment
@@ -386,7 +387,7 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
         if modifier.temporary_only and hand_lifetime is None:return False
         if modifier.maximum_cost is not None and not ignore_maximum:
             if type(complete_amount)is not int:raise ValueError('Qualified Health payment lost its complete current price')
-            if complete_amount>modifier.maximum_cost:return False
+            if complete_amount>modifier.maximum_cost and spec.payment!=PaymentType.OPPONENT_HEALTH:return False
     if contribution.modifier is not None and contribution.modifier.tribes_any:
         from .tribes import tribe_state_for
         current=tribe_state_for(registry,definition.id,tuple(e for e in enchantments if e.tribe_change is not None))
@@ -485,6 +486,12 @@ def payment_error(state, quote):
     hero = state.entities[player.hero_id]
     if quote.payment == PaymentType.MANA:
         return 'Insufficient mana' if player.mana < quote.amount else None
+    if quote.payment == PaymentType.OPPONENT_HEALTH:
+        limits=[m.maximum_cost for m in player.cost_modifiers if m.id in quote.modifier_ids
+            and m.spec.payment==PaymentType.OPPONENT_HEALTH and m.maximum_cost is not None]
+        if not limits:
+            return 'Opponent Health payment lost its original bounded source'
+        return 'Card exceeds the opponent Health payment limit' if quote.amount>min(limits) else None
     if quote.payment == PaymentType.HEALTH:
         from .health_loss import replacement_for
         from .model import HealthLossKind

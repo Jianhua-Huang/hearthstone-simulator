@@ -26,3 +26,16 @@
 当前格式由`serialization.SNAPSHOT_SCHEMA_VERSION`声明；新增嵌套期限和报价材料使用严格解码，旧格式需原引擎读取，不静默迁移。原观察、玩家命令和回放外层协议保持，完整期限、报价操作数和恢复帧不得进入玩家DTO。
 
 `python -B -X utf8 -m examples.card_qualified_next`通过玩家命令演示五张适配及各稳定位置的独立恢复、clone和回放。洞穴专家场景使用一个显式标为“非正式卡牌”的临时牌生产夹具，生成真实雪人；夹具不进入生产注册表或正式池，不冒充已实现的真实生产卡。正式标准池、完整可达内容和国服官方校准仍须分别闭合。
+
+
+## 阿迦玛甘的有界对手生命支付
+
+真实战吼返回`AddCostModifier(player_id, CostSpec(payment=PaymentType.OPPONENT_HEALTH), uses_remaining=1, source_id=..., maximum_cost=10)`。复用既有玩家费用附件及原分配/用途账本，不为这张卡新增可变计数器或付款执行器。此有限声明要求实际来源、有限用途、普通五类卡牌、明确非负上限，且只改变账户；不能附带数值操作或假装是无来源的印刷生命费用。普通召唤不发起战吼，来源后来死亡/转控不改变原修改器玩家。
+
+先由共享价格层完成当前费用，再决定是否能支付。对手生命账户的`maximum_cost`是使用上限：超过时仍保留原账户与来源，由`payment_error`明确拒绝出牌；不回退到法力，不把11点截为10点，也不在预览时消费来源。既有本人随从种族/生命费用的资格阈值政策保持。零费牌也是下一张实际使用的牌，会消费接受的原用途；英雄技能不匹配五类普通牌。多项原来源的消费、先后覆盖及重复战吼按现有价格/用途契约执行，精确国服层序仍待校准。
+
+`payment_projection.payment_plan`使用原报价玩家消费费用附件，以其当前对手的实际英雄为扣血账户，沿共享`HealthLossKind.PAYMENT`和生命变化记账投影结算。对手支付不经过护甲或伤害包，也不采用本人支付的生命必须富余限制，允许致死；最终生命损失替换仍以被扣除的真实英雄为目标。原`opponent_health_spent`事件的player_id为出牌玩家，原生命过渡/记录的玩家为对手；恢复校验必须核对二者相反，不能把实际扣血者改成出牌者。后续等待、回滚、支付证明、完整回放继续共用原管线。没有新GameState字段或Effect类型。
+
+[完整固定源](../data/cards/agamaggan-health-payment-v1.json)保留根卡及两个原始腐蚀棘刺附魔，附魔仅作证据。官网主面支持完整正文及10点文字上限；[低生命实测报告](https://us.forums.blizzard.com/en/hearthstone/t/agamaggan-can-pay-more-life-than-you-have/145088)记录了6生命支付9费后成为-3，[护甲/上限讨论](https://us.forums.blizzard.com/en/hearthstone/t/why-cant-agamaggan-cast-the-ceaseless-expansion/157570)支持区分生命损失与伤害。报告/社区规则不是暴雪正式国服认证；超过10费无法使用、零费消费、致死和各精确接受窗仍分别保留M6核对，不能以正文或内部测试关闭校准。
+
+公开报价增加`payment='opponent_health'`，公开支出事件沿原过滤器，只给玩家应见的类型、金额和归属。完整费用附件、上限声明、支付证明及英雄过渡不进入玩家DTO。观察98、内核533/schema428包含新枚举与事件形状，旧格式需原引擎；实际验收及下一项仅在原两份台账维护。

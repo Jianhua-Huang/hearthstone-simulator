@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v97'
+VIEW_VERSION = 'player-view-v98'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -44,7 +44,7 @@ PUBLIC_EVENTS = frozenset('''counter_policy_used limited_trigger_used game_creat
     hero_power_trigger_started hero_power_triggered hero_power_trigger_failed
     hero_power_refreshed hero_power_limit_changed hero_replaced hero_died hero_recovered hero_health_set
     attack_declared attack_finished attack_cancelled damage_dealt damage_prevented healed
-    shield_lost armor_gained armor_lost health_lost health_loss_replaced max_health_gained max_health_lost hero_health_stolen fatigue mana_spent health_spent armor_spent corpses_spent
+    shield_lost armor_gained armor_lost health_lost health_loss_replaced max_health_gained max_health_lost hero_health_stolen fatigue mana_spent health_spent opponent_health_spent armor_spent corpses_spent
     mana_changed mana_consumed overload_added resource_gained resource_spent stats_changed destroyed silenced
     transformed control_changed frozen unfrozen stealth_lost magnetized heralded'''.split())
 CHOICE_EVENTS = frozenset(('choice_requested', 'choice_selected'))

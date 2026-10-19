@@ -1,0 +1,292 @@
+{
+  "schema": 1,
+  "batch": "K253-agamaggan-enemy-health",
+  "task": {
+    "schema": 1,
+    "batch": "K253-agamaggan-enemy-health",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_489"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "EDR_489e1",
+      "EDR_489e2"
+    ],
+    "official_ids": [
+      "EDR_489"
+    ],
+    "effect_groups": [
+      {
+        "effect": "The next actual card costs opponent Health instead of Mana, up to 10. Review payer/beneficiary, cap and lethal semantics before the minimum real cost extension.",
+        "cards": [
+          "EDR_489"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/agamaggan_health_payment_card.py",
+      "data/cards/agamaggan-health-payment-v1.json",
+      "tests/test_agamaggan_health_payment_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_489",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k253-agamaggan-enemy-health\\official-cache-01\\115203-zh_CN.json",
+      "response_sha256": "8d8a353811979c3a4066a843343ba55bee44760692b29936338847622de5f8c3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115203&locale=zh_CN",
+      "face": {
+        "id": 115203,
+        "collectible": 1,
+        "slug": "115203-agamaggan",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 9,
+        "attack": 9,
+        "manaCost": 10,
+        "name": "阿迦玛甘",
+        "text": "<b>战吼：</b>你使用的下一张牌会消耗<b>对手</b>的生命值而非法力值<i>（最高不超过10点）</i>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f44bf8722e1631a84e44616cbbaab93539e216c72c33122cef838af125fa524e.png",
+        "imageGold": "",
+        "flavorText": "他虽在上古之战中身殒，但他的遗泽留在了艾泽拉斯，滋养着崇拜他的野猪人各部。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8df58466c0011bfe60104b895dfed66e037e4e74cfca85949f6c9be9efc5f270.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115203&locale=zh_CN",
+        "sha256": "8d8a353811979c3a4066a843343ba55bee44760692b29936338847622de5f8c3",
+        "bytes": 916,
+        "observed_at": "2026-10-19T07:10:30.924582+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_489",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k253-agamaggan-enemy-health\\official-cache-01\\115203-en_US.json",
+      "response_sha256": "ca415803a0016ead580a5878c8fc094a0cd5d9e451c879cb09b37b0e8720d994",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115203&locale=en_US",
+      "face": {
+        "id": 115203,
+        "collectible": 1,
+        "slug": "115203-agamaggan",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 9,
+        "attack": 9,
+        "manaCost": 10,
+        "name": "Agamaggan",
+        "text": "<b>Battlecry:</b> The next card you play costs your OPPONENT'S Health instead of Mana <i>(up to 10)</i>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91d138aec657fa761947776078fc4314e4182e7d010fdfe3dc9f7ac73cb58232.png",
+        "imageGold": "",
+        "flavorText": "Though he fell during the War of the Ancients, his legacy on Azeroth can be seen in the flourishing quilboar tribes who still worship him.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8df58466c0011bfe60104b895dfed66e037e4e74cfca85949f6c9be9efc5f270.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115203&locale=en_US",
+        "sha256": "ca415803a0016ead580a5878c8fc094a0cd5d9e451c879cb09b37b0e8720d994",
+        "bytes": 919,
+        "observed_at": "2026-10-19T07:10:31.117409+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_489",
+        "dbf_id": 115203,
+        "name": "阿迦玛甘",
+        "name_en": "Agamaggan",
+        "text": "<b>战吼：</b>你使用的下一张牌会消耗<b>对手</b>的生命值而非法力值<i>（最高不超过10点）</i>。",
+        "text_en": "[x]<b>Battlecry:</b> The next card you\nplay costs your OPPONENT'S\nHealth instead of Mana\n<i>(up to 10)</i>.",
+        "cost": 10,
+        "attack": 9,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 9,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "a2652fbd561a4f95eb9997b5602bc973cd2ff7eb43b9ad27c879685271337198",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_489",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_489e1",
+        "dbf_id": 116678,
+        "name": "腐蚀棘刺",
+        "name_en": "Corrupted Thorns",
+        "text": "你使用的下一张牌会消耗<b>对手</b>的生命值而非法力值。",
+        "text_en": "The next card you play costs your OPPONENT's health instead of mana.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c85b468ae1c0544e5e756d9d74c568cda58cc83ff8a9d69dcc4cc8854c7ab2b4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_489e1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_489e2",
+        "dbf_id": 120560,
+        "name": "腐蚀棘刺",
+        "name_en": "Corrupted Thorns",
+        "text": "你使用的下一张牌会消耗<b>对手</b>的生命值而非法力值。",
+        "text_en": "The next card you play costs your OPPONENT's health instead of mana.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3c77177b909cdd2e0733f0cd2b051fdbf8ac5a8fd4102621098b318773066fbe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_489e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": []
+}

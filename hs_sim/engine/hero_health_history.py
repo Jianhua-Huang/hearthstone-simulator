@@ -148,7 +148,7 @@ def validate_event(state, event):
     if TRANSITION not in data: return None
     value = validate_transition(data[TRANSITION])
     if event.kind not in ('health_resolved', 'health_lost', 'health_loss_floor_resolved',
-            'max_health_gained', 'max_health_lost', 'health_spent', 'stats_changed',
+            'max_health_gained', 'max_health_lost', 'health_spent', 'opponent_health_spent', 'stats_changed',
             'enchantment_removed', 'attachments_expired', 'hero_replaced', 'hero_recovered', 'hero_health_set'):
         raise ValueError('Hero envelope borrowed an unrelated original event')
     for entity_id, card in ((value[1], value[2]), (value[5], value[6])):
@@ -156,8 +156,9 @@ def validate_event(state, event):
         if hero is None or (hero.kind, hero.owner, hero.controller, hero.card_id) != (
                 CardType.HERO, value[0], value[0], card):
             raise ValueError('Hero envelope changed its actual physical identity')
-    if event.kind == 'health_spent':
-        if event.target_id is not None or event.player_id != value[0]:
+    if event.kind in ('health_spent','opponent_health_spent'):
+        actor=value[0] if event.kind=='health_spent' else 3-value[0]
+        if event.target_id is not None or event.player_id != actor:
             raise ValueError('Health payment transition changed its actual payer')
     elif event.target_id != value[5]:
         raise ValueError('Hero transition changed its actual physical event target')
