@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 453
+SNAPSHOT_SCHEMA_VERSION = 454
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -83,7 +83,7 @@ def _integer(value, name, minimum=None):
 
 
 def deathrattle_memory_from_dict(value):
-    from .model import DeathrattleMemory, NativeDeathrattleSpec, RememberedDraw, RememberedDormancy, RememberedDiscovery
+    from .model import DeathrattleMemory, NativeDeathrattleSpec, RememberedDraw, RememberedDormancy, RememberedDiscovery, RememberedCost
     memory = _row(value, DeathrattleMemory)
     memory['spec'] = NativeDeathrattleSpec(**_row(memory['spec'], NativeDeathrattleSpec))
     memory['draws'] = tuple(RememberedDraw(**_row(x, RememberedDraw)) for x in _list(memory['draws'], 'remembered physical draws'))
@@ -91,6 +91,7 @@ def deathrattle_memory_from_dict(value):
     memory['hand_entry_ids'] = tuple(_list(memory['hand_entry_ids'], 'remembered original hand selections'))
     memory['dormancies'] = tuple(RememberedDormancy(**_row(x, RememberedDormancy)) for x in _list(memory['dormancies'], 'remembered dormancy intervals'))
     memory['discoveries'] = tuple(RememberedDiscovery(**_row(x, RememberedDiscovery)) for x in _list(memory['discoveries'], 'remembered discoveries'))
+    memory['cost_links'] = tuple(RememberedCost(**_row(x, RememberedCost)) for x in _list(memory['cost_links'], 'remembered cost attachments'))
     if memory['summon_copy'] is not None:
         from .copy_materials import CopyEntryMaterial, from_dict
         memory['summon_copy'] = from_dict(CopyEntryMaterial, memory['summon_copy'])

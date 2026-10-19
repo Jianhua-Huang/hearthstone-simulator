@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v559'
+CORE_EFFECTS_VERSION = 'core-effects-v560'
 
 
 class Mechanics:
@@ -2751,5 +2751,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_after_play(mechanics)
     from .hand_minion_split import register as register_hand_minion_split
     register_hand_minion_split(mechanics)
+    from .linked_hand_costs import register as register_linked_hand_costs
+    register_linked_hand_costs(mechanics)
     return mechanics
 

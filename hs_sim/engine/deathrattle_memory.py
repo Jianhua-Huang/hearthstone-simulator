@@ -55,6 +55,9 @@ def validate_ability(state,registry,ability):
 
 def validate_copy_memory(state, registry, memory, *, closed=False):
     memory.__post_init__()
+    if memory.cost_links:
+        from .linked_hand_costs import validate_link
+        for link in memory.cost_links: validate_link(state, registry, link, closed=closed)
     if memory.summon_copy is not None:
         from .copy_materials import validate_scope
         validate_scope(state, registry, memory.summon_copy, closed=closed)

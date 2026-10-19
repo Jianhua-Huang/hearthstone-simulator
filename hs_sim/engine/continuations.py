@@ -125,6 +125,9 @@ class FrameCodec:
         if type(value) is AdaptAndRemember:
             validate_adapt_memory(value, self.registry, self.origin_state)
         from .resolver import BehaviorCall
+        from .linked_hand_costs import SetRandomHandCostForDeathrattle, RestoreRememberedCost
+        if type(value) in (SetRandomHandCostForDeathrattle, RestoreRememberedCost) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         if type(value) is BehaviorCall:
             from .named_summon_followups import validate_call as validate_named_call
             validate_named_call(value)

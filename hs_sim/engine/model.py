@@ -2649,7 +2649,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2704,6 +2704,18 @@ class RememberedDiscovery:
 
 
 @dataclass(frozen=True)
+class RememberedCost:
+    battlecry_id: int
+    entity_id: int
+    hand_entry_id: int
+    enchantment_id: int
+
+    def __post_init__(self):
+        for key in ('battlecry_id', 'entity_id', 'hand_entry_id', 'enchantment_id'):
+            _int(getattr(self, key), 'remembered cost '+key, 1)
+
+
+@dataclass(frozen=True)
 class DeathrattleMemory:
     spec: NativeDeathrattleSpec
     growth_steps: int = 0
@@ -2713,9 +2725,21 @@ class DeathrattleMemory:
     discoveries: tuple[RememberedDiscovery, ...] = ()
     hand_entry_ids: tuple[int, ...] = ()
     summon_copy: object | None = None
+    cost_links: tuple[RememberedCost, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        if type(self.cost_links) is not tuple or any(type(x) is not RememberedCost for x in self.cost_links):
+            raise ValueError('Native cost memory requires immutable original cost links')
+        for link in self.cost_links: link.__post_init__()
+        for key in ('battlecry_id', 'enchantment_id'):
+            values = tuple(getattr(x, key) for x in self.cost_links)
+            if values != tuple(sorted(set(values))):
+                raise ValueError('Native cost links changed their unique original order')
+        if (self.spec.kind != 'cost_link' and self.cost_links or self.spec.kind == 'cost_link' and
+                any((self.growth_steps, self.draws, self.discard_ids, self.dormancies,
+                     self.discoveries, self.hand_entry_ids, self.summon_copy))):
+            raise ValueError('Native cost memory cannot mix unrelated payloads')
         if self.summon_copy is not None:
             from .copy_materials import CopyEntryMaterial
             if (type(self.summon_copy) is not CopyEntryMaterial or self.spec.kind != 'copy_summon'
