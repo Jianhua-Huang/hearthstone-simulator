@@ -1,0 +1,712 @@
+{
+  "batch": "K244-fill-board-hand-quests",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_239",
+        "dbf_id": 117661,
+        "name": "治愈荒野",
+        "name_en": "Restore the Wild",
+        "text": "<b>任务：</b>填满你的面板，总计3回合。<b>奖励：</b>永茂之花。",
+        "text_en": "<b>Quest:</b> Fill your board\non 3 of your turns.\n<b>Reward:</b> The Everbloom.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 117662,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "a6b82b8593e492d009829784190199ad2a9627774614226dcf6371a10f9c2432",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_239",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "END_017",
+        "dbf_id": 121159,
+        "name": "征战时光之末",
+        "name_en": "Battle at the End Time",
+        "text": "<b>任务：</b>填满你的手牌，然后清空。<b>奖励：</b>提克和托克。",
+        "text_en": "<b>Quest:</b> Fill your hand, then empty it.\n<b>Reward: </b>Tick and Tock.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "MULTIPLE_CLASSES": 260,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 121160,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4297": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "fb2e9a42fee9c3bbeb6e7b08364832a80837859297bc6eb8b2f6cf7c91887486",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter",
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "END_017",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_239t",
+        "dbf_id": 117662,
+        "name": "永茂之花",
+        "name_en": "The Everbloom",
+        "text": "在你的英雄攻击后，使你的随从获得+2/+2。",
+        "text_en": "[x]After your hero attacks,\ngive your minions +2/+2.",
+        "cost": 3,
+        "attack": 2,
+        "health": 5,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Miki Neves"
+          }
+        ]
+      },
+      "record_sha256": "be748e920b725801049f7d47c865f712b69f8e26dbe284a599ece1d88de01070",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_239t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "1a264c23dddd85e4052a12ba1abd70a5214df22e0db9b804b9555db1e5c7206a"
+    },
+    {
+      "record": {
+        "id": "END_017t",
+        "dbf_id": 121160,
+        "name": "提克和托克",
+        "name_en": "Tick and Tock",
+        "text": "<b>战吼：</b>抽牌，直到达到你的手牌上限。<b>亡语：</b>清空对手的手牌。",
+        "text_en": "<b>Battlecry:</b> Draw until\nyour hand is full.\n<b>Deathrattle:</b> Empty the opponent's hand.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "MULTIPLE_CLASSES": 260,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "dd8ffe24b45ffd58b6e2f85eddaa82414b7cb8944cd385f5279cbe473297680e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter",
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "END_017t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "74705502f59702e581daa7306c085e315e13cf1c858786df14ee8baf5969c4cc"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_239e",
+        "dbf_id": 122816,
+        "name": "盛放之花",
+        "name_en": "Full Bloom",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "eb45f060785b9473120ade26e32dd434fa67792ff4bb759c9590b0461f72eef0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_239e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_239",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\117661-zh_CN.json",
+      "response_sha256": "7fc4f9adc7a20c765176c072c5cdf5f44516597719213cc4c568516ddfb5585c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117661&locale=zh_CN",
+      "face": {
+        "id": 117661,
+        "collectible": 1,
+        "slug": "117661-restore-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 1,
+        "name": "治愈荒野",
+        "text": "<b>任务：</b>填满你的面板，总计3回合。<b>奖励：</b>永茂之花。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/793d66f0a50c5b74be5e1484b833a73dce5d5e96602a3b735e42bcb44d5c94f7.png",
+        "imageGold": "",
+        "flavorText": "第3天。我们撞进了一片开满了血瓣花的地方，太危险了。我正在记笔记的时候，天突然黑了。我的视力当然不会出问题，似乎是什么巨大的飞行物挡住了阳光！奇怪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/836cd309ff602ec5a0ae393fa93cd15a9d07f31662c8c2cbee3e8c45dfa4fe13.png",
+        "childIds": [
+          117662
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117661&locale=zh_CN",
+        "sha256": "7fc4f9adc7a20c765176c072c5cdf5f44516597719213cc4c568516ddfb5585c",
+        "bytes": 967,
+        "observed_at": "2026-10-19T04:29:37.421594+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_239",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\117661-en_US.json",
+      "response_sha256": "17041b8079f77d330442af6861f7b4d8f93e3c0ddb4c3ca3a3182e1af9bec974",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117661&locale=en_US",
+      "face": {
+        "id": 117661,
+        "collectible": 1,
+        "slug": "117661-restore-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 1,
+        "name": "Restore the Wild",
+        "text": "<b>Quest:</b> Fill your board on 3 of your turns. <b>Reward:</b> The Everbloom.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/68472cac884e6563e1d8d82d953d19ecb146d82b2eb5952f617c72dac8b0509a.png",
+        "imageGold": "",
+        "flavorText": "Day 3. We happened upon a clearing filled with dangerous Bloodpetals. As I was noting our findings, the world went dark. My vision is perfect of course, but it appeared as though a large flying shape was blocking out the sun! Confounding indeed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/836cd309ff602ec5a0ae393fa93cd15a9d07f31662c8c2cbee3e8c45dfa4fe13.png",
+        "childIds": [
+          117662
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117661&locale=en_US",
+        "sha256": "17041b8079f77d330442af6861f7b4d8f93e3c0ddb4c3ca3a3182e1af9bec974",
+        "bytes": 991,
+        "observed_at": "2026-10-19T04:29:37.423331+00:00"
+      }
+    },
+    {
+      "card_id": "END_017",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\121159-zh_CN.json",
+      "response_sha256": "5b15413b67f45336bb615bd0674f9b6906f5757d980c46fdf3a6be383205fc6b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121159&locale=zh_CN",
+      "face": {
+        "id": 121159,
+        "collectible": 1,
+        "slug": "121159-battle-at-the-end-time",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          9
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "征战时光之末",
+        "text": "<b>任务：</b>填满你的手牌，然后清空。<b>奖励：</b>提克和托克。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e23bf63cd160db4da47c49aa4b6c69dfe13b24d2a4dea8980a838b84b02ed958.png",
+        "imageGold": "",
+        "flavorText": "在提克托克诞生之前，龙族的娱乐项目只有冲浪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86550226320bc71621e805ba7146f157030c5f946583cfc2b402ba3121c11b14.png",
+        "childIds": [
+          121160
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121159&locale=zh_CN",
+        "sha256": "5b15413b67f45336bb615bd0674f9b6906f5757d980c46fdf3a6be383205fc6b",
+        "bytes": 825,
+        "observed_at": "2026-10-19T04:29:37.268641+00:00"
+      }
+    },
+    {
+      "card_id": "END_017",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\121159-en_US.json",
+      "response_sha256": "d70c90b08315a94bb93496d63dc3d5ca57fbb0110ce4af416cd01875104b69f8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121159&locale=en_US",
+      "face": {
+        "id": 121159,
+        "collectible": 1,
+        "slug": "121159-battle-at-the-end-time",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          9
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "Battle at the End Time",
+        "text": "<b>Quest:</b> Fill your hand, then empty it. <b>Reward: </b>Tick and Tock.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ed91c20ffc83af5d8eb2de75a9cefbd39799e48c69581ac53d697a38955db4e.png",
+        "imageGold": "",
+        "flavorText": "Before Tick and Tock, we grew our entertainment on vines.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86550226320bc71621e805ba7146f157030c5f946583cfc2b402ba3121c11b14.png",
+        "childIds": [
+          121160
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121159&locale=en_US",
+        "sha256": "d70c90b08315a94bb93496d63dc3d5ca57fbb0110ce4af416cd01875104b69f8",
+        "bytes": 808,
+        "observed_at": "2026-10-19T04:29:37.253992+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_239t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\117662-zh_CN.json",
+      "response_sha256": "2563182247adbf54a73210f001460cc5111a64549e8d87c269b60c3a13f841b3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117662&locale=zh_CN",
+      "face": {
+        "id": 117662,
+        "collectible": 0,
+        "slug": "117662-the-everbloom",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Miki Neves",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "永茂之花",
+        "text": "在你的英雄攻击后，使你的随从获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/381f08e497a98bcafb4b17171293ac0f8bb30a9ba17c60d0df11b3bcfb35c91c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117661,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117662&locale=zh_CN",
+        "sha256": "2563182247adbf54a73210f001460cc5111a64549e8d87c269b60c3a13f841b3",
+        "bytes": 597,
+        "observed_at": "2026-10-19T04:29:38.113116+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_239t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\117662-en_US.json",
+      "response_sha256": "72087b1f78695ce7680c5ce2e3311d7864f255345f11f3ed3e8a026c2e7c106d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117662&locale=en_US",
+      "face": {
+        "id": 117662,
+        "collectible": 0,
+        "slug": "117662-the-everbloom",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Miki Neves",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "The Everbloom",
+        "text": "After your hero attacks, give your minions +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f080c16cd9f93c77df7b91f86c08275e228ef2722e55e7d0c426552547a6bcc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117661,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117662&locale=en_US",
+        "sha256": "72087b1f78695ce7680c5ce2e3311d7864f255345f11f3ed3e8a026c2e7c106d",
+        "bytes": 591,
+        "observed_at": "2026-10-19T04:29:38.162222+00:00"
+      }
+    },
+    {
+      "card_id": "END_017t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\121160-zh_CN.json",
+      "response_sha256": "9e92dc4fbb0b039298a5b6b6da2cb24f1eafbf13b2bf8b00ec72f3a0aa398ed4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121160&locale=zh_CN",
+      "face": {
+        "id": 121160,
+        "collectible": 0,
+        "slug": "121160-tick-and-tock",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          9
+        ],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "提克和托克",
+        "text": "<b>战吼：</b>抽牌，直到达到你的手牌上限。<b>亡语：</b>清空对手的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1ee18086ae6bd6ef2f1a64f238559b237bda7795f1327dcee9b363e5b772650.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 121159,
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121160&locale=zh_CN",
+        "sha256": "9e92dc4fbb0b039298a5b6b6da2cb24f1eafbf13b2bf8b00ec72f3a0aa398ed4",
+        "bytes": 686,
+        "observed_at": "2026-10-19T04:29:38.136380+00:00"
+      }
+    },
+    {
+      "card_id": "END_017t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k244-fill-board-hand-quests\\official-cache-01\\121160-en_US.json",
+      "response_sha256": "6cf4abdbf980751b5076eab9d930cf34b41b3aace6ce99c6d2e85c52fd20988b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121160&locale=en_US",
+      "face": {
+        "id": 121160,
+        "collectible": 0,
+        "slug": "121160-tick-and-tock",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          9
+        ],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Tick and Tock",
+        "text": "<b>Battlecry:</b> Draw until your hand is full. <b>Deathrattle:</b> Empty the opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9664b99e09ac107ad915686fba9f29413225f2523d2dc89e286c170c2c5f6ea0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 121159,
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121160&locale=en_US",
+        "sha256": "6cf4abdbf980751b5076eab9d930cf34b41b3aace6ce99c6d2e85c52fd20988b",
+        "bytes": 680,
+        "observed_at": "2026-10-19T04:29:38.120364+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "subscriptions": "Finite quest-area state subscriptions checked at existing resolver notifications with actual Ruleset and current player hand-cap override; no wildcard behavior callback or parallel counter.",
+    "board": "Current physical board occupancy at capacity, on distinct genuinely started owner intervals. Locations/dormant occupants use normal board space. A full board at quest activation or next owner start may qualify.",
+    "hand": "Capture full current-capacity hand, then later empty hand in that order using original QuestProgress keys full/empty. Accepted facts survive earlier notification reactions.",
+    "reward": "Existing exact named rewards through AddToHand; no replacement reward definitions.",
+    "cn_calibrated": false,
+    "formal_pool_complete": false
+  }
+}

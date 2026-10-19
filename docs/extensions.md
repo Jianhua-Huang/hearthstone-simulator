@@ -1840,3 +1840,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 莎拉达希尔式条件用HandProgressSpec("higher_cost_play")，仅限原生法术单次手牌事实；正文读取held_higher_cost.satisfied的实际施法冻结值。五牌随机交付复用零选择的RequestChoice完整抽样及AddToHand，不重写已有梦境定义。生命周期、历史与国服边界见[契约](m3-held-higher-cost.md)。
+
+
+满场跨本人回合任务可用QUEST_FULL_BOARD_TURNS，满手后空手任务可用QUEST_FULL_THEN_EMPTY_HAND及目标2；它们是有限订阅，回调仍返回原AdvanceQuest与原具名奖励。不要枚举所有手牌变化事件或另设计数器，具体接受窗与保存见[契约](m3-quest-area-state.md)。

@@ -3,7 +3,8 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect
 from .lifecycle import attachment_id
-from .model import QuestProgress, Zone, _int, _name
+from .model import (QUEST_FULL_BOARD_TURNS, QUEST_FULL_THEN_EMPTY_HAND,
+                    QuestProgress, Zone, _int, _name)
 
 
 def activation_error(state, registry, rules, player_id, card_id):
@@ -40,6 +41,29 @@ def public_progress(registry, entity):
     return dict(quest_kind=spec.kind, stage=progress.stage + 1, stages=len(spec.stages),
                 stage_card_id=stage.card_id, progress=progress.value, goal=stage.goal,
                 completing=progress.completing)
+
+
+def state_matches(r, entity, stage):
+    """Finite native state subscriptions at ordinary notification boundaries.
+
+    Check actual rules/capacity before allocating a detached behavior context.
+    Ordinary named-event quests retain their existing fast path. The callback
+    keeps this accepted snapshot even if an earlier reaction changes the area.
+    """
+    progress = entity.quest_progress
+    if stage.events == (QUEST_FULL_BOARD_TURNS,):
+        if r.state.active_player != entity.controller or not r.state.owner_turn_history:
+            return False
+        turn = r.state.owner_turn_history[-1]
+        return (not turn.closed and (turn.player_id, turn.turn) == (entity.controller, r.state.turn)
+            and f'owner_turn:{turn.id}' not in progress.keys
+            and len(r.player(entity.controller).board) >= r.rules.max_board)
+    if stage.events == (QUEST_FULL_THEN_EMPTY_HAND,):
+        from .hand_capacity import hand_capacity
+        player = r.player(entity.controller)
+        return (progress.value == 0 and len(player.hand) >= hand_capacity(player, r.rules)
+            or progress.value == 1 and 'full' in progress.keys and not player.hand)
+    return False
 
 
 @dataclass(frozen=True)

@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v526'
+CORE_EFFECTS_VERSION = 'core-effects-v527'
 
 
 class Mechanics:
@@ -386,7 +386,8 @@ class Resolution:
             if entity.zone == Zone.QUEST:
                 progress = entity.quest_progress
                 stage = self.registry.card(entity.card_id).quest.stages[progress.stage]
-                if (not progress.completing and kind in stage.events and
+                from .quests import state_matches as quest_state_matches
+                if (not progress.completing and (kind in stage.events or quest_state_matches(self, entity, stage)) and
                         not (source_id == entity.id and kind in ('card_committed', 'card_played'))):
                     self._captured.append(self.call(stage.progress_behavior, entity.id, entity.controller, event=event))
                 continue

@@ -3647,6 +3647,11 @@ class HandPreparation:
         _int(self.cost_id, 'Prepare cost attachment', 1)
 
 
+QUEST_FULL_BOARD_TURNS = 'state:full_board_owner_turns'
+QUEST_FULL_THEN_EMPTY_HAND = 'state:full_then_empty_hand'
+QUEST_STATE_EVENTS = frozenset((QUEST_FULL_BOARD_TURNS, QUEST_FULL_THEN_EMPTY_HAND))
+
+
 @dataclass(frozen=True)
 class QuestStageSpec:
     card_id: str
@@ -3663,6 +3668,11 @@ class QuestStageSpec:
             raise ValueError('Quest events must be a nonempty unique tuple')
         for event in self.events:
             _name(event, 'quest event')
+            if event.startswith('state:') and event not in QUEST_STATE_EVENTS:
+                raise ValueError('Unknown quest area-state subscription')
+        if set(self.events) & QUEST_STATE_EVENTS and (
+                len(self.events) != 1 or self.events == (QUEST_FULL_THEN_EMPTY_HAND,) and self.goal != 2):
+            raise ValueError('Quest area state requires one finite policy and its actual goal')
 
 
 @dataclass(frozen=True)
