@@ -177,12 +177,25 @@ class DefiningHandSourceTests(unittest.TestCase):
         self.assertIsNone(binding(g.state.entities[eid]));self.assertEqual(g.state.entities[eid].zone,Zone.DECK)
         self.assertTrue(any(e.kind=='zone_target_skipped' for e in g.events));self.portable(g)
 
-    def test_current_copy_and_hand_transfer_have_no_silent_lifecycle_fallback(self):
-        for name in ('dh.current_copy','dh.transfer','dh.fake'):
+    def test_current_copy_and_fabricated_binding_have_no_silent_lifecycle_fallback(self):
+        for name in ('dh.current_copy','dh.fake'):
             with self.subTest(operation=name):
                 g=self.game(('dh.zerus',name));eid=self.card(g,'dh.zerus');self.cycle(g);s=g.snapshot()
                 with self.assertRaises(ResolutionError):self.play(g,name,eid)
                 self.assertEqual(g.snapshot(),s)
+
+    def test_original_hand_transfer_rearms_native_source_for_the_new_owner(self):
+        g=self.game(('dh.zerus','dh.transfer'));eid=self.card(g,'dh.zerus');self.cycle(g)
+        old=binding(g.state.entities[eid]);self.assertTrue(old.progress_keys)
+        self.play(g,'dh.transfer',eid)
+        current=binding(g.state.entities[eid]);self.assertIsNotNone(current)
+        self.assertNotEqual(current.id,old.id);self.assertEqual(current.defining_card_id,old.defining_card_id)
+        self.assertEqual((current.progress_completions,current.progress_keys,current.progress_units),(0,(),()))
+        self.assertEqual(g.state.entities[eid].controller,2);self.portable(g)
+        g.apply(EndTurn(1));current=binding(g.state.entities[eid])
+        self.assertEqual(current.progress_completions,1)
+        self.assertTrue(all(g.events[int(key.split(':')[1])-1].player_id==2 for key in current.progress_keys))
+        self.portable(g)
 
     def test_snapshot_native_binding_and_witness_tampering_rejects_after_rehashing(self):
         g=self.game();eid=self.card(g,'dh.zerus');self.cycle(g);self.cycle(g);s=g.snapshot()

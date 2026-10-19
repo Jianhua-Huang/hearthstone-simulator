@@ -764,9 +764,9 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     if entity is None:
         return
     player = r.player(effect.player_id)
-    if (entity.zone == Zone.HAND and effect.destination == Zone.HAND and player.id != entity.controller and
-            any(a.kind == 'defining_hand_source' for a in entity.abilities)):
-        raise ResolutionError('Transferring a defining hand source requires a supported lifecycle policy')
+    if (effect.reset and entity.zone == Zone.HAND and effect.destination == Zone.HAND and
+            player.id != entity.controller and any(a.kind == 'defining_hand_source' for a in entity.abilities)):
+        raise ResolutionError('Resetting a transferred defining hand source requires an explicit lifecycle policy')
     if effect.destination == Zone.HAND and entity.zone == Zone.HAND and entity.controller == player.id:
         return  # Already occupies its hand slot; cannot burn by moving to itself.
     destination = effect.destination
@@ -783,7 +783,8 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     entity.controller, entity.zone = player.id, destination
     entity.zone_epoch += 1
     from .lifecycle import renew_hand_progress
-    renew_hand_progress(r.state, entity, previous_zone=previous_zone)
+    renew_hand_progress(r.state, entity, previous_zone=previous_zone,
+        hand_transfer=previous_zone == Zone.HAND and destination == Zone.HAND and previous_controller != player.id)
     if effect.reset:
         reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
                             preserve_jade=True, preserve_cthun=previous_controller == player.id)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+按获取时间转移当前手牌时，使用最新HandEntryRecord筛选当前实体，再组合原MoveCard；不要复活已离手的旧记录或用获取时卡名覆盖当前卡面。原生来源转手和资料缓存的边界见[契约](m3-original-hand-entry-theft.md)。
+
 原牌库光环直接安装使用`PutStoredAura(CardReference, player_id, source_id)`，卡牌层只捕获真实候选并组合请求；公共入口负责驻留、容量、原时长材料和安装。不要为安装光环构造一次虚假CAST，见[契约](m3-deck-aura-entry.md)。
 
 需要把真实手牌法术变成持续光环时，使用独立stored_spell程序与原材料索引，并复用已有物理变形、自动施法和玩家计时；不把材料塞进普通数值参数。实际入口、恢复和公开字段见[持续施法契约](m3-stored-spell-aura.md)。

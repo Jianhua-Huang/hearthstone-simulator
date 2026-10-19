@@ -271,11 +271,13 @@ def official(row, locale, cache, *, offline=False, display_normalizations=None, 
     cache.mkdir(parents=True, exist_ok=True)
     path = cache / f"{row['dbf_id']}-{locale}.json"
     receipt = path.with_suffix('.receipt.json')
-    url = f"https://hearthstone.blizzard.com/en-us/api/cards?card={row['dbf_id']}&locale={locale}"
+    url = f"https://playhearthstone.com/en-us/api/cards?card={row['dbf_id']}&locale={locale}"
+    legacy_url = f"https://hearthstone.blizzard.com/en-us/api/cards?card={row['dbf_id']}&locale={locale}"
     if path.exists() or receipt.exists():
         require(path.exists() and receipt.exists(), 'Incomplete official cache pair; preserve it and use another cache')
         pin = read(receipt)
-        require(pin['url'] == url and pin['sha256'] == sha(path), 'Official cache body/receipt mismatch')
+        require(pin['url'] in (url, legacy_url) and pin['sha256'] == sha(path), 'Official cache body/receipt mismatch')
+        url = pin['url']
     else:
         require(not offline, 'No pinned official cache: ' + path.name)
         request = Request(url, headers={'User-Agent': 'Hearthstone-simulator-source-audit/1.0'})

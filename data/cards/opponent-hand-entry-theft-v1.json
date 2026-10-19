@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "batch": "K257-opponent-hand-entry-theft",
+  "task": {
+    "schema": 1,
+    "batch": "K257-opponent-hand-entry-theft",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "JAIL_205"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "JAIL_205"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Steal the original opponent hand cards whose current entry occurred during the caster turn. Confirm temporal scope and original acquisition/transfer before adapting; reuse committed hand history, owner intervals and physical moves.",
+        "cards": [
+          "JAIL_205"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/opponent_hand_entry_theft_card.py",
+      "data/cards/opponent-hand-entry-theft-v1.json",
+      "tests/test_opponent_hand_entry_theft_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "JAIL_205",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k257-opponent-hand-entry-theft\\official-cache-01\\131316-zh_CN.json",
+      "response_sha256": "853eab8b51a1604467c8a7fd1a7bc33a985fe9e59bbef7a5dccbf1b7ab192f90",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131316&locale=zh_CN",
+      "face": {
+        "id": 131316,
+        "collectible": 1,
+        "slug": "131316-rat-burglar",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "蟊贼脏鼠",
+        "text": "在你的回合结束时，偷取所有在你的回合中进入对手手牌的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a707bb0b68e1ef1db21c02e89044a12a07ce8b0e4a84683c0ede2b75298b8417.png",
+        "imageGold": "",
+        "flavorText": "他来这儿之后把加基森的案底全撂了，争得了宽大处理。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c44f076627b70933205eb19d81918ffa8e3f36e4efde6637401ef2a821c1f62.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131316&locale=zh_CN",
+        "sha256": "853eab8b51a1604467c8a7fd1a7bc33a985fe9e59bbef7a5dccbf1b7ab192f90",
+        "bytes": 794,
+        "observed_at": "2026-10-19T09:34:55.353333+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_205",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k257-opponent-hand-entry-theft\\official-cache-01\\131316-en_US.json",
+      "response_sha256": "039cbf955bc411cb25d261609902d1f10980ebb397bacc5be21b3787aacf80a1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131316&locale=en_US",
+      "face": {
+        "id": 131316,
+        "collectible": 1,
+        "slug": "131316-rat-burglar",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Rat Burglar",
+        "text": "At the end of your turn, steal all cards that entered your opponent's hand during your turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b954096e0c0b9af2e175e595db61ccd6037dbb8e0f0fd594d6d5f9d5fa64a2f.png",
+        "imageGold": "",
+        "flavorText": "He actually came clean about everything that went down in Gadgetzan in exchange for a lighter sentence.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c44f076627b70933205eb19d81918ffa8e3f36e4efde6637401ef2a821c1f62.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131316&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com:443/en-us/api/cards?card=131316&locale=en_US",
+        "status": 200,
+        "sha256": "039cbf955bc411cb25d261609902d1f10980ebb397bacc5be21b3787aacf80a1",
+        "bytes": 829,
+        "observed_at": "2026-10-19T09:32:26.101217+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_205",
+        "dbf_id": 131316,
+        "name": "蟊贼脏鼠",
+        "name_en": "Rat Burglar",
+        "text": "在你的回合结束时，偷取所有在你的回合中进入对手手牌的牌。",
+        "text_en": "[x]At the end of your turn,\nsteal all cards that entered\nyour opponent's hand\nduring your turn.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "5b3fa1598ab8cf5f9be056031e327f230808ebdbf3fbddfa3ecd44d65eb3c091",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_205",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": []
+}

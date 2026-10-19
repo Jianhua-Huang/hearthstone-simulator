@@ -318,12 +318,16 @@ def restore_reborn_enchantments(state, record, destination):
     copy_attachments(state, material, destination, rebind_printed=True)
 
 
-def renew_hand_progress(state, entity, *, previous_zone=None):
+def renew_hand_progress(state, entity, *, previous_zone=None, hand_transfer=False):
     """Renew queued witnesses; a native shifter retires when its hand stay ends."""
-    entity.abilities = [replace(a, id=attachment_id(state)) if a.kind in
+    entity.abilities = [replace(a, id=attachment_id(state), progress_value=0,
+                        progress_completions=0, progress_keys=(), progress_units=(), consumed=False)
+                        if hand_transfer and a.kind == 'defining_hand_source' else
+                        replace(a, id=attachment_id(state)) if a.kind in
                         ('hand_progress', 'defining_hand_source') else a
                         for a in entity.abilities if a.kind != 'defining_hand_source' or
-                        entity.zone in (Zone.HAND, Zone.DECK) and previous_zone != Zone.HAND]
+                        entity.zone in (Zone.HAND, Zone.DECK) and previous_zone != Zone.HAND or
+                        hand_transfer and entity.zone == Zone.HAND]
     entity.abilities=[a for a in entity.abilities if a.kind!='hand_mirror'or entity.zone==Zone.HAND]
 
 
