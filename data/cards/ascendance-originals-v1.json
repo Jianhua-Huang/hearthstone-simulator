@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "batch": "K263-ascendance-originals",
+  "task": {
+    "schema": 1,
+    "batch": "K263-ascendance-originals",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "CATA_567"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "CATA_567e"
+    ],
+    "official_ids": [
+      "CATA_567"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Original pre-transform minion memory, existing +1 cost-tier transformation and attached Deathrattle that summons original; no speculative combinations.",
+        "cards": [
+          "CATA_567"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/ascendance_card.py",
+      "data/cards/ascendance-originals-v1.json",
+      "tests/test_ascendance_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "CATA_567",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k263-ascendance-originals\\official-cache-01\\122963-zh_CN.json",
+      "response_sha256": "66f181d0a6cd01fa7d275d70d15ba7e70e09102132bf2c498222321e37c098a2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122963&locale=zh_CN",
+      "face": {
+        "id": 122963,
+        "collectible": 1,
+        "slug": "122963-ascendance",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 4,
+        "name": "升腾",
+        "text": "将所有友方随从变形成为法力值消耗增加（1）点的随从。当这些随从死亡时，召唤原随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dceff4132a6a4b28ae521609219d705129c66be706e875f5c14fc29255cc1cd5.png",
+        "imageGold": "",
+        "flavorText": "艾泽拉斯标准时间每晚9点，欢迎准时参加升腾舞会，与风暴共舞！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63e200a96a8aab1383c6f835a048b50ad1913f971f6ef3e0ea339852c175d5a2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122963&locale=zh_CN",
+        "sha256": "66f181d0a6cd01fa7d275d70d15ba7e70e09102132bf2c498222321e37c098a2",
+        "bytes": 836,
+        "observed_at": "2026-10-19T12:09:24.588455+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_567",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k263-ascendance-originals\\official-cache-01\\122963-en_US.json",
+      "response_sha256": "b0f57f6993939a6faeb8ad054cdf669a9bec91ecc46489cd4fea668886375f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122963&locale=en_US",
+      "face": {
+        "id": 122963,
+        "collectible": 1,
+        "slug": "122963-ascendance",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 4,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 4,
+        "name": "Ascendance",
+        "text": "Transform all friendly minions into ones that cost (1) more. They summon the originals when they die.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c84bbecf3e0ab542cff55cf05690c7637e6fea4d6c7cc49a61dbe277cbc942fa.png",
+        "imageGold": "",
+        "flavorText": "Tune in at 9pm Azeroth Standard Time for Ascen-dancing with the Storms!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63e200a96a8aab1383c6f835a048b50ad1913f971f6ef3e0ea339852c175d5a2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122963&locale=en_US",
+        "sha256": "b0f57f6993939a6faeb8ad054cdf669a9bec91ecc46489cd4fea668886375f2a",
+        "bytes": 803,
+        "observed_at": "2026-10-19T12:09:24.663866+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_567",
+        "dbf_id": 122963,
+        "name": "升腾",
+        "name_en": "Ascendance",
+        "text": "将所有友方随从变形成为法力值消耗增加（1）点的随从。当这些随从死亡时，召唤原随从。",
+        "text_en": "[x]Transform all friendly\nminions into ones that cost\n(1) more. They summon\nthe originals when they die.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "58ae0d4b0f4349b41c3418421d50234a04ca6626461bf90c8f71241f9c3671a2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_567",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_567e",
+        "dbf_id": 122965,
+        "name": "升腾",
+        "name_en": "Ascended",
+        "text": "<b>亡语：</b>召唤{0}。",
+        "text_en": "<b>Deathrattle:</b> Summon {0}.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0705312d669cdb5ebd8c169a0a2a5911364fc4ea7d4b8044dcd1ea267b19c8dd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_567e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policy": "ordinary-original-board-local-copy-at-transform-batch-acceptance-v1; printed-cost-plus-one, original scope/order, real attached permanent Deathrattle; empty tier skips without RNG or grant, no pool pruning. Copy/reset/exact timing pending CN."
+}

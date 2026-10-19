@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实升腾式变形使用TransformMinionsInZones的可选deathrattle_behavior_id，原批次捕获材料并在变形通知前沿GrantDeathrattle安装；不要用事后扫描变形事件再补授予。原身份、空池、当前复制与保存边界见[契约](m3-transform-original-deathrattle.md)。
+
 真实蛋类需要保存选中随从时，用copy_summon原生记忆及remembered_copy材料连接普通SummonByCard；不要在卡牌层扫描旧事件、读取后来原随从或重启旧期限。入场前安装、复制和重置边界见[契约](m3-frozen-deathrattle-copy.md)。
 
 需要原本体在指定下个本人开始触发一次时，用GrantLimitedTrigger的可选deadline连接既有owner_deadline；不要用每个开始都重试的永久触发或另建回合计数。错过、过期及恢复规则见[契约](m3-murozond-owner-start.md)。

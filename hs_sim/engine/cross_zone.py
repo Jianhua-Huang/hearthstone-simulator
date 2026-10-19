@@ -4,7 +4,7 @@ from copy import deepcopy
 from random import Random
 
 from .construction import integer, name
-from .effects import Effect, _integer, _player, _source
+from .effects import Effect, GrantDeathrattle, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard
 from .model import CardClass, CardType, CostSpec, SummonStats, Zone, validate_end_turn_rng, validate_summon_stats
@@ -157,10 +157,24 @@ class TransformCapturedMinion(Effect):
     card_id: str
     source_id: int | None = None
     retained_cost: int | None = None
+    deathrattle_grant: GrantDeathrattle | None = None
 
     def __post_init__(self):
         reference_value(self.target); name(self.card_id,'transformation card'); _source(self.source_id)
         if self.retained_cost is not None:integer(self.retained_cost,'retained transformation cost',0)
+        validate_transform_grant(self.target, self.deathrattle_grant)
+
+
+def validate_transform_grant(target, grant):
+    if grant is None: return
+    if (type(target) is not MinionReference or type(grant) is not GrantDeathrattle or
+            grant.target_id != target.entity_id or grant.deathrattle_memory is None):
+        raise ValueError('Transformation grant requires its original physical board recipient')
+    grant.__post_init__()
+    original = grant.deathrattle_memory.summon_copy.origin
+    if (original.entity_id, original.controller, original.card_id, original.zone_epoch, original.entered_order) != (
+            target.entity_id, target.player_id, target.card_id, target.zone_epoch, target.entered_order):
+        raise ValueError('Transformation grant borrowed another original minion')
 
 
 @dataclass(frozen=True)
@@ -482,7 +496,8 @@ def transform_captured(r, effect):
     if entity is None:return ()
     if type(effect.target) is MinionReference:
         from .resolver import transform_minion
-        return transform_minion(r,entity,definition,source_id=effect.source_id,retained_cost=effect.retained_cost)
+        return transform_minion(r,entity,definition,source_id=effect.source_id,retained_cost=effect.retained_cost,
+            deathrattle_grant=effect.deathrattle_grant)
     return transform_stored_entity(r,entity,definition,source_id=effect.source_id,
                                    retained_cost=effect.retained_cost)
 
@@ -544,6 +559,7 @@ class TransformMinionsInZones(Effect):
     source_id: int | None = None
     policy: GenerationPolicy = GenerationPolicy()
     empty: str = 'skip'
+    deathrattle_behavior_id: str | None = None
 
     def __post_init__(self):
         _player(self.player_id); name(self.pool_id,'transformation pool'); _integer(self.cost_delta,'cost delta')
@@ -555,6 +571,10 @@ class TransformMinionsInZones(Effect):
         if self.cost_basis not in ('printed','local') or self.retain_cost_basis not in (None,'printed','local'):
             raise ValueError('Invalid transformation cost basis')
         if self.empty not in ('skip','error'):raise ValueError('Invalid empty transformation pool policy')
+        if self.deathrattle_behavior_id is not None:
+            name(self.deathrattle_behavior_id, 'original transformation Deathrattle')
+            if self.scope.zones != (Zone.BOARD,) or self.source_id is None or self.retain_cost_basis is not None:
+                raise ValueError('Remembered transformation requires a sourced ordinary board batch')
 
 
 @dataclass(frozen=True)
@@ -569,6 +589,7 @@ class TransformPoolTarget(Effect):
     source_id: int | None = None
     retained_cost: int | None = None
     empty: str = 'skip'
+    deathrattle_grant: GrantDeathrattle | None = None
 
     def __post_init__(self):
         _player(self.player_id)
@@ -587,6 +608,7 @@ class TransformPoolTarget(Effect):
         if self.source_card_id is not None:name(self.source_card_id,'captured transformation source')
         if self.retained_cost is not None:integer(self.retained_cost,'retained transformation cost',0)
         if self.empty not in ('skip','error'):raise ValueError('Invalid empty pool policy')
+        validate_transform_grant(self.target, self.deathrattle_grant)
 
 
 @dataclass(frozen=True)
@@ -636,6 +658,7 @@ def prepare_transforms(r,effect,refs):
     if effect.query.exclude_source and source_card_id is None:
         raise ResolutionError('Transformation pool excludes its source but has no source')
     work=[]
+    if effect.deathrattle_behavior_id is not None:r.registry.behavior(effect.deathrattle_behavior_id)
     for ref in refs:
         if r.registry.card(ref.card_id).kind!=CardType.MINION:
             raise ResolutionError('Transformation requires a captured minion')
@@ -643,8 +666,15 @@ def prepare_transforms(r,effect,refs):
         if entity is None:continue
         cost=max(0,cost_value(r.registry,entity,effect.cost_basis)+effect.cost_delta)
         retained=cost_value(r.registry,entity,effect.retain_cost_basis) if effect.retain_cost_basis is not None else None
+        grant = None
+        if effect.deathrattle_behavior_id is not None:
+            from .copy_materials import CopyEntryMaterial
+            from .model import DeathrattleMemory, NativeDeathrattleSpec
+            material = CopyEntryMaterial.capture(r.state, entity, 'remembered_copy', 'current', registry=r.registry)
+            grant = GrantDeathrattle(entity.id, effect.deathrattle_behavior_id, effect.source_id,
+                deathrattle_memory=DeathrattleMemory(NativeDeathrattleSpec('copy_summon'), summon_copy=material))
         step=TransformPoolTarget(ref,effect.pool_id,replace(effect.query,kinds=(CardType.MINION,),min_cost=cost,max_cost=cost),
-             effect.policy,effect.player_id,hero_class,source_card_id,effect.source_id,retained,effect.empty)
+             effect.policy,effect.player_id,hero_class,source_card_id,effect.source_id,retained,effect.empty,grant)
         candidates(r.registry,context,step)  # Validate the entire captured batch before any RNG or mutation.
         work.append(step)
     return tuple(work)
@@ -666,7 +696,8 @@ def transform_pool_target(r, effect):
     rows=candidates(r.registry,r.game._generation_context,effect)
     if current_target(r,effect.target) is None or not rows:return ()
     selected=sample_candidates(r.game._rng,rows,1,replacement=True)[0]
-    return transform_captured(r,TransformCapturedMinion(effect.target,selected,effect.source_id,effect.retained_cost))
+    return transform_captured(r,TransformCapturedMinion(effect.target,selected,effect.source_id,effect.retained_cost,
+        effect.deathrattle_grant))
 
 
 def validate_boundary(game):
@@ -675,6 +706,13 @@ def validate_boundary(game):
     validate_native_pool_events(game)
     if game._frame is None:return
     def check(work):
+        grant = getattr(work, 'deathrattle_grant', None)
+        if grant is not None:
+            from .deathrattle_memory import validate_copy_memory
+            validate_copy_memory(game._state, game.registry, grant.deathrattle_memory)
+            game.registry.behavior(grant.behavior_id)
+            if grant.source_id != work.source_id:
+                raise ValueError('Pending transformation changed its original grant source')
         if type(work) is TransformStoredFromPool:
             validate_pending(game, work)
         elif type(work) is TransformPoolTarget:

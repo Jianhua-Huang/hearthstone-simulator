@@ -1,5 +1,7 @@
 # 原生亡语保存的随从复制材料
 
+真实升腾还将同一copy_summon材料沿普通GrantDeathrattle绑定变形后的身体，使用独立有限授予来源校验，不伪装成目的随从的印刷声明；见[变形召回契约](m3-transform-original-deathrattle.md)。本页原生蛋的接受和重置政策保持，当前格式以新契约及两份台账为准。
+
 腐蚀之巢EDR_454及恐怖的龙蛋EDR_454t使用[完整固定材料](../data/cards/corrupted-roost-v1.json)。地标为2费2耐久，蛋为1费0/2非收藏随从。完整原行的攻击值省略，两个完整官网主面明确为0；原文和标签均不改写。动态龙名的`{0}`只允许在固定原行PIN和显式声明下省略，不放宽其他正文、数字或元数据比较，见[有限显示证据](../data/support/card-source-egg-name-display-v1.json)。
 
 ## 接受、入场与亡语

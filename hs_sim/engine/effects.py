@@ -1014,9 +1014,17 @@ class GrantDeathrattle(Effect):
     behavior_id: str
     source_id: int | None = None
     expires_turn: int | None = None
+    deathrattle_memory: object | None = None
     def __post_init__(self):
         _grant(self.target_id, self.source_id, self.expires_turn)
         _behavior(self.behavior_id)
+        if self.deathrattle_memory is not None:
+            from .model import DeathrattleMemory
+            if (type(self.deathrattle_memory) is not DeathrattleMemory or
+                    self.deathrattle_memory.spec.kind != 'copy_summon' or
+                    self.deathrattle_memory.summon_copy is None or self.source_id is None or self.expires_turn is not None):
+                raise ValueError('Remembered Deathrattle grant requires one permanent original copy')
+            self.deathrattle_memory.__post_init__()
 
 
 @dataclass(frozen=True)

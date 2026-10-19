@@ -2961,7 +2961,10 @@ class AbilityInstance:
             if type(self.deathrattle_memory) is not DeathrattleMemory:
                 raise ValueError('Expected typed native Deathrattle memory')
             self.deathrattle_memory.__post_init__()
-            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None or self.source_id is None or
+            granted_copy = (self.origin == 'granted' and self.deathrattle_memory.spec.kind == 'copy_summon'
+                and self.deathrattle_memory.summon_copy is not None and self.deathrattle_grant_card_id is not None
+                and self.deathrattle_card_id is None)
+            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None and not granted_copy or self.source_id is None or
                     self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Native Deathrattle memory requires printed or inherited physical provenance')
         if self.kind == 'board_full_awaken':

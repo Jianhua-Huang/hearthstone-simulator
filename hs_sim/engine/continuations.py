@@ -112,6 +112,10 @@ class FrameCodec:
         if type(value) is BehaviorCall:
             from .named_summon_followups import validate_call as validate_named_call
             validate_named_call(value)
+        if (type(value) is effects.GrantDeathrattle and value.deathrattle_memory is not None
+                and self.origin_state is not None):
+            from .deathrattle_memory import validate_copy_memory
+            validate_copy_memory(self.origin_state, self.registry, value.deathrattle_memory)
         if type(value) is effects.SpendResource and value.requires_board_space and self.origin_state is not None:
             from .summon_quantities import validate_cause
             validate_cause(self.origin_state, self.registry, value.on_success[0].cause)

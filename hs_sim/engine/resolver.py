@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v542'
+CORE_EFFECTS_VERSION = 'core-effects-v543'
 
 
 class Mechanics:
@@ -1904,6 +1904,10 @@ def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=No
         kind, fields['spell_damage'] = 'spell_damage', effect.amount
     elif isinstance(effect, GrantDeathrattle):
         kind, fields['behavior_id'] = 'deathrattle', effect.behavior_id
+        if effect.deathrattle_memory is not None:
+            from .deathrattle_memory import validate_copy_memory
+            validate_copy_memory(r.state, r.registry, effect.deathrattle_memory)
+            fields['deathrattle_memory'] = effect.deathrattle_memory
         if consumed_card_id is not None:
             from .consumed_cards import record as consumed_record
             original = consumed_record(r.state, consumed_card_id)
@@ -2059,7 +2063,12 @@ def transform(r, effect):
 
 
 def transform_minion(r, entity, definition, *, source_id=None, retained_cost=None,
-                     copy_material=None, stats=None):
+                     copy_material=None, stats=None, deathrattle_grant=None):
+    if deathrattle_grant is not None:
+        deathrattle_grant.__post_init__()
+        if (deathrattle_grant.target_id != entity.id or deathrattle_grant.source_id != source_id
+                or deathrattle_grant.deathrattle_memory is None):
+            raise ResolutionError('Transformation lost its original remembered grant')
     from .game_boards import resolve_card_id
     definition = r.registry.card(resolve_card_id(r.state, r.registry, definition.id))
     old_card = entity.card_id
@@ -2079,6 +2088,10 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
         from .costs import attach_cost
         from .model import CostSpec
         attach_cost(r.state,entity,CostSpec(set_to=retained_cost),source_id)
+    granted = None
+    if deathrattle_grant is not None:
+        _grant_to(r, deathrattle_grant, entity, notify=False)
+        granted = entity.abilities[-1]
     r.refresh_auras()
     if copy_material is not None and copy_material.frozen:
         from .combat import can_be_frozen
@@ -2086,6 +2099,9 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
             entity.frozen_until_owner_turn = freeze_deadline(r.state, entity,
                 ending_turn=r.ending_turn, registry=r.registry)
     r.emit('transformed', target_id=entity.id, old_card_id=old_card, card_id=definition.id)
+    if granted is not None:
+        r.emit('ability_granted', target_id=entity.id, source_id=source_id,
+            ability_id=granted.id, ability_kind='deathrattle')
     return enter_minion(r,entity,'transform')
 
 
