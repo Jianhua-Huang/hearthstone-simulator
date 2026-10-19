@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "batch": "K258-joint-hand-shuffle",
+  "task": {
+    "schema": 1,
+    "batch": "K258-joint-hand-shuffle",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "JAIL_852"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "JAIL_852"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Original physical two-player hand mix and redistribution; verify quotas/odd size, successful hand entries, retained sources and private randomness before implementation.",
+        "cards": [
+          "JAIL_852"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/joint_hand_shuffle_card.py",
+      "data/cards/joint-hand-shuffle-v1.json",
+      "tests/test_joint_hand_shuffle_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "JAIL_852",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k258-joint-hand-shuffle\\official-cache-01\\126604-zh_CN.json",
+      "response_sha256": "272d805f05e7544549ad8b1bca1bcd274f9eaf2df858db0b11e6f9fb6635f2c6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126604&locale=zh_CN",
+      "face": {
+        "id": 126604,
+        "collectible": 1,
+        "slug": "126604-togwaggle-smuggler-king",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "私运之王托瓦格尔",
+        "text": "<b>战吼：</b>将双方玩家的手牌放在一起洗混。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c5e326d4bf4309aea2953a3ace7f6b789f8e8256fc4f402ae759175f89fac7a.png",
+        "imageGold": "",
+        "flavorText": "“在最后他闪亮登场，那是狗头人一族的王！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f76c1739c3931fc2f9371fc5045d851e67b720866d3a3f1e667d9bced479028.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126604&locale=zh_CN",
+        "sha256": "272d805f05e7544549ad8b1bca1bcd274f9eaf2df858db0b11e6f9fb6635f2c6",
+        "bytes": 800,
+        "observed_at": "2026-10-19T10:13:13.199549+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_852",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k258-joint-hand-shuffle\\official-cache-01\\126604-en_US.json",
+      "response_sha256": "15acda6af191d5ef74ccf4374b1adda48980a23d449e0c3e0b51219325cfa06b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126604&locale=en_US",
+      "face": {
+        "id": 126604,
+        "collectible": 1,
+        "slug": "126604-togwaggle-smuggler-king",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "Togwaggle, Smuggler King",
+        "text": "<b>Battlecry:</b> Shuffle both players' hands together.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8f668c2f722602300753ddf6fc9644a8f8d958bc1cfd56e71e8c3f6797d5bf8.png",
+        "imageGold": "",
+        "flavorText": "\"Finally, he's here for you It's the King of the Kobold crew!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f76c1739c3931fc2f9371fc5045d851e67b720866d3a3f1e667d9bced479028.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126604&locale=en_US",
+        "sha256": "15acda6af191d5ef74ccf4374b1adda48980a23d449e0c3e0b51219325cfa06b",
+        "bytes": 795,
+        "observed_at": "2026-10-19T10:13:13.278145+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_852",
+        "dbf_id": 126604,
+        "name": "私运之王托瓦格尔",
+        "name_en": "Togwaggle, Smuggler King",
+        "text": "<b>战吼：</b>将双方玩家的手牌放在一起洗混。",
+        "text_en": "[x]<b>Battlecry:</b> Shuffle both\n_players' hands together.",
+        "cost": 8,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "33a033ad2a64c7edf9b4024682a1b5f6f304a3142cf2985007bfce14e1c7855f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_852",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": []
+}

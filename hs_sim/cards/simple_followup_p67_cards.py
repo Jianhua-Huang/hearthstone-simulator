@@ -199,7 +199,8 @@ def register_simple_followup_p67_cards(registry):
         if c.trigger is None or c.trigger.kind != 'defining_hand_source':
             raise ResolutionError('Shapeshifter requires its original native defining source')
         material = dict(target=asdict(CardReference.capture(c.source)), binding=c.trigger.id)
-        options = tuple(ChoiceOption(json.dumps(dict(material, card_id=c.state.entities[i].card_id), sort_keys=True),
+        options = tuple(ChoiceOption(json.dumps(dict(material, card_id=c.state.entities[i].card_id,
+            candidate_id=i), sort_keys=True),
             'Original opponent hand minion') for i in c.state.players[3-c.player_id].hand
             if c.state.entities[i].kind == CardType.MINION)
         return (RequestChoice(c.player_id, options, c.source_id, min_count=0, max_count=0,
