@@ -73,6 +73,21 @@ class AdvanceDormancy(Effect):
 
 
 @dataclass(frozen=True)
+class AdvanceCapturedDormancy(Effect):
+    """Advance only the original physical receiver's accepted dormancy."""
+    reference: MinionReference
+    dormancy_id: int
+    turns: int = 1
+    source_id: int | None = None
+
+    def __post_init__(self):
+        reference_value(self.reference)
+        _integer(self.dormancy_id, 'original dormancy instance', 1)
+        _integer(self.turns, 'captured countdown turns', 1)
+        _source(self.source_id)
+
+
+@dataclass(frozen=True)
 class TickDormancy(Effect):
     target_id: int
     dormancy_id: int
@@ -179,6 +194,17 @@ def tick(r, effect):
     return advance(r, AdvanceDormancy(entity.id))
 
 
+def advance_captured(r, effect):
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Captured countdown source does not exist')
+    entity = same_instance(r.state, effect.reference)
+    if entity is None or entity.dormancy is None or entity.dormancy.id != effect.dormancy_id:
+        r.stale(effect, effect.reference.entity_id)
+        return ()
+    return advance(r, AdvanceDormancy(entity.id, effect.turns, effect.source_id))
+
+
 def turn_countdowns(r, player):
     # Freeze eligibility before turn-start callbacks. New or replaced dormancy
     # instances in those callbacks wait until a later controller turn.
@@ -230,5 +256,6 @@ def register_dormancy(mechanics):
     for kind, handler in ((MakeDormant, make_dormant), (AwakenMinion, awaken),
                           (AwakenCapturedMinion, awaken_captured),
                           (GrowDormantMinion, grow_dormant),
+                          (AdvanceCapturedDormancy, advance_captured),
                           (AdvanceDormancy, advance), (TickDormancy, tick)):
         mechanics.register(kind, handler)
