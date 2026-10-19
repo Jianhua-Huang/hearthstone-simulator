@@ -1,0 +1,1282 @@
+{
+  "batch": "K242-shaladrassil-dreams",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_846",
+        "dbf_id": 115090,
+        "name": "莎拉达希尔",
+        "name_en": "Shaladrassil",
+        "text": "获取全部5张梦境牌。如果你在本牌在你手中时使用过法力值消耗更高的牌，腐蚀这些梦境牌！",
+        "text_en": "[x]Get all 5 Dream cards.\nIf you've played a higher\nCost card while holding\nthis, corrupt them!",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4128": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "fa31f66d409c0764dbc1fb67931a216359997ed4ebb888af20fc4d3457acb5d3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_846",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "DREAM_01",
+        "dbf_id": 340,
+        "name": "欢笑的姐妹",
+        "name_en": "Laughing Sister",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b2b08bb3d1fffdac2c445ab5c51ef1792d780898b8bcf3c50232143b436ea530",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "DREAM_01",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3b25490aa2d74f15297325c3e6870393aa8dbecb280eb865674a9982c4b411e3"
+    },
+    {
+      "record": {
+        "id": "DREAM_02",
+        "dbf_id": 301,
+        "name": "伊瑟拉苏醒",
+        "name_en": "Ysera Awakens",
+        "text": "对除了伊瑟拉之外的所有角色造成$5点伤害。",
+        "text_en": "Deal $5 damage to all characters except Ysera.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2ea9a9431337ae3c6f20b8c95f3b65a281674d9b93eb2c5fa0cef632001ab2ff",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "DREAM_02",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature",
+      "definition_sha256": "27888310a6ee09cf775b1f9fd71b9bf0993eb5bd6e0610dad5b8874f498d7f59"
+    },
+    {
+      "record": {
+        "id": "DREAM_03",
+        "dbf_id": 489,
+        "name": "翡翠幼龙",
+        "name_en": "Emerald Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0e684c058e0bdae741eb4eb361118ea9276a9192b19d74bf532f3500da4fdae1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "DREAM_03",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b4881f6141a99dc885bcf78fa027a79e75c16d4547999d16a08ae2945af8c1bd"
+    },
+    {
+      "record": {
+        "id": "DREAM_04",
+        "dbf_id": 808,
+        "name": "梦境",
+        "name_en": "Dream",
+        "text": "将一个随从移回其拥有者的\n手牌。",
+        "text_en": "Return a minion to its owner's hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "56a17e938fa75b49a8bbe023fba879338c552fb53500f9996d699c18c3ddd8f5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "DREAM_04",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature",
+      "definition_sha256": "fc55e10f754c342393cf47fbe91786e907625639226b08002b745ea54c4b28a7"
+    },
+    {
+      "record": {
+        "id": "DREAM_05",
+        "dbf_id": 217,
+        "name": "梦魇",
+        "name_en": "Nightmare",
+        "text": "使一个随从获得+5/+5，在你的下个回合开始时，消灭该随从。",
+        "text_en": "Give a minion +5/+5. At the start of your next turn, destroy it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 3,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9ceb63c3fc92eb987e395a4aa5384b2a62513ffee8b54afe48857e8d38e5d15f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "DREAM_05",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow",
+      "definition_sha256": "87128494d42c5513172f00b7efbab1112de16ff4432e4a347373df9a8d1a6545"
+    },
+    {
+      "record": {
+        "id": "EDR_846t1",
+        "dbf_id": 115096,
+        "name": "已腐蚀的梦魇",
+        "name_en": "Corrupted Nightmare",
+        "text": "使一个随从获得+5/+5和在本回合中的<b>免疫</b>。",
+        "text_en": "Give a minion <b>Immune</b> this turn and +5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6592b98b1a020f6e291b23680a5c3d592eb469f35012c4e968b03d91f724818b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow",
+      "definition_sha256": "af3791ad7becf2febc3a2c1005a9576c7225cafeb2e3992679ec295eb7fd70f3"
+    },
+    {
+      "record": {
+        "id": "EDR_846t2",
+        "dbf_id": 115095,
+        "name": "已腐蚀的梦境",
+        "name_en": "Corrupted Dream",
+        "text": "将一个随从\n洗入其拥有者的\n牌库。",
+        "text_en": "Shuffle a minion into its owner's deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "9408cdb08db30a684de3859d407ef71b9ef378d9ab8703812fe500080f663de3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow",
+      "definition_sha256": "8346676354d0c843bf619c3aca90b0225262803076f3424a5f659ffcc5f34884"
+    },
+    {
+      "record": {
+        "id": "EDR_846t3",
+        "dbf_id": 115092,
+        "name": "已腐蚀的欢笑姐妹",
+        "name_en": "Corrupted Laughing Sister",
+        "text": "<b>扰魔</b>。你的英雄拥有<b>扰魔</b>。",
+        "text_en": "<b>Elusive</b>\nYour hero is <b>Elusive</b>.",
+        "cost": 2,
+        "attack": 6,
+        "health": 10,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 6,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 11,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "a287d04189f3de7d43c62aeb5f69565cca129f2c543b051c91450d7520fc0246",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "c0e83fa9ee04b4d0fef59c5c84d07c9e3a92a59b7fcfa288a6d8cab037e21894"
+    },
+    {
+      "record": {
+        "id": "EDR_846t4",
+        "dbf_id": 115093,
+        "name": "已腐蚀的苏醒",
+        "name_en": "Corrupted Awakening",
+        "text": "对所有敌人造成$5点伤害<i>（尤其是伊瑟拉！）</i>。",
+        "text_en": "Deal $5 damage to\nall enemies.\n<i>(ESPECIALLY Ysera!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 11,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          }
+        ]
+      },
+      "record_sha256": "46dc64c4cdbdef2304151a012bc75d72799ff27a0a496f03ed4db58265e1bc89",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow",
+      "definition_sha256": "1a968106c3932c220663a24ab4052648d8b800cb9e8e5ea02f76a670346dc484"
+    },
+    {
+      "record": {
+        "id": "EDR_846t5",
+        "dbf_id": 115094,
+        "name": "已腐蚀的幼龙",
+        "name_en": "Corrupted Drake",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 14,
+        "health": 12,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 14,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 11,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "46fcbfde21ec2f54f0755c8b6ca46b400c571235e5f851d0f819ccf6ac62a6d8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "dream"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b361413d006d23aa739088d1a0de7fb42405b571f2a55b22d052bc2c42fb8457"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_846t1e",
+        "dbf_id": 115097,
+        "name": "梦魇",
+        "name_en": "Nightmare",
+        "text": "+5/+5。",
+        "text_en": "+5/+5.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f8e7979d4d5afdb762ba078a235d3f516bce7cda39de9382dd3746d4d2ce4e86",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t1e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_846t3e",
+        "dbf_id": 118553,
+        "name": "狂笑",
+        "name_en": "Laughing",
+        "text": "已腐蚀的欢笑姐妹使你拥有<b>扰魔</b>。",
+        "text_en": "Corrupted Laughing Sister grants <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ccb0120c3301f253ef57ab13deec6110939be64fc5881f092c792fb079a59385",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846t3e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_846te2",
+        "dbf_id": 115098,
+        "name": "永恒的梦魇",
+        "name_en": "Eterenal Nightmare",
+        "text": "在本回合中<b>免疫</b>。",
+        "text_en": "<b>Immune</b> this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c982736bd2b46615924c2a069f28cc38760a47b8d1530f5d2f2d9a9bf86038d4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_846te2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "EDR_846",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115090-zh_CN.json",
+      "response_sha256": "9f4232c4be1b8c2508f294da2b6bb57bce482698217ab9ccdcbd95332cbc2c20",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115090&locale=zh_CN",
+      "face": {
+        "id": 115090,
+        "collectible": 1,
+        "slug": "115090-shaladrassil",
+        "classId": 12,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 8,
+        "name": "莎拉达希尔",
+        "text": "获取全部5张梦境牌。如果你在本牌在你手中时使用过法力值消耗更高的牌，腐蚀这些梦境牌！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42f28d5941cc33ad3edfbf95d2797d913de9407795873ee50ca6f5b4b9a05792.png",
+        "imageGold": "",
+        "flavorText": "哇哦，那款除魇喷剂是真的有效！只可惜存量不足以给整棵树都喷一喷。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf103a68ef678d5f1a8c5d29357d82a687f17808bad786d6b89d40706a4a3e45.png",
+        "childIds": [
+          217,
+          808,
+          340,
+          301,
+          489,
+          115092,
+          115093,
+          115094,
+          115095,
+          115096
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115090&locale=zh_CN",
+        "sha256": "9f4232c4be1b8c2508f294da2b6bb57bce482698217ab9ccdcbd95332cbc2c20",
+        "bytes": 927,
+        "observed_at": "2026-10-19T03:59:14.782062+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115090-en_US.json",
+      "response_sha256": "2197603d7ca7bd93ce03b9c59601d86770975f7eabfd118a707b3d38c08a9b09",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115090&locale=en_US",
+      "face": {
+        "id": 115090,
+        "collectible": 1,
+        "slug": "115090-shaladrassil",
+        "classId": 12,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 8,
+        "name": "Shaladrassil",
+        "text": "Get all 5 Dream cards. If you've played a higher Cost card while holding this, corrupt them!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce99b955b0899ac4c8024e7284a0855dc4570283c52014fc4e71209bf6e96b74.png",
+        "imageGold": "",
+        "flavorText": "Wow, that Nightmare-B-Gone spray really works! Too bad we didn't have enough for the whole tree.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf103a68ef678d5f1a8c5d29357d82a687f17808bad786d6b89d40706a4a3e45.png",
+        "childIds": [
+          217,
+          808,
+          340,
+          301,
+          489,
+          115092,
+          115093,
+          115094,
+          115095,
+          115096
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115090&locale=en_US",
+        "sha256": "2197603d7ca7bd93ce03b9c59601d86770975f7eabfd118a707b3d38c08a9b09",
+        "bytes": 892,
+        "observed_at": "2026-10-19T03:59:14.777628+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115096-zh_CN.json",
+      "response_sha256": "894c484149fa7739e58be5ae8b46bbca83ace3d90a7ae2d5d419a165db14e9d8",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115096&locale=zh_CN",
+      "face": {
+        "id": 115096,
+        "collectible": 0,
+        "slug": "115096-corrupted-nightmare",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Todd Harris",
+        "manaCost": 0,
+        "name": "已腐蚀的梦魇",
+        "text": "使一个随从获得+5/+5和在本回合中的<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/612b298498f5dcd4d65ec4ef598af3f5d7c0f7655fa5a711486709b04904cd6d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115096&locale=zh_CN",
+        "sha256": "894c484149fa7739e58be5ae8b46bbca83ace3d90a7ae2d5d419a165db14e9d8",
+        "bytes": 632,
+        "observed_at": "2026-10-19T03:59:14.877938+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115096-en_US.json",
+      "response_sha256": "284a71d494143741e48833890c009d085df3b6416ecef59228e37d1d2b0209e9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115096&locale=en_US",
+      "face": {
+        "id": 115096,
+        "collectible": 0,
+        "slug": "115096-corrupted-nightmare",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Todd Harris",
+        "manaCost": 0,
+        "name": "Corrupted Nightmare",
+        "text": "Give a minion <b>Immune</b> this turn and +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6254d12025e59794936d92ba978d83b922f3d63e67cbe3bed561a0d1f3e3e30f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115096&locale=en_US",
+        "sha256": "284a71d494143741e48833890c009d085df3b6416ecef59228e37d1d2b0209e9",
+        "bytes": 618,
+        "observed_at": "2026-10-19T03:59:14.973699+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115095-zh_CN.json",
+      "response_sha256": "5365432cf9b6cfc1e6e73882f0082d0e3ae7c97f62272937a636e545644be5ed",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115095&locale=zh_CN",
+      "face": {
+        "id": 115095,
+        "collectible": 0,
+        "slug": "115095-corrupted-dream",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "manaCost": 0,
+        "name": "已腐蚀的梦境",
+        "text": "将一个随从 洗入其拥有者的 牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12e5ad00ea62d7f3e8e3fb8cfad987c8a814767683cb982e7aca2368fb937a3e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115095&locale=zh_CN",
+        "sha256": "5365432cf9b6cfc1e6e73882f0082d0e3ae7c97f62272937a636e545644be5ed",
+        "bytes": 595,
+        "observed_at": "2026-10-19T03:59:15.506778+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115095-en_US.json",
+      "response_sha256": "b7c79baf2f57f6eede5c395a3497aa82c09c9d756299083a56da4e02feb5324f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115095&locale=en_US",
+      "face": {
+        "id": 115095,
+        "collectible": 0,
+        "slug": "115095-corrupted-dream",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Zoltan Boros",
+        "manaCost": 0,
+        "name": "Corrupted Dream",
+        "text": "Shuffle a minion into its owner's deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8ee03cd88fa84d6368d6c7f0c9c7d704bb39cf5d369c6943a77131b62e2c70d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115095&locale=en_US",
+        "sha256": "b7c79baf2f57f6eede5c395a3497aa82c09c9d756299083a56da4e02feb5324f",
+        "bytes": 584,
+        "observed_at": "2026-10-19T03:59:15.527510+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115092-zh_CN.json",
+      "response_sha256": "df027deb8bbaf094e60067e408f132eb6ba969448ec69b9f71c724f2977ddff7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115092&locale=zh_CN",
+      "face": {
+        "id": 115092,
+        "collectible": 0,
+        "slug": "115092-corrupted-laughing-sister",
+        "classId": 11,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "health": 10,
+        "attack": 6,
+        "manaCost": 2,
+        "name": "已腐蚀的欢笑姐妹",
+        "text": "<b>扰魔</b>。你的英雄拥有<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/591a341917abdf8117b3920e1786c09dc4c4ffc7910cc7d9e8bcb4009d2445d7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115092&locale=zh_CN",
+        "sha256": "df027deb8bbaf094e60067e408f132eb6ba969448ec69b9f71c724f2977ddff7",
+        "bytes": 643,
+        "observed_at": "2026-10-19T03:59:15.831644+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115092-en_US.json",
+      "response_sha256": "a1188a68bde57bd264fdfb64d86967180e82a4be1776ce77d7cd156c6eaf969a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115092&locale=en_US",
+      "face": {
+        "id": 115092,
+        "collectible": 0,
+        "slug": "115092-corrupted-laughing-sister",
+        "classId": 11,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "health": 10,
+        "attack": 6,
+        "manaCost": 2,
+        "name": "Corrupted Laughing Sister",
+        "text": "<b>Elusive</b> Your hero is <b>Elusive</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25b99b1113aa3bb5355b468af728b349fcd1877b6d145f23bce48c99a1acf61b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115092&locale=en_US",
+        "sha256": "a1188a68bde57bd264fdfb64d86967180e82a4be1776ce77d7cd156c6eaf969a",
+        "bytes": 637,
+        "observed_at": "2026-10-19T03:59:15.685921+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115093-zh_CN.json",
+      "response_sha256": "d30086b3b111016837b20c90b00b5675fe20a6b807f46ce919e9411207536d3e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115093&locale=zh_CN",
+      "face": {
+        "id": 115093,
+        "collectible": 0,
+        "slug": "115093-corrupted-awakening",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Eva Widermann",
+        "manaCost": 2,
+        "name": "已腐蚀的苏醒",
+        "text": "对所有敌人造成 5点伤害<i>（尤其是伊瑟拉！）</i>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/882f8fba2bac858063d98b5715ce04195ace00d3827b3a66751264f9ff1e204c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115093&locale=zh_CN",
+        "sha256": "d30086b3b111016837b20c90b00b5675fe20a6b807f46ce919e9411207536d3e",
+        "bytes": 622,
+        "observed_at": "2026-10-19T03:59:16.217558+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115093-en_US.json",
+      "response_sha256": "bfab77176938cee7bdde2ee1214fe852eafa663982312470053f9eeffb3b523e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115093&locale=en_US",
+      "face": {
+        "id": 115093,
+        "collectible": 0,
+        "slug": "115093-corrupted-awakening",
+        "classId": 11,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Eva Widermann",
+        "manaCost": 2,
+        "name": "Corrupted Awakening",
+        "text": "Deal 5 damage to all enemies. <i>(ESPECIALLY Ysera!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f4ae0c9389c23a32e73ab08977eb7c3b53531348f484f5fe15be45e9700a142.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115093&locale=en_US",
+        "sha256": "bfab77176938cee7bdde2ee1214fe852eafa663982312470053f9eeffb3b523e",
+        "bytes": 610,
+        "observed_at": "2026-10-19T03:59:16.238829+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115094-zh_CN.json",
+      "response_sha256": "65e62a2bf44c226d6cb240b3958e485e41af9643f51fd3723da0256f2b630b4f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115094&locale=zh_CN",
+      "face": {
+        "id": 115094,
+        "collectible": 0,
+        "slug": "115094-corrupted-drake",
+        "classId": 11,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 12,
+        "attack": 14,
+        "manaCost": 4,
+        "name": "已腐蚀的幼龙",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40b9bedc4ee11c193f9421c443c082d1e7bacab1749a6b11b951d2f13eb3c3aa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115094&locale=zh_CN",
+        "sha256": "65e62a2bf44c226d6cb240b3958e485e41af9643f51fd3723da0256f2b630b4f",
+        "bytes": 570,
+        "observed_at": "2026-10-19T03:59:16.807208+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_846t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k242-shaladrassil-dreams\\official-cache-01\\115094-en_US.json",
+      "response_sha256": "0d36d654472497e6143703a78edbc3de351dab2c8c6fa2f567e0a552bce72571",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115094&locale=en_US",
+      "face": {
+        "id": 115094,
+        "collectible": 0,
+        "slug": "115094-corrupted-drake",
+        "classId": 11,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 12,
+        "attack": 14,
+        "manaCost": 4,
+        "name": "Corrupted Drake",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/942629df47efa94881698cd38f5be423b6285bbdedf8a973f80bba2090802533.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115090,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115094&locale=en_US",
+        "sha256": "0d36d654472497e6143703a78edbc3de351dab2c8c6fa2f567e0a552bce72571",
+        "bytes": 567,
+        "observed_at": "2026-10-19T03:59:16.558446+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "EDR_846t1": {
+      "cost": 0
+    },
+    "EDR_846t2": {
+      "cost": 0
+    }
+  },
+  "policy": {
+    "condition": "Original completed higher-cost hand-play witness, using frozen actual paid and held quoted costs; no Corrupt keyword or physical upgraded Shaladrassil face.",
+    "order": "One complete random five-card permutation frozen before first AddToHand; existing zero-selection RequestChoice.",
+    "existing_dreams": "All five existing exact complete definitions preserved.",
+    "cn_calibrated": false,
+    "formal_pool_complete": false
+  }
+}

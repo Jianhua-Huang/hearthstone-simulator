@@ -299,6 +299,8 @@ def begin_spell(r, work):
     else:
         from .native_spell_values import inherit_play
         inherit_play(r,entity,work.proof.before_state,child.occurrence_id)
+        from .held_higher_cost import inherit_play as inherit_higher_cost
+        inherit_higher_cost(r,entity,work.proof.before_state,child.occurrence_id)
     entity.origin_entity_id = root.caster.entity_id
     from .choose_branch_state import history_selection
     if type(root.selection) is OfferedCardSelection:

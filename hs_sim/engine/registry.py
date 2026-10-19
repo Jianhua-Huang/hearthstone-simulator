@@ -1064,6 +1064,8 @@ class Registry:
         if type(spec) is not HandProgressSpec:
             raise ValueError('Expected HandProgressSpec')
         spec.__post_init__()
+        if spec.kind == 'higher_cost_play' and source_kind is not None and source_kind != CardType.SPELL:
+            raise ValueError('Native higher-cost held condition currently requires a spell')
         if Zone.DECK in spec.zones and source_kind is not None and source_kind != CardType.MINION:
             raise ValueError('Native deck event listeners require an ordinary minion')
         self.trigger_condition(spec.condition_id)

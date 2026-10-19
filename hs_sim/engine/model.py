@@ -1097,7 +1097,7 @@ class HandProgressSpec:
                 self.upgrade_card_id is not None or self.on_progress is not None or
                 self.on_complete is None or self.health_to_durability or self.amount_basis != 'one'):
             raise ValueError('Native deck listeners require repeated single-event completion bodies')
-        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast', 'mana_spent', 'opponent_copy_play'):
+        if self.kind not in ('corrupt', 'infuse', 'event', 'spell_cast', 'mana_spent', 'opponent_copy_play', 'higher_cost_play'):
             raise ValueError('Unknown hand progress kind')
         if type(self.amount_basis) is not str or self.amount_basis not in ('one', 'event_amount'):
             raise ValueError('Unknown hand progress amount basis')
@@ -1126,7 +1126,9 @@ class HandProgressSpec:
             raise ValueError('Health conversion requires an upgrade form')
         if self.kind == 'opponent_copy_play' and (self.goal != 1 or self.condition_id != 'always' or self.zone != Zone.HAND):
             raise ValueError('Held opponent copies require one original hand-play witness')
-        if self.kind in ('spell_cast','mana_spent','opponent_copy_play'):
+        if self.kind == 'higher_cost_play' and (self.goal != 1 or self.condition_id != 'always' or self.zone != Zone.HAND):
+            raise ValueError('Held higher-cost facts require one original hand comparison')
+        if self.kind in ('spell_cast','mana_spent','opponent_copy_play','higher_cost_play'):
             if any(x is not None for x in (self.upgrade_card_id,self.on_progress,self.on_complete)) or self.repeat or self.health_to_durability:
                 raise ValueError('Held resource facts cannot upgrade, repeat or invoke callbacks')
         elif self.upgrade_card_id is None and self.on_complete is None:
@@ -1138,7 +1140,7 @@ class HandProgressSpec:
 
     @property
     def event_kind(self):
-        return {'corrupt': 'card_played', 'infuse': 'minion_died'}.get(self.kind, self.event)
+        return {'corrupt': 'card_played', 'higher_cost_play': 'card_played', 'infuse': 'minion_died'}.get(self.kind, self.event)
 
     @property
     def keyword(self):
@@ -1177,6 +1179,39 @@ class HeldSpellProgress:
 
     @property
     def completed(self):return len(self.cast_ids)==self.spec.goal
+
+
+@dataclass(frozen=True)
+class HeldHigherCostProgress:
+    spec: HandProgressSpec
+    keys: tuple[str, ...]
+    before_play_id: int
+
+    def __post_init__(self):
+        if type(self.spec) is not HandProgressSpec or self.spec.kind != 'higher_cost_play':
+            raise ValueError('Higher-cost fact requires its finite held-card declaration')
+        self.spec.__post_init__()
+        _int(self.before_play_id, 'higher-cost hand-play bound', 1)
+        if type(self.keys) is not tuple or len(self.keys) > 1:
+            raise ValueError('Higher-cost condition requires at most one immutable witness')
+        for key in self.keys:
+            if higher_cost_witness(key)[0] >= self.before_play_id:
+                raise ValueError('Higher-cost witness exceeds its original captured bound')
+
+    @property
+    def completed(self): return bool(self.keys)
+
+
+def higher_cost_witness(key):
+    if type(key) is not str:
+        raise ValueError('Higher-cost witness requires its original identities')
+    parts = key.split(':')
+    if len(parts) != 5 or parts[0] != 'higher_cost' or any(
+            not x.isascii() or not x.isdigit() or str(int(x)) != x or int(x) < 1 for x in parts[1:]):
+        raise ValueError('Invalid original higher-cost witness')
+    values = tuple(int(x) for x in parts[1:])
+    if values[3] not in (1, 2): raise ValueError('Invalid higher-cost witness player')
+    return values
 
 
 @dataclass(frozen=True)
@@ -3126,6 +3161,11 @@ class AbilityInstance:
         for units in self.progress_units:
             _int(units, 'progress witness units', 1)
         for key in self.progress_keys:
+            if key.startswith('higher_cost:'):
+                higher_cost_witness(key)
+                if self.kind != 'hand_progress' or self.hand_progress is None or self.hand_progress.kind != 'higher_cost_play':
+                    raise ValueError('Higher-cost witnesses belong only to their native held condition')
+                continue
             prefix, separator, number = key.partition(':')
             if prefix not in ('play', 'death', 'event', 'cast', 'payment', 'consumption') or separator != ':' or not number.isascii() or not number.isdigit() or str(int(number)) != number or int(number) < 1:
                 raise ValueError('Invalid progress witness key')
@@ -7015,6 +7055,7 @@ class PlayRecord:
     hand_neighbors: tuple[HandNeighborFact, ...] | None = None
     copy_origin: CardCopyOrigin | None = None
     after_play: tuple[AbilityInstance, ...] = ()
+    held_higher_cost: HeldHigherCostProgress | None = None
 
     def __post_init__(self):
         if self.copy_origin is not None:
@@ -7171,6 +7212,9 @@ class PlayRecord:
         if self.held_mana is not None:
             if type(self.held_mana) is not HeldManaProgress:raise ValueError('Invalid frozen held-mana condition')
             self.held_mana.__post_init__()
+        if self.held_higher_cost is not None:
+            if type(self.held_higher_cost) is not HeldHigherCostProgress:raise ValueError('Invalid frozen higher-cost condition')
+            self.held_higher_cost.__post_init__()
         for candidate in self.corrupt_candidates:
             candidate.__post_init__()
             if candidate.player_id != self.player_id or candidate.source_id == self.source_id:
@@ -7500,11 +7544,15 @@ class SpellCastRecord:
 
     target_origin: object | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
+    held_higher_cost: HeldHigherCostProgress | None = None
 
     def __post_init__(self):
         from .allocation_facts import SourceAllocationFact
         from .aura_duration import validate_grants
         validate_grants(self.aura_duration_grants)
+        if self.held_higher_cost is not None:
+            if type(self.held_higher_cost) is not HeldHigherCostProgress:raise ValueError('Invalid cast higher-cost condition')
+            self.held_higher_cost.__post_init__()
         if self.target_origin is not None:
             if type(self.target_origin)is not SourceAllocationFact:
                 raise ValueError('Spell target requires its typed original allocation')
@@ -10725,9 +10773,12 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_held_mana_ability(state,registry,attachment)
             from .held_opponent_copies import validate_ability as validate_held_copy_ability
             validate_held_copy_ability(state,registry,attachment)
+            from .held_higher_cost import validate_ability as validate_higher_cost_ability
+            validate_higher_cost_ability(state,registry,attachment)
             from .hand_progress import validate_cast_progress
             validate_cast_progress(state, attachment)
             for key in attachment.progress_keys:
+                if key.startswith('higher_cost:'): continue
                 prefix, number = key.split(':'); number = int(number)
                 if prefix == 'play' and number > len(state.play_history) or prefix == 'death' and number >= state.next_death_id:
                     raise ValueError('Progress references a missing play or death')

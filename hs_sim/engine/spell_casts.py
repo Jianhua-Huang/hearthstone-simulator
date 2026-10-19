@@ -143,7 +143,7 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False):
         **{key: getattr(play, key) for key in CONDITIONS}, completed=countered, payload_started=not countered,
         failure='countered' if countered else None,branch_id=play.branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
-        target_origin=capture_target_origin(r.state,target_id))
+        target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost)
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
@@ -287,13 +287,15 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         from .automatic_targets import select_target_with_proof
         target_id, failure, target_proof = select_target_with_proof(r, entity, effective, preference)
         if target_proofs is not None: target_proofs.append(target_proof)
+    from .held_higher_cost import capture as capture_higher_cost
     record = SpellCastRecord(len(r.state.cast_history)+1, entity.id, effect.player_id,
         entity.card_id, r.state.turn, r.state.action_number, origin, target_id,
         caster_id=effect.source_id, from_zone=from_zone, choices=effect.choices,
         **conditions, completed=failure is not None, failure=failure, draw_id=draw_id, recast_id=recast_id,branch_id=branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_selection=target_proof.selection if target_proof is not None else None,
-        target_origin=capture_target_origin(r.state,target_id))
+        target_origin=capture_target_origin(r.state,target_id),
+        held_higher_cost=capture_higher_cost(r.state, entity))
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     if draw_id is not None:
@@ -414,6 +416,8 @@ def validate_history(state, registry):
     for index, record in enumerate(state.cast_history, 1):
         if type(record) is not SpellCastRecord: raise ValueError('Invalid spell cast record')
         record.__post_init__()
+        from .held_higher_cost import validate_cast as validate_higher_cost_cast
+        validate_higher_cost_cast(state, registry, record)
         if record.target_origin is not None:
             from .allocation_facts import validate_allocation
             validate_allocation(state,registry,record.target_origin)

@@ -12,6 +12,8 @@ def enter_hand(state, entity, from_zone=None, reason='move'):
     reset_mana_entry(entity)
     from .held_opponent_copies import reset_entry as reset_copy_entry
     reset_copy_entry(entity)
+    from .held_higher_cost import reset_entry as reset_higher_cost_entry
+    reset_higher_cost_entry(entity)
     record = HandEntryRecord(len(state.hand_entries)+1, entity.id, entity.controller, entity.card_id,
                              turn, state.action_number, entity.zone_epoch, from_zone, reason)
     state.hand_entries.append(record)

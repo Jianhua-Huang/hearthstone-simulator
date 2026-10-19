@@ -174,6 +174,8 @@ def recast(r, effect):
         raise ResolutionError('Historical cast requires a physical spell')
     entity = r.create_entity(effect.player_id,card.id,Zone.GRAVEYARD)
     entity.origin_entity_id = original.source_id
+    from .held_higher_cost import install as install_higher_cost
+    install_higher_cost(r.state, r.registry, entity, original.held_higher_cost)
     if original.native_spell_value is not None:
         from .native_spell_values import ability_value, install
         install(r.state,r.registry,entity,ability_value(original.native_spell_value))

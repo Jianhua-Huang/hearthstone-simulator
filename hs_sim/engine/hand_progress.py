@@ -39,7 +39,7 @@ def corrupt_candidates(state, registry, source, quote):
         entity = state.entities[entity_id]
         ability = progress_ability(entity)
         if (entity_id != source.id and ability is not None and not ability.consumed and
-                ability.hand_progress.kind == 'corrupt' and quote.amount > quote_unselected_cost(state, registry, entity).amount):
+                ability.hand_progress.kind in ('corrupt', 'higher_cost_play') and quote.amount > quote_unselected_cost(state, registry, entity).amount):
             candidates.append(identity(entity, ability))
     return tuple(candidates)
 
@@ -68,7 +68,7 @@ def capture_hand_progress(r, event):
                     continue
                 spec = ability.hand_progress
                 candidate = identity(entity, ability)
-                if spec.kind == 'corrupt':
+                if spec.kind in ('corrupt', 'higher_cost_play'):
                     from .play_history import play_record
                     play_id = dict(event.data).get('play_id')
                     if play_id is None or candidate not in play_record(r.state, play_id).corrupt_candidates:
@@ -112,7 +112,7 @@ def advance(r, effect):
         if event.sequence > len(r.game._events) or r.game._events[event.sequence - 1] != event:
             raise ResolutionError('Defining source requires the actual owner-turn event')
     play = death = cast = None
-    if spec.kind == 'corrupt':
+    if spec.kind in ('corrupt', 'higher_cost_play'):
         from .play_history import play_record
         play_id = dict(event.data).get('play_id')
         if play_id is None:
@@ -120,7 +120,8 @@ def advance(r, effect):
         play = play_record(r.state, play_id)
         if not play.completed or candidate not in play.corrupt_candidates:
             return
-        key = f'play:{play.id}'
+        key = (f'higher_cost:{play.id}:{candidate.source_id}:{candidate.ability_id}:{candidate.player_id}'
+               if spec.kind == 'higher_cost_play' else f'play:{play.id}')
     elif spec.kind == 'infuse':
         death_id = dict(event.data).get('death_id')
         death = next((d for d in r.state.death_history if d.id == death_id), None)

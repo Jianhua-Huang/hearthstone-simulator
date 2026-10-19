@@ -175,6 +175,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .hand_derivatives import capture
     from .held_spells import capture as capture_held_spells
     from .held_mana import capture as capture_held_mana
+    from .held_higher_cost import capture as capture_higher_cost
     from .card_spell_repeats import capture as capture_card_spell_repeats
     from .after_play_grants import capture as capture_after_play
     from .owner_turns import freeze_played_face
@@ -195,6 +196,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         entry.id,entry.turn,registry.card(source.card_id).manathirst,
         corrupt_candidates=corrupt_candidates(state,registry,source,quote),held_spells=capture_held_spells(state,source),
         held_mana=capture_held_mana(state,source),
+        held_higher_cost=capture_higher_cost(state,source),
         card_spell_repeats=capture_card_spell_repeats(source),
         after_play=capture_after_play(source),
         position=position,magnetic_target_id=magnetic_target_id,body_targets=body_targets,
@@ -340,6 +342,8 @@ def validate_history(state, registry):
         if record.held_mana is not None:
             from .held_mana import validate_progress as validate_mana_progress
             validate_mana_progress(state,registry,record.held_mana,record)
+        from .held_higher_cost import validate_play as validate_higher_cost_play
+        validate_higher_cost_play(state, registry, record)
         from .combos import validate_payload
         for payload in record.combos: validate_payload(state,registry,payload)
         for payload in record.battlecries:

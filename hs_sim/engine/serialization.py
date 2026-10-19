@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 422
+SNAPSHOT_SCHEMA_VERSION = 423
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1099,6 +1099,7 @@ def _draw_from_dict(value):
 
 def _spell_cast_from_dict(value):
     row = _row(value, SpellCastRecord)
+    row['held_higher_cost'] = _held_higher_cost_from_dict(row['held_higher_cost'])
     if row['target_origin'] is not None:
         from .allocation_facts import allocation_from_dict
         row['target_origin']=allocation_from_dict(row['target_origin'])
@@ -1115,6 +1116,15 @@ def _spell_cast_from_dict(value):
     if row['from_zone'] is not None:
         row['from_zone'] = Zone(row['from_zone'])
     return SpellCastRecord(**row)
+
+
+def _held_higher_cost_from_dict(value):
+    if value is None: return None
+    from .model import HeldHigherCostProgress
+    row = _row(value, HeldHigherCostProgress)
+    row['spec'] = _hand_progress_spec(row['spec'])
+    row['keys'] = tuple(_list(row['keys'], 'original higher-cost witnesses'))
+    return HeldHigherCostProgress(**row)
 
 
 def state_from_dict(value: dict) -> GameState:
@@ -1283,6 +1293,7 @@ def state_from_dict(value: dict) -> GameState:
             derivatives.append(HandDerivativeSpec(**spec))
         row['hand_derivatives'] = tuple(derivatives)
         row['kind']=CardType(row['kind']);row['payment']=PaymentType(row['payment'])
+        row['held_higher_cost'] = _held_higher_cost_from_dict(row['held_higher_cost'])
         if row['held_mana'] is not None:
             from .model import HeldManaProgress
             fact=_row(row['held_mana'],HeldManaProgress)

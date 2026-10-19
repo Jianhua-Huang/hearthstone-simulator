@@ -1837,3 +1837,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 梦魇供能式物理复制发现可用DiscoverOpponentDeckCopy(player_id, source_id, gift)，gift必须取原spell_conditions.combo。sample_zone_choices保持原复制去重/代表抽样；CopyOpponentDeckOffer将原CapturedCardCopyMaterial及配对赐福交原复制/材料化管线，不先取得再改牌。当前材料政策及M6边界见[契约](m3-opponent-deck-gift-copy.md)。
+
+
+莎拉达希尔式条件用HandProgressSpec("higher_cost_play")，仅限原生法术单次手牌事实；正文读取held_higher_cost.satisfied的实际施法冻结值。五牌随机交付复用零选择的RequestChoice完整抽样及AddToHand，不重写已有梦境定义。生命周期、历史与国服边界见[契约](m3-held-higher-cost.md)。
