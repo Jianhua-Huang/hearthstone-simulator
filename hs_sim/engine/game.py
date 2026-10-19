@@ -429,6 +429,8 @@ class Game:
             raise SnapshotError(f'Invalid snapshot: {exc}') from exc
 
     def _assert_stable(self):
+        from .natural_turn_end import validate_boundary as validate_natural_turn_end_boundary
+        validate_natural_turn_end_boundary(self)
         if self._match_setup is not None and self._match_setup.board_id != self._state.board_id:
             raise ValueError('Game board differs from its fixed constructed match setup')
         from .tourists import validate_boundary as validate_tourist_boundary

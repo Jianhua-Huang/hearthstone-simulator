@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实法术的“结束你的回合”使用`RequestNaturalTurnEnd(cast_id)`，由解释器尾部委托原正常结束阶段；不要直接切换玩家或让宿主补发EndTurn。与既有整卡重放组合及原义务保存见[契约](m3-requested-natural-end.md)。
+
 真实单张随机随从在另一张牌使用后才能打出时，用GenerateFromPool的纯other_play_lock创建授予，在首个入手通知前安装原历史条件；不要用回合到期、改费用或后来同名牌查找模拟。见[原出牌条件契约](m3-other-play-hand-lock.md)。
 
 真实清场生成原组召回法术时，用DestroyForResummonSpells连接注册的SpellResummonProfile；奖励沿有限原生参数绑定，不从后来死亡总表或卡牌层可变列表重建。普通复活、当前复制及历史继承见[原消灭组契约](m3-destruction-resummon-spells.md)。

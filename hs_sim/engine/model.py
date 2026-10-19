@@ -10588,6 +10588,7 @@ class GameState:
     temporary_power_returns: dict[int, TemporaryHeroPowerReturn] = field(default_factory=dict)
     # Concrete immutable WholeCardReplayLedger; module-owned validation avoids import cycles.
     whole_card_replay_ledger: object = field(default_factory=_empty_whole_card_replay_ledger)
+    natural_turn_end_requests: list = field(default_factory=list)
     choose_policy_receipts: list = field(default_factory=list)
     # Actual family uses across independent paid and generated acceptances.
     battlecry_policy_uses: list = field(default_factory=list)
@@ -11514,6 +11515,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     from .summon_sources import validate_history as validate_resurrections
     from .spell_casts import validate_history as validate_casts
     validate_casts(state, registry)
+    from .natural_turn_end import validate_history as validate_natural_turn_end_history
+    validate_natural_turn_end_history(state, registry)
     from .hero_attack_history import validate_history as validate_hero_attacks
     validate_hero_attacks(state, registry)
     from .character_attacks import validate_history as validate_character_attacks

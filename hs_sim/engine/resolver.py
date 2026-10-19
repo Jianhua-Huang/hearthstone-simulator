@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v549'
+CORE_EFFECTS_VERSION = 'core-effects-v550'
 
 
 class Mechanics:
@@ -779,6 +779,7 @@ class Resolution:
         from .combo_acceptance import FinishComboAcceptance
         from .power_payloads import InvokeHeroPowerPayload, FinishHeroPowerPayload
         from .end_turns import InvokeEndTurn, FinishEndTurn, FinishEndTurnBatch, CheckActiveEndTurn
+        from .natural_turn_end import RequestNaturalTurnEnd
         queue = deque(effects)
         self._work_queue = queue
         while queue and self.state.status == 'playing':
@@ -810,7 +811,7 @@ class Resolution:
             from .indirect_body_targets import CONTROL as INDIRECT_BODY_CONTROL
             from .historical_body_targets import CONTROL as HISTORICAL_BODY_CONTROL
             if type(work) in (*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
-                              InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,*HERO_CONTROL) or transparent_power_guard:
+                              InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
                 if generated is not None: queue.extendleft(reversed(self.collect(generated)))
@@ -891,6 +892,8 @@ class Resolution:
             raise ResolutionError('Resolution ended with an unclosed death deferral boundary')
         self.death_deferrals = 0
         if self.state.status != 'playing':
+            from .natural_turn_end import interrupt as interrupt_natural_turn_end
+            interrupt_natural_turn_end(self)
             from .kindred import interrupt as interrupt_kindred
             interrupt_kindred(self,queue)
             from .choose_policies import interrupt as interrupt_choose_policies
@@ -2732,6 +2735,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_turn_start_draws(mechanics)
     from .native_spell_values import register as register_native_spell_values
     register_native_spell_values(mechanics)
+    from .natural_turn_end import register as register_natural_turn_end
+    register_natural_turn_end(mechanics)
     from .temporary_hero_powers import register as register_temporary_powers
     register_temporary_powers(mechanics)
     from .after_play_grants import register as register_after_play

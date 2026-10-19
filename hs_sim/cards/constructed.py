@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v373"
+CONTENT_VERSION = "constructed-cn37-preview-v374"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -789,6 +789,8 @@ def build_registry():
     register_ectoplasmic_execution_cards(registry)
     from .security_blind_spot_card import register_security_blind_spot_card
     register_security_blind_spot_card(registry)
+    from .slice_and_dice_card import register_slice_and_dice_card
+    register_slice_and_dice_card(registry)
     register_reviewed_pool_metadata(registry)
     from .candidate_generation_catalog import register_candidate_pool_metadata
     register_candidate_pool_metadata(registry)
