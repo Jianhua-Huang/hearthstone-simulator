@@ -227,8 +227,8 @@ class FrameCodec:
         from .copy_materials import CapturedCardCopyMaterial,validate_captured_card_copy
         if type(value)is CapturedCardCopyMaterial and self.origin_state is not None:
             validate_captured_card_copy(self.origin_state,self.registry,value)
-        from .deathrattle_memory import DiscardForDeathrattle
-        if type(value) is DiscardForDeathrattle and self.origin_state is not None:
+        from .deathrattle_memory import DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy
+        if type(value) in (DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
         from .zones import CopyCard
         from .discard_history import DiscardRecord,validate_base_copy

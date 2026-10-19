@@ -101,11 +101,14 @@ def _target(r, effect, *, dormant):
     return entity
 
 
-def make_dormant(r, effect):
+def make_dormant(r, effect, *, deathrattle_memory=None):
     entity = _target(r, effect, dormant=False)
     if entity is None:
         return
     entity.dormancy = DormancyState(attachment_id(r.state), effect.turns, r.state.turn)
+    if deathrattle_memory is not None:
+        from .deathrattle_memory import remember_dormancy
+        remember_dormancy(r,deathrattle_memory,entity)
     r.refresh_auras()
     r.emit('minion_dormant', source_id=effect.source_id, target_id=entity.id,
            player_id=entity.controller, remaining_turns=effect.turns)

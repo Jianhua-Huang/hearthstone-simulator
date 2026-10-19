@@ -2577,7 +2577,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'draw_link', 'discard_link'):
+        if self.kind not in ('summon_growth', 'draw_link', 'discard_link', 'dormancy_link'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2601,11 +2601,31 @@ class RememberedDraw:
 
 
 @dataclass(frozen=True)
+class RememberedDormancy:
+    battlecry_id: int
+    entity_id: int
+    player_id: int
+    card_id: str
+    zone_epoch: int
+    entered_order: int
+    dormancy_id: int
+
+    def __post_init__(self):
+        for key in ('battlecry_id', 'entity_id', 'entered_order', 'dormancy_id'):
+            _int(getattr(self, key), 'remembered dormancy '+key, 1)
+        _int(self.zone_epoch, 'remembered dormancy epoch', 0)
+        _name(self.card_id, 'remembered dormancy face')
+        if type(self.player_id) is not int or self.player_id not in (1, 2):
+            raise ValueError('Remembered dormancy requires its original target controller')
+
+
+@dataclass(frozen=True)
 class DeathrattleMemory:
     spec: NativeDeathrattleSpec
     growth_steps: int = 0
     draws: tuple[RememberedDraw, ...] = ()
     discard_ids: tuple[int, ...] = ()
+    dormancies: tuple[RememberedDormancy, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
@@ -2624,6 +2644,18 @@ class DeathrattleMemory:
         if (self.spec.kind != 'discard_link' and self.discard_ids or
                 self.spec.kind == 'discard_link' and (self.draws or self.growth_steps)):
             raise ValueError('Native discard memory cannot mix unrelated payloads')
+        if type(self.dormancies) is not tuple or any(type(x) is not RememberedDormancy for x in self.dormancies):
+            raise ValueError('Native dormancy memory requires immutable original captive links')
+        for link in self.dormancies: link.__post_init__()
+        keys = tuple((x.battlecry_id, x.dormancy_id) for x in self.dormancies)
+        if keys != tuple(sorted(set(keys))):
+            raise ValueError('Native dormancy memory changed its unique original order')
+        if (tuple(x.battlecry_id for x in self.dormancies) != tuple(sorted({x.battlecry_id for x in self.dormancies})) or
+                tuple(x.dormancy_id for x in self.dormancies) != tuple(sorted({x.dormancy_id for x in self.dormancies}))):
+            raise ValueError('Each imprisonment requires its own actual Battlecry and dormancy interval')
+        if (self.spec.kind != 'dormancy_link' and self.dormancies or
+                self.spec.kind == 'dormancy_link' and (self.draws or self.discard_ids or self.growth_steps)):
+            raise ValueError('Native dormancy memory cannot mix unrelated payloads')
 
 
 @dataclass(frozen=True)

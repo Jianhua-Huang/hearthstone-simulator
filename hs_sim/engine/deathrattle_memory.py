@@ -2,7 +2,7 @@
 from dataclasses import dataclass,replace
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError
-from .model import CardType,DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,Zone
+from .model import CardType,DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,Zone
 from .sacrifice import MinionReference,reference_value,same_instance,live_minion
 from .zones import CardReference,DiscardCard,discard_card
 
@@ -28,6 +28,7 @@ def validate_ability(state,registry,ability):
     if ability.deathrattle_card_id is None or registry.card(ability.deathrattle_card_id).native_deathrattle!=memory.spec:
         raise ValueError('Deathrattle memory differs from its printed declaration')
     for link in memory.draws:validate_link(state,link)
+    for link in memory.dormancies:validate_dormancy_link(state,registry,link)
     for discard_id in memory.discard_ids:
         if discard_id > len(state.discard_history):raise ValueError('Remembered discard exceeds original history')
         row=state.discard_history[discard_id-1]
@@ -138,6 +139,118 @@ def validate_reference(state,reference,ability_ids):
         raise ResolutionError('Native memory request borrowed unknown or future original allocation')
 
 
+def validate_dormancy_link(state,registry,link):
+    if type(link) is not RememberedDormancy:
+        raise ValueError('Expected a complete original captive and dormancy interval')
+    link.__post_init__()
+    if not 1 <= link.battlecry_id <= len(state.battlecry_history):
+        raise ValueError('Remembered dormancy lost its original Battlecry')
+    row = state.battlecry_history[link.battlecry_id-1]
+    spec = registry.card(row.payload.card_id).native_deathrattle
+    target = state.entities.get(link.entity_id)
+    if (row.id != link.battlecry_id or row.target_id != link.entity_id or
+            not row.payload_started or row.failure is not None or
+            spec is None or spec.kind != 'dormancy_link' or target is None or
+            registry.card(link.card_id).kind != CardType.MINION or
+            link.zone_epoch > target.zone_epoch or link.entered_order >= state.next_order or
+            link.dormancy_id >= state.next_attachment_id):
+        raise ValueError('Remembered dormancy changed its actual original target or allocation')
+    return row
+
+
+@dataclass(frozen=True)
+class ImprisonForDeathrattle(Effect):
+    battlecry_id: int
+    target: MinionReference
+    reference: MinionReference | None
+    ability_ids: tuple[int, ...]
+
+    def __post_init__(self):
+        _integer(self.battlecry_id,'actual imprisonment Battlecry',1)
+        reference_value(self.target)
+        if self.reference is not None: reference_value(self.reference)
+        if type(self.ability_ids) is not tuple or len(set(self.ability_ids)) != len(self.ability_ids):
+            raise ValueError('Imprisonment requires original unique memory abilities')
+        for value in self.ability_ids: _integer(value,'original captive-memory ability',1)
+        if self.reference is None and self.ability_ids:
+            raise ValueError('A departed carrier cannot claim a later memory attachment')
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__()
+        if not 1 <= self.battlecry_id <= len(state.battlecry_history):
+            raise ValueError('Imprisonment lost its actual Battlecry')
+        row = state.battlecry_history[self.battlecry_id-1]
+        spec = registry.card(row.payload.card_id).native_deathrattle
+        if (row.id != self.battlecry_id or row.completed or row.interrupted or
+                not row.payload_started or row.failure is not None or row.target_id != self.target.entity_id or
+                spec is None or spec.kind != 'dormancy_link' or
+                self.reference is not None and self.reference.entity_id != row.source_id):
+            raise ValueError('Imprisonment changed its original active body or target')
+        validate_reference(state,self.target,())
+        if self.reference is not None: validate_reference(state,self.reference,self.ability_ids)
+        return row
+
+
+def imprison(r,effect):
+    row = effect.validate_in_state(r.state,r.registry)
+    if live_minion(r.state,effect.target) is None:
+        r.stale(effect,effect.target.entity_id);return ()
+    from .dormancy import MakeDormant,make_dormant
+    return make_dormant(r,MakeDormant(effect.target.entity_id,10000,row.source_id),deathrattle_memory=effect)
+
+
+def remember_dormancy(r,effect,entity):
+    effect.validate_in_state(r.state,r.registry)
+    ref = effect.target
+    if same_instance(r.state,ref) is not entity or entity.dormancy is None:
+        raise ValueError('Imprisonment lost the actual committed target interval')
+    link = RememberedDormancy(effect.battlecry_id,entity.id,ref.player_id,ref.card_id,
+        ref.zone_epoch,ref.entered_order,entity.dormancy.id)
+    validate_dormancy_link(r.state,r.registry,link)
+    source = None if effect.reference is None else same_instance(r.state,effect.reference)
+    if source is None: return
+    replacements = {}
+    for ability in source.abilities:
+        if ability.id not in effect.ability_ids: continue
+        validate_ability(r.state,r.registry,ability)
+        memory = ability.deathrattle_memory
+        if memory is None or memory.spec.kind != 'dormancy_link':
+            raise ResolutionError('Original captive-memory ability changed its native profile')
+        replacements[ability.id] = replace(ability,deathrattle_memory=replace(memory,
+            dormancies=(*memory.dormancies,link)))
+    source.abilities = [replacements.get(a.id,a) for a in source.abilities]
+
+
+@dataclass(frozen=True)
+class AwakenRememberedDormancy(Effect):
+    deathrattle_id: int
+    captive: RememberedDormancy
+
+    def __post_init__(self):
+        _integer(self.deathrattle_id,'actual captive release Deathrattle',1)
+        if type(self.captive) is not RememberedDormancy:
+            raise ValueError('Awakening requires its original typed captive')
+        self.captive.__post_init__()
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__();validate_dormancy_link(state,registry,self.captive)
+        from .deathrattles import record
+        row = record(state,self.deathrattle_id)
+        memory = row.capture.ability.deathrattle_memory
+        if (row.execution_order is None or row.completed or row.interrupted or memory is None or
+                memory.spec.kind != 'dormancy_link' or self.captive not in memory.dormancies):
+            raise ValueError('Captive awakening lost its actual frozen active Deathrattle')
+        return row
+
+
+def awaken_remembered(r,effect):
+    row = effect.validate_in_state(r.state,r.registry)
+    link = effect.captive
+    from .dormancy import AwakenCapturedMinion
+    ref = MinionReference(link.entity_id,link.player_id,link.card_id,link.zone_epoch,link.entered_order)
+    return (AwakenCapturedMinion(ref,link.dormancy_id,row.capture.carrier_id),)
+
+
 def grow(r,effect):
     effect.__post_init__();validate_reference(r.state,effect.reference,(effect.ability_id,))
     entity=live_minion(r.state,effect.reference)
@@ -202,6 +315,7 @@ def public_summons(entity):
 
 def register(mechanics):
     for typ,handler in ((GrowDeathrattleSummon,grow),(DrawForDeathrattle,draw),(DiscardRememberedDraw,discard),
-                        (DiscardForDeathrattle,discard_for_memory)):
+                        (DiscardForDeathrattle,discard_for_memory),
+                        (ImprisonForDeathrattle,imprison),(AwakenRememberedDormancy,awaken_remembered)):
         mechanics.register(typ,handler)
-    for typ in (NativeDeathrattleSpec,RememberedDraw,DeathrattleMemory):mechanics.register_payload_type(typ)
+    for typ in (NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,DeathrattleMemory):mechanics.register_payload_type(typ)

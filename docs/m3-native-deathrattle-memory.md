@@ -1,5 +1,7 @@
 # 原生亡语的成长值与原抽牌关联
 
+原生囚禁后由亡语唤醒的真实需求现沿同一记忆结构增加有限`dormancy_link`，见[囚禁契约](m3-native-imprisonment.md)。本节原成长/抽牌范围和历史版本证据保留，当前执行版本以两份台账为准。
+
 本契约仅覆盖暮光龙卵、栉龙实际需要的两种原生附件材料。实际进度、验证证据、差异和下一项只在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)维护。
 
 [完整固定源](../data/cards/native-deathrattle-memory-v1.json)和[卡牌适配](../hs_sim/cards/native_deathrattle_memory_cards.py)保留两个根卡及完整速生雏龙。暮光龙卵的静态官方API省略了动态数字，初始2/1仍由固定源两个脚本值与真实2/1token共同约束，不能把漏值当作0/0。

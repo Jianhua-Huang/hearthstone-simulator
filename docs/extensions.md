@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原生亡语可声明`NativeDeathrattleSpec('dormancy_link')`。真实战吼用`ImprisonForDeathrattle`绑定原记录/引用/附件，亡语从原`DeathrattleCapture`返回`AwakenRememberedDormancy`；不可扫描事件或寻找同名目标，见[契约](m3-native-imprisonment.md)。
+
 地标亡语可用原`GrantDeathrattle(location_id, behavior_id, source_id)`；只接受活跃的场上地标。欢迎回家先用`RefreshLocation`清冷却，亡语以原`SummonCause.capture(context)`交给完整池召唤，见[契约](m4-locations.md#欢迎回家的亡语授予)。
 
 万能钥匙式刷新用有限`DiscoverFromPool.refresh_card_id`，传入真实choice_only控制面；一次三选普通法术发现由原选择提交保存风险，卡牌适配不自行循环、掷骰或修改发现历史。菜单材料和恢复边界见[契约](m3-skeleton-key-refresh.md)。

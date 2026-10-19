@@ -1,0 +1,226 @@
+{
+  "batch": "K240-timeway-warden",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_442",
+        "dbf_id": 120988,
+        "name": "时间流守望者",
+        "name_en": "Timeway Warden",
+        "text": "<b>战吼：</b>囚禁一个敌方随从，使其<b>休眠</b>10000回合。<b>亡语：</b>唤醒该随从。",
+        "text_en": "[x]<b>Battlecry:</b> Imprison an\nenemy minion. It goes\n<b>Dormant</b> for 10,000 turns.\n___<b>Deathrattle:</b> Awaken it.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "450eb8a73984a6e506019327febbe971a087cbae3cf87e8cf2ea1ce5c9d8b56d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_442",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_442e",
+        "dbf_id": 120989,
+        "name": "永恒囚禁",
+        "name_en": "Eternal Imprisonment",
+        "text": "<b>休眠</b>。@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 10000,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "6af7cd3da17bc4a3fda98f1aa92d512a29397747efafe0582144fe65123ffdc7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_442e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_442",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k240-timeway-warden\\official-cache-01\\120988-zh_CN.json",
+      "response_sha256": "6d3a3be6e06a7407e155ba4911c7dc5b32566a34a0ead48b5b645bda90ae4e21",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120988&locale=zh_CN",
+      "face": {
+        "id": 120988,
+        "collectible": 1,
+        "slug": "120988-timeway-warden",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "时间流守望者",
+        "text": "<b>战吼：</b>囚禁一个敌方随从，使其<b>休眠</b>10000回合。<b>亡语：</b>唤醒该随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a83d8d6d3a94798c7058dd62981bfe65c27e2e351c2f5c3b3c7b5572a9c3f45c.png",
+        "imageGold": "",
+        "flavorText": "如果表现良好，刑期还能减几个回合。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87bfbea631c44997d848dd3ce9e8e4a50f54fe5f08d07a8fc98c50eecd340e43.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120988&locale=zh_CN",
+        "sha256": "6d3a3be6e06a7407e155ba4911c7dc5b32566a34a0ead48b5b645bda90ae4e21",
+        "bytes": 826,
+        "observed_at": "2026-10-19T03:21:46.164485+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_442",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k240-timeway-warden\\official-cache-01\\120988-en_US.json",
+      "response_sha256": "ffeae5b32b1bea37d98f37883d83016af0c3d57ca37987ccabbbcb022577ac52",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120988&locale=en_US",
+      "face": {
+        "id": 120988,
+        "collectible": 1,
+        "slug": "120988-timeway-warden",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Timeway Warden",
+        "text": "<b>Battlecry:</b> Imprison an enemy minion. It goes <b>Dormant</b> for 10,000 turns. <b>Deathrattle:</b> Awaken it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ddcdb90c3088a3f87688265db1240b30008561e8e09b91aa04a61ddfe74be35.png",
+        "imageGold": "",
+        "flavorText": "You can get some turns reduced for good behavior.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87bfbea631c44997d848dd3ce9e8e4a50f54fe5f08d07a8fc98c50eecd340e43.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120988&locale=en_US",
+        "sha256": "ffeae5b32b1bea37d98f37883d83016af0c3d57ca37987ccabbbcb022577ac52",
+        "bytes": 825,
+        "observed_at": "2026-10-19T03:21:46.150456+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "imprison": "Actual accepted Battlecry captures the original live enemy target. The shared MakeDormant commits 10000 owner turns and records the exact target residency and dormancy allocation before notifications.",
+    "memory": "Use the ordinary native Deathrattle attachment; links retain original Battlecry identity and unique actual dormancy identity, never search events or current target names. A source that left before commit does not acquire a later attachment.",
+    "release": "Actual frozen active Deathrattle wakes each of its committed original dormancy links using AwakenCapturedMinion. Target departure or a different subsequent dormancy is stale. Silence removes the ordinary source ability; current copy retains memory and base copy/reset starts empty under the existing pipelines.",
+    "pending_cn": [
+      "multiple successful Battlecry imprisonment links",
+      "exact source-death-before-payload and notification windows",
+      "residency/control/form changes and later dormancy identity",
+      "precise copied or inherited source interactions"
+    ],
+    "cn_calibrated": false
+  }
+}
