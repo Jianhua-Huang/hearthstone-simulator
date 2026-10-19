@@ -213,13 +213,17 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # Battlecry. Only this full pinned source may omit its live spell name.
     carved_spell_display = (display_normalizations == {'{0}': ''} and row['id'] == 'MEND_046t' and
         canonical(row) == '270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a')
+    # Specimen Jar's gallery retains both complete empty/filled bodies; only
+    # their delimiter and the runtime captive name are absent.
+    jar_name_display = (display_normalizations == {'@': '', '{5}': ''} and row['id'] == 'TLC_841t' and
+        canonical(row) == '9c9987a3461b47265c8d6d16c2a42727f1d00242c4cfb2add856f03534ec9ecd')
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display) and replacement == '' or
+            require(type(replacement) is str and ((progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
@@ -229,7 +233,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         elif marker == '{1}':
             require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
-            require(lookout_display and replacement == '', 'Only the pinned Lookout name display may be omitted')
+            require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and

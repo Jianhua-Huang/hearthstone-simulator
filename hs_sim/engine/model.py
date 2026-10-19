@@ -2743,8 +2743,8 @@ class DeathrattleMemory:
         if self.summon_copy is not None:
             from .copy_materials import CopyEntryMaterial
             if (type(self.summon_copy) is not CopyEntryMaterial or self.spec.kind != 'copy_summon'
-                    or self.summon_copy.profile != 'remembered_copy'):
-                raise ValueError('Native copy memory requires its original frozen board recipe')
+                    or self.summon_copy.profile not in ('remembered_copy', 'remembered_hand_copy')):
+                raise ValueError('Native copy memory requires its original frozen minion recipe')
             self.summon_copy.__post_init__()
         if self.spec.kind == 'copy_summon' and any((self.growth_steps, self.draws, self.discard_ids,
                 self.dormancies, self.discoveries, self.hand_entry_ids)):

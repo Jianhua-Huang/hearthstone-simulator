@@ -97,7 +97,8 @@ class NativeDeathrattleMemoryTests(unittest.TestCase):
     def test_public_growth_numbers_visible_to_both_players(self):
         g=self.game((EGG,));eid=self.play(g,EGG);self.cycle(g)
         for p in (1,2):
-            v=g.observe(p);row=next(x for x in v['players'][0]['board']if x['card_id']==EGG);self.assertEqual(v['version'],'player-view-v89');self.assertEqual(row['deathrattle_summons'],[dict(card_id=WHELP,attack=3,health=2)])
+            from hs_sim.engine.information import VIEW_VERSION
+            v=g.observe(p);row=next(x for x in v['players'][0]['board']if x['card_id']==EGG);self.assertEqual(v['version'],VIEW_VERSION);self.assertEqual(row['deathrattle_summons'],[dict(card_id=WHELP,attack=3,health=2)])
     def test_silence_removes_public_growth_projection(self):
         g=self.game((EGG,'k62.silence'));eid=self.play(g,EGG);self.play(g,'k62.silence',eid);self.assertNotIn('deathrattle_summons',g.observe(2)['players'][0]['board'][0])
     def test_real_repeated_source_uses_captured_memory_and_original_draws(self):

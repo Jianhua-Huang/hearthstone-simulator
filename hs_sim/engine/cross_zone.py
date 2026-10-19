@@ -502,9 +502,22 @@ def transform_captured(r, effect):
                                    retained_cost=effect.retained_cost)
 
 
-def transform_stored_entity(r, entity, definition, *, source_id=None, retained_cost=None, retained_stats=None):
+def transform_stored_entity(r, entity, definition, *, source_id=None, retained_cost=None, retained_stats=None, deathrattle_memory=None):
     """One lifecycle for the original minion operation and general stored cards."""
     from .costs import attach_cost
+    if deathrattle_memory is not None:
+        from .model import DeathrattleMemory
+        from .deathrattle_memory import validate_copy_memory
+        if (type(deathrattle_memory) is not DeathrattleMemory or
+                deathrattle_memory.summon_copy is None or
+                deathrattle_memory.summon_copy.profile != 'remembered_hand_copy' or
+                definition.native_deathrattle != deathrattle_memory.spec):
+            raise ResolutionError('Stored native seeding requires its complete original hand minion')
+        validate_copy_memory(r.state, r.registry, deathrattle_memory)
+        original = deathrattle_memory.summon_copy.origin
+        if (original.entity_id, original.card_id, original.controller, original.zone, original.zone_epoch) != (
+                entity.id, entity.card_id, entity.controller, Zone.HAND, entity.zone_epoch) or entity.zone != Zone.HAND:
+            raise ResolutionError('Stored native seeding borrowed another original hand minion')
     if retained_stats is not None:
         validate_summon_stats(retained_stats)
         if (retained_stats.attack is None or retained_stats.health is None or retained_cost is None or
@@ -512,6 +525,13 @@ def transform_stored_entity(r, entity, definition, *, source_id=None, retained_c
             raise ResolutionError('Retained stored stats require complete minion numbers and Cost')
     old_card=entity.card_id
     reset_stored_entity(r,entity,definition)
+    if deathrattle_memory is not None:
+        rows = [a for a in entity.abilities if a.deathrattle_memory is not None and
+            a.deathrattle_memory.spec == deathrattle_memory.spec]
+        if len(rows) != 1:
+            raise ResolutionError('Stored native seeding lost its single printed Deathrattle')
+        entity.abilities = [replace(a, deathrattle_memory=deathrattle_memory) if a is rows[0] else a
+            for a in entity.abilities]
     if retained_cost is not None:
         attach_cost(r.state,entity,CostSpec(set_to=retained_cost),source_id)
     if retained_stats is not None:

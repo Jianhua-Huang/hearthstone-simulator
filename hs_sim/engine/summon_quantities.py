@@ -648,7 +648,7 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
         if type(material)is ResurrectionEntryMaterial and(material.captured_turn,material.captured_action,material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):raise ValueError('Death material is not from actual entry acceptance window')
         copy_material=material.copy if type(material)is RecruitEntryMaterial else material
         if type(copy_material)is CopyEntryMaterial:
-            if copy_material.profile in ('discard_summon_copy','remembered_copy'):
+            if copy_material.profile in ('discard_summon_copy','remembered_copy','remembered_hand_copy'):
                 if (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
                         copy_material.next_attachment_id>plan.next_attachment_id):
                     raise ValueError('Original discarded material is newer than its summon acceptance')

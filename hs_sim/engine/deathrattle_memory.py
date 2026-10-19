@@ -377,6 +377,13 @@ def public_damages(entity):
         and a.deathrattle_memory.spec.kind=='attack_damage_growth']
 
 
+def public_copies(entity):
+    """Callers authorize visibility; expose captive card names, never material."""
+    return [dict(card_id=a.deathrattle_memory.summon_copy.card_id) for a in entity.abilities
+        if a.kind=='deathrattle' and not a.consumed and a.deathrattle_memory is not None
+        and a.deathrattle_memory.spec.kind=='copy_summon' and a.deathrattle_memory.summon_copy is not None]
+
+
 def register(mechanics):
     for typ,handler in ((GrowDeathrattleSummon,grow),(DrawForDeathrattle,draw),(DiscardRememberedDraw,discard),
                         (DiscardForDeathrattle,discard_for_memory),

@@ -1,0 +1,403 @@
+{
+  "schema": 1,
+  "task": {
+    "schema": 1,
+    "batch": "K283-hand-minion-jars",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k282-turn-draw-discovery/inventory-01.json",
+    "candidate_inventory_sha256": "b3e5761d427c4f5cea1f645a96be8081f156cc2a8c54f29a549ccabdeef1dc25",
+    "roots": [
+      "TLC_841"
+    ],
+    "dependencies": [
+      "TLC_841t"
+    ],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "TLC_841e"
+    ],
+    "official_ids": [
+      "TLC_841",
+      "TLC_841t"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Audit actual original hand minions put into1mana0/1Jars and their native Deathrattle release; preserve original current material and ordinary hand capacity/copy/summon lifecycle. Token primary zero-Attack and empty/dynamic name display still require review before implementation.",
+        "cards": [
+          "TLC_841"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/hand_jar_cards.py",
+      "data/cards/hand-jars-v1.json",
+      "tests/test_hand_jar_cards.py"
+    ],
+    "numeric_normalizations": {
+      "TLC_841t": {
+        "attack": 0
+      }
+    },
+    "display_normalizations": {
+      "TLC_841t": {
+        "@": "",
+        "{5}": ""
+      }
+    }
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_841",
+        "dbf_id": 119755,
+        "name": "昆虫学家托鲁",
+        "name_en": "Entomologist Toru",
+        "text": "<b>战吼：</b>将你手牌中的每张随从牌分别放入法力值消耗为（1）的0/1的标本罐。打破罐子即可放出随从！",
+        "text_en": "[x]<b>Battlecry:</b> Put each minion\n in your hand into 0/1 Jars\n_that cost (1). Break them\n__to release the minions!",
+        "cost": 8,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 120598,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "5075f6fed2507190fb922da5506a3ef10cd296a92f358d3221767b39e14647c2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_841",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_841t",
+        "dbf_id": 120598,
+        "name": "标本罐",
+        "name_en": "Specimen Jar",
+        "text": "<b>亡语：</b>放出……什么都放不出。<i>（这是个空罐。）</i>@<b>亡语：</b>放出{5}！",
+        "text_en": "<b>Deathrattle:</b> Release nothing. <i>(It's just an empty jar.)</i>@<b>Deathrattle:</b> Release {5}!",
+        "cost": 1,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "1724": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "9c9987a3461b47265c8d6d16c2a42727f1d00242c4cfb2add856f03534ec9ecd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_841t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_841e",
+        "dbf_id": 120602,
+        "name": "装罐",
+        "name_en": "Jarring",
+        "text": "<b>亡语：</b>放出{0}！",
+        "text_en": "<b>Deathrattle:</b> Free {0}!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "61edfc882f24672f12709abdc03423dafd466a387a56b7bc8a0d2e2a0634d223",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_841e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_841",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\119755-zh_CN.json",
+      "response_sha256": "60edb0e0940c464b238827fd0a385a452d7aef319ad999852b1e2f8d976ae061",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=119755&locale=zh_CN",
+      "face": {
+        "id": 119755,
+        "collectible": 1,
+        "slug": "119755-entomologist-toru",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "昆虫学家托鲁",
+        "text": "<b>战吼：</b>将你手牌中的每张随从牌分别放入法力值消耗为（1）的0/1的标本罐。打破罐子即可放出随从！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b0ab47587f4853f6da61e1944098be9a141c5927df085390d8731b068482c94.png",
+        "imageGold": "",
+        "flavorText": "拧盖子。盖子。盖子。盖子。盖子。盖子！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dccb8db71b39f968b1780016eca6a0743370087f6535ff19b04241fb675bfa90.png",
+        "childIds": [
+          120598
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=119755&locale=zh_CN",
+        "sha256": "60edb0e0940c464b238827fd0a385a452d7aef319ad999852b1e2f8d976ae061",
+        "bytes": 886,
+        "observed_at": "2026-10-19T19:48:56.824987+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_841",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\119755-en_US.json",
+      "response_sha256": "39c8baed7a2bb2fe5fd5f6fde8db78d9d20c1d79b903f39a9608938158dbdbaa",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=119755&locale=en_US",
+      "face": {
+        "id": 119755,
+        "collectible": 1,
+        "slug": "119755-entomologist-toru",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "Entomologist Toru",
+        "text": "<b>Battlecry:</b> Put each minion in your hand into 0/1 Jars that cost (1). Break them to release the minions!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98e673868bb5c5e0f8e402d453e89f71c585a55e067a236060801753d3adfe62.png",
+        "imageGold": "",
+        "flavorText": "The lid. The lid. The lid. The lid. The lid. The lid.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dccb8db71b39f968b1780016eca6a0743370087f6535ff19b04241fb675bfa90.png",
+        "childIds": [
+          120598
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=119755&locale=en_US",
+        "sha256": "39c8baed7a2bb2fe5fd5f6fde8db78d9d20c1d79b903f39a9608938158dbdbaa",
+        "bytes": 851,
+        "observed_at": "2026-10-19T19:48:56.701692+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_841t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\120598-zh_CN.json",
+      "response_sha256": "9fec05993f4d2ec7ff0795aaf2e3737b62ba731a13ef095620158b92812663f0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120598&locale=zh_CN",
+      "face": {
+        "id": 120598,
+        "collectible": 0,
+        "slug": "120598-specimen-jar",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Studio Hive",
+        "health": 1,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "标本罐",
+        "text": "<b>亡语：</b>放出……什么都放不出。<i>（这是个空罐。）</i> <b>亡语：</b>放出 ！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af44c147b5a3a31b2c5bf669601933d558419eb4e5f27ed8ad73b11ca893b374.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120598&locale=zh_CN",
+        "sha256": "9fec05993f4d2ec7ff0795aaf2e3737b62ba731a13ef095620158b92812663f0",
+        "bytes": 646,
+        "observed_at": "2026-10-19T19:55:15.347515+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_841t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\120598-en_US.json",
+      "response_sha256": "e470ebd3f43374c32d50aeb079b4f5bfb60daa637950d0794dd00984f7c6a781",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120598&locale=en_US",
+      "face": {
+        "id": 120598,
+        "collectible": 0,
+        "slug": "120598-specimen-jar",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Studio Hive",
+        "health": 1,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Specimen Jar",
+        "text": "<b>Deathrattle:</b> Release nothing. <i>(It's just an empty jar.)</i> <b>Deathrattle:</b> Release !",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3bece1778704e66e84a7f829474e5493c63d2eed4fa9d6de8462ac25f35d179.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119755,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120598&locale=en_US",
+        "sha256": "e470ebd3f43374c32d50aeb079b4f5bfb60daa637950d0794dd00984f7c6a781",
+        "bytes": 641,
+        "observed_at": "2026-10-19T19:55:15.231600+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "copy_profile": "remembered_hand_copy",
+    "selection": "initial_ordered_physical_hand_minions",
+    "capture_window": "each_actual_stored_transform",
+    "release": "ordinary_current_material_summon_without_battlecry",
+    "clocks": "preserve_original_and_drop_expired",
+    "formal_pool_complete": false,
+    "CN_calibrated": false
+  }
+}

@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v100'
+VIEW_VERSION = 'player-view-v101'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -370,6 +370,9 @@ class Information:
                 if summon_memory:result['deathrattle_summons']=summon_memory
                 damage_memory=public_damages(entity)
                 if damage_memory:result['deathrattle_damages']=damage_memory
+                from .deathrattle_memory import public_copies
+                copy_memory=public_copies(entity)
+                if copy_memory:result['deathrattle_copies']=copy_memory
                 if entity.kind==CardType.SPELL:
                     from .card_spell_repeats import public_repeats
                     result['card_spell_repeats']=public_repeats(entity)
