@@ -1895,3 +1895,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 满场跨本人回合任务可用QUEST_FULL_BOARD_TURNS，满手后空手任务可用QUEST_FULL_THEN_EMPTY_HAND及目标2；它们是有限订阅，回调仍返回原AdvanceQuest与原具名奖励。不要枚举所有手牌变化事件或另设计数器，具体接受窗与保存见[契约](m3-quest-area-state.md)。
+
+
+神秘无面者式两奥秘检视复用ChooseFromPools的有限secret_pair交付，保留原上下文完整候选和私有菜单，再将原选定/余项分别交原CastSpell为双方施放。默认手牌交付、普通施法/奥秘/回滚和回放保持，见[契约](m3-secret-pair-casts.md)。

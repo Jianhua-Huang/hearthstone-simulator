@@ -8,7 +8,7 @@ from .construction import ids, name, integer
 from .costs import quote_generated_cost, payment_error, validate_creation_cost, matches_cost
 from .effects import Effect, ChoiceOption, RequestChoice, AddToHand, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardPreview, ChoicePurpose, CostSpec
+from .model import CardClass, CardPreview, CardType, ChoicePurpose, CostSpec, Keyword
 from .pools import (PoolQuery, GenerationPolicy, GenerateFromPool, generation_candidates,
     resolve_candidates, sample_candidates, validate_policy)
 from .temporary_cards import CreateTemporaryCard
@@ -38,6 +38,7 @@ class ChooseFromPools(Effect):
     affordable: bool = False
     policy: GenerationPolicy = GenerationPolicy()
     prompt: str = '选择一张牌'
+    delivery: str = 'hand'
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id);name(self.prompt,'offer prompt')
@@ -50,6 +51,12 @@ class ChooseFromPools(Effect):
         integer(self.minimum_cost,'temporary cost floor',0)
         if self.minimum_cost and self.temporary_until is None:raise ValueError('A final cost floor requires a temporary card')
         if type(self.affordable) is not bool:raise ValueError('Affordability policy must be boolean')
+        if self.delivery not in ('hand','secret_pair'):raise ValueError('Unknown grouped offer delivery')
+        if self.delivery=='secret_pair' and (len(self.groups)!=1 or self.groups[0].count!=2 or
+                self.groups[0].query!=PoolQuery(kinds=(CardType.SPELL,),collectible=True,
+                    keywords_all=(Keyword.SECRET,)) or self.cost is not None or self.expires_turn is not None or
+                self.temporary_until is not None or self.minimum_cost or self.affordable):
+            raise ValueError('Secret pair requires two unrestricted collectible Secrets and plain casts')
 
 
 @dataclass(frozen=True)
@@ -122,10 +129,17 @@ def preview(definition, cost):
                        tuple(sorted(definition.keywords,key=lambda k:k.value)))
 
 
+def validate_secret_pair(registry,spec,card_ids):
+    if spec.delivery=='secret_pair' and any(registry.card(cid).kind!=CardType.SPELL or
+            registry.card(cid).secret is None for cid in card_ids):
+        raise ValueError('Secret pair requires every eligible Secret implementation')
+
+
 def candidates(r,spec,group):
     request=GenerateFromPool(spec.player_id,group.pool_id,group.query,source_id=spec.source_id,
         cost=spec.cost,expires_turn=spec.expires_turn,policy=spec.policy)
     rows=generation_candidates(r,request)
+    validate_secret_pair(r.registry,spec,(m.card_id for m in rows))
     validate_creation_cost(r.state,spec,(r.registry.card(m.card_id) for m in rows))
     quotes={m.card_id:quote_generated_cost(r.state,r.registry,spec.player_id,m.card_id,
         cost=spec.cost,minimum_cost=spec.minimum_cost) for m in rows}
@@ -163,6 +177,7 @@ def validate_receipt(registry,context,receipt):
         rows=resolve_candidates(registry,context,group.pool_id,group.query,current_class=receipt.hero_class,
             source_card_id=receipt.source_card_id,policy=spec.policy,player_id=spec.player_id,exclude_source_by_rule=True)
         allowed=tuple(m.card_id for m in rows)
+        validate_secret_pair(registry,spec,allowed)
         if any(not registry.card(cid).hand_playable for cid in allowed):raise ValueError('Offer pool includes non-hand content')
         if spec.cost is not None and any(not matches_cost(spec.cost,registry.card(cid)) for cid in allowed):
             raise ValueError('Offer cost does not match every candidate')
@@ -179,6 +194,11 @@ def validate_receipt(registry,context,receipt):
 def resolve_offer(r,effect):
     effect.__post_init__();validate_receipt(r.registry,r.game._generation_context,effect.receipt)
     spec=effect.receipt.spec
+    if spec.delivery=='secret_pair':
+        from .spell_casts import CastSpell
+        other=tuple(card.card_id for card in effect.receipt.groups[0].offered if card.card_id!=effect.card_id)
+        return (CastSpell(spec.player_id,effect.card_id,spec.source_id),
+            *(CastSpell(3-spec.player_id,cid,spec.source_id) for cid in other))
     if spec.temporary_until is not None:
         return (CreateTemporaryCard(spec.player_id,effect.card_id,spec.temporary_until,spec.minimum_cost,
             spec.source_id,spec.cost,spec.expires_turn),)

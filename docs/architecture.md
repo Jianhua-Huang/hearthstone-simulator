@@ -1514,3 +1514,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 任务区域条件以两种有限状态订阅复用原通知捕获与AdvanceQuest；当前容量和真实本人区间在分配回调前检查，原条件进入既有RuleContext快照，原实例/完成保护及奖励保持。见[任务区域状态契约](m3-quest-area-state.md)。
+
+
+神秘无面者式两奥秘检视复用ChooseFromPools的有限secret_pair交付，保留原上下文完整候选和私有菜单，再将原选定/余项分别交原CastSpell为双方施放。默认手牌交付、普通施法/奥秘/回滚和回放保持，见[契约](m3-secret-pair-casts.md)。
