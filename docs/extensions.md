@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+死亡武器的原本体洗回使用`ShuffleGrowingWeapon`，并置于原`ShuffleDeckCards`发布者范围；必须携带同一次真实装备死亡，不用普通随从回手或新生成武器代替。自身成长与普通重置边界见[契约](m3-growing-weapon-shuffles.md)。
+
 露妮式手牌暂存使用`SendHandMinionsFuture(player_id, source_id)`；只捕获实际当前手牌随从，归还保留原实体及期间取得的牌。有限两回合/+5/+5、原开始续接和满手边界见[契约](m3-temporal-hand-return.md)。
 
 三次命中圣盾提供者使用`shield_durability.RULE`的有限印刷声明；次数属于原圣盾能力，仅实际破裂发布`shield_lost`。原授予、复制和玩家输入契约见[说明](m3-divine-shield-hits.md)，不以受伤后触发替代防护。

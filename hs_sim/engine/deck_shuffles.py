@@ -144,10 +144,11 @@ class ShuffleDeckCards(Effect):
         from .effects import ShuffleIntoDeck
         from .zones import AddToDeck,MoveCard,CopyCard
         from .dead_minion_shuffles import ShuffleDeadMinion
+        from .growing_weapon_shuffles import ShuffleGrowingWeapon
         _player(self.player_id);_player(self.actor_id);_source(self.source_id)
         if type(self.entries)is not tuple:raise ValueError('Shuffle entries must be immutable')
         for entry in self.entries:
-            if type(entry)not in(AddToDeck,MoveCard,CopyCard,ShuffleIntoDeck,ShuffleDeadMinion):raise ValueError('Shuffle supports only original physical deck insertion primitives')
+            if type(entry)not in(AddToDeck,MoveCard,CopyCard,ShuffleIntoDeck,ShuffleDeadMinion,ShuffleGrowingWeapon):raise ValueError('Shuffle supports only original physical deck insertion primitives')
             entry.__post_init__()
             owner=entry.player_id
             if type(entry)is ShuffleIntoDeck:
