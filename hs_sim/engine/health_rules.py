@@ -53,6 +53,7 @@ class PreparedHealth:
     # Ephemeral per-request arithmetic policy; never a persistent health ledger.
     numeric_limit: int | None = None
     player_source: SourceAllocationFact | None = None
+    player_origin: tuple | None = None
 
     def event_data(self):
         return dict(base_amount=self.base_amount, spell_bonus=self.spell_bonus, modified_amount=self.amount,
@@ -215,6 +216,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         raise ResolutionError('Health effect source does not exist')
     definition = registry.card(source.card_id) if source else None
     player_source=None
+    player_origin=None
     if player_effect is not None:
         from .player_effects import health_source
         if (type(instruction)is not Damage or instruction.kind!=DamageKind.EFFECT or
@@ -222,6 +224,8 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
                 split_link is not None or partition_source is not None or numeric_limit is not None):
             raise ResolutionError('Logical player health source requires its independent ordinary effect damage')
         player_source=health_source(state,registry,player_effect,player_effect_owner)
+        from .health_outcomes import PlayerHealthOrigin
+        player_origin=PlayerHealthOrigin(player_effect_owner,player_effect.id,player_effect.spec_id).payload()
         definition=registry.card(player_source.card_id)
     elif player_effect_owner is not None:
         raise ResolutionError('Player health owner requires the complete captured source')
@@ -265,7 +269,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
                             player_effect_owner if player_source is not None else source.controller if source else None, keywords, instruction.amount, instruction.amount,
                             damage_kind, healing_kind, definition.spell_school if definition else None,
                             from_lifesteal=from_lifesteal, split_quote=split_quote, split_packet=split_link,
-                            numeric_limit=numeric_limit,player_source=player_source)
+                            numeric_limit=numeric_limit,player_source=player_source,player_origin=player_origin)
     if split_quote is not None:
         packet = replace(packet, source_controller=split_quote.cast.player_id if split_quote.cast is not None else split_quote.source.controller,
             source_keywords=frozenset(split_quote.source_keywords), school=split_quote.school)

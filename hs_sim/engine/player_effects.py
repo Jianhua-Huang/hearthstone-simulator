@@ -442,6 +442,7 @@ class PlayerEffectDamage(Effect):
     instance: PlayerEffect
     target_id: int
     amount: int
+    original_target_result: tuple | None = None
 
     def __post_init__(self):
         from .effects import _player
@@ -449,6 +450,11 @@ class PlayerEffectDamage(Effect):
         if type(self.instance) is not PlayerEffect or self.instance.source_allocation is None:
             raise ValueError('Player damage requires the complete captured player effect source')
         self.instance.__post_init__()
+        if self.original_target_result is not None:
+            from .health_outcomes import result_from_payload
+            original = result_from_payload(self.original_target_result)
+            if original.target_id != self.target_id or original.damage_dealt <= 0:
+                raise ValueError('Player damage changed its original settled target')
 
 
 def health_source(state,registry,instance,player_id):
@@ -469,15 +475,37 @@ def health_source(state,registry,instance,player_id):
     return fact
 
 
+def validate_player_damage(state, registry, effect):
+    effect.__post_init__()
+    health_source(state, registry, effect.instance, effect.player_id)
+    if effect.original_target_result is None: return None
+    from .health_outcomes import result_from_payload
+    original = result_from_payload(effect.original_target_result)
+    if not any(row.health_result == original for row in state.damage_history):
+        raise ValueError('Player damage lost its genuine original damage result')
+    if original.player_origin is not None and original.player_origin.spec_id == effect.instance.spec_id:
+        raise ValueError('A bounded player response cannot echo its own program family')
+    return original
+
+
 def player_damage(r,effect):
     from .effects import Damage
     from .resolver import settle_health_batch
-    health_source(r.state,r.registry,effect.instance,effect.player_id)
+    original=validate_player_damage(r.state,r.registry,effect)
+    if original is not None:
+        from .model import Zone
+        target=r.state.entities.get(effect.target_id)
+        expected_zone=Zone.HERO if original.target_kind==CardType.HERO.value else Zone.BOARD
+        if target is None or (target.zone,target.kind.value,target.zone_epoch,target.entered_order)!=(
+                expected_zone,original.target_kind,original.target_zone_epoch,original.target_entered_order):
+            r.stale(effect,effect.target_id);return ()
     return settle_health_batch(r,(Damage(effect.target_id,effect.amount,effect.instance.source_id),),
         player_effect=effect.instance,player_effect_owner=effect.player_id)
 
 
 def register_player_effects(mechanics):
+    from .health_outcomes import PlayerHealthOrigin
+    mechanics.register_payload_type(PlayerHealthOrigin)
     for effect, handler in ((AddPlayerEffect, add), (RemovePlayerEffect, remove), (TickPlayerEffect, tick)):
         mechanics.register(effect, handler)
     mechanics.register(PlayerEffectDamage,player_damage)

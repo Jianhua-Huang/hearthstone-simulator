@@ -267,9 +267,9 @@ class FrameCodec:
         if type(value) is CopyCard and type(value.card) is DiscardRecord and self.origin_state is not None:
             validate_base_copy(self.origin_state,self.registry,value.card)
         from .resolver import BehaviorCall
-        from .player_effects import PlayerEffectDamage,health_source
+        from .player_effects import PlayerEffectDamage,validate_player_damage
         if type(value)is PlayerEffectDamage and self.origin_state is not None:
-            health_source(self.origin_state,self.registry,value.instance,value.player_id)
+            validate_player_damage(self.origin_state,self.registry,value)
         from .player_effects import ConsumePlayerEffect, validate_consumption
         if type(value) is ConsumePlayerEffect and self.origin_state is not None:
             validate_consumption(self.origin_state, self.registry, value)

@@ -1,0 +1,400 @@
+{
+  "schema": 1,
+  "batch": "K274-damage-quest",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "skipped": [],
+  "source_verified": true,
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_631",
+        "dbf_id": 117871,
+        "name": "放出巨虫",
+        "name_en": "Unleash the Colossus",
+        "text": "<b>任务：</b>在你的回合对敌人造成刚好2点伤害，总计12次。<b>奖励：</b>格里什巨虫。",
+        "text_en": "<b>Quest:</b> Deal exactly 2 damage to an enemy\non your turn, 12 times.\n<b>Reward:</b> Gorishi Colossus.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 12,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 117872,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "944ff265411949c6a4cff18a3ff869a224008262f1b56072f1582c49941ff8ba",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_631",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_631t",
+        "dbf_id": 117872,
+        "name": "格里什巨虫",
+        "name_en": "Gorishi Colossus",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，每当你对敌人刚好造成2点伤害时，多造成2点。",
+        "text_en": "[x]<b>Battlecry:</b> For the rest of the\ngame, whenever you deal\nexactly 2 damage to an\nenemy, deal 2 more.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "2e04fb6643f8921598a805c3e109f9876c06026d85909c14f10843824ae4bab5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_631t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_631e",
+        "dbf_id": 123168,
+        "name": "格里什的恩赐",
+        "name_en": "Gorishi's Favor",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "29de45e1a002c10e6173e098c1bda9fd4a547a26f831baf76935e97522ab1e07",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_631e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TLC_631",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117871-zh_CN.json",
+      "response_sha256": "f2a40bbdf8ab41823e969e06e299dbf0c6f2e29d8c04a170d11023a66eeb5609",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117871&locale=zh_CN",
+      "face": {
+        "id": 117871,
+        "collectible": 1,
+        "slug": "117871-unleash-the-colossus",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 1,
+        "name": "放出巨虫",
+        "text": "<b>任务：</b>在你的回合对敌人造成刚好2点伤害，总计12次。<b>奖励：</b>格里什巨虫。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9510475a94a1889d23a7f855722199408078787607aeaff263b75c6049ea629.png",
+        "imageGold": "",
+        "flavorText": "第4天。很遗憾，本以为是失落之城入口的那个洞其实是异种虫的巢穴！我们逃出来的时候，跑得比地精穿了火箭靴还快。我实在不喜欢虫子。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ece75a08543c1a5ed909548f68a8a4e471e1fb6e7e653e030480f4a628f19002.png",
+        "childIds": [
+          117872
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117871&locale=zh_CN",
+        "sha256": "f2a40bbdf8ab41823e969e06e299dbf0c6f2e29d8c04a170d11023a66eeb5609",
+        "bytes": 967,
+        "observed_at": "2026-10-19T16:12:07.970660+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_631",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117871-en_US.json",
+      "response_sha256": "061915b544e9fc755145b34168ed6982f55838fb458c7d62354c3f15b177ef58",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117871&locale=en_US",
+      "face": {
+        "id": 117871,
+        "collectible": 1,
+        "slug": "117871-unleash-the-colossus",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 1,
+        "name": "Unleash the Colossus",
+        "text": "<b>Quest:</b> Deal exactly 2 damage to an enemy on your turn, 12 times. <b>Reward:</b> Gorishi Colossus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b05ee48bfcab927fb9341897b3920203d44ca8e1fa755f0316949c5c5163e477.png",
+        "imageGold": "",
+        "flavorText": "Day 4. I am dismayed to report that we thought we'd found a hidden entrance to the Lost City, but in fact it was a Silithid Hive! We high-tailed it out of there faster than a goblin wearing rocket boots. I am not terribly fond of bugs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ece75a08543c1a5ed909548f68a8a4e471e1fb6e7e653e030480f4a628f19002.png",
+        "childIds": [
+          117872
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117871&locale=en_US",
+        "sha256": "061915b544e9fc755145b34168ed6982f55838fb458c7d62354c3f15b177ef58",
+        "bytes": 1014,
+        "observed_at": "2026-10-19T16:11:59.042858+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_631t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117872-zh_CN.json",
+      "response_sha256": "e9a443d96d5ba0bc53b9e4827f99e396586ae21c8e479c8d911ddf40e543d433",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117872&locale=zh_CN",
+      "face": {
+        "id": 117872,
+        "collectible": 0,
+        "slug": "117872-gorishi-colossus",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "格里什巨虫",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，每当你对敌人刚好造成2点伤害时，多造成2点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6cf8fd404c65a993341256e69102f12a6aa9c998119f45fbb99049b11ced6210.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117871,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117872&locale=zh_CN",
+        "sha256": "e9a443d96d5ba0bc53b9e4827f99e396586ae21c8e479c8d911ddf40e543d433",
+        "bytes": 698,
+        "observed_at": "2026-10-19T16:12:13.572992+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_631t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117872-en_US.json",
+      "response_sha256": "7b205220b6c8fe1ca7181cd09940ce0edc98c2fee153a7d7d2cdff135fc11d98",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117872&locale=en_US",
+      "face": {
+        "id": 117872,
+        "collectible": 0,
+        "slug": "117872-gorishi-colossus",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Gorishi Colossus",
+        "text": "<b>Battlecry:</b> For the rest of the game, whenever you deal exactly 2 damage to an enemy, deal 2 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc70be88cd23edaf57bd5cd80c547c2bac1ee1fb08f836b83a0674970157cd05.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117871,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117872&locale=en_US",
+        "sha256": "7b205220b6c8fe1ca7181cd09940ce0edc98c2fee153a7d7d2cdff135fc11d98",
+        "bytes": 689,
+        "observed_at": "2026-10-19T16:11:58.896554+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "quest": "Twelve actual final DAMAGE packets of exactly two, original source controlled by owner, enemy character target, original own turn; original batch/packet witness and normal Quest completion.",
+    "reward": "Persistent player program; both turns per official 33.2; actual original two-damage result creates one independent ordinary two-damage PlayerEffectDamage per accepted program; own-family logical outputs do not echo.",
+    "source": "Logical producer identity recorded in the settled result, separate from physical card attribution; old logical damage rules and empty source keywords retained.",
+    "target": "Original settled target epoch/kind/entry guard; no retargeting a new residency; original accepted player program/source preserved.",
+    "local_policies_pending_cn": [
+      "independent extra packet and precise post-settlement reaction window",
+      "one extra per accepted persistent program; own-family outputs excluded from re-triggering",
+      "ordinary health numerical rules on extra packet, no inherited original Lifesteal or spell bonus",
+      "original target residency across control/transform/leave and exact unknown-source policy"
+    ]
+  }
+}

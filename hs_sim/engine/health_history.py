@@ -3,7 +3,7 @@
 Numbers, packet identities, conversion and checkpoints belong to the existing
 resolver. These facts only retain its complete immutable results.
 """
-from .health_outcomes import health_result, result_from_payload
+from .health_outcomes import health_result, result_from_payload, validate_player_origin
 from .model import CardType, DamageKind, DamageRecord, GameState, HealingRecord, HealthFlow, _int
 
 
@@ -45,6 +45,7 @@ def checked_rows(state, flow, registry=None):
     last_turn = last_action = 0; last_packet = (0, 0); checked = []
     for index, row in enumerate(rows, 1):
         result = validate_record(row, flow)
+        validate_player_origin(state, result, registry)
         packet = (result.batch_id, result.packet_index)
         if (row.id != index or not last_turn <= result.turn <= state.turn or
                 not last_action <= row.action <= state.action_number or packet <= last_packet):

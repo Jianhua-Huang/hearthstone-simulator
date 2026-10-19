@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实永久追加伤害使用原PlayerEffectDamage并携带可选original_target_result；按PlayerHealthOrigin识别本程序族输出，不能用卡名或原实体ID排除，也不能忽略旧驻留后重投目标。既有数值管线与保存边界见[契约](m3-bounded-player-damage.md)。
+
 真实存储随从按友方受伤门槛自行入场时，组合`damage_records`、显式双区域`HandProgressSpec`和带原`SummonCause`的`SummonStoredCard`；用原物理引用，不按卡名新建身体。原包前缀与待国服政策见[契约](m3-friendly-damage-recruit.md)。
 
 真实敌方额外效果偷取使用`StealBonusEffects`及原`MinionReference`，按当前标记接受后组合普通授予和合计奖励；不要使用随机候选筛选、沉默或按附件数量计数。有限范围与待国服边界见[契约](m3-stolen-bonus-effects.md)。

@@ -10,6 +10,31 @@ from .random_split_damage import SplitPacketLink
 
 
 @dataclass(frozen=True)
+class PlayerHealthOrigin:
+    player_id: int
+    instance_id: int
+    spec_id: str
+
+    def __post_init__(self):
+        _int(self.player_id, 'logical health player', 1)
+        if self.player_id not in (1, 2): raise ValueError('Unknown logical health player')
+        _int(self.instance_id, 'logical health effect instance', 1)
+        _name(self.spec_id, 'logical health program')
+
+    def payload(self):
+        return tuple((f.name, getattr(self, f.name)) for f in fields(self))
+
+
+def player_origin_from_payload(raw):
+    if raw is None: return None
+    if (type(raw) is not tuple or len(raw) != 3 or
+            any(type(row) is not tuple or len(row) != 2 or type(row[0]) is not str for row in raw) or
+            set(dict(raw)) != {'player_id', 'instance_id', 'spec_id'}):
+        raise ValueError('Logical health origin requires its complete frozen fields')
+    return PlayerHealthOrigin(**dict(raw))
+
+
+@dataclass(frozen=True)
 class HealthResult:
     batch_id: int
     packet_index: int
@@ -60,8 +85,17 @@ class HealthResult:
     floor_plan: HealthFloorPlan | None = None
     floor_prevented: int = 0
     split_packet: SplitPacketLink | None = None
+    player_origin: PlayerHealthOrigin | None = None
 
     def __post_init__(self):
+        if self.player_origin is not None:
+            if type(self.player_origin) is not PlayerHealthOrigin:
+                raise ValueError('Logical health result requires its typed origin')
+            self.player_origin.__post_init__()
+            if (self.source_controller != self.player_origin.player_id or self.source_id is None or
+                    self.original_flow != HealthFlow.DAMAGE.value or self.damage_kind != DamageKind.EFFECT.value or
+                    self.from_lifesteal or self.weapon_id is not None):
+                raise ValueError('Logical health result changed its original producer policy')
         for name in ('batch_id', 'packet_index', 'turn', 'target_id', 'original_target_id'):
             _int(getattr(self, name), name, 1)
         for name in ('target_zone_epoch', 'target_entered_order', 'base_amount', 'modified_amount', 'spell_bonus', 'max_health', 'max_health_after',
@@ -148,6 +182,7 @@ class HealthResult:
     def payload(self):
         from .health_floors import plan_payload
         return tuple((f.name, plan_payload(self.floor_plan) if f.name == 'floor_plan' else
+            self.player_origin.payload() if f.name == 'player_origin' and self.player_origin is not None else
             tuple((v.name,getattr(self.split_packet,v.name)) for v in fields(self.split_packet)) if f.name=='split_packet' and self.split_packet is not None else getattr(self, f.name)) for f in fields(self))
 
 
@@ -162,6 +197,7 @@ def result_from_payload(raw):
         raise ValueError('Health result requires exactly its declared fields')
     from .health_floors import plan_from_payload
     values['floor_plan'] = plan_from_payload(values['floor_plan'])
+    values['player_origin'] = player_origin_from_payload(values['player_origin'])
     if values['split_packet'] is not None:
         raw_link=values['split_packet']
         if type(raw_link) is not tuple or len(raw_link)!=2 or set(dict(raw_link))!={'root_id','index'}:
@@ -257,6 +293,28 @@ def capture_result(state, packet, target, before, batch_id, packet_index, combat
         health_lost=max(0, before.health-target.health), health_gained=max(0, target.health-before.health), health_replaced=replaced, healed=healed,
         overheal=max(0, packet.amount-healed) if packet.flow == HealthFlow.HEALING and not prevention else 0,
         prevention=prevention, converted=packet.converted, from_lifesteal=packet.from_lifesteal,
-        floor_plan=packet.floor_plan, floor_prevented=damage.floor_prevented if damage else 0, split_packet=packet.split_packet)
+        floor_plan=packet.floor_plan, floor_prevented=damage.floor_prevented if damage else 0, split_packet=packet.split_packet,
+        player_origin=player_origin_from_payload(packet.player_origin))
     return dict(source_id=value.source_id, target_id=value.target_id, player_id=value.target_controller,
                 amount=value.damage_dealt or value.healed, result=value.payload())
+
+
+def validate_player_origin(state, result, registry=None):
+    origin = result.player_origin
+    if origin is None: return
+    origin.__post_init__()
+    if origin.instance_id >= state.next_attachment_id:
+        raise ValueError('Logical health result borrowed a future program instance')
+    if registry is not None: registry.player_effect(origin.spec_id)
+    for player in state.players.values():
+        current = next((e for e in player.player_effects if e.id == origin.instance_id), None)
+        if current is None: continue
+        if (player.id != origin.player_id or current.spec_id != origin.spec_id or
+                current.source_player_id != origin.player_id or current.source_id != result.source_id or
+                current.created_turn > result.turn or current.source_allocation is None):
+            raise ValueError('Logical health result changed its original program binding')
+        from .allocation_facts import allocation_from_payload
+        fact = allocation_from_payload(current.source_allocation)
+        if (fact.card_id, fact.zone_epoch, fact.entered_order) != (
+                result.source_card_id, result.source_zone_epoch, result.source_entered_order):
+            raise ValueError('Logical health result changed its original physical source capture')
