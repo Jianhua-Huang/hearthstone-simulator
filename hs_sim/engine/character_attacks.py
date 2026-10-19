@@ -112,6 +112,7 @@ def require_link(state, combat, *, accepted=False):
     if (old.delivery is None or old.terminal is not None or old.combat is not None and not accepted or
             (combat.attacker_id, combat.defender_id, combat.combat_relation) !=
             (old.delivery.source_id, old.delivery.target_id, old.delivery.combat_relation) or
+            combat.excess_to_hero != old.delivery.excess_to_hero or
             hasattr(combat, 'forced') and combat.forced != old.delivery.forced):
         raise ResolutionError('Foreign, duplicated or closed character attack reference')
     return old
@@ -251,6 +252,9 @@ def validate_boundary(game):
                 event.action != row.declaration_action or dict(event.data).get('window_id') != w.id or
                 type(dict(event.data).get('forced', False)) is not bool or dict(event.data).get('forced', False) != w.forced):
             raise ValueError('Character attack lost its original declaration event')
+        excess = dict(event.data).get('excess_to_hero', False)
+        if type(excess) is not bool or excess != w.excess_to_hero:
+            raise ValueError('Character declaration changed its original combat excess policy')
         presence = None if w.attack_target_presence is None else w.attack_target_presence.presence_id
         declared_presence = dict(event.data).get('target_presence_id')
         if type(declared_presence) is not type(presence) or declared_presence != presence:

@@ -88,10 +88,15 @@ class CombatDamage(Effect):
     combat_relation: str = 'opponent'
     hero_attack: 'HeroAttackReference | None' = None
     attack_window_id: int | None = None
+    excess_to_hero: bool = False
 
     def __post_init__(self):
         from .model import validate_combat_relation
         validate_combat_relation(self.combat_relation)
+        if (type(self.excess_to_hero) is not bool or self.excess_to_hero and
+                (not self.forced or self.combat_relation != 'opponent' or
+                 self.attack_window_id is None or self.hero_attack is not None)):
+            raise ValueError('Combat excess requires its original forced minion attack')
         if self.attack_window_id is not None:
             from .model import _int
             _int(self.attack_window_id, 'character attack window', 1)
@@ -143,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v545'
+CORE_EFFECTS_VERSION = 'core-effects-v546'
 
 
 class Mechanics:
@@ -1003,18 +1008,24 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
         raise ResolutionError('Infinite damage requires its single original non-combat health request')
     if split_link is not None and (combat is not None or len(instructions) != 1):
         raise ResolutionError('An internal split packet requires exactly one non-combat instruction')
-    if partition_request is not None:
-        from .excess_damage import prepare_partition
-        if instructions or combat is not None or split_link is not None:
-            raise ResolutionError('Partition batch cannot borrow unrelated instructions or combat/split controls')
-        instructions, packets = prepare_partition(state, r.registry, partition_request, rules)
-        if not instructions:
-            r.stale(partition_request, partition_request.minion.entity_id)
-            return ()
-    else:
-        packets = [prepare_health(state, r.registry, instruction, rules=rules, split_link=split_link,
-                                  numeric_limit=numeric_limit, apply_spell_bonus=apply_spell_bonus,
-                                  player_effect=player_effect,player_effect_owner=player_effect_owner) for instruction in instructions]
+    original_instructions = instructions
+    def prepare_batch(selected_rules):
+        if partition_request is not None:
+            from .excess_damage import prepare_partition
+            if original_instructions or combat is not None or split_link is not None:
+                raise ResolutionError('Partition batch cannot borrow unrelated instructions or combat/split controls')
+            return prepare_partition(state, r.registry, partition_request, selected_rules)
+        if combat is not None and combat.excess_to_hero:
+            from .excess_damage import prepare_combat_partition
+            return prepare_combat_partition(state, r.registry, original_instructions, combat, selected_rules)
+        return original_instructions, tuple(prepare_health(state, r.registry, instruction,
+            rules=selected_rules, split_link=split_link, numeric_limit=numeric_limit,
+            apply_spell_bonus=apply_spell_bonus, player_effect=player_effect,
+            player_effect_owner=player_effect_owner) for instruction in original_instructions)
+    instructions, packets = prepare_batch(rules)
+    if partition_request is not None and not instructions:
+        r.stale(partition_request, partition_request.minion.entity_id)
+        return ()
     for instruction in instructions:
         instruction.__post_init__()
         if instruction.on_result is not None:
@@ -1022,10 +1033,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
     from .next_healing_conversion import claim as claim_healing_conversion
     healing_rules = claim_healing_conversion(r, state, packets, rules, pending_events)
     if healing_rules is not rules:
-        packets = [prepare_health(state, r.registry, instruction, rules=healing_rules,
-            split_link=split_link, numeric_limit=numeric_limit, apply_spell_bonus=apply_spell_bonus,
-            player_effect=player_effect, player_effect_owner=player_effect_owner)
-                   for instruction in instructions]
+        instructions, packets = prepare_batch(healing_rules)
     lifesteals = []
     callbacks = {}
     replacements = {}
@@ -1641,12 +1649,13 @@ def force_attack(r, effect):
         r.emit('stealth_lost', source_id=attacker.id, target_id=attacker.id, reason='attack')
     from .interrupts import open_window, ResolveAttack
     window = open_window(r, 'attack', attacker.controller, attacker.id, defender.id, forced=True,
-                         combat_relation=effect.combat_relation)
+                         combat_relation=effect.combat_relation, excess_to_hero=effect.excess_to_hero)
     from .character_attacks import declare as declare_character_attack
     declare_character_attack(r, window)
     r.emit('attack_declared', source_id=attacker.id, target_id=defender.id,
            player_id=attacker.controller, forced=True, window_id=window.id,
-           target_presence_id=None if window.attack_target_presence is None else window.attack_target_presence.presence_id)
+            target_presence_id=None if window.attack_target_presence is None else window.attack_target_presence.presence_id,
+            **({'excess_to_hero': True} if effect.excess_to_hero else {}))
     return [ResolveAttack(window.id)]
 
 
@@ -1708,7 +1717,7 @@ def combat_damage(r, effect):
                          Damage(attacker.id, defender.attack, defender.id, DamageKind.COMBAT), *neighbors),
                         CombatExchange(attacker.id, defender.id, weapon_id,
                                        combat_relation=effect.combat_relation, hero_attack=effect.hero_attack,
-                                       attack_window_id=effect.attack_window_id))]
+                                        attack_window_id=effect.attack_window_id, excess_to_hero=effect.excess_to_hero))]
 
 
 def finish_play(r, effect):

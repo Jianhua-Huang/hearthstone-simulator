@@ -2,17 +2,19 @@
 from dataclasses import dataclass
 from .board_presence import resolve_board_presence
 from .effects import Effect,ForceAttack,_player,_source
-from .model import BoardPresenceReference,CardType
+from .model import BoardPresenceReference,CardType,_bool
 
 @dataclass(frozen=True)
 class AttackRandomEnemyMinion(Effect):
     attacker:BoardPresenceReference
     player_id:int
     source_id:int|None=None
+    excess_to_hero:bool=False
 
     def __post_init__(self):
         if type(self.attacker)is not BoardPresenceReference:raise ValueError('Random enemy attack requires its original board residence')
         self.attacker.__post_init__();_player(self.player_id);_source(self.source_id)
+        _bool(self.excess_to_hero,'random attack excess policy')
 
     def validate_in_state(self,state):
         self.__post_init__()
@@ -33,7 +35,7 @@ def execute(r,effect):
     defender=r.game._rng.choice(candidates)
     original=BoardPresenceReference.capture(r.state,defender)
     r.emit('random_choice',source_id=effect.source_id,target_id=attacker.id,defender_id=defender)
-    return(ForceAttack(effect.attacker,original),)
+    return(ForceAttack(effect.attacker,original,excess_to_hero=effect.excess_to_hero),)
 
 @dataclass(frozen=True)
 class AttackLowestHealthEnemy(AttackRandomEnemyMinion):
@@ -58,7 +60,7 @@ def attack_lowest(r, effect):
         if r.state.entities[defender].kind == CardType.MINION else defender)
     r.emit('random_choice', source_id=effect.source_id, target_id=attacker.id,
         defender_id=defender, producer='attack_lowest_health_enemy')
-    return (ForceAttack(effect.attacker, target),)
+    return (ForceAttack(effect.attacker, target, excess_to_hero=effect.excess_to_hero),)
 
 
 @dataclass(frozen=True)

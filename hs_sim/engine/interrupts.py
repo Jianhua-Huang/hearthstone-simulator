@@ -7,7 +7,7 @@ from .model import ActionWindow, BoardPresenceReference, CardType, Zone, _int
 
 
 def open_window(r, kind, player_id, source_id, target_id=None, forced=False, play_id=None,
-                *, combat_relation='opponent'):
+                *, combat_relation='opponent', excess_to_hero=False):
     from .limited_triggers import spellburst_candidates
     candidates=spellburst_candidates(r.state,player_id) if kind=='spell' else ()
     presence = (BoardPresenceReference.capture(r.state, source_id)
@@ -16,7 +16,8 @@ def open_window(r, kind, player_id, source_id, target_id=None, forced=False, pla
                 if kind == 'attack' and r.state.entities[target_id].kind == CardType.MINION else None)
     window = ActionWindow(r.state.next_window_id, kind, player_id, source_id, target_id, forced,
                           play_id=play_id, spellburst_candidates=candidates, combat_relation=combat_relation,
-                          attack_source_presence=presence, attack_target_presence=target_presence)
+                          attack_source_presence=presence, attack_target_presence=target_presence,
+                          excess_to_hero=excess_to_hero)
     r.state.next_window_id += 1
     r.state.action_windows.append(window)
     return window
@@ -196,7 +197,7 @@ def resolve_attack(r, effect):
     character_window = deliver_character_attack(r, window)
     work = CombatDamage(window.source_id, window.target_id, window.forced,
                         combat_relation=window.combat_relation, hero_attack=link,
-                        attack_window_id=character_window)
+                        attack_window_id=character_window, excess_to_hero=window.excess_to_hero)
     reason = replaced_combatant(r.state, window)
     if reason is not None:
         from .hero_attack_history import cancel

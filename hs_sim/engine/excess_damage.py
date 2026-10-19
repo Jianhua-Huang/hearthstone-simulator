@@ -71,20 +71,40 @@ def prepare_partition(state, registry, request, rules):
     if request.on_result is not None: registry.behavior(request.on_result)
     target = live_minion(state, request.minion)
     if target is None: return (), ()
+    original = Damage(target.id, request.amount, request.source_id, request.kind,
+        on_result=request.on_result, spell_bonus_multiplier=request.spell_bonus_multiplier)
+    return prepare_parts(state, registry, original, target, rules)
+
+
+def prepare_parts(state, registry, original, target, rules):
+    """One source quote; recipient protection never reassigns its finite shares."""
     source_rules = tuple(row for row in rules if row[3].layer == HealthLayer.SOURCE)
     target_rules = tuple(row for row in rules if row[3].layer == HealthLayer.TARGET)
-    original = Damage(target.id, request.amount, request.source_id, request.kind,
-        spell_bonus_multiplier=request.spell_bonus_multiplier)
     budget = prepare_health(state, registry, original, rules=source_rules)
     first = min(budget.amount, target.health)
     remaining = budget.amount - first
     hero = state.players[target.controller].hero_id
-    instructions = (Damage(target.id, first, request.source_id, request.kind, on_result=request.on_result),)
+    instructions = (Damage(target.id, first, original.source_id, original.kind, on_result=original.on_result),)
     if remaining:
-        instructions += (Damage(hero, remaining, request.source_id, request.kind, on_result=request.on_result),)
+        instructions += (Damage(hero, remaining, original.source_id, original.kind, on_result=original.on_result),)
     packets = tuple(prepare_health(state, registry, instruction, rules=target_rules,
                                   partition_source=budget) for instruction in instructions)
     return instructions, packets
+
+
+def prepare_combat_partition(state, registry, instructions, combat, rules):
+    """Expand only the primary hit inside its already accepted original exchange."""
+    from .character_attacks import require_link
+    row = require_link(state, combat, accepted=True)
+    if (row is None or row.combat is None or not combat.excess_to_hero or
+            not row.delivery.forced or state.entities[combat.attacker_id].kind != CardType.MINION):
+        raise ResolutionError('Combat partition requires its actual accepted forced minion attack')
+    target = state.entities[combat.defender_id]
+    if target.kind != CardType.MINION:
+        return instructions, tuple(prepare_health(state, registry, hit, rules=rules) for hit in instructions)
+    parts, packets = prepare_parts(state, registry, instructions[0], target, rules)
+    return (*parts, *instructions[1:]), (*packets, *(prepare_health(state, registry, hit,
+        rules=rules) for hit in instructions[1:]))
 
 
 def resolve(r, request):

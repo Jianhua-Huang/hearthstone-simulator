@@ -25,9 +25,12 @@ class ForceAttack(Effect):
     attacker_id: int | BoardPresenceReference
     defender_id: int | BoardPresenceReference
     combat_relation: str = 'opponent'
+    excess_to_hero: bool = False
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
+        if type(self.excess_to_hero) is not bool or self.excess_to_hero and self.combat_relation != 'opponent':
+            raise ValueError('Combat excess requires its explicit enemy attack policy')
         for label, value in (('attacker_id', self.attacker_id), ('defender_id', self.defender_id)):
             if type(value) is BoardPresenceReference:
                 value.__post_init__()
@@ -477,9 +480,14 @@ class CombatExchange:
     combat_relation: str = 'opponent'
     hero_attack: 'HeroAttackReference | None' = None
     attack_window_id: int | None = None
+    excess_to_hero: bool = False
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
+        if (type(self.excess_to_hero) is not bool or self.excess_to_hero and
+                (self.combat_relation != 'opponent' or self.attack_window_id is None or
+                 self.weapon_id is not None or self.hero_attack is not None)):
+            raise ValueError('Combat excess requires its original minion attack window')
         if self.combat_relation != 'opponent' and self.weapon_id is not None:
             raise ValueError('Friendly minion combat cannot carry a weapon')
         _integer(self.attacker_id, 'attacker_id', 1)

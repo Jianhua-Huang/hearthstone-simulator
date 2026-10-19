@@ -1,5 +1,7 @@
 # 一次法术预算与过量分流
 
+当前同一预算分配助手也供明确标记的原随从强制攻击使用；COMBAT分流与原反击在同一健康批次，不能用本页法术/地标请求伪造战斗。原窗口政策及版本见[战斗分流契约](m2-forced-combat-excess.md)，下文保留原法术入口契约。
+
 本契约用于真实爆炸符文CORE_LOOT_101，不另造奥秘或伤害解释器。固定完整卡面和审核配方见[数据](../data/cards/excess-secret-effects-v1.json)，原数值层见[伤害与治疗](m2-health-rules.md)。实际进度、验证证据与下一项只在[项目状态](project-status.md)和[机制台账](mechanism-backlog.md)维护。
 
 ## 请求与原目标

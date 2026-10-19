@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实结束强制攻击需要过量给英雄时，用已有原驻留随机攻击请求的excess_to_hero明确选项，沿原ForceAttack及窗口交付；不要另发法术伤害、先杀随从再补英雄或给普通攻击全局加效果。原预算、反击和恢复见[战斗分流契约](m2-forced-combat-excess.md)。
+
 按费用档变形使用现有公共入口及transformed_cost_tier，不在卡牌层另写10费封顶或逐整数探测退化档位。原费用依据、保留费用和具名替代的例外分别声明，完整未知候选仍报错，见[费用档契约](m5-evolve-published-rules.md)。
 
 真实魔荚人声明有限transform_destination_plus_two原生来源，由公共变形入口按原目的随从费用选最终身体；不要在卡牌层串两次Transform或将来源ID强制改成复制体ID。原复制、随机证明和待国服政策见[契约](m3-native-transform-replacement.md)。

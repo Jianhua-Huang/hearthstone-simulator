@@ -8082,9 +8082,14 @@ class ActionWindow:
     combat_relation: str = 'opponent'
     attack_source_presence: BoardPresenceReference | None = None
     attack_target_presence: BoardPresenceReference | None = None
+    excess_to_hero: bool = False
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
+        _bool(self.excess_to_hero, 'combat excess policy')
+        if self.excess_to_hero and (self.kind != 'attack' or not self.forced or
+                self.combat_relation != 'opponent' or self.attack_source_presence is None):
+            raise ValueError('Combat excess requires a forced original minion attack')
         if self.attack_source_presence is not None:
             if (self.kind != 'attack' or type(self.attack_source_presence) is not BoardPresenceReference or
                     self.attack_source_presence.entity_id != self.source_id):
