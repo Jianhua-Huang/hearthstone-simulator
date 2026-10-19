@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "K272-violet-tormentor",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "source_verified": true,
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_101",
+        "dbf_id": 124003,
+        "name": "紫罗兰惩戒者",
+        "name_en": "Violet Punisher",
+        "text": "<b>战吼：</b>选择一个敌方随从，偷取其<b>额外效果</b>。每偷取一个，获得+1/+1。",
+        "text_en": "[x]<b>Battlecry:</b> Choose an\nenemy minion. Steal its\n<b>Bonus Effects</b> and gain\n_+1/+1 for each stolen.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "349c797f34229a7e1ab09da2a57a38bbc819ac7fdd8d36bf1f98634c6a6d990c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_101",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_101",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\124003-zh_CN.json",
+      "response_sha256": "f01846d60cc1725ef032c758717aecb7ab866b05f6292dcb20150d176110bf48",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=124003&locale=zh_CN",
+      "face": {
+        "id": 124003,
+        "collectible": 1,
+        "slug": "124003-violet-punisher",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Mike Sass",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "紫罗兰惩戒者",
+        "text": "<b>战吼：</b>选择一个敌方随从，偷取其<b>额外效果</b>。每偷取一个，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0b45365fde492a4064220ce7c7e880571afa4ce151e83195d6f360c8ea18056.png",
+        "imageGold": "",
+        "flavorText": "紫罗兰做错了什么。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c92d1a82099989397e587f68703dfd58378724e7f38a9c721fcbade5048ba85.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=124003&locale=zh_CN",
+        "sha256": "f01846d60cc1725ef032c758717aecb7ab866b05f6292dcb20150d176110bf48",
+        "bytes": 794,
+        "observed_at": "2026-10-19T15:41:08.017806+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_101",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\124003-en_US.json",
+      "response_sha256": "10feab55a3afe0abe280e7b737860c5acf2e771672f1cc30cb9b9170a4e1dabf",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=124003&locale=en_US",
+      "face": {
+        "id": 124003,
+        "collectible": 1,
+        "slug": "124003-violet-punisher",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Mike Sass",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Violet Punisher",
+        "text": "<b>Battlecry:</b> Choose an enemy minion. Steal its <b>Bonus Effects</b> and gain +1/+1 for each stolen.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1547763650e5dc6b986271ed40a8f91358e9bb6992c1241e03b251b803b2d75c.png",
+        "imageGold": "",
+        "flavorText": "Bad news for your flower garden.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c92d1a82099989397e587f68703dfd58378724e7f38a9c721fcbade5048ba85.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=124003&locale=en_US",
+        "sha256": "10feab55a3afe0abe280e7b737860c5acf2e771672f1cc30cb9b9170a4e1dabf",
+        "bytes": 794,
+        "observed_at": "2026-10-19T15:41:08.018334+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "selection": "Current effective distinct constructed Bonus Effects in existing eight-keyword order; printed and ordinary grants are both eligible, consumed flags absent; no random grant-readiness filter.",
+    "transfer": "Consume original local keyword attachments via existing lifecycle, preserve continuous providers; ordinary fresh keyword grants and one +N/+N reward to original live source. Source absent does not cancel theft.",
+    "local_policies_pending_cn": [
+      "continuous aura/conditional contributions remain supplied but current effective flag can be copied",
+      "duplicate victim flags count once even if recipient already has that flag",
+      "one aggregated numeric reward and ordinary per-grant reaction windows"
+    ]
+  }
+}

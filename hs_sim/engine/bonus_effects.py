@@ -9,6 +9,7 @@ from .effects import Effect, GrantKeyword, _integer, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import AbilityInstance, CardType, Keyword, Zone
 from .zones import CardReference, reference_entity
+from .sacrifice import MinionReference
 
 
 BONUS_EFFECTS = (
@@ -64,6 +65,7 @@ def grant_random_bonus_effects(r, effect):
 def register_bonus_effects(mechanics):
     mechanics.register(GrantRandomBonusEffects, grant_random_bonus_effects)
     mechanics.register(RotatePrintedHandBonuses, rotate_printed_hand_bonuses)
+    mechanics.register(StealBonusEffects, steal_bonus_effects)
 
 
 @dataclass(frozen=True)
@@ -103,3 +105,63 @@ def rotate_printed_hand_bonuses(r,effect):
     refresh_entity(entity)
     r.emit('hand_bonus_rotated',source_id=effect.source_id,target_id=entity.id,player_id=entity.controller)
     return ()
+
+
+@dataclass(frozen=True)
+class StealBonusEffects(Effect):
+    """Strip the original victim's local flags, then reward the original source."""
+    victim: MinionReference
+    beneficiary: MinionReference | None
+    source_id: int
+
+    def __post_init__(self):
+        from .sacrifice import reference_value
+        reference_value(self.victim)
+        _integer(self.source_id, 'bonus theft source', 1)
+        if self.beneficiary is not None:
+            reference_value(self.beneficiary)
+            if (self.beneficiary.entity_id != self.source_id or
+                    self.beneficiary.entity_id == self.victim.entity_id):
+                raise ValueError('Bonus theft must reward its distinct original source')
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if self.source_id not in state.entities:
+            raise ValueError('Bonus theft lost its original source')
+        for ref in (self.victim, *((self.beneficiary,) if self.beneficiary is not None else ())):
+            entity = state.entities.get(ref.entity_id)
+            if (entity is None or ref.zone_epoch > entity.zone_epoch or
+                    ref.entered_order >= state.next_order):
+                raise ValueError('Bonus theft borrowed an unknown or future minion')
+
+
+def steal_bonus_effects(r, effect):
+    from .lifecycle import consume_keyword
+    from .sacrifice import BuffCapturedMinion, GrantCapturedKeyword, live_minion
+    effect.validate_in_state(r.state)
+    for ref in (effect.victim, *((effect.beneficiary,) if effect.beneficiary is not None else ())):
+        if r.registry.card(ref.card_id).kind != CardType.MINION:
+            raise ResolutionError('Bonus theft requires original minion references')
+    victim = live_minion(r.state, effect.victim)
+    if victim is None:
+        r.stale(effect, effect.victim.entity_id)
+        return ()
+    # Existing Rush is stolen even when it would not be a useful random roll.
+    selected = tuple(keyword for keyword in BONUS_EFFECTS if keyword in victim.keywords)
+    if not selected:
+        return ()
+    removed = tuple(keyword for keyword in selected if any(
+        a.kind == 'keyword' and a.keyword == keyword and not a.consumed for a in victim.abilities))
+    for keyword in removed:
+        consume_keyword(victim, keyword)
+    # Continuous providers remain independent. All local removals precede
+    # reactions, so subsequent work cannot rescan a later incarnation.
+    for keyword in removed:
+        r.emit('keyword_removed', source_id=effect.source_id, target_id=victim.id,
+               player_id=victim.controller, keyword=keyword.value)
+    r.emit('bonus_effects_stolen', source_id=effect.source_id, target_id=victim.id,
+           player_id=victim.controller, keywords=[k.value for k in selected], count=len(selected))
+    if effect.beneficiary is None:
+        return ()
+    return (*(GrantCapturedKeyword(effect.beneficiary, keyword, effect.source_id) for keyword in selected),
+            BuffCapturedMinion(effect.beneficiary, len(selected), len(selected), effect.source_id))

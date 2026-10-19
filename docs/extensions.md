@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实敌方额外效果偷取使用`StealBonusEffects`及原`MinionReference`，按当前标记接受后组合普通授予和合计奖励；不要使用随机候选筛选、沉默或按附件数量计数。有限范围与待国服边界见[契约](m3-stolen-bonus-effects.md)。
+
 真实法术的“结束你的回合”使用`RequestNaturalTurnEnd(cast_id)`，由解释器尾部委托原正常结束阶段；不要直接切换玩家或让宿主补发EndTurn。与既有整卡重放组合及原义务保存见[契约](m3-requested-natural-end.md)。
 
 真实单张随机随从在另一张牌使用后才能打出时，用GenerateFromPool的纯other_play_lock创建授予，在首个入手通知前安装原历史条件；不要用回合到期、改费用或后来同名牌查找模拟。见[原出牌条件契约](m3-other-play-hand-lock.md)。

@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .bonus_effects import StealBonusEffects
+        if type(value) is StealBonusEffects and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         from .natural_turn_end import RequestNaturalTurnEnd,FinishNaturalTurnEnd
         if type(value) in (RequestNaturalTurnEnd,FinishNaturalTurnEnd) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
