@@ -2583,7 +2583,7 @@ class NativeSourceCondition:
     max_hand: int | None = None
 
     def __post_init__(self):
-        if type(self.kind)is not str or self.kind not in('self_damaged','controller_hand_at_most','controller_other_dragon'):
+        if type(self.kind)is not str or self.kind not in('self_damaged','controller_hand_at_most','controller_other_dragon','transform_destination_plus_two'):
             raise ValueError('Unsupported native provider condition')
         if self.kind=='controller_hand_at_most':_int(self.max_hand,'native source hand limit',0)
         elif self.max_hand is not None:raise ValueError('Only hand-size qualifications carry a threshold')
@@ -3117,8 +3117,14 @@ class AbilityInstance:
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement'):
                 raise ValueError("unsupported ability kind")
+        if self.kind == 'transform_replacement':
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'native_condition'}
+            if (self.native_condition is None or self.native_condition.kind != 'transform_destination_plus_two'
+                    or any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Transformation replacement requires a pure native declaration')
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
                 raise ValueError('Native Hero Power use aura requires its complete declaration')

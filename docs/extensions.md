@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实魔荚人声明有限transform_destination_plus_two原生来源，由公共变形入口按原目的随从费用选最终身体；不要在卡牌层串两次Transform或将来源ID强制改成复制体ID。原复制、随机证明和待国服政策见[契约](m3-native-transform-replacement.md)。
+
 真实升腾式变形使用TransformMinionsInZones的可选deathrattle_behavior_id，原批次捕获材料并在变形通知前沿GrantDeathrattle安装；不要用事后扫描变形事件再补授予。原身份、空池、当前复制与保存边界见[契约](m3-transform-original-deathrattle.md)。
 
 真实蛋类需要保存选中随从时，用copy_summon原生记忆及remembered_copy材料连接普通SummonByCard；不要在卡牌层扫描旧事件、读取后来原随从或重启旧期限。入场前安装、复制和重置边界见[契约](m3-frozen-deathrattle-copy.md)。

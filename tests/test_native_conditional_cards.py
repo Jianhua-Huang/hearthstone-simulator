@@ -176,9 +176,10 @@ class NativeConditionalTests(unittest.TestCase):
             with self.assertRaises(ValueError):validate_carrier(g.registry,e.card_id,e.kind,[*e.abilities,replace(row,id=99999)])
     def test_nonempty_condition_is_signed_and_old_null_pin_view_stays_exact(self):
         e=self.r.card(SEER);self.assertNotEqual(reviewed_definition_digest(e),reviewed_definition_digest(replace(e,native_condition=None)))
-        plain=self.r.card(YETI);value=asdict(plain)
-        for key in ['reborn_policy','hand_mirror','native_condition']:value.pop(key)
-        self.assertEqual(reviewed_definition_digest(plain),canonical_digest(value))
+        # Frozen pre-change plain-card pin includes the established omission of
+        # empty dormancy/native-memory policies as well as the older three keys.
+        self.assertEqual(reviewed_definition_digest(self.r.card(YETI)),
+            '1292d9803bcadb1dfb2204d56a11808e41d723302ba8caf1997a9b5fe106073d')
     def test_player_projection_does_not_export_private_provider_objects(self):
         g=self.game(board=(SEER,SPIDER,FLETCHER));text=json.dumps(g.for_player(2).observe(),ensure_ascii=False);self.assertNotIn('native_condition',text);self.assertNotIn('controller_hand_at_most',text)
     def test_current_copy_uses_its_own_controller_hand_not_original_source_hand(self):

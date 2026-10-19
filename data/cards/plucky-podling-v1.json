@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "K264-plucky-transform-replacement",
+  "task": {
+    "schema": 1,
+    "batch": "K264-plucky-transform-replacement",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_529"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "EDR_529"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Native current-board minion destination replacement by printed cost +2; shared ordinary transform/entry and RNG; precise CN policy recorded separately.",
+        "cards": [
+          "EDR_529"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/plucky_podling_card.py",
+      "data/cards/plucky-podling-v1.json",
+      "tests/test_plucky_podling_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_529",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k264-plucky-transform-replacement\\official-cache-01\\115295-zh_CN.json",
+      "response_sha256": "11baffb43eeeb0c1561b9a4be5af86b9fd18efdc406b5f4ca22946a620e32c08",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115295&locale=zh_CN",
+      "face": {
+        "id": 115295,
+        "collectible": 1,
+        "slug": "115295-plucky-podling",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "胆大的魔荚人",
+        "text": "如果本随从即将变形成为某随从，则会变形成为法力值消耗增加（2）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f0c1a3f9c0e48290c268765e7aae0e8e31e3884aa57f002b10b4ead518d4043.png",
+        "imageGold": "",
+        "flavorText": "“长大之后，我要变成死亡之翼！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28db556bb0e2846339a48b80550a1c3f0e13385d89901157aef1d90ce59f021d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115295&locale=zh_CN",
+        "sha256": "11baffb43eeeb0c1561b9a4be5af86b9fd18efdc406b5f4ca22946a620e32c08",
+        "bytes": 797,
+        "observed_at": "2026-10-19T12:23:40.464297+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_529",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k264-plucky-transform-replacement\\official-cache-01\\115295-en_US.json",
+      "response_sha256": "ee007240b74f05df5b773fff0a78e860222afec2ed6ded1d73adf2fad6e7c933",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115295&locale=en_US",
+      "face": {
+        "id": 115295,
+        "collectible": 1,
+        "slug": "115295-plucky-podling",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Plucky Podling",
+        "text": "If this would transform into a minion, it transforms into one that costs (2) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dad1819a2041fa3ab70b00d19f59cccbe5c2e765a3c29a574722351a4a094cc.png",
+        "imageGold": "",
+        "flavorText": "\"When I grow up I wanna be a Deathwing!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28db556bb0e2846339a48b80550a1c3f0e13385d89901157aef1d90ce59f021d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115295&locale=en_US",
+        "sha256": "ee007240b74f05df5b773fff0a78e860222afec2ed6ded1d73adf2fad6e7c933",
+        "bytes": 763,
+        "observed_at": "2026-10-19T12:23:40.731054+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_529",
+        "dbf_id": 115295,
+        "name": "胆大的魔荚人",
+        "name_en": "Plucky Podling",
+        "text": "如果本随从即将变形成为某随从，则会变形成为法力值消耗增加（2）点的随从。",
+        "text_en": "[x]If this would transform into\na minion, it transforms into\none that costs (2) more.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "f34824df624957cb46a8c3910b1de94b02d929c085723be7527383149b49c4fd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_529",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "policy": "native-current-board-requested-minion-printed-cost-plus-two-once-v1; after original destination draw, choose full collectible minion tier without inheriting original copy material; empty replacement tier skips original transform without replacement RNG. Precise CN zone/copy/empty/selection semantics remain M6."
+}

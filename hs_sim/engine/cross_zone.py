@@ -701,6 +701,8 @@ def transform_pool_target(r, effect):
 
 
 def validate_boundary(game):
+    from .transform_replacements import validate_events as validate_replacements
+    validate_replacements(game)
     from .stored_pool_transforms import TransformStoredFromPool, validate_events, validate_pending
     validate_events(game)
     validate_native_pool_events(game)

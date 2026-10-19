@@ -5,7 +5,8 @@ from .model import CardType,CostAuraSpec,CostSpec,NativeSourceCondition
 def leaf(condition):
     if type(condition)is not NativeSourceCondition:raise ValueError('Native source condition requires its typed declaration')
     condition.__post_init__()
-    return 'spell_damage'if condition.kind=='self_damaged'else'cost_aura'
+    return ('spell_damage' if condition.kind == 'self_damaged' else
+        'transform_replacement' if condition.kind == 'transform_destination_plus_two' else 'cost_aura')
 
 
 def validate_definition(card):
@@ -17,6 +18,9 @@ def validate_definition(card):
     if kind=='spell_damage':
         if type(card.spell_damage)is not int or card.spell_damage<=0 or card.cost_auras:
             raise ValueError('Damaged provider requires positive native Spell Damage without conditional cost sharing')
+    elif kind == 'transform_replacement':
+        if card.spell_damage or card.cost_auras:
+            raise ValueError('Native transformation replacement cannot share conditional numeric providers')
     else:
         expected=(CostAuraSpec(CostSpec(delta=-2,card_types=(CardType.SPELL,)),relation='friendly_arcane_spells')if condition.kind=='controller_other_dragon'
             else CostAuraSpec(CostSpec(set_to=0,card_types=(CardType.HERO_POWER,))))
@@ -49,6 +53,9 @@ def matches(state,holder,condition,*,registry=None):
     if condition is None:return True
     leaf(condition)
     if condition.kind=='self_damaged':return holder.damage>0
+    if condition.kind == 'transform_destination_plus_two':
+        from .model import Zone
+        return holder.zone == Zone.BOARD and holder.active and not holder.doomed and holder.health > 0
     if condition.kind=='controller_other_dragon':
         if registry is None:raise ValueError('Current Dragon condition requires the original registry')
         from .arcane_dragon_providers import other_dragons

@@ -110,6 +110,9 @@ class CapturedCardCopyMaterial:
 def validate_captured_card_copy(state,registry,material):
     if type(material)is not CapturedCardCopyMaterial:raise ValueError('Expected captured card copy material')
     material.__post_init__();validate_allocation(state,registry,material.origin)
+    from .native_conditions import validate_carrier as validate_native_condition
+    validate_native_condition(registry, material.origin.card_id, material.origin.kind,
+        material.local.abilities, material.components)
     from .consumed_cards import validate_payload as validate_consumed_payload
     for ability in material.local.abilities:
         validate_consumed_payload(state,registry,ability)
@@ -313,6 +316,8 @@ def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
         from .discard_history import validate_base_copy
         validate_base_copy(state,registry,material.discard)
     if material.local is not None:
+        from .native_conditions import validate_carrier as validate_native_condition
+        validate_native_condition(registry, material.card_id, material.origin.kind, material.local.abilities, material.components)
         from .timed_keywords import validate_deadline
         for ability in material.local.abilities:
             if ability.limited_trigger_deadline is not None:

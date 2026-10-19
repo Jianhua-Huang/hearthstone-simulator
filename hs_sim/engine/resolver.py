@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v543'
+CORE_EFFECTS_VERSION = 'core-effects-v544'
 
 
 class Mechanics:
@@ -2071,6 +2071,14 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
             raise ResolutionError('Transformation lost its original remembered grant')
     from .game_boards import resolve_card_id
     definition = r.registry.card(resolve_card_id(r.state, r.registry, definition.id))
+    from .transform_replacements import choose_destination, record_draw
+    definition, replacement = choose_destination(r, entity, definition)
+    if replacement is not None:
+        if definition is None:
+            record_draw(r, replacement, None)
+            return ()
+        if copy_material is not None:
+            copy_material, stats = None, None
     old_card = entity.card_id
     entity.face_replaced = True
     attacks, summoned = entity.attacks_this_turn, entity.summoned_turn
@@ -2098,7 +2106,11 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
         if can_be_frozen(entity):
             entity.frozen_until_owner_turn = freeze_deadline(r.state, entity,
                 ending_turn=r.ending_turn, registry=r.registry)
+    transform_cursor = len(r.game._events)
     r.emit('transformed', target_id=entity.id, old_card_id=old_card, card_id=definition.id)
+    if replacement is not None:
+        event, = (e for e in r.game._events[transform_cursor:] if e.kind == 'transformed' and e.target_id == entity.id)
+        record_draw(r, replacement, event.sequence)
     if granted is not None:
         r.emit('ability_granted', target_id=entity.id, source_id=source_id,
             ability_id=granted.id, ability_kind='deathrattle')
@@ -2577,6 +2589,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_draw_casts(mechanics)
     from .deathrattle_memory import register as register_deathrattle_memory
     register_deathrattle_memory(mechanics)
+    from .transform_replacements import register as register_transform_replacements
+    register_transform_replacements(mechanics)
     from .deck_card_plays import register as register_deck_card_plays
     register_deck_card_plays(mechanics)
     from .deathrattle_inheritance import register as register_deathrattle_inheritance

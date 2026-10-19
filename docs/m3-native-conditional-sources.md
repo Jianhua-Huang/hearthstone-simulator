@@ -1,5 +1,7 @@
 # M3：原生连续来源条件
 
+真实魔荚人复用此有限来源声明新增transform_destination_plus_two叶，安装独立原生变形替代附件；不改变本页旧数值提供者或开放任意动态条件授予，见[变形替代契约](m3-native-transform-replacement.md)。本页旧分支起点保留，当前格式和实际结果以新契约及两份台账为准。
+
 [完整材料](../data/cards/native-conditional-sources-v1.json)固定时光扭曲先知、小蜘蛛、奎尔多雷造箭师及生命分流的实际原行。[适配](../hs_sim/cards/native_conditional_cards.py)复用原法强、光环、费用与英雄技能主体；新增表达只服务这些真实需求，不引入任意条件图或动态条件授予。实际进度、差异、验证和下一项仅在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)维护。
 
 ## 法强和费用的原生资格
