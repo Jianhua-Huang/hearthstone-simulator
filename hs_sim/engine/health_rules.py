@@ -14,6 +14,19 @@ from .random_split_damage import SplitBudgetQuote, SplitPacketLink
 from .allocation_facts import SourceAllocationFact
 
 
+def power_damage_rule():
+    """One permanent damage step belonging to this physical skill only."""
+    from .model import HealthRule
+    return HealthRule(HealthFlow.DAMAGE, HealthOp.ADD, 1,
+                      source_relation='self', damage_kinds=(DamageKind.HERO_POWER,))
+
+
+def validate_power_health_rule(ability):
+    if (ability.health_rule != power_damage_rule() or ability.origin != 'granted' or
+            ability.expires_turn is not None or ability.health_rule_expiry is not None):
+        raise ValueError('Hero Power health rules require a permanent source-local damage step')
+
+
 @dataclass(frozen=True)
 class PreparedHealth:
     original_flow: HealthFlow
@@ -51,11 +64,15 @@ class PreparedHealth:
 def rule_sources(state):
     result = []
     for player in state.players.values():
-        for entity_id in (player.hero_id, *player.board, *([player.weapon_id] if player.weapon_id else [])):
+        for entity_id in (player.hero_id, *player.board, *([player.weapon_id] if player.weapon_id else []),
+                          *player.hero_power_ids):
             entity = state.entities[entity_id]
             if not entity.active or entity.doomed or (entity.zone == Zone.WEAPON and entity.durability <= 0) or (
-                    entity.zone != Zone.WEAPON and entity.health <= 0):
+                    entity.zone not in (Zone.WEAPON, Zone.HERO_POWER) and entity.health <= 0):
                 continue
+            if entity.kind == CardType.HERO_POWER:
+                for ability in entity.abilities:
+                    if ability.kind == 'health_rule': validate_power_health_rule(ability)
             result.extend((ability.id, entity.id, entity.controller, ability.health_rule)
                           for ability in entity.abilities if ability.kind == 'health_rule' and not ability.consumed)
     return tuple(sorted(result, key=lambda row: row[0]))

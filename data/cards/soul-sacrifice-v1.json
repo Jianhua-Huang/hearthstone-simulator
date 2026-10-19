@@ -1,0 +1,287 @@
+{
+  "batch": "K235-soul-sacrifice",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_EVENT_101",
+        "dbf_id": 130086,
+        "name": "灵魂献祭",
+        "name_en": "Soul Immolation",
+        "text": "你的英雄技能变为坍缩之星。如果你的技能已经为坍缩之星，其伤害提高1点。",
+        "text_en": "[x]Your Hero Power becomes\n'Collapsing Star'.\nIf it already is, increase\nits damage by 1.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1941,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 132887,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 132887,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "2b49f7b5ec9ad125a4cd529aa5f9437930144f85d9e467728a0e6d0e52ed133c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_EVENT_101",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "JAIL_EVENT_101hp",
+        "dbf_id": 132887,
+        "name": "坍缩之星",
+        "name_en": "Collapsing Star",
+        "text": "随机对一个敌人造成@点伤害。每当你召唤一个恶魔，复原此技能。",
+        "text_en": "[x]Deal @ damage to\na random enemy.\nWhenever you summon\na Demon, refresh this.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 14,
+          "CARDTYPE": 10,
+          "RARITY": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "46ea0bd6aadc5d27879000324b292b44b929fe445da370c6214b900d336c2344",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_EVENT_101hp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_EVENT_101",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k235-soul-sacrifice\\official-cache-01\\130086-zh_CN.json",
+      "response_sha256": "4fe93787c5d06bc6cbe7ed33cf4107738000ea75bc5b7d2803acdf06832a3709",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130086&locale=zh_CN",
+      "face": {
+        "id": 130086,
+        "collectible": 1,
+        "slug": "130086-soul-immolation",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Alex Stone",
+        "manaCost": 2,
+        "name": "灵魂献祭",
+        "text": "你的英雄技能变为坍缩之星。如果你的技能已经为坍缩之星，其伤害提高1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4743d1ec877255943b00197a435566991da918a0c6129542ea0a3dbce031e60.png",
+        "imageGold": "",
+        "flavorText": "这是灵魂残片吗？自从在学园毕业之后就再没见过了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4de865f8bedbf3471850a101e6cf3ff0b03579e05f59c9ad9395bdbfc05bee49.png",
+        "childIds": [
+          132887
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130086&locale=zh_CN",
+        "sha256": "4fe93787c5d06bc6cbe7ed33cf4107738000ea75bc5b7d2803acdf06832a3709",
+        "bytes": 830,
+        "observed_at": "2026-10-19T01:49:02.155690+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_101",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k235-soul-sacrifice\\official-cache-01\\130086-en_US.json",
+      "response_sha256": "d3b0e61a2ed873376ee955f8e5f45e279c4e2d65696375ee139988af3c741fe7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130086&locale=en_US",
+      "face": {
+        "id": 130086,
+        "collectible": 1,
+        "slug": "130086-soul-immolation",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Alex Stone",
+        "manaCost": 2,
+        "name": "Soul Immolation",
+        "text": "Your Hero Power becomes 'Collapsing Star'. If it already is, increase its damage by 1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/284060d9430d791c205ffcc88f155e24c29b27ec3740367a87fbb6293b9e731c.png",
+        "imageGold": "",
+        "flavorText": "Is that a Soul Fragment? I haven't seen one of those since college!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4de865f8bedbf3471850a101e6cf3ff0b03579e05f59c9ad9395bdbfc05bee49.png",
+        "childIds": [
+          132887
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=130086&locale=en_US",
+        "sha256": "d3b0e61a2ed873376ee955f8e5f45e279c4e2d65696375ee139988af3c741fe7",
+        "bytes": 811,
+        "observed_at": "2026-10-19T01:49:02.110987+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_101hp",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k235-soul-sacrifice\\official-cache-01\\132887-zh_CN.json",
+      "response_sha256": "d00a74327c73619a59b3af05a19c87ecea76ab19e20c4b597a4fdbb29dc2b6d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132887&locale=zh_CN",
+      "face": {
+        "id": 132887,
+        "collectible": 0,
+        "slug": "132887-collapsing-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "坍缩之星",
+        "text": "随机对一个敌人造成 点伤害。每当你召唤一个恶魔，复原此技能。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b943784d4a6d4d43019e0a9c2922d1718b10eba5ab0897699bf0aed993eb05e6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 130086,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132887&locale=zh_CN",
+        "sha256": "d00a74327c73619a59b3af05a19c87ecea76ab19e20c4b597a4fdbb29dc2b6d1",
+        "bytes": 600,
+        "observed_at": "2026-10-19T01:49:01.895495+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_101hp",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k235-soul-sacrifice\\official-cache-01\\132887-en_US.json",
+      "response_sha256": "41ac41b6993c2e53802d223b9db2efe100059803a727d168946acde0071a6f07",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132887&locale=en_US",
+      "face": {
+        "id": 132887,
+        "collectible": 0,
+        "slug": "132887-collapsing-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "Collapsing Star",
+        "text": "Deal damage to a random enemy. Whenever you summon a Demon, refresh this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53a11da8ba8024bda16a7466331b7c0b84d936dd1bb04e28736cde92a325c0cc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 130086,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=132887&locale=en_US",
+        "sha256": "41ac41b6993c2e53802d223b9db2efe100059803a727d168946acde0071a6f07",
+        "bytes": 588,
+        "observed_at": "2026-10-19T01:49:02.159020+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "JAIL_EVENT_101hp": {
+      "@": ""
+    }
+  },
+  "numeric_normalizations": {},
+  "existing_power_definition_sha256": "52d168a554229dc9d1d8c130b5c6f4559182f200f07a83c74a3c3617afa672f4",
+  "policy": {
+    "current_power": "Use the existing primary slot. At body execution, install a fresh Collapsing Star if the primary is absent or a different face; otherwise attach one permanent self-only HERO_POWER damage step to the same physical power.",
+    "unchanged_power": "Existing two damage, one mana, random-enemy selection and friendly-current-Demon refresh stay in P71 unchanged.",
+    "retirement": "The bonus is local to the physical current power, not a player-wide Wildfire bonus. Fresh installation starts printed damage; no added use or cost change on upgrade.",
+    "cn_calibrated": false,
+    "pending_cn": [
+      "precise replacement and upgrade response windows",
+      "damage arithmetic order with external modifiers",
+      "fresh install and temporary physical restoration policy",
+      "multiple-power real-card interactions"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+灵魂献祭式当前技能加1使用`GrantHealthRule(power_id, power_damage_rule(), source_id)`；限定永久原来源伤害，其他技能规则显式拒绝，见[契约](m3-soul-immolation.md)。
+
 原生2费随从选择与开局十张复制使用`DeckCopySideboardProfile`及原`SideboardSpec`，不能作为可消费乐队或预先混入原主牌组。有限声明与原流程见[契约](m3-deck-copy-sideboards.md)。
 
 原存储地标强化使用`AdvanceStoredLocationFace`，排队摧毁使用`DestroyCapturedLocation`；真实临时法术填手沿原生成请求，可携带`CardSpellRepeatGrant`。范围、类型验证和既有生命周期见[契约](m3-azshara-fabled-locations.md)。

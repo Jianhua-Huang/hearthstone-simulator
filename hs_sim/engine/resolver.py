@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v518'
+CORE_EFFECTS_VERSION = 'core-effects-v519'
 
 
 class Mechanics:
@@ -1199,9 +1199,14 @@ def grant_health_rule(r, effect):
     validate_grant(r.state, r.registry, effect)
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     entity = r.state.entities.get(effect.target_id)
-    if entity is None or not entity.active or entity.zone not in (Zone.HERO, Zone.BOARD, Zone.WEAPON):
+    if entity is None or not entity.active or entity.zone not in (Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER):
         r.stale(effect, effect.target_id)
         return
+    if entity.kind == CardType.HERO_POWER:
+        from .health_rules import power_damage_rule
+        if (effect.rule != power_damage_rule() or effect.expires_turn is not None or
+                effect.until_owner_turn_start is not None):
+            raise ResolutionError('Hero Power health rules require a permanent source-local damage step')
     if entity.kind == CardType.LOCATION:
         raise ResolutionError('Location health-rule holders are not supported by this contract')
     if entity.zone == Zone.WEAPON and effect.rule.redirect_to == 'self':

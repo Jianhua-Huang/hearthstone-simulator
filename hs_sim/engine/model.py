@@ -10986,6 +10986,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 if isinstance(attachment, AbilityInstance):
                     from .timed_keywords import validate_instance
                     validate_instance(state, entity, attachment)
+                    if entity.kind == CardType.HERO_POWER and attachment.kind == 'health_rule':
+                        from .health_rules import validate_power_health_rule
+                        validate_power_health_rule(attachment)
                     if attachment.health_rule_expiry is not None:
                         from .timed_keywords import validate_deadline
                         if entity.kind!=CardType.HERO:raise ValueError('Owner health deadline requires a hero carrier')
