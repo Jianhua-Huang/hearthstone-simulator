@@ -196,8 +196,11 @@ class PoolQuery:
     runes_any: tuple[str, ...] = ()
     attack_parity: str | None = None
     card_ids: tuple[str, ...] = ()
+    attack_equals: int | None = None
 
     def __post_init__(self):
+        if self.attack_equals is not None:
+            integer(self.attack_equals, 'exact printed minion attack', 0)
         if self.attack_parity is not None and (type(self.attack_parity) is not str or
                                               self.attack_parity not in ('odd', 'even')):
             raise ValueError('Printed minion attack parity requires odd, even or None')
@@ -284,7 +287,7 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
     missing = []
     if query.kinds and kind not in query.kinds:
         return False
-    if query.attack_parity is not None and kind != CardType.MINION:
+    if (query.attack_parity is not None or query.attack_equals is not None) and kind != CardType.MINION:
         return False
     if query.subtypes_any and kind != CardType.MINION:
         return False
@@ -370,6 +373,13 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
         else:
             integer(printed_attack, 'printed minion attack', 0)
             if printed_attack % 2 != (1 if query.attack_parity == 'odd' else 0):
+                return False
+    if query.attack_equals is not None:
+        if printed_attack is None:
+            missing.append(f'Unknown candidate printed minion attack: {card_id}')
+        else:
+            integer(printed_attack, 'printed minion attack', 0)
+            if printed_attack != query.attack_equals:
                 return False
     if query.any_of:
         unknown_alternatives = []

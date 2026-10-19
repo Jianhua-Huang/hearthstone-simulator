@@ -1,5 +1,7 @@
 # 纯逻辑引擎设计
 
+食物链复用完成出牌捕获的战吼后原实体属性，绍克三次发现仅为原PoolQuery增加精确印刷攻击力筛选；原任务、选择、费用和交付流程共享。原攻击依据、未知候选及待国服窗口见[契约](m3-food-chain-attack.md)。
+
 真实双任务通过paired_quest及CastQuestChild沿原施法流程安装两个独立任务，原父施法和安装施法身份保留到恢复/终局；同手随从半体使用有限HandCombinationProfile及原手牌结算入口。原主任务互斥和法术相邻裂变保持，表达与待国服政策见[双任务与半体契约](m3-paired-quests-hand-combinations.md)。
 
 真实私藏野兽使用有限ContrabandSideboardProfile，只有原侧板条目免原职业/符文限制，格式与副本核算仍共享；_TakeSideboardCard沿已有真实发现提供与物理交付管线消费原槽、创建新牌并安装减费。原乐队/构筑复制选择不变，无新增持久字段或Effect；细节与待国服政策见[私藏侧板契约](m3-contraband-sideboards.md)。
