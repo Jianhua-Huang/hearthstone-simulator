@@ -1,0 +1,1738 @@
+{
+  "batch": "K291",
+  "task": {
+    "schema": 1,
+    "batch": "K291-lost-city",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k290-overdraw-return/inventory-01.json",
+    "candidate_inventory_sha256": "1b8ba61df13abcc8d42f2741a3cc179dcfdbcab3929f3b6fbfafca28261f7fde",
+    "roots": [
+      "TLC_602"
+    ],
+    "dependencies": [
+      "TLC_602t",
+      "UNG_028t",
+      "UNG_067t1"
+    ],
+    "existing_dependencies": [
+      "UNG_116t",
+      "UNG_920t1",
+      "UNG_954t1",
+      "UNG_940t8",
+      "UNG_942t",
+      "UNG_829t1",
+      "UNG_934t1",
+      "UNG_920t2",
+      "UNG_829t2",
+      "UNG_829t3",
+      "UNG_934t2"
+    ],
+    "evidence_only": [],
+    "official_ids": [
+      "TLC_602",
+      "TLC_602t",
+      "UNG_028t",
+      "UNG_067t1"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Original survive ten turns quest and Latorvius complete nine reward domain; reuse seven existing rewards, implement real Time Warp and Crystal Core dependencies.",
+        "cards": [
+          "TLC_602"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/lost_city_quest_cards.py",
+      "data/cards/lost-city-quest-v1.json",
+      "tests/test_lost_city_quest_cards.py"
+    ]
+  },
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_602",
+        "dbf_id": 117716,
+        "name": "走进失落之城",
+        "name_en": "Enter the Lost City",
+        "text": "<b>任务：</b>存活10个回合。<b>奖励：</b>拉特维厄斯，城市之眼。",
+        "text_en": "[x]<b>Quest:</b> Survive 10 turns.\n<b>Reward: </b>Latorvius, Gaze\nof the City.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 10,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 117717,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1,
+          "4357": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4357",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4357"
+          }
+        ]
+      },
+      "record_sha256": "cae610783c3414e06f2ed3a04fe61f542e4c67697b608faf666f9f3c4ac44be0"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_602t",
+        "dbf_id": 117717,
+        "name": "拉特维厄斯，城市之眼",
+        "name_en": "Latorvius, Gaze of the City",
+        "text": "<b>战吼：</b>随机获取2张勇闯安戈洛的<b>任务奖励</b>。将其余奖励洗入你的牌库。",
+        "text_en": "[x]<b>Battlecry:</b> Get 2 random\n'Journey to Un'Goro' <b>Quest\nRewards</b>. Shuffle the rest\ninto your deck.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "18d052531888328769cccb9c6521a6ef3dd5119e6a8c4705b5cc4aaae6f66757"
+    },
+    {
+      "record": {
+        "id": "UNG_028t",
+        "dbf_id": 41167,
+        "name": "时空扭曲",
+        "name_en": "Time Warp",
+        "text": "获得一个额外回合。<i>（每局对战限一次）</i>",
+        "text_en": "Take an extra turn.\n<i>(Once per game)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "d9e43a3b04ae6f56964083b1e0bac6077de4887a61d028335b26965bae6497ca"
+    },
+    {
+      "record": {
+        "id": "UNG_067t1",
+        "dbf_id": 41221,
+        "name": "水晶核心",
+        "name_en": "Crystal Core",
+        "text": "在本局对战的剩余时间内，你的所有随从变为5/5。",
+        "text_en": "For the rest of the game, your minions are 5/5.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "406f3ceb646d7c04040a4185ba560c3e173bdc823a14573f823083212fe02c0e"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "UNG_116t",
+        "dbf_id": 41100,
+        "name": "“践踏者”班纳布斯",
+        "name_en": "Barnabus the Stomper",
+        "text": "<b>战吼：</b>使你牌库中所有随从的法力值消耗减为（0）点。",
+        "text_en": "<b>Battlecry:</b> Reduce the\nCost of minions in your deck to (0).",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          }
+        ]
+      },
+      "record_sha256": "2fa24e7f0f046e914f9fe5634db6609167bb9bc8078156dd03bc647b63773d34"
+    },
+    {
+      "record": {
+        "id": "UNG_920t1",
+        "dbf_id": 41367,
+        "name": "卡纳莎女王",
+        "name_en": "Queen Carnassa",
+        "text": "<b>突袭</b>。<b>战吼：</b>将20张迅猛龙牌洗入你的牌库。",
+        "text_en": "<b>Rush</b>\n<b>Battlecry:</b> Shuffle 20 Raptors into your deck.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 42013
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "5b415a76ca0687f0a28f1cf05afbb81ea5ce3fb475fced1c6deb3be65dc06815"
+    },
+    {
+      "record": {
+        "id": "UNG_954t1",
+        "dbf_id": 41946,
+        "name": "嘉沃顿",
+        "name_en": "Galvadon",
+        "text": "<b>战吼：</b>\n连续<b>进化</b>五次。",
+        "text_en": "<b>Battlecry:</b> <b>Adapt</b> 5 times.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 5,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "546",
+              "name": "ADAPT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3b3ad914917aa314aeedc17458f3084cc61102e3dc21489b7044f72c325da817"
+    },
+    {
+      "record": {
+        "id": "UNG_940t8",
+        "dbf_id": 41950,
+        "name": "希望守护者阿玛拉",
+        "name_en": "Amara, Warden of Hope",
+        "text": "<b>嘲讽，战吼：</b>\n将你英雄的生命值变为40。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> Set your\nhero's Health to 40.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "fbd10f39ae0e24fd0f400a67235d2f11708fd5acfe2d2c999bb69b302814ccec"
+    },
+    {
+      "record": {
+        "id": "UNG_942t",
+        "dbf_id": 41498,
+        "name": "老鲨嘴",
+        "name_en": "Megafin",
+        "text": "<b>战吼：</b>用随机鱼人牌填满你的手牌。",
+        "text_en": "<b>Battlecry:</b> Fill your hand with random Murlocs.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          }
+        ]
+      },
+      "record_sha256": "99a6486188b8ed3c57cda2713bbd696cb8e5c1d5e463150889e8a452c6399f45"
+    },
+    {
+      "record": {
+        "id": "UNG_829t1",
+        "dbf_id": 41942,
+        "name": "虚空传送门",
+        "name_en": "Nether Portal",
+        "text": "打开一座会永久召唤3/2小鬼的传送门。",
+        "text_en": "Open a permanent portal that summons 3/2 Imps.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Konstad"
+          }
+        ]
+      },
+      "record_sha256": "4acc57cfdfdb484aa28b50a72f0317298c427b209ea96772aa6a03e2b2da4bbb"
+    },
+    {
+      "record": {
+        "id": "UNG_934t1",
+        "dbf_id": 41426,
+        "name": "萨弗拉斯",
+        "name_en": "Sulfuras",
+        "text": "<b>战吼：</b>你的英雄技能变为“随机对一个敌人造成8点伤害”。",
+        "text_en": "<b>Battlecry:</b> Your Hero Power becomes 'Deal 8_damage to a random enemy.'",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 10,
+          "CARDTYPE": 7,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "8d96b09d3470828f59d8614c949b8884e26875c2b7a70a5cbbcdb22779f4e65e"
+    },
+    {
+      "record": {
+        "id": "UNG_920t2",
+        "dbf_id": 42013,
+        "name": "卡纳莎的族群",
+        "name_en": "Carnassa's Brood",
+        "text": "<b>战吼：</b>抽一张牌。",
+        "text_en": "<b>Battlecry:</b> Draw a card.",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "f5c927f106c6c743dccf38a2b75e265894ec9c7d2c52ae720b6ab422136c78e0"
+    },
+    {
+      "record": {
+        "id": "UNG_829t2",
+        "dbf_id": 42224,
+        "name": "虚空传送门",
+        "name_en": "Nether Portal",
+        "text": "在你的回合结束时，召唤两个3/2的小鬼。",
+        "text_en": "At the end of your turn, summon two 3/2 Imps.",
+        "cost": 11,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "COST": 11,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "HIDE_STATS": 1,
+          "UNTOUCHABLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "9642b2ad07a69192fbfe3f8b5cef6a018e2567cb17831f1c6decbf38420df744"
+    },
+    {
+      "record": {
+        "id": "UNG_829t3",
+        "dbf_id": 42753,
+        "name": "虚空小鬼",
+        "name_en": "Nether Imp",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "IMP": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "8126abc05e6ec1046931b9217cef41a525583dbeb77464253adc5793aa26f062"
+    },
+    {
+      "record": {
+        "id": "UNG_934t2",
+        "dbf_id": 41940,
+        "name": "死吧，虫子！",
+        "name_en": "DIE, INSECT!",
+        "text": "随机对一个敌人造成$8点伤害。",
+        "text_en": "Deal $8 damage to a random enemy.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jimmy Lo"
+          }
+        ]
+      },
+      "record_sha256": "964a355b90272b5921854c7bc732f33d93c7d04aab06a37ae502d2ab5847ce1a"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "reward_origins": [
+    {
+      "record": {
+        "id": "UNG_028",
+        "dbf_id": 41168,
+        "name": "打开时空之门",
+        "name_en": "Open the Waygate",
+        "text": "<b>任务：</b>施放8个你的套牌之外的\n法术。\n <b>奖励：</b>时空扭曲。",
+        "text_en": "[x]<b>Quest:</b> Cast 8 spells that\ndidn't start in your deck.\n<b>Reward:</b> Time Warp.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41167,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "0ca10388390b30f6efc85e1aa00c07a20eb16fe1578fc13abae9bd0915d4d90d"
+    },
+    {
+      "record": {
+        "id": "UNG_067",
+        "dbf_id": 41222,
+        "name": "探索地下洞穴",
+        "name_en": "The Caverns Below",
+        "text": "<b>任务：</b>使用四张名称相同的随从牌。\n<b>奖励：</b>水晶核心。",
+        "text_en": "[x]<b>Quest:</b> Play four minions\nwith the same name.\n<b>Reward:</b> Crystal Core.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 4,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41221,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "7c192be218c37dd162266ffc74c28ea647243585a75c81445451554ed06ed8c6"
+    },
+    {
+      "record": {
+        "id": "UNG_116",
+        "dbf_id": 41099,
+        "name": "丛林巨兽",
+        "name_en": "Jungle Giants",
+        "text": "<b>任务：</b>召唤4个攻击力大于或等于5的随从。\n<b>奖励：</b>班纳布斯。",
+        "text_en": "[x]<b>Quest:</b> Summon\n4 minions with\n5 or more Attack.\n<b>Reward:</b> Barnabus.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 4,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41100,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "e49e5a4572c4fbad370df95d492f2a6760fa0546bc4c2978205939a923de4e43"
+    },
+    {
+      "record": {
+        "id": "UNG_829",
+        "dbf_id": 41856,
+        "name": "拉卡利献祭",
+        "name_en": "Lakkari Sacrifice",
+        "text": "<b>任务：</b>弃掉六张牌。\n<b>奖励：</b>虚空传送门。",
+        "text_en": "[x]<b>Quest:</b> Discard 6 cards.\n<b>Reward:</b> Nether Portal.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41942,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "2b8a0ad59794ee23d0a9de1b364898b4fb71d0726f5fc7074627cfc2a4ea68d2"
+    },
+    {
+      "record": {
+        "id": "UNG_920",
+        "dbf_id": 41368,
+        "name": "湿地女王",
+        "name_en": "The Marsh Queen",
+        "text": "<b>任务：</b>使用七张法力值消耗为（1）的随从牌。\n<b>奖励：</b>卡纳莎女王。",
+        "text_en": "[x]<b>Quest:</b> Play seven\n1-Cost minions.\n<b>Reward:</b> Queen Carnassa.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 7,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41367,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "5bb850cd4edfbb1ef350e647ad5a462c59b3d14b43cabfa413c31afeb0b44fce"
+    },
+    {
+      "record": {
+        "id": "UNG_934",
+        "dbf_id": 41427,
+        "name": "火羽之心",
+        "name_en": "Fire Plume's Heart",
+        "text": "<b>任务：</b>使用七张具有<b>嘲讽</b>的随从牌。\n<b>奖励：</b>萨弗拉斯。",
+        "text_en": "[x]<b>Quest:</b> Play\n7 <b>Taunt</b> minions.\n<b>Reward:</b> Sulfuras.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 7,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41426,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nate Bowden"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bbf83f2dfe593d342fb6c7c06ca673dcac47e717259961200bc6011a0b19164f"
+    },
+    {
+      "record": {
+        "id": "UNG_940",
+        "dbf_id": 41494,
+        "name": "唤醒造物者",
+        "name_en": "Awaken the Makers",
+        "text": "<b>任务：</b>召唤6个<b>亡语</b>随从。<b>奖励：</b>希望守护者阿玛拉。",
+        "text_en": "<b>Quest:</b> Summon\n6 <b>Deathrattle</b> minions.<b>\nReward:</b> Amara, Warden of Hope.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41950,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "708d6c2cc559b1089e23da0de25f548bcbec7c9861a96781dda82b7a53d7798e"
+    },
+    {
+      "record": {
+        "id": "UNG_942",
+        "dbf_id": 41499,
+        "name": "鱼人总动员",
+        "name_en": "Unite the Murlocs",
+        "text": "<b>任务：</b>召唤8个鱼人。\n<b>奖励：</b>老鲨嘴。",
+        "text_en": "[x]<b>Quest:</b> Summon\n8 Murlocs.\n<b>Reward:</b> Megafin.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41498,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "8e0e6c69188d0b4090456636f3b8225326c6fb089961962306021bb5a0fea5e1"
+    },
+    {
+      "record": {
+        "id": "UNG_954",
+        "dbf_id": 41868,
+        "name": "最后的水晶龙",
+        "name_en": "The Last Kaleidosaur",
+        "text": "<b>任务：</b>对你的随从施放5个法术。\n<b>奖励：</b>嘉沃顿。",
+        "text_en": "<b>Quest:</b> Cast 5 spells\non your minions.\n<b>Reward:</b> Galvadon.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41946,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "675d437989e83c56e1986780b00e483a9620fba307b70c6c8892010999f35287"
+    }
+  ],
+  "reward_ids": [
+    "UNG_116t",
+    "UNG_920t1",
+    "UNG_028t",
+    "UNG_954t1",
+    "UNG_940t8",
+    "UNG_067t1",
+    "UNG_942t",
+    "UNG_829t1",
+    "UNG_934t1"
+  ],
+  "existing_definition_pins": {
+    "UNG_116t": "c3c5c31d5ddd10b65402f68fd52806c8f7ca09b455783071d7155afa54396ebd",
+    "UNG_920t1": "e78428db89883713c764c0fdb68ae7e29b93ed400c0bce8a00dc3d42d544a348",
+    "UNG_954t1": "3ee6b7756364d9106090cb84b802b858aab086521ff426498fe14a4d8b70dc15",
+    "UNG_940t8": "cb99d93de70e2fb80907f6934c1ee7b9b48b5906c19cef3dd1211efd1e4ed9dd",
+    "UNG_942t": "759137858c451a5c23cb4e4b34c77615c67015639f95e47c11acafbe6eac1dba",
+    "UNG_829t1": "95b92ef1ad46bfa6e1d7cd3e14c9d9789bc4bfcfd0a509432dad6765629c3c60",
+    "UNG_934t1": "3ead127fea884f5b07012310d79252bd9e92659067b6119bcb2aa79dd0a29320",
+    "UNG_920t2": "3b0899fe09e81db1a7aedd735b10cdb304e1cb65bfb2bfa3d5b0be00fd94bfea",
+    "UNG_829t2": "d783f0faa9b462a9f6c2d6fca5e2a57f71257830624678111092c34965f9f0e8",
+    "UNG_829t3": "5924eabca49d2b5a7ea4a73fc410e5df85914bc7d5059ab5b5ff12a85f2de8f3",
+    "UNG_934t2": "24f112d3e2442a57dc3daf6a9f217b5b7a2db7f034f2d8bc583d8299878edc95"
+  },
+  "official_observations": [
+    {
+      "card_id": "TLC_602",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117716-zh_CN.json",
+      "response_sha256": "59a1e8b0058c698c11862b6405dcafe4cfcea1ecd16db9acd2f43264f6be7e08",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117716&locale=zh_CN",
+      "face": {
+        "id": 117716,
+        "collectible": 1,
+        "slug": "117716-enter-the-lost-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "走进失落之城",
+        "text": "<b>任务：</b>存活10个回合。<b>奖励：</b>拉特维厄斯，城市之眼。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4423902aaacfb43ecf4bf1b50b436d245b96f3a31e0f1652ce7e33728600129d.png",
+        "imageGold": "",
+        "flavorText": "第8天。成功了！入夜时分，我们走到一处发光的隧道，入口只有两个瞌睡的托维尔人看守。我们悄悄走过隧道，直接来到了失落之城的核心地带！同胞们一定会用温暖的怀抱迎接我们。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f09f4810bea94cbb55aa89a53b8d5337ae2029a33cfe4b1e33a0c6f54779ecb0.png",
+        "childIds": [
+          117717,
+          41100,
+          41367,
+          41167,
+          41946,
+          41950,
+          41221,
+          41498,
+          41942,
+          41426
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117716&locale=zh_CN",
+        "sha256": "59a1e8b0058c698c11862b6405dcafe4cfcea1ecd16db9acd2f43264f6be7e08",
+        "bytes": 1050,
+        "observed_at": "2026-10-19T23:24:35.324517+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117716-en_US.json",
+      "response_sha256": "c7464243927a13cfc7123d4b859ba33a3017de50b643e7afc6508b3f44eb9431",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117716&locale=en_US",
+      "face": {
+        "id": 117716,
+        "collectible": 1,
+        "slug": "117716-enter-the-lost-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "Enter the Lost City",
+        "text": "<b>Quest:</b> Survive 10 turns. <b>Reward: </b>Latorvius, Gaze of the City.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/386f3c4eef3527f334301f6083f1c445d2a5f40e64c583cc10b3413f6bd47c79.png",
+        "imageGold": "",
+        "flavorText": "Day 8. We’ve done it! As night fell, we came upon a brilliantly glowing tunnel guarded by two slumbering Tol’vir. With silent footsteps, we walked through and emerged into the heart of the Lost City! I’m sure my people will welcome us with open arms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f09f4810bea94cbb55aa89a53b8d5337ae2029a33cfe4b1e33a0c6f54779ecb0.png",
+        "childIds": [
+          117717,
+          41100,
+          41367,
+          41167,
+          41946,
+          41950,
+          41221,
+          41498,
+          41942,
+          41426
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117716&locale=en_US",
+        "sha256": "c7464243927a13cfc7123d4b859ba33a3017de50b643e7afc6508b3f44eb9431",
+        "bytes": 1053,
+        "observed_at": "2026-10-19T23:24:35.541254+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117717-zh_CN.json",
+      "response_sha256": "8eb5ba5c1737f20fd669909c8a9ceb75558c12ebb787e90876c046e3a468293d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117717&locale=zh_CN",
+      "face": {
+        "id": 117717,
+        "collectible": 0,
+        "slug": "117717-latorvius-gaze-of-the-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "拉特维厄斯，城市之眼",
+        "text": "<b>战吼：</b>随机获取2张勇闯安戈洛的<b>任务奖励</b>。将其余奖励洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/708fe4907a1cd3d72e68dc1df511413d01fb03c1b82ff1ac5a650c1fddb32155.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117716,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117717&locale=zh_CN",
+        "sha256": "8eb5ba5c1737f20fd669909c8a9ceb75558c12ebb787e90876c046e3a468293d",
+        "bytes": 702,
+        "observed_at": "2026-10-19T23:24:35.528714+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_602t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\117717-en_US.json",
+      "response_sha256": "d20bd9c7cd812cd321023a9f46c811777c98b7d8cd4a708d6222717ab895adf4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117717&locale=en_US",
+      "face": {
+        "id": 117717,
+        "collectible": 0,
+        "slug": "117717-latorvius-gaze-of-the-city",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Kevin Sidharta",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Latorvius, Gaze of the City",
+        "text": "<b>Battlecry:</b> Get 2 random 'Journey to Un'Goro' <b>Quest Rewards</b>. Shuffle the rest into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/958da02adfbea1ff292c8ecee67e8ef27c1fe27dd4eeadd2a95b541d1120aca8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117716,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117717&locale=en_US",
+        "sha256": "d20bd9c7cd812cd321023a9f46c811777c98b7d8cd4a708d6222717ab895adf4",
+        "bytes": 697,
+        "observed_at": "2026-10-19T23:24:35.333803+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_028t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\41167-zh_CN.json",
+      "response_sha256": "d5c2b025d2583c4ed1a1cfbe19a36725f8fa2bb5587434058e49d96eb9804ac1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=zh_CN",
+      "face": {
+        "id": 41167,
+        "collectible": 0,
+        "slug": "41167-time-warp",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "时空扭曲",
+        "text": "获得一个额外回合。<i>（每局对战限一次）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b188f6909e11ef47026fb959324d7a73bd4a0f9e67c965e490b2fc33454aa3e3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41168,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=zh_CN",
+        "sha256": "d5c2b025d2583c4ed1a1cfbe19a36725f8fa2bb5587434058e49d96eb9804ac1",
+        "bytes": 595,
+        "observed_at": "2026-10-19T23:24:37.015613+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_028t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\41167-en_US.json",
+      "response_sha256": "e30be4b540c56dca319460efeddde27d35fcd492266f9392a97c572bc3953387",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=en_US",
+      "face": {
+        "id": 41167,
+        "collectible": 0,
+        "slug": "41167-time-warp",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "Time Warp",
+        "text": "Take an extra turn. <i>(Once per game)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41bac52c86d330694160a837c3392462bef0607824bddadbbcb622ee5e1e9ca7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41168,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=en_US",
+        "sha256": "e30be4b540c56dca319460efeddde27d35fcd492266f9392a97c572bc3953387",
+        "bytes": 573,
+        "observed_at": "2026-10-19T23:24:36.880686+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_067t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\41221-zh_CN.json",
+      "response_sha256": "4d66c4354495ab92880b10b5f9043ee3ecd2af73faa9337f1f19cf54c4236afe",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41221&locale=zh_CN",
+      "face": {
+        "id": 41221,
+        "collectible": 0,
+        "slug": "41221-crystal-core",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "水晶核心",
+        "text": "在本局对战的剩余时间内，你的所有随从变为5/5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c967c9175db65d3a2d4e09fa3fb065a4672eabfbafad42cad913f075754c6b81.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41222,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41221&locale=zh_CN",
+        "sha256": "4d66c4354495ab92880b10b5f9043ee3ecd2af73faa9337f1f19cf54c4236afe",
+        "bytes": 580,
+        "observed_at": "2026-10-19T23:24:37.222833+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_067t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\41221-en_US.json",
+      "response_sha256": "85d81447f066b4c5e3347c78d95c34a9b38e334d5095b9ef7be6d48f83bf162a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41221&locale=en_US",
+      "face": {
+        "id": 41221,
+        "collectible": 0,
+        "slug": "41221-crystal-core",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 5,
+        "name": "Crystal Core",
+        "text": "For the rest of the game, your minions are 5/5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30dd6df4017ca39f2c5662e8fe0636ac44d647bdba0b5d7c02962528d16016a1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41222,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41221&locale=en_US",
+        "sha256": "85d81447f066b4c5e3347c78d95c34a9b38e334d5095b9ef7be6d48f83bf162a",
+        "bytes": 561,
+        "observed_at": "2026-10-19T23:24:37.335533+00:00"
+      }
+    }
+  ],
+  "implementation_policy": "Actual subsequent turn_started events for either player; private fixed 2/7 split of all nine original UnGoro rewards; persistent base layer plus one-time board reset. Precise timing/lifecycle remains CN-pending.",
+  "cn_calibrated": false,
+  "formal_pool_complete": false
+}

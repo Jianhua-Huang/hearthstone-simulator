@@ -1,5 +1,7 @@
 # 独立基础：额外与跳过回合
 
+时空扭曲的真实每局一次主体已在[失落之城配方](m3-lost-city-rewards.md)接入，沿原永久玩家标记和QueueTurns；下文原机制批次的证据与未接卡说明保留为历史。
+
 开发接口为prototype-v157/core157、snapshot schema152、观察65/命令10/replay1。本页描述基础实现契约；实际执行、验证和下一项在[项目状态](project-status.md)及[机制清单](mechanism-backlog.md)。实现仍须国服校准，不代表完整正式卡池支持。
 
 ## 来源与范围

@@ -538,6 +538,10 @@ class Game:
         validate_overdraw_boundary(self)
         from .quest_hand_rewards import validate_boundary as validate_quest_hand_reward_boundary
         validate_quest_hand_reward_boundary(self)
+        from .minion_base_programs import validate_boundary as validate_minion_bases
+        validate_minion_bases(self)
+        from .fixed_reward_splits import validate_boundary as validate_fixed_reward_splits
+        validate_fixed_reward_splits(self)
         from .summon_quantities import validate_closed_events as validate_card_summon_events
         validate_card_summon_events(self)
         from .pool_summons import validate_boundary as validate_pool_summon_boundary,validate_closed_events as validate_pool_summon_events

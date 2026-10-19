@@ -151,6 +151,7 @@ class Registry:
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
+        self._minion_base_stats_profiles = {}
         self._kindred_profiles: dict[str, KindredProfile] = {}
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
@@ -349,6 +350,16 @@ class Registry:
 
     @property
     def native_stat_gain_profiles(self):return MappingProxyType(self._native_stat_gain_profiles)
+
+    @property
+    def minion_base_stats_profiles(self):return MappingProxyType(self._minion_base_stats_profiles)
+
+    def register_minion_base_stats_profile(self,profile):
+        self._require_mutable()
+        from .minion_base_programs import validate_profile
+        validate_profile(self,profile)
+        if profile.program_id in self._minion_base_stats_profiles:raise ValueError('Duplicate minion base program')
+        self._minion_base_stats_profiles[profile.program_id]=profile
 
     @property
     def remaining_mana_numbers_profiles(self):return MappingProxyType(self._remaining_mana_numbers_profiles)
@@ -1730,6 +1741,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .minion_base_programs import validate_profile as validate_minion_base_profile
+        for profile in self._minion_base_stats_profiles.values():validate_minion_base_profile(self,profile)
         from .consumed_cards import validate_profile as validate_consumption_profile
         for profile in self._consumption_profiles.values():
             validate_consumption_profile(self, profile)
@@ -2180,5 +2193,7 @@ class Registry:
                 if k != 'printed_rarities' or v} for i in sorted(self._target_predicates)]
         if self._player_target_rules:
             payload['player_target_rules'] = [asdict(self._player_target_rules[i]) for i in sorted(self._player_target_rules)]
+        if self._minion_base_stats_profiles:
+            payload['minion_base_stats_profiles']=[asdict(self._minion_base_stats_profiles[k])for k in sorted(self._minion_base_stats_profiles)]
         serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(serialized.encode("utf-8")).hexdigest()

@@ -236,6 +236,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
                             effect.investigation)
     r.state.next_order += 1
     player.player_effects.append(instance)
+    from .minion_base_programs import install as install_minion_base_program
+    install_minion_base_program(r,player.id,instance)
     if modifier_id is not None:
         from .costs import modify_cost
         modify_cost(r, AddCostModifier(3-player.id,

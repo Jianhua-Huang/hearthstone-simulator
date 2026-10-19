@@ -937,6 +937,27 @@ class OtherCardPlayLock:
 
 
 @dataclass(frozen=True)
+class MinionBaseStatsOrigin:
+    """Original persistent program; its base layer survives ordinary silence."""
+    program_id: str
+    player_id: int
+    instance_id: int
+    source_id: int
+    source_card_id: str
+    created_turn: int
+    entered_order: int
+    attack: int
+    health: int
+
+    def __post_init__(self):
+        _name(self.program_id,'minion base program');_name(self.source_card_id,'minion base source card')
+        for name in ('player_id','instance_id','source_id','created_turn','entered_order','health'):
+            _int(getattr(self,name),'minion base '+name,1)
+        _int(self.attack,'minion base Attack',0)
+        if self.player_id not in(1,2):raise ValueError('Invalid minion base program owner')
+
+
+@dataclass(frozen=True)
 class Enchantment:
     """Ordered numeric operation or a separate pure current-tribe identity change."""
 
@@ -962,8 +983,20 @@ class Enchantment:
     control_return_expiry: OwnerTurnExpiry | None = None
     hand_turn_discount: bool = False
     hand_discount_turn: int | None = None
+    minion_base_stats: MinionBaseStatsOrigin | None = None
 
     def __post_init__(self) -> None:
+        if self.minion_base_stats is not None:
+            if type(self.minion_base_stats)is not MinionBaseStatsOrigin:raise ValueError('Typed original base program required')
+            self.minion_base_stats.__post_init__()
+            if (self.label!='minion_base_stats' or self.remove_on_silence or
+                    self.source_id!=self.minion_base_stats.source_id or self.attack or self.health or self.cost or
+                    self.cost_minimum or self.payment is not None or self.hand_turn_discount or
+                    any(getattr(self,n)is not None for n in('expires_turn','magnetic_id','tribe_change','cthun_ritual',
+                        'control_return_player_id','owner_turn_expiry','hand_play_lock','control_return_expiry','hand_discount_turn',
+                        'set_attack','set_health','set_cost'))):
+                raise ValueError('Minion base layer must be independent, permanent and nonremovable by silence')
+        elif self.label=='minion_base_stats':raise ValueError('Minion base label lost its original program')
         _bool(self.hand_turn_discount, 'periodic hand discount')
         _optional_id(self.hand_discount_turn, 'last hand discount turn')
         if self.hand_turn_discount:
@@ -11684,6 +11717,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_overdraw_returns(state,registry)
     from .quest_hand_rewards import validate_shape as validate_quest_hand_rewards
     validate_quest_hand_rewards(state,registry)
+    from .minion_base_programs import validate_shape as validate_minion_base_programs
+    validate_minion_base_programs(state,registry)
     from .hand_deadlines import validate_shape as validate_hand_deadlines
     validate_hand_deadlines(state,registry)
     from .live_hand_spells import validate_shape as validate_live_hand_spells

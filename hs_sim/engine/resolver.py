@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v571'
+CORE_EFFECTS_VERSION = 'core-effects-v572'
 
 
 class Mechanics:
@@ -611,6 +611,8 @@ class Resolution:
             enter_hand(self.state, entity, previous_zone, hand_entry_reason)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
+        from .minion_base_programs import synchronize as synchronize_minion_bases
+        synchronize_minion_bases(self.state,self.registry)
         from .remaining_mana_numbers import synchronize as synchronize_remaining_numbers
         synchronize_remaining_numbers(self.state,self.registry,exclude_source=getattr(self,'_remaining_mana_payment_source',None))
         from .stat_auras import matches_card_identity, player_aura_targets
@@ -1393,6 +1395,11 @@ def set_stats(r, effect):
     if entity is None:
         r.stale(effect, effect.target_id)
         return
+    return _set_stats_on_entity(r,effect,entity)
+
+
+def _set_stats_on_entity(r,effect,entity,*,original_stats=None):
+    """Shared mutation after the caller has accepted its original live target."""
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     from .hero_health_history import snapshot as hero_health_snapshot
     health_before = hero_health_snapshot(entity)
@@ -1400,7 +1407,7 @@ def set_stats(r, effect):
         attack, health = entity.health, entity.attack
     else:
         attack, health = resolve_stat(entity, effect.attack), resolve_stat(entity, effect.health)
-    old_attack, old_health, old_max = entity.attack, entity.health, entity.max_health
+    old_attack, old_health, old_max = original_stats or (entity.attack, entity.health, entity.max_health)
     enchantment = Enchantment(attachment_id(r.state), source_id=effect.source_id,
                               set_attack=attack, set_health=health,
                               expires_turn=effect.expires_turn, label=type(effect).__name__)
@@ -2821,5 +2828,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_overdraw(mechanics)
     from .quest_hand_rewards import register as register_quest_hand_rewards
     register_quest_hand_rewards(mechanics)
+    from .fixed_reward_splits import register as register_fixed_reward_splits
+    register_fixed_reward_splits(mechanics)
     return mechanics
 

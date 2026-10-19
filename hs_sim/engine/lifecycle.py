@@ -211,10 +211,13 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
     initialize_instance(state, entity, definition, count=entry_herald_count)
     from .jade import initialize_instance as initialize_jade
     initialize_jade(entity, registry)
+    from .minion_base_programs import apply_to_entity as apply_minion_base_program
+    apply_minion_base_program(state,registry,entity)
     refresh_entity(entity)
 
 
 def reset_to_definition(state, entity, definition, registry=None, *, components=None, preserve_jade=False, preserve_cthun=False):
+    bases=[e for e in entity.enchantments if e.minion_base_stats is not None] if entity.card_id==definition.id else []
     jade_size = entity.jade_size if preserve_jade and entity.card_id == definition.id else None
     ritual = [e for e in entity.enchantments if e.cthun_ritual is not None] if preserve_cthun and entity.card_id == definition.id else []
     ritual_abilities = [a for a in entity.abilities if a.cthun_ritual is not None] if preserve_cthun and entity.card_id == definition.id else []
@@ -244,7 +247,7 @@ def reset_to_definition(state, entity, definition, registry=None, *, components=
     entity.doomed = entity.silenced = False
     entity.death_cause = None
     entity.starship_building = False
-    entity.enchantments = []
+    entity.enchantments = bases
     entity.hand_lifetime = None
     entity.choose_branch = None
     entity.preparation = None
@@ -277,6 +280,8 @@ def copy_attachments(state, source, destination, *, rebind_printed=False):
     destination.jade_size = source.jade_size if source.card_id == destination.card_id else None
     # Physical control returns belong to this resident, never to a new copy.
     copied = tuple(e for e in source.enchantments if e.control_return_player_id is None)
+    if not any(e.minion_base_stats is not None for e in copied):
+        copied=(*tuple(e for e in destination.enchantments if e.minion_base_stats is not None),*copied)
     enchantment_ids = {e.id: attachment_id(state) for e in copied}
     destination.enchantments = [replace(e, id=enchantment_ids[e.id]) for e in copied]
     from .prepare import copy_state
