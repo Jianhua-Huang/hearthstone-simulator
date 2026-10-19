@@ -10245,6 +10245,7 @@ class GameState:
     discovery_summon_history: list = field(default_factory=list)
     hand_choice_followups: list = field(default_factory=list)
     temporary_hands: list = field(default_factory=list)
+    future_hands: list = field(default_factory=list)
     hand_deadlines: list = field(default_factory=list)
     interactable_history: list = field(default_factory=list)
     next_recruit_summon_id: int = 1
@@ -11244,6 +11245,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_hand_followups(state)
     from .temporary_hands import validate_shape as validate_temporary_hands
     validate_temporary_hands(state,registry)
+    from .future_hand_returns import validate_shape as validate_future_hands
+    validate_future_hands(state,registry)
     from .hand_deadlines import validate_shape as validate_hand_deadlines
     validate_hand_deadlines(state,registry)
     from .recruit_summons import validate_history as validate_recruit_summon_history

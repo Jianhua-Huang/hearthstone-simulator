@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+露妮式手牌暂存使用`SendHandMinionsFuture(player_id, source_id)`；只捕获实际当前手牌随从，归还保留原实体及期间取得的牌。有限两回合/+5/+5、原开始续接和满手边界见[契约](m3-temporal-hand-return.md)。
+
 三次命中圣盾提供者使用`shield_durability.RULE`的有限印刷声明；次数属于原圣盾能力，仅实际破裂发布`shield_lost`。原授予、复制和玩家输入契约见[说明](m3-divine-shield-hits.md)，不以受伤后触发替代防护。
 
 辛达苟萨式原生费用使用有限friendly_arcane_spells及controller_other_dragon声明；重复源复用共享ARCANE/DRAGONS配置，原死亡种族筛选交精确Resurrect。资格、私有计划和旧范围保持见[契约](m3-arcane-dragon-fabled.md)。

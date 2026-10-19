@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v513'
+CORE_EFFECTS_VERSION = 'core-effects-v514'
 
 
 class Mechanics:
@@ -344,6 +344,8 @@ class Resolution:
             ended(self)
             from .temporary_hands import ended as end_temporary_hands
             end_temporary_hands(self)
+            from .future_hand_returns import ended as end_future_hands
+            end_future_hands(self)
         if _end_turn_guard is not None:
             from .end_turns import pass_guard
             pass_guard(self.state,_end_turn_guard,event)
@@ -1787,8 +1789,11 @@ def start_next_turn(r, effect):
     from .timed_keywords import expire
     expire(r, 'turn_started', r.state.turn, player.id)
     from .temporary_deck_hands import due_start,ExpireTemporaryDeckHands
-    if due_start(r.state):return [ExpireTemporaryDeckHands(),BeginTurnEvents()]
-    return [BeginTurnEvents()]
+    from .future_hand_returns import due as future_hands_due,ReturnFutureHands
+    startup=[]
+    if future_hands_due(r.state):startup.append(ReturnFutureHands())
+    if due_start(r.state):startup.append(ExpireTemporaryDeckHands())
+    return [*startup,BeginTurnEvents()]
 
 
 def begin_turn_events(r, effect):
@@ -2611,6 +2616,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_minion_families(mechanics)
     from .temporary_hands import register as register_temporary_hands
     register_temporary_hands(mechanics)
+    from .future_hand_returns import register as register_future_hands
+    register_future_hands(mechanics)
     from .hand_deadlines import register as register_hand_deadlines
     register_hand_deadlines(mechanics)
     from .starting_hands import register as register_starting_hands
