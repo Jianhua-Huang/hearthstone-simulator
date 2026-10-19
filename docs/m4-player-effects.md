@@ -72,3 +72,10 @@ v76复验说明：上文原批次契约和验收数字保留为历史；当前�
 PlayerAuraSpec新增显式scope，默认active_board保持；controlled_minion_cards要求具名家族并连续作用于受控的存储/场上普通随从，首次存储通知与休眠缓存仅接受原程序准确贡献。原生新兵来源、尚未适配成员的谓词边界与国服待校准项见[契约](m3-recruit-player-programs.md)。
 
 永久法术效果源用默认空spell_effects保存一个SpellEffectModifierSpec（明确物理法术、数值加法或一个额外效果单位），不能混入其他玩家程序。原CAST接受数值/次数、同一次施法内交付，费用仍独立；旧空字段不改指纹，见[魔网契约](m3-native-leylines.md)。
+
+
+## 艾维娜的月相周期
+
+EDR_895使用无duration的persistent程序，避免占用限额中的持续法术区域。原PlayerEffect.created_turn对应真实本人区间，后续第三次本人实际turn_started时消费该原实例，再通过AddCostModifier/CostSpec(set_to=1)永久作用于五类可使用卡牌；零费牌变为1费，英雄技能不在范围。没有新增时钟、计数状态或费用执行器，后来的抽取与创建仍按原费用查询。
+
+来源死亡、沉默、变形或转控不转移原程序所属玩家。重复战吼及不同时间安装产生独立实例和各自期限，消费后不在后续回合重复兑现；实际等待恢复与费用交付仍沿原解释器。后续三次本人开始窗口、额外回合、重复月相及与其他费用来源的精确叠加均为待M6本地政策；显示沿普通persistent标记，不新增完整时钟或来源分配的玩家DTO。

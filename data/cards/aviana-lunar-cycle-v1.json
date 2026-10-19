@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "batch": "K251-aviana-lunar-cycle",
+  "task": {
+    "schema": 1,
+    "batch": "K251-aviana-lunar-cycle",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_895"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "EDR_895e",
+      "EDR_895t"
+    ],
+    "official_ids": [
+      "EDR_895"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Aviana three-turn lunar cycle followed by persistent card cost one. Audit original owner turn windows, source-independent programs and existing player cost effects; only add a public capability if this real card requires it.",
+        "cards": [
+          "EDR_895"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/aviana_lunar_cycle_card.py",
+      "data/cards/aviana-lunar-cycle-v1.json",
+      "tests/test_aviana_lunar_cycle_card.py"
+    ],
+    "display_normalizations": {}
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_895",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k251-aviana-lunar-cycle\\official-cache-01\\115264-zh_CN.json",
+      "response_sha256": "1a96e04ec247561158da48c0227399417b51cd734cf60c71af2ddbe8383ab7b2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115264&locale=zh_CN",
+      "face": {
+        "id": 115264,
+        "collectible": 1,
+        "slug": "115264-aviana-elunes-chosen",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 11,
+        "attack": 7,
+        "manaCost": 9,
+        "name": "艾维娜，艾露恩钦选者",
+        "text": "<b>战吼：</b>开启为期三回合的月相演变。当满月升起时，在本局对战中你的卡牌法力值消耗为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8cc0c21e89af0696432440c4148b5af0004478ecd606f505996ffb7f4aba462.png",
+        "imageGold": "",
+        "flavorText": "百鸟之神对所有的空中生物都抱有特别的兴趣。哪怕是那些生有翅膀却不能飞的生物。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ee9f7e0567f972faf9f1cf0ad7ea5783079b10ff21b831713d6d0d467d2b29f.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115264&locale=zh_CN",
+        "sha256": "1a96e04ec247561158da48c0227399417b51cd734cf60c71af2ddbe8383ab7b2",
+        "bytes": 932,
+        "observed_at": "2026-10-19T06:32:57.544559+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_895",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k251-aviana-lunar-cycle\\official-cache-01\\115264-en_US.json",
+      "response_sha256": "ca185c898b3793431c5e7096011c027bc16113433b195ddefd3fc0dabe3b7b35",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115264&locale=en_US",
+      "face": {
+        "id": 115264,
+        "collectible": 1,
+        "slug": "115264-aviana-elunes-chosen",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 11,
+        "attack": 7,
+        "manaCost": 9,
+        "name": "Aviana, Elune's Chosen",
+        "text": "<b>Battlecry:</b> Start a three turn lunar cycle. When the Full Moon rises, your cards cost (1) this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72571a96e6475291262136f035f8b190b872ac734681c432002417439b7824d0.png",
+        "imageGold": "",
+        "flavorText": "The Mistress of Birds takes a special interest in all creatures of the sky, as well as those who have wings but have yet to fly.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ee9f7e0567f972faf9f1cf0ad7ea5783079b10ff21b831713d6d0d467d2b29f.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115264&locale=en_US",
+        "sha256": "ca185c898b3793431c5e7096011c027bc16113433b195ddefd3fc0dabe3b7b35",
+        "bytes": 907,
+        "observed_at": "2026-10-19T06:32:57.134374+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_895",
+        "dbf_id": 115264,
+        "name": "艾维娜，艾露恩钦选者",
+        "name_en": "Aviana, Elune's Chosen",
+        "text": "<b>战吼：</b>开启为期三回合的月相演变。当满月升起时，在本局对战中你的卡牌法力值消耗为（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Start a three\nturn lunar cycle. When the\nFull_Moon rises, your cards\ncost (1) this game.",
+        "cost": 9,
+        "attack": 7,
+        "health": 11,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 11,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "dbb611d5f0be1bce69539f2c6397942d8dfb324714bbc4fed24c1a478b2b025e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_895",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "EDR_895e",
+        "dbf_id": 117527,
+        "name": "满月",
+        "name_en": "Full Moon",
+        "text": "你的卡牌法力值消耗为（1）点。",
+        "text_en": "Your cards cost (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e14b006200719c3b9fc3fe1a8c9c5868da14bb4790dcd3636b63148e6bf8def2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_895e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_895t",
+        "dbf_id": 115265,
+        "name": "月相演变",
+        "name_en": "Moon Cycle",
+        "text": "@回合后，你的卡牌法力值消耗为（1）点。",
+        "text_en": "In @ turns, your cards cost (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 6,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "977077dac202dfa767a4801f0683a6574e156433ba2575686081418345ffa28c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_895t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": []
+}
