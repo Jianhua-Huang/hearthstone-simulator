@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "batch": "K252-omen-attack-growth",
+  "task": {
+    "schema": 1,
+    "batch": "K252-omen-attack-growth",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_421"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "EDR_421"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Omen Rush/Windfury and native Deathrattle damage improving after it attacks. Lock the actual improvement formula and attack/death timing before adapting; reuse original combat facts and native memory rather than assume addition or doubling.",
+        "cards": [
+          "EDR_421"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/omen_attack_growth_card.py",
+      "data/cards/omen-attack-growth-v1.json",
+      "tests/test_omen_attack_growth_card.py"
+    ],
+    "display_normalizations": {
+      "EDR_421": {
+        "@": ""
+      }
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_421",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k252-omen-attack-growth\\official-cache-01\\113606-zh_CN.json",
+      "response_sha256": "4c3e92ce2d127b56fb0d770e7320c6381c982988a2364cfddcbabae0e1a2481b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113606&locale=zh_CN",
+      "face": {
+        "id": 113606,
+        "collectible": 1,
+        "slug": "113606-omen",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 10,
+        "name": "年兽",
+        "text": "<b>突袭</b>。<b>风怒</b> <b>亡语：</b>对所有敌人造成 点伤害。<i>（在本随从攻击后提升！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/80a821ffb3024b619d43e88e1ccc036d5c3d24c3ba6ea5bab9fb6b064a601473.png",
+        "imageGold": "",
+        "flavorText": "在上古之战中，他高深的智识未能幸免，遭受了恶魔邪能魔法的侵蚀。但艾露恩赐予他的祝福尚有遗存。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69b3cbfc2b7fc767e068b99f6bd2eca758b2f744009abcb403e40e651ad40273.png",
+        "keywordIds": [
+          11,
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113606&locale=zh_CN",
+        "sha256": "4c3e92ce2d127b56fb0d770e7320c6381c982988a2364cfddcbabae0e1a2481b",
+        "bytes": 948,
+        "observed_at": "2026-10-19T06:49:07.576845+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_421",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k252-omen-attack-growth\\official-cache-01\\113606-en_US.json",
+      "response_sha256": "416a966deb55b935128e5a25bafb83da06b8297d0f468a9b5e5355683a6a515d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113606&locale=en_US",
+      "face": {
+        "id": 113606,
+        "collectible": 1,
+        "slug": "113606-omen",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 10,
+        "name": "Omen",
+        "text": "<b>Rush</b>, <b>Windfury</b> <b>Deathrattle:</b> Deal damage to all enemies. <i>(Improves after this attacks!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18cb4b93608733cbd712586190d26c52b85ff9ba093e350e72beeb1237886667.png",
+        "imageGold": "",
+        "flavorText": "His tremendous wisdom could not survive the foul influence of the demons’ fel magic during the War of the Ancients. But his blessing from Elune did.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69b3cbfc2b7fc767e068b99f6bd2eca758b2f744009abcb403e40e651ad40273.png",
+        "keywordIds": [
+          11,
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=113606&locale=en_US",
+        "sha256": "416a966deb55b935128e5a25bafb83da06b8297d0f468a9b5e5355683a6a515d",
+        "bytes": 949,
+        "observed_at": "2026-10-19T06:49:07.490415+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_421",
+        "dbf_id": 113606,
+        "name": "年兽",
+        "name_en": "Omen",
+        "text": "<b>突袭</b>。<b>风怒</b>\n<b>亡语：</b>对所有敌人造成@点伤害。<i>（在本随从攻击后提升！）</i>",
+        "text_en": "[x]<b>Rush</b>, <b>Windfury</b>\n<b>Deathrattle:</b> Deal @ damage\nto all enemies. <i>(Improves\nafter this attacks!)</i>",
+        "cost": 10,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "2537": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "a65eae79f181f81ac5e115a61c4ee4729c015c5cf0438d0a69b3fb7130a3a2db",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_421",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": []
+}

@@ -2612,7 +2612,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2677,11 +2677,11 @@ class DeathrattleMemory:
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
-        self.spec.__post_init__();_int(self.growth_steps,'native summon growth steps',0)
+        self.spec.__post_init__();_int(self.growth_steps,'native Deathrattle growth steps',0)
         if type(self.draws) is not tuple or any(type(x) is not RememberedDraw for x in self.draws):
             raise ValueError('Native draw memory requires immutable physical draw links')
         for item in self.draws:item.__post_init__()
-        if (self.spec.kind=='summon_growth'and self.draws or self.spec.kind=='draw_link'and self.growth_steps):
+        if (self.spec.kind in ('summon_growth','attack_damage_growth')and self.draws or self.spec.kind=='draw_link'and self.growth_steps):
             raise ValueError('Native Deathrattle memory mixed unrelated payloads')
         ids=tuple(x.draw_id for x in self.draws)
         if ids!=tuple(sorted(set(ids))):raise ValueError('Remembered draws must retain their original unique order')

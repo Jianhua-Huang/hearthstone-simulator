@@ -267,6 +267,38 @@ def grow(r,effect):
     return ()
 
 
+def finish_attack(r, combat):
+    """Omen's own completed attack grows its native material before death capture."""
+    entity = r.state.entities.get(combat.attacker_id)
+    if entity is None or entity.kind != CardType.MINION:
+        return
+    spec = r.registry.card(entity.card_id).native_deathrattle
+    if spec is None or spec.kind != 'attack_damage_growth':
+        return
+    from .character_attacks import require_link
+    row = require_link(r.state, combat, accepted=True)
+    if row is None:
+        return  # Bare damage exchanges are not completed declared attacks.
+    fact = row.combat
+    if fact is None:
+        raise ResolutionError('Native attack growth lost its actual combat acceptance')
+    if (entity.zone != Zone.BOARD or not entity.active or
+            (entity.controller,entity.card_id,entity.zone_epoch,entity.entered_order) !=
+            (fact.player_id,fact.source_card_id,fact.source_zone_epoch,fact.source_entered_order)):
+        return
+    from .lifecycle import active_abilities
+    changes = {}
+    for ability in active_abilities(entity,'deathrattle'):
+        memory = ability.deathrattle_memory
+        if memory is None or memory.spec != spec:
+            continue
+        validate_ability(r.state,r.registry,ability)
+        changes[ability.id] = replace(ability,deathrattle_memory=replace(memory,growth_steps=memory.growth_steps+1))
+    if changes:
+        entity.abilities = [changes.get(a.id,a) for a in entity.abilities]
+        r.emit('deathrattle_memory_updated',source_id=entity.id,target_id=entity.id)
+
+
 def validate_draw_request(r,effect):
     if type(effect)is not DrawForDeathrattle:raise ResolutionError('Expected typed native draw request')
     effect.__post_init__();validate_reference(r.state,effect.reference,effect.ability_ids)
@@ -313,6 +345,12 @@ def public_summons(entity):
         health=a.deathrattle_memory.spec.health+a.deathrattle_memory.growth_steps)
         for a in entity.abilities if a.kind=='deathrattle'and not a.consumed and a.deathrattle_memory is not None
         and a.deathrattle_memory.spec.kind=='summon_growth']
+
+
+def public_damages(entity):
+    return [1+a.deathrattle_memory.growth_steps for a in entity.abilities
+        if a.kind=='deathrattle' and not a.consumed and a.deathrattle_memory is not None
+        and a.deathrattle_memory.spec.kind=='attack_damage_growth']
 
 
 def register(mechanics):

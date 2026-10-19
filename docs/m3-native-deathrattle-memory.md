@@ -23,3 +23,16 @@ DiscardRememberedDraw必须对应实际已开始、未完成/中断的亡语记�
 核心359/schema284包含三个有限效果及严格类型载荷；没有新GameState字段。新增AbilityInstance.deathrattle_memory字段进入保存，旧1～283必须使用原引擎。定义native_deathrattle=None仅从旧指纹/PIN视图省略，非空声明始终签名；旧定义asdict多出的None不能宣称字节未变。默认311指纹保持也不能推导跨schema存档兼容或国服完整支持。
 
 实际成功弃牌到后续重新获取另见[原生弃牌记忆](m3-native-discard-memory.md)。它在同一类型中新增discard_link，原两类解释器及本节范围保持；当前格式按该扩展及两份执行台账，不能沿用本节历史schema284载入新记忆。
+
+
+## 年兽的攻击后伤害成长
+
+年兽使用有限`NativeDeathrattleSpec('attack_damage_growth')`，沿既有`DeathrattleMemory.growth_steps`保存成长；初始伤害为完整原行的`TAG_SCRIPT_DATA_NUM_1=1`。每次攻击加1参考社区规则记录，精确国服窗口仍待M6，不把正文中的“提升”本身当作已验证的数值公式。
+
+原`finish_exchange`在健康结算完成后、死亡捕获前调用亡语记忆的有限原生钩子。它核对实际已交付/接受、尚未关闭的`CharacterAttackRecord`及原战斗玩家、卡面、区域epoch和入场次序，仅更新仍在场且仍有相应原生声明/附件的攻击者。致死本体仍可在原死亡捕获前增长；作为受击者、取消的攻击、无真实声明的兼容伤害交换不增长。成长通知位于原攻击终态记账之前，保持原终态游标紧邻`attack_finished`的约束。此致死窗口为内部政策，尚未用国服对局认证。
+
+真正亡语只读其已接受`DeathrattleCapture.ability`中的材料，交普通`DamageBatch`同时处理对手英雄和随从；不另写伤害、死亡或目标系统，不受法术伤害加成。当前复制保留并独立成长，基础复制/回手重置，沉默/变形移除原能力，转控后对当前敌方生效；进入休眠及醒来保留原材料。只有原生年兽卡面提供攻击成长，单独复制的亡语材料不凭空产生一个新攻击触发器，其他真实特殊授予按来源处理。
+
+官方[32.0.2热修](https://us.forums.blizzard.com/en/hearthstone/t/3202-hotfix-patch/143615/1)修复年兽复制的亡语成长；[32.4补丁](https://news.blizzard.com/en-us/article/24205006/32-4-patch-notes)明确修复休眠后亡语被重置。二者支持保留要求，不能取代固定37.0国服时序及全部特殊复制的校准。
+
+可见实体仅公开`deathrattle_damages`当前伤害数字列表，不输出成长次数、能力/攻击记录或完整记忆；对手隐藏手牌仍不可见。没有新增GameState字段或Effect类型。观察协议97、内核532/schema427识别本形状，旧存档使用原引擎；实际执行结果及下一项仅见原两份台账。

@@ -199,6 +199,8 @@ def modify_weapon(r, effect, *, pending_events=None):
 def finish_exchange(r, combat):
     from .weapon_wear import commit
     commit(r,combat)
+    from .deathrattle_memory import finish_attack
+    finish_attack(r,combat)
     from .hero_attack_history import complete
     complete(r,combat)
     from .character_attacks import complete as complete_character_attack
