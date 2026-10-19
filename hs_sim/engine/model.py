@@ -10105,10 +10105,15 @@ class OpeningState:
     selected: tuple[tuple[int, ...], tuple[int, ...]] = ((), ())
     completed: tuple[int, ...] = ()
     original_entities: tuple[tuple[int, ...], tuple[int, ...]] = ((), ())
+    deck_copies: tuple = ()
     starting_hands: tuple[tuple[StartingHandCard, ...], tuple[StartingHandCard, ...]] | None = None
 
     def __post_init__(self):
         _int(self.first_player, 'first_player')
+        from .opening_deck_copies import OpeningDeckCopy
+        if type(self.deck_copies) is not tuple or any(type(row) is not OpeningDeckCopy for row in self.deck_copies):
+            raise ValueError('Opening deck copies require complete immutable typed records')
+        for row in self.deck_copies:row.__post_init__()
         if self.first_player not in (1, 2) or self.stage not in ('dealing', 'mulligan', 'starting', 'complete'):
             raise ValueError('Invalid opening phase or first player')
         for name in ('offered', 'selected', 'original_entities'):

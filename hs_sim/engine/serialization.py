@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 461
+SNAPSHOT_SCHEMA_VERSION = 462
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1566,6 +1566,8 @@ def state_from_dict(value: dict) -> GameState:
         value['pending_choice'] = choice_from_dict(value['pending_choice'])
     if value['opening'] is not None:
         opening = _row(value['opening'], OpeningState)
+        from .opening_deck_copies import from_dict as opening_copy_from_dict
+        opening['deck_copies']=tuple(opening_copy_from_dict(row)for row in _list(opening['deck_copies'],'opening deck copies'))
         for field in ('offered', 'selected', 'original_entities'):
             opening[field] = tuple(tuple(_list(group, field)) for group in _list(opening[field], field))
         opening['completed'] = tuple(_list(opening['completed'], 'completed'))

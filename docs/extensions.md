@@ -1929,3 +1929,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 运行时牌库容量统一查询，原生成失败与物理销毁保留不同结果；发现原槽、临时归还及既有语义洗牌分别保留完整接受证明。容量、原实体生命周期及国服待校准边界见[契约](m3-runtime-deck-capacity.md)。
+
+
+阿扎莉娜式原20张构筑与预备复制分开保存：真实原域先冻结，普通复制分配后再发布完整原开局来源，后续钩子/发牌/选择仍走原解释器。原始身份、侧板及国服待校准边界见[契约](m3-opening-deck-copies.md)。

@@ -23,6 +23,7 @@ def deck_origin(state):
     """Immutable match facts shared by live and earlier captured rule states."""
     return (state.opening is not None,
         None if state.opening is None else state.opening.original_entities,
+        None if state.opening is None else state.opening.deck_copies,
         tuple(state.players[p].original_deck for p in (1, 2)),
         tuple(tuple((b.source_card_id, b.cards) for b in state.players[p].sideboards) for p in (1, 2)))
 

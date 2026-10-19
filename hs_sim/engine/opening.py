@@ -57,16 +57,18 @@ def opening_order(state):
 
 
 def hooks(r, phase):
+    from .opening_deck_copies import hook_pairs
     return [ExecuteOpeningHook(entity_id, player_id, hook.behavior_id)
             for player_id in opening_order(r.state)
-            for entity_id, card_id in zip(r.state.opening.original_entities[player_id - 1],
-                                          r.player(player_id).original_deck)
+            for entity_id, card_id in hook_pairs(r.state,player_id)
             for hook in r.registry.card(card_id).opening_hooks if hook.phase == phase]
 
 
 def begin_game(r, effect):
     if r.state.opening.stage != 'dealing':
         raise ResolutionError('Opening already began')
+    from .opening_deck_copies import prepare
+    prepare(r)
     for player in r.state.players.values():
         r.game._rng.shuffle(player.deck)
     r.emit('game_created', player_id=r.state.active_player, policy_id=r.game._match_setup.policy.id,
@@ -282,6 +284,8 @@ def validate_opening_boundary(game):
         return
     if opening is None:
         raise ValueError('Constructed match requires an opening record')
+    from .opening_deck_copies import validate_boundary as validate_deck_copies
+    validate_deck_copies(game)
     from .starting_hands import validate_boundary as validate_starting_hands
     validate_starting_hands(game)
     if setup.first_player is not None and setup.first_player != opening.first_player:

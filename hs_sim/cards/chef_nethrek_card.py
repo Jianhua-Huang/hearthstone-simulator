@@ -36,10 +36,8 @@ def load_batch():
 
 def register_chef_nethrek_card(registry):
     def opening(c):
-        window = c.state.opening
-        original = () if window is None else window.original_entities[c.player_id-1]
-        if (window is None or window.stage != 'dealing' or c.source_id not in original or
-                c.state.players[c.player_id].original_deck[original.index(c.source_id)] != ROOT):
+        from hs_sim.engine.opening_deck_copies import is_hook_source
+        if not is_hook_source(c.state,c.source_id,c.player_id,ROOT):
             raise ResolutionError('Chef requires its actual original before-deal source')
         return (CheckDeckCondition(c.player_id, CONDITION, (AddPlayerEffect(c.player_id, PROGRAM, c.source_id),)),)
 

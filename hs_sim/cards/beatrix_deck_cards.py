@@ -29,11 +29,12 @@ def load_batch():
 def register_beatrix_deck_cards(registry):
     def opening(c):
         state=c.state;player=state.players[c.player_id];window=state.opening
-        if (window is None or window.stage!='dealing' or c.source_id not in window.original_entities[c.player_id-1]
-                or player.original_deck[window.original_entities[c.player_id-1].index(c.source_id)]!=ROOT):
+        from hs_sim.engine.opening_deck_copies import is_hook_source,is_copied_source
+        if not is_hook_source(state,c.source_id,c.player_id,ROOT):
             raise ResolutionError('Beatrix requires her actual original before-deal opening source')
         profile=registry.sideboards[ROOT]
         band=next((b for b in player.sideboards if b.source_card_id==ROOT),None)
+        if band is None and is_copied_source(state,c.source_id,c.player_id):return ()
         if band is None or band.taken_slots or deck_copy_selection_error(profile,band.cards,registry) is not None:
             raise ResolutionError('Beatrix lost her original valid construction selection')
         entries=tuple(AddToDeck(c.player_id,band.cards[0],source_id=c.source_id)for _ in range(profile.copies))
