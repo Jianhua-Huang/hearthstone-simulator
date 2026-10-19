@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 430
+SNAPSHOT_SCHEMA_VERSION = 431
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -84,6 +84,8 @@ def _integer(value, name, minimum=None):
 
 def player_effect_from_dict(value):
     row=_row(value,PlayerEffect)
+    row['aura_duration_grants'] = tuple(_ability_from_dict(a)
+        for a in _list(row['aura_duration_grants'], 'direct Aura original duration grants'))
     row['adaptations'] = tuple(_list(row['adaptations'], 'remembered Adaptations'))
     if row['source_allocation'] is not None:
         from .allocation_facts import allocation_from_payload

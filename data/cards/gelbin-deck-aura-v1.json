@@ -1,0 +1,1560 @@
+{
+  "schema": 1,
+  "batch": "K256-gelbin-deck-auras",
+  "task": {
+    "schema": 1,
+    "batch": "K256-gelbin-deck-auras",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "TIME_009"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [
+      "CATA_480",
+      "EDR_259e1",
+      "END_011",
+      "JAIL_327",
+      "TIME_009t1",
+      "TIME_009t2",
+      "TIME_700",
+      "TTN_851"
+    ],
+    "evidence_only": [
+      "BE_146",
+      "GDB_140",
+      "LEG_TTN_908",
+      "TIME_009t2e",
+      "TOY_808",
+      "TTN_854",
+      "TTN_908",
+      "VAC_922",
+      "WW_341"
+    ],
+    "official_ids": [
+      "TIME_009"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Put one actual physical card for each Aura identity from the original deck into the battlefield without a cast; register the exact two-card Fabled companion family. Shared original program installation preserves genuine duration grants.",
+        "cards": [
+          "TIME_009"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/gelbin_deck_aura_card.py",
+      "data/cards/gelbin-deck-aura-v1.json",
+      "tests/test_gelbin_deck_aura_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "TIME_009",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-parallel-p69-20261018\\reviewed-official-original\\119918-zh_CN.json",
+      "response_sha256": "10e2a31a22359e82437a4592789bacd167e7da8b72ac203a3534d108da73e56b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119918&locale=zh_CN",
+      "face": {
+        "id": 119918,
+        "collectible": 1,
+        "slug": "119918-gelbin-of-tomorrow",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 8,
+        "name": "明日巨匠格尔宾",
+        "text": "<b>奇闻</b> <b>战吼：</b>将每种不同的光环从你的牌库中置入战场。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bde3ffce8d74e559adce64992e192f7d651b7f1e2c4bf3c8541f55897469671c.png",
+        "imageGold": "",
+        "flavorText": "在某条未来的时间线中，格尔宾发明出了用机甲保存大脑的方法，并带领侏儒一族奔向了以圣光为能源的光明未来。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fe9011046202c8e20d6dd0f9c6980790e14f7224d1c1bc97e43fd52dc4c3e6c.png",
+        "childIds": [
+          119919,
+          119920
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119919,
+          119920
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119918&locale=zh_CN",
+        "sha256": "10e2a31a22359e82437a4592789bacd167e7da8b72ac203a3534d108da73e56b",
+        "bytes": 1014,
+        "observed_at": "2026-10-17T17:13:35.156007+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_009",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-parallel-p69-20261018\\reviewed-official-original\\119918-en_US.json",
+      "response_sha256": "a5186eb650249a364490f8fb7e1b728dc9b4e4de2563b96053ec19b3b111e1c3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119918&locale=en_US",
+      "face": {
+        "id": 119918,
+        "collectible": 1,
+        "slug": "119918-gelbin-of-tomorrow",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 8,
+        "name": "Gelbin of Tomorrow",
+        "text": "<b>Fabled</b> <b>Battlecry:</b> Put one of each Aura from your deck into the battlefield.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e9ee0052e99a4765d9b90fb4999a13249d4fee5fc9129e404ce8569d52c5d1c.png",
+        "imageGold": "",
+        "flavorText": "In one future, Gelbin invents a way to preserve his brain in a suit of robotic armor, and leads the gnomes into a bright future powered by the Holy Light.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fe9011046202c8e20d6dd0f9c6980790e14f7224d1c1bc97e43fd52dc4c3e6c.png",
+        "childIds": [
+          119919,
+          119920
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119919,
+          119920
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119918&locale=en_US",
+        "sha256": "a5186eb650249a364490f8fb7e1b728dc9b4e4de2563b96053ec19b3b111e1c3",
+        "bytes": 1014,
+        "observed_at": "2026-10-17T17:13:35.166147+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_009",
+        "dbf_id": 119918,
+        "name": "明日巨匠格尔宾",
+        "name_en": "Gelbin of Tomorrow",
+        "text": "<b>奇闻</b>\n<b>战吼：</b>将每种不同的光环从你的牌库中置入战场。",
+        "text_en": "[x]<b>Fabled</b>\n<b>Battlecry:</b> Put one of each\nAura from your deck into\nthe battlefield.",
+        "cost": 8,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "6ed78aab7f3f8f0f70c7bc34ae769d4e5bdd8b71c0b0817396fbb3dca5d136d4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_009",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_480",
+        "dbf_id": 123691,
+        "name": "沙怒光环",
+        "name_en": "Sandfury Aura",
+        "text": "你的随从的回合结束效果会触发两次。持续@回合。",
+        "text_en": "Your minions' end of turn effects trigger twice. Lasts @ turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "e3391535c55527ab6b2813ca7c4b548bb3cb2e4f47e5c07741b7cbb7a2779cf3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_480",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "EDR_259e1",
+        "dbf_id": 116020,
+        "name": "乌索尔的光环",
+        "name_en": "Ursol's Aura",
+        "text": "在你的回合结束时，施放{0}。持续@回合。",
+        "text_en": "At the end of your turn, cast {0}. Lasts @ turns.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "4be98dd0bbceae6c79b3dc19bb0d9dd7f3fd4d0b0695f5821ac2a1d1d0a3288e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_259e1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "END_011",
+        "dbf_id": 121150,
+        "name": "加速光环",
+        "name_en": "Acceleration Aura",
+        "text": "在你的回合开始时，获得一个临时的法力水晶。持续\n@回合。",
+        "text_en": "At the start of your turn, gain a temporary Mana Crystal. Lasts @ turns.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 18,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "MINI_SET": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "4120a6833a28557febda1bac10f2d4420eed3eb8d5c937d3e60e1cef7de184c7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid",
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "END_011",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "JAIL_327",
+        "dbf_id": 126617,
+        "name": "援军光环",
+        "name_en": "Reinforcement Aura",
+        "text": "在你的回合结束时，从你的牌库中召唤一个法力值消耗小于或等于（2）点的随从。持续@回合。",
+        "text_en": "[x]At the end of your turn,\nsummon a minion from\nyour deck that costs (2)\nor less. Lasts @ turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "40af22f5ed8f1da74588e49bf802e2db97fe200bbd5ad8aae6ad6f3d11ba609c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_327",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TIME_009t1",
+        "dbf_id": 119919,
+        "name": "侏儒光环",
+        "name_en": "Gnomish Aura",
+        "text": "<b>可交易</b>\n在你的回合结束时，为你的所有角色恢复#4点生命值。持续@回合。",
+        "text_en": "[x]<b>Tradeable</b>\nAt the end of your turn,\nrestore #4 Health to all your\ncharacters. Lasts @ turns.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "TRADEABLE": 1,
+          "1724": 1,
+          "DECK_ACTION_COST": 1,
+          "OBJECTIVE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "PALADIN_AURA": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "405b5b9ad0e3c6533d12b37c6b4ab59e4db7454056fd7c70c5484975c5089c9e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_009t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TIME_009t2",
+        "dbf_id": 119920,
+        "name": "梅卡托克的光环",
+        "name_en": "Mekkatorque's Aura",
+        "text": "<b>可交易</b>\n在你的回合结束时，随机使一个友方随从获得+4/+4和<b>圣盾</b>。持续@回合。",
+        "text_en": "[x]<b>Tradeable</b>. At the end\nof your turn, give a random\nfriendly minion +4/+4 and\n<b>Divine Shield</b>. Lasts @ turns.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "TRADEABLE": 1,
+          "1724": 1,
+          "DECK_ACTION_COST": 1,
+          "OBJECTIVE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "PALADIN_AURA": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "85c3f2fcb0c5a4608e0be4db28b3a6dc14f698b553c9c1a626a853be23714dbb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_009t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TIME_700",
+        "dbf_id": 120644,
+        "name": "时序光环",
+        "name_en": "Chronological Aura",
+        "text": "在你的回合\n结束时，召唤一条3/5并具有<b>嘲讽</b>的龙。持续@回合。",
+        "text_en": "At the end of your turn, summon a 3/5 Dragon with <b>Taunt</b>.\nLasts @ turns.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a78cad3560cf0eb8c3a923105410727752e4951a11cc3bd6240ac5fb8d1990f2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_700",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TTN_851",
+        "dbf_id": 98053,
+        "name": "抗性光环",
+        "name_en": "Resistance Aura",
+        "text": "你对手法术的法力值消耗增加（1）点。持续@个敌方回合。",
+        "text_en": "Your opponent's\nspells cost (1) more.\nLasts @ enemy turns.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "8e67ef876f7901b4b5ff84f8f943fbe71692859d3e71c509ef0b77453b37e1c6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "TTN_851",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_146",
+        "dbf_id": 130673,
+        "name": "誓缚光环",
+        "name_en": "Oathbinder's Aura",
+        "text": "在你施放一个神圣法术后，召唤一个属性值等同于其法力值消耗并具有<b>圣盾</b>的士兵。持续3回合。",
+        "text_en": "[x]After you cast a Holy spell,\nsummon a Soldier with stats\nequal to its Cost and <b>Divine\nShield</b>. Lasts 3 turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b806aec51e8f1ec0eda74d94adabbd9596498b053788788e63ac2c9740e63d1e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_146",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "GDB_140",
+        "dbf_id": 111651,
+        "name": "星空光环",
+        "name_en": "Celestial Aura",
+        "text": "当你的场上仅有1个随从时，其攻击力和生命值为10。持续@回合。",
+        "text_en": "While you have exactly 1 minion in play, its Attack and Health are 10. Lasts @ turns.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 6,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "02fd10178be66581ae56f4f39f248c4f8442ef3426dcbe1877e94eaca161803a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "GDB_140",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "LEG_TTN_908",
+        "dbf_id": 130586,
+        "name": "十字军光环",
+        "name_en": "Crusader Aura",
+        "text": "每当一个友方随从攻击时，使其获得+2/+1。持续@回合。",
+        "text_en": "Whenever a friendly minion attacks, give it +2/+1. Lasts @ turns.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "858": 96917,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 96917,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "96917",
+              "type": "Int",
+              "value": "96917"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "c6e569c7fc378838fc5fa1f1f7500a96eb9eb505c426b01139a9ba3a376f7db8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "LEG_TTN_908",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TIME_009t2e",
+        "dbf_id": 120815,
+        "name": "为了诺莫瑞根！",
+        "name_en": "For Gnomeregan!",
+        "text": "+4/+4。",
+        "text_en": "+4/+4.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 5,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b24a336e0b047b77a08cf2622d320e9c77dcffaf70850b7203bab4d5ca895682",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_009t2e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TOY_808",
+        "dbf_id": 103629,
+        "name": "工匠光环",
+        "name_en": "Crafter's Aura",
+        "text": "在你的回合结束时，随机召唤一个法力值消耗为（6）的随从。持续@回合。",
+        "text_en": "At the end of your turn, summon a random 6-Cost minion.\nLasts @ turns.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 7,
+          "CARD_SET": 1897,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "7cade3644b1bb9962444a4ec6d2ddc75c506e4205c51ea37e24c8f0ca46d556c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TOY_808",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TTN_854",
+        "dbf_id": 98056,
+        "name": "发明家的光环",
+        "name_en": "Inventor's Aura",
+        "text": "你的机械的法力值消耗减少（1）点。持续@回合。",
+        "text_en": "Your Mechs cost (1) less. Lasts @ turns.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "71983e97e0eb6cc39accb34c416b82ce7ca870c33d2112b3171feb52d224d6ed",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "TTN_854",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "TTN_908",
+        "dbf_id": 96917,
+        "name": "十字军光环",
+        "name_en": "Crusader Aura",
+        "text": "每当一个友方随从攻击时，使其获得+2/+1。持续@回合。",
+        "text_en": "Whenever a friendly minion attacks, give it +2/+1. Lasts @ turns.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 4,
+          "CARD_SET": 1810,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "60a7c5177a2a9289758b20c048a8c4f760338d62d0b1b7dee2a6c5b5530b26dc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TTN_908",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "VAC_922",
+        "dbf_id": 106446,
+        "name": "救生光环",
+        "name_en": "Lifesaving Aura",
+        "text": "在你的回合结束时，获取一张法力值消耗为（1）的可以使随从获得+1/+2的防晒霜。\n持续@回合。",
+        "text_en": "At the end of your turn, get a 1-Cost Sunscreen that gives +1/+2. Lasts @ turns.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "7bb2239c7fa1a9e904ddcfa22b2d8544b049c5e069204f1c464e7890834a1545",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "VAC_922",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "WW_341",
+        "dbf_id": 100195,
+        "name": "警务光环",
+        "name_en": "Deputization Aura",
+        "text": "你最左边的随从拥有+2攻击力和<b>吸血</b>。持续@回合。",
+        "text_en": "Your left-most minion has +2 Attack and <b>Lifesteal</b>. Lasts @ turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1892,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "db9b3fc9c480b3a65c19c5382b18de411ded4aa3e34401ee837aae71dafb2a9b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "WW_341",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  ],
+  "skipped": [],
+  "aura_ids": [
+    "BE_146",
+    "CATA_480",
+    "EDR_259e1",
+    "END_011",
+    "GDB_140",
+    "JAIL_327",
+    "LEG_TTN_908",
+    "TIME_009t1",
+    "TIME_009t2",
+    "TIME_700",
+    "TOY_808",
+    "TTN_851",
+    "TTN_854",
+    "TTN_908",
+    "VAC_922",
+    "WW_341"
+  ],
+  "fabled_companions": [
+    "TIME_009t1",
+    "TIME_009t2"
+  ]
+}

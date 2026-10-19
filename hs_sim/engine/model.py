@@ -8344,8 +8344,13 @@ class PlayerEffect:
     spell_aura_id: int | None = None
     spell_aura_card_id: str | None = None
     spell_aura_player_id: int | None = None
+    aura_duration_grants: tuple[AbilityInstance, ...] = ()
 
     def __post_init__(self):
+        from .aura_duration import validate_grants
+        validate_grants(self.aura_duration_grants)
+        if self.aura_duration_grants and (self.aura_duration_cast_id is not None or self.remaining_turns is None):
+            raise ValueError('Direct Aura duration requires its independent timed physical material')
         _optional_id(self.spell_aura_id, 'player original spell Aura')
         if (self.spell_aura_id is None) != (self.spell_aura_card_id is None):
             raise ValueError('Spell Aura requires both original identity and public spell face')
@@ -10931,7 +10936,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 raise ValueError('Sigil lost its declared original health source')
             from .aura_duration import duration as original_aura_duration
             maximum_duration = original_aura_duration(state, registry, spec, effect.source_id,
-                                                       player.id, effect.aura_duration_cast_id)
+                                                       player.id, effect.aura_duration_cast_id,
+                                                       grants=effect.aura_duration_grants)
             if (effect.source_id not in state.entities or effect.created_turn > state.turn or
                     effect.entered_order >= state.next_order or
                     (spec.duration is None) != (effect.remaining_turns is None) or

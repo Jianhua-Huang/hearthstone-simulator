@@ -10,6 +10,7 @@ from .pools import GenerateFromPool
 KIND = 'aura_duration_bonus'
 EVENT = 'aura_duration_accepted'
 BIND_EVENT = 'aura_duration_bound'
+DIRECT_BIND_EVENT = 'aura_duration_direct_bound'
 
 
 def validate_grants(grants):
@@ -88,6 +89,12 @@ def grants_hash(grants):
     return canonical_hash([asdict(a) for a in grants])
 
 
+def grants_json(grants):
+    import json
+    validate_grants(grants)
+    return json.dumps([asdict(a) for a in grants], ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+
+
 def validate_events(game):
     from .hero_health_history import effective_events
     events = tuple(effective_events(game._events))
@@ -117,8 +124,13 @@ def validate_events(game):
     if any(set(dict(e.data)) != {'instance_id','cast_id','added_event'} or
             any(type(v) is not int or v < 1 for v in dict(e.data).values()) for e in bindings):
         raise ValueError('Aura instance requires its exact original duration receipt')
-    cursors = [dict(e.data)['added_event'] for e in bindings]
-    instance_ids = [dict(e.data)['instance_id'] for e in bindings]
+    direct = tuple(e for e in events if e.kind == DIRECT_BIND_EVENT)
+    if any(set(dict(e.data)) != {'instance_id','added_event','grants_json'} or
+            any(type(dict(e.data)[k]) is not int or dict(e.data)[k] < 1 for k in ('instance_id','added_event')) or
+            type(dict(e.data)['grants_json']) is not str for e in direct):
+        raise ValueError('Direct Aura instance requires its complete original physical duration receipt')
+    cursors = [dict(e.data)['added_event'] for e in (*bindings, *direct)]
+    instance_ids = [dict(e.data)['instance_id'] for e in (*bindings, *direct)]
     if (len(cursors) != len(set(cursors)) or set(cursors) != set(added) or
             len(instance_ids) != len(set(instance_ids))):
         raise ValueError('Aura instances lost their complete original installation receipts')
@@ -136,15 +148,42 @@ def validate_events(game):
                 not accepted[record.id] < original.sequence < event.sequence):
             raise ValueError('Aura installation differs from its original duration cast')
         by_instance[data['instance_id']] = (data['cast_id'],record.player_id,record.source_id,spec.id)
+    direct_by_instance = {}
+    for event in direct:
+        import json
+        from .serialization import _ability_from_dict
+        data = dict(event.data)
+        grants = tuple(_ability_from_dict(row) for row in json.loads(data['grants_json']))
+        validate_grants(grants)
+        original = added[data['added_event']]; material = dict(original.data)
+        spec = aura_spec(game.registry, material['card_id'])
+        validate_carrier(game._state, game.registry, material['card_id'], CardType.SPELL, grants)
+        if (not grants or data['grants_json'] != grants_json(grants) or
+                (event.source_id,event.player_id,event.target_id,event.amount) !=
+                    (original.source_id,original.player_id,None,0) or
+                (material['effect_key'],material['remaining_turns']) != (spec.id,spec.duration+len(grants)) or
+                not original.sequence < event.sequence):
+            raise ValueError('Direct Aura duration differs from its original physical installation')
+        direct_by_instance[data['instance_id']] = (event.player_id,event.source_id,spec.id,data['grants_json'])
     for player in game._state.players.values():
         for instance in player.player_effects:
             expected = by_instance.get(instance.id)
             if expected is not None or instance.aura_duration_cast_id is not None:
                 if expected != (instance.aura_duration_cast_id,player.id,instance.source_id,instance.spec_id):
                     raise ValueError('Live Aura lost or changed its original duration installation binding')
+            direct_expected = direct_by_instance.get(instance.id)
+            if direct_expected is not None or instance.aura_duration_grants:
+                if direct_expected != (player.id,instance.source_id,instance.spec_id,grants_json(instance.aura_duration_grants)):
+                    raise ValueError('Live Aura lost or changed its original direct duration installation binding')
 
 
-def duration(state, registry, spec, source_id, player_id, cast_id):
+def duration(state, registry, spec, source_id, player_id, cast_id, *, grants=()):
+    validate_grants(grants)
+    if grants:
+        if cast_id is not None:
+            raise ValueError('Aura duration cannot mix direct physical and spell-cast proofs')
+        validate_carrier(state, registry, spec.card_id, CardType.SPELL, grants)
+        return spec.duration + len(grants)
     if cast_id is None:
         return spec.duration
     from .spell_casts import cast_record
@@ -163,6 +202,14 @@ def maximum_duration(registry, instance, state=None, player_id=None):
     structural bound. State-aware consumers also verify the original cast.
     """
     spec = registry.player_effect(instance.spec_id)
+    if instance.aura_duration_grants:
+        validate_grants(instance.aura_duration_grants)
+        aura_spec(registry, spec.card_id)
+        if instance.aura_duration_cast_id is not None:
+            raise ValueError('Aura duration cannot combine direct and cast material')
+        if state is not None:
+            validate_carrier(state, registry, spec.card_id, CardType.SPELL, instance.aura_duration_grants)
+        return spec.duration + len(instance.aura_duration_grants)
     if instance.aura_duration_cast_id is None:
         return spec.duration
     if spec.kind != 'aura' or spec.duration is None or spec.next_turn_end:

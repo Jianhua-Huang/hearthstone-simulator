@@ -4,7 +4,7 @@ from dataclasses import dataclass, replace
 from .effects import AddCostModifier, Effect
 from .errors import ResolutionError
 from .lifecycle import attachment_id
-from .model import CardType, CostModifier, CostSpec, PlayerEffect, _int, _name
+from .model import AbilityInstance, CardType, CostModifier, CostSpec, PlayerEffect, _int, _name
 from .secrets import area_count
 
 
@@ -62,6 +62,7 @@ class AddPlayerEffect(Effect):
     capture_health_source: bool = False
     aura_duration_cast_id: int | None = None
     spell_aura_id: int | None = None
+    aura_duration_grants: tuple[AbilityInstance, ...] = ()
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
@@ -75,6 +76,10 @@ class AddPlayerEffect(Effect):
             _int(self.aura_duration_cast_id, 'Aura original duration cast', 1)
         if self.spell_aura_id is not None:
             _int(self.spell_aura_id, 'Aura original spell', 1)
+        from .aura_duration import validate_grants
+        validate_grants(self.aura_duration_grants)
+        if self.aura_duration_grants and self.aura_duration_cast_id is not None:
+            raise ValueError('Aura duration cannot combine cast and direct-entry proofs')
 
 
 @dataclass(frozen=True)
@@ -181,6 +186,13 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         raise ResolutionError('Native Aura requires its own actual controlled spell source')
     if spec.stored_spell != (effect.spell_aura_id is not None):
         raise ResolutionError('Aura program requires its original stored spell material')
+    if effect.aura_duration_grants:
+        from .aura_duration import validate_carrier
+        from .model import Zone
+        validate_carrier(r.state, r.registry, source.card_id, source.kind, effect.aura_duration_grants)
+        if (source.zone != Zone.GRAVEYARD or tuple(a for a in source.abilities if a.kind == 'aura_duration_bonus') !=
+                effect.aura_duration_grants):
+            raise ResolutionError('Direct Aura duration lost its original physical grants')
     if spec.duration is not None and (timed_count(player, r.registry) >= r.rules.max_ongoing_effects or
                                      area_count(player, r.registry) >= r.rules.max_secret_zone):
         r.emit('player_effect_failed', source_id=effect.source_id, player_id=effect.player_id,
@@ -190,7 +202,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     allocation=SourceAllocationFact.capture(r.state,source).payload() if effect.capture_health_source or spec.capture_health_source else None
     from .aura_duration import duration as original_aura_duration
     remaining = original_aura_duration(r.state, r.registry, spec, source.id, player.id,
-                                      effect.aura_duration_cast_id)
+                                      effect.aura_duration_cast_id, grants=effect.aura_duration_grants)
     if spec.next_turn_end:
         # The end event captures countdowns before its reactions. An instance
         # installed by those reactions cannot consume that already captured end.
@@ -209,7 +221,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
                             r.state.turn, r.state.next_order, remaining,allocation,
                             effect.player_id if allocation is not None else None, modifier_id, adaptations,
                             effect.aura_duration_cast_id, effect.spell_aura_id, spell_card_id,
-                            player.id if effect.spell_aura_id is not None else None)
+                            player.id if effect.spell_aura_id is not None else None, effect.aura_duration_grants)
     r.state.next_order += 1
     player.player_effects.append(instance)
     if modifier_id is not None:
@@ -225,6 +237,10 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         from .aura_duration import BIND_EVENT
         r.emit(BIND_EVENT, source_id=source.id, player_id=player.id, instance_id=instance.id,
                cast_id=instance.aura_duration_cast_id, added_event=added.sequence)
+    if instance.aura_duration_grants:
+        from .aura_duration import DIRECT_BIND_EVENT, grants_json
+        r.emit(DIRECT_BIND_EVENT, source_id=source.id, player_id=player.id, instance_id=instance.id,
+            added_event=added.sequence, grants_json=grants_json(instance.aura_duration_grants), _capture=False)
 
 
 def matching(r, effect):

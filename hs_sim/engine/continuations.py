@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .deck_auras import PutStoredAura
+        if type(value) is PutStoredAura and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         from .spell_auras import CastAuraSpell, validate_instance
         if type(value) is CastAuraSpell and self.origin_state is not None:
             validate_instance(self.origin_state, self.registry, value.instance)
