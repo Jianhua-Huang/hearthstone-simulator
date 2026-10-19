@@ -1,5 +1,7 @@
 """The existing pre-event state normalization, without events or callbacks."""
-def normalize_event_state(state, reason, *, registry=None, cause_source=None, cause_target_id=None):
+def normalize_event_state(state, reason, *, registry=None, cause_source=None, cause_target_id=None, remaining_mana_payment_source=None):
+    from .remaining_mana_numbers import synchronize
+    synchronize(state,registry,exclude_source=remaining_mana_payment_source)
     from .death_causes import sync_state
     from .keyword_auras import refresh_hand_keyword_auras, refresh_conditional_keywords
     from .stat_auras import refresh_weapon_auras

@@ -93,6 +93,8 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('native_producer_quantity',native_producer_quantity_card_id=definition.id)
     if registry is not None and definition.id in registry.native_stat_gain_profiles:
         add('native_stat_gain',native_stat_gain_card_id=definition.id)
+    if registry is not None and definition.id in registry.remaining_mana_numbers_profiles:
+        add('remaining_mana_numbers',remaining_mana_card_id=definition.id)
     if definition.cleave:
         add('cleave')
     if definition.on_play:

@@ -508,6 +508,12 @@ def pay_cost(r, player, source):
 
 
 def pay_quote(r, player, source, quote, *, exclude_held_source=False):
+    from .remaining_mana_numbers import payment_window
+    with payment_window(r,source.id):
+        return _pay_quote(r,player,source,quote,exclude_held_source=exclude_held_source)
+
+
+def _pay_quote(r, player, source, quote, *, exclude_held_source=False):
     """Apply the shared resource plan; preserve each original capture boundary."""
     if (quote.entity_id, quote.player_id) != (source.id, player.id):
         raise ResolutionError('Payment quote has a different payer or source')

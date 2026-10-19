@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v564'
+CORE_EFFECTS_VERSION = 'core-effects-v565'
 
 
 class Mechanics:
@@ -296,7 +296,8 @@ class Resolution:
         normalize_event_state(self.state, getattr(self, '_cause_reason', kind),
             registry=self.registry,
             cause_source=getattr(self, '_cause_source', None),
-            cause_target_id=getattr(self, '_cause_target_id', None))
+            cause_target_id=getattr(self, '_cause_target_id', None),
+            remaining_mana_payment_source=getattr(self,'_remaining_mana_payment_source',None))
         from .invoke import synchronize as synchronize_galakrond
         synchronize_galakrond(self.state, self.registry)
         from .mana_ranks import synchronize as synchronize_mana_ranks
@@ -604,6 +605,8 @@ class Resolution:
             enter_hand(self.state, entity, previous_zone, hand_entry_reason)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
+        from .remaining_mana_numbers import synchronize as synchronize_remaining_numbers
+        synchronize_remaining_numbers(self.state,self.registry,exclude_source=getattr(self,'_remaining_mana_payment_source',None))
         from .stat_auras import matches_card_identity, player_aura_targets
         # Calculate simultaneously, using the old settled health to select sources.
         # Resetting health auras before selecting sources breaks mutual support.
@@ -1864,6 +1867,8 @@ def silence(r, effect):
     entity = board_minion(r, effect)
     if entity is None:
         return
+    from .remaining_mana_numbers import before_silence
+    before_silence(entity,r.registry)
     had_shield=Keyword.DIVINE_SHIELD in entity.keywords
     removed = tuple(e for e in entity.enchantments if e.remove_on_silence)
     remove_attachments(entity, enchantment_predicate=lambda e: e.remove_on_silence,

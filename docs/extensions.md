@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+开锁匠式原生数字使用RemainingManaNumbersProfile和普通BattlecryPayload的冻结标量；费用/属性修饰、支付和伤害共用。手牌范围及付款排除见[契约](m3-remaining-mana-numbers.md)。
+
 原生获得属性后的额外奖励使用NativeStatGainProfile及既有属性附件，不另写卡牌结算器。冻结复制、所在区域与原接受工作的有限表达见[契约](m3-native-stat-gain.md)。
 
 真实永久追加伤害使用原PlayerEffectDamage并携带可选original_target_result；按PlayerHealthOrigin识别本程序族输出，不能用卡名或原实体ID排除，也不能忽略旧驻留后重投目标。既有数值管线与保存边界见[契约](m3-bounded-player-damage.md)。

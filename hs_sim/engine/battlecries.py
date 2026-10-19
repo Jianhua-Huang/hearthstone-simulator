@@ -12,7 +12,8 @@ from .model import BattlecryPayload, BattlecryRecord, CardType
 
 
 def capture(entity):
-    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id,a.carved_spell_id)
+    from .remaining_mana_numbers import battlecry_number
+    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id,a.carved_spell_id,battlecry_number(entity,a))
                  for a in active_abilities(entity, 'battlecry'))
 
 

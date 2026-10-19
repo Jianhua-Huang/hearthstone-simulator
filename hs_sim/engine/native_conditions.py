@@ -28,6 +28,8 @@ def validate_definition(card):
 
 
 def validate_carrier(registry,card_id,kind,abilities,components=()):
+    from .remaining_mana_numbers import validate_carrier as validate_remaining_carrier
+    validate_remaining_carrier(registry,card_id,kind,abilities,components)
     from .native_stat_gains import validate_carrier as validate_stat_gain_carrier
     validate_stat_gain_carrier(registry,card_id,kind,abilities,components)
     card=registry.card(card_id);rows=tuple(a for a in abilities if a.native_condition is not None)

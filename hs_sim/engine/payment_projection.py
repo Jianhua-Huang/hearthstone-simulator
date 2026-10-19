@@ -154,7 +154,7 @@ def _project_payment(before, quote, *, registry=None, cause_reason=None, cause_s
     for event in plan.health_events:
         normalize_event_state(work, cause_reason if cause_reason is not None else event.kind,
             registry=registry,
-            cause_source=cause_source, cause_target_id=cause_target_id)
+            cause_source=cause_source, cause_target_id=cause_target_id,remaining_mana_payment_source=quote.entity_id)
         if capture_stages:
             captures.append(PaymentCapture(event, deepcopy(work)))
     consume_quoted_modifiers(work, quote, origin='payment', exclude_held_source=True)
@@ -164,7 +164,7 @@ def _project_payment(before, quote, *, registry=None, cause_reason=None, cause_s
         **corpse_spend_data(work, plan.corpse_spend_id)).items())))
     normalize_event_state(work, cause_reason if cause_reason is not None else event.kind,
         registry=registry,
-        cause_source=cause_source, cause_target_id=cause_target_id)
+        cause_source=cause_source, cause_target_id=cause_target_id,remaining_mana_payment_source=quote.entity_id)
     if capture_stages:
         captures.append(PaymentCapture(event, deepcopy(work)))
         return PaymentProjection(resource_state, tuple(captures), deepcopy(work))
