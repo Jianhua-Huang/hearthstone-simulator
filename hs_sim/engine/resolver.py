@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v570'
+CORE_EFFECTS_VERSION = 'core-effects-v571'
 
 
 class Mechanics:
@@ -845,6 +845,8 @@ class Resolution:
                     raise ResolutionError('Native destroyed body lost its actual original event')
                 generated = self.registry.behavior(work.behavior_id)(work.context)
                 continuation = self.collect(generated)
+                from .quest_hand_rewards import wrap_reward as wrap_quest_hand_reward
+                continuation = wrap_quest_hand_reward(self,work,continuation)
                 if any(not isinstance(item, Effect) for item in continuation):
                     raise ResolutionError(f'{work.behavior_id} returned a non-Effect')
                 # A behavior is a pure planner, not an additional effect checkpoint.
@@ -886,6 +888,8 @@ class Resolution:
             deathrattles = [] if defer else self.death_checkpoint()
             self.refresh_auras(include_dying=defer)
             triggers, self._captured = [*stat_gain_work,*self._captured], []
+            from .quest_hand_rewards import schedule as schedule_quest_rewards
+            schedule_quest_rewards(self,queue,continuation,triggers)
             from .overdraw_returns import schedule as schedule_overdraw
             schedule_overdraw(self,queue,continuation,triggers)
             hero_mode = self.state.active_hero_lethal_root_id is not None
@@ -2815,5 +2819,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_nythendra(mechanics)
     from .overdraw_returns import register as register_overdraw
     register_overdraw(mechanics)
+    from .quest_hand_rewards import register as register_quest_hand_rewards
+    register_quest_hand_rewards(mechanics)
     return mechanics
 

@@ -285,7 +285,7 @@ class QuestTests(unittest.TestCase):
         candidates=resolve_candidates(self.r,GenerationContext('test','experimental'),'qpool',PoolQuery(class_mode='any'))
         self.assertEqual([c.card_id for c in candidates],['DRG_008'])
 
-    def test_completed_reward_card_burns_when_hand_is_full(self):
+    def test_completed_reward_card_waits_when_hand_is_full(self):
         # Fill after committing the final progress spell, before the gain resolves.
         self.spell('fill_gain',lambda c:[*[AddToHand(1,'plain') for _ in range(10)],
                                          Buff(c.state.players[1].hero_id,attack=6)])
@@ -293,7 +293,12 @@ class QuestTests(unittest.TestCase):
         for card in ('SW_428','attack4','attack5','fill_gain'):self.play(g,card)
         self.assertFalse(g.state.players[1].quests)
         self.assertFalse(any(g.state.entities[i].card_id=='SW_428t4' for i in g.state.players[1].hand))
-        self.assertTrue(any(g.state.entities[i].card_id=='SW_428t4' for i in g.state.players[1].graveyard));self.check(g)
+        self.assertFalse(any(g.state.entities[i].card_id=='SW_428t4' for i in g.state.players[1].graveyard))
+        row,=g.state.quest_hand_rewards
+        self.assertEqual((row.phase,row.request.instruction.card_id),('pending','SW_428t4'))
+        self.play(g,'plain')
+        self.assertEqual(g.state.quest_hand_rewards[0].phase,'delivered')
+        self.assertTrue(any(g.state.entities[i].card_id=='SW_428t4' for i in g.state.players[1].hand));self.check(g)
 
     def test_progress_effect_rejects_boolean_negative_and_bad_key_amount(self):
         for args in ((1,1,0,True),(1,1,0,-1),(1,1,0,2,'key'),(1,1,-1,1)):

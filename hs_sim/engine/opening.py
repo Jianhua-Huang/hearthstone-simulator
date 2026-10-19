@@ -199,10 +199,10 @@ def add_to_hand(r, effect):
     create_hand_card(r, effect)
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False):
-    """Shared generated materialization; public AddToHand still returns no work."""
-    player = r.player(effect.player_id)
-    from .carved_spells import validate_creation as validate_carved_creation, install as install_carved
+def validate_hand_card(r, effect, *, origin_entity_id=None):
+    """Validate the original creation recipe before allocation or deferral."""
+    r.player(effect.player_id)
+    from .carved_spells import validate_creation as validate_carved_creation
     validate_carved_creation(r.registry,effect)
     definition = r.registry.card(effect.card_id)
     if not definition.hand_playable:
@@ -216,8 +216,17 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
             raise ResolutionError('Generated historical origin does not exist')
     from .costs import validate_creation_cost
     validate_creation_cost(r.state, effect, (definition,))
-    from .card_creation import validate_creation, install
+    from .card_creation import validate_creation
     validate_creation(r.state, effect, (definition,))
+    return definition
+
+
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False):
+    """Shared generated materialization; public AddToHand still returns no work."""
+    definition = validate_hand_card(r,effect,origin_entity_id=origin_entity_id)
+    player = r.player(effect.player_id)
+    from .card_creation import install
+    from .carved_spells import install as install_carved
     zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
     entity = r.create_entity(player.id, definition.id, zone)
     entity.origin_entity_id = origin_entity_id

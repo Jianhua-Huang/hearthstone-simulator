@@ -130,6 +130,8 @@ def schedule(r,queue,continuation,triggers):
 
 
 def refill(r,work):
+    from .quest_hand_rewards import ready as quest_reward_ready
+    if quest_reward_ready(r.state,r.rules):return ()
     player_id=next((p for p in (r.state.active_player,3-r.state.active_player)if available(r.state,r.rules,p)),None)
     if player_id is None:return ()
     candidates=available(r.state,r.rules,player_id);before=r.game._rng.getstate()
