@@ -240,6 +240,7 @@ class HealthOp(StrEnum):
     CAP = 'cap'
     FLOOR = 'floor'
     PREVENT = 'prevent'
+    SPELL_IMMUNITY = 'spell_immunity'
     WEAPON_DURABILITY = 'weapon_durability'
     SHIELD_HITS = 'shield_hits'
     NATURE_GROWTH = 'nature_growth'
@@ -277,9 +278,15 @@ class HealthRule:
         _int(self.denominator, 'health rule denominator', 1)
         if self.operation != HealthOp.SCALE and self.denominator != 1:
             raise ValueError('Only scaling rules have a denominator')
-        if self.operation in (HealthOp.PREVENT, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY,
+        if self.operation in (HealthOp.PREVENT, HealthOp.SPELL_IMMUNITY, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY,
                               HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON) and self.amount != 0:
             raise ValueError('Routing, conversion and prevention have no numeric operand')
+        if self.operation == HealthOp.SPELL_IMMUNITY and (
+                self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
+                self.source_relation != 'any' or self.target_relation != 'self' or
+                self.target_kinds != (CardType.MINION,) or self.damage_kinds != (DamageKind.SPELL,) or
+                len(self.schools) != 1 or self.healing_kinds or self.redirect_to is not None):
+            raise ValueError('School immunity requires a native self-minion incoming spell-school profile')
         if self.operation in (HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON) and (
                 self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
                 self.source_relation != 'friendly' or self.target_relation != 'self' or
@@ -7622,6 +7629,26 @@ class TemporaryHeroPowerReturn:
 
 
 @dataclass(frozen=True)
+class SpellManaBudgetLink:
+    """One sequential printed-mana pick, connected to its actual prior CAST."""
+    pool_id: str
+    school: SpellSchool
+    budget: int
+    remaining: int
+    source_card_id: str
+    previous_cast_id: int | None = None
+
+    def __post_init__(self):
+        _name(self.pool_id,'spell mana pool');_name(self.source_card_id,'original budget source')
+        if type(self.school) is not SpellSchool:raise ValueError('Spell budget requires a printed school')
+        _int(self.budget,'initial spell mana',1);_int(self.remaining,'remaining spell mana',1)
+        if self.remaining>self.budget:raise ValueError('Remaining spell mana exceeds its original budget')
+        _optional_id(self.previous_cast_id,'previous original budget cast')
+        if self.previous_cast_id is None and self.remaining!=self.budget:
+            raise ValueError('Initial spell budget lost part of its original amount')
+
+
+@dataclass(frozen=True)
 class SpellCastRecord:
     """One spell execution attempt, independent of payment and hand plays."""
     id: int
@@ -7662,8 +7689,15 @@ class SpellCastRecord:
     held_higher_cost: HeldHigherCostProgress | None = None
     quest_parent_cast_id: int | None = None
     spell_aura_id: int | None = None
+    mana_budget: SpellManaBudgetLink | None = None
 
     def __post_init__(self):
+        if self.mana_budget is not None:
+            if type(self.mana_budget) is not SpellManaBudgetLink:raise ValueError('Cast budget requires its typed original link')
+            self.mana_budget.__post_init__()
+            if self.origin!='effect' or self.caster_id is None or self.from_zone is not None or (
+                    self.mana_budget.previous_cast_id is not None and self.mana_budget.previous_cast_id>=self.id):
+                raise ValueError('Budget casts require an attributed generated spell and an earlier parent')
         _optional_id(self.spell_aura_id, 'cast original spell Aura')
         _optional_id(self.quest_parent_cast_id, 'quest parent cast')
         if self.quest_parent_cast_id is not None and (

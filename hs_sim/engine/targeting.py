@@ -43,6 +43,9 @@ def accepts_target(state, registry, source, definition, target_id, *, context_fa
         if not automatic and Keyword.ELUSIVE in target.keywords and definition.kind in (CardType.SPELL, CardType.HERO_POWER):
             return False
         from .combat import is_immune
+        from .spell_mana_budget import blocks_enemy_spell
+        if not automatic and target.controller!=source.controller and blocks_enemy_spell(target,definition):
+            return False
         if not automatic and target.controller != source.controller and (is_immune(state, target) or Keyword.STEALTH in target.keywords):
             return False
     try:

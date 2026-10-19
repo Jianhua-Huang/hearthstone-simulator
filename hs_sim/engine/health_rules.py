@@ -346,7 +346,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         amount = packet.amount + bonus
         packet = replace(packet, amount=min(amount, packet.numeric_limit) if packet.numeric_limit is not None else amount,
                          spell_bonus=bonus)
-    phases = {HealthOp.ADD: 0, HealthOp.SCALE: 1, HealthOp.SET: 2, HealthOp.CAP: 3, HealthOp.PREVENT: 4}
+    phases = {HealthOp.ADD: 0, HealthOp.SCALE: 1, HealthOp.SET: 2, HealthOp.CAP: 3, HealthOp.PREVENT: 4, HealthOp.SPELL_IMMUNITY: 4}
     numeric = sorted((row for row in rules if row[3].operation in phases),
                      key=lambda row: (row[3].layer != HealthLayer.SOURCE, phases[row[3].operation], row[0]))
     for row in numeric:
@@ -367,7 +367,7 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         if packet.numeric_limit is not None:
             amount = min(amount, packet.numeric_limit)
         packet = replace(packet, amount=amount, rule_ids=(*packet.rule_ids, row[0]),
-                         prevented=rule.operation == HealthOp.PREVENT)
+                         prevented=rule.operation in (HealthOp.PREVENT,HealthOp.SPELL_IMMUNITY))
         if packet.prevented:
             break
     from .health_floors import capture_plan

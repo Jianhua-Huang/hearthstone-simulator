@@ -1898,3 +1898,6 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 神秘无面者式两奥秘检视复用ChooseFromPools的有限secret_pair交付，保留原上下文完整候选和私有菜单，再将原选定/余项分别交原CastSpell为双方施放。默认手牌交付、普通施法/奥秘/回滚和回放保持，见[契约](m3-secret-pair-casts.md)。
+
+
+真实法术总法力预算按印刷费用逐次查询完整候选、交原CAST，再以原实际施法记录连接余款；单学派免疫复用原健康防止与手动目标入口。保存、稀疏池、来源及未完成树人刻印边界见[契约](m3-printed-spell-budget.md)。

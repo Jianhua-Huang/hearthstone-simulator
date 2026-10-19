@@ -10,7 +10,7 @@ import json
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError
 from .lifecycle import active_abilities
-from .model import CardType, Keyword, SpellCastRecord, TargetMode, Zone, _name
+from .model import CardType, Keyword, SpellCastRecord, SpellManaBudgetLink, TargetMode, Zone, _name
 from .zones import CardReference, reference_entity, reference_value, source_exists
 from .automatic_targets import (AutomaticTargetPreference, AutomaticTargetProof,
     PreferredMinionTarget, validate_preferred_source)
@@ -48,6 +48,10 @@ def validate_target_origins(game):
         data=dict(event.data)
         record=cast_record(game._state,data.get('cast_id'))
         expected={'cast_id','target_origin'} | ({'quest_parent_cast_id'} if record.quest_parent_cast_id is not None else set())
+        if record.mana_budget is not None:
+            from .spell_mana_budget import receipt
+            expected.add('mana_budget')
+            if data.get('mana_budget')!=receipt(record):raise ValueError('Budget CAST lost its original start receipt')
         if set(data)!=expected or data.get('quest_parent_cast_id')!=record.quest_parent_cast_id:
             raise ValueError('Cast start requires its exact original target receipt')
         if (record.id in seen or
@@ -198,8 +202,13 @@ class CastSpell(Effect):
 
     branch_id: str | None = None
     target_preference: AutomaticTargetPreference | PreferredMinionTarget | None = None
+    mana_budget: SpellManaBudgetLink | None = None
 
     def __post_init__(self):
+        if self.mana_budget is not None:
+            if type(self.mana_budget) is not SpellManaBudgetLink or self.source_id is None:
+                raise ValueError('Budget CAST requires its exact original typed link and caster')
+            self.mana_budget.__post_init__()
         if self.branch_id is not None: _name(self.branch_id, 'branch')
         _player(self.player_id); _name(self.card_id, 'cast spell'); _source(self.source_id)
         policies(self.targeting, self.target_id, self.choices, self.target_preference)
@@ -298,15 +307,22 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_selection=target_proof.selection if target_proof is not None else None,
         target_origin=capture_target_origin(r.state,target_id),
-        held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id)
+        held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id,
+        mana_budget=getattr(effect,'mana_budget',None))
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     if draw_id is not None:
         from .draw_casts import note_cast
         note_cast(r, draw_id, record.id)
+    budget_data={}
+    if record.mana_budget is not None:
+        from .spell_mana_budget import receipt,validate_record
+        validate_record(r.state,r.registry,record)
+        budget_data={'mana_budget':receipt(record)}
     r.emit('spell_cast_started', source_id=entity.id, target_id=target_id, player_id=record.player_id,
            cast_id=record.id,target_origin=target_origin_receipt(record),
-           **({'quest_parent_cast_id':quest_parent_cast_id} if quest_parent_cast_id is not None else {}))
+           **({'quest_parent_cast_id':quest_parent_cast_id} if quest_parent_cast_id is not None else {}),
+           **budget_data)
     if failure:
         r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
                cast_id=record.id, reason=failure)

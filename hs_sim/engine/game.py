@@ -581,6 +581,8 @@ class Game:
         validate_assembly_boundary(self)
         from .pool_offers import validate_boundary as validate_offer_boundary
         validate_offer_boundary(self)
+        from .spell_mana_budget import validate_boundary as validate_spell_budget_boundary
+        validate_spell_budget_boundary(self)
         from .cross_zone import validate_boundary as validate_cross_zone_boundary
         validate_cross_zone_boundary(self)
         from .hand_progress import validate_defining_history
