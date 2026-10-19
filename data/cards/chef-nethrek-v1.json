@@ -1,0 +1,235 @@
+{
+  "batch": "K245-chef-nethrek",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_860",
+        "dbf_id": 126045,
+        "name": "主厨奈瑟雷克",
+        "name_en": "Chef Neth'rek",
+        "text": "<b>对战开始时：</b>如果你的套牌中只有法力值消耗小于或等于（3）点的牌，在五回合后将你的法力值变为\n10点！",
+        "text_en": "[x]<b>Start of Game:</b> If your deck\nonly has cards that cost (3)\nor less, set your Mana to\n10 after five turns!",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "START_OF_GAME_KEYWORD": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "4818": 1,
+          "CHEF_NETHREK_REQUIREMENT": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4818"
+          }
+        ]
+      },
+      "record_sha256": "b6a409452a32c2692c62e17eed51e00203c509e20516bb4b0787ae76bb49ca90",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_860",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_860e",
+        "dbf_id": 126046,
+        "name": "好汤",
+        "name_en": "Good Soup",
+        "text": "5回合后将你的法力值变为10点。",
+        "text_en": "Set your Mana to 10 after 5 turns.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "CARD_SET": 1988,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "691d393ccaac58e66a1a78ce06e405f98488b2ededecf9c0556f9a0ae533e5c3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_860e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_860",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k245-chef-nethrek\\official-cache-01\\126045-zh_CN.json",
+      "response_sha256": "bd419d275fbb89e2821f5c9166e885e0804d6e97b7b63fbdcceda1573e695a21",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126045&locale=zh_CN",
+      "face": {
+        "id": 126045,
+        "collectible": 1,
+        "slug": "126045-chef-nethrek",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "主厨奈瑟雷克",
+        "text": "<b>对战开始时：</b>如果你的套牌中只有法力值消耗小于或等于（3）点的牌，在五回合后将你的法力值变为 10点！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99b4ce9ea4e1cfb27dafafc5f12eb1da1939f0496e3837219ec439b12241148f.png",
+        "imageGold": "",
+        "flavorText": "奈瑟雷克曾是一处小型蛛魔聚落的首领——那是巫妖王入侵之前的事了。现在，她似乎只想安稳地当她的主厨，监狱的守卫们也忘了她的危险之处……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177ccd1fd1682d0a826ffce2d6a3ffbcf6ef9dc9cff592520f9dc8a18b123b57.png",
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126045&locale=zh_CN",
+        "sha256": "bd419d275fbb89e2821f5c9166e885e0804d6e97b7b63fbdcceda1573e695a21",
+        "bytes": 1030,
+        "observed_at": "2026-10-19T04:44:37.047116+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_860",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k245-chef-nethrek\\official-cache-01\\126045-en_US.json",
+      "response_sha256": "d2eb81c46765747eee080fa14069ff35c9612f1a00fee8eca0b8de2db09dffc5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126045&locale=en_US",
+      "face": {
+        "id": 126045,
+        "collectible": 1,
+        "slug": "126045-chef-nethrek",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Chef Neth'rek",
+        "text": "<b>Start of Game:</b> If your deck only has cards that cost (3) or less, set your Mana to 10 after five turns!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1ca33c66a155e8d40512a3248c9c528ada0b988171ec5ad971176076c3bed9d.png",
+        "imageGold": "",
+        "flavorText": "Neth’rek was the leader of a small Nerubian settlement - but that was before the Lich King came. Appearing content with her life as head chef, the wardens have forgotten to see her as a threat…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177ccd1fd1682d0a826ffce2d6a3ffbcf6ef9dc9cff592520f9dc8a18b123b57.png",
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126045&locale=en_US",
+        "sha256": "d2eb81c46765747eee080fa14069ff35c9612f1a00fee8eca0b8de2db09dffc5",
+        "bytes": 985,
+        "observed_at": "2026-10-19T04:44:37.062172+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "condition": "Original full starting deck printed costs at most three, not current costs. Preserve raw CHEF_NETHREK_REQUIREMENT=4 as source evidence; do not reinterpret printed three.",
+    "deadline": "Local policy: fifth genuine owner natural end. Earlier B85b sixth-owner-start was explicitly synthetic, not native evidence. No opponent or extra end-body executions advance an independent counter.",
+    "assignment": "Consume exact original persistent instance once, then fresh InvokeBehavior captures current maximum and originally spent mana. Reuse ChangeManaCrystals(10-current_max, filled=True), RefreshMana(captured_spent), shared cap/overload/temporary policies and normal end cleanup.",
+    "calibration": "Current player end-five observation and preview report differ from initial developer wording of start-six. Exact CN37 boundary, account/reaction ordering and visibility remain M6.",
+    "formal_pool_complete": false,
+    "cn_calibrated": false
+  }
+}

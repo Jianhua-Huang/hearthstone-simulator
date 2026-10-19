@@ -430,7 +430,7 @@ TransformStoredIntoCopy通过双CardReference保持接收者实体/归属/区域
 原手牌跨回合期限由ScheduleHandRemoval保存完整原引用和目标本人真实结束计数，GameState.hand_deadlines保留不可变根与关闭收据。原CardReference、owner_turn_history、RemoveFromGame、选择帧/回滚/恢复/回放及私有玩家投影共享；准确原手牌生命期与三结束窗为待国服校准的明确内部政策。只在可见手牌槽显示剩余结束次数，完整根与控制队列私有；见[期限契约](m3-hand-deadlines.md)。实际进度与下一项只在两份台账。
 
 
-起始套牌印刷费用上限由冻结DeckCostCeilingCondition(cost_limit,cost_basis,scope)声明，只允许非负整数、printed/starting，原构筑全部牌型逐条查验后≤比较，当前改费或换牌不重写原事实。原PoolQuery/CheckDeckCondition与四类既有声明共享，无新持久字段、计时器或执行器；见[费用上限契约](m3-starting-deck-cost-ceiling.md)。JAIL_860完整raw仅证据，完整原生延迟/法力政策另行界定；实际验收与下一项只在两份台账。
+起始套牌印刷费用上限由冻结DeckCostCeilingCondition(cost_limit,cost_basis,scope)声明，只允许非负整数、printed/starting，原构筑全部牌型逐条查验后≤比较，当前改费或换牌不重写原事实。原PoolQuery/CheckDeckCondition与四类既有声明共享，无新持久字段、计时器或执行器；见[费用上限契约](m3-starting-deck-cost-ceiling.md)。JAIL_860真实消费者复用实际开局、持久玩家实例、原本人回合事实、精确实例消费和普通法力操作；第五本人自然结束为待M6的本地政策，不提升旧合成第六开始夹具为官方证据。实际验收与下一项只在两份台账。
 
 
 当前牌库所有随从费用严格比较由冻结DeckMinionCostCondition(cost,comparison,cost_basis,scope)声明，只允许非负整数、less/greater、local/current，等号不满足，非随从排除但所有定义完整查验。原local_cost/CheckDeckCondition和SummonFromZone共享，原三类条件及其查询主体保持；只有AV_100隔离适配，派发时来源保存费用捕为阈值、条件原执行窗读牌库，命中只招募一个原实体。无新模块、持久字段、效果、执行器、事件、动作或组合，新增一个四字段typed payload；见[随从费用比较契约](m3-current-deck-minion-cost-comparison.md)。引入时prototype-v239/core-effects-v233，schema215和观察/命令/回放保持。精确CN层/窗/空子集待校准，实际结果与下一项只在两份台账。
