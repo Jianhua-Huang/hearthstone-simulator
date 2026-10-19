@@ -230,6 +230,10 @@ class FrameCodec:
         from .deathrattle_memory import DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy
         if type(value) in (DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
+        from .retained_spell_damage import DamageReturningSpell
+        from .spent_spells import ReturnSpentSpell
+        if (type(value) is DamageReturningSpell or type(value) is ReturnSpentSpell and value.native_value is not None) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .zones import CopyCard
         from .discard_history import DiscardRecord,validate_base_copy
         if type(value) is CopyCard and type(value.card) is DiscardRecord and self.origin_state is not None:

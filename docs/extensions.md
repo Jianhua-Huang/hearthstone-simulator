@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+烈火炙烤式效果注册`ReturningDamageProfile(card_id, initial_amount)`，实际施法返回`DamageReturningSpell(cast_id, original_minion_reference)`。余量和同一原牌的`ReturnSpentSpell`由公共模块处理，不在卡牌代码里扫描事件或生成替代副本，见[契约](m3-retained-spell-damage.md)。
+
 原生亡语可声明`NativeDeathrattleSpec('dormancy_link')`。真实战吼用`ImprisonForDeathrattle`绑定原记录/引用/附件，亡语从原`DeathrattleCapture`返回`AwakenRememberedDormancy`；不可扫描事件或寻找同名目标，见[契约](m3-native-imprisonment.md)。
 
 地标亡语可用原`GrantDeathrattle(location_id, behavior_id, source_id)`；只接受活跃的场上地标。欢迎回家先用`RefreshLocation`清冷却，亡语以原`SummonCause.capture(context)`交给完整池召唤，见[契约](m4-locations.md#欢迎回家的亡语授予)。

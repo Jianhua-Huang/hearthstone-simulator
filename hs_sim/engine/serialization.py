@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 421
+SNAPSHOT_SCHEMA_VERSION = 422
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -291,8 +291,9 @@ def _ability_from_dict(value):
     if row['deathrattle_inherited_from'] is not None:
         row['deathrattle_inherited_from']=tuple(_list(row['deathrattle_inherited_from'],'inherited physical Deathrattle'))
     if row['spell_base_value'] is not None:
-        from .model import SpellBaseDamageValue
-        row['spell_base_value']=SpellBaseDamageValue(**_row(row['spell_base_value'],SpellBaseDamageValue))
+        from .model import SpellBaseDamageValue,SpellRemainderDamageValue
+        typ = SpellRemainderDamageValue if 'cast_id' in row['spell_base_value'] else SpellBaseDamageValue
+        row['spell_base_value']=typ(**_row(row['spell_base_value'],typ))
     if row['spell_stat_value'] is not None:
         from .model import SpellStatGrantValue
         value = _row(row['spell_stat_value'], SpellStatGrantValue)

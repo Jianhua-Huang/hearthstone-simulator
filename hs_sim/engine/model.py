@@ -2672,6 +2672,19 @@ class SpellBaseDamageValue:
 
 
 @dataclass(frozen=True)
+class SpellRemainderDamageValue:
+    card_id: str
+    amount: int
+    cast_id: int
+    damage_id: int
+
+    def __post_init__(self):
+        _name(self.card_id, 'retained damage spell')
+        for key in ('amount', 'cast_id', 'damage_id'):
+            _int(getattr(self, key), 'retained spell damage '+key, 1)
+
+
+@dataclass(frozen=True)
 class SpellStatGrantValue:
     """Frozen native bonuses and the genuine destruction that created them."""
     card_id: str
@@ -2766,7 +2779,7 @@ class AbilityInstance:
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
     native_producer_quantity_card_id: str | None = None
-    spell_base_value: SpellBaseDamageValue | None = None
+    spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
 
@@ -2807,7 +2820,7 @@ class AbilityInstance:
         elif self.native_producer_quantity_card_id is not None:
             raise ValueError('Only native quantity sources carry their declaration')
         if self.kind=='spell_base_value':
-            if type(self.spell_base_value)is not SpellBaseDamageValue:raise ValueError('Native spell requires its complete typed base value')
+            if type(self.spell_base_value) not in (SpellBaseDamageValue, SpellRemainderDamageValue):raise ValueError('Native spell requires its complete typed base value')
             self.spell_base_value.__post_init__()
             from dataclasses import fields
             allowed={'id','kind','source_id','origin','spell_base_value'}

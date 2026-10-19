@@ -15,6 +15,9 @@ class SpellBaseDamageProfile:
 
 
 def validate_profile(registry,profile):
+    from .retained_spell_damage import ReturningDamageProfile, validate_profile as validate_returning
+    if type(profile) is ReturningDamageProfile:
+        return validate_returning(registry,profile)
     from .destruction_spell_values import SpellStatGrantProfile, validate_profile as validate_stat_profile
     if type(profile) is SpellStatGrantProfile:
         return validate_stat_profile(registry, profile)
@@ -29,6 +32,10 @@ def validate_ability(state,registry,ability):
         from .destruction_spell_values import validate_ability as validate_stat_ability
         return validate_stat_ability(state, registry, ability)
     ability.__post_init__()
+    from .model import SpellRemainderDamageValue
+    if type(ability.spell_base_value) is SpellRemainderDamageValue:
+        from .retained_spell_damage import validate_ability as validate_returning
+        return validate_returning(state,registry,ability)
     if ability.kind!='spell_base_value':raise ValueError('Expected native physical spell value')
     value=ability.spell_base_value;profile=registry.spell_value_profiles.get(value.card_id)
     if profile is None:raise ValueError('Native spell value lost its complete registered declaration')
@@ -67,7 +74,10 @@ def validate_carrier(state,registry,card_id,kind,abilities):
 
 
 def install(state,registry,entity,value):
-    from .model import SpellStatGrantValue
+    from .model import SpellStatGrantValue,SpellRemainderDamageValue
+    if type(value) is SpellRemainderDamageValue:
+        from .retained_spell_damage import install as install_returning
+        return install_returning(state,registry,entity,value)
     if type(value) is SpellStatGrantValue:
         from .destruction_spell_values import install as install_stat_value
         return install_stat_value(state, registry, entity, value)
@@ -104,6 +114,9 @@ def create(r,request):
 def capture(r,record):
     rows=tuple(a for a in r.state.entities[record.source_id].abilities if a.kind in VALUE_KINDS)
     required=record.card_id in r.registry.spell_value_profiles
+    from .retained_spell_damage import ReturningDamageProfile
+    if not rows and type(r.registry.spell_value_profiles.get(record.card_id)) is ReturningDamageProfile:
+        return record
     if not required and not rows:return record
     if len(rows)!=1 or ability_value(rows[0]).card_id!=record.card_id:
         from .registry import UnsupportedDefinitionError
@@ -114,12 +127,14 @@ def capture(r,record):
 
 
 def validate_record(state,registry,record,live,owners):
-    ability=record.native_spell_value;required=record.card_id in registry.spell_value_profiles
+    from .retained_spell_damage import ReturningDamageProfile
+    ability=record.native_spell_value;declared=record.card_id in registry.spell_value_profiles
+    required=declared and type(registry.spell_value_profiles[record.card_id]) is not ReturningDamageProfile
     if ability is None:
         if required and record.payload_started and record.failure is None:raise ValueError('Accepted native spell lost its original frozen value')
         return
     validate_ability(state,registry,ability)
-    if not required or ability_value(ability).card_id!=record.card_id or ability.id>=state.next_attachment_id:
+    if not declared or ability_value(ability).card_id!=record.card_id or ability.id>=state.next_attachment_id:
         raise ValueError('Native cast value lost its original face or allocation')
     if ability.id in live and live[ability.id]!=('ability',record.source_id,ability):raise ValueError('Native cast value borrowed another physical attachment')
     if ability.id in owners and owners[ability.id]!=record.source_id:raise ValueError('Native cast value migrated across physical spells')
@@ -134,6 +149,9 @@ def public_value(entity):
 def inherit_play(r,entity,original_state,play_id):
     """One exact selected hand occurrence, including a countered original card."""
     if entity.card_id not in r.registry.spell_value_profiles:return
+    from .retained_spell_damage import ReturningDamageProfile,inherit_play as inherit_returning
+    if type(r.registry.spell_value_profiles[entity.card_id]) is ReturningDamageProfile:
+        return inherit_returning(r,entity,original_state,play_id)
     from .play_history import play_record
     original=play_record(original_state,play_id)
     if original.card_id!=entity.card_id or original.kind!=CardType.SPELL:
@@ -152,5 +170,7 @@ def inherit_play(r,entity,original_state,play_id):
 
 def register(mechanics):
     mechanics.register(CreateDeathrattleSpell,create)
+    from .retained_spell_damage import register as register_returning
+    register_returning(mechanics)
     from .destruction_spell_values import register as register_stat_values
     register_stat_values(mechanics)

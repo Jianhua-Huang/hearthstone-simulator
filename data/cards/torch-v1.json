@@ -1,0 +1,174 @@
+{
+  "batch": "K241-torch-excess",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_585",
+        "dbf_id": 123164,
+        "name": "烈火炙烤",
+        "name_en": "Torch",
+        "text": "对一个受伤的随从造成$@点伤害。如果伤害超过目标生命值，将能造成剩余伤害的本牌移回手牌。",
+        "text_en": "[x]Deal $@ damage\nto a damaged minion.\nReturn this to hand with\nany excess damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 8,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "dc20a1db9d5851b9effebbf2331f511e1e51e46d45b5ac30afbbb083c30b5567",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_585",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_585",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k241-torch-excess\\official-cache-01\\123164-zh_CN.json",
+      "response_sha256": "3e30fa97769c45c8e801a59afebca8b7ef4a999d4270d9680b4771d46b3fe74c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123164&locale=zh_CN",
+      "face": {
+        "id": 123164,
+        "collectible": 1,
+        "slug": "123164-torch",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "烈火炙烤",
+        "text": "对一个受伤的随从造成 点伤害。如果伤害超过目标生命值，将能造成剩余伤害的本牌移回手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0166eac798a6ea05f47c8866f5b6fed9073067b053c4c520c3183ee2a713b84b.png",
+        "imageGold": "",
+        "flavorText": "端上烤大头菜时记得戴好你的铁手套。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6f0feceb744666140b974da13992ec95cf8c728f971f991cebe3067dd835414.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123164&locale=zh_CN",
+        "sha256": "3e30fa97769c45c8e801a59afebca8b7ef4a999d4270d9680b4771d46b3fe74c",
+        "bytes": 803,
+        "observed_at": "2026-10-19T03:36:34.635013+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_585",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k241-torch-excess\\official-cache-01\\123164-en_US.json",
+      "response_sha256": "81ba1d0b89a0ab1613c7d7a10343491a3d699123e267555c0619335f108866fa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123164&locale=en_US",
+      "face": {
+        "id": 123164,
+        "collectible": 1,
+        "slug": "123164-torch",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "Torch",
+        "text": "Deal damage to a damaged minion. Return this to hand with any excess damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a6593b4b7b24f0c123cbe98fab3fa13bcb915aea416bb42cb48fb8fb4d5654b.png",
+        "imageGold": "",
+        "flavorText": "Make sure you always wear your iron gauntlets before handling your cooked veggies.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6f0feceb744666140b974da13992ec95cf8c728f971f991cebe3067dd835414.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=123164&locale=en_US",
+        "sha256": "81ba1d0b89a0ab1613c7d7a10343491a3d699123e267555c0619335f108866fa",
+        "bytes": 776,
+        "observed_at": "2026-10-19T03:36:34.196203+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "CATA_585": {
+      "@": ""
+    }
+  },
+  "policy": {
+    "damage": "Initial base8 from complete TAG_SCRIPT_DATA_NUM_1; target is an actually damaged minion. Ordinary sourced spell damage, modifiers, prevention and health histories remain shared.",
+    "return": "Positive actual health loss beyond positive original minion health is stored as a new native base. DamageReturningSpell binds the actual cast and the first synchronous committed DamageRecord; ReturnSpentSpell preserves the original graveyard allocation and installs the new parameter before return/burn notifications.",
+    "lifecycle": "Ordinary reset clears old local cost/stat/parameter attachments, then this real return installs only its accepted remainder. Current copy and original-play replay use frozen native material, base copy/new generation uses printed8.",
+    "pending_cn": [
+      "precise damage/prevention/redirect and return windows",
+      "copy/history/countered or repeated-source interactions",
+      "formal pool and exact physical return ordering"
+    ],
+    "reported_interaction_sources": [
+      "https://www.reddit.com/r/hearthstone/comments/1u8mrp7/408968_damage_this_has_to_be_some_kind_of_record/",
+      "https://www.reddit.com/r/hearthstone/comments/1vrrean/torch_atlesh_the_greatstaff_infinity/"
+    ],
+    "cn_calibrated": false
+  }
+}

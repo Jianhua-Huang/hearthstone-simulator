@@ -69,7 +69,9 @@ def require_supported_source(game, entity_id, *, definition=None, check_use=Fals
     definition = definition or game.registry.card(source.card_id)
     if definition.id in game.registry.spell_value_profiles:
         from .native_spell_values import bound_value
-        if bound_value(source)is None:raise UnsupportedPlayerRule('unsupported_rule')
+        from .retained_spell_damage import ReturningDamageProfile
+        if bound_value(source)is None and type(game.registry.spell_value_profiles[definition.id]) is not ReturningDamageProfile:
+            raise UnsupportedPlayerRule('unsupported_rule')
     if source.zone == Zone.HAND and definition.choose_one is None and definition == game.registry.card(source.card_id):
         definition = play_definition(game._state, game.registry, source)
     if definition.choose_one is not None:
