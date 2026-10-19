@@ -5387,7 +5387,7 @@ class CardDiscoveredTurnMatch:
                     not last_action <= row.action <= self.action or
                     row.result.choice.id <= last_choice or row.selection_event <= last_publication):
                 raise ValueError('Discovery price changed its complete original chronology')
-            matched |= row.turn == self.turn and row.result.choice.player_id == self.player_id
+            matched |= not row.is_control and row.turn == self.turn and row.result.choice.player_id == self.player_id
             last_turn, last_action = row.turn, row.action
             last_choice, last_publication = row.result.choice.id, row.publication_event
         if self.matched != matched:
@@ -9668,7 +9668,7 @@ class ChoiceResult:
 
 @dataclass(frozen=True)
 class CardDiscoveryRecord:
-    """An actual card selection, separate from its producer's later delivery."""
+    """Original discovery selection; controls have a roll and are not discoveries."""
     id: int
     turn: int
     action: int
@@ -9677,6 +9677,10 @@ class CardDiscoveryRecord:
     publication_event: int
     result: ChoiceResult
     original_offer: str
+    control_roll: int | None = None
+
+    @property
+    def is_control(self):return self.control_roll is not None
 
     def __post_init__(self):
         for key in ('id', 'turn', 'owner_turn_id', 'selection_event', 'publication_event'):
@@ -9690,6 +9694,10 @@ class CardDiscoveryRecord:
             raise ValueError('An ordinary choice is not a card discovery')
         if len(self.result.selected_ids) != 1 or self.selection_event >= self.publication_event:
             raise ValueError('Card discovery lost its original selection or publication')
+        if self.control_roll is not None:
+            _int(self.control_roll,'discovery refresh roll',0)
+            if self.control_roll>=5 or self.result.selected_ids!=('refresh',) or self.result.choice.purpose!=ChoicePurpose.POOL_DISCOVERY:
+                raise ValueError('Refresh receipt requires its actual control and one accepted 0..4 roll')
 
 
 @dataclass(frozen=True)

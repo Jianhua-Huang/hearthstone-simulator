@@ -42,11 +42,17 @@ class OfferedCardSelection:
         if type(self.discovery) is not CardDiscoveryRecord or self.origin != 'original_discovery_v1':
             raise ValueError('Offered selection requires its actual immutable discovery')
         self.discovery.__post_init__()
+        if self.discovery.is_control:
+            raise ValueError('A refresh control cannot supply discovered card execution')
         for name, floor in (('captured_turn', 1), ('captured_action', 0), ('owner_turn_size', 1)):
             integer(getattr(self, name), name, floor)
+        options = self.discovery.result.choice.options
+        if (type(self.rows) is tuple and len(self.rows) == len(options) - 1
+                and options[-1].id == 'refresh'):
+            options = options[:-1]
         if (type(self.rows) is not tuple or any(type(r) is not OfferedCardSlot for r in self.rows)
                 or tuple((r.option_id, r.card_id) for r in self.rows) !=
-                tuple((o.id, o.card_id) for o in self.discovery.result.choice.options)):
+                tuple((o.id, o.card_id) for o in options)):
             raise ValueError('Offered execution changed the complete ordered original menu')
         for row in self.rows: row.__post_init__()
         if self.discovery.turn > self.captured_turn or self.discovery.action > self.captured_action:
@@ -72,13 +78,20 @@ def capture(state, registry, discovery_id, rng):
     if discovery_id > len(state.card_discovery_history):
         raise ValueError('Unknown offered-card discovery')
     original = state.card_discovery_history[discovery_id - 1]
+    # Runtime capture uses the immutable material slots, never the UI control.
+    # The original menu's final refresh visual is not an executable card.
     return OfferedCardSelection(original, tuple(OfferedCardSlot(o.id, o.card_id,
-        registry.card(o.card_id).kind) for o in original.result.choice.options),
+        registry.card(o.card_id).kind) for o in original.result.choice.options
+            if registry.card(o.card_id).hand_playable),
         state.turn, state.action_number, len(state.owner_turn_history), rng, rng)
 
 
 def validate_registry(selection, registry):
     selection.__post_init__()
+    expected = tuple((o.id, o.card_id) for o in selection.discovery.result.choice.options
+                     if registry.card(o.card_id).hand_playable)
+    if tuple((r.option_id, r.card_id) for r in selection.rows) != expected:
+        raise ValueError('Offered execution lost a playable card or included a control')
     for slot in selection.rows:
         card = registry.card(slot.card_id)
         if card.kind != slot.kind or not card.hand_playable or card.choice_only:

@@ -35,19 +35,23 @@ def commit(r, result, selection_event, options, on_select):
         raise ValueError('Card discovery lost its actual original selection event')
     if any(row.result.choice.id == result.choice.id for row in r.state.card_discovery_history):
         raise ValueError('A card discovery selection may be recorded only once')
-    for option in result.choice.options:
-        if not r.registry.card(option.card_id).hand_playable:
-            raise ValueError('A card discovery offered an unplayable card face')
     from .owner_turns import current_owner_turn
     from .discovery_offers import OriginalDiscoveryOffer, encode_offer
     original = r._original_discovery_offer
     if (type(original) is not OriginalDiscoveryOffer or original.choice != result.choice or
             original.options != tuple(options) or original.on_select != on_select):
         raise ValueError('Discovery commit lost its actual original offered material')
+    from .discovery import is_refresh_option
+    controls = tuple(o for o in options if is_refresh_option(o))
+    if controls and (len(controls) != 1 or controls[0] != options[-1]):
+        raise ValueError('Discovery refresh requires its single final typed control')
+    validate_offered_faces(result, r.registry)
+    is_control = any(o.id in result.selected_ids for o in controls)
+    control_roll = r.game._rng.randrange(5) if is_control else None
     offered_work = encode_offer(r.game, original)
     row = CardDiscoveryRecord(len(r.state.card_discovery_history) + 1, r.state.turn,
         r.state.action_number, current_owner_turn(r.state).id,
-        selection_event.sequence, len(r.game._events) + 1, result, offered_work)
+        selection_event.sequence, len(r.game._events) + 1, result, offered_work, control_roll)
     r.state.card_discovery_history.append(row)
     from .serialization import canonical_hash
     # This is a private consistency publication. Gameplay reads the typed state
@@ -62,20 +66,21 @@ def discovered_cards(state, player_id, *, turn=None):
     if turn is not None:
         _int(turn, 'card discovery query turn', 1)
     return tuple(row for row in state.card_discovery_history
-        if row.result.choice.player_id == player_id and (turn is None or row.turn == turn))
+        if not row.is_control and row.result.choice.player_id == player_id
+        and (turn is None or row.turn == turn))
 
 
 def discovered_this_turn(state, player_id):
     return bool(discovered_cards(state, player_id, turn=state.turn))
 
 
-def require_original_result(state, result):
+def require_original_result(state, result, *, control=False):
     """Bind producer work to its real immutable selection, never a later entity."""
     if type(state) is not GameState or type(result) is not ChoiceResult:
         raise ValueError('Discovery work requires its actual typed selection result')
     result.__post_init__()
     rows = [row for row in state.card_discovery_history if row.result.choice.id == result.choice.id]
-    if len(rows) != 1 or rows[0].result != result:
+    if len(rows) != 1 or rows[0].result != result or rows[0].is_control != control:
         raise ValueError('Discovery work lost its complete original committed selection')
     return rows[0]
 
@@ -85,14 +90,26 @@ def capture_turn_match(state, player_id):
         tuple(state.card_discovery_history), discovered_this_turn(state, player_id))
 
 
+def validate_offered_faces(result, registry):
+    """The sole non-card menu slot is the last declared refresh visual."""
+    from .model import CardType
+    for index, option in enumerate(result.choice.options):
+        card = registry.card(option.card_id)
+        if card.hand_playable:
+            continue
+        if (result.choice.purpose != ChoicePurpose.POOL_DISCOVERY or
+                index != len(result.choice.options) - 1 or option.id != 'refresh' or
+                option.entity_id is not None or option.preview is not None or
+                card.kind != CardType.SPELL or not card.choice_only):
+            raise ValueError('Card discovery lost its original playable face or refresh control')
+
+
 def validate_turn_match(match, registry):
     if type(match) is not CardDiscoveredTurnMatch:
         raise ValueError('Discovery price requires its complete typed selection prefix')
     match.__post_init__()
     for row in match.records:
-        for option in row.result.choice.options:
-            if not registry.card(option.card_id).hand_playable:
-                raise ValueError('Discovery price changed an original offered card face')
+        validate_offered_faces(row.result, registry)
 
 
 def validate_turn_prefix(match, state, registry):
@@ -123,9 +140,9 @@ def validate_history(state, registry):
         owner = state.owner_turn_history[row.owner_turn_id - 1]
         if owner.turn != row.turn or row.action < owner.start_action:
             raise ValueError('Card discovery borrowed another actual turn interval')
+        validate_offered_faces(row.result, registry)
         for option in choice.options:
-            if (not registry.card(option.card_id).hand_playable or
-                    option.entity_id is not None and option.entity_id not in state.entities):
+            if option.entity_id is not None and option.entity_id not in state.entities:
                 raise ValueError('Card discovery lost an original offered card')
         last_turn, last_action = row.turn, row.action
         last_choice, last_publication = choice.id, row.publication_event

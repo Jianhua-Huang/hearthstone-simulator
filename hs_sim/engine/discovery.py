@@ -94,6 +94,36 @@ class ResolvePoolDiscovery(Effect):
 
 
 @dataclass(frozen=True)
+class RefreshPoolDiscovery(Effect):
+    batch: ContinuePoolDiscovery
+    offered_card_ids: tuple[str, ...]
+    hero_class: CardClass | None
+    source_card_id: str
+    choice_result: ChoiceResult | None = None
+
+    def __post_init__(self):
+        if type(self.batch)is not ContinuePoolDiscovery:raise ValueError('Refresh requires its original discovery batch')
+        self.batch.__post_init__();ids(self.offered_card_ids,'refresh original offers',unique=True)
+        if not 1<=len(self.offered_card_ids)<=self.batch.spec.count or self.batch.spec.refresh_card_id is None:
+            raise ValueError('Refresh requires its actual offered cards and declared control')
+        if self.hero_class is not None and type(self.hero_class)is not CardClass:raise ValueError('Invalid refresh class')
+        name(self.source_card_id,'refresh original source')
+        if self.choice_result is not None:
+            if type(self.choice_result)is not ChoiceResult:raise ValueError('Refresh requires its complete typed selection')
+            self.choice_result.__post_init__()
+
+
+def is_refresh_option(option):
+    if len(option.effects)!=1 or type(option.effects[0])is not RefreshPoolDiscovery:return False
+    effect=option.effects[0];effect.__post_init__()
+    return (option.id=='refresh' and option.card_id==effect.batch.spec.refresh_card_id and
+        option.entity_id is None and option.preview is None and effect.choice_result is None)
+
+
+def ordinary_options(options):return tuple(o for o in options if not is_refresh_option(o))
+
+
+@dataclass(frozen=True)
 class HealHeroFromDiscoveredSpell(Effect):
     discovery: ResolvePoolDiscovery
     context: GenerationContext
@@ -247,6 +277,10 @@ def options_for(registry, batch, offered, hero_class, source_card, gifts=()):
             registry.card(cid).name+' · '+gift.label+('（置于牌库顶）' if gift.destination=='deck_top' else ''),
             (ResolvePoolDiscovery(batch,offered,pick,offered_gifts=gifts),),card_id=cid,
             preview=None if gift is None else gift_preview(registry,cid,gift,batch.spec)))
+    if batch.spec.refresh_card_id is not None:
+        cid=batch.spec.refresh_card_id
+        options.append(ChoiceOption('refresh',registry.card(cid).name,
+            (RefreshPoolDiscovery(batch,offered,hero_class,source_card),),card_id=cid))
     return tuple(options)
 
 
@@ -336,7 +370,10 @@ def validate_batch(registry, context, batch):
         if ((choice.player_id,choice.source_id,choice.prompt,choice.repeat_key)!=
                 (spec.player_id,spec.source_id,spec.prompt,None) or choice.id<=prior_choice):
             raise ValueError('Discovery progress reordered or borrowed another original choice')
-        offered=tuple(o.card_id for o in choice.options)
+        items=choice.options[:-1]if spec.refresh_card_id is not None else choice.options
+        if spec.refresh_card_id is not None and (choice.options[-1].id,choice.options[-1].card_id)!=('refresh',spec.refresh_card_id):
+            raise ValueError('Discovery progress lost its original refresh control')
+        offered=tuple(o.card_id for o in items)
         if (any(o.entity_id is not None for o in choice.options) or pick.card_id not in offered or
                 pick.result.selected_ids!=(f'generated-{offered.index(pick.card_id)+1}',)):
             raise ValueError('Discovery progress changed the original ordered offer or selection')
@@ -386,6 +423,34 @@ def validate_selection(registry, context, effect):
                 (spec.player_id,spec.source_id,spec.prompt,1,1,None) or
                 result.selected_ids!=(f'generated-{offered.index(effect.selection.card_id)+1}',)):
             raise ValueError('Pool receipt differs from the actual complete discovery choice/result')
+
+
+def validate_refresh(registry,context,effect):
+    effect.__post_init__()
+    pick=DiscoveryPick(effect.offered_card_ids[0],effect.hero_class,effect.source_card_id)
+    validate_selection(registry,context,ResolvePoolDiscovery(effect.batch,effect.offered_card_ids,pick))
+    if effect.choice_result is not None:
+        result=effect.choice_result;spec=effect.batch.spec
+        expected=tuple(o.item for o in options_for(registry,effect.batch,effect.offered_card_ids,
+            effect.hero_class,effect.source_card_id))
+        if (result.selected_ids!=('refresh',) or result.choice.options!=expected or
+                (result.choice.player_id,result.choice.source_id,result.choice.prompt,result.choice.purpose,
+                 result.choice.min_count,result.choice.max_count,result.choice.repeat_key)!=
+                (spec.player_id,spec.source_id,spec.prompt,ChoicePurpose.POOL_DISCOVERY,1,1,None)):
+            raise ValueError('Refresh changed its complete original control choice')
+
+
+def refresh_discovery(r,effect):
+    validate_refresh(r.registry,r.game._generation_context,effect)
+    from .card_discoveries import require_original_result
+    row=require_original_result(r.state,effect.choice_result,control=True)
+    spec=effect.batch.spec
+    r.emit('pool_discovery_refreshed',source_id=spec.source_id,player_id=spec.player_id,
+        choice_id=row.result.choice.id,roll=row.control_roll,_capture=False)
+    from .effects import Damage
+    from .model import DamageKind
+    damage=(Damage(r.player(spec.player_id).hero_id,5,spec.source_id,DamageKind.EFFECT),)if row.control_roll==0 else()
+    return (*damage,effect.batch)
 
 
 def start(r, effect):
@@ -502,6 +567,13 @@ def validate_boundary(game):
             validate_selection(game.registry,game._generation_context,value)
             validate_receipt_history(game._state,value.batch,value.choice_result)
             return
+        if type(value)is RefreshPoolDiscovery:
+            validate_refresh(game.registry,game._generation_context,value)
+            validate_receipt_history(game._state,value.batch)
+            if value.choice_result is not None:
+                from .card_discoveries import require_original_result
+                require_original_result(game._state,value.choice_result,control=True)
+            return
         if type(value)is HealHeroFromDiscoveredSpell:
             validate_cost_healing(game.registry,value)
             validate_receipt_history(game._state,value.discovery.batch,value.discovery.choice_result)
@@ -530,8 +602,8 @@ def validate_boundary(game):
     if choice.purpose != ChoicePurpose.POOL_DISCOVERY:return
     if choice.min_count!=1 or choice.max_count!=1 or choice.repeat_key is not None or frame.on_select is not None:
         raise ValueError('Invalid pool discovery choice structure')
-    first=None; offered=tuple(o.card_id for o in frame.options)
-    for n,option in enumerate(frame.options,1):
+    first=None; real=ordinary_options(frame.options);offered=tuple(o.card_id for o in real)
+    for n,option in enumerate(real,1):
         if len(option.effects)!=1 or type(option.effects[0]) is not ResolvePoolDiscovery:
             raise ValueError('Pool discovery requires a typed selection branch')
         effect=option.effects[0]; validate_selection(game.registry,game._generation_context,effect)
@@ -546,12 +618,16 @@ def validate_boundary(game):
             raise ValueError('Discovery option metadata and captured branches disagree')
         first=(effect.batch,effect.selection.hero_class,effect.selection.source_card_id,effect.offered_gifts)
     if first is None:raise ValueError('Pool discovery cannot offer an empty choice')
+    expected=options_for(game.registry,first[0],offered,first[1],first[2],first[3])
+    if frame.options!=expected:raise ValueError('Discovery lost its complete card/control menu')
+    if len(real)!=len(frame.options):validate_refresh(game.registry,game._generation_context,frame.options[-1].effects[0])
 
 
 def register(mechanics):
     mechanics.register_payload_type(DiscoveryPick)
     mechanics.register(ContinuePoolDiscovery,continue_discovery)
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)
+    mechanics.register(RefreshPoolDiscovery,refresh_discovery)
     mechanics.register(HealHeroFromDiscoveredSpell,heal_discovered_spell)
     mechanics.register(DeliverAndSummonDiscoveredMinion,deliver_and_summon_copy)
     mechanics.register(SummonDiscoveredMinionCopy,summon_discovered_copy)

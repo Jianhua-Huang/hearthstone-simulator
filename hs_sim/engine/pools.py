@@ -531,8 +531,20 @@ class DiscoverFromPool(Effect):
     keep_all_corpse_cost: int | None = None
     summon_copy_corpse_cost: int | None = None
     paired_choose_one: bool = False
+    refresh_card_id: str | None = None
 
     def __post_init__(self):
+        if self.refresh_card_id is not None:
+            name(self.refresh_card_id,'discovery refresh control')
+            if (self.source_id is None or self.destination!='hand' or self.count!=3 or self.discoveries!=1 or
+                    self.delivery!='after_each' or not self.replacement or self.paired_choose_one or
+                    type(self.query)is not PoolQuery or self.query.kinds!=(CardType.SPELL,) or self.query.collectible is not True or
+                    any(x is not None for x in (self.cost,self.expires_turn,self.spell_repeat,self.cause,self.gift_pool,
+                        self.summon_copy_stats,self.minion_grant,self.temporary_until_turn,self.set_summoned_stats,
+                        self.keep_all_corpse_cost,self.summon_copy_corpse_cost)) or
+                    any((self.heal_hero_by_printed_cost,self.freeze_summoned,self.gift_copy_to_hand,
+                        self.copy_selected_to_hand,self.shuffle_unselected_into_deck))):
+                raise ValueError('Risk refresh requires one ordinary source-bound spell discovery')
         if type(self.paired_choose_one)is not bool:raise ValueError('Paired Choose One discovery requires a boolean')
         if self.paired_choose_one and (
                 self.source_id is None or self.destination!='hand' or self.count!=3 or self.discoveries!=1 or
@@ -855,6 +867,10 @@ def generation_candidates(r, effect):
     if getattr(effect,'paired_choose_one',False):
         from .discovery import combined_creation_selection
         for member in candidates:combined_creation_selection(r.registry.card(member.card_id))
+    if getattr(effect,'refresh_card_id',None) is not None:
+        control=r.registry.card(effect.refresh_card_id)
+        if control.kind!=CardType.SPELL or not control.choice_only:
+            raise ResolutionError('Refresh control requires its registered option-only spell face')
     return candidates
 
 

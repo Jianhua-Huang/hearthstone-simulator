@@ -262,6 +262,8 @@ def original_recipient(state, event):
     rows = state.card_discovery_history; identity = data.get('discovery_id')
     if type(identity) is not int or not 1 <= identity <= len(rows):
         raise ValueError('Discovery notification lost its original selection record')
+    if rows[identity - 1].is_control:
+        raise ValueError('A refresh control has no discovered recipient')
     result = rows[identity - 1].result; fact = allocation_from_payload(data.get('recipient'))
     if ((event.source_id, event.player_id, data.get('choice_id')) !=
             (result.choice.source_id, result.choice.player_id, result.choice.id) or

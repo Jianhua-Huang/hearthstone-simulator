@@ -1,0 +1,350 @@
+{
+  "batch": "K238-skeleton-key-rerolls",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_319",
+        "dbf_id": 126116,
+        "name": "万能钥匙",
+        "name_en": "The Skeleton Key",
+        "text": "<b>发现</b>一张法术牌，或者刷新你的选项<i>（每次刷新时有20%的几率会受到5点伤害！）</i>",
+        "text_en": "[x]<b>Discover</b> a spell,\nor refresh your options\n<i>(20% chance to take 5\ndamage each refresh!)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "SPELL_SCHOOL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3169": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3169",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3169"
+          }
+        ]
+      },
+      "record_sha256": "f773f664fc275979f567cc479dfd7c9ee9cbc63b8fc92dc6caf02f657c9522d9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_319",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_319t",
+        "dbf_id": 131199,
+        "name": "钥匙变形！",
+        "name_en": "Transform the Key!",
+        "text": "刷新你的选项。<i>（有20%的几率会受到5点伤害！）</i>",
+        "text_en": "Refresh your options. <i>(20% chance to take\n5 damage!)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "eab45a8d3ec69198cff460aedf0760b2efec72c165ab09e0cc1daa88d0a29a9b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_319t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_319e",
+        "dbf_id": 126251,
+        "name": "万能钥匙",
+        "name_en": "Skeleton Key",
+        "text": "随机变形成为一张法力值消耗减少（2）点的法术牌。<i>（在你使用一张牌后变形。）</i>",
+        "text_en": "Transforming into a random spell that costs (2) less. <i>(Transforms after you play a card.)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 4,
+          "CARDTYPE": 6,
+          "DEFINING_ENCHANTMENT": 126116
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5028d259be1b9fdc82f0eaa070215248d62891ed199d31363648c61ef63dc799",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_319e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAIL_319",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k238-skeleton-key-rerolls\\official-cache-01\\126116-zh_CN.json",
+      "response_sha256": "0a50f7896b8b208174d2fed970d706f5cef84770620cdf57dfb6d3f8f689120b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126116&locale=zh_CN",
+      "face": {
+        "id": 126116,
+        "collectible": 1,
+        "slug": "126116-the-skeleton-key",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 1,
+        "name": "万能钥匙",
+        "text": "<b>发现</b>一张法术牌，或者刷新你的选项<i>（每次刷新时有20%的几率会受到5点伤害！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d4d87b5cfc356ff5306586235789986191e82a730ed1fb6a2571ad381ed81d6.png",
+        "imageGold": "",
+        "flavorText": "要是有什么危险……钥匙有什么危险！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8346dd15436adbfd511e588b9414c17189aefbb93eaa7bc9fa3e5fabfaee6d3.png",
+        "childIds": [
+          131199
+        ],
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126116&locale=zh_CN",
+        "sha256": "0a50f7896b8b208174d2fed970d706f5cef84770620cdf57dfb6d3f8f689120b",
+        "bytes": 848,
+        "observed_at": "2026-10-19T02:48:35.194678+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_319",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k238-skeleton-key-rerolls\\official-cache-01\\126116-en_US.json",
+      "response_sha256": "0e17101d52d919b6173a70e0c1b9fb39786ede423a554da9a9a766fce10bfb5b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126116&locale=en_US",
+      "face": {
+        "id": 126116,
+        "collectible": 1,
+        "slug": "126116-the-skeleton-key",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 1,
+        "name": "The Skeleton Key",
+        "text": "<b>Discover</b> a spell, or refresh your options <i>(20% chance to take 5 damage each refresh!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05cbe3ff045f37014f84590a285cf916e4223fca06c5d86d58cc05108dbaed46.png",
+        "imageGold": "",
+        "flavorText": "The skeleton belongs to the person who last tried to use it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8346dd15436adbfd511e588b9414c17189aefbb93eaa7bc9fa3e5fabfaee6d3.png",
+        "childIds": [
+          131199
+        ],
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=126116&locale=en_US",
+        "sha256": "0e17101d52d919b6173a70e0c1b9fb39786ede423a554da9a9a766fce10bfb5b",
+        "bytes": 840,
+        "observed_at": "2026-10-19T02:48:35.024010+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_319t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k238-skeleton-key-rerolls\\official-cache-01\\131199-zh_CN.json",
+      "response_sha256": "42a271ed894f5aded6d22003f7fdbcf0e79b84246ab6c7d1a42f37a5f16f5e01",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=131199&locale=zh_CN",
+      "face": {
+        "id": 131199,
+        "collectible": 0,
+        "slug": "131199-transform-the-key",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "钥匙变形！",
+        "text": "刷新你的选项。<i>（有20%的几率会受到5点伤害！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df9ad33d4603335744ecda841bd0c82cfe127004276ff64516ebfa28a9c8bde1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126116,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=131199&locale=zh_CN",
+        "sha256": "42a271ed894f5aded6d22003f7fdbcf0e79b84246ab6c7d1a42f37a5f16f5e01",
+        "bytes": 589,
+        "observed_at": "2026-10-19T02:48:35.024010+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_319t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k238-skeleton-key-rerolls\\official-cache-01\\131199-en_US.json",
+      "response_sha256": "513313e2182f45789fa71d05b45a63c25c4060aea23b0663fff66cd58de3d935",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=131199&locale=en_US",
+      "face": {
+        "id": 131199,
+        "collectible": 0,
+        "slug": "131199-transform-the-key",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Transform the Key!",
+        "text": "Refresh your options. <i>(20% chance to take 5 damage!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58b7d54e68860a3cf2b4ab4dd2de3f8b54da32c9ed651216c8da3ac1a06d28e2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126116,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=131199&locale=en_US",
+        "sha256": "513313e2182f45789fa71d05b45a63c25c4060aea23b0663fff66cd58de3d935",
+        "bytes": 580,
+        "observed_at": "2026-10-19T02:48:35.167645+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "JAIL_319t": {
+      "cost": 0
+    }
+  },
+  "policy": {
+    "query": "Three collectible current-class spells from the complete explicit host pool. The sole final control is the official Transform the Key visual; unknown eligible spells fail before sampling.",
+    "refresh": "Accept one randrange(5) roll with the actual refresh selection. On zero, ordinary effect damage 5 to the current choosing hero after choice reactions; then query and sample again. Controls are private selection receipts, not semantic card discoveries.",
+    "delivery": "Selecting an actual spell uses the original materialization/discovery notification pipeline once; refresh never creates a card, casts another spell, pays again, or grants a discovery.",
+    "control": "Choice-only zero display with explicit bilingual primary normalization; no standalone executable spell. JAIL_319e has different raw text and remains evidence only.",
+    "pending_cn": [
+      "current-class discovery eligibility",
+      "exact risk RNG and response order",
+      "automatic refresh selection behavior",
+      "hero replacement and rescue windows"
+    ],
+    "cn_calibrated": false
+  }
+}

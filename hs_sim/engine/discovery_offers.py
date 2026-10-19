@@ -34,10 +34,12 @@ class OriginalDiscoveryOffer:
             raise ValueError('Original offered work changed its complete ordered menu')
         if self.on_select is not None:
             _behavior(self.on_select)
-        if (type(self.materials) is not tuple or len(self.materials) != len(self.options)
+        from .discovery import ordinary_options
+        cards = ordinary_options(self.options)
+        if (type(self.materials) is not tuple or len(self.materials) != len(cards)
                 or any(type(m) is not OfferedCardMaterial for m in self.materials)):
             raise ValueError('Original offer requires every ordered original card material')
-        for option, material in zip(self.options, self.materials):
+        for option, material in zip(cards, self.materials):
             material.__post_init__()
             if (material.option_id, material.card_id) != (option.id, option.card_id):
                 raise ValueError('Original offer material differs from its exact menu slot')
@@ -66,8 +68,9 @@ def capture(r, choice, options, on_select):
     if choice.purpose not in PURPOSES:
         return
     from .offered_card_materials import capture as capture_material
+    from .discovery import ordinary_options
     offer = OriginalDiscoveryOffer(choice, tuple(options), on_select,
-        tuple(capture_material(r, option) for option in options))
+        tuple(capture_material(r, option) for option in ordinary_options(options)))
     r.emit(ACCEPTED, source_id=choice.source_id, player_id=choice.player_id,
         choice_id=choice.id, original_offer=encode_offer(r.game, offer), _capture=False)
     return offer
@@ -83,7 +86,9 @@ def offer_for_result(game, result):
 
 
 def unselected_options(game, result):
-    return tuple(o for o in offer_for_result(game, result).options if o.id not in result.selected_ids)
+    from .discovery import ordinary_options
+    return tuple(o for o in ordinary_options(offer_for_result(game, result).options)
+                 if o.id not in result.selected_ids)
 
 
 def unselected_materials(game, result):
@@ -119,6 +124,18 @@ def validate_boundary(game, events):
         if (event.sequence >= row.selection_event or event.action > row.action or
                 offer.choice != choice or row.original_offer != dict(event.data)['original_offer']):
             raise ValueError('Committed discovery changed its original accepted offer')
+        from .discovery import is_refresh_option, options_for, validate_refresh
+        controls = tuple(o for o in offer.options if is_refresh_option(o))
+        if controls:
+            if len(controls) != 1 or controls[0] != offer.options[-1]:
+                raise ValueError('Discovery lost its single final refresh control')
+            refresh = controls[0].effects[0]
+            validate_refresh(game.registry, game._generation_context, refresh)
+            if offer.options != options_for(game.registry, refresh.batch,
+                    refresh.offered_card_ids, refresh.hero_class, refresh.source_card_id):
+                raise ValueError('Refresh changed its complete original card/control branches')
+        if row.is_control != any(o.id in row.result.selected_ids for o in controls):
+            raise ValueError('Discovery receipt changed its actual card/control selection')
         committed.add(choice.id)
     open_ids = set(accepted) - committed
     expected = set()
@@ -134,8 +151,9 @@ def validate_boundary(game, events):
         # physical material before reactions or later same-ID re-entry.
         from types import SimpleNamespace
         from .offered_card_materials import capture as capture_material
+        from .discovery import ordinary_options
         origin = SimpleNamespace(state=frame.paid_hand_choice_boundary.state, registry=game.registry)
-        if tuple(capture_material(origin, option) for option in frame.options) != original[1].materials:
+        if tuple(capture_material(origin, option) for option in ordinary_options(frame.options)) != original[1].materials:
             raise ValueError('Waiting discovery changed its actual original physical material')
     elif game._frame is not None and game._frame.original_discovery_offer is not None:
         raise ValueError('Ordinary choice cannot borrow another discovery offer')

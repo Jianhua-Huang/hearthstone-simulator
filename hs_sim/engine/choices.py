@@ -81,7 +81,7 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     commit(r, result, selection_event, options, on_select)
     from .resolver import ResolveChoiceResult
     callback = [ResolveChoiceResult(result, on_select, kindred)] if on_select is not None else []
-    from .discovery import ResolvePoolDiscovery
+    from .discovery import ResolvePoolDiscovery,RefreshPoolDiscovery
     from .discovery_destinations import DeliverDiscoveredSpell
     from .hand_choice_followups import ResolveHandFollowupChoice
     from .assemble_offers import ResolveAssemble
@@ -94,7 +94,7 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
             return replace(effect,result=result)
         if type(effect) is ResolveHandFollowupChoice:
             return replace(effect, result=result)
-        if type(effect)is ResolvePoolDiscovery:
+        if type(effect)in(ResolvePoolDiscovery,RefreshPoolDiscovery):
             return replace(effect,choice_result=result)
         if type(effect)is DeliverDiscoveredSpell:
             return replace(effect,decision=result)
