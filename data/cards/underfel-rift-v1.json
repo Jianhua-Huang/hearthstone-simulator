@@ -1,0 +1,1050 @@
+{
+  "schema": 1,
+  "batch": "K267-underfel-rift",
+  "task": {
+    "schema": 1,
+    "batch": "K267-underfel-rift",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k266-briarspawn-drake/inventory-01.json",
+    "candidate_inventory_sha256": "fe2ea79793186835ddfd92107507a0a51e64f10746eb7c8199db0cb0ee9af65b",
+    "roots": [
+      "TLC_446"
+    ],
+    "dependencies": [
+      "TLC_446t",
+      "TLC_446t1"
+    ],
+    "existing_dependencies": [
+      "TLC_446t2",
+      "TLC_446t3",
+      "TLC_446t4"
+    ],
+    "evidence_only": [
+      "TLC_446e"
+    ],
+    "official_ids": [
+      "TLC_446",
+      "TLC_446t",
+      "TLC_446t1",
+      "TLC_446t2",
+      "TLC_446t3",
+      "TLC_446t4"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Real Temporary-card quest and named Underfel Rift; reuse existing classified play progress, interactable activation/discard and fixed Fel Beast summon pool. Inspect dependencies before deciding any public extension.",
+        "cards": [
+          "TLC_446"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/underfel_rift_cards.py",
+      "data/cards/underfel-rift-v1.json",
+      "tests/test_underfel_rift_cards.py"
+    ],
+    "numeric_normalizations": {
+      "TLC_446t1": {
+        "attack": 0
+      }
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "TLC_446",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117827-zh_CN.json",
+      "response_sha256": "2a74b7bb6c721a05ccd70a1d992fedc522107a918f7db43b2068b2a2d95ee22b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117827&locale=zh_CN",
+      "face": {
+        "id": 117827,
+        "collectible": 1,
+        "slug": "117827-escape-the-underfel",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 1,
+        "name": "逃离邪能地窟",
+        "text": "<b>任务：</b>使用6张<b>临时</b>牌。<b>奖励：</b>邪能地窟裂隙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c3f0eed4308078f7dd9bd2463de0f79da8a588c86e5a9ec4c3de7869c54c118.png",
+        "imageGold": "",
+        "flavorText": "第7天。今天很惨！脚下的地面开裂，我们直接栽进了裂隙！邪能干扰了我的感官，迷雾里到处都是魔化的野兽。好在安布拉用魔法驱散了它们，我们这才逃了出来。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4eafb1be39c6c7d549ab13be1ffb688e0dccc337ce46197c85219ac7c0fe91e.png",
+        "childIds": [
+          118227,
+          120968,
+          118228,
+          120037,
+          120038
+        ],
+        "keywordIds": [
+          31,
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117827&locale=zh_CN",
+        "sha256": "2a74b7bb6c721a05ccd70a1d992fedc522107a918f7db43b2068b2a2d95ee22b",
+        "bytes": 998,
+        "observed_at": "2026-10-19T13:24:32.562940+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117827-en_US.json",
+      "response_sha256": "794068b7118b19d2c4e48aa932d7d6496961aa51343bd4fb98abe5f457a51eb3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117827&locale=en_US",
+      "face": {
+        "id": 117827,
+        "collectible": 1,
+        "slug": "117827-escape-the-underfel",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 1,
+        "name": "Escape the Underfel",
+        "text": "<b>Quest:</b> Play 6 <b>Temporary</b> cards. <b>Reward:</b> Underfel Rift.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/233dc3d746f41bf6c2c510f90e9a50c46f6501ef781c4e0f3a091b0b97efe4c6.png",
+        "imageGold": "",
+        "flavorText": "Day 7. A terrible day! The ground opened beneath us, and we fell head over shell into an accursed rift! Fel choked my keen senses, and demonic beasts emerged from the fog. Thank goodness Umbra was able to use her magic to ward them off while we escaped.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4eafb1be39c6c7d549ab13be1ffb688e0dccc337ce46197c85219ac7c0fe91e.png",
+        "childIds": [
+          118227,
+          120968,
+          118228,
+          120037,
+          120038
+        ],
+        "keywordIds": [
+          31,
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117827&locale=en_US",
+        "sha256": "794068b7118b19d2c4e48aa932d7d6496961aa51343bd4fb98abe5f457a51eb3",
+        "bytes": 1027,
+        "observed_at": "2026-10-19T13:24:32.448863+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118227-zh_CN.json",
+      "response_sha256": "2723e08e8306c2a8154ee5471136a03f71fc2a035ac2b3fb1f87de61cb54ddf9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118227&locale=zh_CN",
+      "face": {
+        "id": 118227,
+        "collectible": 0,
+        "slug": "118227-underfel-rift",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 5,
+        "name": "邪能地窟裂隙",
+        "text": "打开一道邪能地窟裂隙。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7541d0a848a30738e0ebe33e0907756711d6dd00095222855ea5549aab87d9ab.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118227&locale=zh_CN",
+        "sha256": "2723e08e8306c2a8154ee5471136a03f71fc2a035ac2b3fb1f87de61cb54ddf9",
+        "bytes": 651,
+        "observed_at": "2026-10-19T13:24:32.429751+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118227-en_US.json",
+      "response_sha256": "aff86ceee0bc5d09162e4688d94f388cb936164fab052c85f76811357b0b3f6e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118227&locale=en_US",
+      "face": {
+        "id": 118227,
+        "collectible": 0,
+        "slug": "118227-underfel-rift",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 5,
+        "name": "Underfel Rift",
+        "text": "Open a Rift to the Underfel. Throw a card in to summon 2 random Fel Beasts. <i>(Once per turn.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/765dc22e151d396fd504ffae3aedd9c2e414662a963da475d80e3e24040b7d87.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118227&locale=en_US",
+        "sha256": "aff86ceee0bc5d09162e4688d94f388cb936164fab052c85f76811357b0b3f6e",
+        "bytes": 620,
+        "observed_at": "2026-10-19T13:24:32.752307+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120968-zh_CN.json",
+      "response_sha256": "b6ca267d525530c217e469248f38698fbb70810e57ea29a28ce1b64bd0dd1ed6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120968&locale=zh_CN",
+      "face": {
+        "id": 120968,
+        "collectible": 0,
+        "slug": "120968-underfel-rift",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 1,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "邪能地窟裂隙",
+        "text": "选择裂隙即可激活。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c7788271052fd5e5047be03891864a999aaf703a568af4424270298326982be.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120968&locale=zh_CN",
+        "sha256": "b6ca267d525530c217e469248f38698fbb70810e57ea29a28ce1b64bd0dd1ed6",
+        "bytes": 667,
+        "observed_at": "2026-10-19T13:24:34.405547+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120968-en_US.json",
+      "response_sha256": "a19a3aae62ce8397709d7f0f9b8160c29832a06a78fb7aa298d168dddd8d8ceb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120968&locale=en_US",
+      "face": {
+        "id": 120968,
+        "collectible": 0,
+        "slug": "120968-underfel-rift",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 1,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "Underfel Rift",
+        "text": "Select the Rift to activate. Throw a card in to summon 2 random Fel Beasts. <i>(Once per turn.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5edd082df026f6e46aa120dc89f39157a2a1c011a6a9b3192bec835f89b0956b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120968&locale=en_US",
+        "sha256": "a19a3aae62ce8397709d7f0f9b8160c29832a06a78fb7aa298d168dddd8d8ceb",
+        "bytes": 642,
+        "observed_at": "2026-10-19T13:24:34.094388+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118228-zh_CN.json",
+      "response_sha256": "8bf40e37f88ab280ef64eed171b635dc098a40762e49af02c771e754219ec4eb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118228&locale=zh_CN",
+      "face": {
+        "id": 118228,
+        "collectible": 0,
+        "slug": "118228-felscreamer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "邪能啸天龙",
+        "text": "<b>突袭</b>。<b>吸血</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ed54f5713cfe55ee4d8864307c5405bcdf4a169c324ace72bc51bf7b723b3392.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          38,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118228&locale=zh_CN",
+        "sha256": "8bf40e37f88ab280ef64eed171b635dc098a40762e49af02c771e754219ec4eb",
+        "bytes": 622,
+        "observed_at": "2026-10-19T13:24:34.091255+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118228-en_US.json",
+      "response_sha256": "0445dd88583f95f8dee3dee268508cdfb7b4013e8c9f9790769706e9049ef35f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118228&locale=en_US",
+      "face": {
+        "id": 118228,
+        "collectible": 0,
+        "slug": "118228-felscreamer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Felscreamer",
+        "text": "<b>Rush</b> <b>Lifesteal</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b964391ddc389e28a4d9bb07ee7f7ab9cf973b48989c3318584fc26f1f24100.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          38,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118228&locale=en_US",
+        "sha256": "0445dd88583f95f8dee3dee268508cdfb7b4013e8c9f9790769706e9049ef35f",
+        "bytes": 617,
+        "observed_at": "2026-10-19T13:24:34.778650+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120037-zh_CN.json",
+      "response_sha256": "249224ceaa97b30079214dd995674b1fda4af6fc22e31d9e1522dee4bac26612",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120037&locale=zh_CN",
+      "face": {
+        "id": 120037,
+        "collectible": 0,
+        "slug": "120037-felraptor",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "邪能迅猛龙",
+        "text": "<b>冲锋</b>。<b>扰魔</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b448b167ca17e9c371f9cefdd37b7e4e32f96a15c18a6b407682cae299fa86ba.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          4,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120037&locale=zh_CN",
+        "sha256": "249224ceaa97b30079214dd995674b1fda4af6fc22e31d9e1522dee4bac26612",
+        "bytes": 620,
+        "observed_at": "2026-10-19T13:24:36.136110+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120037-en_US.json",
+      "response_sha256": "0b08d1b53d28e4bb060bac5b113f810c83194dad399a440bb2713fc3b06ccef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120037&locale=en_US",
+      "face": {
+        "id": 120037,
+        "collectible": 0,
+        "slug": "120037-felraptor",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Felraptor",
+        "text": "<b>Charge</b> <b>Elusive</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/667485391641a7afe0fa5c7a8fd1cd428602b32652a0acb72491d64f8b093c86.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          4,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120037&locale=en_US",
+        "sha256": "0b08d1b53d28e4bb060bac5b113f810c83194dad399a440bb2713fc3b06ccef6",
+        "bytes": 613,
+        "observed_at": "2026-10-19T13:24:35.917474+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120038-zh_CN.json",
+      "response_sha256": "60ee366bc87ccde780c50288ee5cb642dfd9c7f456b696c0054eef447e8a007d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120038&locale=zh_CN",
+      "face": {
+        "id": 120038,
+        "collectible": 0,
+        "slug": "120038-felhorn",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "邪能恐角龙",
+        "text": "<b>嘲讽</b>。<b>复生</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f70527897f4ec192de22548fec014d1c00ae18f726f0b229b3641745bc01db9a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120038&locale=zh_CN",
+        "sha256": "60ee366bc87ccde780c50288ee5cb642dfd9c7f456b696c0054eef447e8a007d",
+        "bytes": 617,
+        "observed_at": "2026-10-19T13:24:36.092138+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_446t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120038-en_US.json",
+      "response_sha256": "80a4082de4b59ab2aac215002742a5058683f0d10fea92737fcd5b79fa0245a0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120038&locale=en_US",
+      "face": {
+        "id": 120038,
+        "collectible": 0,
+        "slug": "120038-felhorn",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": null,
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Felhorn",
+        "text": "<b>Taunt</b> <b>Reborn</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/26e02f1c4fca03132a0ddf2c05ec527dd6734a200c5c2728ca2d4c8a2a70ccf3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117827,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120038&locale=en_US",
+        "sha256": "80a4082de4b59ab2aac215002742a5058683f0d10fea92737fcd5b79fa0245a0",
+        "bytes": 606,
+        "observed_at": "2026-10-19T13:25:24.164257+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_446",
+        "dbf_id": 117827,
+        "name": "逃离邪能地窟",
+        "name_en": "Escape the Underfel",
+        "text": "<b>任务：</b>使用6张<b>临时</b>牌。<b>奖励：</b>邪能地窟裂隙。",
+        "text_en": "<b>Quest:</b> Play 6 <b>Temporary</b> cards. <b>Reward:</b> Underfel Rift.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 6,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 118227,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7002f193f7eb0b311d2e25da585b5c40286f29a5e6911a5d43ccee71bffc2650",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_446",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_446t",
+        "dbf_id": 118227,
+        "name": "邪能地窟裂隙",
+        "name_en": "Underfel Rift",
+        "text": "打开一道邪能地窟裂隙。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "text_en": "Open a Rift to the Underfel. Throw a card in to summon 2 random Fel Beasts. <i>(Once per turn.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 120968,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "0adfe9a086d2d899533f0f7c2394b377592a13529b9e371905a3f0b6735e06ab",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_446t1",
+        "dbf_id": 120968,
+        "name": "邪能地窟裂隙",
+        "name_en": "Underfel Rift",
+        "text": "选择裂隙即可激活。向其中投入一张卡牌以随机召唤2只邪能野兽。<i>（每回合一次。）</i>",
+        "text_en": "[x]Select the Rift to activate.\nThrow a card in to summon\n2 random Fel Beasts.\n<i>(Once per turn.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 1,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "HIDE_STATS": 1,
+          "UNTOUCHABLE": 1,
+          "HIDE_COST": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "INTERACTABLE_OBJECT": 1,
+          "USES_CHARGES": 1,
+          "INTERACTABLE_OBJECT_PASSIVE_ANIMATION_TYPE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "53c52e1210c80f4a36f4d90fa4b85ed05d57f5b189e15563c3f35fd8628a223c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_446t2",
+        "dbf_id": 118228,
+        "name": "邪能啸天龙",
+        "name_en": "Felscreamer",
+        "text": "<b>突袭</b>。<b>吸血</b>",
+        "text_en": "<b>Rush</b>\n<b>Lifesteal</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "RUSH": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "8115bcfa8b24937a9f155ab3d7e5b13f84945b5d573fe1111922b6a2eca6da5f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_446t3",
+        "dbf_id": 120037,
+        "name": "邪能迅猛龙",
+        "name_en": "Felraptor",
+        "text": "<b>冲锋</b>。<b>扰魔</b>",
+        "text_en": "<b>Charge</b>\n<b>Elusive</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CHARGE": 1,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "277a20503e48eda6c3dc2f98fd4209ef8771c4e3661cd999211425610ad153b7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_446t4",
+        "dbf_id": 120038,
+        "name": "邪能恐角龙",
+        "name_en": "Felhorn",
+        "text": "<b>嘲讽</b>。<b>复生</b>",
+        "text_en": "<b>Taunt</b>\n<b>Reborn</b>",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "REBORN": 1,
+          "2537": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "8de331edae6e7b00971b38dd595e36b1b7e2afb177cb6e9bec67e0059553452c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_446e",
+        "dbf_id": 118230,
+        "name": "邪能地窟裂隙附加效果",
+        "name_en": "Underfel Rift Enchantment",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9fa4e9bf04188c309ddbe78ee525b21d2c47dc4e232fb565dd3aad7dfee5d23a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_446e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "existing_definition_pins": {
+    "TLC_446t2": "9ac4bc109bbcd84e1ef24a3a1bac452a5df2c202c8d75ec4c840663685461bff",
+    "TLC_446t3": "5ed07c8037e3718a0f907ae8443fbca53a566e1a392efd3074d623cc536126e6",
+    "TLC_446t4": "1df3e5350856bd32ff5c57a60e30d8132f18c6a8c45becec6b9e43825ce96c5b"
+  },
+  "policy": "Original accepted physical hand quote freezes Temporary qualification. Native quest progress, reward hand delivery, inert Rift install, explicit non-discard investment and two separately sampled full Fel Beast requests reuse existing execution. Precise CN investment/timing/capacity policies remain M6; no formal pool certification. Rift runtime Legendary characteristic explicitly follows raw ELITE=1 and official35.6 controlled-Legendary fix; generic no-RARITY decoding and original API/XML records remain unchanged.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "metadata_overrides": {
+    "TLC_446t1": {
+      "rarity": "legendary"
+    }
+  }
+}

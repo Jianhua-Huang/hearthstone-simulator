@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实临时牌任务使用原完成PlayRecord及submitted_cost.quote.quote_input.hand_lifetime，不从离手后的实体或卡名猜测。裂隙投牌委托原交互物，召唤携带原物体SummonCause；不要伪造弃牌或另写使用次数，见[配方契约](m3-underfel-rift.md)。
+
 真实结束强制攻击需要过量给英雄时，用已有原驻留随机攻击请求的excess_to_hero明确选项，沿原ForceAttack及窗口交付；不要另发法术伤害、先杀随从再补英雄或给普通攻击全局加效果。原预算、反击和恢复见[战斗分流契约](m2-forced-combat-excess.md)。
 
 按费用档变形使用现有公共入口及transformed_cost_tier，不在卡牌层另写10费封顶或逐整数探测退化档位。原费用依据、保留费用和具名替代的例外分别声明，完整未知候选仍报错，见[费用档契约](m5-evolve-published-rules.md)。
