@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v533'
+CORE_EFFECTS_VERSION = 'core-effects-v534'
 
 
 class Mechanics:
@@ -2557,6 +2557,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_draw_casts(mechanics)
     from .deathrattle_memory import register as register_deathrattle_memory
     register_deathrattle_memory(mechanics)
+    from .deck_card_plays import register as register_deck_card_plays
+    register_deck_card_plays(mechanics)
     from .deathrattle_inheritance import register as register_deathrattle_inheritance
     register_deathrattle_inheritance(mechanics)
     from .discard_history import DiscardRecord

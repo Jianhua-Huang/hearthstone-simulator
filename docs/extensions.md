@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+`PlayTopDeckCards(player_id, source_id, SummonCause.capture(context), count)`复用五类物理执行器；它不等于手牌使用或历史整卡战吼回放。自然结束主体用原`EndTurnSpec`声明，满场、时钟和恢复边界见[契约](m3-physical-deck-top-play.md)。
+
 真实有界对手生命支付用`CostSpec(payment=PaymentType.OPPONENT_HEALTH)`与有来源、有限用途的`AddCostModifier(maximum_cost=10)`。不能只把普通报价的币种改名；最终费用上限、实际对手英雄及恢复边界见[契约](m3-qualified-next-card-costs.md#阿迦玛甘的有界对手生命支付)。
 
 原生发现亡语可用`NativeDeathrattleSpec('discovery_summon')`及有限`DeathrattleDiscoveryTarget`，把`DiscoverFromPool`交付到原附件；属性和具名召唤仍用普通效果。`PoolQuery.keywords_none`表达真实关键词排除，原材料、严格范围与待校准政策见[契约](m3-discovered-deathrattle-memory.md)。

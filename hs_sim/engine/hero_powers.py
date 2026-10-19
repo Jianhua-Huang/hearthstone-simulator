@@ -555,18 +555,18 @@ def assign_hero_class(player, definition):
         player.hero_class = classes[0] if len(classes) == 1 else None
 
 
-def play_hero(r, entity):
-    """Replace the hero with the actual committed hand card, without a death."""
+def play_hero(r, entity, *, origin=Zone.HAND):
+    """Install the actual hand/deck hero card through one replacement lifecycle."""
     player = r.player(entity.controller)
     definition = r.registry.card(entity.card_id)
-    if not definition.hero_card or entity.zone != Zone.HAND:
-        raise ResolutionError('Playing a hero requires a playable hero card in hand')
+    if type(origin) is not Zone or origin not in (Zone.HAND,Zone.DECK) or not definition.hero_card or entity.zone != origin:
+        raise ResolutionError('Playing a hero requires its actual hand/deck hero card')
     old = r.state.entities[player.hero_id]
     from .hero_health_history import snapshot as hero_health_snapshot
     health_before = hero_health_snapshot(old)
     old.zone = Zone.GRAVEYARD
     player.graveyard.append(old.id)
-    player.hand.remove(entity.id)
+    getattr(player,origin.value).remove(entity.id)
     entity.zone = Zone.HERO
     entity.zone_epoch += 1
     entity.entered_order = r.state.next_order
