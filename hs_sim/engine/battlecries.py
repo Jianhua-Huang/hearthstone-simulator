@@ -12,7 +12,7 @@ from .model import BattlecryPayload, BattlecryRecord, CardType
 
 
 def capture(entity):
-    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id)
+    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id,a.carved_spell_id)
                  for a in active_abilities(entity, 'battlecry'))
 
 

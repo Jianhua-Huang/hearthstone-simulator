@@ -13,6 +13,8 @@ def target_spec(definition):
 
 
 def effective_target_spec(state,registry,source,definition):
+    from .carved_spells import target_definition
+    definition=target_definition(registry,source,definition)
     from .spell_target_conditions import effective_spec
     from .hero_health_targets import effective_spec as health_spec
     from .kindred_targets import effective_spec as kindred_spec
@@ -22,6 +24,8 @@ def effective_target_spec(state,registry,source,definition):
 
 
 def accepts_target(state, registry, source, definition, target_id, *, context_factory=None, automatic=False):
+    from .carved_spells import target_definition
+    definition=target_definition(registry,source,definition)
     spec = effective_target_spec(state,registry,source,definition)
     target = state.entities.get(target_id)
     if spec is None or target is None or not target.active or target.zone not in spec.zones:

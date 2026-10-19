@@ -159,6 +159,7 @@ class Registry:
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
+        self._carved_spell_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
         self._corpse_summon_profiles = {}
@@ -333,6 +334,9 @@ class Registry:
     def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
 
     @property
+    def carved_spell_profiles(self):return MappingProxyType(self._carved_spell_profiles)
+
+    @property
     def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
 
     @property
@@ -425,6 +429,13 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._spell_value_profiles:raise ValueError('Duplicate native spell value profile')
         self._spell_value_profiles[profile.card_id]=profile
+
+    def register_carved_spell_profile(self,profile):
+        self._require_mutable()
+        from .carved_spells import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._carved_spell_profiles:raise ValueError('Duplicate carved spell profile')
+        self._carved_spell_profiles[profile.card_id]=profile
 
     def register_hero_health_target_profile(self,profile):
         self._require_mutable()
@@ -1675,6 +1686,8 @@ class Registry:
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .carved_spells import validate_profile as validate_carved_profile
+        for profile in self._carved_spell_profiles.values():validate_carved_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
         from .kindred_targets import validate_profile as validate_kindred_target_profile
@@ -2023,6 +2036,8 @@ class Registry:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._carved_spell_profiles:
+            payload['carved_spell_profiles']=[asdict(self._carved_spell_profiles[k])for k in sorted(self._carved_spell_profiles)]
         if self._hero_health_target_profiles:
             payload['hero_health_target_profiles']=[asdict(self._hero_health_target_profiles[k])for k in sorted(self._hero_health_target_profiles)]
         if self._generation_families:

@@ -14,6 +14,9 @@ def public_bodies(entity, registry):
             continue
         declaration_id = getattr(ability, ability.kind + '_card_id')
         declaration = registry.card(declaration_id)
+        from .carved_spells import spell_target_definition
+        if ability.carved_spell_id is not None:
+            declaration=spell_target_definition(registry,declaration,ability.carved_spell_id)
         if getattr(declaration, ability.kind) != ability.behavior_id:
             raise ValueError('Body description does not match its registered declaration')
         spec = target_spec(declaration)
@@ -35,4 +38,5 @@ def public_bodies(entity, registry):
             'expires_turn': ability.expires_turn,
             'target': target,
         })
+        if ability.carved_spell_id is not None:result[-1]['cast_card_id']=ability.carved_spell_id
     return result

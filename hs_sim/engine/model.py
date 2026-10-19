@@ -2878,6 +2878,7 @@ class AbilityInstance:
     hand_mirror: HandMirrorBinding | None = None
     native_condition: NativeSourceCondition | None = None
     deathrattle_memory: DeathrattleMemory | None = None
+    carved_spell_id: str | None = None
     deathrattle_inherited_from: tuple[int, int] | None = None
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
@@ -2890,6 +2891,9 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.carved_spell_id is not None:
+            _name(self.carved_spell_id,'carved original spell')
+            if self.kind!='battlecry':raise ValueError('Carved spell requires its physical Battlecry body')
         _optional_id(self.spell_aura_id, 'original spell Aura')
         if self.limited_trigger_deadline is not None:
             if (type(self.limited_trigger_deadline) is not OwnerTurnExpiry or self.kind != 'limited_trigger'
@@ -9181,11 +9185,13 @@ class BattlecryPayload:
     ability_id: int
     behavior_id: str
     card_id: str
+    carved_spell_id: str | None = None
 
     def __post_init__(self):
         _int(self.ability_id, 'Battlecry ability', 1)
         _name(self.behavior_id, 'Battlecry behavior')
         _name(self.card_id, 'Battlecry declaration card')
+        if self.carved_spell_id is not None:_name(self.carved_spell_id,'captured carved spell')
 
 
 @dataclass(frozen=True)

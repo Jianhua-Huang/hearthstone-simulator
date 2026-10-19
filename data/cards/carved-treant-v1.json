@@ -1,0 +1,3382 @@
+{
+  "schema": 1,
+  "batch": "K276b-carved-treants",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "dependencies": [
+    {
+      "record": {
+        "id": "MEND_046t",
+        "dbf_id": 130722,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "<b>战吼：</b>施放\n{0}。",
+        "text_en": "<b>Battlecry:</b> Cast {0}.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "MEND_046t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_134",
+        "dbf_id": 122971,
+        "name": "荒林怪圈",
+        "name_en": "Wildwood Circle",
+        "text": "<b>裂变</b>\n召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”@召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+        "text_en": "[x]<b>Shatter</b>. Summon two\n 2/2 Treants. Give your\nminions \"<b>Deathrattle:</b>\n Summon a 2/2 Treant.\"@[x]Summon two 2/2\nTreants. Give your\nminions \"<b>Deathrattle:</b>\n__Summon a 2/2 Treant.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 122972,
+          "TAG_SCRIPT_DATA_NUM_2": 122973,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 4,
+          "SHATTER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "765c00093fcd5f291b053390013170f4063388df73068f11f5f35aad3594710c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_134",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CATA_135",
+        "dbf_id": 123023,
+        "name": "苔缚术",
+        "name_en": "Mossbinding",
+        "text": "召唤两个1/2的魔像。消耗你的所有法力值，每消耗一点法力值，使其获得+1/+1。",
+        "text_en": "[x]Summon two 1/2 Golems.\nSpend all your Mana to\ngive them +1/+1 for\neach Mana spent.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "81ead965c67150b5160cae6069d3a45e5d9f7ff4e8853caaca7ccdbc2acd5488",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_135",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CATA_138",
+        "dbf_id": 122988,
+        "name": "森林赠礼",
+        "name_en": "Forest's Gift",
+        "text": "你每控制一个随从，使一个友方随从获得+1/+1。",
+        "text_en": "Give a friendly minion +1/+1 for each minion you control.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          }
+        ]
+      },
+      "record_sha256": "317204a09aeb22216386353f9a8a3ef3f15a4f36efe496d18fabe31e88f48fda",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CATA_138",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CATA_561",
+        "dbf_id": 122947,
+        "name": "能量仪式",
+        "name_en": "Ritual of Power",
+        "text": "<b>兆示</b>{0}。获取两张1/1并具有<b>突袭</b>的元素牌。",
+        "text_en": "[x]<b>Herald</b> {0}.\nGet two 1/1 Elementals\nwith <b>Rush</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "15077b00c86a8223eeb99a940b24a50170674266b84d30bfcd8dc8ff39cb4de4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_561",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CATA_567",
+        "dbf_id": 122963,
+        "name": "升腾",
+        "name_en": "Ascendance",
+        "text": "将所有友方随从变形成为法力值消耗增加（1）点的随从。当这些随从死亡时，召唤原随从。",
+        "text_en": "[x]Transform all friendly\nminions into ones that cost\n(1) more. They summon\nthe originals when they die.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "58ae0d4b0f4349b41c3418421d50234a04ca6626461bf90c8f71241f9c3671a2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_567",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CATA_568",
+        "dbf_id": 122999,
+        "name": "穆拉丁的奋战",
+        "name_en": "Muradin's Last Stand",
+        "text": "抽两张牌。在本局对战中，友方角色每攻击过一次，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Draw 2 cards. Costs (1) less for each time a friendly character attacked this game.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8d4bacd61c196da974b276c428ec8b113e722282a0197bbb61644ba04c60fcfa",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_568",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_AT_037",
+        "dbf_id": 76289,
+        "name": "活体根须",
+        "name_en": "Living Roots",
+        "text": "<b>抉择：</b>造成$2点伤害；或者召唤两个1/1的树苗。",
+        "text_en": "<b>Choose One -</b> Deal $2 damage; or Summon two 1/1 Saplings.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 2792,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Brereton"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2792",
+              "type": "Int",
+              "value": "2792"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "a00e425644125cdf3b1278a922c831748dc2ba7a796dfe132d9a23dfdf7cf463",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_AT_037",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_BOT_451",
+        "dbf_id": 106323,
+        "name": "流电爆裂",
+        "name_en": "Voltaic Burst",
+        "text": "召唤两个1/1并具有<b>突袭</b>的“火花”。<b>过载：</b>（1）",
+        "text_en": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "858": 49052,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 48557,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "49052",
+              "type": "Int",
+              "value": "49052"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5cc9392c56d5ba3b22e6306d1c947da80d07884ddbea70f87840839af8bb9e48",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_BOT_451",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_009",
+        "dbf_id": 69511,
+        "name": "野性印记",
+        "name_en": "Mark of the Wild",
+        "text": "使一个随从获得<b>嘲讽</b>和+2/+3。<i>（+2攻击力/+3生命值）</i>",
+        "text_en": "Give a minion <b>Taunt</b> and +2/+3.<i>\n(+2 Attack/+3 Health)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 213,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brad Vancata"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "213",
+              "type": "Int",
+              "value": "213"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2cebe40dfe5a9b05157eb4222ab5af51a0a8a5223878bce9797201fdbbc52dbe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_CS2_009",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_074",
+        "dbf_id": 69522,
+        "name": "致命药膏",
+        "name_en": "Deadly Poison",
+        "text": "使你的武器获得+2攻击力。",
+        "text_en": "Give your weapon +2_Attack.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 459,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trevor Jacobs"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "459",
+              "type": "Int",
+              "value": "459"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "ecfe88a12e7bf376f0e8ec955d75f332cb383c6d0779778b231fbf79a0d57f0e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_CS2_074",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_154",
+        "dbf_id": 76288,
+        "name": "愤怒",
+        "name_en": "Wrath",
+        "text": "<b>抉择：</b>\n对一个随从造成$3点伤害；或者造成$1点伤害并抽一张牌。",
+        "text_en": "<b>Choose One -</b>\nDeal $3 damage to a minion; or $1 damage\nand draw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 836,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "836",
+              "type": "Int",
+              "value": "836"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "71b3cac919d12fa51b0c7145b2bd0570ce354984d4eecbef46dff246e1d6dc87",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_154",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_169",
+        "dbf_id": 69550,
+        "name": "激活",
+        "name_en": "Innervate",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 254,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Doug Alexander"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "254",
+              "type": "Int",
+              "value": "254"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "74538a6de20e30c80cbbbf02dab7beb32d8aa7477f5d9f34004343f52cfae18d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_EX1_169",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_238",
+        "dbf_id": 69625,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 505,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "505",
+              "type": "Int",
+              "value": "505"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "743e700eca3b0739da5862c632297415b47e950c65b91cb3490113b6ba4175c4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_238",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_246",
+        "dbf_id": 69551,
+        "name": "妖术",
+        "name_en": "Hex",
+        "text": "使一个随从变形成为一只0/1并具有<b>嘲讽</b>的青蛙。",
+        "text_en": "Transform a minion into a 0/1 Frog with <b>Taunt</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 766,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 548,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Hui"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "766",
+              "type": "Int",
+              "value": "766"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cff277776a7b0f661515e1dff5df186df3841ddd3d7577dd545cd9eab33a997c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_246",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_259",
+        "dbf_id": 69629,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage to all_enemy minions. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 629,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "629",
+              "type": "Int",
+              "value": "629"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "d02294472e2880db2c01e78acb14c6cff122c41d86d567d47b876e60d079a76b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_EX1_259",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_309",
+        "dbf_id": 111355,
+        "name": "橡树的召唤",
+        "name_en": "Oaken Summons",
+        "text": "获得6点护甲值。从你的牌库中召唤一个法力值消耗小于或等于（4）点的随从。",
+        "text_en": "Gain 6 Armor.\nSummon a minion\nfrom your deck that\ncosts (4) or less.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 45828,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "45828",
+              "type": "Int",
+              "value": "45828"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "3fa01c3b965f388295f3b6b0a500588c8162a155e3e3129ed101b93baf7fed52",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOOT_309",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_373",
+        "dbf_id": 127471,
+        "name": "治疗之雨",
+        "name_en": "Healing Rain",
+        "text": "恢复#12点生命值，随机分配到所有友方角色上。",
+        "text_en": "Restore #12 Health randomly split among all friendly characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "858": 46067,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 46067,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "46067",
+              "type": "Int",
+              "value": "46067"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "662a29623d867748ae29bdd6e358d30011a935da8c4c09b4b9c8eb4ab4fe2096",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOOT_373",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "CORE_TSC_650",
+        "dbf_id": 117037,
+        "name": "划水好友",
+        "name_en": "Flipper Friends",
+        "text": "<b>抉择：</b>召唤一只6/6并具有<b>嘲讽</b>的虎鲸；或者六只1/1并具有<b>突袭</b>的海獭。",
+        "text_en": "[x]<b>Choose One</b> - Summon a\n6/6 Orca with <b>Taunt</b>; or\nsix 1/1 Otters with <b>Rush</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "858": 73462,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 73462,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "73462",
+              "type": "Int",
+              "value": "73462"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a6c8aa855bb92db5e8a980b1294831eebf03f63e627334e40bf375a26ffe656",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_TSC_650",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_060",
+        "dbf_id": 110889,
+        "name": "大地庇护",
+        "name_en": "Ward of Earth",
+        "text": "获得5点护甲值。随机召唤一个法力值消耗为（5）的随从并使其获得<b>嘲讽</b>。",
+        "text_en": "Gain 5 Armor. Summon a random 5-Cost minion and give it <b>Taunt</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bbcbc0c8bfff5f9e222c167d937b5f0c0f401908c36a1990ba0a9725b705cb1a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_060",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_232",
+        "dbf_id": 114357,
+        "name": "台风",
+        "name_en": "Typhoon",
+        "text": "将每个随从\n洗入随机玩家\n的牌库。",
+        "text_en": "Each minion gets shuffled into a random player's deck.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "4c33b59b89610173a7770017e47a19871cd808d58ae5812556f624390061e7b3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_232",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_233",
+        "dbf_id": 114369,
+        "name": "森林之灵",
+        "name_en": "Spirits of the Forest",
+        "text": "<b>抉择：</b>召唤三只2/3并具有<b>嘲讽</b>的狼；或者召唤两只4/3并具有<b>风怒</b>的猎鹰。",
+        "text_en": "<b>Choose One -</b> Summon three 2/3 Wolves with <b>Taunt</b>; or Summon two 4/3 Falcons with <b>Windfury</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e467f1b0596de2b8973ce1d2ad4ac1d9282668a9a2f5bb152821ae7c630e5067",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_233",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_255",
+        "dbf_id": 114543,
+        "name": "复苏烈焰",
+        "name_en": "Renewing Flames",
+        "text": "<b>吸血</b>。对生命值最低的敌人造成$5点伤害，触发两次。",
+        "text_en": "<b>Lifesteal</b>. Deal $5 damage to the lowest Health enemy, twice.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & I. Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "cc7cdd0e93633eedd1571493c59e36bb7b1b22d135f571c0ae12e1db1fefc85b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_255",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_261",
+        "dbf_id": 115052,
+        "name": "两栖之灵",
+        "name_en": "Amphibian's Spirit",
+        "text": "使一个随从获得+2/+2和“<b>亡语：</b>使一个友方随从获得+2/+2以及此<b>亡语</b>。”",
+        "text_en": "[x]Give a minion +2/+2\nand \"<b>Deathrattle:</b> Give a\nfriendly minion +2/+2\nand this <b>Deathrattle</b>.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Danny Beck"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a02a477a18f5c284b2bebb629414132c7420db8f0c708dc1a5e20a45885c87d9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_261",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_262",
+        "dbf_id": 115055,
+        "name": "灵魂联结",
+        "name_en": "Spirit Bond",
+        "text": "对一个随从造成$3点伤害。如果该随从死亡，召唤一只3/2并具有<b>突袭</b>的狼。",
+        "text_en": "[x]Deal $3 damage\n_to a minion. If it dies,\nsummon a 3/2 Wolf\nwith <b>Rush</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & T. Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "12286022df4c2b2c68ee1d380834e53621a287f469f7ba457ffc613aa4fb43f6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_262",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_270",
+        "dbf_id": 115080,
+        "name": "丰裕之角",
+        "name_en": "Horn of Plenty",
+        "text": "<b>发现</b>一张自然法术牌，其法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Discover</b> a Nature spell.\nIt costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "05937ab39774da6ee701a8efa9b47fb28b7e5393f081192d0e7d2f071ba5d570",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_270",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_273",
+        "dbf_id": 115876,
+        "name": "共生术",
+        "name_en": "Symbiosis",
+        "text": "<b>发现</b>一张另一职业的<b>抉择</b>牌。",
+        "text_en": "[x]<b>Discover</b> a <b>Choose One</b>\ncard from another class.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "443",
+              "name": "CHOOSE_ONE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d3127407432ef928957e556bb1ee8c24f2be68285fabcccd6f463f26feac7d09",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_273",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_843",
+        "dbf_id": 114848,
+        "name": "森林再生",
+        "name_en": "Reforestation",
+        "text": "<b>抉择：</b>抽一张法术牌；或者抽一张随从牌。<i>（本牌在你手中@回合即可同时拥有两种效果！）</i>",
+        "text_en": "[x]<b>Choose One -</b> Draw a\nspell; or Draw a minion.\n<i>(Hold this for @ |4(turn, turns)\nto do_both!)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "5f45a53ce59cabbf20fa71c4823b78a33b85700684f2b52a20c90d0393c21a1e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_843",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_846",
+        "dbf_id": 115090,
+        "name": "莎拉达希尔",
+        "name_en": "Shaladrassil",
+        "text": "获取全部5张梦境牌。如果你在本牌在你手中时使用过法力值消耗更高的牌，腐蚀这些梦境牌！",
+        "text_en": "[x]Get all 5 Dream cards.\nIf you've played a higher\nCost card while holding\nthis, corrupt them!",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4128": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "fa31f66d409c0764dbc1fb67931a216359997ed4ebb888af20fc4d3457acb5d3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_846",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "EDR_848",
+        "dbf_id": 114914,
+        "name": "光合作用",
+        "name_en": "Photosynthesis",
+        "text": "恢复#6点生命值。随机获取3张德鲁伊法术牌。",
+        "text_en": "Restore #6 Health. Get 3 random Druid spells.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "6f77490425db83d2bf62ba450b2a27fa838e7a59daf67b5195f5857e3dd4f0f9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_848",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "END_009",
+        "dbf_id": 121107,
+        "name": "破碎现实",
+        "name_en": "Splintered Reality",
+        "text": "召唤两个2/2的树人。在本局对战中，每有一个友方树人死亡，使这两个树人获得+1/+1。@<i>（已\n死亡@个）</i>",
+        "text_en": "Summon two 2/2 Treants. They gain +1/+1 for each friendly Treant that died this game.@ <i>(@)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "54dc6474e0665f790f2c5199c98afdc9af7836570f8421d30ae960c3458991b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "END_009",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "JAIL_805",
+        "dbf_id": 126413,
+        "name": "风暴怒火",
+        "name_en": "Stormfury",
+        "text": "<b>吸血</b>。对所有敌方随从造成$2点伤害。<i>（施放@个法术以变为随从牌！）</i>",
+        "text_en": "[x]<b>Lifesteal</b>. Deal $2 damage\nto all enemy minions.\n<i>(Cast @ |4(spell, spells) to turn\ninto a minion!)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126414,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126414,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "86987fb240c4f159ed0868fb3b403ec0311568d276f0d3072706f103977d15ef",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_805",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "MEND_042",
+        "dbf_id": 123485,
+        "name": "生命绽放",
+        "name_en": "Lifebloom",
+        "text": "为所有友方角色恢复#8点生命值。随机召唤两个法力值消耗为（8）的随从。",
+        "text_en": "[x]Restore #8 Health to\nall friendly characters.\nSummon two random\n8-Cost minions.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Diego Gil"
+          }
+        ]
+      },
+      "record_sha256": "8d570bd023a88f6d410b07616bdec1fa4049ef69c3e5508f99f930bb346996d4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "MEND_042",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "MEND_043",
+        "dbf_id": 123481,
+        "name": "根心之石",
+        "name_en": "Heartroot Stones",
+        "text": "抽一张牌并获得3点护甲值。如果你在上回合没有使用随从牌，重复一次。",
+        "text_en": "Draw a card and gain 3 Armor. If you didn't play a minion\nlast turn, do it again.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "a6b807cc7ab027d6d709185d8eb7b7d84737fb3c6f1bd4f7221f0f0ff094b319",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "MEND_043",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "MEND_305",
+        "dbf_id": 123510,
+        "name": "滋养自然",
+        "name_en": "Nurturing Nature",
+        "text": "使一只友方野兽获得+2/+2。随机使你手牌中的一张野兽牌获得+2/+2。",
+        "text_en": "[x]Give a friendly\nBeast +2/+2.\nGive a random Beast\nin your hand +2/+2.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "28b4a52359d1fbd7d0ca8ec5c62dbe5fcd001e785d1318f48878e9aad73a5822",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MEND_305",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_212",
+        "dbf_id": 120173,
+        "name": "引雷针",
+        "name_en": "Lightning Rod",
+        "text": "对一个友方随从造成$2点伤害，以随机对一个敌方随从造成$4点伤害。",
+        "text_en": "Deal $2 damage to a friendly minion to deal $4 damage to a random enemy minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          }
+        ]
+      },
+      "record_sha256": "9613e0e6753f089ace2ff3194cb82210a244be1cc93a6aa5187ffd3dbda8a480",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_212",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_215",
+        "dbf_id": 120176,
+        "name": "雷霆动地",
+        "name_en": "Thunderquake",
+        "text": "对所有随从造成$1点伤害。获取一张静电震击。",
+        "text_en": "[x]Deal $1 damage\nto all minions.\nGet a Static Shock.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 121020,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "8da93fad2044b2ad8a91faa09ad330e5023442230d09d2a813092e4aee082809",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_215",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_216",
+        "dbf_id": 120448,
+        "name": "新生闪电",
+        "name_en": "Nascent Bolt",
+        "text": "对一个随从造成$5点伤害。如果该随从依然存活，抽两张牌。",
+        "text_en": "Deal $5 damage to a minion. If it survives, draw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Diego Gil"
+          }
+        ]
+      },
+      "record_sha256": "ac5820ae77b196c75c55884a550dfa644b9f8c42afaa762dd91f413041d77a4d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_216",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_218",
+        "dbf_id": 121020,
+        "name": "静电震击",
+        "name_en": "Static Shock",
+        "text": "对一个随从造成$1点伤害。在本回合中，使你的英雄获得+1攻击力。",
+        "text_en": "Deal $1 damage to a minion. Give your hero +1 Attack this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "e0a03256da322625b08f879583ffaa3b03da1af2275405153be2b587148c1918",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_218",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_701",
+        "dbf_id": 120746,
+        "name": "波涛形塑",
+        "name_en": "Waveshaping",
+        "text": "从你的牌库中<b>发现</b>一张牌。将其余选项置于牌库底。",
+        "text_en": "<b>Discover</b> a card from your deck. The others get put on the bottom.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "9150c1919472cc8e1c579d62fa682582aecc4fa9e21f955525572abe821e70a0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_701",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TIME_702",
+        "dbf_id": 120748,
+        "name": "潮起潮落",
+        "name_en": "Ebb and Flow",
+        "text": "造成$3点伤害。如果你在本牌在你手中时使用过随从牌，获得5点护甲值。",
+        "text_en": "Deal $3 damage.\nIf you played a minion while holding this,\ngain 5 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "8ea3f1f2e0afe55c32697e3bddb32383c5f2b2129c264f62621c56c8e78fc92a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_702",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TLC_230",
+        "dbf_id": 117646,
+        "name": "树群来袭",
+        "name_en": "TREEEES!!!",
+        "text": "选择一个随从。召唤四个2/2的树人攻击该随从。",
+        "text_en": "Choose a minion. Summon four 2/2 Treants that attack it.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "44bc6dbf2e65f6b1012b1834957beb460f6b4a13ab605c2da4661f0c70f31da2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_230",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TLC_235",
+        "dbf_id": 117655,
+        "name": "生命循环",
+        "name_en": "Life Cycle",
+        "text": "消灭一个随从，随机召唤一个法力值消耗相同的随从来替换它。",
+        "text_en": "Destroy a minion. Summon a random minion of the same\nCost to replace it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "d8f6a81f0de2ea72c86fd5aeeb578269cfb44ea88ee0f48a854070024f9413e4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_235",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "TLC_236",
+        "dbf_id": 117656,
+        "name": "杂交育种",
+        "name_en": "Hybridization",
+        "text": "抽取法力值消耗为（1），（2），（3），（4）的随从牌各一张。<b>延系：</b>其法力值消耗减少（1）点。",
+        "text_en": "Draw a 1, 2, 3, and 4-Cost minion. <b>Kindred:</b> They cost (1) less.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "a105189264d0f474208b2d7b600dec7d118bca9ff7031863a8ca89775902fee8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_236",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "source_verified": true,
+  "cn_calibrated": false,
+  "formal_pool_complete": false,
+  "cards": [
+    {
+      "record": {
+        "id": "MEND_046",
+        "dbf_id": 123493,
+        "name": "巴珊娜·符文图腾",
+        "name_en": "Bashana Runetotem",
+        "text": "<b>战吼：</b>获取三张2/2的树人，并在这些树人身上刻下总计消耗12点法力值的自然法术。",
+        "text_en": "[x]<b>Battlecry:</b> Get three\n2/2 Treants. Carve 12\nMana worth of Nature\nspells into them.",
+        "cost": 7,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "0df556945ad6ab1e070d6bdbdfd5088c16a423aa8c2dfa501dafa424d46a5602",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "MEND_046",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "MEND_046",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\123493-zh_CN.json",
+      "response_sha256": "48ac1e08b8bc2ad928ebd43569813776c88d44a5b20fcaf8b2ed3fbb9d52c180",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123493&locale=zh_CN",
+      "face": {
+        "id": 123493,
+        "collectible": 1,
+        "slug": "123493-bashana-runetotem",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "巴珊娜·符文图腾",
+        "text": "<b>战吼：</b>获取三张2/2的树人，并在这些树人身上刻下总计消耗12点法力值的自然法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36e75763dcb4f5f417c105010af0d79346fb36f048c641e80344c06bb9f3f3df.png",
+        "imageGold": "",
+        "flavorText": "“谁把名字刻在我的图腾上了？真的符了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1bac71b26f694ad4a828c52962c76eeff16856c5e3df6c6a4f4e733c11d8fa72.png",
+        "childIds": [
+          126886,
+          130722
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123493&locale=zh_CN",
+        "sha256": "48ac1e08b8bc2ad928ebd43569813776c88d44a5b20fcaf8b2ed3fbb9d52c180",
+        "bytes": 873,
+        "observed_at": "2026-10-19T17:15:12.840678+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_046",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\123493-en_US.json",
+      "response_sha256": "c623682db15bb8b4689ffddf758ba25b64c97d02743ef0e0a845c7dbf6ad9e0c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123493&locale=en_US",
+      "face": {
+        "id": 123493,
+        "collectible": 1,
+        "slug": "123493-bashana-runetotem",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "Bashana Runetotem",
+        "text": "<b>Battlecry:</b> Get three 2/2 Treants. Carve 12 Mana worth of Nature spells into them.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3ee58b0421c810d9a0e2f9f492f0d3e7fe177d200a5fa27a13ac52cefc1a12d.png",
+        "imageGold": "",
+        "flavorText": "\"Who carved their name into my totems and RUNED them?!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1bac71b26f694ad4a828c52962c76eeff16856c5e3df6c6a4f4e733c11d8fa72.png",
+        "childIds": [
+          126886,
+          130722
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123493&locale=en_US",
+        "sha256": "c623682db15bb8b4689ffddf758ba25b64c97d02743ef0e0a845c7dbf6ad9e0c",
+        "bytes": 835,
+        "observed_at": "2026-10-19T17:15:12.855857+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_046t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\130722-zh_CN.json",
+      "response_sha256": "fada7f6ab0b4977fdfa119cdcb64f6c7f8993376420955545b8bfc18f1340a98",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130722&locale=zh_CN",
+      "face": {
+        "id": 130722,
+        "collectible": 0,
+        "slug": "130722-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "树人",
+        "text": "<b>战吼：</b>施放 。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecaecbda6f06acf31479afc815ddce4058896c5bf70714a771d6956491ca8b39.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123493,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130722&locale=zh_CN",
+        "sha256": "fada7f6ab0b4977fdfa119cdcb64f6c7f8993376420955545b8bfc18f1340a98",
+        "bytes": 573,
+        "observed_at": "2026-10-19T17:34:26.189348+00:00"
+      }
+    },
+    {
+      "card_id": "MEND_046t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\130722-en_US.json",
+      "response_sha256": "2430afd96b61330ebf864bcfbd97a658bb1f4bbf2777e969d3f9c6233b0e6bbc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130722&locale=en_US",
+      "face": {
+        "id": 130722,
+        "collectible": 0,
+        "slug": "130722-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Treant",
+        "text": "<b>Battlecry:</b> Cast .",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36e159565cdd15119f2ba2f812dcf96c2ab3ee7c5f7290476cdcf20f2abf7925.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123493,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130722&locale=en_US",
+        "sha256": "2430afd96b61330ebf864bcfbd97a658bb1f4bbf2777e969d3f9c6233b0e6bbc",
+        "bytes": 571,
+        "observed_at": "2026-10-19T17:34:26.295637+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "MEND_046t": {
+      "{0}": ""
+    }
+  },
+  "policy": {
+    "allocation": "Freeze three original Nature spell IDs before acquisition, printed costs sum12, weighted sequential feasible choices with replacement; full eligible set validated before RNG.",
+    "delivery": "Three ordinary one-cost2/2 native Treants, each spell attached before its card-created/acquisition event; original hand overflow applies independently.",
+    "targets": "Stored spell forwards its actual target domain as IF_AVAILABLE for the physical minion; current Choose One variants must share any nonempty target contract. Ordinary generated CAST chooses branch randomly, and an untargeted selected branch drops the forwarded target.",
+    "lifecycle": "Frozen native Battlecry payload retains selected spell after source changes; current copies retain physical native value, printed base resets and silence follow original body lifecycle.",
+    "empty": "A genuinely uncarved printed-base Treant has a known empty native spell slot; it emits explicit empty diagnostic rather than executing an unknown spell.",
+    "calibration": "Exact allocation probabilities, branch/target acceptance, overflow and reset policies remain CN-uncalibrated; official36.0 prohibits exposing held spells to opponent."
+  }
+}

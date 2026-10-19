@@ -198,6 +198,8 @@ def add_to_hand(r, effect):
 def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None):
     """Shared generated materialization; public AddToHand still returns no work."""
     player = r.player(effect.player_id)
+    from .carved_spells import validate_creation as validate_carved_creation, install as install_carved
+    validate_carved_creation(r.registry,effect)
     definition = r.registry.card(effect.card_id)
     if not definition.hand_playable:
         raise ResolutionError('Unsupported generated hand card type')
@@ -219,6 +221,7 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
         from .costs import attach_cost
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
     install(r.state, entity, effect)
+    install_carved(r.registry,entity,getattr(effect,'carved_spell_id',None))
     if native_spell_value is not None:
         from .native_spell_values import install as install_native_spell_value
         install_native_spell_value(r.state,r.registry,entity,native_spell_value)

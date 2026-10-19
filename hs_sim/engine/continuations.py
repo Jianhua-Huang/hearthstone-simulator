@@ -69,6 +69,13 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .carved_spells import validate_creation as validate_carved_creation,validate_ability as validate_carved_ability
+        from .carved_spells import CastCarvedSpell
+        if type(value) is CastCarvedSpell and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+        if type(value) is effects.AddToHand:validate_carved_creation(self.registry,value)
+        if type(value) is model.AbilityInstance and value.carved_spell_id is not None:
+            validate_carved_ability(self.registry,value)
         from .bonus_effects import StealBonusEffects
         if type(value) is StealBonusEffects and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

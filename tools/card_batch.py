@@ -209,6 +209,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # stay strict. This exact original row is not a general {0} exception.
     egg_name_display = (display_normalizations == {'{0}': ''} and row['id'] == 'EDR_454t' and
         canonical(row) == 'cd319168db51490cfc038bcdaba343e7178c57fe6b3b00745df0ef326fa536cb')
+    # A carved Treant's actual spell is native runtime material, not an empty
+    # Battlecry. Only this full pinned source may omit its live spell name.
+    carved_spell_display = (display_normalizations == {'{0}': ''} and row['id'] == 'MEND_046t' and
+        canonical(row) == '270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a')
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
@@ -220,7 +224,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display or egg_name_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display or egg_name_display or carved_spell_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')

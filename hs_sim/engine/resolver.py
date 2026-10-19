@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v554'
+CORE_EFFECTS_VERSION = 'core-effects-v555'
 
 
 class Mechanics:
@@ -2627,6 +2627,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_mana_worth_summons(mechanics)
     from .spell_mana_budget import register as register_spell_mana_budget
     register_spell_mana_budget(mechanics)
+    from .carved_spells import register as register_carved_spells
+    register_carved_spells(mechanics)
     from .rewind import register as register_rewind
     register_rewind(mechanics)
     from .rewind_outcomes import register as register_rewind_outcomes

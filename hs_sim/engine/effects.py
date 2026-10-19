@@ -103,8 +103,12 @@ class AddToHand(Effect):
     spell_damage: int = 0
     combined_shatter: bool = False
     minion_stats: CreatedMinionStats | None = None
+    carved_spell_id: str | None = None
 
     def __post_init__(self):
+        if self.carved_spell_id is not None:
+            if type(self.carved_spell_id) is not str or not self.carved_spell_id.strip():
+                raise ValueError('Carved creation requires an original spell ID')
         from .card_creation import validate_combined_shatter
         validate_combined_shatter(self.combined_shatter)
         validate_declaration(self.spell_repeat)

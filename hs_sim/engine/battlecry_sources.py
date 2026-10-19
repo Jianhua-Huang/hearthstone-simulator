@@ -291,6 +291,9 @@ def begin(r,effect,*,historical_sequence=None):
     source=deepcopy(r.state.entities[effect.source_id]); source.controller=effect.player_id
     # Target restrictions belong to the declaring ability, not its new carrier.
     definition=r.registry.card(effect.payload.card_id)
+    if effect.payload.carved_spell_id is not None:
+        from .carved_spells import spell_target_definition
+        definition=spell_target_definition(r.registry,definition,effect.payload.carved_spell_id)
     if effect.historical_body_id is not None:
         from .historical_body_targets import accepted_start
         accepted=accepted_start(r.state,effect)
