@@ -530,8 +530,20 @@ class DiscoverFromPool(Effect):
     shuffle_unselected_into_deck: bool = False
     keep_all_corpse_cost: int | None = None
     summon_copy_corpse_cost: int | None = None
+    paired_choose_one: bool = False
 
     def __post_init__(self):
+        if type(self.paired_choose_one)is not bool:raise ValueError('Paired Choose One discovery requires a boolean')
+        if self.paired_choose_one and (
+                self.source_id is None or self.destination!='hand' or self.count!=3 or self.discoveries!=1 or
+                self.delivery!='after_each' or not self.replacement or self.position!='random' or
+                type(self.query)is not PoolQuery or self.query.choose_one is not True or self.query.collectible is not True or
+                any(x is not None for x in (self.cost,self.expires_turn,self.spell_repeat,self.cause,self.gift_pool,
+                    self.summon_copy_stats,self.minion_grant,self.temporary_until_turn,self.set_summoned_stats,
+                    self.keep_all_corpse_cost,self.summon_copy_corpse_cost)) or
+                any((self.heal_hero_by_printed_cost,self.freeze_summoned,self.gift_copy_to_hand,
+                    self.copy_selected_to_hand,self.shuffle_unselected_into_deck))):
+            raise ValueError('Paired Choose One requires one plain source-bound hand discovery')
         if self.summon_copy_corpse_cost is not None:
             integer(self.summon_copy_corpse_cost, 'discovered copy corpse cost', 1)
             if (self.destination != 'hand' or self.cause is None or self.source_id is None or
@@ -840,6 +852,9 @@ def generation_candidates(r, effect):
     validate_creation(r.state, effect, (r.registry.card(m.card_id) for m in candidates))
     grant=getattr(effect,'minion_grant',None)
     if grant is not None and grant.special=='after_play':r.registry.behavior(grant.identity)
+    if getattr(effect,'paired_choose_one',False):
+        from .discovery import combined_creation_selection
+        for member in candidates:combined_creation_selection(r.registry.card(member.card_id))
     return candidates
 
 

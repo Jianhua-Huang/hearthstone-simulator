@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+腐毒贿赂式交付使用有限`DiscoverFromPool.paired_choose_one`；原组合分支在首次创建通知前安装，派生复制按原选中卡ID独立交付，见[契约](m3-choose-one-bribe.md)。
+
 `GrantAfterPlay`绑定原手牌引用；`GrantRandomAfterPlay`按当前价格/种族选取，足迹新体使用有限创建授予。完成边界和保存范围见[跟随法术契约](m3-follow-hand-effects.md)。
 
 灵魂献祭式当前技能加1使用`GrantHealthRule(power_id, power_damage_rule(), source_id)`；限定永久原来源伤害，其他技能规则显式拒绝，见[契约](m3-soul-immolation.md)。

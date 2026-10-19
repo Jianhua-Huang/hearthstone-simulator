@@ -266,15 +266,31 @@ def sample_eligible_gifts(r, members, faces):
     return r.game._rng.choice(possible)
 
 
-def deliver_pick(spec, pick):
+def deliver_pick(spec, pick, registry=None):
     from .discovery_delivery import MaterializeDiscoveredCard
-    work=pick_requests(spec,pick)
+    work=pick_requests(spec,pick,registry)
     if spec.destination=='board':return work
     if pick.result is None:raise ValueError('Original discovery delivery lost its complete selected result')
     return (MaterializeDiscoveredCard(pick.result,work[0]),*work[1:])
 
 
-def pick_requests(spec, pick):
+def combined_creation_selection(definition):
+    from .model import ChooseBranchSelection
+    from .choose_branch_state import validate_selection_for_card
+    if definition.choose_one is None or definition.kind not in (CardType.MINION,CardType.SPELL,CardType.WEAPON):
+        raise ValueError('Paired discovery requires a physical hand Choose One declaration')
+    origins=(('hand','physical')if definition.kind==CardType.MINION else
+             ('hand',)if definition.kind==CardType.WEAPON else('hand','cast_effect','cast_draw','cast_history'))
+    return validate_selection_for_card(definition,
+        ChooseBranchSelection(definition.id,definition.choose_one.combined.id,origins))
+
+
+def pick_requests(spec, pick, registry=None):
+    if spec.paired_choose_one:
+        if registry is None:raise ValueError('Paired discovery requires its actual registered branch declaration')
+        selection=combined_creation_selection(registry.card(pick.card_id))
+        return (AddToHand(spec.player_id,pick.card_id,spec.source_id,choose_branch=selection),
+            AddToHand(3-spec.player_id,pick.card_id,spec.source_id))
     if pick.gift is None:return deliver_generated(spec,(pick.card_id,))
     gift=pick.gift
     delta=gift.cost_delta+(spec.cost.delta if spec.cost is not None else 0)
@@ -402,7 +418,7 @@ def continue_discovery(r, batch):
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
-        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick)) if spec.delivery=='after_all' else ()
+        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick,r.registry)) if spec.delivery=='after_all' else ()
     candidates=generation_candidates(r,spec)
     validate_gift_candidates(r.registry,r.game._generation_context,spec,candidates)
     from .costs import validate_creation_cost
@@ -418,7 +434,7 @@ def continue_discovery(r, batch):
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
-        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick)) if spec.delivery=='after_all' else ()
+        return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick,r.registry)) if spec.delivery=='after_all' else ()
     hero_class=r.player(spec.player_id).hero_class if spec.query.class_mode in ('current','other') else None
     source_card=r.state.entities[spec.source_id].card_id if spec.source_id is not None else None
     options=options_for(r.registry,batch,offered,hero_class,source_card,sample_gifts(r,spec,offered))
@@ -461,7 +477,7 @@ def resolve_discovery(r, effect):
     elif spec.destination=='hand_or_opponent_top':
         from .discovery_destinations import begin
         delivery=begin(r,effect)
-    else:delivery=deliver_pick(spec,committed) if spec.delivery=='after_each' else ()
+    else:delivery=deliver_pick(spec,committed,r.registry) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)
 
