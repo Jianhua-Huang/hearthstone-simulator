@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v568'
+CORE_EFFECTS_VERSION = 'core-effects-v569'
 
 
 class Mechanics:
@@ -2809,5 +2809,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_stat_gains(mechanics)
     from .deck_generation import register as register_deck_generation
     register_deck_generation(mechanics)
+    from .nythendra_reform import register as register_nythendra
+    register_nythendra(mechanics)
     return mechanics
 
