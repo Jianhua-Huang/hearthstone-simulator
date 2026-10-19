@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v558'
+CORE_EFFECTS_VERSION = 'core-effects-v559'
 
 
 class Mechanics:
@@ -2749,5 +2749,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_temporary_powers(mechanics)
     from .after_play_grants import register as register_after_play
     register_after_play(mechanics)
+    from .hand_minion_split import register as register_hand_minion_split
+    register_hand_minion_split(mechanics)
     return mechanics
 

@@ -1910,3 +1910,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 时光之主诺兹多姆从原完成出牌读取固定目标的印刷系列，再由带原实例检查的推进入口调用既有休眠倒计时；完整衍生物系列及最新系列政策边界见[契约](m3-timelord-printed-expansion.md)。
 
 殒命暗影在原施法主体接受时复制当前物理法术材料，独立原生手牌绑定跨自身换面保留，晚入手不追溯施法；复制、转手、退出和私有通知复用边界见[契约](m3-native-spell-mirror.md)。
+
+裂解术仅新增原手牌随机拆分入口，冻结当前材料与三个数值后，委托原私有移出和两次普通复制。取整、费用外部层、获取窗口及待国服校准政策见[契约](m3-hand-minion-split.md)。
