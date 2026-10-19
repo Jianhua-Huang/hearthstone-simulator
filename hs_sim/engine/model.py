@@ -245,6 +245,7 @@ class HealthOp(StrEnum):
     SHIELD_HITS = 'shield_hits'
     NATURE_GROWTH = 'nature_growth'
     NATURE_SUMMON = 'nature_summon'
+    BLIGHT_SHUFFLE = 'blight_shuffle'
     REDIRECT = 'redirect'
     CONVERT = 'convert'
 
@@ -279,7 +280,7 @@ class HealthRule:
         if self.operation != HealthOp.SCALE and self.denominator != 1:
             raise ValueError('Only scaling rules have a denominator')
         if self.operation in (HealthOp.PREVENT, HealthOp.SPELL_IMMUNITY, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY,
-                              HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON) and self.amount != 0:
+                              HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON,HealthOp.BLIGHT_SHUFFLE) and self.amount != 0:
             raise ValueError('Routing, conversion and prevention have no numeric operand')
         if self.operation == HealthOp.SPELL_IMMUNITY and (
                 self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
@@ -299,6 +300,11 @@ class HealthRule:
                 self.target_kinds != (CardType.HERO,) or self.damage_kinds or
                 self.healing_kinds or self.schools or self.redirect_to is not None):
             raise ValueError('Weapon durability replacement requires its exact incoming friendly-hero damage profile')
+        if self.operation == HealthOp.BLIGHT_SHUFFLE and (
+                self.flow!=HealthFlow.DAMAGE or self.layer!=HealthLayer.SOURCE or self.source_relation!='self' or
+                self.target_relation!='any' or self.target_kinds!=(CardType.HERO,) or self.damage_kinds or
+                self.healing_kinds or self.schools or self.redirect_to is not None):
+            raise ValueError('Blight replacement requires its native outgoing self-source hero-damage profile')
         if self.operation == HealthOp.SHIELD_HITS and (
                 self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or self.amount != 3 or
                 self.source_relation != 'any' or self.target_relation != 'friendly' or

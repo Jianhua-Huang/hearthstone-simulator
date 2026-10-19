@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .deck_generation import ShuffleGeneratedCopies,validate_request as validate_generated_shuffle
+        if type(value) is ShuffleGeneratedCopies and self.origin_state is not None:
+            validate_generated_shuffle(self.origin_state,self.registry,value)
         from .model import BattlecryPayload
         if type(value) is BattlecryPayload:
             from .remaining_mana_numbers import validate_payload

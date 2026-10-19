@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v565'
+CORE_EFFECTS_VERSION = 'core-effects-v566'
 
 
 class Mechanics:
@@ -1098,6 +1098,15 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
                                       reason='lifesteal' if packet.from_lifesteal else 'effect', **packet.event_data())))
             outcome(healed=actual, prevention='rule_prevention' if packet.prevented else None)
             return actual
+        from .blight_damage_replacement import select as select_blight_replacement,complete as complete_blight_replacement
+        blight=select_blight_replacement(r,state,rules,packet,target)
+        if blight is not None:
+            followups=complete_blight_replacement(blight,packet,target)
+            packet=replace(packet,amount=0,prevented=True,rule_ids=(*packet.rule_ids,blight[0]))
+            pending_events.append(('damage_prevented',dict(source_id=packet.source_id,target_id=target.id,
+                reason='rule_prevention',**packet.event_data())))
+            outcome(prevention='rule_prevention');replacements[packet_index]=followups
+            return 0
         from .nature_damage_replacements import select as select_nature_replacement,complete as complete_nature_replacement
         native = select_nature_replacement(r,state,rules,packet,target)
         if native is not None:
@@ -1216,6 +1225,8 @@ def heal_batch(r, effect):
 
 
 def grant_health_rule(r, effect):
+    if effect.rule.operation==HealthOp.BLIGHT_SHUFFLE:
+        raise ResolutionError('Blight replacement requires its original printed minion declaration')
     if effect.rule.operation == HealthOp.SHIELD_HITS:
         raise ResolutionError('Shield-hit provider requires its original printed minion declaration')
     if effect.rule.operation in (HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON):
@@ -2776,5 +2787,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_live_hand_spells(mechanics)
     from .native_stat_gains import register as register_native_stat_gains
     register_native_stat_gains(mechanics)
+    from .deck_generation import register as register_deck_generation
+    register_deck_generation(mechanics)
     return mechanics
 

@@ -1,0 +1,364 @@
+{
+  "schema": 1,
+  "task": {
+    "schema": 1,
+    "batch": "K287-native-blight-replacement",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k286-remaining-mana-numbers/inventory-01.json",
+    "candidate_inventory_sha256": "50c6e33f852d033060cdf1e0acbe3604e97404a8cac9072047a95128c947c212",
+    "roots": [
+      "JAIL_443"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [
+      "JAIL_443t"
+    ],
+    "evidence_only": [],
+    "official_ids": [
+      "JAIL_443",
+      "JAIL_443t"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Hero damage replacement must prevent the original health loss and enqueue the exact number of real Blights into that hero owners deck. Reuse ordinary damage/replacement, semantic shuffle, Cast When Drawn and fixed two damage; retain ordinary minion damage and Charge.",
+        "cards": [
+          "JAIL_443"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/native_blight_replacement_cards.py",
+      "data/cards/native-blight-replacement-v1.json",
+      "tests/test_native_blight_replacement_cards.py"
+    ]
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_443",
+        "dbf_id": 126259,
+        "name": "活体疫病",
+        "name_en": "The Living Plague",
+        "text": "<b>冲锋</b>。本随从对英雄造成伤害时，改为将与伤害等量的疾疫牌洗入其牌库。抽到疾疫牌时，造成2点伤害。",
+        "text_en": "[x]<b>Charge</b>. Instead of damaging\nheroes, this shuffles that many\nBlights into their deck that deal\n_2 damage when drawn.",
+        "cost": 6,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CHARGE": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "9da3f63b8d1b0232eed2326beb0b602c0067c9bbfc485adb6c16f45692591bbc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_443",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "JAIL_443t",
+        "dbf_id": 129675,
+        "name": "疾疫",
+        "name_en": "Blight",
+        "text": "<b>抽到时施放</b>\n对你的英雄造成2点伤害。",
+        "text_en": "<b>Casts When Drawn</b>\nDeal 2 damage\nto your hero.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "349": 1,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "a4cdf726cad231b165ec56bc76c5f3d6e9eaa148e07e28a8765083a5a162feae",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_443t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_443",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126259-zh_CN.json",
+      "response_sha256": "6472f68d3c21bf4f27a93d26cb7cce688b67665ef9dafd94f5ec6e7c13f9eecd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126259&locale=zh_CN",
+      "face": {
+        "id": 126259,
+        "collectible": 1,
+        "slug": "126259-the-living-plague",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Jakub Kasper",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 6,
+        "name": "活体疫病",
+        "text": "<b>冲锋</b>。本随从对英雄造成伤害时，改为将与伤害等量的疾疫牌洗入其牌库。抽到疾疫牌时，造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/047ba9d31f36b19291f2345769b1bbc8c871be127025ec329540123e983439e6.png",
+        "imageGold": "",
+        "flavorText": "“如果你深入地了解我，就会发现我其实很不错。”——活体疫病",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b10fcdeb4a9d04134fc5d2f70dae7acda8d43e232000c697e4c9940cdf180ab4.png",
+        "childIds": [
+          129675
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126259&locale=zh_CN",
+        "sha256": "6472f68d3c21bf4f27a93d26cb7cce688b67665ef9dafd94f5ec6e7c13f9eecd",
+        "bytes": 974,
+        "observed_at": "2026-10-19T20:59:34.841092+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_443",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126259-en_US.json",
+      "response_sha256": "34d6f245b961e26d13f927c4b0a0ca9ca47a3770d7df7d5b77b5208ea495ba80",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126259&locale=en_US",
+      "face": {
+        "id": 126259,
+        "collectible": 1,
+        "slug": "126259-the-living-plague",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Jakub Kasper",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 6,
+        "name": "The Living Plague",
+        "text": "<b>Charge</b>. Instead of damaging heroes, this shuffles that many Blights into their deck that deal 2 damage when drawn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12eef47691aa7df4bd03bf44dee6bb3182429b620809d7efe1414712db778c31.png",
+        "imageGold": "",
+        "flavorText": "\"I'm actually a nice guy when you get to know me.\" - The Living Plague",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b10fcdeb4a9d04134fc5d2f70dae7acda8d43e232000c697e4c9940cdf180ab4.png",
+        "childIds": [
+          129675
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126259&locale=en_US",
+        "sha256": "34d6f245b961e26d13f927c4b0a0ca9ca47a3770d7df7d5b77b5208ea495ba80",
+        "bytes": 939,
+        "observed_at": "2026-10-19T20:59:34.836722+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_443t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\129675-zh_CN.json",
+      "response_sha256": "ac551eb677ef86bce02d9dadf8a436b273562d4ea08081ed2ed805372ed24eb7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129675&locale=zh_CN",
+      "face": {
+        "id": 129675,
+        "collectible": 0,
+        "slug": "129675-blight",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 1,
+        "name": "疾疫",
+        "text": "<b>抽到时施放</b> 对你的英雄造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1079e5375b384a404e91d76ed23b35fa4cc99aba8aef86d04d1bfd284c9456d5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126259,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129675&locale=zh_CN",
+        "sha256": "ac551eb677ef86bce02d9dadf8a436b273562d4ea08081ed2ed805372ed24eb7",
+        "bytes": 588,
+        "observed_at": "2026-10-19T20:59:35.049262+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_443t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\129675-en_US.json",
+      "response_sha256": "76a3284865e358b2356ddaed431d2203502f6ced0fe7c8b772d1486c37db24b3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129675&locale=en_US",
+      "face": {
+        "id": 129675,
+        "collectible": 0,
+        "slug": "129675-blight",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Stefan Bogdasarov",
+        "manaCost": 1,
+        "name": "Blight",
+        "text": "<b>Casts When Drawn</b> Deal 2 damage to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/655e55516506a513993bfcb7e1c1dfa55557f9f49c5a0c816bed08cc5fea76eb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126259,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129675&locale=en_US",
+        "sha256": "76a3284865e358b2356ddaed431d2203502f6ced0fe7c8b772d1486c37db24b3",
+        "bytes": 582,
+        "observed_at": "2026-10-19T20:59:34.832012+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "replacement": "positive prepared outgoing self-source hero damage becomes one counted generated shuffle; no ordinary damage loss",
+    "capacity": 99,
+    "capacity_scope": "counted generated copies API; legacy deck writers are not yet unified",
+    "historical_50_report": "historical defect report, not adopted as a formal per-hit cap",
+    "priority": "after frozen routing/numeric rules and before immunity/shield/armor; pending CN",
+    "followups": "original amount, victim controller and original actor frozen; ordinary shuffle after health notifications",
+    "full_deck": "original damage still prevented, no insertion/RNG/history witness",
+    "CN_calibrated": false,
+    "formal_pool_complete": false,
+    "global_deck_capacity_unified": false
+  }
+}

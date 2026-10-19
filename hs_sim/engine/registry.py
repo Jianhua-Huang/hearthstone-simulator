@@ -1687,6 +1687,8 @@ class Registry:
         validate_shield_hit_definition(card)
         from .nature_damage_replacements import validate_definition as validate_nature_damage_definition
         validate_nature_damage_definition(card)
+        from .blight_damage_replacement import validate_definition as validate_blight_definition
+        validate_blight_definition(card)
         from .hero_powers import validate_use_aura_definition
         validate_use_aura_definition(card)
         from .cleave import validate_definition as validate_cleave_definition

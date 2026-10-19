@@ -28,6 +28,8 @@ def validate_definition(card):
 
 
 def validate_carrier(registry,card_id,kind,abilities,components=()):
+    from .blight_damage_replacement import validate_carrier as validate_blight_carrier
+    validate_blight_carrier(registry,card_id,kind,abilities)
     from .remaining_mana_numbers import validate_carrier as validate_remaining_carrier
     validate_remaining_carrier(registry,card_id,kind,abilities,components)
     from .native_stat_gains import validate_carrier as validate_stat_gain_carrier

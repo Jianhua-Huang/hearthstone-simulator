@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+活体疫病声明原生HealthRule；ShuffleGeneratedCopies保存原请求并按空位调用普通创建和shuffle。容量覆盖范围和原健康包窗口见[契约](m3-blight-damage-replacement.md)。
+
 开锁匠式原生数字使用RemainingManaNumbersProfile和普通BattlecryPayload的冻结标量；费用/属性修饰、支付和伤害共用。手牌范围及付款排除见[契约](m3-remaining-mana-numbers.md)。
 
 原生获得属性后的额外奖励使用NativeStatGainProfile及既有属性附件，不另写卡牌结算器。冻结复制、所在区域与原接受工作的有限表达见[契约](m3-native-stat-gain.md)。
