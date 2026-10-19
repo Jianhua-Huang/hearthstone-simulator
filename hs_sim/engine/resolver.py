@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v569'
+CORE_EFFECTS_VERSION = 'core-effects-v570'
 
 
 class Mechanics:
@@ -886,6 +886,8 @@ class Resolution:
             deathrattles = [] if defer else self.death_checkpoint()
             self.refresh_auras(include_dying=defer)
             triggers, self._captured = [*stat_gain_work,*self._captured], []
+            from .overdraw_returns import schedule as schedule_overdraw
+            schedule_overdraw(self,queue,continuation,triggers)
             hero_mode = self.state.active_hero_lethal_root_id is not None
             routed = route_hero_work(self,queue,triggers,deathrattles,continuation,self._hero_new_work,
                 new_root=had_hero_root is None and hero_mode)
@@ -2811,5 +2813,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_deck_generation(mechanics)
     from .nythendra_reform import register as register_nythendra
     register_nythendra(mechanics)
+    from .overdraw_returns import register as register_overdraw
+    register_overdraw(mechanics)
     return mechanics
 

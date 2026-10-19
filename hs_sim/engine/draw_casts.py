@@ -110,6 +110,8 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
         from .zones import move_physical_card
         move_physical_card(r,MoveCard(CardReference.capture(entity),player_id,Zone.HAND,
             draw=True,reset=reset,source_id=source_id),draw_id=record.id,deathrattle_memory=deathrattle_memory)
+        from .overdraw_returns import capture as capture_overdraw
+        capture_overdraw(r,record)
         return (FinishDraw(record.id),)
     if reset:
         from .lifecycle import reset_to_definition
@@ -175,6 +177,8 @@ def finish(r, effect):
     expected = 'after_draw' if record.outcome == 'cast' else 'drawing'
     require_phase(r,record.id,expected)
     update(r.state,record,phase='done')
+    from .overdraw_returns import finish_draw as finish_overdraw
+    return finish_overdraw(r,record)
 
 
 def validate_history(state, registry):

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 463
+SNAPSHOT_SCHEMA_VERSION = 464
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1236,6 +1236,8 @@ def state_from_dict(value: dict) -> GameState:
     temporary_hand_rows_from_dict(value)
     from .future_hand_returns import rows_from_dict as future_hand_rows_from_dict
     future_hand_rows_from_dict(value)
+    from .overdraw_returns import rows_from_dict as overdraw_rows_from_dict
+    overdraw_rows_from_dict(value)
     from .consumed_cards import rows_from_dict as consumed_card_rows_from_dict
     consumed_card_rows_from_dict(value)
     from .spell_auras import rows_from_dict as spell_aura_rows_from_dict

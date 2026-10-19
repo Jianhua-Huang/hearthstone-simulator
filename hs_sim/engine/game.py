@@ -534,6 +534,8 @@ class Game:
         validate_card_summon_boundary(self)
         from .nythendra_reform import validate_boundary as validate_nythendra_boundary
         validate_nythendra_boundary(self)
+        from .overdraw_returns import validate_boundary as validate_overdraw_boundary
+        validate_overdraw_boundary(self)
         from .summon_quantities import validate_closed_events as validate_card_summon_events
         validate_card_summon_events(self)
         from .pool_summons import validate_boundary as validate_pool_summon_boundary,validate_closed_events as validate_pool_summon_events

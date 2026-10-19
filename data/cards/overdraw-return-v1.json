@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "batch": "K290-overdraw-return",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_509",
+        "dbf_id": 126125,
+        "name": "背叛者高弗雷",
+        "name_en": "Godfrey the Betrayer",
+        "text": "<b>对战开始时：</b>过量抽取的牌会在你手牌中有空位时返回手牌，且其法力值消耗减少（1）点。",
+        "text_en": "[x]<b>Start of Game:</b> Overdrawn\ncards return to your hand\nwhen you have space.\nThey cost (1) less.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "START_OF_GAME_KEYWORD": 1,
+          "2105": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "4818": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2105",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2105"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4818"
+          }
+        ]
+      },
+      "record_sha256": "b1d697e386dbd8da597156bb331e73f512b052b4f76c1501acebb0f8ab4e3900",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_509",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_509e",
+        "dbf_id": 126701,
+        "name": "高弗雷的监控",
+        "name_en": "Godfrey's Atlas",
+        "text": "过量抽取的牌会在你手牌中有空位时返回手牌，且其法力值消耗减少（1）点。",
+        "text_en": "When you overdraw a card, get it when you have space. It costs (1) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fdc0d1ce6754ad459bf56021c2b9aaa1a652f83907fddf65b7bbe2fdc04556e0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_509e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_509",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126125-zh_CN.json",
+      "response_sha256": "ae42cc020f2cfb270a3d532a3694dcf3f2903218d6eb5c9c755c41b7db883069",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126125&locale=zh_CN",
+      "face": {
+        "id": 126125,
+        "collectible": 1,
+        "slug": "126125-godfrey-the-betrayer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "背叛者高弗雷",
+        "text": "<b>对战开始时：</b>过量抽取的牌会在你手牌中有空位时返回手牌，且其法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ae2f4d3be0fdb7793c960f28e9c1c3995391d4303080195291d5a19437234b9.png",
+        "imageGold": "",
+        "flavorText": "在影牙城堡，高弗雷走投无路，只得束手就擒。但只要他还有机会，就一定要让克罗雷那个怪物得到其应有的下场。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86bdaedc51cee2c7a4a2533ac9599a243569eba3b911d4c4487c4b84b05e3172.png",
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126125&locale=zh_CN",
+        "sha256": "ae42cc020f2cfb270a3d532a3694dcf3f2903218d6eb5c9c755c41b7db883069",
+        "bytes": 991,
+        "observed_at": "2026-10-19T22:34:29.612460+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_509",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126125-en_US.json",
+      "response_sha256": "c1c953359e2260f790fdf9d3c308b7812ed706e6a16011360b60e3cc22c1441b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126125&locale=en_US",
+      "face": {
+        "id": 126125,
+        "collectible": 1,
+        "slug": "126125-godfrey-the-betrayer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Godfrey the Betrayer",
+        "text": "<b>Start of Game:</b> Overdrawn cards return to your hand when you have space. They cost (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d579e6d3da95bb63d75a472c015a3592a50956eca6bb2108b8a8a1d9a15d7e8a.png",
+        "imageGold": "",
+        "flavorText": "Hunted down and cornered in Shadowfang Keep, Godfrey was left with no choice but to go quietly. But before his time is up, that monster, Crowley, will get what’s coming to him.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86bdaedc51cee2c7a4a2533ac9599a243569eba3b911d4c4487c4b84b05e3172.png",
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126125&locale=en_US",
+        "sha256": "c1c953359e2260f790fdf9d3c308b7812ed706e6a16011360b60e3cc22c1441b",
+        "bytes": 988,
+        "observed_at": "2026-10-19T22:34:29.785440+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "capture": "Only actual physical draw outcome burned, original destruction still executes",
+    "return": "Original physical entity with complete stored enchantments, one ordinary permanent -1 cost attachment on actual hand return, not a new draw",
+    "ordering": "Uniform random remaining stored original cards; no RNG for one candidate; normal captured reactions before the one refill marker",
+    "cn_calibrated": false
+  }
+}

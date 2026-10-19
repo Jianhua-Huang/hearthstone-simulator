@@ -10648,6 +10648,7 @@ class GameState:
     hand_choice_followups: list = field(default_factory=list)
     temporary_hands: list = field(default_factory=list)
     future_hands: list = field(default_factory=list)
+    overdraw_returns: list = field(default_factory=list)
     hand_deadlines: list = field(default_factory=list)
     live_hand_spells: list = field(default_factory=list)
     interactable_history: list = field(default_factory=list)
@@ -11678,6 +11679,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_temporary_hands(state,registry)
     from .future_hand_returns import validate_shape as validate_future_hands
     validate_future_hands(state,registry)
+    from .overdraw_returns import validate_shape as validate_overdraw_returns
+    validate_overdraw_returns(state,registry)
     from .hand_deadlines import validate_shape as validate_hand_deadlines
     validate_hand_deadlines(state,registry)
     from .live_hand_spells import validate_shape as validate_live_hand_spells
