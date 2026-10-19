@@ -1,0 +1,1175 @@
+{
+  "schema": 1,
+  "batch": "K250-wild-god-discovery",
+  "task": {
+    "schema": 1,
+    "batch": "K250-wild-god-discovery",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_888"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "EDR_888"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Malorne the Waywatcher: discover a Legendary Wild God; at four actual Hero Power Imbues set the selected cost to one. Audit explicit Wild God domain and existing actual Imbue facts before adding any public ability.",
+        "cards": [
+          "EDR_888"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/wild_god_discovery_card.py",
+      "data/cards/wild-god-discovery-v1.json",
+      "tests/test_wild_god_discovery_card.py"
+    ],
+    "display_normalizations": {}
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_888",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k250-wild-god-discovery\\official-cache-01\\115186-zh_CN.json",
+      "response_sha256": "20a04d461929aac5aa0da9436690a645e7c44bb5b1d4f4c5c2b33c6fbed1e8f9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115186&locale=zh_CN",
+      "face": {
+        "id": 115186,
+        "collectible": 1,
+        "slug": "115186-malorne-the-waywatcher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "护路者玛洛恩",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>传说</b>荒野之神。如果你已<b>灌注</b>过你的英雄技能4次，则将发现的荒野之神的法力值消耗变为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f03c4851ee274ac950c8e2f8fbc7825a3c60cde4a8ff08ca1a6a4e1cb6b9613c.png",
+        "imageGold": "",
+        "flavorText": "玛洛恩是神话传奇中的存在，最古老的荒野诸神之一，也是塞纳留斯的父亲。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45ce52f55a7046115de40a0935e96fef103fafe723860e9c28ff7f5bc68c5bda.png",
+        "childIds": [
+          116018,
+          113606,
+          113588,
+          114254,
+          113700,
+          114868,
+          115264,
+          114527,
+          113434,
+          115203,
+          114353,
+          117483,
+          117484,
+          116418,
+          116020
+        ],
+        "keywordIds": [
+          8,
+          21,
+          318
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115186&locale=zh_CN",
+        "sha256": "20a04d461929aac5aa0da9436690a645e7c44bb5b1d4f4c5c2b33c6fbed1e8f9",
+        "bytes": 1095,
+        "observed_at": "2026-10-19T06:20:15.008081+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_888",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k250-wild-god-discovery\\official-cache-01\\115186-en_US.json",
+      "response_sha256": "c3757ac11a2321b9bf98416b4b10f34354dc28c670ea93a679570b0cf803f4a3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115186&locale=en_US",
+      "face": {
+        "id": 115186,
+        "collectible": 1,
+        "slug": "115186-malorne-the-waywatcher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Malorne the Waywatcher",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a <b>Legendary</b> Wild God. If you've <b>Imbued</b> your Hero Power 4 times, set its Cost to (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ec16adfd56c285c959b12c23c779726213689241170072400f7a5f2f6c775f2.png",
+        "imageGold": "",
+        "flavorText": "A figure of legend and myth, Malorne is one of the oldest of the Wild Gods and father to Cenarius himself.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45ce52f55a7046115de40a0935e96fef103fafe723860e9c28ff7f5bc68c5bda.png",
+        "childIds": [
+          116018,
+          113606,
+          113588,
+          114254,
+          113700,
+          114868,
+          115264,
+          114527,
+          113434,
+          115203,
+          114353,
+          117483,
+          117484,
+          116418,
+          116020
+        ],
+        "keywordIds": [
+          8,
+          21,
+          318
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=115186&locale=en_US",
+        "sha256": "c3757ac11a2321b9bf98416b4b10f34354dc28c670ea93a679570b0cf803f4a3",
+        "bytes": 1055,
+        "observed_at": "2026-10-19T06:20:14.971563+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_888",
+        "dbf_id": 115186,
+        "name": "护路者玛洛恩",
+        "name_en": "Malorne the Waywatcher",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>传说</b>荒野之神。如果你已<b>灌注</b>过你的英雄技能4次，则将发现的荒野之神的法力值消耗变为（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a <b>Legendary</b>\nWild God. If you've <b>Imbued</b>\nyour Hero Power 4 times,\nset its Cost to (1).",
+        "cost": 8,
+        "attack": 8,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ENTITY_TAG_THRESHOLD_TAG_ID": 2,
+          "ENTITY_TAG_THRESHOLD_VALUE": 4,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "65e4ca09b70ec598fc8740745de168894b9fb478d1271dc2f13c435cf2ef3b10",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_888",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "pool_inventory": [
+    {
+      "record": {
+        "id": "EDR_031",
+        "dbf_id": 113434,
+        "name": "欧恩哈拉",
+        "name_en": "Ohn'ahra",
+        "text": "在你的回合结束时，&使用你牌库顶的3张牌。",
+        "text_en": "At the end of your turn,& play the top 3 cards from_your deck.",
+        "cost": 9,
+        "attack": 5,
+        "health": 11,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 11,
+          "ATK": 5,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "ff74727ffac47e3e7d0d403d7c0d037c840596a153f3a645d990838c4b07d84b"
+    },
+    {
+      "record": {
+        "id": "EDR_209",
+        "dbf_id": 113588,
+        "name": "森林之王塞纳留斯",
+        "name_en": "Forest Lord Cenarius",
+        "text": "<b>选择三次：</b>使你的其他随从获得+1/+3；或者召唤一棵5/5并具有<b>嘲讽</b>的古树。",
+        "text_en": "[x]<b>Choose Thrice -</b> Give your\nother minions +1/+3; or\nSummon a 5/5 Ancient\nwith <b>Taunt</b>.",
+        "cost": 10,
+        "attack": 5,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 5,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "154a5acc5b351d0608fc48ecaa0aeb2b5a6a44c7a99ac4587c6ca89c37ec916f"
+    },
+    {
+      "record": {
+        "id": "EDR_259",
+        "dbf_id": 114868,
+        "name": "乌索尔",
+        "name_en": "Ursol",
+        "text": "<b>战吼：</b>将你手牌中法力值消耗最高的法术变为持续@回合的光环并施放。",
+        "text_en": "[x]<b>Battlecry:</b> Cast the highest\nCost spell from your hand as\n_an Aura that lasts @ turns.",
+        "cost": 8,
+        "attack": 9,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "HEALTH": 7,
+          "ATK": 9,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1,
+          "4110": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4110",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4110"
+          }
+        ]
+      },
+      "record_sha256": "38b49d641d55b3b93f1889b9d846ea89fb010c084c65701884d834f9c0842131"
+    },
+    {
+      "record": {
+        "id": "EDR_421",
+        "dbf_id": 113606,
+        "name": "年兽",
+        "name_en": "Omen",
+        "text": "<b>突袭</b>。<b>风怒</b>\n<b>亡语：</b>对所有敌人造成@点伤害。<i>（在本随从攻击后提升！）</i>",
+        "text_en": "[x]<b>Rush</b>, <b>Windfury</b>\n<b>Deathrattle:</b> Deal @ damage\nto all enemies. <i>(Improves\nafter this attacks!)</i>",
+        "cost": 10,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "2537": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "a65eae79f181f81ac5e115a61c4ee4729c015c5cf0438d0a69b3fb7130a3a2db"
+    },
+    {
+      "record": {
+        "id": "EDR_430",
+        "dbf_id": 113700,
+        "name": "艾森娜",
+        "name_en": "Aessina",
+        "text": "<b>战吼：</b>\n如果在本局对战中已有20个友方随从死亡，造成20点伤害，随机分配到所有敌人身上。@<i>（还剩{0}个！）</i>@<i>（已经就绪！）</i>",
+        "text_en": "[x]<b>Battlecry:</b> If 20 friendly\nminions have died this game,\ndeal 20 damage split among\nall enemies.@ <i>({0} left!)</i>@ <i>(Ready!)</i>",
+        "cost": 8,
+        "attack": 6,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 6,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 4,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "PLAYER_TAG_THRESHOLD_TAG_ID": 412,
+          "PLAYER_TAG_THRESHOLD_VALUE": 20,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "c7985f2f00a45db6f4b767c112e8cbc4450a84ece21f7b2181964e7eceae81c2"
+    },
+    {
+      "record": {
+        "id": "EDR_471",
+        "dbf_id": 114353,
+        "name": "托尔托拉",
+        "name_en": "Tortolla",
+        "text": "<b>嘲讽</b>。<b>扰魔</b>。在本随从受到伤害后，&获得1点护甲值并使本随从获得+1攻击力。",
+        "text_en": "[x]<b>Taunt</b>, <b>Elusive</b>\nAfter this takes damage,&\ngain 1 Armor and give\nthis minion +1 Attack.",
+        "cost": 10,
+        "attack": 1,
+        "health": 30,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 30,
+          "ATK": 1,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1,
+          "4128": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "de6d36250195b16d2631e9f5c2b35c2eed9fa89c451c0caf92cd3b68c727e2f0"
+    },
+    {
+      "record": {
+        "id": "EDR_480",
+        "dbf_id": 114254,
+        "name": "戈德林",
+        "name_en": "Goldrinn",
+        "text": "<b>突袭</b>。友方野兽造成的伤害翻倍。",
+        "text_en": "<b>Rush</b>\nFriendly Beasts deal\ndouble damage.",
+        "cost": 9,
+        "attack": 9,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 9,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "RUSH": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "b7fb1077d7495dcf01207aedce2358897d1f3f1668ef3e498d57697197e5dbe2"
+    },
+    {
+      "record": {
+        "id": "EDR_489",
+        "dbf_id": 115203,
+        "name": "阿迦玛甘",
+        "name_en": "Agamaggan",
+        "text": "<b>战吼：</b>你使用的下一张牌会消耗<b>对手</b>的生命值而非法力值<i>（最高不超过10点）</i>。",
+        "text_en": "[x]<b>Battlecry:</b> The next card you\nplay costs your OPPONENT'S\nHealth instead of Mana\n<i>(up to 10)</i>.",
+        "cost": 10,
+        "attack": 9,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 9,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "a2652fbd561a4f95eb9997b5602bc973cd2ff7eb43b9ad27c879685271337198"
+    },
+    {
+      "record": {
+        "id": "EDR_527",
+        "dbf_id": 114527,
+        "name": "阿莎曼",
+        "name_en": "Ashamane",
+        "text": "<b>战吼：</b>用你对手牌库中牌的复制填满你的手牌，其法力值消耗减少（3）点。",
+        "text_en": "[x]<b>Battlecry:</b> Fill your hand\nwith copies of cards from\nyour opponent's deck.\nThey cost (3) less.",
+        "cost": 9,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "6f6dd1ae8d32c2cd16ea82090a646768c659eeeb9a0061c383eaf6bc53a10bdf"
+    },
+    {
+      "record": {
+        "id": "EDR_819",
+        "dbf_id": 116018,
+        "name": "乌索克",
+        "name_en": "Ursoc",
+        "text": "<b>战吼：</b>攻击所有其他随从。<b>亡语：</b>复活本随从消灭的随从。",
+        "text_en": "<b>Battlecry:</b> Attack ALL\nother minions.\n<b>Deathrattle:</b> Resurrect any this killed.",
+        "cost": 9,
+        "attack": 6,
+        "health": 14,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 14,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "542": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "9c7fe51cb9cb7e53a684b6ca3bed5726f0ddfd8e2ced3d302e8c48253b2f066c"
+    },
+    {
+      "record": {
+        "id": "EDR_895",
+        "dbf_id": 115264,
+        "name": "艾维娜，艾露恩钦选者",
+        "name_en": "Aviana, Elune's Chosen",
+        "text": "<b>战吼：</b>开启为期三回合的月相演变。当满月升起时，在本局对战中你的卡牌法力值消耗为（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Start a three\nturn lunar cycle. When the\nFull_Moon rises, your cards\ncost (1) this game.",
+        "cost": 9,
+        "attack": 7,
+        "health": 11,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 11,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          }
+        ]
+      },
+      "record_sha256": "dbb611d5f0be1bce69539f2c6397942d8dfb324714bbc4fed24c1a478b2b025e"
+    }
+  ],
+  "related_non_candidates": [
+    {
+      "record": {
+        "id": "EDR_209a",
+        "dbf_id": 117483,
+        "name": "梦境生长",
+        "name_en": "Growth of Dreams",
+        "text": "使你的其他随从获得+1/+3。",
+        "text_en": "Give your other minions +1/+3.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "1200": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & R. Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "e9b8f6c242dd9836b1b3473dad5f3061492e366477a4a7cfd7e6d4055cc37cf1"
+    },
+    {
+      "record": {
+        "id": "EDR_209b",
+        "dbf_id": 117484,
+        "name": "梦境古树",
+        "name_en": "Ancients of the Dream",
+        "text": "召唤一棵5/5并具有<b>嘲讽</b>的\n古树。",
+        "text_en": "Summon a 5/5 Ancient with <b>Taunt</b>.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "1200": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & R. Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0d309b7afa586aad2d0882e3a5b78674ab80ddf68a5e96c982261a71ee7075a0"
+    },
+    {
+      "record": {
+        "id": "EDR_209t5",
+        "dbf_id": 116418,
+        "name": "古树",
+        "name_en": "Ancient",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "ac39a9a62a68471159e008b665a592615652037e14af50ac05a2642e8dbcef04"
+    },
+    {
+      "record": {
+        "id": "EDR_259e1",
+        "dbf_id": 116020,
+        "name": "乌索尔的光环",
+        "name_en": "Ursol's Aura",
+        "text": "在你的回合结束时，施放{0}。持续@回合。",
+        "text_en": "At the end of your turn, cast {0}. Lasts @ turns.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "4be98dd0bbceae6c79b3dc19bb0d9dd7f3fd4d0b0695f5821ac2a1d1d0a3288e"
+    }
+  ]
+}
