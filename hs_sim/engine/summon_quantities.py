@@ -536,7 +536,7 @@ def deliver(r,effect):
                 from types import SimpleNamespace
                 from .card_creation import install
                 install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.entry_grant,
-                    source_id=root.request.cause.source.entity_id))
+                    source_id=root.request.cause.source.entity_id),resolver=r)
             refresh_entity(entity);r.refresh_auras()
         result=CardSummonDelivery(effect.index,'delivered',SourceAllocationFact.capture(r.state,entity))
     update(r.state,root,deliveries=(*root.deliveries,result))

@@ -738,7 +738,7 @@ def create_deck_card(r, effect):
     entity = r.create_entity(player.id, effect.card_id, Zone.DECK, position)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
-    install(r.state, entity, effect)
+    install(r.state, entity, effect, resolver=r)
     r.emit('card_created', target_id=entity.id, source_id=effect.source_id, player_id=player.id)
     r.emit('card_added_to_deck', target_id=entity.id, source_id=effect.source_id, player_id=player.id, position=position,
         _deck_insertion_mode=effect.position if type(effect.position)is str else 'index')
@@ -894,7 +894,7 @@ def copy_physical_card(r, effect, *, minion_grant=None):
     if minion_grant is not None:
         from types import SimpleNamespace
         from .card_creation import install
-        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=minion_grant,source_id=effect.source_id))
+        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=minion_grant,source_id=effect.source_id),resolver=r)
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id, copied_from=origin_id, copy_mode=effect.mode)
     event = 'card_added_to_deck' if destination == Zone.DECK else 'card_burned' if destination == Zone.GRAVEYARD else 'card_added_to_hand'
     if destination==Zone.GRAVEYARD:

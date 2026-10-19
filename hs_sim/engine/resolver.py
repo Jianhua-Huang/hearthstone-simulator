@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v555'
+CORE_EFFECTS_VERSION = 'core-effects-v556'
 
 
 class Mechanics:
@@ -2566,6 +2566,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics.register_payload_type(CreatedMinionStats)
     from .dark_gifts import register as register_dark_gifts
     register_dark_gifts(mechanics)
+    from .dark_gift_echo import register as register_dark_gift_echo
+    register_dark_gift_echo(mechanics)
     from .dark_gift_generation import register as register_dark_gift_generation
     register_dark_gift_generation(mechanics)
     from .stored_gift_discovery import register as register_stored_gift_discovery

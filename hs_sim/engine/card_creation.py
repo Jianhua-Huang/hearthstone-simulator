@@ -1,5 +1,5 @@
 """Immutable creation-time attachments, installed before acquisition events (R-134)."""
-from dataclasses import dataclass, fields, is_dataclass
+from dataclasses import dataclass, fields, is_dataclass, replace
 
 from .construction import integer, name
 from .errors import ResolutionError
@@ -237,7 +237,7 @@ def validate_creation(state, effect, definitions=()):
         raise ResolutionError('Creation spell repetition has already expired')
 
 
-def install(state, entity, effect):
+def install(state, entity, effect, *, resolver=None, publish_gift=True):
     """The caller owns the newly allocated entity, including a burned result.
 
     Like creation costs, this emits no intermediate acquisition/attachment event.
@@ -270,6 +270,11 @@ def install(state, entity, effect):
         refresh_entity(entity)
     grant = getattr(effect, 'minion_grant', None)
     if grant is not None:
+        from .dark_gift_echo import gift_for_grant
+        gift = gift_for_grant(grant)
+        if gift is not None and publish_gift and resolver is None:
+            raise ResolutionError('A real Dark Gift requires its original grant notification')
+        ability_start = len(entity.abilities)
         # The generated physical entity is already known, including a burned
         # result. Install everything before the first acquisition event.
         from .lifecycle import attachment_id, refresh_entity
@@ -301,7 +306,13 @@ def install(state, entity, effect):
         elif grant.special == 'after_play':
             from .after_play_grants import install as install_after_play
             install_after_play(state,entity,grant.identity,effect.source_id)
+        if gift is not None:
+            entity.abilities[ability_start:] = [replace(a, dark_gift_id=gift.id)
+                for a in entity.abilities[ability_start:]]
         refresh_entity(entity)
+        if gift is not None and publish_gift:
+            from .dark_gift_echo import publish
+            publish(resolver, entity, gift, effect.source_id)
 
 
 def validate_boundary(game):

@@ -124,12 +124,12 @@ def apply_material(r, selection, slot_id, entity):
     if gift is not None:
         from .card_creation import install
         source_id = selection.discovery.result.choice.source_id
-        install(r.state, entity, SimpleNamespace(spell_repeat=None,
-            minion_grant=replace(gift.grant, identity=gift.id), source_id=source_id))
         if gift.cost_delta:
             from .costs import attach_cost
             from .model import CostSpec
             attach_cost(r.state, entity, CostSpec(delta=gift.cost_delta), source_id)
+        install(r.state, entity, SimpleNamespace(spell_repeat=None,
+            minion_grant=replace(gift.grant, identity=gift.id), source_id=source_id),resolver=r)
     from .lifecycle import refresh_entity
     refresh_entity(entity)
     r.refresh_auras()

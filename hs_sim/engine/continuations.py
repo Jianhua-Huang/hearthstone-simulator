@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .dark_gift_echo import CopyReceivedDarkGift
+        if type(value) is CopyReceivedDarkGift and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .carved_spells import validate_creation as validate_carved_creation,validate_ability as validate_carved_ability
         from .carved_spells import CastCarvedSpell
         if type(value) is CastCarvedSpell and self.origin_state is not None:

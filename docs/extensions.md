@@ -1904,3 +1904,5 @@ GenerationContext(target_id, mode, starting_decks=None)中的starting_decks必�
 
 
 巴珊娜式树人用独立刻印法术ID连接原创建、战吼载荷、目标查询及CAST；完整候选按三个固定槽补足原印刷预算，私有值只经已授权实体的body.cast_card_id公开。限定参数、抉择分支转交、复制/重置和国服边界见[契约](m3-carved-spell-minions.md)。
+
+瓦洛复用原手牌/牌库监听和赐福安装器，真实新授予统一通知，复制已有赐福不再回响。甜美梦境只保留明确赐福材料，费用中的来源部分仍清除；见[契约](m3-wallow-dark-gift-echo.md)。

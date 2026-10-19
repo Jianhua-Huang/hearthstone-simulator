@@ -2879,6 +2879,7 @@ class AbilityInstance:
     native_condition: NativeSourceCondition | None = None
     deathrattle_memory: DeathrattleMemory | None = None
     carved_spell_id: str | None = None
+    dark_gift_id: str | None = None
     deathrattle_inherited_from: tuple[int, int] | None = None
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
@@ -2894,6 +2895,9 @@ class AbilityInstance:
         if self.carved_spell_id is not None:
             _name(self.carved_spell_id,'carved original spell')
             if self.kind!='battlecry':raise ValueError('Carved spell requires its physical Battlecry body')
+        if self.dark_gift_id is not None:
+            from .dark_gift_echo import validate_ability as validate_dark_gift_ability
+            validate_dark_gift_ability(self)
         _optional_id(self.spell_aura_id, 'original spell Aura')
         if self.limited_trigger_deadline is not None:
             if (type(self.limited_trigger_deadline) is not OwnerTurnExpiry or self.kind != 'limited_trigger'

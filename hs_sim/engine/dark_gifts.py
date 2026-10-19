@@ -128,12 +128,10 @@ def grant_stored(r, effect):
         raise ValueError('Stored minion is not eligible for this Dark Gift')
     if gift.cost_delta:
         entity.enchantments.append(Enchantment(attachment_id(r.state), source_id=effect.source_id,
-            cost=CostSpec(delta=gift.cost_delta), label='dark_gift_cost:'+gift.id))
+            cost=gift.cost_delta, label='dark_gift_cost:'+gift.id))
     install(r.state, entity, SimpleNamespace(spell_repeat=None, source_id=effect.source_id,
-        minion_grant=replace(gift.grant, identity=gift.id)))
+        minion_grant=replace(gift.grant, identity=gift.id)),resolver=r)
     r.refresh_auras()
-    r.emit('dark_gift_granted', source_id=effect.source_id, target_id=entity.id,
-           player_id=entity.controller, gift_id=gift.id)
 
 
 def register(mechanics):

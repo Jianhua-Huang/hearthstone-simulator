@@ -220,7 +220,7 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
     if effect.cost is not None:
         from .costs import attach_cost
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
-    install(r.state, entity, effect)
+    install(r.state, entity, effect, resolver=r)
     install_carved(r.registry,entity,getattr(effect,'carved_spell_id',None))
     if native_spell_value is not None:
         from .native_spell_values import install as install_native_spell_value

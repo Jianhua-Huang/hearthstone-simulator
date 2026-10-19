@@ -387,7 +387,7 @@ def apply(r,material,entity):
     if material.minion_grant is not None:
         from types import SimpleNamespace
         from .card_creation import install
-        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.minion_grant,source_id=material.grant_source_id))
+        install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.minion_grant,source_id=material.grant_source_id),resolver=r)
     if material.profile == 'remembered_copy':
         from .lifecycle import remove_attachments
         remove_attachments(entity, enchantment_predicate=lambda a: expired_remembered_attachment(r.state, a),

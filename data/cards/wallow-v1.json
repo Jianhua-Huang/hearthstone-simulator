@@ -1,0 +1,721 @@
+{
+  "batch": "K277",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_487",
+        "dbf_id": 115044,
+        "name": "瓦洛，污邪古树",
+        "name_en": "Wallow, the Wretched",
+        "text": "当本牌在你的手牌或牌库中时，会获得你的随从获得的每项<b>黑暗之赐</b>的复制。",
+        "text_en": "While this is in your hand\nor deck, it gains a copy of every <b>Dark Gift</b> given to your minions.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "17e9f1ac209233422d002df9ab4eccdfc1f687dfd66884f9d3a736b9a29b6102",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_487",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EDR_100t",
+        "dbf_id": 113796,
+        "name": "起床怒气",
+        "name_en": "Waking Terror",
+        "text": "+3攻击力和<b>吸血</b>。",
+        "text_en": "+3 Attack and <b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7aaeac4360e6a733a803ceb0a68712d033bb16bcc163831da5a04a4efbfdf416",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t1",
+        "dbf_id": 113797,
+        "name": "休憩饱足",
+        "name_en": "Well Rested",
+        "text": "+2/+2和<b>扰魔</b>。",
+        "text_en": "+2/+2 and <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77a37754e7200e2e5bd6e273fab175900dcdadb46d71c86df003be6fc2ab09ea",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t2",
+        "dbf_id": 113798,
+        "name": "短小利爪",
+        "name_en": "Short Claws",
+        "text": "法力值消耗减少（2）点，但拥有-2攻击力。",
+        "text_en": "Costs (2) less,\nbut has -2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "153de59aebe10d2e2c1d31506547046733b757a7990f337d4fcd5db09dd83b5d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t3",
+        "dbf_id": 113799,
+        "name": "衣甲厚实",
+        "name_en": "Bundled Up",
+        "text": "+4生命值和<b>嘲讽</b>。",
+        "text_en": "+4 Health and <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "642ddf4056febfe342c6663451fe521a696be5f6b6a2c330761b2aba9bbc12cc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t5",
+        "dbf_id": 113801,
+        "name": "活体梦魇",
+        "name_en": "Living Nightmare",
+        "text": "当你使用本牌时，召唤一个它的2/2的复制。",
+        "text_en": "When you play this minion, summon a 2/2 copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "68ca9af88e086ccad315c418b42edc57b84872c2284cd0912bfe8dece93bb8db",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t6",
+        "dbf_id": 113802,
+        "name": "梦境行者",
+        "name_en": "Sleepwalker",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CHARGE": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "19087fb6b451a2457fc5ebe6e1ff401c1b79ca68b8fb58725008c4a7dace0205",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t7",
+        "dbf_id": 113882,
+        "name": "粗暴唤醒",
+        "name_en": "Rude Awakening",
+        "text": "本随从的<b>战吼</b>会触发两次。",
+        "text_en": "[x]This minion's\n<b>Battlecries</b> trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c3ea8dc124ea80027f757a243e3e80fa0eec745e951d3c60be8be5472b7523e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t8",
+        "dbf_id": 113884,
+        "name": "甜美梦境",
+        "name_en": "Sweet Dreams",
+        "text": "+4/+5。\n将本牌置于你的\n牌库顶。",
+        "text_en": "+4/+5. Place this card on top of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9d947867293a59287b73570ba5ac1b828c147294dcd4e9ade889c30ce285e9c8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t9",
+        "dbf_id": 113886,
+        "name": "回荡恐怖",
+        "name_en": "Persisting Horror",
+        "text": "<b>复生</b>。<b>复生</b>时会具有所有生命值和附加效果。",
+        "text_en": "<b>Reborn</b>. Is <b>Reborn</b>\nwith full Health and enchantments.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "REBORN": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d539898708e8764e6fc98f9c8facfe2f5e3838d86136562659be918debe39fba",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t9",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_100t13",
+        "dbf_id": 120225,
+        "name": "鹰身人之爪",
+        "name_en": "Harpy's Talons",
+        "text": "<b>圣盾</b>，<b>风怒</b>",
+        "text_en": "<b>Divine Shield</b>, <b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1946,
+          "WINDFURY": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "IS_NIGHTMARE_BONUS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "983eb77d4c8a3eac0d1684927000d9b5ace4239bad0455098586de37b3a87edf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_100t13",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "EDR_487",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\115044-zh_CN.json",
+      "response_sha256": "f7ed5b47194df6514522f482c7c9e0e0a1db404384f99ddbb186a9bf19800dd2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115044&locale=zh_CN",
+      "face": {
+        "id": 115044,
+        "collectible": 1,
+        "slug": "115044-wallow-the-wretched",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "瓦洛，污邪古树",
+        "text": "当本牌在你的手牌或牌库中时，会获得你的随从获得的每项<b>黑暗之赐</b>的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96c0054fcf3c086e4728b585b78b5ef55981606c66cfebc9892355e3263db155.png",
+        "imageGold": "",
+        "flavorText": "心智可乱，发型不能乱。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc79d569504bf866983455fabb30bae51ee60569f8dcbe6c2ab3097a15d7fb8b.png",
+        "childIds": [
+          113796,
+          113797,
+          113798,
+          113799,
+          113801,
+          113802,
+          113882,
+          113884,
+          113886,
+          120225
+        ],
+        "keywordIds": [
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115044&locale=zh_CN",
+        "sha256": "f7ed5b47194df6514522f482c7c9e0e0a1db404384f99ddbb186a9bf19800dd2",
+        "bytes": 906,
+        "observed_at": "2026-10-19T18:05:54.380787+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_487",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\115044-en_US.json",
+      "response_sha256": "58ac0b72933c135988610c22f0220be40dc80a4ff51bf0754f6b5a3b6c337e26",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115044&locale=en_US",
+      "face": {
+        "id": 115044,
+        "collectible": 1,
+        "slug": "115044-wallow-the-wretched",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Wallow, the Wretched",
+        "text": "While this is in your hand or deck, it gains a copy of every <b>Dark Gift</b> given to your minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cadd6c6981e32b225c9a29e2a5d41a109fbdba5f5965ed3b88a5c3f8e297f971.png",
+        "imageGold": "",
+        "flavorText": "Their hairdo is anything BUT wretched.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc79d569504bf866983455fabb30bae51ee60569f8dcbe6c2ab3097a15d7fb8b.png",
+        "childIds": [
+          113796,
+          113797,
+          113798,
+          113799,
+          113801,
+          113802,
+          113882,
+          113884,
+          113886,
+          120225
+        ],
+        "keywordIds": [
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115044&locale=en_US",
+        "sha256": "58ac0b72933c135988610c22f0220be40dc80a4ff51bf0754f6b5a3b6c337e26",
+        "bytes": 901,
+        "observed_at": "2026-10-19T18:05:54.453312+00:00"
+      }
+    }
+  ],
+  "gift_version": "constructed-dark-gifts-32.2-v1",
+  "gift_recipes_sha256": "d38026afb5e74d345f28238c65b26c2b028adb6b1d984bf55ded7127f67a68dc",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": [
+    "Every original installed gift notifies once; copying an inherited enchantment is not a new grant.",
+    "Native hand/deck listening uses existing HandProgressSpec. Self original grants are copied once; copies do not echo.",
+    "Sweet Dreams moves held Wallow to its own deck top, retaining only Dark Gifts per official32.2. Already-deck ordering remains unchanged pending CN timing calibration.",
+    "Exact acceptance order and full official generated-minion pool remain M6/M0 open."
+  ]
+}
