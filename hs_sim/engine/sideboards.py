@@ -41,6 +41,39 @@ class SideboardProfile:
 
 
 @dataclass(frozen=True)
+class DeckCopySideboardProfile:
+    """One actual two-cost construction selection; copies are generated later."""
+    source_card_id: str
+    selected_cost: int = 2
+    copies: int = 10
+    version: str = 'deck-copy-sideboard-v1'
+
+    @property
+    def max_cards(self):
+        return 1
+
+    def __post_init__(self):
+        from .construction import integer, name
+        name(self.source_card_id, 'deck-copy source')
+        integer(self.selected_cost, 'deck-copy selected cost')
+        integer(self.copies, 'deck-copy quantity')
+        if (self.selected_cost != 2 or self.copies != 10 or type(self.version) is not str
+                or self.version != 'deck-copy-sideboard-v1'):
+            raise ValueError('Unsupported native deck-copy selection policy')
+
+
+def deck_copy_selection_error(profile, cards, registry):
+    if len(cards) != 1:
+        return 'A native deck-copy source needs exactly one selected minion'
+    card = registry.cards.get(cards[0])
+    if card is None:
+        return 'The selected deck-copy minion needs an executable definition'
+    if card.kind != CardType.MINION or card.cost != profile.selected_cost:
+        return 'The selected deck-copy card must be a printed two-cost minion'
+    return None
+
+
+@dataclass(frozen=True)
 class SideboardState:
     source_card_id: str
     cards: tuple[str, ...]
@@ -58,19 +91,24 @@ class SideboardState:
 
 def validate_profiles(registry):
     for cid, profile in registry.sideboards.items():
-        if type(profile) is not SideboardProfile or profile.source_card_id != cid:
+        if type(profile) not in (SideboardProfile, DeckCopySideboardProfile) or profile.source_card_id != cid:
             raise ValueError('Sideboard profile differs from its registered source')
         profile.__post_init__()
         card = registry.card(cid)
         meta = card.metadata
-        if (card.kind != CardType.MINION or card.battlecry is None or meta is None or
+        if (card.kind != CardType.MINION or meta is None or
                 not meta.collectible or meta.rarity != Rarity.LEGENDARY):
-            raise ValueError('Sideboard source requires a collectible Legendary battlecry minion')
-        for banned_id in profile.banned_card_ids:
-            registry.card(banned_id)
+            raise ValueError('Sideboard source requires a collectible Legendary minion')
+        if type(profile) is SideboardProfile:
+            if card.battlecry is None:
+                raise ValueError('A band sideboard requires its printed battlecry')
+            for banned_id in profile.banned_card_ids:
+                registry.card(banned_id)
+        elif not any(h.phase == 'before_deal' for h in card.opening_hooks):
+            raise ValueError('A deck-copy selection requires its native before-deal opening hook')
 
 
-def construction_members(deck, registry, issue):
+def construction_members(deck, registry, issue, *, policy=None):
     """Validate attachment/size/bans; ordinary deck filters validate all members."""
     validate_profiles(registry)
     seen, members = set(), []
@@ -86,12 +124,28 @@ def construction_members(deck, registry, issue):
             issue('sideboard_source', f'{cid} is not in the original main deck', cid)
         if profile is not None and len(band.cards) > profile.max_cards:
             issue('sideboard_size', f'{cid} permits at most {profile.max_cards} band members', cid)
+        copy_selection = type(profile) is DeckCopySideboardProfile
+        if copy_selection:
+            error = deck_copy_selection_error(profile, band.cards, registry)
+            if error is not None:
+                issue('deck_copy_selection', error, cid)
+            if policy is None:
+                raise ValueError('Deck-copy selection needs its actual construction policy')
         for member in band.cards:
             card = registry.cards.get(member)
-            if profile is not None and (member in profile.banned_card_ids or
+            if type(profile) is SideboardProfile and (member in profile.banned_card_ids or
                     card is not None and card.opening_hooks):
                 issue('sideboard_banned', f'{member} is excluded by the sideboard policy', member)
-            members.append(member)
+            if copy_selection and card is not None and card.metadata is not None:
+                # The selected card occupies its full ordinary copy allowance,
+                # including other editions and other bands sharing that identity.
+                from .construction import copy_limit
+                members.extend((member,) * copy_limit(card.metadata, policy))
+            else:
+                members.append(member)
+    for cid, profile in registry.sideboards.items():
+        if type(profile) is DeckCopySideboardProfile and cid in deck.cards and cid not in seen:
+            issue('deck_copy_selection', 'The original deck-copy source requires its construction selection', cid)
     return tuple(members)
 
 
@@ -137,7 +191,7 @@ def _options(player_id, band, registry, source_id):
 
 def discover(r, effect):
     effect.__post_init__()
-    if effect.source_card_id not in r.registry.sideboards:
+    if type(r.registry.sideboards.get(effect.source_card_id)) is not SideboardProfile:
         raise ValueError('Unsupported sideboard source')
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ValueError('Sideboard physical source does not exist')
@@ -151,6 +205,8 @@ def discover(r, effect):
 
 def take(r, effect):
     effect.__post_init__()
+    if type(r.registry.sideboards.get(effect.source_card_id)) is not SideboardProfile:
+        raise ValueError('A construction-only selection is not a consumable band')
     player = r.player(effect.player_id)
     band = _band(player, effect.source_card_id)
     if (band is None or effect.slot >= len(band.cards) or
@@ -226,6 +282,9 @@ def validate_player(player, registry):
         if (profile is None or band.source_card_id not in player.original_deck or
                 band.source_card_id in seen or len(band.cards) > profile.max_cards):
             raise ValueError('Sideboard state requires a unique original supported source')
+        if type(profile) is DeckCopySideboardProfile and (
+                deck_copy_selection_error(profile, band.cards, registry) is not None or band.taken_slots):
+            raise ValueError('Deck-copy selection changed its original member or was consumed as a band')
         seen.add(band.source_card_id)
         for cid in band.cards:
             registry.card(cid)

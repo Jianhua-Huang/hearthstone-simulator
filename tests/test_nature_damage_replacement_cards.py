@@ -55,7 +55,14 @@ def registry(role,mode='complete'):
     r.register_behavior(WATCH,watch)
     r.register_card(CardDefinition(WATCH,WATCH,CardType.MINION,health=10,metadata=meta,
         triggers=(TriggerSpec('stats_changed',WATCH),TriggerSpec('minion_summoned',WATCH))))
-    members=(A,B)if mode=='complete'else(A,'TIME_852')if mode=='unknown'else(A,'CORE_CFM_670')if mode=='outside'else(FILL,)
+    unknown=P+'unimplemented_five'
+    if mode=='unknown':
+        # The real candidate formerly used here has since been implemented.
+        # Keep an explicitly unimplemented eligible fixture, never a stale
+        # assertion that a currently registered production card is unknown.
+        r.register_pool_card(PoolCard.from_definition(replace(r.card(A),id=unknown,name=unknown)))
+    members=((A,B)if mode=='complete'else(A,unknown)if mode=='unknown'else
+        ('JAIL_397',)if mode=='beatrix'else(A,'CORE_CFM_670')if mode=='outside'else(FILL,))
     r.register_pool(PoolDefinition(POOL,'K227-'+mode,CTX.target_id,CTX.mode,tuple(PoolMember(x)for x in members),complete=True))
     r.validate();r.freeze();return r
 
@@ -91,6 +98,14 @@ class NatureDamageReplacementTests(unittest.TestCase):
         self.assertEqual(len(new),1);self.assertIn(new[0].card_id,(A,B));self.assertEqual(new[0].health,4)
         self.assertEqual(g.state.entities[g.state.players[1].hero_id].armor,0)
         self.assertEqual(g.state.card_summon_history[-1].request.cause.source.entity_id,eid);self.portable(g)
+
+    def test_a02_generated_commander_has_taunt_without_construction_or_opening_copies(self):
+        g=self.game(board=(ROOK,),mode='beatrix');before=len(g.state.players[1].deck)
+        self.play(g,target=self.entity(g,ROOK).id)
+        new=[g.state.entities[i]for i in g.state.players[1].board if g.state.entities[i].card_id=='JAIL_397']
+        self.assertEqual(len(new),1);self.assertEqual((new[0].attack,new[0].health),(5,6))
+        self.assertIn(Keyword.TAUNT,new[0].keywords);self.assertEqual(len(g.state.players[1].deck),before)
+        self.assertFalse(g.state.players[1].sideboards);self.portable(g)
     def test_a02_complete_raw_roots_four_primary_faces_and_evidence_only_enchantment(self):
         d=load_batch();self.assertEqual([x['record']['id']for x in d['cards']],[FLUX,ROOK])
         for row in (*d['cards'],*d['evidence_only']):self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
@@ -137,7 +152,7 @@ class NatureDamageReplacementTests(unittest.TestCase):
     def test_d01_empty_eligible_pool_keeps_prevention_without_rng(self):
         g=self.game(board=(ROOK,),mode='empty');rng=g._rng.getstate();eid=self.entity(g,ROOK).id;self.play(g,target=eid)
         self.assertEqual((g.state.entities[eid].health,len(g.state.players[1].board)),(5,1));self.assertEqual(g._rng.getstate(),rng)
-    def test_d02_unknown_real_five_cost_candidate_rejects_the_whole_action_even_when_full(self):
+    def test_d02_unknown_eligible_five_cost_candidate_rejects_the_whole_action_even_when_full(self):
         for fill in (0,6):
             with self.subTest(fill=fill):
                 g=self.game(board=(ROOK,)+(FILL,)*fill,mode='unknown');snap=g.snapshot()

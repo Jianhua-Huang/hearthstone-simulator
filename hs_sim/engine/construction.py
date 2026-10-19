@@ -180,6 +180,10 @@ class DeckValidationError(ValueError):
         super().__init__('Invalid deck: ' + '; '.join(f'{i.code}: {i.message}' for i in report.issues))
 
 
+def copy_limit(metadata, policy):
+    return metadata.max_copies or (policy.legendary_copies if metadata.rarity == Rarity.LEGENDARY else policy.max_copies)
+
+
 def validate_deck(deck, registry, policy):
     if type(deck) is not DeckSpec or type(policy) is not DeckPolicy:
         raise ValueError('Expected DeckSpec and DeckPolicy')
@@ -221,7 +225,7 @@ def validate_deck(deck, registry, policy):
     from .fabled_decks import construction_companions
     fabled_companions = construction_companions(deck, registry, policy, issue)
     from .sideboards import construction_members
-    sideboard_cards = construction_members(deck, registry, issue)
+    sideboard_cards = construction_members(deck, registry, issue, policy=policy)
     from .modular_decks import construction_identity, validate_profiles as validate_modular_profiles
     validate_modular_profiles(registry)
     # Sideboard members do not add to main deck size, but share its reviewed
@@ -254,7 +258,7 @@ def validate_deck(deck, registry, policy):
                                          for rune in ('blood', 'frost', 'unholy')):
                 issue('rune_requirements', f'Rune loadout cannot include {card_id}', card_id)
         group = meta.deck_identity or card_id
-        limit = meta.max_copies or (policy.legendary_copies if meta.rarity == Rarity.LEGENDARY else policy.max_copies)
+        limit = copy_limit(meta, policy)
         if card_id in fabled_companions:
             # Bundle membership enforces one copy, including tokens without rarity.
             limit = min(limit, 1)
