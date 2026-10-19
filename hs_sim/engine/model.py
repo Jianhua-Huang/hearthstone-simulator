@@ -2618,7 +2618,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2681,9 +2681,19 @@ class DeathrattleMemory:
     dormancies: tuple[RememberedDormancy, ...] = ()
     discoveries: tuple[RememberedDiscovery, ...] = ()
     hand_entry_ids: tuple[int, ...] = ()
+    summon_copy: object | None = None
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        if self.summon_copy is not None:
+            from .copy_materials import CopyEntryMaterial
+            if (type(self.summon_copy) is not CopyEntryMaterial or self.spec.kind != 'copy_summon'
+                    or self.summon_copy.profile != 'remembered_copy'):
+                raise ValueError('Native copy memory requires its original frozen board recipe')
+            self.summon_copy.__post_init__()
+        if self.spec.kind == 'copy_summon' and any((self.growth_steps, self.draws, self.discard_ids,
+                self.dormancies, self.discoveries, self.hand_entry_ids)):
+            raise ValueError('Native copy memory cannot mix unrelated payloads')
         if type(self.hand_entry_ids) is not tuple or any(type(i) is not int or i < 1 for i in self.hand_entry_ids):
             raise ValueError('Native hand memory requires immutable original acquisition identities')
         if (self.spec.kind != 'hand_selection' and self.hand_entry_ids or self.spec.kind == 'hand_selection' and

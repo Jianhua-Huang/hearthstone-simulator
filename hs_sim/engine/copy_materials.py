@@ -163,7 +163,7 @@ class CopyEntryMaterial:
 
     def __post_init__(self):
         if (type(self.stored_components)is not tuple or any(type(x)is not str or not x for x in self.stored_components)
-                or self.stored_components and (self.profile!='stored_copy' or self.mode!='current')):
+                or self.stored_components and (self.profile not in ('stored_copy','remembered_copy') or self.mode!='current')):
             raise ValueError('Stored composition requires its current physical minion recipe')
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is None:
@@ -178,14 +178,16 @@ class CopyEntryMaterial:
             if self.profile != 'board_copy': raise ValueError('Copy followup requires original board-copy material')
         if type(self.dormant_entry) is not bool:
             raise ValueError('Copied dormancy entry requires bool')
-        if self.dormant_entry and (self.profile != 'board_copy' or self.mode != 'current'):
+        if self.dormant_entry and (self.profile not in ('board_copy','remembered_copy') or self.mode != 'current'):
             raise ValueError('Dormant entry belongs to a current board copy')
         if type(self.card_id)is not str or not self.card_id:raise ValueError('Copy material requires a card')
         if type(self.origin)is not SourceAllocationFact:raise ValueError('Copy material requires original physical allocation')
         self.origin.__post_init__()
         if self.origin.card_id!=self.card_id or self.origin.kind!=CardType.MINION:raise ValueError('Copy material differs from its physical minion face')
-        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
-        zones=(Zone.BOARD,)if self.profile=='board_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
+        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
+        if self.profile=='remembered_copy' and (self.mode!='current' or self.stats is not None):
+            raise ValueError('Remembered copy requires its full original current minion recipe')
+        zones=(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy')else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
         if self.origin.zone not in zones:raise ValueError('Copy recipe has another original zone')
         for n,floor in (('captured_turn',1),('captured_action',0),('next_attachment_id',1)):_integer(getattr(self,n),'copy material '+n,floor)
         if (self.mode=='current')!=(self.local is not None):raise ValueError('Copy local state differs from current/base recipe')
@@ -220,7 +222,7 @@ class CopyEntryMaterial:
 
     @classmethod
     def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None,on_summon=None,minion_grant=None,grant_source_id=None):
-        if source.components and profile!='discard_summon_copy' and not(profile=='stored_copy'and mode=='current'):
+        if source.components and profile!='discard_summon_copy' and not(profile in ('stored_copy','remembered_copy')and mode=='current'):
             raise ValueError('Composite copy material is unsupported by this ordinary profile')
         if profile in ('discard_copy','discard_summon_copy'):
             from .discard_history import validate_material,validate_base_copy
@@ -237,10 +239,10 @@ class CopyEntryMaterial:
         if profile in ('discard_copy','discard_summon_copy')and local is not None:local=replace(local,hand_lifetime=None)
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
             state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
-            source.dormancy is not None and profile == 'board_copy' and mode == 'current')
+            source.dormancy is not None and profile in ('board_copy','remembered_copy') and mode == 'current')
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
-        if profile=='stored_copy'and mode=='current':result=replace(result,stored_components=source.components)
+        if profile in ('stored_copy','remembered_copy')and mode=='current':result=replace(result,stored_components=source.components)
         if profile in ('discard_copy','discard_summon_copy'):validate_scope(state,registry,result,hand_copy=profile=='discard_copy')
         return result
 
@@ -248,7 +250,7 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__()
-    if material.profile=='stored_copy':
+    if material.profile in ('stored_copy','remembered_copy'):
         card=registry.card(material.card_id)
         if card.kind!=CardType.MINION or not card.hand_playable or card.choice_only or bool(card.starship_for)!=bool(material.components):
             raise ValueError('Stored entry lost its complete physical minion or composition')
@@ -363,7 +365,7 @@ def apply(r,material,entity):
         imprint(entity, material.jade_size)
     if material.mode=='current':
         local=material.local
-        if material.profile=='board_copy' and not material.dormant_entry:entity.dormancy=None
+        if material.profile in ('board_copy','remembered_copy') and not material.dormant_entry:entity.dormancy=None
         entity.base_attack,entity.base_health,entity.base_cost=local.base_attack,local.base_health,local.base_cost
         entity.damage,entity.corpse_value=local.damage,local.corpse_value
         source=Entity(material.origin.entity_id,material.card_id,material.origin.owner,material.origin.controller,material.origin.zone,
@@ -381,11 +383,33 @@ def apply(r,material,entity):
         from types import SimpleNamespace
         from .card_creation import install
         install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.minion_grant,source_id=material.grant_source_id))
+    if material.profile == 'remembered_copy':
+        from .lifecycle import remove_attachments
+        remove_attachments(entity, enchantment_predicate=lambda a: expired_remembered_attachment(r.state, a),
+            ability_predicate=lambda a: expired_remembered_attachment(r.state, a))
     r.refresh_auras()
-    if material.mode=='current'and material.profile=='board_copy'and material.local.frozen:
+    if material.mode=='current'and material.profile in ('board_copy','remembered_copy')and material.local.frozen:
         from .combat import can_be_frozen,freeze_deadline
         if can_be_frozen(entity):
             entity.frozen_until_owner_turn=freeze_deadline(r.state,entity,ending_turn=r.ending_turn,registry=r.registry)
+
+
+def expired_remembered_attachment(state, attachment):
+    """Frozen material keeps original clocks; copying never restarts a lapsed one."""
+    if attachment.expires_turn is not None and attachment.expires_turn < state.turn:
+        return True
+    for name in ('owner_turn_expiry', 'keyword_expiry', 'health_rule_expiry',
+            'attack_policy_expiry', 'limited_trigger_deadline'):
+        expiry = getattr(attachment, name, None)
+        if expiry is None: continue
+        interval = next((x for x in reversed(state.owner_turn_history) if x.player_id == expiry.player_id), None)
+        index = 0 if interval is None else interval.owner_index
+        if index > expiry.owner_turn_index: return True
+        if index == expiry.owner_turn_index and (
+                interval.closed or expiry.boundary == 'turn_started' and
+                (interval.origin != 'actual' or interval.publication_event is not None)):
+            return True
+    return False
 
 
 def enter(r,material,entity):

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实蛋类需要保存选中随从时，用copy_summon原生记忆及remembered_copy材料连接普通SummonByCard；不要在卡牌层扫描旧事件、读取后来原随从或重启旧期限。入场前安装、复制和重置边界见[契约](m3-frozen-deathrattle-copy.md)。
+
 需要原本体在指定下个本人开始触发一次时，用GrantLimitedTrigger的可选deadline连接既有owner_deadline；不要用每个开始都重试的永久触发或另建回合计数。错过、过期及恢复规则见[契约](m3-murozond-owner-start.md)。
 
 原战场随从与对手手牌交换使用SwapWithOpponentHand，原身体与造成来源一起捕获；不要用普通回手/抽牌或复制串接。原召唤第一体/额外体、占位和当前组件表达见[契约](m3-physical-hand-minion-swap.md)。

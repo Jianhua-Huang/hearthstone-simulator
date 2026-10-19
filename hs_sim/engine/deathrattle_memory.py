@@ -27,6 +27,7 @@ def validate_ability(state,registry,ability):
     ability.__post_init__()
     if ability.deathrattle_card_id is None or registry.card(ability.deathrattle_card_id).native_deathrattle!=memory.spec:
         raise ValueError('Deathrattle memory differs from its printed declaration')
+    validate_copy_memory(state, registry, memory)
     for link in memory.draws:validate_link(state,link)
     if memory.hand_entry_ids:
         from .hand_history import hand_entry
@@ -45,6 +46,13 @@ def validate_ability(state,registry,ability):
         if (row.source is None or row.source.kind!=CardType.MINION or row.source.zone!=Zone.BOARD or
                 registry.card(row.source.card_id).native_deathrattle!=memory.spec):
             raise ValueError('Remembered discard lost its original native source declaration')
+
+
+def validate_copy_memory(state, registry, memory, *, closed=False):
+    memory.__post_init__()
+    if memory.summon_copy is not None:
+        from .copy_materials import validate_scope
+        validate_scope(state, registry, memory.summon_copy, closed=closed)
 
 
 def validate_carrier(state,registry,card_id,kind,abilities,components=()):

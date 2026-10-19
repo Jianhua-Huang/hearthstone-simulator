@@ -204,6 +204,11 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # delimiter and live card-name slot. No rule body or number is removed.
     lookout_display = (display_normalizations == {'@': '', '{5}': ''} and row['id'] == 'EDR_950' and
         canonical(row) == 'a9b334b37835480b161475c3b16412aa08f5ca52b3d66e42d2c9483ca2e8ce1e')
+    # Horrible Egg names its captured Dragon at runtime. Both complete gallery
+    # faces omit only that name; the native Deathrattle body and all metadata
+    # stay strict. This exact original row is not a general {0} exception.
+    egg_name_display = (display_normalizations == {'{0}': ''} and row['id'] == 'EDR_454t' and
+        canonical(row) == 'cd319168db51490cfc038bcdaba343e7178c57fe6b3b00745df0ef326fa536cb')
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
@@ -215,7 +220,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display or egg_name_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')

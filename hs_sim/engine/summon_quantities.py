@@ -18,7 +18,7 @@ from .entry_strength import AcceptedEntryStrength
 from .copy_materials import CopyEntryMaterial
 from .recruit_summons import RecruitEntryMaterial
 from .resurrection_summons import ResurrectionEntryMaterial,ResurrectionEntryLink
-from .model import AbilityInstance, CardType, GameState, Keyword, SummonQuantitySpec, SummonStats, Zone
+from .model import AbilityInstance, CardType, DeathrattleMemory, GameState, Keyword, SummonQuantitySpec, SummonStats, Zone
 from .replay_entry_material import PhysicalReplayEntryMaterial
 
 
@@ -66,9 +66,16 @@ class SummonEntryMaterial:
     dormant_turns: int | None = None
     on_summon: str | None = None
     entry_grant: CreatedMinionGrant | None = None
+    deathrattle_memory: DeathrattleMemory | None = None
 
     def __post_init__(self):
         from .model import validate_summon_stats
+        if self.deathrattle_memory is not None:
+            if (type(self.deathrattle_memory) is not DeathrattleMemory or
+                    self.deathrattle_memory.spec.kind != 'copy_summon' or self.deathrattle_memory.summon_copy is None
+                    or any((self.stats, self.deathrattles, self.keywords, self.dormant_turns, self.on_summon, self.entry_grant))):
+                raise ValueError('Seeded Deathrattle entry requires one plain original copy memory')
+            self.deathrattle_memory.__post_init__()
         validate_pool_entry_grant(self.entry_grant)
         if self.entry_grant is not None and (self.stats is not None or self.deathrattles or
                 self.keywords or self.dormant_turns is not None or self.on_summon is not None):
@@ -174,6 +181,8 @@ def validate_material(registry,material,*,allow_colossal=False,allow_pool_entry=
         from .copy_materials import validate_material as validate_copy_material
         validate_copy_material(registry,material);return
     material.__post_init__(); card=registry.card(material.card_id)
+    if material.deathrattle_memory is not None and card.native_deathrattle != material.deathrattle_memory.spec:
+        raise ValueError('Seeded copy memory differs from its actual native minion declaration')
     if (card.kind!=CardType.MINION or card.choice_only or card.starship_for or card.colossal and not allow_colossal or
             not allow_pool_entry and (Keyword.MAGNETIC in card.keywords or Keyword.STARSHIP_PIECE in card.keywords)):
         raise ValueError('This entry profile requires an ordinary non-composite minion')
@@ -411,6 +420,11 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         validate_material(registry,material,allow_colossal=type(material)is SummonEntryMaterial,allow_pool_entry=pooled)
         if type(material)is SummonEntryMaterial and material.entry_grant is not None and not pooled:
             raise ValueError('Pool entry Attack grant requires its complete original pool recipe')
+        if type(material)is SummonEntryMaterial and material.deathrattle_memory is not None:
+            from .deathrattle_memory import validate_copy_memory
+            validate_copy_memory(state, registry, material.deathrattle_memory, closed=closed)
+            if material.deathrattle_memory.summon_copy.origin.controller != request.cause.player_id:
+                raise ValueError('Seeded copy memory lost its original friendly minion selection')
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)
@@ -509,6 +523,10 @@ def deliver(r,effect):
         else:
             from .lifecycle import apply_summon_stats,refresh_entity
             apply_summon_stats(r.state,entity,material.stats)
+            if type(material)is SummonEntryMaterial and material.deathrattle_memory is not None:
+                entity.abilities = [replace(a, deathrattle_memory=material.deathrattle_memory)
+                    if a.deathrattle_memory is not None and a.deathrattle_memory.spec == material.deathrattle_memory.spec else a
+                    for a in entity.abilities]
             for behavior in material.deathrattles:
                 entity.abilities.append(AbilityInstance(attachment_id(r.state),'deathrattle',source_id=root.request.cause.source.entity_id,
                     behavior_id=behavior,deathrattle_grant_card_id=root.request.cause.source.card_id))
@@ -630,7 +648,7 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
         if type(material)is ResurrectionEntryMaterial and(material.captured_turn,material.captured_action,material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):raise ValueError('Death material is not from actual entry acceptance window')
         copy_material=material.copy if type(material)is RecruitEntryMaterial else material
         if type(copy_material)is CopyEntryMaterial:
-            if copy_material.profile=='discard_summon_copy':
+            if copy_material.profile in ('discard_summon_copy','remembered_copy'):
                 if (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
                         copy_material.next_attachment_id>plan.next_attachment_id):
                     raise ValueError('Original discarded material is newer than its summon acceptance')
@@ -896,6 +914,9 @@ def from_dict(cls,value):
         row['stats']=None if row['stats'] is None else SummonStats(**_row(row['stats'],SummonStats))
         row['deathrattles']=tuple(row['deathrattles']);row['keywords']=tuple(Keyword(k)for k in row['keywords'])
         row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
+        if row['deathrattle_memory'] is not None:
+            from .serialization import deathrattle_memory_from_dict
+            row['deathrattle_memory'] = deathrattle_memory_from_dict(row['deathrattle_memory'])
     elif cls is SummonByCard:
         row['cause']=from_dict(SummonCause,row['cause']);row['materials']=tuple(material_from_dict(x)for x in row['materials'])
         row['weights']=tuple(row['weights'])

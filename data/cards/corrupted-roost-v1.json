@@ -1,0 +1,322 @@
+{
+  "schema": 1,
+  "batch": "K262-corrupted-roost",
+  "task": {
+    "schema": 1,
+    "batch": "K262-corrupted-roost",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_454"
+    ],
+    "dependencies": [
+      "EDR_454t"
+    ],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "EDR_454",
+      "EDR_454t"
+    ],
+    "numeric_normalizations": {
+      "EDR_454t": {
+        "attack": 0
+      }
+    },
+    "effect_groups": [
+      {
+        "effect": "Original friendly Dragon selection and 0/2 Egg whose Deathrattle summons a copy of selected Dragon; audit existing captured copy material/native memory and original location/summon/death semantics before implementation.",
+        "cards": [
+          "EDR_454"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/corrupted_roost_card.py",
+      "data/cards/corrupted-roost-v1.json",
+      "tests/test_corrupted_roost_card.py"
+    ],
+    "display_normalizations": {
+      "EDR_454t": {
+        "{0}": ""
+      }
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_454",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k262-corrupted-roost\\official-cache-03\\114215-zh_CN.json",
+      "response_sha256": "c149b20c3128ad1d281c0940fbf1b7a1674d5ad743a8ea254a95c388de1083f9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=114215&locale=zh_CN",
+      "face": {
+        "id": 114215,
+        "collectible": 1,
+        "slug": "114215-clutch-of-corruption",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Grafit Studio",
+        "health": 2,
+        "manaCost": 2,
+        "name": "腐蚀之巢",
+        "text": "选择一条友方的龙。召唤一枚0/2的可以孵化成所选龙的复制的龙蛋。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b16800fe07e0fa338b56972f9cd07fb4e8e4e84b0d05b7c9f9f21221eccfe80f.png",
+        "imageGold": "",
+        "flavorText": "这些蛋没有黄！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78f09915b18b79e079e9a8869626dc79e05532b14a513e5d04adfbed558bacd2.png",
+        "childIds": [
+          114609
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=114215&locale=zh_CN",
+        "sha256": "c149b20c3128ad1d281c0940fbf1b7a1674d5ad743a8ea254a95c388de1083f9",
+        "bytes": 768,
+        "observed_at": "2026-10-19T11:38:46.167447+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_454",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k262-corrupted-roost\\official-cache-03\\114215-en_US.json",
+      "response_sha256": "6374ef12e5bf907dc9b0d21ea92be8ccb6af627c3e076f07f00b68ac292a8092",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=114215&locale=en_US",
+      "face": {
+        "id": 114215,
+        "collectible": 1,
+        "slug": "114215-clutch-of-corruption",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Grafit Studio",
+        "health": 2,
+        "manaCost": 2,
+        "name": "Clutch of Corruption",
+        "text": "Choose a friendly Dragon. Summon a 0/2 Egg that hatches into a copy of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1597bb822528e2c7cd15a2607ec2b098a247ea8f8abfb575e007e1a6fc38b28.png",
+        "imageGold": "",
+        "flavorText": "These eggs are no yolk!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78f09915b18b79e079e9a8869626dc79e05532b14a513e5d04adfbed558bacd2.png",
+        "childIds": [
+          114609
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=114215&locale=en_US",
+        "sha256": "6374ef12e5bf907dc9b0d21ea92be8ccb6af627c3e076f07f00b68ac292a8092",
+        "bytes": 762,
+        "observed_at": "2026-10-19T11:38:46.178441+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_454t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k262-corrupted-roost\\official-cache-03\\114609-zh_CN.json",
+      "response_sha256": "77cc6ffaccfdfa1ef8d6d1d05791dbb32cabe6b73ca37ff2a286b1020b4ab244",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=114609&locale=zh_CN",
+      "face": {
+        "id": 114609,
+        "collectible": 0,
+        "slug": "114609-horrible-egg",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "恐怖的龙蛋",
+        "text": "<b>亡语：</b>召唤 。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3c6bbee9f90c96d8deaae0c70e29d5c84954b601e48d9da2674ae1c13b24a7f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114215,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=114609&locale=zh_CN",
+        "sha256": "77cc6ffaccfdfa1ef8d6d1d05791dbb32cabe6b73ca37ff2a286b1020b4ab244",
+        "bytes": 573,
+        "observed_at": "2026-10-19T11:38:45.888844+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_454t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k262-corrupted-roost\\official-cache-03\\114609-en_US.json",
+      "response_sha256": "1fad72d1d2e8787d56bf44c93a1275b7001afd0fb9214a1b5f99ca606cf844db",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=114609&locale=en_US",
+      "face": {
+        "id": 114609,
+        "collectible": 0,
+        "slug": "114609-horrible-egg",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Horrible Egg",
+        "text": "<b>Deathrattle:</b> Summon .",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/378996f0fd598c74e870282b7a9c566b911ab4bb744f4b9ff5ee51d688d4989d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 114215,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=114609&locale=en_US",
+        "sha256": "1fad72d1d2e8787d56bf44c93a1275b7001afd0fb9214a1b5f99ca606cf844db",
+        "bytes": 572,
+        "observed_at": "2026-10-19T11:38:45.966140+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_454",
+        "dbf_id": 114215,
+        "name": "腐蚀之巢",
+        "name_en": "Clutch of Corruption",
+        "text": "选择一条友方的龙。召唤一枚0/2的可以孵化成所选龙的复制的龙蛋。",
+        "text_en": "[x]Choose a friendly Dragon.\nSummon a 0/2 Egg that\nhatches into a copy of it.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 39,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "c04d9476d3645751026e4f4ba1451707396a172433f2b427570302b44b031eb5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_454",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_454t",
+        "dbf_id": 114609,
+        "name": "恐怖的龙蛋",
+        "name_en": "Horrible Egg",
+        "text": "<b>亡语：</b>召唤{0}。",
+        "text_en": "<b>Deathrattle:</b> Summon {0}.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 10,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "cd319168db51490cfc038bcdaba343e7178c57fe6b3b00745df0ef326fa536cb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_454t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "policy": {
+    "copy": "Frozen full current material at actual location body; subsequent face or mutations do not rebind. Shared current-copy, reset and frozen-status semantics pending CN.",
+    "memory": "Native copy_summon seeded before first entry publication; ordinary actual Deathrattle invocation summons via existing quantity/copy pipeline. No hidden hand card or second scheduler."
+  }
+}

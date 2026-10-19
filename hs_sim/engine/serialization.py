@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 436
+SNAPSHOT_SCHEMA_VERSION = 437
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -80,6 +80,21 @@ def _integer(value, name, minimum=None):
     if type(value) is not int or (minimum is not None and value < minimum):
         raise ValueError(f'Invalid integer for {name}')
     return value
+
+
+def deathrattle_memory_from_dict(value):
+    from .model import DeathrattleMemory, NativeDeathrattleSpec, RememberedDraw, RememberedDormancy, RememberedDiscovery
+    memory = _row(value, DeathrattleMemory)
+    memory['spec'] = NativeDeathrattleSpec(**_row(memory['spec'], NativeDeathrattleSpec))
+    memory['draws'] = tuple(RememberedDraw(**_row(x, RememberedDraw)) for x in _list(memory['draws'], 'remembered physical draws'))
+    memory['discard_ids'] = tuple(_list(memory['discard_ids'], 'remembered physical discards'))
+    memory['hand_entry_ids'] = tuple(_list(memory['hand_entry_ids'], 'remembered original hand selections'))
+    memory['dormancies'] = tuple(RememberedDormancy(**_row(x, RememberedDormancy)) for x in _list(memory['dormancies'], 'remembered dormancy intervals'))
+    memory['discoveries'] = tuple(RememberedDiscovery(**_row(x, RememberedDiscovery)) for x in _list(memory['discoveries'], 'remembered discoveries'))
+    if memory['summon_copy'] is not None:
+        from .copy_materials import CopyEntryMaterial, from_dict
+        memory['summon_copy'] = from_dict(CopyEntryMaterial, memory['summon_copy'])
+    return DeathrattleMemory(**memory)
 
 
 def player_effect_from_dict(value):
@@ -305,17 +320,7 @@ def _ability_from_dict(value):
         value['cause'] = _death_cause_from_dict(value['cause'])
         row['spell_stat_value'] = SpellStatGrantValue(**value)
     if row['deathrattle_memory'] is not None:
-        from .model import DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,RememberedDiscovery
-        memory=_row(row['deathrattle_memory'],DeathrattleMemory)
-        memory['spec']=NativeDeathrattleSpec(**_row(memory['spec'],NativeDeathrattleSpec))
-        memory['draws']=tuple(RememberedDraw(**_row(x,RememberedDraw))for x in _list(memory['draws'],'remembered physical draws'))
-        memory['discard_ids']=tuple(_list(memory['discard_ids'],'remembered physical discards'))
-        memory['hand_entry_ids']=tuple(_list(memory['hand_entry_ids'],'remembered original hand selections'))
-        memory['dormancies']=tuple(RememberedDormancy(**_row(x,RememberedDormancy))
-            for x in _list(memory['dormancies'],'remembered physical dormancy intervals'))
-        memory['discoveries']=tuple(RememberedDiscovery(**_row(x,RememberedDiscovery))
-            for x in _list(memory['discoveries'],'remembered original discoveries'))
-        row['deathrattle_memory']=DeathrattleMemory(**memory)
+        row['deathrattle_memory'] = deathrattle_memory_from_dict(row['deathrattle_memory'])
     if row['native_condition'] is not None:
         from .model import NativeSourceCondition
         row['native_condition']=NativeSourceCondition(**_row(row['native_condition'],NativeSourceCondition))
