@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 433
+SNAPSHOT_SCHEMA_VERSION = 434
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -84,6 +84,9 @@ def _integer(value, name, minimum=None):
 
 def player_effect_from_dict(value):
     row=_row(value,PlayerEffect)
+    if row['investigation'] is not None:
+        from .model import HandInvestigation
+        row['investigation'] = HandInvestigation(**_row(row['investigation'], HandInvestigation))
     row['aura_duration_grants'] = tuple(_ability_from_dict(a)
         for a in _list(row['aura_duration_grants'], 'direct Aura original duration grants'))
     row['adaptations'] = tuple(_list(row['adaptations'], 'remembered Adaptations'))
@@ -307,6 +310,7 @@ def _ability_from_dict(value):
         memory['spec']=NativeDeathrattleSpec(**_row(memory['spec'],NativeDeathrattleSpec))
         memory['draws']=tuple(RememberedDraw(**_row(x,RememberedDraw))for x in _list(memory['draws'],'remembered physical draws'))
         memory['discard_ids']=tuple(_list(memory['discard_ids'],'remembered physical discards'))
+        memory['hand_entry_ids']=tuple(_list(memory['hand_entry_ids'],'remembered original hand selections'))
         memory['dormancies']=tuple(RememberedDormancy(**_row(x,RememberedDormancy))
             for x in _list(memory['dormancies'],'remembered physical dormancy intervals'))
         memory['discoveries']=tuple(RememberedDiscovery(**_row(x,RememberedDiscovery))

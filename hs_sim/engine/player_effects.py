@@ -4,7 +4,7 @@ from dataclasses import dataclass, replace
 from .effects import AddCostModifier, Effect
 from .errors import ResolutionError
 from .lifecycle import attachment_id
-from .model import AbilityInstance, CardType, CostModifier, CostSpec, PlayerEffect, _int, _name
+from .model import AbilityInstance, CardType, CostModifier, CostSpec, HandInvestigation, PlayerEffect, _int, _name
 from .secrets import area_count
 
 
@@ -63,12 +63,17 @@ class AddPlayerEffect(Effect):
     aura_duration_cast_id: int | None = None
     spell_aura_id: int | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
+    investigation: HandInvestigation | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
         if self.player_id not in (1, 2):
             raise ValueError('Invalid player')
         _name(self.spec_id, 'player effect specification')
+        if self.investigation is not None:
+            if type(self.investigation) is not HandInvestigation:
+                raise ValueError('Investigation requires its complete typed private material')
+            self.investigation.__post_init__()
         _int(self.source_id, 'player effect source', 1)
         if type(self.capture_health_source) is not bool:
             raise ValueError('Player effect health source capture must be boolean')
@@ -160,6 +165,12 @@ def consume(r, effect, *, pending_events=None):
 
 
 def add(r, effect, *, adaptations=(), adaptation_source=None):
+    spec_for_material = r.registry.player_effect(effect.spec_id)
+    if spec_for_material.kind == 'hand_investigation':
+        from .hand_inspection import validate_investigation
+        validate_investigation(r.state, r.registry, effect.player_id, effect.investigation)
+    elif effect.investigation is not None:
+        raise ResolutionError('Only an investigation program may retain a private selected face')
     player = r.player(effect.player_id)
     spec = r.registry.player_effect(effect.spec_id)
     source = r.state.entities.get(effect.source_id)
@@ -221,7 +232,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
                             r.state.turn, r.state.next_order, remaining,allocation,
                             effect.player_id if allocation is not None else None, modifier_id, adaptations,
                             effect.aura_duration_cast_id, effect.spell_aura_id, spell_card_id,
-                            player.id if effect.spell_aura_id is not None else None, effect.aura_duration_grants)
+                            player.id if effect.spell_aura_id is not None else None, effect.aura_duration_grants,
+                            effect.investigation)
     r.state.next_order += 1
     player.player_effects.append(instance)
     if modifier_id is not None:

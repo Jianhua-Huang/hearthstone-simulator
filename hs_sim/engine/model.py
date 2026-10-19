@@ -2618,7 +2618,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2680,9 +2680,15 @@ class DeathrattleMemory:
     discard_ids: tuple[int, ...] = ()
     dormancies: tuple[RememberedDormancy, ...] = ()
     discoveries: tuple[RememberedDiscovery, ...] = ()
+    hand_entry_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        if type(self.hand_entry_ids) is not tuple or any(type(i) is not int or i < 1 for i in self.hand_entry_ids):
+            raise ValueError('Native hand memory requires immutable original acquisition identities')
+        if (self.spec.kind != 'hand_selection' and self.hand_entry_ids or self.spec.kind == 'hand_selection' and
+                (self.growth_steps or self.draws or self.discard_ids or self.dormancies or self.discoveries)):
+            raise ValueError('Native hand memory cannot mix unrelated payloads')
         self.spec.__post_init__();_int(self.growth_steps,'native Deathrattle growth steps',0)
         if type(self.draws) is not tuple or any(type(x) is not RememberedDraw for x in self.draws):
             raise ValueError('Native draw memory requires immutable physical draw links')
@@ -8290,9 +8296,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:
@@ -8328,6 +8334,21 @@ class PlayerEffectSpec:
 
 
 @dataclass(frozen=True)
+class HandInvestigation:
+    card_id: str
+    hand_entry_id: int
+    opponent_id: int
+    owner_turn_index: int
+
+    def __post_init__(self):
+        _name(self.card_id, 'investigated original face')
+        _int(self.hand_entry_id, 'investigated acquisition', 1)
+        _int(self.owner_turn_index, 'investigated next owner interval', 1)
+        if type(self.opponent_id) is not int or self.opponent_id not in (1, 2):
+            raise ValueError('Investigation requires its original opponent')
+
+
+@dataclass(frozen=True)
 class PlayerEffect:
     id: int
     spec_id: str
@@ -8345,10 +8366,15 @@ class PlayerEffect:
     spell_aura_card_id: str | None = None
     spell_aura_player_id: int | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
+    investigation: HandInvestigation | None = None
 
     def __post_init__(self):
         from .aura_duration import validate_grants
         validate_grants(self.aura_duration_grants)
+        if self.investigation is not None:
+            if type(self.investigation) is not HandInvestigation:
+                raise ValueError('Private investigation must retain its typed original material')
+            self.investigation.__post_init__()
         if self.aura_duration_grants and (self.aura_duration_cast_id is not None or self.remaining_turns is None):
             raise ValueError('Direct Aura duration requires its independent timed physical material')
         _optional_id(self.spell_aura_id, 'player original spell Aura')
@@ -10926,6 +10952,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 raise ValueError('Player effect Adaptation material differs from its registered kind')
             from .player_effects import validate_cost_binding
             validate_cost_binding(state, registry, player.id, effect)
+            from .hand_inspection import validate_program as validate_hand_investigation
+            validate_hand_investigation(state, registry, player.id, effect)
             if spec.kind in ('turn_rule','next_spell_damage') and effect.created_turn != state.turn:
                 raise ValueError('Current-turn target rule cannot survive into another actual turn')
             from .repeat_source_conditions import validate_source_declaration

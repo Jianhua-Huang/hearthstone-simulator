@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实手牌检视使用InspectHandCards及原选择材料；按实体跟踪亡语用原获取身份，按名称奖励用独立HandInvestigation玩家程序，不用卡名重绑旧实体。有限类型及恢复边界见[契约](m3-private-hand-inspection.md)。
+
 真实双方混洗使用`ShuffleHandsTogether(player_id, source_id)`，不要用逐张MoveCard绕过满手或把双方先清空。原手牌配额、保留驻留和实际新获取由公共模块区分，见[契约](m3-joint-hand-shuffle.md)。
 
 按获取时间转移当前手牌时，使用最新HandEntryRecord筛选当前实体，再组合原MoveCard；不要复活已离手的旧记录或用获取时卡名覆盖当前卡面。原生来源转手和资料缓存的边界见[契约](m3-original-hand-entry-theft.md)。

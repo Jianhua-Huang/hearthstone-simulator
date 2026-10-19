@@ -28,6 +28,12 @@ def validate_ability(state,registry,ability):
     if ability.deathrattle_card_id is None or registry.card(ability.deathrattle_card_id).native_deathrattle!=memory.spec:
         raise ValueError('Deathrattle memory differs from its printed declaration')
     for link in memory.draws:validate_link(state,link)
+    if memory.hand_entry_ids:
+        from .hand_history import hand_entry
+        for identity in memory.hand_entry_ids:
+            entry = hand_entry(state, identity)
+            if not registry.card(entry.card_id).hand_playable:
+                raise ValueError('Native hand memory borrowed an unsupported acquisition')
     for link in memory.dormancies:validate_dormancy_link(state,registry,link)
     from .discovery_memory import validate_link as validate_discovery_link
     for link in memory.discoveries:validate_discovery_link(state,registry,link)

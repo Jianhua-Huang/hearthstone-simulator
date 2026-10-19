@@ -1,5 +1,7 @@
 # 原生亡语的成长值与原抽牌关联
 
+原生手牌检视另有有限hand_selection记忆，按原HandEntryRecord连接真正亡语弃牌，避免伪造抽牌记录；复制、驻留及私密选择边界见[检视契约](m3-private-hand-inspection.md)。本页旧两类起点及后续扩展保留为历史，当前格式以该契约和原两份台账为准。
+
 原生囚禁后由亡语唤醒的真实需求现沿同一记忆结构增加有限`dormancy_link`，见[囚禁契约](m3-native-imprisonment.md)。本节原成长/抽牌范围和历史版本证据保留，当前执行版本以两份台账为准。
 
 本契约仅覆盖暮光龙卵、栉龙实际需要的两种原生附件材料。实际进度、验证证据、差异和下一项只在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)维护。

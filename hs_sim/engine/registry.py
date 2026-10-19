@@ -1219,7 +1219,7 @@ class Registry:
                     not card.deathrattle or not card.hand_playable or card.choice_only or card.starship_for):
                 raise ValueError('Native Deathrattle memory requires an ordinary printed minion body')
             card.native_deathrattle.__post_init__()
-            if card.native_deathrattle.kind in ('draw_link','discard_link','dormancy_link','discovery_summon')and not card.battlecry:
+            if card.native_deathrattle.kind in ('draw_link','discard_link','dormancy_link','discovery_summon','hand_selection')and not card.battlecry:
                 raise ValueError('Native draw linkage requires its actual Battlecry')
         if card.hand_mirror is not None:
             from .model import HandMirrorSpec
