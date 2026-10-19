@@ -118,7 +118,10 @@ def validate_completion(completion,registry):
         raise ValueError('Opponent copy completion changed its complete original material menu')
     fact=completion.recipient;offer=effect.offered[effect.index]
     deck=offer.gift_id is not None and gift_by_id(offer.gift_id).destination=='deck_top'
-    if fact is None or (fact.owner,fact.controller,fact.card_id,fact.kind)!=(effect.player_id,effect.player_id,effect.card_id,CardType.MINION)or fact.zone not in ((Zone.DECK,)if deck else(Zone.HAND,Zone.GRAVEYARD)):
+    if fact is None:
+        if deck:return  # The original delivery window must prove full-deck denial.
+        raise ValueError('Opponent copy completion lost its actual new minion recipient')
+    if (fact.owner,fact.controller,fact.card_id,fact.kind)!=(effect.player_id,effect.player_id,effect.card_id,CardType.MINION)or fact.zone not in ((Zone.DECK,)if deck else(Zone.HAND,Zone.GRAVEYARD)):
         raise ValueError('Opponent copy completion lost its actual new minion recipient')
 
 

@@ -67,6 +67,7 @@ class TemporaryDeckHandReplacement:
     rng_after: tuple
     phase: str = 'active'
     removed: tuple[int, ...] = ()
+    deck_burned: tuple[int, ...] = ()
     returned: tuple[int, ...] = ()
     burned: tuple[int, ...] = ()
     restored: tuple[SavedHandCard, ...] = ()
@@ -99,10 +100,10 @@ class TemporaryDeckHandReplacement:
             raise ValueError('Temporary deck hand changed its original sample')
         if tuple(ref.entity_id for ref in self.selected) != tuple(ref.entity_id for ref in self.borrowed):
             raise ValueError('Temporary deck hand replaced physical cards with copies')
-        for name in ('removed', 'returned', 'burned', 'return_deck_before', 'return_deck_after'):
+        for name in ('removed', 'deck_burned', 'returned', 'burned', 'return_deck_before', 'return_deck_after'):
             _ids(getattr(self, name))
         if self.phase != 'completed':
-            if any((self.removed, self.returned, self.burned, self.restored, self.return_deck_before,
+            if any((self.removed, self.deck_burned, self.returned, self.burned, self.restored, self.return_deck_before,
                     self.return_deck_after, self.return_rng_before is not None, self.return_rng_after is not None)):
                 raise ValueError('Unfinished deck hand already returned')
             return
@@ -112,11 +113,17 @@ class TemporaryDeckHandReplacement:
             raise ValueError('Temporary deck hand lost actual return acquisitions')
         if not set(self.removed) <= {ref.entity_id for ref in self.borrowed}:
             raise ValueError('Temporary deck hand removed an unrelated acquisition')
-        if not set(self.removed) <= set(self.return_deck_before):
+        from .deck_capacity import MAX_DECK_SIZE
+        success = tuple(eid for eid in self.removed if eid not in self.deck_burned)
+        initial_size = len(self.return_deck_before)-len(success)
+        expected_count = min(len(self.removed),max(0,MAX_DECK_SIZE-initial_size))
+        if (success != self.removed[:expected_count] or self.deck_burned != self.removed[expected_count:] or
+                not set(success) <= set(self.return_deck_before) or
+                set(self.deck_burned) & set(self.return_deck_before)):
             raise ValueError('Temporary deck hand lost returned physical deck bodies')
         validate_end_turn_rng(self.return_rng_before); validate_end_turn_rng(self.return_rng_after)
         rng.setstate(self.return_rng_before); deck = list(self.return_deck_before)
-        if self.removed:
+        if success:
             rng.shuffle(deck)
         if tuple(deck) != self.return_deck_after or rng.getstate() != self.return_rng_after:
             raise ValueError('Temporary deck hand changed its original return shuffle')
@@ -142,7 +149,7 @@ def begin_data(root):
 
 
 def finish_data(root):
-    return dict(hand_id=root.id, removed=root.removed, returned=root.returned, burned=root.burned,
+    return dict(hand_id=root.id, removed=root.removed, deck_burned=root.deck_burned, returned=root.returned, burned=root.burned,
                 restored=_saved_data(root.restored), deck_before=root.return_deck_before, deck_after=root.return_deck_after,
                 rng_before=root.return_rng_before, rng_after=root.return_rng_after)
 
@@ -225,10 +232,18 @@ def return_hand(r, root):
         originals.append(entity)
     borrowed = {ref.entity_id: ref for ref in root.borrowed}
     removed = tuple(eid for eid in player.hand if eid in borrowed and still_borrowed(r.state, root, borrowed[eid]))
+    from .deck_capacity import admits, failure
+    from .allocation_facts import SourceAllocationFact
+    deck_burned = {}; deck_returned = []
     for eid in removed:
-        r.move(r.state.entities[eid], Zone.DECK)
+        entity = r.state.entities[eid]
+        if admits(r.state,player.id,entity):
+            r.move(entity, Zone.DECK); deck_returned.append(eid)
+        else:
+            deck_burned[eid] = SourceAllocationFact.capture(r.state,entity)
+            r.move(entity, Zone.GRAVEYARD)
     before = r.game._rng.getstate(); deck_before = tuple(player.deck)
-    if removed:
+    if deck_returned:
         r.game._rng.shuffle(player.deck)
         for eid in player.deck:
             r.game._information.conceal(eid)
@@ -240,17 +255,22 @@ def return_hand(r, root):
             from .allocation_facts import SourceAllocationFact
             burn_originals[entity.id]=SourceAllocationFact.capture(r.state,entity)
             r.move(entity, Zone.GRAVEYARD); burned.append(entity.id)
-    root = replace(root, phase='completed', removed=removed, returned=tuple(returned), burned=tuple(burned),
+    root = replace(root, phase='completed', removed=removed, deck_burned=tuple(deck_burned), returned=tuple(returned), burned=tuple(burned),
         restored=tuple(restored), return_deck_before=deck_before, return_deck_after=tuple(player.deck),
         return_rng_before=before, return_rng_after=r.game._rng.getstate())
     r.state.temporary_hands[root.id - 1] = root
     r.emit('temporary_deck_hand_restored', source_id=root.request.source_id, player_id=player.id, **finish_data(root))
     from .deck_shuffles import group
     with group(r,None,player.id,len(removed),root.request.source_id,profile='temporary_return'):
-        for eid in removed:
+        for eid in deck_returned:
             r.emit('card_moved_to_deck', source_id=root.request.source_id, target_id=eid, player_id=player.id,_deck_insertion_mode='random')
-    if removed:
+    if deck_returned:
         r.emit('deck_shuffled', player_id=player.id)
+    for eid,original in deck_burned.items():
+        from .zones import emit_burn
+        failure(r,player.id,original.card_id,root.request.source_id,original=original,temporary_hand_id=root.id)
+        emit_burn(r,r.state.entities[eid],profile='deck_overflow',original=original,
+            source_id=root.request.source_id,player_id=player.id,reason='temporary_deck_return_full')
     for eid in returned:
         r.emit('card_moved_to_hand', source_id=root.request.source_id, target_id=eid, player_id=player.id)
     for eid in burned:
@@ -277,7 +297,7 @@ def row_from_dict(raw):
         for value in _list(row[name], name):
             value = _row(value, CardReference); value['zone'] = Zone(value['zone']); refs.append(CardReference(**value))
         row[name] = tuple(refs)
-    for name in ('removed', 'returned', 'burned', 'return_deck_before', 'return_deck_after'):
+    for name in ('removed', 'deck_burned', 'returned', 'burned', 'return_deck_before', 'return_deck_after'):
         row[name] = tuple(_list(row[name], name))
     for name in ('rng_before', 'rng_after', 'return_rng_before', 'return_rng_after'):
         if row[name] is not None:
@@ -333,7 +353,7 @@ def validate_shape(state, root, registry, saved):
         entry = state.hand_entries[ref.hand_entry_id - 1]
         if (entry.from_zone, entry.reason, entry.card_id, entry.zone_epoch) != (Zone.SETASIDE, 'move', ref.card_id, ref.zone_epoch):
             raise ValueError('Temporary deck hand changed its internal return acquisition')
-    if any(eid not in state.entities for eid in (*root.removed, *root.return_deck_before, *root.return_deck_after, *root.burned)):
+    if any(eid not in state.entities for eid in (*root.removed, *root.deck_burned, *root.return_deck_before, *root.return_deck_after, *root.burned)):
         raise ValueError('Temporary deck hand includes an unknown physical return body')
 
 

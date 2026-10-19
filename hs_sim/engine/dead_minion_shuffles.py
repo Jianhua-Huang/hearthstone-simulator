@@ -55,6 +55,10 @@ def shuffle_dead_minion(r, request):
             fact.card_id, fact.kind, fact.owner, fact.controller, fact.zone, fact.zone_epoch, fact.entered_order):
         r.stale(request, entity.id)
         return
+    from .deck_capacity import admits, failure
+    if not admits(r.state, request.player_id, entity):
+        failure(r, request.player_id, entity.card_id, request.source_id, original=fact)
+        return
     reset_to_definition(r.state, entity, r.registry.card(fact.card_id), r.registry,
                         preserve_jade=True, preserve_cthun=True)
     player = r.player(request.player_id)

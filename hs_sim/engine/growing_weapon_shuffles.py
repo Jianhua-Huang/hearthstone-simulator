@@ -49,6 +49,10 @@ def shuffle(r,request):
     if ((entity.id,entity.card_id,entity.kind,entity.owner,entity.controller,entity.zone,entity.zone_epoch,entity.entered_order)!=
             (fact.entity_id,fact.card_id,fact.kind,fact.owner,fact.controller,fact.zone,fact.zone_epoch,fact.entered_order)):
         r.stale(request,entity.id);return
+    from .deck_capacity import admits, failure
+    if not admits(r.state,request.player_id,entity):
+        failure(r,request.player_id,entity.card_id,request.source_id,original=fact)
+        return
     growth=permanent_attack(entity)+request.attack_growth
     reset_to_definition(r.state,entity,r.registry.card(fact.card_id),r.registry)
     if growth:

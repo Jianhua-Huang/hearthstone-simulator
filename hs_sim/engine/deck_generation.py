@@ -6,10 +6,7 @@ Ordinary AddToDeck remains the only card creator and insertion publisher.
 from dataclasses import dataclass
 from .effects import Effect,_integer,_player,_source,_behavior
 
-MAX_GENERATED_DECK_SIZE=99
-
-
-def room(state,player_id):return max(0,MAX_GENERATED_DECK_SIZE-len(state.players[player_id].deck))
+from .deck_capacity import MAX_DECK_SIZE as MAX_GENERATED_DECK_SIZE, room
 
 
 @dataclass(frozen=True)

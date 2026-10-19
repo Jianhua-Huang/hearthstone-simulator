@@ -152,10 +152,12 @@ def complete_opening(r, effect):
             hand = tuple(player.hand)
             # Capture replacements before putting rejected entities into the deck.
             replacements = tuple(player.deck[:len(selected)])
-            for entity_id in selected:
-                r.move(r.state.entities[entity_id], Zone.DECK)
             for entity_id in replacements:
                 r.move(r.state.entities[entity_id], Zone.HAND)
+            # Reserve the actual replacement slots first. A full runtime deck
+            # must not reject an atomic mulligan whose final size is unchanged.
+            for entity_id in selected:
+                r.move(r.state.entities[entity_id], Zone.DECK)
             slots = dict(zip(selected, replacements))
             player.hand[:] = [slots.get(i, i) for i in hand]
             r.game._rng.shuffle(player.deck)

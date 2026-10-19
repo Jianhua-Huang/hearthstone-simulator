@@ -309,6 +309,7 @@ class CardDestructionRecord:
                 raise ValueError('Overflow requires its original physical allocation')
             self.card.__post_init__(); _player(self.recipient_id)
             zones={'stored_overflow':(Zone.HAND,Zone.DECK),'created_overflow':(Zone.GRAVEYARD,),
+                'deck_overflow':(Zone.HAND,Zone.DECK,Zone.SETASIDE),
                 'setaside_overflow':(Zone.SETASIDE,),'graveyard_delivery_overflow':(Zone.GRAVEYARD,)}
             if (self.profile not in zones or self.card.zone not in zones[self.profile] or
                     self.owner_id != self.card.owner or self.kind != self.card.kind):
@@ -444,6 +445,8 @@ def capture_destroyed_body(r, event):
 
 
 def validate_stored_destruction_events(state, registry, events):
+    from .deck_capacity import validate_events
+    validate_events(state, registry, events)
     from .hero_health_history import effective_events
     seen=set()
     for event in effective_events(events):
@@ -466,6 +469,7 @@ def validate_stored_destruction_events(state, registry, events):
 
 def emit_burn(r, entity, *, profile, original=None, source_id=None, player_id=None, **data):
     """The existing overflow producers supply their actual before-allocation."""
+    from .deck_capacity import room
     if original is None:
         if profile != 'created_overflow':
             raise ResolutionError('Non-created overflow requires its actual previous allocation')
@@ -476,8 +480,9 @@ def emit_burn(r, entity, *, profile, original=None, source_id=None, player_id=No
     validate_allocation(r.state,r.registry,original)
     if ((entity.id,entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch)!=
             (original.entity_id,row.owner_id,recipient,original.card_id,row.kind,Zone.GRAVEYARD,row.after_epoch) or
-            len(r.player(recipient).hand)<hand_capacity(r.player(recipient),r.rules) or 'burn_destruction' in data):
-        raise ResolutionError('Overflow requires its completed failed full-hand delivery')
+            (bool(room(r.state,recipient)) if profile=='deck_overflow' else
+             len(r.player(recipient).hand)<hand_capacity(r.player(recipient),r.rules)) or 'burn_destruction' in data):
+        raise ResolutionError('Overflow requires its completed failed full-zone delivery')
     return r.emit('card_burned',source_id=source_id,target_id=entity.id,player_id=recipient,
         burn_destruction=(('profile',profile),('original',original.payload()),('recipient_id',recipient),('turn',r.state.turn)),**data)
 
@@ -783,6 +788,10 @@ def create_deck_card(r, effect):
     validate_creation_cost(r.state, effect, (r.registry.card(effect.card_id),))
     from .card_creation import validate_creation, install
     validate_creation(r.state, effect, (r.registry.card(effect.card_id),))
+    from .deck_capacity import admits, failure
+    if not admits(r.state, player.id):
+        failure(r, player.id, effect.card_id, effect.source_id)
+        return None
     position = insertion_index(r, effect.position, len(player.deck))
     entity = r.create_entity(player.id, effect.card_id, Zone.DECK, position)
     if effect.cost is not None:
@@ -819,6 +828,10 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     if effect.destination == Zone.HAND and entity.zone == Zone.HAND and entity.controller == player.id:
         return  # Already occupies its hand slot; cannot burn by moving to itself.
     destination = effect.destination
+    from .deck_capacity import admits, failure
+    deck_overflow = destination == Zone.DECK and not admits(r.state, player.id, entity)
+    if deck_overflow:
+        destination = Zone.GRAVEYARD
     if destination == Zone.HAND and len(player.hand) >= hand_capacity(player, r.rules):
         destination = Zone.GRAVEYARD
     previous_zone = entity.zone
@@ -834,7 +847,7 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     from .lifecycle import renew_hand_progress
     renew_hand_progress(r.state, entity, previous_zone=previous_zone,
         hand_transfer=previous_zone == Zone.HAND and destination == Zone.HAND and previous_controller != player.id)
-    if effect.reset:
+    if effect.reset and not deck_overflow:
         reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
                             preserve_jade=True, preserve_cthun=previous_controller == player.id)
         if previous_controller != player.id:
@@ -859,7 +872,9 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     if destination == Zone.DECK:
         data['_deck_insertion_mode']=('reorder' if previous_zone==Zone.DECK and previous_controller==player.id else effect.position if type(effect.position)is str else 'index')
     if destination==Zone.GRAVEYARD:
-        emit_burn(r,entity,profile='stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
+        if deck_overflow:
+            failure(r,player.id,entity.card_id,effect.source_id,original=original)
+        emit_burn(r,entity,profile='deck_overflow' if deck_overflow else 'stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
     else:
         r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id, **data)
     return entity
@@ -915,6 +930,10 @@ def copy_physical_card(r, effect, *, minion_grant=None):
     validate_cost_targets(r.state, effect, ((definition, source if effect.mode == 'current' else None),))
     player = r.player(effect.player_id)
     destination = effect.destination
+    from .deck_capacity import admits, failure
+    if destination == Zone.DECK and not admits(r.state, player.id):
+        failure(r, player.id, definition.id, effect.source_id)
+        return None
     if destination == Zone.HAND and len(player.hand) >= hand_capacity(player, r.rules):
         destination = Zone.GRAVEYARD
     position = insertion_index(r, effect.position, len(player.deck)) if destination == Zone.DECK else None

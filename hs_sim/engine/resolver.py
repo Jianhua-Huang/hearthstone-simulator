@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v566'
+CORE_EFFECTS_VERSION = 'core-effects-v567'
 
 
 class Mechanics:
@@ -522,6 +522,9 @@ class Resolution:
         self.emit('effect_skipped', target_id=target_id, effect=type(effect).__name__, reason='target_not_in_play')
 
     def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
+        if zone == Zone.DECK and hand_entry_reason != 'scenario':
+            from .deck_capacity import require_room
+            require_room(self.state, player_id)
         from .entity_materialization import create_entity
         entity=create_entity(self.state, self.registry, player_id, card_id, zone, position, ready,
             components=components, hand_entry_reason=hand_entry_reason,
@@ -532,6 +535,9 @@ class Resolution:
         return entity
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
+        if zone == Zone.DECK:
+            from .deck_capacity import require_room
+            require_room(self.state, entity.controller, entity)
         if entity.kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.SETASIDE):
             from .temporary_hero_powers import cancel
             cancel(self, entity.id)
@@ -2298,6 +2304,20 @@ def shuffle_into_deck(r, effect):
     if not r.registry.card(entity.card_id).hand_playable:
         raise ResolutionError('Cannot shuffle a hero')
     player = r.player(effect.player_id if effect.player_id is not None else entity.controller)
+    from .deck_capacity import admits, failure
+    if not admits(r.state, player.id, entity):
+        from .allocation_facts import SourceAllocationFact
+        original = SourceAllocationFact.capture(r.state, entity)
+        if entity.zone == Zone.BOARD:
+            from .death_causes import mark
+            mark(r, entity, 'destroy', 'ShuffleIntoDeck_full')
+            entity.doomed = True
+            r.refresh_auras()
+            failure(r, player.id, entity.card_id, original=original)
+        else:
+            from .zones import MoveCard, CardReference, move_physical_card
+            move_physical_card(r, MoveCard(CardReference.capture(entity), player.id, Zone.DECK))
+        return
     previous_controller = entity.controller
     getattr(r.player(entity.controller), entity.zone.value).remove(entity.id)
     entity.controller, entity.zone = player.id, Zone.DECK

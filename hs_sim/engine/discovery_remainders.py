@@ -20,18 +20,23 @@ FINISHED = 'discovery_remainder_finished'
 class ShuffleDiscoveryRemainder(Effect):
     discovery: ResolvePoolDiscovery
     context: GenerationContext
-    created: SourceAllocationFact
+    created: SourceAllocationFact | None
 
     def __post_init__(self):
         if (type(self.discovery) is not ResolvePoolDiscovery or type(self.context) is not GenerationContext or
-                type(self.created) is not SourceAllocationFact):
+                self.created is not None and type(self.created) is not SourceAllocationFact):
             raise ValueError('Discovery remainder requires its original selection, context and actual creation')
-        self.discovery.__post_init__(); self.context.__post_init__(); self.created.__post_init__()
+        self.discovery.__post_init__(); self.context.__post_init__()
+        if self.created is not None:self.created.__post_init__()
         spec = self.discovery.batch.spec
         if not spec.shuffle_unselected_into_deck or self.discovery.choice_result is None:
             raise ValueError('Discovery remainder requires its declared actual ChoiceResult')
         from .zones import AddToDeck
         recipe = selected_recipe(self.discovery)
+        if self.created is None:
+            if type(recipe) is not AddToDeck:
+                raise ValueError('Only denied deck creation may have no original remainder recipient')
+            return
         allowed = (Zone.DECK,) if type(recipe) is AddToDeck else (Zone.HAND, Zone.GRAVEYARD)
         if (self.created.owner != spec.player_id or self.created.controller != spec.player_id or
                 self.created.card_id != self.discovery.selection.card_id or self.created.zone not in allowed):
@@ -71,13 +76,14 @@ def validate_work(game, work, *, closed=False):
         raise ValueError('Discovery remainder lost its original source')
     if work.discovery.choice_result.choice.id >= game._state.next_choice_id:
         raise ValueError('Discovery remainder borrowed a future choice')
-    validate_allocation(game._state, game.registry, work.created, closed=closed)
+    if work.created is not None:
+        validate_allocation(game._state, game.registry, work.created, closed=closed)
 
 
 def emit(r, kind, work, **extra):
     from .continuations import FrameCodec
     spec = work.discovery.batch.spec
-    r.emit(kind, source_id=spec.source_id, target_id=work.created.entity_id, player_id=spec.player_id,
+    r.emit(kind, source_id=spec.source_id, target_id=None if work.created is None else work.created.entity_id, player_id=spec.player_id,
         amount=len(remainder(work)), choice_id=work.discovery.choice_result.choice.id,
         receipt=json.dumps(FrameCodec(r.game.mechanics, r.registry).encode(work), ensure_ascii=False,
             sort_keys=True, separators=(',', ':')), _capture=False, **extra)
@@ -101,7 +107,7 @@ def begin(r, discovery):
     notification = finish_for_entity(r, discovery.choice_result, entity,
         recipe,delivery_cursor)
     work = ShuffleDiscoveryRemainder(discovery, r.game._generation_context,
-                                    SourceAllocationFact.capture(r.state, entity))
+                                    None if entity is None else SourceAllocationFact.capture(r.state, entity))
     emit(r, ACCEPTED, work)
     return (work, notification)
 
@@ -113,15 +119,21 @@ def ledger(game):
     events = effective_events(game._events)
     codec = FrameCodec(game.mechanics, game.registry)
     pending, finished = {}, set()
-    created_events = {e.target_id:e for e in events if e.kind == 'card_created'}
+    from .discovery_delivery import QUEUED, FinishCardDiscovery
+    from .deck_capacity import FAILED, validate_failure
+    deliveries = {}
     insertions = {}
     for event in events:
+        if event.kind == QUEUED:
+            delivery = codec.decode(json.loads(dict(event.data)['work']))
+            if type(delivery) is FinishCardDiscovery:
+                deliveries[delivery.completion.result.choice.id] = (delivery.completion,event)
         marker = dict(event.data).get('deck_insertion')
         if type(marker) is tuple and len(marker) == 6 and marker[0] == 'random':
             insertions.setdefault(marker[1], []).append(event)
         if event.kind not in (ACCEPTED, FINISHED): continue
         data = dict(event.data)
-        expected = {'choice_id', 'receipt'} if event.kind == ACCEPTED else {'choice_id', 'receipt', 'shuffle_id', 'cards'}
+        expected = {'choice_id', 'receipt'} if event.kind == ACCEPTED else {'choice_id', 'receipt', 'shuffle_id', 'cards', 'event_cursor'}
         if set(data) != expected or type(data['receipt']) is not str:
             raise ValueError('Complete original discovery remainder event required')
         work = codec.decode(json.loads(data['receipt']))
@@ -130,12 +142,14 @@ def ledger(game):
         validate_work(game, work, closed=True)
         spec = work.discovery.batch.spec; key = work.discovery.choice_result.choice.id
         if (data['choice_id'] != key or (event.source_id, event.target_id, event.player_id, event.amount) !=
-                (spec.source_id, work.created.entity_id, spec.player_id, len(remainder(work)))):
+                (spec.source_id, None if work.created is None else work.created.entity_id, spec.player_id, len(remainder(work)))):
             raise ValueError('Discovery remainder event changed its original domain')
         if event.kind == ACCEPTED:
-            creation = created_events.get(work.created.entity_id)
-            if (key in pending or key in finished or creation is None or creation.sequence >= event.sequence or
-                    creation.action != event.action or (creation.source_id, creation.player_id) != (spec.source_id, spec.player_id)):
+            delivery = deliveries.get(key)
+            if (key in pending or key in finished or delivery is None or
+                    delivery[0].result != work.discovery.choice_result or delivery[0].recipient != work.created or
+                    delivery[0].recipe != selected_recipe(work.discovery) or delivery[1].sequence >= event.sequence or
+                    delivery[1].action != event.action):
                 raise ValueError('Discovery remainder lost its actual unique original creation')
             pending[key] = (work, event.sequence)
         else:
@@ -144,11 +158,26 @@ def ledger(game):
             if key not in pending or pending[key][0] != work or key in finished:
                 raise ValueError('Discovery remainder shuffled without its original accepted result')
             original, accepted_at = pending.pop(key)
-            cards = tuple(allocation_from_dict(x) for x in json.loads(data['cards']))
+            cards = tuple(None if x is None else allocation_from_dict(x) for x in json.loads(data['cards']))
             expected_ids = remainder(work)
-            if tuple(f.card_id for f in cards) != expected_ids or len({f.entity_id for f in cards}) != len(cards):
+            cursor = data['event_cursor']
+            if type(cursor) is not int or not accepted_at <= cursor < event.sequence:
+                raise ValueError('Discovery remainder lost its original synchronous delivery window')
+            outcomes = [e for e in events if cursor < e.sequence < event.sequence and
+                        e.kind in ('card_added_to_deck', FAILED)]
+            successful = tuple(f for f in cards if f is not None)
+            if len(cards) != len(expected_ids) or len(outcomes) != len(cards) or len({f.entity_id for f in successful}) != len(successful):
                 raise ValueError('Discovery remainder changed its original unselected recipe order')
-            if not cards:
+            for cid, fact, outcome in zip(expected_ids,cards,outcomes):
+                if (outcome.action,outcome.source_id,outcome.player_id) != (event.action,spec.source_id,spec.player_id):
+                    raise ValueError('Discovery remainder borrowed another original delivery')
+                if fact is None:
+                    validate_failure(game._state,game.registry,outcome)
+                    if outcome.target_id is not None or dict(outcome.data)['card_id'] != cid:
+                        raise ValueError('Discovery remainder changed its failed original recipe')
+                elif outcome.kind != 'card_added_to_deck' or outcome.target_id != fact.entity_id or fact.card_id != cid:
+                    raise ValueError('Discovery remainder changed its successful original recipe')
+            if not successful:
                 if data['shuffle_id'] is not None: raise ValueError('Empty remainder invented a shuffle')
             else:
                 sid = data['shuffle_id']
@@ -158,9 +187,9 @@ def ledger(game):
                 members = insertions.get(sid, ())
                 if ((row.actor_id, row.player_id, row.declared_count, row.profile) !=
                         (spec.player_id, spec.player_id, len(cards), 'semantic') or
-                        row.source is None or row.source.entity_id != spec.source_id or len(members) != len(cards)):
+                        row.source is None or row.source.entity_id != spec.source_id or len(members) != len(successful)):
                     raise ValueError('Discovery remainder borrowed another shuffle producer')
-                for fact, member in zip(cards, members):
+                for fact, member in zip(successful, members):
                     validate_allocation(game._state, game.registry, fact, closed=True)
                     if ((fact.owner, fact.controller, fact.zone) != (spec.player_id, spec.player_id, Zone.DECK) or
                             member.kind != 'card_added_to_deck' or member.target_id != fact.entity_id or
@@ -183,10 +212,11 @@ def shuffle(r, work):
     entries = remainder_requests(work)
     execute(r, ShuffleDeckCards(spec.player_id, spec.player_id, entries, spec.source_id))
     sid = r.state.deck_shuffle_history[-1].id if len(r.state.deck_shuffle_history) > before else None
-    cards = tuple(SourceAllocationFact.capture(r.state, r.state.entities[e.target_id])
-        for e in r.game._events[cursor:] if e.kind == 'card_added_to_deck')
-    emit(r, FINISHED, work, shuffle_id=sid,
-         cards=json.dumps([asdict(f) for f in cards], ensure_ascii=False, sort_keys=True, separators=(',', ':')))
+    from .deck_capacity import FAILED
+    cards = tuple(None if e.kind == FAILED else SourceAllocationFact.capture(r.state, r.state.entities[e.target_id])
+        for e in r.game._events[cursor:] if e.kind in ('card_added_to_deck',FAILED))
+    emit(r, FINISHED, work, shuffle_id=sid, event_cursor=cursor,
+         cards=json.dumps([None if f is None else asdict(f) for f in cards], ensure_ascii=False, sort_keys=True, separators=(',', ':')))
     return ()
 
 

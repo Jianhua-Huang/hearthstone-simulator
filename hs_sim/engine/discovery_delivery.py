@@ -156,7 +156,7 @@ def queue(r, work):
 
 
 def finish_for_entity(r, result, entity, recipe, event_cursor=None):
-    work = FinishCardDiscovery(DiscoveryCompletion(result, SourceAllocationFact.capture(r.state, entity), recipe,
+    work = FinishCardDiscovery(DiscoveryCompletion(result, None if entity is None else SourceAllocationFact.capture(r.state, entity), recipe,
         event_cursor=event_cursor))
     return queue(r, work)
 
@@ -335,6 +335,28 @@ def validate_boundary(game):
                         raise ValueError('Discovery recipient has no actual original physical operation')
                     if fact is None and created and witnesses:
                         raise ValueError('Discovery discarded its actual created recipient')
+                    if fact is None and completion.recipe is not None and created:
+                        recipient = deck_recipient(completion.recipe)
+                        if recipient is not None:
+                            from .deck_capacity import FAILED, validate_failure
+                            failures = [e for e in window if e.kind == FAILED]
+                            from .sacrifice import MinionReference
+                            from .zones import CardReference
+                            recipe = completion.recipe
+                            skipped = (type(recipe) is CopyCard and type(recipe.card) in (CardReference,MinionReference) and
+                                any(e.kind == 'zone_target_skipped' and e.action == event.action and
+                                    e.target_id == recipe.card.entity_id and dict(e.data).get('reason') in
+                                    ('captured_card_departed','captured_minion_departed') for e in window))
+                            if skipped:
+                                if failures:raise ValueError('Departed discovery cannot also claim a full-deck failure')
+                            elif len(failures) != 1:
+                                raise ValueError('Empty discovered deck delivery lost its actual full-deck failure')
+                            else:
+                                failed = failures[0]
+                                validate_failure(game._state, game.registry, failed)
+                                if ((failed.action,failed.source_id,failed.player_id,failed.target_id,dict(failed.data)['card_id']) !=
+                                        (event.action,completion.recipe.source_id,recipient,None,recipe_face(completion.recipe))):
+                                    raise ValueError('Empty discovery borrowed another deck failure')
             if (key, event.source_id, event.player_id) != (result.choice.id, result.choice.source_id, result.choice.player_id):
                 raise ValueError('Discovery delivery acceptance changed original actor/source')
             pending[key] = work
@@ -373,3 +395,20 @@ def register(mechanics):
     mechanics.register(PublishDiscoveredSummon, publish_summon)
     mechanics.register(MaterializeDiscoveredResurrection, resurrect)
     mechanics.register(DiscountDiscoveredCard, discount)
+
+
+def deck_recipient(recipe):
+    """Recipient of an existing generated/copy deck recipe, if it has one."""
+    from .zones import AddToDeck, CopyCard
+    from .discovery_destinations import DeliverDiscoveredSpell
+    from .opponent_deck_gift_copy import CopyOpponentDeckOffer
+    if type(recipe) is AddToDeck or type(recipe) is CopyCard and recipe.destination == Zone.DECK:
+        return recipe.player_id
+    if type(recipe) is DeliverDiscoveredSpell and not recipe.keep:
+        return 3-recipe.player_id
+    if type(recipe) is CopyOpponentDeckOffer:
+        from .stored_gift_discovery import gift_by_id
+        gift = recipe.offered[recipe.index].gift_id
+        if gift is not None and gift_by_id(gift).destination == 'deck_top':
+            return recipe.player_id
+    return None
