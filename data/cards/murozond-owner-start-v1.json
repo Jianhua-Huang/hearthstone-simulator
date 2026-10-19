@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "batch": "K261-murozond-owner-start",
+  "task": {
+    "schema": 1,
+    "batch": "K261-murozond-owner-start",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "TIME_024"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "TIME_024e"
+    ],
+    "official_ids": [
+      "TIME_024"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Actual next-owner-start source-bound infinite Attack: audit existing owner-clock/player-program and guarded stat setters, retained originals and reset behavior. Do not invent a new turn clock or declare the numeric policy CN-calibrated.",
+        "cards": [
+          "TIME_024"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/murozond_owner_start_card.py",
+      "data/cards/murozond-owner-start-v1.json",
+      "tests/test_murozond_owner_start_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "TIME_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k261-murozond-owner-start\\official-cache-01\\120266-zh_CN.json",
+      "response_sha256": "d07eca15e9bfca6f0592c121c3d29cae399a9593e07444930a7e41f85c1fb2d5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120266&locale=zh_CN",
+      "face": {
+        "id": 120266,
+        "collectible": 1,
+        "slug": "120266-murozond-unbounded",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 9,
+        "name": "无限巨龙姆诺兹多",
+        "text": "<b>战吼：</b>在你的下个回合开始时，将本随从的攻击力变为无穷大！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13326f359722c1c4a355750b21108bb5eea131d4982f855dc85031b73c76aca5.png",
+        "imageGold": "",
+        "flavorText": "啊？？下回合我岂不是有无穷+1！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f00ca62ce97bd2e3c055cf55e2247fffab78fe361dfbb5749d7829793dc31a8c.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120266&locale=zh_CN",
+        "sha256": "d07eca15e9bfca6f0592c121c3d29cae399a9593e07444930a7e41f85c1fb2d5",
+        "bytes": 826,
+        "observed_at": "2026-10-19T11:27:44.193025+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k261-murozond-owner-start\\official-cache-01\\120266-en_US.json",
+      "response_sha256": "85fa725af5f5a240c1f6a3033b837a12d3f21e9404cbcebc21187700ed0a7437",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120266&locale=en_US",
+      "face": {
+        "id": 120266,
+        "collectible": 1,
+        "slug": "120266-murozond-unbounded",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 9,
+        "name": "Murozond, Unbounded",
+        "text": "<b>Battlecry:</b> At the start of your next turn, set this minion's Attack to INFINITY!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8e624b7132c685d67001f606b4f1e1e4ee49bffce89078ecf62a5bd8d48124a.png",
+        "imageGold": "",
+        "flavorText": "Oh yeah?? Well, next turn I hit for Infinity +1!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f00ca62ce97bd2e3c055cf55e2247fffab78fe361dfbb5749d7829793dc31a8c.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120266&locale=en_US",
+        "sha256": "85fa725af5f5a240c1f6a3033b837a12d3f21e9404cbcebc21187700ed0a7437",
+        "bytes": 821,
+        "observed_at": "2026-10-19T11:27:44.097265+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_024",
+        "dbf_id": 120266,
+        "name": "无限巨龙姆诺兹多",
+        "name_en": "Murozond, Unbounded",
+        "text": "<b>战吼：</b>在你的下个回合开始时，将本随从的攻击力变为无穷大！",
+        "text_en": "<b>Battlecry:</b> At the start of your next turn, set this minion's Attack to INFINITY!",
+        "cost": 9,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "7760bcac210a717b758b7e58e7b21222ef49b00d5e66e859c161b0dc9646751e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_024",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_024e",
+        "dbf_id": 120267,
+        "name": "永恒无穷",
+        "name_en": "INFINITE POWER!",
+        "text": "攻击力变为无穷大！",
+        "text_en": "Attack set to INFINITY!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7689c074473612cde4a89d2465cc857a3ecf85b9a74fa3142a8e823ff3faa925",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_024e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policy": {
+    "numeric_policy": "int32-max-set-attack-v1",
+    "infinite_attack_value": 2147483647,
+    "trigger_policy": "one removable original-caster-start limited trigger per actual Battlecry; inherited shared copy/reset semantics; exact control/dormancy/notification policy pending CN"
+  }
+}

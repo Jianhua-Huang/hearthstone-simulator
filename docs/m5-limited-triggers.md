@@ -1,5 +1,7 @@
 # M5-02：有限次触发、法术迸发与暴怒
 
+真实姆诺兹多所需的可选原玩家下次开始截止，复用原本人区间和统一结束过期；空值保留以下旧有限触发语义。限定字段、休眠错过窗口、冻结材料及恢复见[扩展契约](m3-murozond-owner-start.md)。
+
 当前 `prototype-v75` / `core-effects-v75`，snapshot schema 74，代表包 `representative-m5-v38`，观察 `player-view-v44`。玩家命令仍为 `player-actions-v7`，回放外层仍为 schema 1。旧快照 1～73 明确拒绝。本页记录已实现的内部契约，最终以国服目标补丁校准；完整卡池及其他施放来源尚未完成。
 
 ## 共用能力实例

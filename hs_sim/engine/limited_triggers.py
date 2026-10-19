@@ -5,7 +5,7 @@ from dataclasses import dataclass, replace
 from .effects import Effect
 from .errors import ResolutionError
 from .lifecycle import active_abilities, attachment_id, refresh_entity
-from .model import AbilityInstance, CardType, Event, Keyword, LimitedTriggerSpec, TriggerCandidate, Zone, _int, _optional_id
+from .model import AbilityInstance, CardType, Event, Keyword, LimitedTriggerSpec, OwnerTurnExpiry, TriggerCandidate, Zone, _int, _optional_id
 from .registry import RuleContext
 from .sacrifice import MinionReference,reference_value,live_minion
 
@@ -89,6 +89,7 @@ class GrantLimitedTrigger(Effect):
     source_id: int | None = None
     expires_turn: int | None = None
     recipient: MinionReference | None = None
+    deadline: OwnerTurnExpiry | None = None
 
     def __post_init__(self):
         _int(self.target_id,'trigger target',1)
@@ -96,6 +97,9 @@ class GrantLimitedTrigger(Effect):
         if type(self.spec) is not LimitedTriggerSpec:
             raise ValueError('GrantLimitedTrigger requires a specification')
         self.spec.__post_init__()
+        if self.deadline is not None:
+            AbilityInstance(1, 'limited_trigger', limited_trigger=self.spec, uses_remaining=1,
+                limited_trigger_deadline=self.deadline, expires_turn=self.expires_turn).__post_init__()
         if self.recipient is not None:
             reference_value(self.recipient)
             if self.recipient.entity_id!=self.target_id:
@@ -103,6 +107,9 @@ class GrantLimitedTrigger(Effect):
 
     def validate_in_state(self,state):
         self.__post_init__()
+        if self.deadline is not None:
+            from .timed_keywords import validate_deadline
+            validate_deadline(state, self.deadline)
         if self.recipient is None:return
         ref=self.recipient;entity=state.entities.get(ref.entity_id)
         if entity is None or ref.zone_epoch>entity.zone_epoch or ref.entered_order>=state.next_order:
@@ -113,6 +120,12 @@ class GrantLimitedTrigger(Effect):
 
 def capture(r, entity, ability, event, spell_candidates):
     if not live_source(entity):return None
+    expiry = ability.limited_trigger_deadline
+    if expiry is not None:
+        from .owner_turns import owner_turn_index
+        if (event.kind != 'turn_started' or event.player_id != expiry.player_id
+                or owner_turn_index(r.state, expiry.player_id) != expiry.owner_turn_index):
+            return None
     spec=ability.limited_trigger
     if spec.event!=event.kind:return None
     identity=candidate(entity,ability)
@@ -167,6 +180,9 @@ def check(r, effect):
 
 def grant(r, effect):
     effect.validate_in_state(r.state)
+    if effect.deadline is not None and (effect.deadline.created_turn != r.state.turn or
+            not r.state.owner_turn_history or effect.deadline.created_owner_turn_id != r.state.owner_turn_history[-1].id):
+        raise ResolutionError('Finite next-start grant requires its actual creation interval')
     r.registry.validate_limited_trigger(effect.spec)
     if effect.recipient is not None:
         if r.registry.card(effect.recipient.card_id).kind!=CardType.MINION:
@@ -185,7 +201,8 @@ def grant(r, effect):
         raise ResolutionError('Limited trigger already expired')
     entity.abilities.append(AbilityInstance(attachment_id(r.state),'limited_trigger',source_id=effect.source_id,
         limited_trigger=effect.spec,uses_remaining=effect.spec.uses,expires_turn=effect.expires_turn,
-        trigger_turn=r.state.turn if effect.spec.reset == 'turn' else None))
+        trigger_turn=r.state.turn if effect.spec.reset == 'turn' else None,
+        limited_trigger_deadline=effect.deadline))
     refresh_entity(entity)
     r.emit('ability_granted',source_id=effect.source_id,target_id=entity.id,ability_kind='limited_trigger')
 

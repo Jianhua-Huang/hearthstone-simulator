@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要原本体在指定下个本人开始触发一次时，用GrantLimitedTrigger的可选deadline连接既有owner_deadline；不要用每个开始都重试的永久触发或另建回合计数。错过、过期及恢复规则见[契约](m3-murozond-owner-start.md)。
+
 原战场随从与对手手牌交换使用SwapWithOpponentHand，原身体与造成来源一起捕获；不要用普通回手/抽牌或复制串接。原召唤第一体/额外体、占位和当前组件表达见[契约](m3-physical-hand-minion-swap.md)。
 
 真实手牌检视使用InspectHandCards及原选择材料；按实体跟踪亡语用原获取身份，按名称奖励用独立HandInvestigation玩家程序，不用卡名重绑旧实体。有限类型及恢复边界见[契约](m3-private-hand-inspection.md)。

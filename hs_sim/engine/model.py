@@ -2800,6 +2800,7 @@ class AbilityInstance:
     limited_trigger: LimitedTriggerSpec | None = None
     uses_remaining: int | None = None
     trigger_turn: int | None = None
+    limited_trigger_deadline: OwnerTurnExpiry | None = None
     hand_progress: HandProgressSpec | None = None
     defining_card_id: str | None = None
     progress_value: int = 0
@@ -2858,6 +2859,15 @@ class AbilityInstance:
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
         _optional_id(self.spell_aura_id, 'original spell Aura')
+        if self.limited_trigger_deadline is not None:
+            if (type(self.limited_trigger_deadline) is not OwnerTurnExpiry or self.kind != 'limited_trigger'
+                    or self.limited_trigger is None or self.limited_trigger.event != 'turn_started'
+                    or self.limited_trigger.uses != 1 or self.limited_trigger.reset != 'instance'
+                    or self.limited_trigger.keyword is not None or self.expires_turn is not None):
+                raise ValueError('Finite start deadline requires one original once-only start attachment')
+            self.limited_trigger_deadline.__post_init__()
+            if self.limited_trigger_deadline.boundary != 'turn_started':
+                raise ValueError('Finite start deadline requires its original next-start clock')
         if self.kind == 'spell_aura':
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin', 'spell_aura_id'}
@@ -11224,6 +11234,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                         from .timed_keywords import validate_deadline
                         if entity.kind!=CardType.HERO:raise ValueError('Owner health deadline requires a hero carrier')
                         validate_deadline(state,attachment.health_rule_expiry)
+                    if attachment.limited_trigger_deadline is not None:
+                        from .timed_keywords import validate_deadline
+                        validate_deadline(state, attachment.limited_trigger_deadline)
                     if attachment.attack_policy_expiry is not None:
                         from .attack_policies import validate_next_owner_end
                         if entity.kind!=CardType.MINION:raise ValueError('Timed attack restriction requires a minion carrier')
@@ -11392,6 +11405,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_result(state, registry, result_from_payload(record.cause.result))
         for attachment in (*record.abilities, *record.enchantments):
             validate_attachment(attachment)
+            if isinstance(attachment,AbilityInstance) and attachment.limited_trigger_deadline is not None:
+                from .timed_keywords import validate_deadline
+                if attachment.limited_trigger_deadline.created_turn > record.turn:
+                    raise ValueError('Frozen finite start deadline was created after this death')
+                validate_deadline(state, attachment.limited_trigger_deadline)
             if isinstance(attachment,AbilityInstance) and attachment.attack_policy_expiry is not None:
                 from .attack_policies import validate_next_owner_end
                 if kind!=CardType.MINION or attachment.attack_policy_expiry.created_turn>record.turn:
