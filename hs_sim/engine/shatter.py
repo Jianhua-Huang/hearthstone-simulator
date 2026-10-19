@@ -74,6 +74,8 @@ def inherit(r, source, destination):
 def settle_hands(r, *, initial=False, opening_ready=False):
     if suspended(r.state) and not opening_ready:
         return
+    from .hand_combinations import settle_hands as settle_combinations
+    settle_combinations(r, initial=initial)
     mapping = families(r.registry)
     if not mapping:
         return
@@ -114,3 +116,6 @@ def settle_hands(r, *, initial=False, opening_ready=False):
 def validate_boundary(game):
     if not suspended(game._state) and next_change(game._state, game.registry, families(game.registry)) is not None:
         raise ValueError('Unsettled Shatter hand at a stable boundary')
+    from .hand_combinations import next_pair
+    if not suspended(game._state) and next_pair(game._state, game.registry) is not None:
+        raise ValueError('Unsettled native minion pair at a stable boundary')

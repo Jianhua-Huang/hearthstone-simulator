@@ -677,7 +677,8 @@ class Game:
             if timed_count(player, self.registry) > self.ruleset.max_ongoing_effects:
                 raise ValueError('Ongoing effect capacity exceeded')
             cards = [self._state.entities[i].card_id for i in player.quests]
-            if len(set(cards)) != len(cards) or sum(self.registry.card(c).quest.kind != 'sidequest' for c in cards) > 1:
+            from .quests import compatible_main_quests
+            if len(set(cards)) != len(cards) or not compatible_main_quests(self._state, self.registry, player.id):
                 raise ValueError('Duplicate or incompatible active quests')
             if self._state.status == 'playing' and self._frame is None and any(
                     self._state.entities[i].quest_progress.completing for i in player.quests):

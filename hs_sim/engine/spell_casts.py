@@ -46,9 +46,10 @@ def validate_target_origins(game):
     for event in effective_events(game._events):
         if event.kind!='spell_cast_started':continue
         data=dict(event.data)
-        if set(data)!={'cast_id','target_origin'}:
+        record=cast_record(game._state,data.get('cast_id'))
+        expected={'cast_id','target_origin'} | ({'quest_parent_cast_id'} if record.quest_parent_cast_id is not None else set())
+        if set(data)!=expected or data.get('quest_parent_cast_id')!=record.quest_parent_cast_id:
             raise ValueError('Cast start requires its exact original target receipt')
-        record=cast_record(game._state,data['cast_id'])
         if (record.id in seen or
                 (event.source_id,event.player_id,event.target_id,event.action)!=(record.source_id,record.player_id,record.target_id,record.action)or
                 event.sequence<=record.recorded_event or data['target_origin']!=target_origin_receipt(record)):
@@ -250,7 +251,7 @@ def effective_definition(definition, conditions):
     return definition
 
 
-def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None):
+def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None):
     from .one_cost_casts import capture_automatic,accept_automatic
     native_repeat=capture_automatic(r,entity,effect.player_id)
     from .play_history import played_cards
@@ -295,14 +296,15 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_selection=target_proof.selection if target_proof is not None else None,
         target_origin=capture_target_origin(r.state,target_id),
-        held_higher_cost=capture_higher_cost(r.state, entity))
+        held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id)
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     if draw_id is not None:
         from .draw_casts import note_cast
         note_cast(r, draw_id, record.id)
     r.emit('spell_cast_started', source_id=entity.id, target_id=target_id, player_id=record.player_id,
-           cast_id=record.id,target_origin=target_origin_receipt(record))
+           cast_id=record.id,target_origin=target_origin_receipt(record),
+           **({'quest_parent_cast_id':quest_parent_cast_id} if quest_parent_cast_id is not None else {}))
     if failure:
         r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
                cast_id=record.id, reason=failure)
@@ -312,13 +314,13 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof), *native_tail,*choose_tail)
 
 
-def cast_generated(r, effect):
+def cast_generated(r, effect, *, quest_parent_cast_id=None):
     effect.__post_init__(); source_exists(r, effect.source_id)
     if r.registry.card(effect.card_id).kind != CardType.SPELL:
         raise ResolutionError('CastSpell requires a spell definition')
     entity = r.create_entity(effect.player_id, effect.card_id, Zone.GRAVEYARD)
     entity.origin_entity_id = effect.source_id
-    return automatic(r, effect, entity, None)
+    return automatic(r, effect, entity, None, quest_parent_cast_id=quest_parent_cast_id)
 
 
 def cast_stored(r, effect):
@@ -354,12 +356,8 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
         if repeated: set_secret(r, SetSecret(record.player_id, record.card_id))
         else: activate(r, entity)
     elif definition.quest is not None:
-        from .quests import activate, activation_error
-        if activation_error(r.state, r.registry, r.rules, record.player_id, record.card_id) is None:
-            if repeated: entity = r.create_entity(record.player_id, record.card_id, Zone.GRAVEYARD)
-            activate(r, entity)
-        else:
-            r.emit('quest_activation_failed', player_id=record.player_id)
+        from .quests import spell_payload
+        work.extend(spell_payload(r, entity, record, repeated=repeated))
     elif definition.ongoing_effect_id is not None:
         from .player_effects import AddPlayerEffect
         work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id,
@@ -406,6 +404,10 @@ def automatic_choice(r, choice, options, on_select):
 
 
 def validate_history(state, registry):
+    from .quests import pair_parent
+    for child in state.cast_history:
+        if child.quest_parent_cast_id is not None:
+            pair_parent(state, registry, child)
     if type(state.cast_history) is not list: raise ValueError('Cast history must be a list')
     from .repeat_provenance import checked_live_attachments
     live = checked_live_attachments(state)

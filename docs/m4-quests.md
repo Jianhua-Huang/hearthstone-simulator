@@ -1,5 +1,7 @@
 # M4 任务、任务线与长期进度
 
+寻求平衡的两个独立子任务使用有限`paired_quest`声明和原父施法、原安装施法身份，保留普通主任务互斥；实际施法、保存及半体拼合见[双任务契约](m3-paired-quests-hand-combinations.md)。下文原单任务/任务线批次保持其历史范围。
+
 原生残骸获得倍率保留可移除来源和固有死亡基数；物理消费者检索、原目标支付及真实任务/地标/第二技能依赖见[残骸消费者契约](m3-corpse-consumer-native.md)。已有第二技能槽安装仍明确未支持，不能以首次安装认证整卡。
 
 对应 M4-03a。以下为原批次记录：`prototype-v75` / `core-effects-v75`、snapshot schema 74、`representative-m5-v38`，观察为 `player-view-v44`，玩家命令仍为 `player-actions-v7`。本页描述已实现的任务进度契约；持续目标、咒符和玩家整局规则已接入 [玩家效果契约](m4-player-effects.md)，奥秘已接入 [独立契约](m4-secrets.md)，特殊长期规则仍待扩展。最终验收基准为国服，实际测试与下一项见 [项目状态](project-status.md)。

@@ -59,7 +59,7 @@ def repeat(r,work):
         turn=r.state.turn,action=r.state.action_number,
         play_id=None,draw_id=None,from_zone=None,completed=False,interrupted=False,payload_started=True,failure=None,
         recorded_event=len(r.game._events),owner_turn_id=cast_owner_turn_id(r.state),target_selection=None,
-        target_origin=capture_target_origin(r.state,parent.target_id),local_spell_damage=(),spell_damage_effects=(),native_spell_value=None,aura_duration_grants=())
+        target_origin=capture_target_origin(r.state,parent.target_id),local_spell_damage=(),spell_damage_effects=(),native_spell_value=None,aura_duration_grants=(),quest_parent_cast_id=None)
     r.state.cast_history.append(child)
     r.emit(STARTED,source_id=parent.source_id,player_id=parent.player_id,cast_id=parent.id,child_id=child.id,_capture=False)
     from .spell_casts import target_origin_receipt

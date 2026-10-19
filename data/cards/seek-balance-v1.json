@@ -1,0 +1,935 @@
+{
+  "schema": 1,
+  "batch": "K247-Reach-Equilibrium",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_817",
+        "dbf_id": 117544,
+        "name": "寻求平衡",
+        "name_en": "Reach Equilibrium",
+        "text": "<b>任务：</b>施放4个神圣法术。<b>奖励：</b>生命之息。<b>任务：</b>施放4个暗影法术。<b>奖励：</b>死亡之触。",
+        "text_en": "[x]<b>Quest:</b> Cast 4 Holy spells\n<b>Reward:</b> Life's Breath.\n<b>Quest:</b> Cast 4 Shadow spells.\n<b>Reward:</b> Death's Touch.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 119879,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "3674": 1,
+          "4310": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3674",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3674"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4310",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4310"
+          }
+        ]
+      },
+      "record_sha256": "1f24341593a1ac0d404d03277cc0da06d702f48c6420b4eeb3a7dd8f313de56a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_817",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TLC_817t",
+        "dbf_id": 117545,
+        "name": "荡除暗影",
+        "name_en": "Cleanse the Shadow",
+        "text": "<b>任务：</b>施放4个神圣法术。<b>奖励：</b>生命之息。",
+        "text_en": "[x]<b>Quest:</b> Cast 4 Holy spells.\n<b>Reward:</b> Life's Breath.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 4,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "QUEST_REWARD_DATABASE_ID": 118551,
+          "BACON_EVOLUTION_CARD_ID": 119879,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "5722824a203071a85ca00e197ebd3f91c997f4cd0ebaeec844311a269f82ad21",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_817t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_817t2",
+        "dbf_id": 119726,
+        "name": "污染光明",
+        "name_en": "Corrupt the Light",
+        "text": "<b>任务：</b>施放4个暗影法术。<b>奖励：</b>死亡之触。",
+        "text_en": "[x]<b>Quest:</b> Cast 4 Shadow spells.\n<b>Reward:</b> Death's Touch.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 4,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "QUEST_REWARD_DATABASE_ID": 118552,
+          "BACON_EVOLUTION_CARD_ID": 119879,
+          "4297": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "90c0349777241bda0e3331fb5cc1ffe79f5fa8a697dfe3c6885c1181c88b17cc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_817t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_817t3",
+        "dbf_id": 118551,
+        "name": "索利托斯，生命之息",
+        "name_en": "Sol'etos, Life's Breath",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>召唤一个本随从的复制。<i>如果你手中有索利托斯的两部分，将其拼合！</i>",
+        "text_en": "[x]<b>Taunt</b>. <b>Battlecry:</b> Summon\na copy of this.\n<i>If you're holding both halves\n_of Sol'etos, combine!</i>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 119879,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 119879,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "b0226030d7b8851672cfd7f5e7117c5827c7acb62e9e26492e67117fe4fecbee",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_817t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_817t4",
+        "dbf_id": 118552,
+        "name": "索利托斯，死亡之触",
+        "name_en": "Sol'etos, Death's Touch",
+        "text": "<b>复生</b>。<b>亡语：</b>随机对一个敌人造成5点伤害。<i>如果你手中有索利托斯的两部分，将其拼合！</i>",
+        "text_en": "[x]<b>Reborn</b>. <b>Deathrattle:</b> Deal 5\ndamage to a random enemy.\n<i>If you're holding both halves\nof Sol'etos, combine!</i>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 119879,
+          "REBORN": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 119879,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "3315106d8d0d588b700dcf7f8ecb3910c31a5b4d5ec3fde007128cfe046b81c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_817t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_817t5",
+        "dbf_id": 119879,
+        "name": "索利托斯，循环新生",
+        "name_en": "Sol'etos, Cycle's Rebirth",
+        "text": "<b>嘲讽</b>。<b>复生</b>。<b>战吼：</b>召唤一个本随从的复制。<b>亡语：</b>随机对一个敌人造成5点伤害。",
+        "text_en": "[x]<b>Taunt</b>, <b>Reborn</b>. <b>Battlecry:</b>\nSummon a copy of this.\n<b>Deathrattle:</b> Deal 5 damage\nto a random enemy.",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "REBORN": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "7ab7c470ff6e4bfb07c9c5708fd1c36cd8a1d5128df389f6aa4390cf70730dce",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TLC_817t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3260d8946973b308f6631bd530856f9d7e1935d9fa5d8b3b368d0f7d91a5e497"
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_817",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\117544-zh_CN.json",
+      "response_sha256": "75e2b7c5b218e2323b7189f02b47925c2d963064f1a6e28c4e2bf416fa11c79e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117544&locale=zh_CN",
+      "face": {
+        "id": 117544,
+        "collectible": 1,
+        "slug": "117544-reach-equilibrium",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "寻求平衡",
+        "text": "<b>任务：</b>施放4个神圣法术。<b>奖励：</b>生命之息。<b>任务：</b>施放4个暗影法术。<b>奖励：</b>死亡之触。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/513bb046eab59605aa713ad27a97aa85ef43f2d1f64952eb851dc7ed4215957f.png",
+        "imageGold": "",
+        "flavorText": "第6天。今天我们来到了一片林地，神圣和暗影的魔法在此激战。林地中心有两个巨大的元素，就像是同一枚硬币的两面。希望我们还有机会回到这里，期待这片饱受摧残的土地还能恢复平和。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15d1484c13045c29c0116f82066e3f6f3218416fcac239c5b65f179242820f14.png",
+        "childIds": [
+          118551,
+          118552,
+          119879,
+          119726,
+          117545
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117544&locale=zh_CN",
+        "sha256": "75e2b7c5b218e2323b7189f02b47925c2d963064f1a6e28c4e2bf416fa11c79e",
+        "bytes": 1082,
+        "observed_at": "2026-10-19T05:15:47.369920+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\117544-en_US.json",
+      "response_sha256": "50c5391ffb3186bc5b530bac2466889274ab32b3e782c218d9725619c378242d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117544&locale=en_US",
+      "face": {
+        "id": 117544,
+        "collectible": 1,
+        "slug": "117544-reach-equilibrium",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "Reach Equilibrium",
+        "text": "<b>Quest:</b> Cast 4 Holy spells <b>Reward:</b> Life's Breath. <b>Quest:</b> Cast 4 Shadow spells. <b>Reward:</b> Death's Touch.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d1cac9bc66fa1f2cc293ce8539d29e3ba39be8fa084bfb28bcc45abfe97db3b.png",
+        "imageGold": "",
+        "flavorText": "Day 6. Today we found ourselves in a glade tormented by conflicting Holy and Shadow magic. At its center were two enormous Elementals, like opposite sides of the same coin. I hope one day we'll return here to see this broken place restored to peace.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15d1484c13045c29c0116f82066e3f6f3218416fcac239c5b65f179242820f14.png",
+        "childIds": [
+          118551,
+          118552,
+          119879,
+          119726,
+          117545
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117544&locale=en_US",
+        "sha256": "50c5391ffb3186bc5b530bac2466889274ab32b3e782c218d9725619c378242d",
+        "bytes": 1067,
+        "observed_at": "2026-10-19T05:15:47.689177+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\117545-zh_CN.json",
+      "response_sha256": "7a20722485993f4973fccdfb3e1769d98b29207a3f456683da92f349c7f08f2b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117545&locale=zh_CN",
+      "face": {
+        "id": 117545,
+        "collectible": 0,
+        "slug": "117545-cleanse-the-shadow",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "荡除暗影",
+        "text": "<b>任务：</b>施放4个神圣法术。<b>奖励：</b>生命之息。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f13ae9663720572ed8ba0f2d5f1ffad106d8d675d8718cc661c1a90890db6105.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117545&locale=zh_CN",
+        "sha256": "7a20722485993f4973fccdfb3e1769d98b29207a3f456683da92f349c7f08f2b",
+        "bytes": 603,
+        "observed_at": "2026-10-19T05:15:47.412357+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\117545-en_US.json",
+      "response_sha256": "1666d6e62a676e3336338b891dc5978c20cd8a305f269ce673f67312cb79073c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117545&locale=en_US",
+      "face": {
+        "id": 117545,
+        "collectible": 0,
+        "slug": "117545-cleanse-the-shadow",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "Cleanse the Shadow",
+        "text": "<b>Quest:</b> Cast 4 Holy spells. <b>Reward:</b> Life's Breath.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3da5fc6ee4468d993b64018e15a458e47c3374c29efcace0580f12153ab815d3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117545&locale=en_US",
+        "sha256": "1666d6e62a676e3336338b891dc5978c20cd8a305f269ce673f67312cb79073c",
+        "bytes": 600,
+        "observed_at": "2026-10-19T05:15:47.481003+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\119726-zh_CN.json",
+      "response_sha256": "ccd4a1859fe6f9651f0cc3409fc38c86c8e2a820494bdb759412fdaceb1849fd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119726&locale=zh_CN",
+      "face": {
+        "id": 119726,
+        "collectible": 0,
+        "slug": "119726-corrupt-the-light",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "污染光明",
+        "text": "<b>任务：</b>施放4个暗影法术。<b>奖励：</b>死亡之触。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4d1561a99e0e1c83b90c02a5b25dd99daaffc66acc231daa05bd427882b07597.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119726&locale=zh_CN",
+        "sha256": "ccd4a1859fe6f9651f0cc3409fc38c86c8e2a820494bdb759412fdaceb1849fd",
+        "bytes": 602,
+        "observed_at": "2026-10-19T05:15:48.299397+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\119726-en_US.json",
+      "response_sha256": "3e43b0f03bfd25ffb09cbcaa80f849d48f8158fd126005133aba4f4b6fb6f6f2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119726&locale=en_US",
+      "face": {
+        "id": 119726,
+        "collectible": 0,
+        "slug": "119726-corrupt-the-light",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "Corrupt the Light",
+        "text": "<b>Quest:</b> Cast 4 Shadow spells. <b>Reward:</b> Death's Touch.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/481d8a97cc6afe1cf1708a0fb5ebfce80473174709a8b04fea755ef81522c40c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119726&locale=en_US",
+        "sha256": "3e43b0f03bfd25ffb09cbcaa80f849d48f8158fd126005133aba4f4b6fb6f6f2",
+        "bytes": 600,
+        "observed_at": "2026-10-19T05:15:48.125052+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\118551-zh_CN.json",
+      "response_sha256": "68783ad011033b69f6ceae64a80b75be4778e7ce4722a848da01ad5abcc6e975",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118551&locale=zh_CN",
+      "face": {
+        "id": 118551,
+        "collectible": 0,
+        "slug": "118551-soletos-lifes-breath",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "索利托斯，生命之息",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>召唤一个本随从的复制。<i>如果你手中有索利托斯的两部分，将其拼合！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3984e5dd3ba91c0e96ee2c7fe97ed23819b2d0d8585b6af9fb4d8b569503c84c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118551&locale=zh_CN",
+        "sha256": "68783ad011033b69f6ceae64a80b75be4778e7ce4722a848da01ad5abcc6e975",
+        "bytes": 740,
+        "observed_at": "2026-10-19T05:15:48.433681+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\118551-en_US.json",
+      "response_sha256": "fb62ca4f095dd24c81ef90a036f7c5ab55e79c87078be293da13f99c23ce986f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118551&locale=en_US",
+      "face": {
+        "id": 118551,
+        "collectible": 0,
+        "slug": "118551-soletos-lifes-breath",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Sol'etos, Life's Breath",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b> Summon a copy of this. <i>If you're holding both halves of Sol'etos, combine!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99004d20a5be0da6cf4d949f0a87d1f1fdd7316adfd743d6d0913b9638f3fece.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118551&locale=en_US",
+        "sha256": "fb62ca4f095dd24c81ef90a036f7c5ab55e79c87078be293da13f99c23ce986f",
+        "bytes": 717,
+        "observed_at": "2026-10-19T05:15:48.920618+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\118552-zh_CN.json",
+      "response_sha256": "cd00ccb8d5a0618adb0b094348472ac20e03a30dcf443a2035a791d2b0cffdc9",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118552&locale=zh_CN",
+      "face": {
+        "id": 118552,
+        "collectible": 0,
+        "slug": "118552-soletos-deaths-touch",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "索利托斯，死亡之触",
+        "text": "<b>复生</b>。<b>亡语：</b>随机对一个敌人造成5点伤害。<i>如果你手中有索利托斯的两部分，将其拼合！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ede8fe1e577e8ab29fd7005671e375296736641466b9540e5296f6e514913aa4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118552&locale=zh_CN",
+        "sha256": "cd00ccb8d5a0618adb0b094348472ac20e03a30dcf443a2035a791d2b0cffdc9",
+        "bytes": 749,
+        "observed_at": "2026-10-19T05:15:48.860421+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\118552-en_US.json",
+      "response_sha256": "d387d6ed5b5041da89b4f4dc0aaa26848392160105e32b1e189291bea46d8017",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118552&locale=en_US",
+      "face": {
+        "id": 118552,
+        "collectible": 0,
+        "slug": "118552-soletos-deaths-touch",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Sol'etos, Death's Touch",
+        "text": "<b>Reborn</b>. <b>Deathrattle:</b> Deal 5 damage to a random enemy. <i>If you're holding both halves of Sol'etos, combine!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a363114b208bc18e916da88bcfe96f4407424272305dffca0197cbe3317e7ba.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118552&locale=en_US",
+        "sha256": "d387d6ed5b5041da89b4f4dc0aaa26848392160105e32b1e189291bea46d8017",
+        "bytes": 732,
+        "observed_at": "2026-10-19T05:15:49.219733+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\119879-zh_CN.json",
+      "response_sha256": "9e15c68856439ff683e496fc99c41f47b1037d10b014a78a3d818f2ef3c0456f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119879&locale=zh_CN",
+      "face": {
+        "id": 119879,
+        "collectible": 0,
+        "slug": "119879-soletos-cycles-rebirth",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "索利托斯，循环新生",
+        "text": "<b>嘲讽</b>。<b>复生</b>。<b>战吼：</b>召唤一个本随从的复制。<b>亡语：</b>随机对一个敌人造成5点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1904daf9b67fe7f2fc3983bfd112cb9a73918241432b67283d665af85efeb3c9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          1,
+          8,
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119879&locale=zh_CN",
+        "sha256": "9e15c68856439ff683e496fc99c41f47b1037d10b014a78a3d818f2ef3c0456f",
+        "bytes": 753,
+        "observed_at": "2026-10-19T05:15:49.293933+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_817t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k247-seek-balance\\official-cache-01\\119879-en_US.json",
+      "response_sha256": "a1f717d3f829b770e418511dcd21179ccedba112132885a48acfd66472a7c201",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119879&locale=en_US",
+      "face": {
+        "id": 119879,
+        "collectible": 0,
+        "slug": "119879-soletos-cycles-rebirth",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 5,
+        "name": "Sol'etos, Cycle's Rebirth",
+        "text": "<b>Taunt</b>, <b>Reborn</b>. <b>Battlecry:</b> Summon a copy of this. <b>Deathrattle:</b> Deal 5 damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/952f407e526e26eb526fa3485d302aba3340b48170fb602196ea477568d18403.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117544,
+        "keywordIds": [
+          1,
+          8,
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119879&locale=en_US",
+        "sha256": "a1f717d3f829b770e418511dcd21179ccedba112132885a48acfd66472a7c201",
+        "bytes": 736,
+        "observed_at": "2026-10-19T05:15:49.849484+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

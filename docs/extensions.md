@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实双任务通过paired_quest及CastQuestChild沿原施法流程安装两个独立任务，原父施法和安装施法身份保留到恢复/终局；同手随从半体使用有限HandCombinationProfile及原手牌结算入口。原主任务互斥和法术相邻裂变保持，表达与待国服政策见[双任务与半体契约](m3-paired-quests-hand-combinations.md)。
+
 真实私藏野兽使用有限ContrabandSideboardProfile，只有原侧板条目免原职业/符文限制，格式与副本核算仍共享；_TakeSideboardCard沿已有真实发现提供与物理交付管线消费原槽、创建新牌并安装减费。原乐队/构筑复制选择不变，无新增持久字段或Effect；细节与待国服政策见[私藏侧板契约](m3-contraband-sideboards.md)。
 
 烈火炙烤式效果注册`ReturningDamageProfile(card_id, initial_amount)`，实际施法返回`DamageReturningSpell(cast_id, original_minion_reference)`。余量和同一原牌的`ReturnSpentSpell`由公共模块处理，不在卡牌代码里扫描事件或生成替代副本，见[契约](m3-retained-spell-damage.md)。

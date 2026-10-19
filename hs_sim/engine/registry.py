@@ -205,6 +205,7 @@ class Registry:
         self._board_card_members = {}
         self._tourists = {}
         self._sideboards = {}
+        self._hand_combinations = {}
         self._deck_size_rules = {}
         self._fabled = {}
         self._modular_profiles = {}
@@ -843,6 +844,20 @@ class Registry:
     def sideboards(self):
         return MappingProxyType(self._sideboards)
 
+    @property
+    def hand_combinations(self):
+        return MappingProxyType(self._hand_combinations)
+
+    def register_hand_combination(self, profile):
+        from .hand_combinations import HandCombinationProfile
+        self._require_mutable()
+        if type(profile) is not HandCombinationProfile:
+            raise ValueError('Expected exact HandCombinationProfile')
+        profile.__post_init__()
+        if profile.result_card_id in self._hand_combinations:
+            raise ValueError('Duplicate hand combination result')
+        self._hand_combinations[profile.result_card_id] = profile
+
     def register_sideboard(self, profile):
         from .sideboards import SideboardProfile, DeckCopySideboardProfile, ContrabandSideboardProfile
         self._require_mutable()
@@ -1352,8 +1367,8 @@ class Registry:
             from .choose_one import DISPATCH
             if any(DISPATCH in (stage.progress_behavior, stage.reward_behavior) for stage in card.quest.stages):
                 raise ValueError('Quest progress and rewards cannot dispatch an immediate Choose One branch')
-            quest_keyword = Keyword.QUEST if card.quest.kind == 'repeatable_quest' else Keyword(card.quest.kind)
-            if quest_keywords != {quest_keyword} or card.quest.stages[0].card_id != card.id:
+            quest_keyword = Keyword.QUEST if card.quest.kind in ('repeatable_quest', 'paired_quest') else Keyword(card.quest.kind)
+            if quest_keywords != {quest_keyword} or card.quest.kind != 'paired_quest' and card.quest.stages[0].card_id != card.id:
                 raise ValueError('Quest keyword and first stage must match its definition')
             if card.requires_target or card.targeting is not None:
                 raise ValueError('Quest activation cannot require a target')
@@ -1772,6 +1787,10 @@ class Registry:
         validate_profiles(self)
         from .shatter import validate_definitions
         validate_definitions(self)
+        from .quests import validate_paired_definitions
+        validate_paired_definitions(self)
+        from .hand_combinations import validate_profiles as validate_hand_combinations
+        validate_hand_combinations(self)
         from .temporary_cards import validate_definitions as validate_hand_repeats
         validate_hand_repeats(self)
         from .hand_derivatives import validate_definitions as validate_derivatives
@@ -1864,7 +1883,7 @@ class Registry:
                 for stage in card.quest.stages:
                     self.behavior(stage.progress_behavior)
                     self.behavior(stage.reward_behavior)
-                    if stage.card_id != card.id and not self.card(stage.card_id).choice_only:
+                    if card.quest.kind != 'paired_quest' and stage.card_id != card.id and not self.card(stage.card_id).choice_only:
                         raise ValueError('Additional quest stages require nonphysical descriptors')
             if card.secret is not None:
                 self.secret_condition(card.secret.condition_id)
@@ -2031,6 +2050,8 @@ class Registry:
             payload['tourists'] = [asdict(self._tourists[k]) for k in sorted(self._tourists)]
         if self._sideboards:
             payload['sideboards'] = [asdict(self._sideboards[k]) for k in sorted(self._sideboards)]
+        if self._hand_combinations:
+            payload['hand_combinations'] = [asdict(self._hand_combinations[k]) for k in sorted(self._hand_combinations)]
         if self._deck_size_rules:
             payload['deck_size_rules'] = [asdict(self._deck_size_rules[k]) for k in sorted(self._deck_size_rules)]
         if self._fabled:

@@ -7,29 +7,133 @@ from .model import (QUEST_FULL_BOARD_TURNS, QUEST_FULL_THEN_EMPTY_HAND,
                     QuestProgress, Zone, _int, _name)
 
 
-def activation_error(state, registry, rules, player_id, card_id):
+def pair_parent(state, registry, record, *, accepting=False):
+    """Use the original typed parent, never a later same-source spell attempt."""
+    if record is None or record.quest_parent_cast_id is None:
+        return None
+    if not 1 <= record.quest_parent_cast_id < record.id:
+        raise ValueError('Child quest lost its earlier original parent')
+    parent = state.cast_history[record.quest_parent_cast_id-1]
+    spec = registry.card(parent.card_id).quest
+    if (record.origin != 'effect' or (parent.source_id,parent.player_id) !=
+            (record.caster_id,record.player_id) or record.action < parent.action or not parent.payload_started or
+            spec is None or spec.kind != 'paired_quest' or record.card_id not in tuple(s.card_id for s in spec.stages)):
+        raise ValueError('Child quest changed its complete original paired-spell source')
+    if accepting and (parent.completed or parent.interrupted):
+        return None
+    return parent
+
+
+def _parent_for_quest(state, registry, entity):
+    identity = entity.quest_progress.activation_cast_id
+    if identity is None:
+        return None
+    if not 1 <= identity <= len(state.cast_history):
+        raise ValueError('Quest lost its original activation cast')
+    record = state.cast_history[identity-1]
+    if ((record.player_id,record.card_id)!=(entity.controller,entity.card_id) or
+            record.source_id not in (entity.id,entity.origin_entity_id) or not record.payload_started or record.failure is not None):
+        raise ValueError('Quest changed its original physical activation source')
+    return pair_parent(state, registry, record)
+
+
+def compatible_main_quests(state, registry, player_id):
+    active = [state.entities[i] for i in state.players[player_id].quests]
+    original = {q.id:_parent_for_quest(state, registry, q) for q in active}
+    main = [q for q in active if registry.card(q.card_id).quest.kind != 'sidequest']
+    parents = [original[q.id] for q in main]
+    if any(registry.card(q.card_id).quest.kind == 'paired_quest' for q in main):
+        return False  # The source casts its children; it never occupies a quest slot.
+    if len(main) <= 1:
+        return True
+    return all(p is not None for p in parents) and len({p.id for p in parents}) == 1
+
+
+def validate_paired_definitions(registry):
+    children = set()
+    for card in registry.cards.values():
+        spec = card.quest
+        if spec is None or spec.kind != 'paired_quest':
+            continue
+        if card.on_play is not None:
+            raise ValueError('A paired quest source uses only its two declared spell payloads')
+        for stage in spec.stages:
+            child = registry.card(stage.card_id)
+            if (stage.card_id == card.id or stage.card_id in children or child.quest is None
+                    or child.quest.kind != 'quest' or child.quest.stages != (stage,)):
+                raise ValueError('Paired quests require two distinct complete ordinary quest declarations')
+            children.add(stage.card_id)
+
+
+def activation_error(state, registry, rules, player_id, card_id, *, cast=None):
     spec = registry.card(card_id).quest
     if spec is None:
         return None
     quests = [state.entities[i] for i in state.players[player_id].quests]
     from .secrets import area_count
-    if area_count(state.players[player_id], registry) >= rules.max_secret_zone:
+    slots = 2 if spec.kind == 'paired_quest' else 1
+    if area_count(state.players[player_id], registry) + slots > rules.max_secret_zone:
         return 'Secret/quest/ongoing area is full'
-    if len(quests) >= rules.max_quests:
+    if len(quests) + slots > rules.max_quests:
         return 'Quest area is full'
     if any(q.card_id == card_id for q in quests):
         return 'This quest is already active'
     if spec.kind != 'sidequest' and any(registry.card(q.card_id).quest.kind != 'sidequest' for q in quests):
-        return 'A main quest or questline is already active'
+        parent = pair_parent(state, registry, cast, accepting=True)
+        if parent is None or any((_parent_for_quest(state, registry, q) is None or
+                _parent_for_quest(state, registry, q).id != parent.id)
+                for q in quests if registry.card(q.card_id).quest.kind != 'sidequest'):
+            return 'A main quest or questline is already active'
     return None
+
+
+def spell_payload(r, entity, record, *, repeated=False):
+    """Quest text still owns ordinary casts, history, activation and capacity."""
+    spec = r.registry.card(record.card_id).quest
+    if activation_error(r.state, r.registry, r.rules, record.player_id, record.card_id, cast=record) is not None:
+        r.emit('quest_activation_failed', player_id=record.player_id)
+        return ()
+    if spec.kind == 'paired_quest':
+        return tuple(CastQuestChild(record.id, s.card_id) for s in spec.stages)
+    if repeated:
+        entity = r.create_entity(record.player_id, record.card_id, Zone.GRAVEYARD)
+        entity.origin_entity_id = record.source_id
+    activate(r, entity, cast=record)
+    return ()
+
+
+@dataclass(frozen=True)
+class CastQuestChild(Effect):
+    parent_cast_id: int
+    card_id: str
+
+    def __post_init__(self):
+        from .model import _int, _name
+        _int(self.parent_cast_id, 'quest parent cast', 1)
+        _name(self.card_id, 'quest child spell')
+
+
+def cast_child(r, effect):
+    effect.__post_init__()
+    from .spell_casts import CastSpell, cast_generated, cast_record
+    parent = cast_record(r.state, effect.parent_cast_id)
+    spec = r.registry.card(parent.card_id).quest
+    if (not parent.payload_started or parent.completed or parent.interrupted or spec is None or
+            spec.kind != 'paired_quest' or effect.card_id not in tuple(s.card_id for s in spec.stages)):
+        raise ValueError('Child quest requires its actual still-executing paired spell')
+    return cast_generated(r, CastSpell(parent.player_id, effect.card_id, parent.source_id),
+        quest_parent_cast_id=parent.id)
 
 
 def completed_plays(state):
     return tuple(play.id for play in state.play_history if play.completed)
 
 
-def activate(r, entity):
-    entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state))
+def activate(r, entity, *, cast=None):
+    if r.registry.card(entity.card_id).quest.kind == 'paired_quest':
+        raise ValueError('A paired quest source must cast its original two quest spells')
+    entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state),
+        activation_cast_id=None if cast is None else cast.id)
     r.move(entity, Zone.QUEST)
     r.emit('quest_started', source_id=entity.id, player_id=entity.controller,
            **public_progress(r.registry, entity))
@@ -173,7 +277,8 @@ def finish(r, effect):
                **public_progress(r.registry, entity))
         # The physical quest and slot stay installed. A fresh instance makes
         # already-captured progress/reset/finish effects from the old cycle stale.
-        entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state))
+        entity.quest_progress = QuestProgress(attachment_id(r.state), completed_before=completed_plays(r.state),
+            activation_cast_id=entity.quest_progress.activation_cast_id)
         r.emit('quest_stage_started', source_id=entity.id, player_id=entity.controller,
                **public_progress(r.registry, entity))
     elif effect.stage + 1 == len(spec.stages):
@@ -182,7 +287,8 @@ def finish(r, effect):
         entity.quest_progress = None
         r.move(entity, Zone.GRAVEYARD)
     else:
-        entity.quest_progress = QuestProgress(effect.instance_id, effect.stage + 1, completed_before=completed_plays(r.state))
+        entity.quest_progress = QuestProgress(effect.instance_id, effect.stage + 1, completed_before=completed_plays(r.state),
+            activation_cast_id=entity.quest_progress.activation_cast_id)
         r.emit('quest_stage_started', source_id=entity.id, player_id=entity.controller,
                **public_progress(r.registry, entity))
 
@@ -200,6 +306,6 @@ def remove(r, effect):
 def register_quests(mechanics):
     from .minion_type_history import register
     register(mechanics)
-    for effect, handler in ((AdvanceQuest, advance), (ResetQuestProgress, reset),
+    for effect, handler in ((CastQuestChild, cast_child), (AdvanceQuest, advance), (ResetQuestProgress, reset),
                             (CompleteQuestStage, complete), (FinishQuestStage, finish), (RemoveQuest, remove)):
         mechanics.register(effect, handler)

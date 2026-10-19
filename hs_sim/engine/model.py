@@ -3681,11 +3681,12 @@ class QuestSpec:
     stages: tuple[QuestStageSpec, ...]
 
     def __post_init__(self):
-        if self.kind not in ('quest', 'questline', 'sidequest', 'repeatable_quest'):
+        if self.kind not in ('quest', 'questline', 'sidequest', 'repeatable_quest', 'paired_quest'):
             raise ValueError('Unsupported quest kind')
-        if (type(self.stages) is not tuple or len(self.stages) != (3 if self.kind == 'questline' else 1)
+        count = 3 if self.kind == 'questline' else 2 if self.kind == 'paired_quest' else 1
+        if (type(self.stages) is not tuple or len(self.stages) != count
                 or any(type(s) is not QuestStageSpec for s in self.stages)):
-            raise ValueError('Quest requires one stage; Questline requires three')
+            raise ValueError('Quest stage count differs from its declared lifecycle')
         for stage in self.stages:
             stage.__post_init__()
         if len({s.card_id for s in self.stages}) != len(self.stages):
@@ -3704,8 +3705,10 @@ class QuestProgress:
     keys: tuple[str, ...] = ()
     completing: bool = False
     completed_before: tuple[int, ...] = ()
+    activation_cast_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.activation_cast_id, 'quest activation cast')
         _int(self.id, 'quest instance', 1)
         _int(self.stage, 'quest stage', 0)
         _int(self.value, 'quest progress', 0)
@@ -7555,8 +7558,13 @@ class SpellCastRecord:
     target_origin: object | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
     held_higher_cost: HeldHigherCostProgress | None = None
+    quest_parent_cast_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.quest_parent_cast_id, 'quest parent cast')
+        if self.quest_parent_cast_id is not None and (
+                self.origin != 'effect' or self.quest_parent_cast_id >= self.id or self.caster_id is None):
+            raise ValueError('A child quest requires its earlier original effect-cast parent')
         from .allocation_facts import SourceAllocationFact
         from .aura_duration import validate_grants
         validate_grants(self.aura_duration_grants)
