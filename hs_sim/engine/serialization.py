@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 442
+SNAPSHOT_SCHEMA_VERSION = 443
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -607,10 +607,13 @@ def _health_rule_from_dict(value):
 def _enchantment_from_dict(value):
     row = _row(value, Enchantment)
     if row['hand_play_lock'] is not None:
-        from .model import HandPlayLock, OwnerTurnExpiry
-        lock = _row(row['hand_play_lock'], HandPlayLock)
-        lock['deadline'] = OwnerTurnExpiry(**_row(lock['deadline'], OwnerTurnExpiry))
-        row['hand_play_lock'] = HandPlayLock(**lock)
+        from .model import HandPlayLock, OtherCardPlayLock, OwnerTurnExpiry
+        if 'after_play_id' in row['hand_play_lock']:
+            row['hand_play_lock'] = OtherCardPlayLock(**_row(row['hand_play_lock'], OtherCardPlayLock))
+        else:
+            lock = _row(row['hand_play_lock'], HandPlayLock)
+            lock['deadline'] = OwnerTurnExpiry(**_row(lock['deadline'], OwnerTurnExpiry))
+            row['hand_play_lock'] = HandPlayLock(**lock)
     if row['owner_turn_expiry'] is not None:
         from .model import OwnerTurnExpiry
         row['owner_turn_expiry'] = OwnerTurnExpiry(**_row(row['owner_turn_expiry'], OwnerTurnExpiry))

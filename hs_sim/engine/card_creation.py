@@ -32,11 +32,14 @@ class CreatedMinionGrant:
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'after_play')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'after_play', 'other_play_lock')):
             raise ValueError('Unknown created minion special ability')
         if self.special=='after_play' and (self.attack or self.health or self.keywords or
                 self.reborn_policy is not None or self.identity is None):
             raise ValueError('Created after-play requires one independent registered body')
+        if self.special == 'other_play_lock' and (self.attack or self.health or self.keywords or
+                self.reborn_policy is not None or self.identity is not None):
+            raise ValueError('Created hand play gate requires one independent pure condition')
         if self.special == 'prepare' and (self.attack or self.health or self.keywords or self.reborn_policy is not None):
             raise ValueError('Created Prepare is a separate hand-action grant')
         if self.special == 'hand_turn_discount' and (
@@ -201,6 +204,11 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
     if grant is not None and grant.special == 'hand_turn_discount' and effect.source_id is None:
         raise ResolutionError('Created periodic discount requires its actual source')
+    if grant is not None and grant.special == 'other_play_lock':
+        from .effects import AddToHand
+        from .pools import GenerateFromPool
+        if effect.source_id is None or type(effect) not in (AddToHand, GenerateFromPool):
+            raise ResolutionError('Created hand play gate requires source-bound hand delivery')
     if grant is not None and grant.special == 'after_play' and effect.source_id is None:
         raise ResolutionError('Created after-play requires its actual source')
     if grant is not None and grant.special == 'prepare':
@@ -287,6 +295,9 @@ def install(state, entity, effect):
         elif grant.special == 'hand_turn_discount':
             from .hand_turn_costs import attach
             attach(state,entity,effect.source_id)
+        elif grant.special == 'other_play_lock':
+            from .hand_play_locks import attach_after_other_play
+            attach_after_other_play(state,entity,effect.source_id)
         elif grant.special == 'after_play':
             from .after_play_grants import install as install_after_play
             install_after_play(state,entity,grant.identity,effect.source_id)

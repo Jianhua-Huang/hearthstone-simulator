@@ -910,6 +910,20 @@ class HandPlayLock:
 
 
 @dataclass(frozen=True)
+class OtherCardPlayLock:
+    """A physical hand gate bound to an original player's later hand play."""
+    player_id: int
+    after_play_id: int
+    created_turn: int
+
+    def __post_init__(self):
+        _int(self.player_id, 'hand play gate player', 1)
+        if self.player_id not in (1, 2): raise ValueError('Invalid original hand gate player')
+        _int(self.after_play_id, 'hand play gate original history boundary', 0)
+        _int(self.created_turn, 'hand play gate creation turn', 1)
+
+
+@dataclass(frozen=True)
 class Enchantment:
     """Ordered numeric operation or a separate pure current-tribe identity change."""
 
@@ -931,7 +945,7 @@ class Enchantment:
     cthun_ritual: CthunRitualStamp | None = None
     control_return_player_id: int | None = None
     owner_turn_expiry: OwnerTurnExpiry | None = None
-    hand_play_lock: HandPlayLock | None = None
+    hand_play_lock: HandPlayLock | OtherCardPlayLock | None = None
     control_return_expiry: OwnerTurnExpiry | None = None
     hand_turn_discount: bool = False
     hand_discount_turn: int | None = None
@@ -957,7 +971,7 @@ class Enchantment:
         _bool(self.remove_on_silence, "enchantment remove_on_silence")
         _name(self.label, "enchantment label")
         if self.hand_play_lock is not None:
-            if type(self.hand_play_lock) is not HandPlayLock: raise ValueError('Hand play lock requires its typed original clock')
+            if type(self.hand_play_lock) not in (HandPlayLock, OtherCardPlayLock): raise ValueError('Hand play lock requires its typed original condition')
             self.hand_play_lock.__post_init__()
             if (self.label != 'hand_play_lock' or self.source_id is None or not self.remove_on_silence or
                     self.attack or self.health or self.cost or self.cost_minimum or self.payment is not None or
@@ -11455,7 +11469,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_next_owner_end(state,attachment.attack_policy_expiry)
             if type(attachment) is Enchantment and attachment.hand_play_lock is not None:
                 from .hand_play_locks import validate_clock
-                if attachment.hand_play_lock.deadline.created_turn > record.turn:
+                lock = attachment.hand_play_lock
+                created_turn = lock.deadline.created_turn if type(lock) is HandPlayLock else lock.created_turn
+                if created_turn > record.turn:
                     raise ValueError('Frozen hand play lock was created after this death')
                 validate_clock(state, attachment.hand_play_lock)
             if type(attachment) is Enchantment and attachment.owner_turn_expiry is not None:

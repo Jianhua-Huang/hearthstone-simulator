@@ -744,14 +744,14 @@ class GenerateFromPool(Effect):
         from .card_creation import validate_combined_shatter, validate_pool_entry_grant
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is not None and (
-                self.minion_grant != CreatedMinionGrant(special='hand_turn_discount') or
+                self.minion_grant not in (CreatedMinionGrant(special='hand_turn_discount'), CreatedMinionGrant(special='other_play_lock')) or
                 self.source_id is None or self.destination != 'hand' or self.count != 1 or not self.replacement or
                 type(self.query) is not PoolQuery or self.query.kinds != (CardType.MINION,) or
                 self.query.collectible is not True or self.minion_stats is not None or self.entry_grant is not None or
                 self.spell_repeat is not None or self.combined_shatter or self.temporary_until_turn is not None or
                 self.cost is not None or self.expires_turn is not None or self.cause is not None or
                 self.shuffle_actor_id is not None or self.producer_profile_id is not None or self.board_position is not None):
-            raise ValueError('Generated hand discount requires one plain source-bound hand minion')
+            raise ValueError('Generated hand grant requires one plain source-bound hand minion')
         validate_combined_shatter(self.combined_shatter)
         validate_minion_stats(self.minion_stats)
         validate_pool_entry_grant(self.entry_grant)

@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from .effects import Effect, _integer, _player
 from .lifecycle import attachment_id
-from .model import Enchantment, HandPlayLock, Zone
+from .model import CardType, Enchantment, HandPlayLock, OtherCardPlayLock, Zone
 from .owner_turns import owner_turn_index
 from .timed_keywords import owner_deadline, validate_deadline
 from .zones import CardReference, reference_entity, reference_value, source_exists
@@ -20,6 +20,11 @@ class LockHandCard(Effect):
 
 
 def validate_clock(state, lock):
+    if type(lock) is OtherCardPlayLock:
+        lock.__post_init__()
+        if lock.created_turn > state.turn or lock.after_play_id > len(state.play_history):
+            raise ValueError('Hand play gate borrowed a future creation or hand play')
+        return
     if type(lock) is not HandPlayLock: raise ValueError('Hand play lock requires its typed original deadline')
     lock.__post_init__(); validate_deadline(state,lock.deadline,lock.owner_starts)
 
@@ -30,9 +35,26 @@ def play_error(state, source):
         lock=attachment.hand_play_lock
         if lock is None: continue
         validate_clock(state,lock)
+        if type(lock) is OtherCardPlayLock:
+            if not any(p.id > lock.after_play_id and p.player_id == lock.player_id and
+                    p.completed and p.source_id != source.id for p in state.play_history):
+                return 'This card is locked until another card is played'
+            continue
         if owner_turn_index(state,lock.deadline.player_id)<lock.deadline.owner_turn_index:
             return 'This card is temporarily prohibited from being played'
     return None
+
+
+def attach_after_other_play(state, entity, source_id):
+    _integer(source_id, 'original hand gate source', 1)
+    if source_id not in state.entities or entity.kind != CardType.MINION:
+        raise ValueError('Created hand gate requires its real source and fresh minion')
+    # Include already allocated in-flight plays: the card whose body creates
+    # this carrier is not a later other card merely because it finishes later.
+    lock = OtherCardPlayLock(entity.controller, len(state.play_history), state.turn)
+    validate_clock(state, lock)
+    entity.enchantments.append(Enchantment(attachment_id(state), source_id=source_id,
+        label='hand_play_lock', hand_play_lock=lock))
 
 
 def lock_hand_card(r, effect):
@@ -84,5 +106,6 @@ def trap_random_hand_cards(r,effect):
 
 
 def register(mechanics):
+    mechanics.register_payload_type(OtherCardPlayLock)
     mechanics.register(LockHandCard,lock_hand_card)
     mechanics.register(TrapRandomHandCards,trap_random_hand_cards)
