@@ -1,0 +1,237 @@
+{
+  "schema": 1,
+  "batch": "K249-legendary-beast-discovery",
+  "task": {
+    "schema": 1,
+    "batch": "K249-legendary-beast-discovery",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "DINO_430"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "DINO_430e"
+    ],
+    "official_ids": [
+      "DINO_430"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Discover any-class Legendary Beast, gain its original stats, remember the selected card for its native Deathrattle summon. Audit existing selected materials, stat application and death capture before adding any public ability.",
+        "cards": [
+          "DINO_430"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/legendary_beast_discovery_card.py",
+      "data/cards/legendary-beast-discovery-v1.json",
+      "tests/test_legendary_beast_discovery_card.py"
+    ],
+    "display_normalizations": {}
+  },
+  "official_observations": [
+    {
+      "card_id": "DINO_430",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k249-legendary-beast-discovery\\official-cache-01\\118653-zh_CN.json",
+      "response_sha256": "8b8cb24cb0231aeaf05ca4c287ec26a18975f47a591acd376954360ff2ddb50c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118653&locale=zh_CN",
+      "face": {
+        "id": 118653,
+        "collectible": 1,
+        "slug": "118653-beast-speaker-taka",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 7,
+        "name": "兽语者塔卡",
+        "text": "<b>战吼：</b><b>发现</b>一只任意职业的<b>传说</b>野兽并获得其属性值。<b>亡语：</b>召唤该野兽。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57c371123619df9c1175d2d023ec992115bc1241ac72e4e7ca06ec28b435ac56.png",
+        "imageGold": "",
+        "flavorText": "每年此时，兽语者塔卡都会开启重生之日的节庆活动，以及恐龙的孵化季。在这个节日里，我们纪念逝者，同时欢庆环形山中的新生。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f55e3f28533c0687287ad507fc23edfdb3e0e82c699d63d21434737f864f298.png",
+        "keywordIds": [
+          8,
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118653&locale=zh_CN",
+        "sha256": "8b8cb24cb0231aeaf05ca4c287ec26a18975f47a591acd376954360ff2ddb50c",
+        "bytes": 976,
+        "observed_at": "2026-10-19T05:59:32.008460+00:00"
+      }
+    },
+    {
+      "card_id": "DINO_430",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k249-legendary-beast-discovery\\official-cache-01\\118653-en_US.json",
+      "response_sha256": "06b14927639e7b88940a7fcf47d954ff2992a704e6dc564eed0bb08803eb6b7b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118653&locale=en_US",
+      "face": {
+        "id": 118653,
+        "collectible": 1,
+        "slug": "118653-beast-speaker-taka",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 7,
+        "name": "Beast Speaker Taka",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a <b>Legendary</b> Beast from any class to gain its stats. <b>Deathrattle:</b> Summon it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e028594f9a2282ad64065b7d3718f437a908cd28801b901ac7fd5f293d46a45d.png",
+        "imageGold": "",
+        "flavorText": "Each year, Beast Speaker Taka kicks off the Day of Rebirth festivities, heralding the start of the dinosaur hatching season. It is a time to mourn those we have lost, and to celebrate the joy of new life in the Crater.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f55e3f28533c0687287ad507fc23edfdb3e0e82c699d63d21434737f864f298.png",
+        "keywordIds": [
+          8,
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=118653&locale=en_US",
+        "sha256": "06b14927639e7b88940a7fcf47d954ff2992a704e6dc564eed0bb08803eb6b7b",
+        "bytes": 1016,
+        "observed_at": "2026-10-19T05:59:32.272245+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "DINO_430",
+        "dbf_id": 118653,
+        "name": "兽语者塔卡",
+        "name_en": "Beast Speaker Taka",
+        "text": "<b>战吼：</b><b>发现</b>一只任意职业的<b>传说</b>野兽并获得其属性值。<b>亡语：</b>召唤该野兽。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a\n___<b>Legendary</b> Beast from any___\n_class to gain its stats.\n__<b>Deathrattle:</b> Summon it.",
+        "cost": 7,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MINI_SET": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "da5a266ec43d10c73ea67c9963058684d2815cee0a64a872d67cbadc41598ece",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "DINO_430",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DINO_430e",
+        "dbf_id": 123511,
+        "name": "传说坐骑",
+        "name_en": "Legendary Mount",
+        "text": "属性值提高。",
+        "text_en": "Increased stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "bab8cd78cfac0af7c3faf4844456aedba262fe08353e1a10354f014920b07a2f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DINO_430e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": []
+}

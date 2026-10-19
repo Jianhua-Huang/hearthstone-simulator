@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原生发现亡语可用`NativeDeathrattleSpec('discovery_summon')`及有限`DeathrattleDiscoveryTarget`，把`DiscoverFromPool`交付到原附件；属性和具名召唤仍用普通效果。`PoolQuery.keywords_none`表达真实关键词排除，原材料、严格范围与待校准政策见[契约](m3-discovered-deathrattle-memory.md)。
+
 `PoolQuery.attack_equals`筛选非负整数随从印刷攻击力，未知事实显式拒绝；与旧奇偶、备选和其他过滤条件合取。战吼后属性任务使用原完成出牌的独立RuleContext，不读付款前数值或后到反应后的当前局面，见[食物链契约](m3-food-chain-attack.md)。
 
 真实双任务通过paired_quest及CastQuestChild沿原施法流程安装两个独立任务，原父施法和安装施法身份保留到恢复/终局；同手随从半体使用有限HandCombinationProfile及原手牌结算入口。原主任务互斥和法术相邻裂变保持，表达与待国服政策见[双任务与半体契约](m3-paired-quests-hand-combinations.md)。

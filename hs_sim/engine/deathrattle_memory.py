@@ -2,7 +2,7 @@
 from dataclasses import dataclass,replace
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError
-from .model import CardType,DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,Zone
+from .model import CardType,DeathrattleMemory,NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,RememberedDiscovery,Zone
 from .sacrifice import MinionReference,reference_value,same_instance,live_minion
 from .zones import CardReference,DiscardCard,discard_card
 
@@ -29,6 +29,8 @@ def validate_ability(state,registry,ability):
         raise ValueError('Deathrattle memory differs from its printed declaration')
     for link in memory.draws:validate_link(state,link)
     for link in memory.dormancies:validate_dormancy_link(state,registry,link)
+    from .discovery_memory import validate_link as validate_discovery_link
+    for link in memory.discoveries:validate_discovery_link(state,registry,link)
     for discard_id in memory.discard_ids:
         if discard_id > len(state.discard_history):raise ValueError('Remembered discard exceeds original history')
         row=state.discard_history[discard_id-1]
@@ -318,4 +320,4 @@ def register(mechanics):
                         (DiscardForDeathrattle,discard_for_memory),
                         (ImprisonForDeathrattle,imprison),(AwakenRememberedDormancy,awaken_remembered)):
         mechanics.register(typ,handler)
-    for typ in (NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,DeathrattleMemory):mechanics.register_payload_type(typ)
+    for typ in (NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,RememberedDiscovery,DeathrattleMemory):mechanics.register_payload_type(typ)

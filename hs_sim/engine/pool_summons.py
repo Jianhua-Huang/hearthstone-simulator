@@ -462,7 +462,7 @@ def validate_closed_events(game):
 def query_from_dict(value):
     from .serialization import _row
     row=_row(value,PoolQuery)
-    for name,kind in (('kinds',CardType),('classes',CardClass),('rarities',Rarity),('spell_schools',SpellSchool),('keywords_all',Keyword)):
+    for name,kind in (('kinds',CardType),('classes',CardClass),('rarities',Rarity),('spell_schools',SpellSchool),('keywords_all',Keyword),('keywords_none',Keyword)):
         row[name]=tuple(kind(v)for v in row[name])
     if type(row['subtypes_any']) not in (list,tuple):
         raise ValueError('Pool subtype filter requires an array or tuple')

@@ -2612,7 +2612,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'draw_link', 'discard_link', 'dormancy_link'):
+        if self.kind not in ('summon_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2655,12 +2655,25 @@ class RememberedDormancy:
 
 
 @dataclass(frozen=True)
+class RememberedDiscovery:
+    battlecry_id: int
+    discovery_id: int
+    card_id: str
+
+    def __post_init__(self):
+        _int(self.battlecry_id, 'remembered discovery Battlecry', 1)
+        _int(self.discovery_id, 'remembered original discovery', 1)
+        _name(self.card_id, 'remembered selected summon face')
+
+
+@dataclass(frozen=True)
 class DeathrattleMemory:
     spec: NativeDeathrattleSpec
     growth_steps: int = 0
     draws: tuple[RememberedDraw, ...] = ()
     discard_ids: tuple[int, ...] = ()
     dormancies: tuple[RememberedDormancy, ...] = ()
+    discoveries: tuple[RememberedDiscovery, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
@@ -2691,6 +2704,17 @@ class DeathrattleMemory:
         if (self.spec.kind != 'dormancy_link' and self.dormancies or
                 self.spec.kind == 'dormancy_link' and (self.draws or self.discard_ids or self.growth_steps)):
             raise ValueError('Native dormancy memory cannot mix unrelated payloads')
+        if type(self.discoveries) is not tuple or any(type(x) is not RememberedDiscovery for x in self.discoveries):
+            raise ValueError('Native discovery memory requires immutable original selections')
+        for link in self.discoveries: link.__post_init__()
+        for key in ('battlecry_id', 'discovery_id'):
+            values = tuple(getattr(x, key) for x in self.discoveries)
+            if values != tuple(sorted(set(values))):
+                raise ValueError('Native discoveries changed their unique original order')
+        if (self.spec.kind != 'discovery_summon' and self.discoveries or
+                self.spec.kind == 'discovery_summon' and
+                (self.draws or self.discard_ids or self.dormancies or self.growth_steps)):
+            raise ValueError('Native discovery memory cannot mix unrelated payloads')
 
 
 @dataclass(frozen=True)

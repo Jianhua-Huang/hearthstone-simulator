@@ -454,6 +454,9 @@ def refresh_discovery(r,effect):
 
 
 def start(r, effect):
+    if effect.memory_target is not None:
+        from .discovery_memory import validate_target
+        validate_target(r.state, r.registry, effect)
     if effect.destination=='board'and effect.cause is None:
         from .summon_quantities import reject_ambiguous
         reject_ambiguous(r)
@@ -529,6 +532,9 @@ def resolve_discovery(r, effect):
                 sort_keys=True,separators=(',',':')),_capture=False)
     committed=replace(effect.selection,result=effect.choice_result)
     continued=ContinuePoolDiscovery(spec,(*batch.selections,committed),batch.producer_id)
+    if spec.memory_target is not None:
+        from .discovery_memory import apply_selection
+        return (*apply_selection(r, effect), continued)
     if spec.keep_all_corpse_cost is not None:
         from .discovery_keep import begin
         return (*begin(r,effect),continued)
@@ -548,6 +554,8 @@ def resolve_discovery(r, effect):
 
 
 def validate_boundary(game):
+    from .discovery_memory import validate_boundary as validate_memory_boundary
+    validate_memory_boundary(game)
     from .discovery_destinations import validate_boundary as validate_destination_boundary
     validate_destination_boundary(game)
     from .discovery_keep import validate_boundary as validate_kept
@@ -562,10 +570,16 @@ def validate_boundary(game):
         if type(value)is ContinuePoolDiscovery:
             validate_batch(game.registry,game._generation_context,value)
             validate_receipt_history(game._state,value)
+            if value.spec.memory_target is not None:
+                from .discovery_memory import validate_target
+                validate_target(game._state,game.registry,value.spec)
             return
         if type(value)is ResolvePoolDiscovery:
             validate_selection(game.registry,game._generation_context,value)
             validate_receipt_history(game._state,value.batch,value.choice_result)
+            if value.batch.spec.memory_target is not None:
+                from .discovery_memory import validate_target
+                validate_target(game._state,game.registry,value.batch.spec)
             return
         if type(value)is RefreshPoolDiscovery:
             validate_refresh(game.registry,game._generation_context,value)
@@ -624,6 +638,8 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    from .discovery_memory import register as register_memory
+    register_memory(mechanics)
     mechanics.register_payload_type(DiscoveryPick)
     mechanics.register(ContinuePoolDiscovery,continue_discovery)
     mechanics.register(ResolvePoolDiscovery,resolve_discovery)

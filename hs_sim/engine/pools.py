@@ -197,6 +197,7 @@ class PoolQuery:
     attack_parity: str | None = None
     card_ids: tuple[str, ...] = ()
     attack_equals: int | None = None
+    keywords_none: tuple[Keyword, ...] = ()
 
     def __post_init__(self):
         if self.attack_equals is not None:
@@ -225,7 +226,7 @@ class PoolQuery:
             if self.ability.ability != 'battlecry':
                 raise ValueError('Pool structural ability filter supports Battlecry; printed Outcast uses keywords_all')
         for field, kind in (('kinds', CardType), ('classes', CardClass), ('rarities', Rarity),
-                            ('spell_schools', SpellSchool), ('keywords_all', Keyword)):
+                            ('spell_schools', SpellSchool), ('keywords_all', Keyword), ('keywords_none', Keyword)):
             enum_tuple(getattr(self, field), kind, field)
         for field in ('min_cost', 'max_cost'):
             if getattr(self, field) is not None:
@@ -322,6 +323,8 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
     if query.spell_schools and spell_school not in query.spell_schools:
         return False
     if not set(query.keywords_all).issubset(keywords):
+        return False
+    if set(query.keywords_none).intersection(keywords):
         return False
     if meta is not None:
         if query.rarities:
@@ -542,6 +545,7 @@ class DiscoverFromPool(Effect):
     summon_copy_corpse_cost: int | None = None
     paired_choose_one: bool = False
     refresh_card_id: str | None = None
+    memory_target: object | None = None
 
     def __post_init__(self):
         if self.refresh_card_id is not None:
@@ -812,8 +816,11 @@ class FillHandFromPool(Effect):
 
 
 def validate_delivery(effect):
-    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck','hand_or_opponent_top'):
+    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck','hand_or_opponent_top','memory'):
         raise ValueError('Invalid generation replacement or destination')
+    if effect.destination == 'memory' or getattr(effect, 'memory_target', None) is not None:
+        from .discovery_memory import validate_spec
+        validate_spec(effect)
     if effect.destination=='hand_or_opponent_top':
         from .discovery_destinations import validate_spec
         validate_spec(effect)
