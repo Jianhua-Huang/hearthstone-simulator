@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .native_stat_gains import RewardNativeStatGain,validate_request as validate_native_stat_gain_request
+        if type(value) is RewardNativeStatGain and self.origin_state is not None:
+            validate_native_stat_gain_request(self.origin_state,self.registry,value)
         from .dark_gift_echo import CopyReceivedDarkGift
         if type(value) is CopyReceivedDarkGift and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)

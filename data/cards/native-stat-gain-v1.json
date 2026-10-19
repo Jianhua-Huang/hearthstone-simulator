@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "task": {
+    "schema": 1,
+    "batch": "K285-native-stat-gain",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k284-live-source-hand-spell/inventory-01.json",
+    "candidate_inventory_sha256": "6c7adf0e2be66378b81400cf8ff8394568c203f5632047ee7c154d80add4ee95",
+    "roots": [
+      "JAIL_330"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "JAIL_330e"
+    ],
+    "official_ids": [
+      "JAIL_330"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Audit actual positive stat gains in physical stored/board zones, one native extra+1/+1 without recursively counting its own extra grant. Keep current Holy grants and ordinary attachment/stat operations; determine real windows and gains versus aura/recalculation first.",
+        "cards": [
+          "JAIL_330"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/native_stat_gain_card.py",
+      "data/cards/native-stat-gain-v1.json",
+      "tests/test_native_stat_gain_card.py"
+    ]
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_330",
+        "dbf_id": 126620,
+        "name": "达拉然魔像勇士",
+        "name_en": "Dalaran Champion",
+        "text": "<b>圣盾</b>。<b>嘲讽</b>。在本随从获得属性值后，额外获得+1/+1<i>（无论本随从在哪）。</i>",
+        "text_en": "[x]<b>Divine Shield</b>, <b>Taunt</b>\nAfter this gains stats,\ngain an extra +1/+1\n<i>(wherever this is).</i>",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1724": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Kenji"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "d95df0ddf8c361087892a21699cbf0c3b7803c2ed5243464abb8f82a7569b386",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "JAIL_330",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_330e",
+        "dbf_id": 133047,
+        "name": "战斗模式启动",
+        "name_en": "Activated Combat Mode",
+        "text": "+{0}/+{1}。",
+        "text_en": "+{0}/+{1}.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "10220c2b19d64443c7151767de54844e5a7da0a1383fd1a98aa76abdde9c3b02",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_330e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_330",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126620-zh_CN.json",
+      "response_sha256": "86655531d7bac36961e24eeeeadc6ca4fff95f9f5c7008e2ad3264ad14a0b427",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126620&locale=zh_CN",
+      "face": {
+        "id": 126620,
+        "collectible": 1,
+        "slug": "126620-dalaran-champion",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Eric Kenji",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "达拉然魔像勇士",
+        "text": "<b>圣盾</b>。<b>嘲讽</b>。在本随从获得属性值后，额外获得+1/+1<i>（无论本随从在哪）。</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21eb19110c2165f02e7b3eb53649a2555b3ad89b94ffb97dc876e993f47a9149.png",
+        "imageGold": "",
+        "flavorText": "你给我等着，鼠辈。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3701eb903c3735ae258769c0d9e34dee1ccdf7723a478fe31721f50c3e2049cb.png",
+        "keywordIds": [
+          1,
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126620&locale=zh_CN",
+        "sha256": "86655531d7bac36961e24eeeeadc6ca4fff95f9f5c7008e2ad3264ad14a0b427",
+        "bytes": 813,
+        "observed_at": "2026-10-19T20:21:52.997968+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_330",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126620-en_US.json",
+      "response_sha256": "aa11149638e37c810430b20241014d441bd9483e14707710ee0411c9ebab2609",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126620&locale=en_US",
+      "face": {
+        "id": 126620,
+        "collectible": 1,
+        "slug": "126620-dalaran-champion",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 4,
+        "artistName": "Eric Kenji",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Dalaran Champion",
+        "text": "<b>Divine Shield</b>, <b>Taunt</b> After this gains stats, gain an extra +1/+1 <i>(wherever this is).</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50a5b8eac90a02363b5e621c815d3d838dc969d4de105a6720c525cc118d2ea9.png",
+        "imageGold": "",
+        "flavorText": "Stand ready for my arrival, worm.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3701eb903c3735ae258769c0d9e34dee1ccdf7723a478fe31721f50c3e2049cb.png",
+        "keywordIds": [
+          1,
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126620&locale=en_US",
+        "sha256": "aa11149638e37c810430b20241014d441bd9483e14707710ee0411c9ebab2609",
+        "bytes": 800,
+        "observed_at": "2026-10-19T20:21:53.163735+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "unit": "one positive new ordered local stat attachment",
+    "reward": [
+      1,
+      1
+    ],
+    "self_reward": "excluded from new gain windows",
+    "copies": "frozen copied attachments are existing material; explicit later overrides are new operations",
+    "auras": "derived recalculation is not a new gain",
+    "set_operations": "compare original local operands at the ordered application point",
+    "reward_expiry": "permanent extra; original lifetime remains on original attachment",
+    "CN_calibrated": false,
+    "formal_pool_complete": false
+  }
+}

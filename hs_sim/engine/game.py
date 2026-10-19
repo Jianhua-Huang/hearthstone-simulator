@@ -591,6 +591,8 @@ class Game:
         validate_carved_boundary(self)
         from .live_hand_spells import validate_boundary as validate_live_hand_spell_boundary
         validate_live_hand_spell_boundary(self)
+        from .native_stat_gains import validate_boundary as validate_native_stat_gain_boundary
+        validate_native_stat_gain_boundary(self)
         from .cross_zone import validate_boundary as validate_cross_zone_boundary
         validate_cross_zone_boundary(self)
         from .hand_progress import validate_defining_history

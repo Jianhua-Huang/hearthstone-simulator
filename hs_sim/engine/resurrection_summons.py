@@ -98,7 +98,10 @@ def create_body(r,material,player_id,position):
 
 def apply(r,material,entity,root_id,index):
     from .lifecycle import apply_summon_stats
-    entity.origin_entity_id=material.death.entity_id;apply_summon_stats(r.state,entity,material.stats)
+    entity.origin_entity_id=material.death.entity_id
+    from .native_stat_gains import seed
+    seed(r,entity,replace_existing=True)
+    apply_summon_stats(r.state,entity,material.stats)
     row=ResurrectionRecord(len(r.state.resurrection_history)+1,material.death.id,entity.id,entity.controller,r.state.turn,r.state.action_number,
         None if material.source is None else material.source.entity_id,material.stats,entity.entered_order,entity.zone_epoch)
     r.state.resurrection_history.append(row);r.refresh_auras()

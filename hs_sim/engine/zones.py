@@ -937,6 +937,8 @@ def copy_physical_card(r, effect, *, minion_grant=None):
             from .lifecycle import refresh_entity
             refresh_entity(entity)
     from .lifecycle import apply_summon_stats
+    from .native_stat_gains import seed
+    seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state, entity, effect.stats)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)

@@ -383,6 +383,8 @@ def apply(r,material,entity):
             from .herald import initialize_instance
             initialize_instance(r.state,entity,r.registry.card(material.card_id),count=material.entry_herald_count)
     from .lifecycle import apply_summon_stats
+    from .native_stat_gains import seed
+    seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state,entity,material.stats)
     if material.minion_grant is not None:
         from types import SimpleNamespace

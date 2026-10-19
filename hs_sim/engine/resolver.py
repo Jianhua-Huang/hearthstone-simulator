@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v563'
+CORE_EFFECTS_VERSION = 'core-effects-v564'
 
 
 class Mechanics:
@@ -522,10 +522,13 @@ class Resolution:
 
     def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
         from .entity_materialization import create_entity
-        return create_entity(self.state, self.registry, player_id, card_id, zone, position, ready,
+        entity=create_entity(self.state, self.registry, player_id, card_id, zone, position, ready,
             components=components, hand_entry_reason=hand_entry_reason,
             additional_hero_power=additional_hero_power, entry_herald_count=entry_herald_count,
             interactable_object=interactable_object, entry_dormant_turns=entry_dormant_turns)
+        from .native_stat_gains import seed
+        seed(self,entity)
+        return entity
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
         if entity.kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.SETASIDE):
@@ -851,7 +854,10 @@ class Resolution:
             self._cause_reason = type(work).__name__
             self._cause_target_id = getattr(work, 'target_id', None)
             self._cause_source = deepcopy(self.state.entities.get(getattr(work, 'source_id', None)))
+            from .native_stat_gains import begin as begin_stat_gain,finish as finish_stat_gain
+            begin_stat_gain(self,work)
             generated = self.game.mechanics.handler(work)(self, work)
+            stat_gain_work=finish_stat_gain(self)
             continuation = [] if generated is None else self.collect(generated)
             if any(not isinstance(item, (Effect, BehaviorCall)) for item in continuation):
                 raise ResolutionError('Effect handler returned invalid work')
@@ -870,7 +876,7 @@ class Resolution:
                 for p in self.state.players.values())
             deathrattles = [] if defer else self.death_checkpoint()
             self.refresh_auras(include_dying=defer)
-            triggers, self._captured = self._captured, []
+            triggers, self._captured = [*stat_gain_work,*self._captured], []
             hero_mode = self.state.active_hero_lethal_root_id is not None
             routed = route_hero_work(self,queue,triggers,deathrattles,continuation,self._hero_new_work,
                 new_root=had_hero_root is None and hero_mode)
@@ -2182,6 +2188,8 @@ def copy_minion(r, effect):
         entity.corpse_value = source.corpse_value
         copy_attachments(r.state, source, entity)
     from .lifecycle import apply_summon_stats
+    from .native_stat_gains import seed
+    seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state, entity, effect.stats)
     r.refresh_auras()
     from .combat import can_be_frozen
@@ -2761,5 +2769,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_minion_jars(mechanics)
     from .live_hand_spells import register as register_live_hand_spells
     register_live_hand_spells(mechanics)
+    from .native_stat_gains import register as register_native_stat_gains
+    register_native_stat_gains(mechanics)
     return mechanics
 
