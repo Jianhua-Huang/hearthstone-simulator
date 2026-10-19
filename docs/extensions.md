@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实存储随从按友方受伤门槛自行入场时，组合`damage_records`、显式双区域`HandProgressSpec`和带原`SummonCause`的`SummonStoredCard`；用原物理引用，不按卡名新建身体。原包前缀与待国服政策见[契约](m3-friendly-damage-recruit.md)。
+
 真实敌方额外效果偷取使用`StealBonusEffects`及原`MinionReference`，按当前标记接受后组合普通授予和合计奖励；不要使用随机候选筛选、沉默或按附件数量计数。有限范围与待国服边界见[契约](m3-stolen-bonus-effects.md)。
 
 真实法术的“结束你的回合”使用`RequestNaturalTurnEnd(cast_id)`，由解释器尾部委托原正常结束阶段；不要直接切换玩家或让宿主补发EndTurn。与既有整卡重放组合及原义务保存见[契约](m3-requested-natural-end.md)。
