@@ -424,6 +424,8 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         elif type(material)is RecruitEntryMaterial:
             from .recruit_summons import validate_material as validate_recruit_material
             validate_recruit_material(state,registry,material,closed=closed)
+            from .minion_hand_swaps import validate_recipe as validate_swap_recipe
+            validate_swap_recipe(request,material)
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import validate_material as validate_death_material
             validate_death_material(state,registry,material,closed=closed)
@@ -436,7 +438,8 @@ def accept(r,effect):
     plan=capture_plan(r.state,effect.cause)
     if plan.total>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Summon quantity exceeds resolution budget')
     before=r.game._rng.getstate()
-    selected=None if not effect.materials or effect.capacity=='selection_requires_space'and len(r.player(effect.player_id).board)>=r.rules.max_board else select_material(r.game._rng,effect)
+    from .minion_hand_swaps import entry_has_space
+    selected=None if not effect.materials or effect.capacity=='selection_requires_space'and not entry_has_space(r,effect) else select_material(r.game._rng,effect)
     from .entry_strength import capture as capture_entry_strength
     root=CardSummonRecord(r.state.next_card_summon_id,len(r.game._events),effect,plan,selected,before,r.game._rng.getstate(),
         entry_strength=capture_entry_strength(r.state,r.registry,effect,selected))
@@ -462,7 +465,8 @@ def deliver(r,effect):
         return ()
     material=root.request.materials[root.selected];entity=None
     position=None if root.request.position is None else root.request.position+effect.index
-    if len(r.player(root.request.player_id).board)>=r.rules.max_board:
+    from .minion_hand_swaps import entry_has_space
+    if not entry_has_space(r,root.request,effect.index):
         if type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import failed
             failed(r,material,root.request.player_id)
@@ -478,6 +482,7 @@ def deliver(r,effect):
         else:
             components=()
             if type(material)is CopyEntryMaterial:components=material.components
+            if type(material)is RecruitEntryMaterial:components=material.copy.components
             if type(material) is PhysicalReplayEntryMaterial:
                 from .offered_card_execution import components_for_entry
                 components=components_for_entry(r.state,r.registry,material)
@@ -524,6 +529,8 @@ def deliver(r,effect):
             continuation=tuple(enter_death(r,material,entity))
         elif type(material)is RecruitEntryMaterial:
             from .colossal import enter_minion
+            if effect.index==0 and material.swap_minion is not None:
+                r.emit('card_returned',target_id=material.swap_minion.entity_id,player_id=material.reference.player_id)
             continuation=tuple(enter_minion(r,entity,'stored'))
             if material.on_summon is not None:
                 from .recruit_summons import ContinueRecruitedMinion

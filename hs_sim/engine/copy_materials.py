@@ -159,8 +159,12 @@ class CopyEntryMaterial:
     on_summon:str|None=None
     minion_grant:CreatedMinionGrant|None=None
     grant_source_id:int|None=None
+    stored_components:tuple[str,...]=()
 
     def __post_init__(self):
+        if (type(self.stored_components)is not tuple or any(type(x)is not str or not x for x in self.stored_components)
+                or self.stored_components and (self.profile!='stored_copy' or self.mode!='current')):
+            raise ValueError('Stored composition requires its current physical minion recipe')
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is None:
             if self.grant_source_id is not None:raise ValueError('Copy grant source requires an actual entry grant')
@@ -212,11 +216,12 @@ class CopyEntryMaterial:
 
     @property
     def components(self):
-        return self.discard.components if self.profile=='discard_summon_copy' else ()
+        return self.discard.components if self.profile=='discard_summon_copy' else self.stored_components
 
     @classmethod
     def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None,on_summon=None,minion_grant=None,grant_source_id=None):
-        if source.components and profile!='discard_summon_copy':raise ValueError('Composite copy material is unsupported by this ordinary profile')
+        if source.components and profile!='discard_summon_copy' and not(profile=='stored_copy'and mode=='current'):
+            raise ValueError('Composite copy material is unsupported by this ordinary profile')
         if profile in ('discard_copy','discard_summon_copy'):
             from .discard_history import validate_material,validate_base_copy
             validate_discard=validate_base_copy if profile=='discard_summon_copy' else validate_material
@@ -235,6 +240,7 @@ class CopyEntryMaterial:
             source.dormancy is not None and profile == 'board_copy' and mode == 'current')
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
+        if profile=='stored_copy'and mode=='current':result=replace(result,stored_components=source.components)
         if profile in ('discard_copy','discard_summon_copy'):validate_scope(state,registry,result,hand_copy=profile=='discard_copy')
         return result
 
@@ -242,16 +248,21 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__()
-    if material.profile=='discard_summon_copy':
+    if material.profile=='stored_copy':
+        card=registry.card(material.card_id)
+        if card.kind!=CardType.MINION or not card.hand_playable or card.choice_only or bool(card.starship_for)!=bool(material.components):
+            raise ValueError('Stored entry lost its complete physical minion or composition')
+        for cid in material.components:
+            if registry.card(cid).kind!=CardType.MINION:raise ValueError('Stored composition has a non-minion component')
+    elif material.profile=='discard_summon_copy':
         from .discard_history import validate_base_recipe
         validate_base_recipe(registry,material.discard)
         card=registry.card(material.card_id)
         if not card.hand_playable or card.choice_only:
             raise ValueError('Discard summon requires its original physical minion face')
     else:
-        # Board copies already restore their accepted material and delegate
-        # entry to colossal.enter_minion. Other stored/recruit profiles retain
-        # their existing eligibility policy.
+        # Board copies restore accepted material and delegate native Colossal
+        # entry. Stored first/extra entries use the physical branch above.
         validate_plain_material(registry, SummonEntryMaterial(material.card_id),
                                 allow_colossal=material.profile=='board_copy')
     if material.on_summon is not None:registry.behavior(material.on_summon)
@@ -387,6 +398,7 @@ def from_dict(cls,value):
         row['enchantments']=tuple(_enchantment_from_dict(x)for x in row['enchantments'])
         row['abilities']=tuple(_ability_from_dict(x)for x in row['abilities'])
     elif cls is CopyEntryMaterial:
+        row['stored_components']=tuple(_list(row['stored_components'],'stored original minion components'))
         row['origin']=allocation_from_dict(row['origin'])
         row['local']=None if row['local']is None else from_dict(CopyLocalState,row['local'])
         row['stats']=None if row['stats']is None else SummonStats(**_row(row['stats'],SummonStats))

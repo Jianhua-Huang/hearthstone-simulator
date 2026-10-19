@@ -22,7 +22,14 @@ class RecruitEntryMaterial:
     reference:CardReference
     copy:CopyEntryMaterial
     on_summon:str|None=None
+    swap_minion:MinionReference|None=None
     def __post_init__(self):
+        from .zones import CardReference
+        if type(self.reference)is not CardReference or type(self.copy)is not CopyEntryMaterial:raise ValueError('Typed physical first/extra recruit material required')
+        if self.swap_minion is not None:
+            reference_value(self.swap_minion)
+            if self.reference.zone != Zone.HAND or self.on_summon is not None or self.copy.stats is not None:
+                raise ValueError('Hand swap requires its plain physical hand material')
         if self.on_summon is not None:_behavior(self.on_summon)
         from .zones import CardReference
         if type(self.reference)is not CardReference or type(self.copy)is not CopyEntryMaterial:raise ValueError('Typed physical first/extra recruit material required')
@@ -35,6 +42,8 @@ class RecruitEntryMaterial:
 def validate_material(state,registry,material,*,closed=False):
     from .copy_materials import validate_scope
     material.__post_init__();validate_scope(state,registry,material.copy,closed=closed)
+    from .minion_hand_swaps import validate_material as validate_swap_material
+    validate_swap_material(state,registry,material)
     if material.on_summon is not None:registry.behavior(material.on_summon)
 
 
@@ -42,6 +51,9 @@ def first_body(r,material,player_id,position):
     from .zones import reference_entity
     entity=reference_entity(r,material.reference)
     if entity is None:raise ResolutionError('Accepted first recruit lost its physical source before delivery')
+    if material.swap_minion is not None:
+        from .minion_hand_swaps import return_partner
+        position=return_partner(r,material,player_id)
     if entity.controller!=player_id:
         getattr(r.player(entity.controller),entity.zone.value).remove(entity.id)
         entity.controller=player_id;getattr(r.player(player_id),entity.zone.value).append(entity.id)
@@ -62,8 +74,13 @@ def validate_delivery(material,delivery,player_id):
 def accept_entry(r,effect,source):
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect(r.state,r.registry,effect)
-    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon)
-    request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position,producer_link=effect.producer_link)
+    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon,effect.swap_minion)
+    position=effect.position
+    if effect.swap_minion is not None:
+        body=live_minion(r.state,effect.swap_minion)
+        if body is None:return ()
+        position=r.player(effect.player_id).board.index(body.id)
+    request=SummonByCard(effect.player_id,(material,),effect.cause,position=position,producer_link=effect.producer_link)
     accept(r,request);child=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,child.id)
     return (*deliver(r,DeliverCardSummon(child.id,0)),FinishCardSummon(child.id))
@@ -460,6 +477,8 @@ def validate_frame_references(state,registry,value):
     from .continuations import FrameCodec
     def visit(item,scope,depth):
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Physical recruit frame depth exceeded')
+        from .minion_hand_swaps import SwapWithOpponentHand
+        if type(item)is SwapWithOpponentHand:item.validate_in_state(scope,registry);return
         if type(item)is SummonFromStoredCandidates:validate_stored_candidates(scope,registry,item);return
         if type(item)in(SummonStoredCard,SummonFromZone)and item.cause is not None:validate_effect(scope,registry,item);return
         if type(item)is ContinueRecruit:
@@ -498,6 +517,7 @@ def from_dict(cls,value):
     if cls is RecruitEntryMaterial:
         ref=_row(row['reference'],CardReference);ref['zone']=Zone(ref['zone']);row['reference']=CardReference(**ref)
         row['copy']=copy_from_dict(CopyEntryMaterial,row['copy'])
+        row['swap_minion']=None if row['swap_minion']is None else MinionReference(**_row(row['swap_minion'],MinionReference))
     elif cls is RecruitCandidateFact:row['allocation']=allocation_from_dict(row['allocation'])
     elif cls is RecruitBasis:
         row['zone']=Zone(row['zone']);row['query']=query_from_dict(row['query']);row['source']=allocation_from_dict(row['source'])

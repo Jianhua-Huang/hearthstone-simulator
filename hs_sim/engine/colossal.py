@@ -16,8 +16,15 @@ class SummonStoredCard(Effect):
     cause: object = None
     producer_link: object = None
     on_summon: str | None = None
+    swap_minion: object = None
 
     def __post_init__(self):
+        if self.swap_minion is not None:
+            from .minion_hand_swaps import validate_pair
+            validate_pair(self.swap_minion, self.cause)
+            if (self.card.zone != Zone.HAND or self.card.player_id != 3 - self.player_id or
+                    self.producer_link is not None or self.stats is not None or self.on_summon is not None):
+                raise ValueError('Hand swap requires one original plain opposing-hand entry')
         if self.on_summon is not None:
             _behavior(self.on_summon)
             if self.cause is None: raise ValueError('Stored recruit followup requires original card attribution')

@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "batch": "K260-alarm-hand-swap",
+  "task": {
+    "schema": 1,
+    "batch": "K260-alarm-hand-swap",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "JAIL_502"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [
+      "JAIL_502e"
+    ],
+    "official_ids": [
+      "JAIL_502"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Actual owner-start swap of original board minion and random opposing hand minion; audit shared stored summon and original return/admission, capacity, reset and event semantics before implementation.",
+        "cards": [
+          "JAIL_502"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/alarm_hand_swap_card.py",
+      "data/cards/alarm-hand-swap-v1.json",
+      "tests/test_alarm_hand_swap_card.py"
+    ],
+    "numeric_normalizations": {
+      "JAIL_502": {
+        "attack": 0
+      }
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "JAIL_502",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k260-alarm-hand-swap\\official-cache-02\\125986-zh_CN.json",
+      "response_sha256": "a8add146aa19cfbba7cc11238564d6504cd54a73f11a94a9ebd6b50c6fe17974",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=125986&locale=zh_CN",
+      "face": {
+        "id": 125986,
+        "collectible": 1,
+        "slug": "125986-alarm-o-matic",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 3,
+        "name": "狂乱报警机",
+        "text": "在你的回合开始时，随机将你对手的手牌中的一张随从牌与本随从交换。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffce43bb7f1b3020aa379dee5cbf5932003f1f3e9113d47a6a9c90659c90f3b5.png",
+        "imageGold": "",
+        "flavorText": "咿……唔……咿……唔……咿！唔！咿！唔！咿！唔！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b0086a921d2820bedd362fbfccaa59928eb8e7cf147b4b4783250463a462208.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=125986&locale=zh_CN",
+        "sha256": "a8add146aa19cfbba7cc11238564d6504cd54a73f11a94a9ebd6b50c6fe17974",
+        "bytes": 832,
+        "observed_at": "2026-10-19T11:06:38.945650+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_502",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k260-alarm-hand-swap\\official-cache-02\\125986-en_US.json",
+      "response_sha256": "95bed4575d5ffab65128ef88de4d7c22607d6f14ccaa2f1a49f76acc950de1e7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=125986&locale=en_US",
+      "face": {
+        "id": 125986,
+        "collectible": 1,
+        "slug": "125986-alarm-o-matic",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 3,
+        "name": "Alarm-o-Matic",
+        "text": "At the start of your turn, swap this minion with a random one in your opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d95ed8f5ac4525242f4c772f8aa0bbf1727505d17452587094839da7ca46cba.png",
+        "imageGold": "",
+        "flavorText": "Weeee woooo... weeee woooo... WEE WOO! WEE WOO! WEE WOO!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b0086a921d2820bedd362fbfccaa59928eb8e7cf147b4b4783250463a462208.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=125986&locale=en_US",
+        "status": 200,
+        "bytes": 804,
+        "sha256": "95bed4575d5ffab65128ef88de4d7c22607d6f14ccaa2f1a49f76acc950de1e7",
+        "observed_at": "2026-10-19T11:05:52.143290+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_502",
+        "dbf_id": 125986,
+        "name": "狂乱报警机",
+        "name_en": "Alarm-o-Matic",
+        "text": "在你的回合开始时，随机将你对手的手牌中的一张随从牌与本随从交换。",
+        "text_en": "At the start of your turn, swap this minion with a random one in your opponent's hand.",
+        "cost": 3,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "COST": 3,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "9a85a5aee26e9c6746c03b67d401512c00fc45bf76542f61bb9c046e93858b80",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_502",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_502e",
+        "dbf_id": 125987,
+        "name": "诡诈",
+        "name_en": "Subterfuge",
+        "text": "在本回合中，你施放的下一个法术的法力值消耗减少（3）点。",
+        "text_en": "The next spell you cast this turn costs (3) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "CANT_BE_SILENCED": 1,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9d159047b3e01983efdd03a075ab20f1696d564d63498caa21e2558188172f5e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_502e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": []
+}
