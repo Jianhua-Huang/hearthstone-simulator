@@ -1,0 +1,1106 @@
+{
+  "batch": "K233-azshara-fabled-locations",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_211",
+        "dbf_id": 119928,
+        "name": "艾萨拉女士",
+        "name_en": "Lady Azshara",
+        "text": "<b>奇闻</b>\n<b>抉择：</b>强化辛艾萨莉；或者永恒之井。<i>（未选择的选项会被摧毁！）</i>",
+        "text_en": "[x]<b>Fabled</b>. <b>Choose One -</b>\nEmpower Zin-Azshari; or\nThe Well of Eternity. <i>(The\n__other gets destroyed!)</i>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "64ac67151dae726841dbaa9a53fac8b6057aaac5c5204099829fa642d8ef0889",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_211",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_211a",
+        "dbf_id": 120204,
+        "name": "强化辛艾萨莉",
+        "name_en": "Empower Zin-Azshari",
+        "text": "辛艾萨莉召唤的随从会拥有翻倍属性值。摧毁永恒之井。",
+        "text_en": "[x]The minions summoned\nby Zin-Azshari will have\ndoubled stats. Destroy\nThe Well of Eternity.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "9c01ac51cde5ef29284115cc6feb5b92ad5b4ce2f1741c8557e11518e9b35ebb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211a",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211b",
+        "dbf_id": 120205,
+        "name": "强化永恒之井",
+        "name_en": "Empower the Well",
+        "text": "永恒之井创建的法术会施放两次。摧毁辛艾萨莉。",
+        "text_en": "The spells created by The Well of Eternity will cast twice.\nDestroy Zin-Azshari.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "0d74ddf2661f648f9dddc454efa84d1cc41211bba011b046841918a631ebe949",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211t1",
+        "dbf_id": 119929,
+        "name": "永恒之井",
+        "name_en": "The Well of Eternity",
+        "text": "用随机的<b>临时</b>法术牌填满你的手牌。",
+        "text_en": "Fill your hand\nwith random\n<b>Temporary</b> spells.",
+        "cost": 4,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 39,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "13cdc64995deec35c6af2c66825b6c83e64b1c4f21b305e9f03d9aa28c7a1d39",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211t1t",
+        "dbf_id": 120200,
+        "name": "永恒之井",
+        "name_en": "The Well of Eternity",
+        "text": "用随机的<b>临时</b>法术牌填满你的手牌，这些牌会施放两次。",
+        "text_en": "[x]Fill your hand\nwith random <b>Temporary</b>\nspells. They cast twice.",
+        "cost": 4,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 39
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3630",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "413d81130bdc5e5c90f5c6619c8bf672a88b574e2d4595a1f4532a0756f0fd12",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t1t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211t2",
+        "dbf_id": 119930,
+        "name": "辛艾萨莉",
+        "name_en": "Zin-Azshari",
+        "text": "召唤一个友方随从的一个复制。",
+        "text_en": "Summon a copy of a friendly minion.",
+        "cost": 4,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 39,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "a12bcbb3f88f0deb004fd445f8ee7c4ea379d8c86f3c1359589d8a56cc968b11",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211t2t",
+        "dbf_id": 120202,
+        "name": "辛艾萨莉",
+        "name_en": "Zin-Azshari",
+        "text": "召唤一个友方随从的一个具有翻倍属性值的复制。",
+        "text_en": "Summon a copy of a friendly minion with\nits stats doubled.",
+        "cost": 4,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 39
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "e7e59668b7f0a240ddf46f90fc86d146fdaa86a8845de87c6a8fb1ce199f1cb6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t2t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_211t1te",
+        "dbf_id": 120201,
+        "name": "永恒",
+        "name_en": "Eternalized",
+        "text": "施放两次。",
+        "text_en": "Casts twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8e8adbf64362825e57eb5603f150688eea1d75b6c83de324edb39384aaaccaac",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t1te",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_211t2te",
+        "dbf_id": 120203,
+        "name": "都城之力",
+        "name_en": "The City's Strength",
+        "text": "属性值翻倍。",
+        "text_en": "Doubled stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "778b98c0202757d1f10d34c1a6d3d5fd0fcf5da7c60c400461fa10e12c0a0f89",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_211t2te",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TIME_211",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119928-zh_CN.json",
+      "response_sha256": "7ef290870fcd5cd6b757f94eaa5e6400322a1807f31d79fd8205125f51a21b5e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119928&locale=zh_CN",
+      "face": {
+        "id": 119928,
+        "collectible": 1,
+        "slug": "119928-lady-azshara",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Eva Widermann",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "艾萨拉女士",
+        "text": "<b>奇闻</b> <b>抉择：</b>强化辛艾萨莉；或者永恒之井。<i>（未选择的选项会被摧毁！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91488f2d719f27d27fe2876d2d85c272f19ac5d4d8b7d83d8d880852fd37267e.png",
+        "imageGold": "",
+        "flavorText": "艾萨拉曾是卡多雷一族仁善的女王。而在某条时间线中，她一直都是这样的女王。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d847227867d1e3e36d10e576e5901a500368baa0a6ca397903ba8ae93dc55c8f.png",
+        "childIds": [
+          119930,
+          119929,
+          120204,
+          120202,
+          120205,
+          120200
+        ],
+        "keywordIds": [
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119929,
+          119930
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119928&locale=zh_CN",
+        "sha256": "7ef290870fcd5cd6b757f94eaa5e6400322a1807f31d79fd8205125f51a21b5e",
+        "bytes": 998,
+        "observed_at": "2026-10-19T01:07:04.974017+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119928-en_US.json",
+      "response_sha256": "6b36ce9703d49ce4a3c9594f80062c145b99d00210e39ef9a82afb44cc97348e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119928&locale=en_US",
+      "face": {
+        "id": 119928,
+        "collectible": 1,
+        "slug": "119928-lady-azshara",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Eva Widermann",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Lady Azshara",
+        "text": "<b>Fabled</b>. <b>Choose One -</b> Empower Zin-Azshari; or The Well of Eternity. <i>(The other gets destroyed!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3eea287dc6c1daaed91b7f0940a42b839aea4df0e839acab7a0782c26acd1784.png",
+        "imageGold": "",
+        "flavorText": "There was a time when Azshara was a benevolent queen to the Kaldorei. There is a timeline where she even stayed one.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d847227867d1e3e36d10e576e5901a500368baa0a6ca397903ba8ae93dc55c8f.png",
+        "childIds": [
+          119930,
+          119929,
+          120204,
+          120202,
+          120205,
+          120200
+        ],
+        "keywordIds": [
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          119929,
+          119930
+        ]
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119928&locale=en_US",
+        "sha256": "6b36ce9703d49ce4a3c9594f80062c145b99d00210e39ef9a82afb44cc97348e",
+        "bytes": 1000,
+        "observed_at": "2026-10-19T01:07:04.615494+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211a",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120204-zh_CN.json",
+      "response_sha256": "e67cf2fca25832162174f7d08e710eb1b27397c6eadabe010c45009f6673b958",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120204&locale=zh_CN",
+      "face": {
+        "id": 120204,
+        "collectible": 0,
+        "slug": "120204-empower-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Gabor Szikszai",
+        "manaCost": 5,
+        "name": "强化辛艾萨莉",
+        "text": "辛艾萨莉召唤的随从会拥有翻倍属性值。摧毁永恒之井。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/179350574321182a3a445020885f95c98043bc9937791b38dce7fbcb1654abab.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120204&locale=zh_CN",
+        "sha256": "e67cf2fca25832162174f7d08e710eb1b27397c6eadabe010c45009f6673b958",
+        "bytes": 610,
+        "observed_at": "2026-10-19T01:07:04.502834+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211a",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120204-en_US.json",
+      "response_sha256": "48fba694849ae2f3dab0ae55be26da5a1c802d49931b5ac59c7fc2853e3763ff",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120204&locale=en_US",
+      "face": {
+        "id": 120204,
+        "collectible": 0,
+        "slug": "120204-empower-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Gabor Szikszai",
+        "manaCost": 5,
+        "name": "Empower Zin-Azshari",
+        "text": "The minions summoned by Zin-Azshari will have doubled stats. Destroy The Well of Eternity.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec62c27d133b7000d80eb92c7232a11167fcc5ae22b4a919e3c5dad195ffa974.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120204&locale=en_US",
+        "sha256": "48fba694849ae2f3dab0ae55be26da5a1c802d49931b5ac59c7fc2853e3763ff",
+        "bytes": 626,
+        "observed_at": "2026-10-19T01:07:04.690474+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211b",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120205-zh_CN.json",
+      "response_sha256": "b93c492de7ea1d5c9b9c2bfb4ffd1d14ec1b290f7bcd88305a254a0129ee276c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120205&locale=zh_CN",
+      "face": {
+        "id": 120205,
+        "collectible": 0,
+        "slug": "120205-empower-the-well",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Gabor Szikszai",
+        "manaCost": 5,
+        "name": "强化永恒之井",
+        "text": "永恒之井创建的法术会施放两次。摧毁辛艾萨莉。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3affb7470be2e2ececf4e3393c8a5a4e229ec1b5f433e2c800d0205e941f83e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120205&locale=zh_CN",
+        "sha256": "b93c492de7ea1d5c9b9c2bfb4ffd1d14ec1b290f7bcd88305a254a0129ee276c",
+        "bytes": 598,
+        "observed_at": "2026-10-19T01:07:05.627066+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211b",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120205-en_US.json",
+      "response_sha256": "f85cd0cc675f3bc79a3d3f47f9053a7cb6e6be4d450a331de020de0dd927a3ba",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120205&locale=en_US",
+      "face": {
+        "id": 120205,
+        "collectible": 0,
+        "slug": "120205-empower-the-well",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Gabor Szikszai",
+        "manaCost": 5,
+        "name": "Empower the Well",
+        "text": "The spells created by The Well of Eternity will cast twice. Destroy Zin-Azshari.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7beabaffbd694954c3e85927ff4131728010cb14ab261e53baeb87e65da59ee5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120205&locale=en_US",
+        "sha256": "f85cd0cc675f3bc79a3d3f47f9053a7cb6e6be4d450a331de020de0dd927a3ba",
+        "bytes": 610,
+        "observed_at": "2026-10-19T01:07:05.609639+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119929-zh_CN.json",
+      "response_sha256": "6670e7b635c60b845f544f652d2660b07d5a57701aa71d4d8ce9e19510ecad1a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119929&locale=zh_CN",
+      "face": {
+        "id": 119929,
+        "collectible": 0,
+        "slug": "119929-the-well-of-eternity",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "manaCost": 4,
+        "name": "永恒之井",
+        "text": "用随机的<b>临时</b>法术牌填满你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b7d6618f749c30a3b0a672d95de72a263317a8d3500c0da0ca92f51e02194b8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "keywordIds": [
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119929&locale=zh_CN",
+        "sha256": "6670e7b635c60b845f544f652d2660b07d5a57701aa71d4d8ce9e19510ecad1a",
+        "bytes": 620,
+        "observed_at": "2026-10-19T01:07:05.540035+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119929-en_US.json",
+      "response_sha256": "28831b41b9f8a8aa40cee003ba16238e1a7ad32880607e3860dcab1e63a0ccf3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119929&locale=en_US",
+      "face": {
+        "id": 119929,
+        "collectible": 0,
+        "slug": "119929-the-well-of-eternity",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "manaCost": 4,
+        "name": "The Well of Eternity",
+        "text": "Fill your hand with random <b>Temporary</b> spells.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7541b63f7ba405495f6c896706a8b7d2f4cfca3a8cdae822f2ce7a569a1e30d8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "keywordIds": [
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119929&locale=en_US",
+        "sha256": "28831b41b9f8a8aa40cee003ba16238e1a7ad32880607e3860dcab1e63a0ccf3",
+        "bytes": 624,
+        "observed_at": "2026-10-19T01:07:05.864618+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t1t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120200-zh_CN.json",
+      "response_sha256": "aa3ac93a7706f5459ee5dcda7e11bbbe6e33a9eb049411324464cda604e709f1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120200&locale=zh_CN",
+      "face": {
+        "id": 120200,
+        "collectible": 0,
+        "slug": "120200-the-well-of-eternity",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "manaCost": 4,
+        "name": "永恒之井",
+        "text": "用随机的<b>临时</b>法术牌填满你的手牌，这些牌会施放两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59f366bde9febbbe098397b17e7090c0e8341d4725ed63e3b56ef0f65e5c2076.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "keywordIds": [
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120200&locale=zh_CN",
+        "sha256": "aa3ac93a7706f5459ee5dcda7e11bbbe6e33a9eb049411324464cda604e709f1",
+        "bytes": 647,
+        "observed_at": "2026-10-19T01:07:06.266530+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t1t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120200-en_US.json",
+      "response_sha256": "c5fb0de884b162e00de4a41c8cb521692c0e7e6d200f43c9bfdcd32b3ca2c35b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120200&locale=en_US",
+      "face": {
+        "id": 120200,
+        "collectible": 0,
+        "slug": "120200-the-well-of-eternity",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "manaCost": 4,
+        "name": "The Well of Eternity",
+        "text": "Fill your hand with random <b>Temporary</b> spells. They cast twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d33844ce103eb6db3e9523c5e38af55193b0ae91115b1cd95ff58355e1bf71cf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "keywordIds": [
+          320
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120200&locale=en_US",
+        "sha256": "c5fb0de884b162e00de4a41c8cb521692c0e7e6d200f43c9bfdcd32b3ca2c35b",
+        "bytes": 641,
+        "observed_at": "2026-10-19T01:07:06.329480+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119930-zh_CN.json",
+      "response_sha256": "b4c77b4b0e674f0a1b4f6bbb573d7823c28ba147f8362242b3de51765793a841",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119930&locale=zh_CN",
+      "face": {
+        "id": 119930,
+        "collectible": 0,
+        "slug": "119930-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 4,
+        "name": "辛艾萨莉",
+        "text": "召唤一个友方随从的一个复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/521e043a045b15fb2a4ba0e9a6979250c0061d9d936ee11330ca6f2a5c3f9fc2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119930&locale=zh_CN",
+        "sha256": "b4c77b4b0e674f0a1b4f6bbb573d7823c28ba147f8362242b3de51765793a841",
+        "bytes": 572,
+        "observed_at": "2026-10-19T01:07:06.332484+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\119930-en_US.json",
+      "response_sha256": "8568809f27fb3c15c8dfe0c8cd357c155da6d0c9122b77d8f7c915bc03e0d91c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119930&locale=en_US",
+      "face": {
+        "id": 119930,
+        "collectible": 0,
+        "slug": "119930-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 4,
+        "name": "Zin-Azshari",
+        "text": "Summon a copy of a friendly minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8673ed70489c0c9e070f942297898a24818b89ebaca36b17d79386f38cb5b28c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=119930&locale=en_US",
+        "sha256": "8568809f27fb3c15c8dfe0c8cd357c155da6d0c9122b77d8f7c915bc03e0d91c",
+        "bytes": 564,
+        "observed_at": "2026-10-19T01:07:06.593765+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t2t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120202-zh_CN.json",
+      "response_sha256": "78c6002999a508ba37724ca22816276f9b535f11561bad309709a9748c19c82c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120202&locale=zh_CN",
+      "face": {
+        "id": 120202,
+        "collectible": 0,
+        "slug": "120202-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 4,
+        "name": "辛艾萨莉",
+        "text": "召唤一个友方随从的一个具有翻倍属性值的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c3eb62091d7a1e33b5d5d951c8b07dd8badbd476c59b1a1b76bbefe1ce32c9c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120202&locale=zh_CN",
+        "sha256": "78c6002999a508ba37724ca22816276f9b535f11561bad309709a9748c19c82c",
+        "bytes": 596,
+        "observed_at": "2026-10-19T01:07:06.998567+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_211t2t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k233-azshara-fabled-locations\\official-cache-01\\120202-en_US.json",
+      "response_sha256": "f78e9f8bd099a086c33f5a22147895db01264fcf8d48390acd079fc53d591b74",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120202&locale=en_US",
+      "face": {
+        "id": 120202,
+        "collectible": 0,
+        "slug": "120202-zin-azshari",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 4,
+        "name": "Zin-Azshari",
+        "text": "Summon a copy of a friendly minion with its stats doubled.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0aa2ff9e7c80d39bf0b0cb300b644ec394237d1176c2dd0ead6953c902250414.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 119928,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=120202&locale=en_US",
+        "sha256": "f78e9f8bd099a086c33f5a22147895db01264fcf8d48390acd079fc53d591b74",
+        "bytes": 587,
+        "observed_at": "2026-10-19T01:07:07.037917+00:00"
+      }
+    }
+  ],
+  "policy": {
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "inventory_scope": "current controlled hand, deck and battlefield; all matching named physical locations; not future generated cards or graveyard",
+    "upgrade": "preserve dynamic local material, physical identity, current durability and cooldown through ordinary location printed advancement",
+    "combined": "execute both real branch bodies in original order; destroys both named locations as confirmed by ClayByte",
+    "generation": "complete host spell pool; unknown qualified candidates remain explicit errors",
+    "pending_cn": [
+      "all physical duplicate scope",
+      "exact upgrade/destruction notifications",
+      "stored dynamic material and physical face policy",
+      "well complete generation pool"
+    ]
+  },
+  "primary_rule_observations": [
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1o3576y/comment/niuoiks/",
+      "author": "ClayByte",
+      "supports": "Choose Both on Lady Azshara destroys both locations",
+      "cn37_calibrated": false
+    }
+  ]
+}

@@ -8,6 +8,7 @@ from .errors import ResolutionError
 from .lifecycle import active_abilities
 from .model import CardType, Zone
 from .registry import RuleContext
+from .zones import CardReference
 
 
 def location_error(state, registry, rules, player_id, entity_id, *, context_factory=None):
@@ -185,6 +186,8 @@ def register_locations(mechanics):
     mechanics.register_payload_type(LocationFaceReference)
     mechanics.register(AdvanceLocationFace, advance_location_face)
     mechanics.register(RandomDestroyLocation, random_destroy_location)
+    mechanics.register(DestroyCapturedLocation, destroy_captured_location)
+    mechanics.register(AdvanceStoredLocationFace, advance_stored_location_face)
     for kind, handler in ((ActivateLocation, activate_location), (FinishLocation, finish_location),
                           (PlaceLocation, place_location), (ModifyLocation, modify_location),
                           (RefreshLocation, modify_location), (DestroyLocation, modify_location)):
@@ -234,6 +237,31 @@ class AdvanceLocationFace(Effect):
         _source(self.source_id)
 
 
+@dataclass(frozen=True)
+class DestroyCapturedLocation(Effect):
+    target: LocationFaceReference
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.target) is not LocationFaceReference:
+            raise ValueError('Location destruction requires its original face reference')
+        self.target.__post_init__(); _source(self.source_id)
+
+
+@dataclass(frozen=True)
+class AdvanceStoredLocationFace(Effect):
+    target: CardReference
+    card_id: str
+    source_id: int | None = None
+
+    def __post_init__(self):
+        if type(self.target) is not CardReference:
+            raise ValueError('Stored location advance requires its original card reference')
+        self.target.__post_init__(); _source(self.source_id)
+        if type(self.card_id) is not str or not self.card_id.strip():
+            raise ValueError('Stored location destination must be known')
+
+
 def location_face_definition(registry, card_id):
     card = registry.card(card_id)
     if card.kind != CardType.LOCATION or card.choice_only:
@@ -274,9 +302,15 @@ def validate_location_face_frame_references(state, registry, value):
     def visit(item, scope, depth):
         if depth > FrameCodec.MAX_DEPTH:
             raise ValueError('Location face frame references exceed codec depth')
-        if type(item) is AdvanceLocationFace:
+        if type(item) in (AdvanceLocationFace, AdvanceStoredLocationFace, DestroyCapturedLocation):
             item.__post_init__()
-            location_face_definition(registry, item.card_id)
+            if type(item) is not DestroyCapturedLocation:
+                location_face_definition(registry, item.card_id)
+            if type(item) is AdvanceStoredLocationFace:
+                location_face_definition(registry, item.target.card_id)
+                entity = scope.entities.get(item.target.entity_id)
+                if entity is None or item.target.zone_epoch > entity.zone_epoch:
+                    raise ValueError('Stored location face has an unknown or future reference')
             if item.source_id is not None and item.source_id not in scope.entities:
                 raise ValueError('Unknown location face effect source')
         if type(item) is LocationFaceReference:
@@ -318,3 +352,33 @@ def advance_location_face(r, effect):
     advance_location_printed(r.state, entity, destination)
     r.emit('location_face_changed', source_id=effect.source_id, target_id=entity.id,
            player_id=entity.controller, old_card_id=old_card_id, new_card_id=entity.card_id)
+
+
+def destroy_captured_location(r, effect):
+    effect.__post_init__()
+    if effect.source_id is not None and effect.source_id not in r.state.entities:
+        raise ResolutionError('Unknown location destruction source')
+    entity = validate_location_face_reference(r.state, r.registry, effect.target)
+    ref = effect.target
+    if (entity.zone != Zone.BOARD or entity.kind != CardType.LOCATION or not entity.active
+            or entity.doomed or entity.durability <= 0 or
+            (entity.controller, entity.card_id, entity.zone_epoch, entity.entered_order) !=
+            (ref.controller_id, ref.card_id, ref.zone_epoch, ref.entered_order)):
+        r.stale(effect, entity.id)
+        return
+    modify_location(r, DestroyLocation(entity.id, effect.source_id))
+
+
+def advance_stored_location_face(r, effect):
+    from .zones import reference_entity, source_exists
+    from .cross_zone import announce_stored_transform
+    from .lifecycle import advance_location_printed
+    effect.__post_init__(); source_exists(r, effect.source_id)
+    location_face_definition(r.registry, effect.target.card_id)
+    destination = location_face_definition(r.registry, effect.card_id)
+    entity = reference_entity(r, effect.target)
+    if entity is None or entity.card_id == destination.id:
+        return
+    old_card_id = entity.card_id
+    advance_location_printed(r.state, entity, destination)
+    announce_stored_transform(r, entity, old_card_id, source_id=effect.source_id)

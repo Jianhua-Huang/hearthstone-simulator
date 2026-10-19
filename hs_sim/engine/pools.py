@@ -765,10 +765,13 @@ class FillHandFromPool(Effect):
             raise ValueError('Hand fill requires its typed generation request')
         q = self.request
         q.__post_init__()
+        temporary_spell = (q.query.kinds == (CardType.SPELL,) and q.temporary_until_turn is not None
+                           and q.cost is None and q.expires_turn is None)
         if (q.count != 1 or q.source_id is None or q.destination != 'hand' or not q.replacement or
-                q.query.kinds != (CardType.MINION,) or q.query.collectible is not True or
-                q.spell_repeat is not None or q.cause is not None or q.producer_profile_id is not None or
-                q.combined_shatter or q.temporary_until_turn is not None or q.board_position is not None or
+                (q.query.kinds != (CardType.MINION,) and not temporary_spell) or q.query.collectible is not True or
+                (not temporary_spell and (q.spell_repeat is not None or q.temporary_until_turn is not None)) or
+                q.cause is not None or q.producer_profile_id is not None or
+                q.combined_shatter or q.board_position is not None or
                 q.minion_stats is not None or q.shuffle_actor_id is not None):
             raise ValueError('Hand fill requires a plain source-bound single-minion hand specification')
 
@@ -789,10 +792,11 @@ def validate_delivery(effect):
             raise ValueError('Generated board position requires attributed board delivery')
     if effect.temporary_until_turn is not None:
         integer(effect.temporary_until_turn, 'temporary pool card deadline', 1)
+        temporary_spell = (type(effect) is GenerateFromPool and effect.query.kinds == (CardType.SPELL,))
         if (effect.destination!='hand' or effect.source_id is None or not effect.replacement or
-                type(effect.query)is not PoolQuery or effect.query.kinds!=(CardType.MINION,) or
+                type(effect.query)is not PoolQuery or (effect.query.kinds!=(CardType.MINION,) and not temporary_spell) or
                 effect.query.collectible is not True or effect.cost is not None or
-                effect.expires_turn is not None or effect.spell_repeat is not None or effect.cause is not None or
+                effect.expires_turn is not None or (effect.spell_repeat is not None and not temporary_spell) or effect.cause is not None or
                 getattr(effect,'combined_shatter',False) or getattr(effect,'minion_grant',None)is not None or
                 getattr(effect,'gift_pool',None)is not None or getattr(effect,'heal_hero_by_printed_cost',False) or
                 getattr(effect,'freeze_summoned',False) or getattr(effect,'summon_copy_stats',None)is not None or
@@ -876,7 +880,7 @@ def deliver_generated(effect, selected):
     if effect.temporary_until_turn is not None:
         from .temporary_cards import CreateTemporaryCard
         return tuple(CreateTemporaryCard(effect.player_id,card_id,effect.temporary_until_turn,
-                     source_id=effect.source_id)for card_id in selected)
+                     source_id=effect.source_id,spell_repeat=effect.spell_repeat)for card_id in selected)
     if effect.destination == 'board':
         return tuple(Summon(effect.player_id, card_id) for card_id in selected)
     if effect.destination == 'deck':

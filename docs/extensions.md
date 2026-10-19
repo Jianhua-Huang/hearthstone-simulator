@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原存储地标强化使用`AdvanceStoredLocationFace`，排队摧毁使用`DestroyCapturedLocation`；真实临时法术填手沿原生成请求，可携带`CardSpellRepeatGrant`。范围、类型验证和既有生命周期见[契约](m3-azshara-fabled-locations.md)。
+
 真实奇闻指定武器使用`ConsumeFabledWeapon`及唯一武器同伴profile，复用原消费材料和当前复制返还；不得用通用武器装备效果给随从设槽。取用、生命周期和未证政策见[契约](m3-fabled-weapon-material.md)。
 
 死亡武器的原本体洗回使用`ShuffleGrowingWeapon`，并置于原`ShuffleDeckCards`发布者范围；必须携带同一次真实装备死亡，不用普通随从回手或新生成武器代替。自身成长与普通重置边界见[契约](m3-growing-weapon-shuffles.md)。

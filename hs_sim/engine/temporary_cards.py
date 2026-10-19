@@ -9,6 +9,7 @@ from .effects import Effect, _player, _source, _integer
 from .errors import ResolutionError
 from .model import CardType, CostSpec, HandLifetime, HandRepeatSpec, Keyword, Zone
 from .zones import CardReference
+from .card_creation import CardSpellRepeatGrant, validate_declaration
 
 
 @dataclass(frozen=True)
@@ -20,8 +21,10 @@ class CreateTemporaryCard(Effect):
     source_id: int | None = None
     cost: CostSpec | None = None
     cost_expires_turn: int | None = None
+    spell_repeat: CardSpellRepeatGrant | None = None
 
     def __post_init__(self):
+        validate_declaration(self.spell_repeat)
         _player(self.player_id); _source(self.source_id)
         _integer(self.expires_turn, 'expiry turn', 1)
         _integer(self.minimum_cost, 'minimum card cost', 0)
@@ -40,6 +43,8 @@ def materialize_temporary_card(r, effect):
     definition=r.registry.card(effect.card_id)
     if not definition.hand_playable:
         raise ResolutionError('Temporary cards must be physical hand cards')
+    if effect.spell_repeat is not None and definition.kind != CardType.SPELL:
+        raise ResolutionError('Temporary repeated creation requires a spell')
     if effect.expires_turn < r.state.turn:
         raise ResolutionError('Temporary card deadline has already passed')
     if effect.source_id is not None and effect.source_id not in r.state.entities:
@@ -55,6 +60,9 @@ def materialize_temporary_card(r, effect):
     entity.origin_entity_id=effect.source_id
     entity.hand_lifetime=HandLifetime(effect.source_id,r.state.turn,effect.expires_turn,effect.minimum_cost)
     if effect.cost is not None:attach_cost(r.state,entity,effect.cost,effect.source_id,effect.cost_expires_turn)
+    if effect.spell_repeat is not None:
+        from .card_creation import install
+        install(r.state,entity,effect)
     r.emit('card_created',source_id=effect.source_id,target_id=entity.id,player_id=player.id)
     if zone==Zone.GRAVEYARD:
         from .zones import emit_burn
