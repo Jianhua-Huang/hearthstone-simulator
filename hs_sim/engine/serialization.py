@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 417
+SNAPSHOT_SCHEMA_VERSION = 418
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1256,6 +1256,7 @@ def state_from_dict(value: dict) -> GameState:
         if row['spell_payload'] is not None:
             row['spell_payload'] = _spell_payload_from_dict(row['spell_payload'])
         row['card_spell_repeats']=tuple(_ability_from_dict(a) for a in _list(row['card_spell_repeats'],'card spell repeats'))
+        row['after_play']=tuple(_ability_from_dict(a) for a in _list(row['after_play'],'after-play attachments'))
         row['combos']=tuple(ComboPayload(**_row(b,ComboPayload)) for b in _list(row['combos'],'played Combo declarations'))
         if row['combo_acceptance'] is not None:
             row['combo_acceptance']=_combo_acceptance_from_dict(row['combo_acceptance'])

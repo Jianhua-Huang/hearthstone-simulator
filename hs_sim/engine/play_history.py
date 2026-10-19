@@ -176,6 +176,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .held_spells import capture as capture_held_spells
     from .held_mana import capture as capture_held_mana
     from .card_spell_repeats import capture as capture_card_spell_repeats
+    from .after_play_grants import capture as capture_after_play
     from .owner_turns import freeze_played_face
     player=state.players[source.controller]
     from .disguised import destination
@@ -195,6 +196,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         corrupt_candidates=corrupt_candidates(state,registry,source,quote),held_spells=capture_held_spells(state,source),
         held_mana=capture_held_mana(state,source),
         card_spell_repeats=capture_card_spell_repeats(source),
+        after_play=capture_after_play(source),
         position=position,magnetic_target_id=magnetic_target_id,body_targets=body_targets,
         board_player_id=board_player_id,
         hand_neighbors=neighbors,
@@ -276,6 +278,8 @@ def validate_history(state, registry):
         raise ValueError('Play history must be a list')
     totals={1:0,2:0};turns={};last_turn=last_action=0
     for index,record in enumerate(state.play_history,1):
+        from .after_play_grants import validate_record as validate_after_play
+        validate_after_play(state,registry,record)
         if record.hand_neighbors is None:
             raise ValueError('Physical hand history lost its original neighbors')
         for neighbor in record.hand_neighbors:

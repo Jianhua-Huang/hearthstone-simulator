@@ -32,8 +32,11 @@ class CreatedMinionGrant:
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'after_play')):
             raise ValueError('Unknown created minion special ability')
+        if self.special=='after_play' and (self.attack or self.health or self.keywords or
+                self.reborn_policy is not None or self.identity is None):
+            raise ValueError('Created after-play requires one independent registered body')
         if self.special == 'prepare' and (self.attack or self.health or self.keywords or self.reborn_policy is not None):
             raise ValueError('Created Prepare is a separate hand-action grant')
         if self.special == 'hand_turn_discount' and (
@@ -198,6 +201,8 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
     if grant is not None and grant.special == 'hand_turn_discount' and effect.source_id is None:
         raise ResolutionError('Created periodic discount requires its actual source')
+    if grant is not None and grant.special == 'after_play' and effect.source_id is None:
+        raise ResolutionError('Created after-play requires its actual source')
     if grant is not None and grant.special == 'prepare':
         if effect.source_id is None or any(not d.hand_playable or
                 any(s.id == 'prepare' for s in d.hand_actions) and
@@ -261,7 +266,7 @@ def install(state, entity, effect):
         # result. Install everything before the first acquisition event.
         from .lifecycle import attachment_id, refresh_entity
         from .model import AbilityInstance, Enchantment
-        if grant.attack or grant.health or grant.identity is not None:
+        if grant.attack or grant.health or (grant.identity is not None and grant.special!='after_play'):
             entity.enchantments.append(Enchantment(attachment_id(state), source_id=effect.source_id,
                 attack=grant.attack, health=grant.health,
                 label='created_minion_grant' if grant.identity is None else 'created_minion_grant:'+grant.identity))
@@ -282,6 +287,9 @@ def install(state, entity, effect):
         elif grant.special == 'hand_turn_discount':
             from .hand_turn_costs import attach
             attach(state,entity,effect.source_id)
+        elif grant.special == 'after_play':
+            from .after_play_grants import install as install_after_play
+            install_after_play(state,entity,grant.identity,effect.source_id)
         refresh_entity(entity)
 
 
@@ -297,6 +305,8 @@ def validate_boundary(game):
         if type(value) in (AddToHand, AddToDeck, DiscoverFromPool, GenerateFromPool):
             definitions = (game.registry.card(value.card_id),) if type(value) in (AddToHand, AddToDeck) else ()
             validate_creation(game._state, value, definitions)
+            grant=getattr(value,'minion_grant',None)
+            if grant is not None and grant.special=='after_play':game.registry.behavior(grant.identity)
         if type(value) in (AddHeroPower, ReplaceHeroPower) and (value.choose_branch is not None or
                 getattr(value, 'branch_policy', 'clear') != 'clear' or getattr(value, 'branch_map', None) is not None):
             installation_definition(SimpleNamespace(state=game._state, registry=game.registry), value)

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+`GrantAfterPlay`绑定原手牌引用；`GrantRandomAfterPlay`按当前价格/种族选取，足迹新体使用有限创建授予。完成边界和保存范围见[跟随法术契约](m3-follow-hand-effects.md)。
+
 灵魂献祭式当前技能加1使用`GrantHealthRule(power_id, power_damage_rule(), source_id)`；限定永久原来源伤害，其他技能规则显式拒绝，见[契约](m3-soul-immolation.md)。
 
 原生2费随从选择与开局十张复制使用`DeckCopySideboardProfile`及原`SideboardSpec`，不能作为可消费乐队或预先混入原主牌组。有限声明与原流程见[契约](m3-deck-copy-sideboards.md)。

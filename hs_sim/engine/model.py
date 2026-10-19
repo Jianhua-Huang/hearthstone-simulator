@@ -2740,6 +2740,12 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.kind == 'after_play':
+            from dataclasses import fields
+            allowed={'id','kind','source_id','origin','behavior_id','expires_turn'}
+            if (self.origin!='granted' or self.source_id is None or self.expires_turn is None or
+                    any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed)):
+                raise ValueError('After-play requires a pure granted current-turn physical body')
         if self.kind == 'aura_duration_bonus':
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin'}
@@ -2962,7 +2968,7 @@ class AbilityInstance:
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -3192,7 +3198,7 @@ class AbilityInstance:
                 raise ValueError('Finite trigger keywords require a limited trigger instance')
         elif self.keyword is not None:
             raise ValueError("only keyword abilities may specify keyword")
-        if self.kind in {"trigger", "deathrattle", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "on_discard", "on_destroyed"}:
+        if self.kind in {"trigger", "deathrattle", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "on_discard", "on_destroyed", "after_play"}:
             _name(self.behavior_id, "ability behavior_id")
         elif self.behavior_id is not None:
             raise ValueError("this ability kind cannot specify behavior_id")
@@ -6963,6 +6969,7 @@ class PlayRecord:
     board_player_id: int | None = None
     hand_neighbors: tuple[HandNeighborFact, ...] | None = None
     copy_origin: CardCopyOrigin | None = None
+    after_play: tuple[AbilityInstance, ...] = ()
 
     def __post_init__(self):
         if self.copy_origin is not None:
@@ -10986,6 +10993,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 if isinstance(attachment, AbilityInstance):
                     from .timed_keywords import validate_instance
                     validate_instance(state, entity, attachment)
+                    if attachment.kind=='after_play' and entity.kind not in (
+                            CardType.MINION,CardType.SPELL,CardType.WEAPON,CardType.HERO,CardType.LOCATION):
+                        raise ValueError('After-play body requires a physical hand-playable kind')
                     if entity.kind == CardType.HERO_POWER and attachment.kind == 'health_rule':
                         from .health_rules import validate_power_health_rule
                         validate_power_health_rule(attachment)

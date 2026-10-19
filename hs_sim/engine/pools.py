@@ -608,10 +608,11 @@ class DiscoverFromPool(Effect):
             ordinary = (grant.attack >= 0 and grant.health >= 0 and not grant.keywords and
                         grant.reborn_policy is None and grant.identity is None and grant.special is None)
             prepared = grant == CreatedMinionGrant(special='prepare')
+            after_play = grant.special=='after_play' and self.destination=='hand'
             hand = self.destination == 'hand' and self.discoveries == 1
             bottom = (ordinary and self.destination == 'deck' and self.position == 'bottom'
                       and self.discoveries == 2)
-            if (not (ordinary or prepared) or
+            if (not (ordinary or prepared or after_play) or
                     self.source_id is None or not (hand or bottom) or self.count!=3 or
                     self.delivery!='after_each' or not self.replacement or type(self.query)is not PoolQuery or
                     self.query.kinds!=(CardType.MINION,)or self.query.collectible is not True or
@@ -837,6 +838,8 @@ def generation_candidates(r, effect):
         raise ResolutionError('Eligible candidate cannot enter the generation destination')
     from .card_creation import validate_creation
     validate_creation(r.state, effect, (r.registry.card(m.card_id) for m in candidates))
+    grant=getattr(effect,'minion_grant',None)
+    if grant is not None and grant.special=='after_play':r.registry.behavior(grant.identity)
     return candidates
 
 

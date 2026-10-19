@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v519'
+CORE_EFFECTS_VERSION = 'core-effects-v520'
 
 
 class Mechanics:
@@ -1729,7 +1729,8 @@ def finish_play(r, effect):
     r.emit('card_played', source_id=effect.source_id, target_id=effect.target_id, player_id=effect.player_id,
            play_id=effect.play_id, _spellburst_candidates=effect.spellburst_candidates)
     from .hand_derivatives import after_hand_play
-    return after_hand_play(record)
+    from .after_play_grants import completed as after_play_effects
+    return (*after_hand_play(record),*after_play_effects(record))
 
 
 def end_turn(r, effect):
@@ -2675,5 +2676,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_spell_values(mechanics)
     from .temporary_hero_powers import register as register_temporary_powers
     register_temporary_powers(mechanics)
+    from .after_play_grants import register as register_after_play
+    register_after_play(mechanics)
     return mechanics
 

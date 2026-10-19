@@ -69,6 +69,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .after_play_grants import RunAfterPlay,accepted_ability
+        if type(value)is RunAfterPlay and self.origin_state is not None:
+            accepted_ability(self.origin_state,self.registry,value)
         from .minion_families import (UpgradeMinionFamily, SummonFamilyMember,
             validate_request as validate_family_upgrade, validate_summon as validate_family_summon)
         if self.origin_state is not None:
