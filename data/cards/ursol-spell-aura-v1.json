@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "batch": "K255-ursol-spell-aura",
+  "task": {
+    "schema": 1,
+    "batch": "K255-ursol-spell-aura",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "roots": [
+      "EDR_259"
+    ],
+    "dependencies": [
+      "EDR_259e1"
+    ],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "EDR_259"
+    ],
+    "effect_groups": [
+      {
+        "effect": "Cast the highest Cost actual hand spell as a three-turn Aura. Confirm activation/tick/expiry, highest-current-cost selection and original material before adapting; reuse existing Aura programs and automatic spell execution.",
+        "cards": [
+          "EDR_259"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "hs_sim/cards/ursol_spell_aura_card.py",
+      "data/cards/ursol-spell-aura-v1.json",
+      "tests/test_ursol_spell_aura_card.py"
+    ],
+    "display_normalizations": {
+      "EDR_259": {
+        "@": ""
+      }
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "EDR_259",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k255-ursol-spell-aura\\official-cache-01\\114868-zh_CN.json",
+      "response_sha256": "6d1a339115f120fc069b871b95d21f788501fbe1bfda0b29ecac9305ec76c2e1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114868&locale=zh_CN",
+      "face": {
+        "id": 114868,
+        "collectible": 1,
+        "slug": "114868-ursol",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 9,
+        "manaCost": 8,
+        "name": "乌索尔",
+        "text": "<b>战吼：</b>将你手牌中法力值消耗最高的法术变为持续 回合的光环并施放。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8f24b1035501196a939a982b62ad984738a30cb897e97b974e6f6257ed70b85.png",
+        "imageGold": "",
+        "flavorText": "乌索克的孪生兄弟。他们曾经密不可分。直到后来，死亡腐化了乌索克的灵魂，然而乌索尔的灵魂平和如初。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05532c37b355fc5155385e816ca49ce1db178284af90fdfa16da86e235fb4891.png",
+        "childIds": [
+          116020
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114868&locale=zh_CN",
+        "sha256": "6d1a339115f120fc069b871b95d21f788501fbe1bfda0b29ecac9305ec76c2e1",
+        "bytes": 926,
+        "observed_at": "2026-10-19T08:14:32.186701+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_259",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k255-ursol-spell-aura\\official-cache-01\\114868-en_US.json",
+      "response_sha256": "a46108995995f8b51db06f2720635e6fea8d4ab08a5c6716455b0425857fa500",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114868&locale=en_US",
+      "face": {
+        "id": 114868,
+        "collectible": 1,
+        "slug": "114868-ursol",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 9,
+        "manaCost": 8,
+        "name": "Ursol",
+        "text": "<b>Battlecry:</b> Cast the highest Cost spell from your hand as an Aura that lasts turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f9deb3f21bcf4ccab0916046241bb7f88f6bd894eba0573a8f8e5ce6bbe6195.png",
+        "imageGold": "",
+        "flavorText": "Twin of Ursoc, they were inseparable until death drove Ursoc’s spirit to corruption, while Ursol’s remained at peace.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05532c37b355fc5155385e816ca49ce1db178284af90fdfa16da86e235fb4891.png",
+        "childIds": [
+          116020
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=114868&locale=en_US",
+        "sha256": "a46108995995f8b51db06f2720635e6fea8d4ab08a5c6716455b0425857fa500",
+        "bytes": 887,
+        "observed_at": "2026-10-19T08:14:31.924990+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "EDR_259",
+        "dbf_id": 114868,
+        "name": "乌索尔",
+        "name_en": "Ursol",
+        "text": "<b>战吼：</b>将你手牌中法力值消耗最高的法术变为持续@回合的光环并施放。",
+        "text_en": "[x]<b>Battlecry:</b> Cast the highest\nCost spell from your hand as\n_an Aura that lasts @ turns.",
+        "cost": 8,
+        "attack": 9,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "HEALTH": 7,
+          "ATK": 9,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4065": 1,
+          "4110": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4065",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4065"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4110",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4110"
+          }
+        ]
+      },
+      "record_sha256": "38b49d641d55b3b93f1889b9d846ea89fb010c084c65701884d834f9c0842131",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_259",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EDR_259e1",
+        "dbf_id": 116020,
+        "name": "乌索尔的光环",
+        "name_en": "Ursol's Aura",
+        "text": "在你的回合结束时，施放{0}。持续@回合。",
+        "text_en": "At the end of your turn, cast {0}. Lasts @ turns.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "4be98dd0bbceae6c79b3dc19bb0d9dd7f3fd4d0b0695f5821ac2a1d1d0a3288e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_259e1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": []
+}

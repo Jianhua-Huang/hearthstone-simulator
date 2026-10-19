@@ -143,7 +143,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v534'
+CORE_EFFECTS_VERSION = 'core-effects-v535'
 
 
 class Mechanics:
@@ -2374,6 +2374,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_battlecry_weapon_outputs(mechanics)
     from .aura_duration import register as register_aura_duration
     register_aura_duration(mechanics)
+    from .spell_auras import register as register_spell_auras
+    register_spell_auras(mechanics)
     from .deck_stat_distribution import register as register_deck_stat_distribution
     register_deck_stat_distribution(mechanics)
     from .weapon_forms import register as register_weapon_forms

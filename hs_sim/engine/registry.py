@@ -1986,7 +1986,8 @@ class Registry:
                                           (k != 'tick_player' or v != 'controller') and
                                           (k != 'opponent_spell_cost' or v) and
                                           (k != 'spell_effects' or v) and
-                                          (k != 'capture_health_source' or v)} for i in sorted(self._player_effects)],
+                                          (k != 'capture_health_source' or v) and
+                                          (k != 'stored_spell' or v)} for i in sorted(self._player_effects)],
                    "summon_producer_profiles": [asdict(self._summon_producer_profiles[i]) for i in sorted(self._summon_producer_profiles)],
                    "end_turn_profiles": [asdict(self._end_turn_profiles[i]) for i in sorted(self._end_turn_profiles)],
                    "end_turn_candidate_profiles": [asdict(self._end_turn_candidate_profiles[i]) for i in sorted(self._end_turn_candidate_profiles)],

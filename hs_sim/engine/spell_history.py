@@ -174,6 +174,9 @@ def recast(r, effect):
         raise ResolutionError('Historical cast requires a physical spell')
     entity = r.create_entity(effect.player_id,card.id,Zone.GRAVEYARD)
     entity.origin_entity_id = original.source_id
+    if original.spell_aura_id is not None:
+        from .spell_auras import install as install_spell_aura
+        install_spell_aura(r.state, entity, original.spell_aura_id, effect.source_id or original.source_id)
     from .held_higher_cost import install as install_higher_cost
     install_higher_cost(r.state, r.registry, entity, original.held_higher_cost)
     if original.native_spell_value is not None:

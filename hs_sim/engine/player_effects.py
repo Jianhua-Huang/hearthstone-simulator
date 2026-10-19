@@ -49,6 +49,8 @@ def public_effect(registry, effect):
                   remaining_turns=effect.remaining_turns)
     if effect.adaptations:
         result['adaptations'] = list(effect.adaptations)
+    if effect.spell_aura_card_id is not None:
+        result['cast_card_id'] = effect.spell_aura_card_id
     return result
 
 
@@ -59,6 +61,7 @@ class AddPlayerEffect(Effect):
     source_id: int
     capture_health_source: bool = False
     aura_duration_cast_id: int | None = None
+    spell_aura_id: int | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
@@ -70,6 +73,8 @@ class AddPlayerEffect(Effect):
             raise ValueError('Player effect health source capture must be boolean')
         if self.aura_duration_cast_id is not None:
             _int(self.aura_duration_cast_id, 'Aura original duration cast', 1)
+        if self.spell_aura_id is not None:
+            _int(self.spell_aura_id, 'Aura original spell', 1)
 
 
 @dataclass(frozen=True)
@@ -174,6 +179,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     if spec.kind == 'aura' and (source.card_id != spec.card_id or
             source.kind != CardType.SPELL or source.controller != player.id):
         raise ResolutionError('Native Aura requires its own actual controlled spell source')
+    if spec.stored_spell != (effect.spell_aura_id is not None):
+        raise ResolutionError('Aura program requires its original stored spell material')
     if spec.duration is not None and (timed_count(player, r.registry) >= r.rules.max_ongoing_effects or
                                      area_count(player, r.registry) >= r.rules.max_secret_zone):
         r.emit('player_effect_failed', source_id=effect.source_id, player_id=effect.player_id,
@@ -190,11 +197,19 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         remaining = 2 if player.id == r.state.active_player and not r.ending_turn else 1
     instance_id = attachment_id(r.state)
     modifier_id = r.state.next_attachment_id if spec.opponent_spell_cost else None
+    spell_card_id = None
+    if effect.spell_aura_id is not None:
+        from .spell_auras import validate_binding, memory_id
+        row = validate_binding(r.state, r.registry, effect.spell_aura_id, source.card_id)
+        if memory_id(source) != row.id or spec.card_id != row.aura.card_id:
+            raise ResolutionError('Aura installation lost its original physical spell material')
+        spell_card_id = row.card.origin.card_id
     instance = PlayerEffect(instance_id, spec.id, source.id,
                             adaptation_source.card_id if adaptation_source is not None else source.card_id,
                             r.state.turn, r.state.next_order, remaining,allocation,
                             effect.player_id if allocation is not None else None, modifier_id, adaptations,
-                            effect.aura_duration_cast_id)
+                            effect.aura_duration_cast_id, effect.spell_aura_id, spell_card_id,
+                            player.id if effect.spell_aura_id is not None else None)
     r.state.next_order += 1
     player.player_effects.append(instance)
     if modifier_id is not None:

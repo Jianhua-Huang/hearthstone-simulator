@@ -69,6 +69,11 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .spell_auras import CastAuraSpell, validate_instance
+        if type(value) is CastAuraSpell and self.origin_state is not None:
+            validate_instance(self.origin_state, self.registry, value.instance)
+            if value.player_id != value.instance.spell_aura_player_id:
+                raise ValueError('Captured Aura trigger changed its original beneficiary')
         from .deck_card_plays import PlayTopDeckCards
         if type(value) is PlayTopDeckCards and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)

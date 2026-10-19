@@ -128,6 +128,8 @@ def note_payload(r, record):
     record = capture_native_value(r,record)
     from .aura_duration import capture as capture_aura_duration
     record = capture_aura_duration(r, record)
+    from .spell_auras import capture_cast as capture_spell_aura
+    record = capture_spell_aura(r, record)
     from .player_effects import claim_next_spell_damage
     record = claim_next_spell_damage(r,record)
     from .held_spells import note_cast
@@ -361,7 +363,8 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
     elif definition.ongoing_effect_id is not None:
         from .player_effects import AddPlayerEffect
         work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id,
-            aura_duration_cast_id=record.id if record.aura_duration_grants else None))
+            aura_duration_cast_id=record.id if record.aura_duration_grants else None,
+            spell_aura_id=record.spell_aura_id))
     work.extend(r.call(b, record.source_id, record.player_id, record.target_id, play=play, cast=record) for b in behavior_ids)
     # Twinspell is a payload derivative. Echo remains a paid-hand-play facility.
     if play is not None:

@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v98'
+VIEW_VERSION = 'player-view-v99'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -267,6 +267,8 @@ class Information:
                     'effect_key', 'card_id', 'effect_kind', 'remaining_turns')}
                 if 'adaptations' in data:
                     record['player_effect']['adaptations'] = list(data['adaptations'])
+                if 'cast_card_id' in data:
+                    record['player_effect']['cast_card_id'] = data['cast_card_id']
             if event.kind == 'limited_trigger_used':
                 record['trigger_keyword'] = data['trigger_keyword']
             if event.kind in ('counter_policy_added', 'counter_policy_used'):
@@ -875,8 +877,13 @@ def validate_combo_modifier_view(value, event_kind):
 
 def validate_player_effect_view(value, registry, event_kind):
     _fields(value, 'effect_key card_id effect_kind remaining_turns' +
-            (' adaptations' if 'adaptations' in value else ''), 'public player effect')
+            (' adaptations' if 'adaptations' in value else '') +
+            (' cast_card_id' if 'cast_card_id' in value else ''), 'public player effect')
     spec = registry.player_effect(value['effect_key'])
+    if spec.stored_spell != ('cast_card_id' in value):
+        raise ValueError('Public spell Aura lost its revealed original spell face')
+    if spec.stored_spell and registry.card(value['cast_card_id']).kind != CardType.SPELL:
+        raise ValueError('Public spell Aura requires a registered spell face')
     if (spec.kind == 'adaptations') != ('adaptations' in value):
         raise ValueError('Public Adaptation material differs from its player-effect kind')
     if spec.kind == 'adaptations':

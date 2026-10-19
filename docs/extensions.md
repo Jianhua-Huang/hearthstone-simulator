@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要把真实手牌法术变成持续光环时，使用独立stored_spell程序与原材料索引，并复用已有物理变形、自动施法和玩家计时；不把材料塞进普通数值参数。实际入口、恢复和公开字段见[持续施法契约](m3-stored-spell-aura.md)。
+
 `PlayTopDeckCards(player_id, source_id, SummonCause.capture(context), count)`复用五类物理执行器；它不等于手牌使用或历史整卡战吼回放。自然结束主体用原`EndTurnSpec`声明，满场、时钟和恢复边界见[契约](m3-physical-deck-top-play.md)。
 
 真实有界对手生命支付用`CostSpec(payment=PaymentType.OPPONENT_HEALTH)`与有来源、有限用途的`AddCostModifier(maximum_cost=10)`。不能只把普通报价的币种改名；最终费用上限、实际对手英雄及恢复边界见[契约](m3-qualified-next-card-costs.md#阿迦玛甘的有界对手生命支付)。

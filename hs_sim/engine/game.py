@@ -545,6 +545,8 @@ class Game:
         validate_future_hand_boundary(self)
         from .consumed_cards import validate_boundary as validate_consumed_card_boundary
         validate_consumed_card_boundary(self)
+        from .spell_auras import validate_boundary as validate_spell_aura_boundary
+        validate_spell_aura_boundary(self)
         from .hand_deadlines import validate_boundary as validate_hand_deadline_boundary
         validate_hand_deadline_boundary(self)
         from .interactables import validate_boundary as validate_interactable_boundary

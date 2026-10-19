@@ -2847,9 +2847,19 @@ class AbilityInstance:
     spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
+    spell_aura_id: int | None = None
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        _optional_id(self.spell_aura_id, 'original spell Aura')
+        if self.kind == 'spell_aura':
+            from dataclasses import fields
+            allowed = {'id', 'kind', 'source_id', 'origin', 'spell_aura_id'}
+            if (self.origin != 'granted' or self.source_id is None or self.spell_aura_id is None or
+                    any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Spell Aura requires one pure immutable original spell link')
+        elif self.spell_aura_id is not None:
+            raise ValueError('Only a spell Aura attachment carries its original spell')
         if self.kind == 'after_play':
             from dataclasses import fields
             allowed={'id','kind','source_id','origin','behavior_id','expires_turn'}
@@ -3078,7 +3088,7 @@ class AbilityInstance:
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'spell_base_value', 'spell_stat_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'hero_power_use_aura':
             if type(self.hero_power_use_aura) is not HeroPowerUseAuraSpec:
@@ -7589,8 +7599,10 @@ class SpellCastRecord:
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
     held_higher_cost: HeldHigherCostProgress | None = None
     quest_parent_cast_id: int | None = None
+    spell_aura_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.spell_aura_id, 'cast original spell Aura')
         _optional_id(self.quest_parent_cast_id, 'quest parent cast')
         if self.quest_parent_cast_id is not None and (
                 self.origin != 'effect' or self.quest_parent_cast_id >= self.id or self.caster_id is None):
@@ -8198,8 +8210,16 @@ class PlayerEffectSpec:
     opponent_spell_cost: int = 0
     spell_effects: tuple[SpellEffectModifierSpec, ...] = ()
     capture_health_source: bool = False
+    stored_spell: bool = False
 
     def __post_init__(self):
+        _bool(self.stored_spell, 'stored Aura spell')
+        if self.stored_spell and (self.kind != 'aura' or self.tick_event != 'turn_ended' or
+                self.tick_player != 'controller' or not self.triggers or self.on_expire is not None or
+                any((self.spell_damage, self.auras, self.deathrattle_repeats, self.end_turn_repeats,
+                     self.producer_quantities, self.keyword_auras, self.opponent_spell_cost,
+                     self.spell_effects, self.capture_health_source))):
+            raise ValueError('Stored spell requires one independent owner-end Aura program')
         _bool(self.capture_health_source, 'captured Sigil health source')
         if self.capture_health_source and (self.kind != 'sigil' or self.duration != 1 or
                 self.tick_event != 'turn_started' or self.on_expire is None):
@@ -8321,8 +8341,22 @@ class PlayerEffect:
     cost_modifier_id: int | None = None
     adaptations: tuple[str, ...] = ()
     aura_duration_cast_id: int | None = None
+    spell_aura_id: int | None = None
+    spell_aura_card_id: str | None = None
+    spell_aura_player_id: int | None = None
 
     def __post_init__(self):
+        _optional_id(self.spell_aura_id, 'player original spell Aura')
+        if (self.spell_aura_id is None) != (self.spell_aura_card_id is None):
+            raise ValueError('Spell Aura requires both original identity and public spell face')
+        if (self.spell_aura_id is None) != (self.spell_aura_player_id is None):
+            raise ValueError('Spell Aura requires its original player program beneficiary')
+        if self.spell_aura_player_id is not None and (type(self.spell_aura_player_id) is not int or self.spell_aura_player_id not in (1, 2)):
+            raise ValueError('Invalid original Aura beneficiary')
+        if self.spell_aura_card_id is not None:
+            _name(self.spell_aura_card_id, 'public Aura spell')
+            if self.remaining_turns is None or self.adaptations or self.source_allocation is not None:
+                raise ValueError('Spell Aura requires an independent timed player program')
         _optional_id(self.aura_duration_cast_id, 'Aura original duration cast')
         if self.aura_duration_cast_id is not None and (self.remaining_turns is None or
                 self.adaptations or self.source_allocation is not None or self.source_player_id is not None):
@@ -10442,6 +10476,7 @@ class GameState:
     deck_shuffle_history: list = field(default_factory=list)
     discard_history: list = field(default_factory=list)
     consumed_card_history: list = field(default_factory=list)
+    spell_aura_history: list = field(default_factory=list)
     next_discard_id: int = 1
     magnetic_history: list[MagneticRecord] = field(default_factory=list)
     colossal_history: list[ColossalRecord] = field(default_factory=list)
@@ -11446,6 +11481,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_deathrattle_history(state,registry)
     from .consumed_cards import validate_state as validate_consumed_cards
     validate_consumed_cards(state,registry)
+    from .spell_auras import validate_state as validate_spell_auras
+    validate_spell_auras(state, registry)
     from .end_turns import validate_history as validate_end_turn_history
     validate_end_turn_history(state, registry)
     from .temporary_hero_powers import validate_state as validate_temporary_powers
