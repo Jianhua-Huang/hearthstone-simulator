@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.effects import ChoiceOption, RequestChoice
+from hs_sim.engine.native_hand_targets import hand_target
 from hs_sim.engine.hand_deadlines import ScheduleHandRemoval, same_hand
 from hs_sim.engine.model import CardDefinition, CardType
 from hs_sim.engine.pools import PoolCard
@@ -46,7 +47,7 @@ def register_destructive_phoenix_card(registry):
             options.append(ChoiceOption(str(identity), registry.card(entity.card_id).name,
                                         (request,), card_id=entity.card_id, entity_id=identity))
         return (RequestChoice(c.player_id, tuple(options), c.source_id,
-                              prompt='选择一张手牌并点燃'),) if options else ()
+                              prompt='选择一张手牌并点燃', targeting=hand_target()),) if options else ()
 
     registry.register_behavior(BODY, ignite)
     raw = load_batch()['cards'][0]['record']

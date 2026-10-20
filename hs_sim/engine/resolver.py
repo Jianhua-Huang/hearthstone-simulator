@@ -56,6 +56,7 @@ class ResolutionFrame:
     spell_acceptances: tuple[int, ...] = ()
     paid_hand_acceptances: tuple[int, ...] = ()
     original_discovery_offer: object | None = None
+    native_target_request: RequestChoice | None = None
 
 
 @dataclass(frozen=True)
@@ -148,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v595'
+CORE_EFFECTS_VERSION = 'core-effects-v596'
 
 
 class Mechanics:
@@ -921,7 +922,8 @@ class Resolution:
                                         self.ending_turn, tuple(routed if hero_mode else self.rules.reactions(triggers, deathrattles, [])),
                                         tuple(queue) if hero_mode else tuple(continuation) + tuple(queue), request.options, request.on_select,
                                         self._paid_hand_choice_boundary, self.death_deferrals,
-                                        original_discovery_offer=self._original_discovery_offer)
+                                        original_discovery_offer=self._original_discovery_offer,
+                                        native_target_request=request if request.targeting is not None else None)
                 frame = replace(frame, spell_acceptances=tuple(w.play_id for w in
                     (*frame.prefix, *frame.continuation) if type(w) is FinishSpellAcceptance))
                 frame = replace(frame, paid_hand_acceptances=tuple(w.play_id for w in
@@ -2638,6 +2640,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_attack_targets(mechanics)
     from .native_active_targets import register as register_native_active_targets
     register_native_active_targets(mechanics)
+    from .native_hand_targets import register as register_native_hand_targets
+    register_native_hand_targets(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

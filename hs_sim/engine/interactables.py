@@ -137,7 +137,12 @@ def activate(r, effect):
         raise ResolutionError(reason)
     interval = current_owner_turn(r.state)
     obj = r.state.entities[a.entity_id]
-    card = r.state.entities[a.card_entity_id]
+    from .native_active_targets import accept,FinishNativeActiveTarget
+    native=accept(r,'interactable',a,(r.registry.card(obj.card_id).interactable.behavior_id,))
+    selected=a.card_entity_id if native is None else native.selection.target_id
+    if selected is None:
+        raise ResolutionError('Validated investment lost its complete live hand target domain')
+    card = r.state.entities[selected]
     captured = CardReference.capture(card)
     hand_entry = card.hand_entry_id
     use_id = len(r.state.interactable_history) + 1
@@ -151,7 +156,8 @@ def activate(r, effect):
         r.state.turn, r.state.action_number, event.sequence)
     r.state.interactable_history.append(record)
     return (r.call(r.registry.card(obj.card_id).interactable.behavior_id, obj.id,
-        a.player_id, captured.entity_id, event=event), FinishInteractableUse(use_id))
+        a.player_id, captured.entity_id, event=event), FinishInteractableUse(use_id),
+        *(()if native is None else(FinishNativeActiveTarget(native),)))
 
 
 def finish(r, effect):

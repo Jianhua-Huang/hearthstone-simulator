@@ -68,6 +68,9 @@ def request_choice(r, effect):
         remember_choice(r.state, result)
         r.emit('choice_skipped', source_id=choice.source_id, player_id=choice.player_id, choice_id=choice.id)
         return choice_effects(r, result, options, effect.on_select)
+    if effect.targeting is not None:
+        from .native_hand_targets import capture_offer
+        effect=capture_offer(r,choice,effect)
     r.state.pending_choice = choice
     r._choice_request = replace(effect, options=options, sample_size=None)
     r.emit('choice_requested', source_id=choice.source_id, player_id=choice.player_id,
@@ -76,7 +79,10 @@ def request_choice(r, effect):
            _choice_paid_boundary=True)
 
 
-def choice_effects(r, result, options, on_select, *, kindred=None, selection_event=None):
+def choice_effects(r, result, options, on_select, *, kindred=None, selection_event=None, native_request=None):
+    if native_request is not None:
+        from .native_hand_targets import ResolveNativeHandChoice
+        return [ResolveNativeHandChoice(native_request,result,selection_event)]
     from .card_discoveries import commit
     commit(r, result, selection_event, options, on_select)
     from .resolver import ResolveChoiceResult
@@ -153,7 +159,8 @@ def resume_choice(r, action):
            choice_id=choice.id, option_ids=result.selected_ids, purpose=choice.purpose.value)
     triggers, r._captured = r._captured, []
     from .hero_lethal_windows import resume_work
-    r.run(resume_work(r,frame,triggers,choice_effects(r,result,frame.options,frame.on_select,selection_event=selected)))
+    r.run(resume_work(r,frame,triggers,choice_effects(r,result,frame.options,frame.on_select,
+        selection_event=selected,native_request=frame.native_target_request)))
 
 
 def random_choice_effects(r, choice, options, on_select, event_kind, **provenance):

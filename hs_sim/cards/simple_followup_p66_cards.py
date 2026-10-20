@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.board_presence import resolve_board_presence
+from hs_sim.engine.native_hand_targets import hand_target
 from hs_sim.engine.bonus_effects import GrantRandomBonusEffects
 from hs_sim.engine.costs import quote_unselected_cost
 from hs_sim.engine.dormancy import MakeDormant
@@ -209,7 +210,8 @@ def register_simple_followup_p66_cards(registry):
             cost=quote_unselected_cost(c.state, registry, e).amount), sort_keys=True), registry.card(e.card_id).name,
             card_id=e.card_id, entity_id=e.id) for i in c.state.players[c.player_id].hand
             for e in (c.state.entities[i],) if e.kind == CardType.SPELL)
-        return (RequestChoice(c.player_id, options, c.source_id, on_select=PREFIX + 'split_selected'),) if options else ()
+        return (RequestChoice(c.player_id, options, c.source_id, on_select=PREFIX + 'split_selected',
+            targeting=hand_target((CardType.SPELL,))),) if options else ()
 
     def split_selected(c):
         if c.choice is None or len(c.choice.selected) != 1: raise ResolutionError('Split lost its selected original spell')

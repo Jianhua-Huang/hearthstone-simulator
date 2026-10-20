@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.board_presence import resolve_board_presence
+from hs_sim.engine.native_hand_targets import hand_target
 from hs_sim.engine.bonus_effects import GrantRandomBonusEffects
 from hs_sim.engine.effects import (ChoiceOption, Damage, DamageBatch, Draw, ForceAttack,
     InvokeBehavior, RequestChoice, TriggerDeathrattles)
@@ -92,7 +93,7 @@ def register_simple_followup_p65_cards(registry):
             order = (chosen,) + tuple(i for distance in range(1, 5) for i in (chosen-distance, chosen+distance) if 0 <= i < len(refs))
             effects = tuple(ModifyStoredCost(refs[i], CostSpec(delta=-(5-abs(i-chosen))), c.source_id) for i in order)
             options.append(ChoiceOption(str(ref.entity_id), registry.card(ref.card_id).name, effects, card_id=ref.card_id, entity_id=ref.entity_id))
-        return (RequestChoice(c.player_id, tuple(options), c.source_id),) if options else ()
+        return (RequestChoice(c.player_id, tuple(options), c.source_id, targeting=hand_target()),) if options else ()
 
     def rift(c):
         cast = require_cast(c, RIFT); target = c.state.entities[c.target_id]

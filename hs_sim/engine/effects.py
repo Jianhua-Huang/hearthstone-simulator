@@ -12,7 +12,7 @@ from .card_creation import (CardSpellRepeatGrant, CreatedMinionGrant, CreatedMin
 from dataclasses import dataclass
 from .model import HeroAttackReference
 from .model import ChoiceItem, ChoicePurpose, CostScope, CostSpec, CostAuraSpec, DamageKind, HealingKind, HealthRule, Keyword, Resource, StatReference, validate_cost_scope
-from .model import SummonStats, validate_summon_stats, CardPreview, HeroPowerReference, CardType
+from .model import SummonStats, validate_summon_stats, CardPreview, HeroPowerReference, CardType, TargetSpec, Zone
 from .model import TimedKeywordSpec, EndTurnSpec, TriggerSpec, KindredActivation, validate_combat_relation
 
 
@@ -216,9 +216,24 @@ class RequestChoice(Effect):
     purpose: ChoicePurpose = ChoicePurpose.EFFECT
     repeat_key: str | None = None
     kindred: KindredActivation | None = None
+    targeting: TargetSpec | None = None
+    target_facts: tuple[object, ...] = ()
 
     def __post_init__(self):
         from .model import PendingChoice
+        if self.targeting is not None:
+            from .allocation_facts import SourceAllocationFact
+            if (type(self.targeting) is not TargetSpec or self.targeting.zones!=(Zone.HAND,) or
+                    self.targeting.relation!='friendly' or self.source_id is None or
+                    (self.min_count,self.max_count)!=(1,1) or self.sample_size is not None or
+                    self.purpose!=ChoicePurpose.EFFECT or self.repeat_key is not None or self.kindred is not None):
+                raise ValueError('Hand arrow requires its explicit single owned-hand target domain')
+            self.targeting.__post_init__()
+            if type(self.target_facts) is not tuple or any(type(x)is not SourceAllocationFact for x in self.target_facts):
+                raise ValueError('Hand arrow requires typed original offered targets')
+            for fact in self.target_facts:fact.__post_init__()
+        elif self.target_facts:
+            raise ValueError('Ordinary choice cannot borrow hand-target facts')
         _player(self.player_id)
         _source(self.source_id)
         if not isinstance(self.options, tuple) or any(not isinstance(o, ChoiceOption) for o in self.options):

@@ -5,6 +5,7 @@ from pathlib import Path
 
 from hs_sim.engine.costs import local_cost, quote_unselected_cost
 from hs_sim.engine.effects import ChoiceOption, RequestChoice
+from hs_sim.engine.native_hand_targets import hand_target
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import CardDefinition, CardType, Zone
 from hs_sim.engine.pools import PoolCard, PoolQuery
@@ -45,7 +46,7 @@ def register_hand_spell_transform_card(registry):
             options.append(ChoiceOption(json.dumps(value, sort_keys=True), registry.card(e.card_id).name,
                                         card_id=e.card_id, entity_id=e.id))
         return (RequestChoice(c.player_id, tuple(options), c.source_id,
-                              on_select=PREFIX+'selected'),) if options else ()
+                              on_select=PREFIX+'selected', targeting=hand_target()),) if options else ()
 
     def selected(c):
         result = c.choice
