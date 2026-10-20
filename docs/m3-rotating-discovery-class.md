@@ -12,6 +12,6 @@
 
 玩家在可见载体上可见 `discover_class`，印刷 `classes` 仍为中立；对手手牌提前返回未知信息，不能读取后来参数。随机收据不加入玩家事件。观察协议升至102，命令12、回放1保持；内核575、schema469、实验内容preview-v400。原模型只给 `AbilityInstance` 加两项可空字段、`BattlecryPayload` 加一项可空字段，无新GameState字段或显式载荷类型。
 
-构筑注册表本身不声明宿主完整 `constructed.cards` 池。使用完整1188候选根构造的独立预览查询确认：法师的真实候选 `TIME_859` 异化尚未实现，当前会明确报错，不从候选中删掉。其他十个普通职业在该有限候选域通过定义完整性检查，也不代表正式生成池已认证。此依赖未补前，不能称蔽影密探完整标准效果已完成。[候选域审计](../outputs/card-integration-20261014/k294-shadowed-informant/generation-domain-audit-01.json)与[来源观察](../outputs/card-integration-20261014/k294-shadowed-informant/primary-observations-01.json)分别保留。
+构筑注册表本身不声明宿主完整 `constructed.cards` 池。K294前审使用完整1188候选根构造独立预览查询，当时法师真实候选 `TIME_859` 异化未实现，必须明确报错，不能从候选中删掉或宣称整卡完成。后续异化及原生生成资格规则见[费用档与置换契约](m3-scrambled-summons.md)；当前完成程度只以原两份台账为准。有限候选定义检查不代表正式生成池已认证。[候选域审计](../outputs/card-integration-20261014/k294-shadowed-informant/generation-domain-audit-01.json)与[来源观察](../outputs/card-integration-20261014/k294-shadowed-informant/primary-observations-01.json)分别保留。
 
 本模块不宣称任意战吼授予、拼接或全部历史卡的可变参数已经支持；真实来源需要时按实际材料接入。收据检查不提供未签名存档来源认证。执行进度与测试结果只在[项目状态](project-status.md)和[机制台账](mechanism-backlog.md)维护；正式补丁/合法池、完整可达内容与国服校准仍各自开放。

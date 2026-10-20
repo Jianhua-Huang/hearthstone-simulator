@@ -437,6 +437,10 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
     for member in sorted(pool.members, key=lambda m: m.card_id):
         row = registry.pool_card(member.card_id)
         meta = row.metadata
+        # Fabled roots and attached cards are excluded by independent declarations,
+        # including unimplemented roots. Named delivery and physical cards bypass this query.
+        if row.card_id in registry.fabled_generation_exclusions or row.generation_identity in registry.fabled_generation_exclusions:
+            continue
         if meta.collectible is True and (row.card_id in source_family or row.generation_identity in source_identities):
             continue
         # Explicit Titan/main-quest bans, evaluated from independent inventory metadata.

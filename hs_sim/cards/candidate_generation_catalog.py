@@ -145,3 +145,10 @@ def register_candidate_pool_metadata(registry):
                 raise TargetValidationError(f'Existing candidate metadata conflicts with the complete catalog: {cid}')
         else:pending.append(candidate)
     for candidate in pending:registry.register_pool_card(candidate)
+    # Native Fabled flags are independent of executable coverage.
+    for row in load_batch()['cards']:
+        raw=row['record'];tags=raw['tags']
+        if tags.get('FABLED')==1 or tags.get('FABLED_PLUS')==1:
+            if tags.get('DONT_PICK_FROM_SUBSETS')!=1:
+                raise TargetValidationError('Fabled generation exclusion lost its complete original flag')
+            registry.register_fabled_generation_exclusion(raw['id'])

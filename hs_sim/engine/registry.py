@@ -217,6 +217,7 @@ class Registry:
         self._hand_combinations = {}
         self._deck_size_rules = {}
         self._fabled = {}
+        self._fabled_generation_exclusions = set()
         self._modular_profiles = {}
         self._modular_modules = {}
         self._modular_faces = {}
@@ -976,6 +977,15 @@ class Registry:
     def fabled(self):
         return MappingProxyType(self._fabled)
 
+    @property
+    def fabled_generation_exclusions(self):
+        return frozenset(self._fabled_generation_exclusions)
+
+    def register_fabled_generation_exclusion(self,card_id):
+        self._require_mutable()
+        _name(card_id,'Fabled random-generation exclusion')
+        self._fabled_generation_exclusions.add(card_id)
+
     def register_fabled(self, spec):
         from .fabled_decks import FabledSpec
         self._require_mutable()
@@ -985,6 +995,7 @@ class Registry:
         if spec.source_card_id in self._fabled:
             raise ValueError('Duplicate Fabled root')
         self._fabled[spec.source_card_id] = spec
+        self._fabled_generation_exclusions.update((spec.source_card_id,*spec.companion_card_ids))
 
     @property
     def board_card_families(self):
@@ -1817,6 +1828,8 @@ class Registry:
         validate_templates(self)
         from .modular_decks import validate_profiles as validate_modular_profiles
         validate_modular_profiles(self)
+        if any(cid not in self._cards and cid not in self._pool_cards for cid in self._fabled_generation_exclusions):
+            raise ValueError('Fabled generation exclusion requires independent known card inventory')
         from .fabled_decks import validate_specs as validate_fabled_specs
         validate_fabled_specs(self)
         from .deck_size_rules import validate_rules as validate_deck_size_rules
@@ -2158,6 +2171,8 @@ class Registry:
             payload['live_hand_spell_profiles']=[asdict(self._live_hand_spell_profiles[k])for k in sorted(self._live_hand_spell_profiles)]
         if self._native_stat_gain_profiles:
             payload['native_stat_gain_profiles']=[asdict(self._native_stat_gain_profiles[k])for k in sorted(self._native_stat_gain_profiles)]
+        if self._fabled_generation_exclusions:
+            payload['fabled_generation_exclusions']=sorted(self._fabled_generation_exclusions)
         if self._rotating_discovery_class_profiles:
             payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
         if self._remaining_mana_numbers_profiles:

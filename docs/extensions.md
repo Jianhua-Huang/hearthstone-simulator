@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+SummonAndScramble组合原费用档生产者及一次独立数值置换；不要按场上卡名重找或重新分配总属性。普通生成统一应用独立fabled_generation_exclusions，见[契约](m3-scrambled-summons.md)。
+
 RotatingDiscoveryClassProfile声明真实手牌来源；参数沿原打印附件和BattlecryPayload保存，主体只构造指定职业DiscoverFromPool。不要改英雄职业或裁剪未支持候选，见[契约](m3-rotating-discovery-class.md)。
 
 活体疫病声明原生HealthRule；ShuffleGeneratedCopies保存原请求并按空位调用普通创建和shuffle。容量覆盖范围和原健康包窗口见[契约](m3-blight-damage-replacement.md)。

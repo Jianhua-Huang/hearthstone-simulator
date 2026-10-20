@@ -469,6 +469,8 @@ class Game:
         validate_remaining_numbers(self)
         from .rotating_discovery_classes import validate_game as validate_discovery_classes
         validate_discovery_classes(self)
+        from .scrambled_summons import validate_boundary as validate_scrambled_summons
+        validate_scrambled_summons(self)
         from .mana_ranks import validate_state as validate_mana_rank_state
         validate_mana_rank_state(self._state, self.registry)
         from .unidentified import validate_state as validate_unidentified_state

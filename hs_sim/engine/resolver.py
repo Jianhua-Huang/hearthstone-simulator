@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v575'
+CORE_EFFECTS_VERSION = 'core-effects-v576'
 
 
 class Mechanics:
@@ -2758,6 +2758,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_deadlines(mechanics)
     from .rotating_discovery_classes import register as register_discovery_classes
     register_discovery_classes(mechanics)
+    from .scrambled_summons import register as register_scrambled_summons
+    register_scrambled_summons(mechanics)
     from .starting_hands import register as register_starting_hands
     register_starting_hands(mechanics)
     from .temporary_deck_hands import register as register_temporary_deck_hands

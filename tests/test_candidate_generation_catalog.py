@@ -72,7 +72,7 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
 
     def test_catalog_adds_only_missing_metadata_never_executable_placeholders_or_pools(self):
         with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):before=build_registry()
-        after=self.r;missing=set(self.rows)-set(before.cards)
+        after=self.r;missing=set(self.rows)-set(before.pool_cards)
         self.assertEqual(set(after.pool_cards)-set(before.pool_cards),missing);self.assertEqual(set(after.cards),set(before.cards));self.assertEqual({k:asdict(c)for k,c in after.cards.items()},{k:asdict(c)for k,c in before.cards.items()});self.assertEqual(dict(after.pools),dict(before.pools));self.assertTrue(all(after.pool_card(cid)==card for cid,card in before.pool_cards.items()));self.assertTrue(missing)
         for cid in missing:self.assertIn(cid,after.pool_cards)
         with self.assertRaises(UnsupportedDefinitionError):after.card(next(iter(missing)))
