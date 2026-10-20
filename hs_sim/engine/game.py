@@ -482,6 +482,8 @@ class Game:
         validate_suspicious_discoveries(self)
         from .sham_trials import validate_game as validate_sham_trials
         validate_sham_trials(self)
+        from .card_packs import validate_game as validate_card_packs
+        validate_card_packs(self)
         from .coin_replacements import validate_boundary as validate_coin_replacements
         validate_coin_replacements(self)
         from .prison_playback import validate_boundary as validate_prison_playback

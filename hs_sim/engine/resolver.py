@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v601'
+CORE_EFFECTS_VERSION = 'core-effects-v602'
 
 
 class Mechanics:
@@ -2898,5 +2898,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_suspicious_discoveries(mechanics)
     from .sham_trials import register as register_sham_trials
     register_sham_trials(mechanics)
+    from .card_packs import register as register_card_packs
+    register_card_packs(mechanics)
     return mechanics
 
