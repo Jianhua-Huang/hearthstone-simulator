@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 484
+SNAPSHOT_SCHEMA_VERSION = 485
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -312,6 +312,11 @@ def _hand_progress_spec(value):
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['prison_playback'] is not None:
+        from .model import PrisonPlaybackState
+        binding = _row(row['prison_playback'], PrisonPlaybackState)
+        binding['consumed_discard_ids'] = tuple(_list(binding['consumed_discard_ids'], 'spent Prison discards'))
+        row['prison_playback'] = PrisonPlaybackState(**binding)
     if row['spell_resummon_value'] is not None:
         from .destruction_resummon_spells import value_from_dict
         row['spell_resummon_value'] = value_from_dict(row['spell_resummon_value'])

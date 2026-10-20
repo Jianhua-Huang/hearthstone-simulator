@@ -155,6 +155,7 @@ class Registry:
         self._composed_spell_profiles = {}
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
+        self._prison_profiles = {}
         self._coin_replacement_programs = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
@@ -282,6 +283,17 @@ class Registry:
 
     @property
     def second_player_cards(self):return frozenset(self._second_player_cards)
+
+    @property
+    def prison_profiles(self): return MappingProxyType(self._prison_profiles)
+
+    def register_prison_profile(self, profile):
+        self._require_mutable()
+        from .prison_playback import validate_profile
+        validate_profile(self, profile)
+        if profile.prison_card_id in self._prison_profiles:
+            raise ValueError('Duplicate Prison profile')
+        self._prison_profiles[profile.prison_card_id] = profile
 
     def register_second_player_card(self,card_id):
         self._require_mutable()
@@ -1896,6 +1908,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .prison_playback import validate_profile as validate_prison_profile
+        for profile in self._prison_profiles.values(): validate_prison_profile(self,profile)
         from .coin_replacements import validate_profile as validate_coin_replacement
         for profile in self._coin_replacement_profiles.values():validate_coin_replacement(self,profile)
         if any(self.card(cid).kind!=CardType.MINION for cid in self._second_player_cards):
@@ -2352,6 +2366,8 @@ class Registry:
         if self._composed_spell_profiles:
             payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
         if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
+        if self._prison_profiles:
+            payload['prison_profiles']=[asdict(self._prison_profiles[k])for k in sorted(self._prison_profiles)]
         if self._coin_replacement_profiles:
             payload['coin_replacement_profiles']=[asdict(self._coin_replacement_profiles[k])for k in sorted(self._coin_replacement_profiles)]
         if self._invoke_profile is not None:

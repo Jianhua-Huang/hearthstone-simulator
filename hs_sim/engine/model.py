@@ -2650,6 +2650,21 @@ class NativeSourceCondition:
 
 
 @dataclass(frozen=True)
+class PrisonPlaybackState:
+    """One released minion's original Prison and spent discard occurrences."""
+    prison_death_id: int
+    consumed_discard_ids: tuple[int, ...] = ()
+
+    def __post_init__(self):
+        _int(self.prison_death_id, 'original Prison death', 1)
+        if type(self.consumed_discard_ids) is not tuple:
+            raise ValueError('Prison playback requires immutable discard identities')
+        for value in self.consumed_discard_ids: _int(value, 'spent Prison discard', 1)
+        if len(set(self.consumed_discard_ids)) != len(self.consumed_discard_ids):
+            raise ValueError('Prison discard occurrence consumed twice')
+
+
+@dataclass(frozen=True)
 class SpellMirrorBinding:
     declaring_card_id: str
     cast_id: int | None = None
@@ -2950,6 +2965,7 @@ class AbilityInstance:
     hero_power_use_aura: HeroPowerUseAuraSpec | None = None
     hand_mirror: HandMirrorBinding | None = None
     spell_mirror: SpellMirrorBinding | None = None
+    prison_playback: PrisonPlaybackState | None = None
     native_condition: NativeSourceCondition | None = None
     deathrattle_memory: DeathrattleMemory | None = None
     carved_spell_id: str | None = None
@@ -2972,6 +2988,11 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.prison_playback is not None:
+            if (type(self.prison_playback) is not PrisonPlaybackState or self.kind != 'trigger'
+                    or self.event != 'turn_ended' or self.end_turn is None):
+                raise ValueError('Prison memory requires its classified end-turn body')
+            self.prison_playback.__post_init__()
         if self.carved_spell_id is not None:
             _name(self.carved_spell_id,'carved original spell')
             if self.kind!='battlecry':raise ValueError('Carved spell requires its physical Battlecry body')

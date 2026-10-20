@@ -478,6 +478,8 @@ class Game:
         validate_composed_spells(self)
         from .coin_replacements import validate_boundary as validate_coin_replacements
         validate_coin_replacements(self)
+        from .prison_playback import validate_boundary as validate_prison_playback
+        validate_prison_playback(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

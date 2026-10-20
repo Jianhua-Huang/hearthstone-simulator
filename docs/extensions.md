@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实牢房释放用`PrisonEntryMaterial(prison_death_id=...)`连接原死亡，后续结束主体返回`PlayPrisonDiscard(c.end_turn.id)`。原弃牌成功续接、复制、五类执行与私有材料见[牢房契约](m3-prison-discard-playback.md)；不要用全局弃牌或带战吼的整卡重放替代。
+
 原套牌后手用register_second_player_card；真实三选升级币用CoinReplacementProfile及原AddPlayerEffect。完整币族、普通替换与新生溢出边界见[艾雅契约](m3-aya-counterfeit-coins.md)。
 
 真实一费卡扎库斯药水使用ComposedSpellProfile/Recipe及CreateRandomComposedSpell；有序成分委托原执行器，生命奖励使用原驻留引用。不要给原展示选项增加on_play或隐式放宽生成池，见[药水契约](m3-kazakus-potion-forms.md)。

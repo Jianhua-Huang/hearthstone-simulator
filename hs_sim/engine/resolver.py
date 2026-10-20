@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v590'
+CORE_EFFECTS_VERSION = 'core-effects-v591'
 
 
 class Mechanics:
@@ -365,6 +365,8 @@ class Resolution:
         synchronize_spell_mirrors(self,event)
         from .coin_replacements import synchronize as synchronize_coin_replacements
         synchronize_coin_replacements(self,event)
+        from .prison_playback import synchronize as synchronize_prison_playback
+        synchronize_prison_playback(self,event)
         from .hand_parity import synchronize as synchronize_hand_parity
         synchronize_hand_parity(self)
         if not _capture:
@@ -2623,6 +2625,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_end_turn_producers(mechanics)
     from .end_turn_repeats import register as register_end_turn_repeats
     register_end_turn_repeats(mechanics)
+    from .prison_playback import register as register_prison_playback
+    register_prison_playback(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

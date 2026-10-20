@@ -329,6 +329,12 @@ def validate_subject(state,registry,subject):
             current=next((x for x in entity.abilities if x.id==a.id),None)
             if current is None: continue
             comparable=replace(current,uses_remaining=a.uses_remaining,consumed=a.consumed) if a.kind=='limited_trigger' else replace(current,consumed=a.consumed)
+            if a.prison_playback is not None and current.prison_playback is not None:
+                old,new=a.prison_playback,current.prison_playback
+                if (old.prison_death_id!=new.prison_death_id or
+                        new.consumed_discard_ids[:len(old.consumed_discard_ids)]!=old.consumed_discard_ids):
+                    raise ValueError('Historical Prison playback moved backwards or changed its original source')
+                comparable=replace(comparable,prison_playback=old)
             if entity.id!=subject.source_id or comparable!=a:
                 raise ValueError('Historical end-turn ability differs from its surviving attachment')
             if a.kind=='limited_trigger' and current.uses_remaining>a.uses_remaining:

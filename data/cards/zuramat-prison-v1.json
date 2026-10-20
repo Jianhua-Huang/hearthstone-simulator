@@ -1,0 +1,684 @@
+{
+  "schema": 1,
+  "batch": "K310-zuramat-prison",
+  "task": {
+    "schema": 1,
+    "batch": "K310-zuramat-prison",
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "candidate_inventory": "outputs/card-integration-20261014/k309-aya-counterfeit-coins/inventory-01.json",
+    "candidate_inventory_sha256": "ad867e0b4bbdb2c37ce8145bc0f89ff007edbdd7bca0bfff72d190d9e48f942f",
+    "roots": [
+      "JAIL_887"
+    ],
+    "dependencies": [
+      "JAIL_887t2"
+    ],
+    "existing_dependencies": [
+      "JAIL_887t3"
+    ],
+    "evidence_only": [
+      "JAIL_887t2e"
+    ],
+    "official_ids": [
+      "JAIL_887",
+      "JAIL_887t2",
+      "JAIL_887t3"
+    ],
+    "numeric_normalizations": {},
+    "display_normalizations": {},
+    "effect_groups": [
+      {
+        "effect": "real Prison discard choice/physical source memory, Location destruction and Zuramat discarded-card play",
+        "cards": [
+          "JAIL_887"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "data/cards/zuramat-prison-v1.json",
+      "hs_sim/cards/zuramat_prison_cards.py",
+      "tests/test_zuramat_prison_cards.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "JAIL_887",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126497-zh_CN.json",
+      "response_sha256": "0427b6ef06a84eae014d3ddee124779ebe468bf315e5a84968673b7796a7215e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126497&locale=zh_CN",
+      "face": {
+        "id": 126497,
+        "collectible": 1,
+        "slug": "126497-zuramats-prison",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 5,
+        "name": "祖拉玛特的牢房",
+        "text": "选择一张牌并弃掉，以召唤一个5/5并具有<b>嘲讽</b>的虚空低语。<b>亡语：</b>放出祖拉玛特。祖拉玛特每回合会使用一张弃掉的牌！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9cdbb1d469d71908b91cbb6e1e781dc4ec638d83b41ac0a5364b8fde312f4dd.png",
+        "imageGold": "",
+        "flavorText": "干湿吸力模式启动！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a982821ec2dcee9633c4d477833e588458397400328e447001f316d1c6697c65.png",
+        "childIds": [
+          126499,
+          127277
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126497&locale=zh_CN",
+        "sha256": "0427b6ef06a84eae014d3ddee124779ebe468bf315e5a84968673b7796a7215e",
+        "bytes": 886,
+        "observed_at": "2026-10-20T05:43:13.920316+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_887",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126497-en_US.json",
+      "response_sha256": "88b7c52e4aed92bf2d6f5893a844982c9bf6b2b2fed071109bb0ec1c33e1652d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126497&locale=en_US",
+      "face": {
+        "id": 126497,
+        "collectible": 1,
+        "slug": "126497-zuramats-prison",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "manaCost": 5,
+        "name": "Zuramat's Prison",
+        "text": "Choose a card to discard to summon a 5/5 <b>Taunt</b>. <b>Deathrattle:</b> Free Zuramat who plays one each turn!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de0d3c8c641f5ee55bddca75382719c81d378c8a6339a8dd893d7498bb1ce936.png",
+        "imageGold": "",
+        "flavorText": "WETVAC MODE ACTIVATE!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a982821ec2dcee9633c4d477833e588458397400328e447001f316d1c6697c65.png",
+        "childIds": [
+          126499,
+          127277
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126497&locale=en_US",
+        "sha256": "88b7c52e4aed92bf2d6f5893a844982c9bf6b2b2fed071109bb0ec1c33e1652d",
+        "bytes": 814,
+        "observed_at": "2026-10-20T05:43:14.074205+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_887t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126499-zh_CN.json",
+      "response_sha256": "679640284c2043c04372d37d0dbd69111ab1ab2f3270b64c7be7ca28bddefadd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126499&locale=zh_CN",
+      "face": {
+        "id": 126499,
+        "collectible": 0,
+        "slug": "126499-zuramat-the-obliterator",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "湮灭者祖拉玛特",
+        "text": "在你的回合结束时，使用一张被祖拉玛特的牢房弃掉的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef44fc226052f239f56be321327c16a5ae988932c6a823222c0b66a8465ea178.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126497,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126499&locale=zh_CN",
+        "sha256": "679640284c2043c04372d37d0dbd69111ab1ab2f3270b64c7be7ca28bddefadd",
+        "bytes": 640,
+        "observed_at": "2026-10-20T05:43:13.626868+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_887t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\126499-en_US.json",
+      "response_sha256": "dcb3f11fc94fb0c29c9a8dbbb602f413ec02ab381d44969154dfd3bb89607e7d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126499&locale=en_US",
+      "face": {
+        "id": 126499,
+        "collectible": 0,
+        "slug": "126499-zuramat-the-obliterator",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Zuramat the Obliterator",
+        "text": "At the end of your turn, play a card discarded by Zuramat's Prison.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9816c639821f1225cbf56ac1bf434bf67dd986752e99eda7ff0d4839c1aea98c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126497,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126499&locale=en_US",
+        "sha256": "dcb3f11fc94fb0c29c9a8dbbb602f413ec02ab381d44969154dfd3bb89607e7d",
+        "bytes": 631,
+        "observed_at": "2026-10-20T05:43:14.137421+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_887t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127277-zh_CN.json",
+      "response_sha256": "618a69c8f7a8e1b009cc58cbfac949c5281d880155cddacb90a1021891e2ae77",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127277&locale=zh_CN",
+      "face": {
+        "id": 127277,
+        "collectible": 0,
+        "slug": "127277-whisper-of-the-void",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "虚空低语",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f81f30252943fbab30c4308fc086eaef1dc5a49d0dec4415356677bb3bfb8c7d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126497,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127277&locale=zh_CN",
+        "sha256": "618a69c8f7a8e1b009cc58cbfac949c5281d880155cddacb90a1021891e2ae77",
+        "bytes": 583,
+        "observed_at": "2026-10-20T05:43:15.659175+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_887t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127277-en_US.json",
+      "response_sha256": "3957cf2ae79f7f750fc4e661f1350a8c0c72cf04a0269b335f80693face31243",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127277&locale=en_US",
+      "face": {
+        "id": 127277,
+        "collectible": 0,
+        "slug": "127277-whisper-of-the-void",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Whisper of the Void",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5edd7686a595b22672ed421bc954d23c0fe86220e93a63d818466a47fd3e0839.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 126497,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127277&locale=en_US",
+        "sha256": "3957cf2ae79f7f750fc4e661f1350a8c0c72cf04a0269b335f80693face31243",
+        "bytes": 589,
+        "observed_at": "2026-10-20T05:43:15.806065+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_887",
+        "dbf_id": 126497,
+        "name": "祖拉玛特的牢房",
+        "name_en": "Zuramat's Prison",
+        "text": "选择一张牌并弃掉，以召唤一个5/5并具有<b>嘲讽</b>的虚空低语。<b>亡语：</b>放出祖拉玛特。祖拉玛特每回合会使用一张弃掉的牌！",
+        "text_en": "[x]Choose a card to discard\nto summon a 5/5 <b>Taunt</b>.\n<b>Deathrattle:</b> Free Zuramat\nwho plays one each turn!__",
+        "cost": 5,
+        "attack": null,
+        "health": 3,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 39,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 126499,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 126499,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "62ef527dd4647c5ca4535fdcb545c4bae55d9c07e43b42618524f9a2871cb72a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_887",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_887t2",
+        "dbf_id": 126499,
+        "name": "湮灭者祖拉玛特",
+        "name_en": "Zuramat the Obliterator",
+        "text": "在你的回合结束时，使用一张被祖拉玛特的牢房弃掉的牌。",
+        "text_en": "[x]At the end of your turn,\nplay a card discarded by\nZuramat's Prison.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "eaa3b279d9d76b12baeea62381a04990ddc969749325f31f167f9e91fb10449e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_887t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "JAIL_887t3",
+        "dbf_id": 127277,
+        "name": "虚空低语",
+        "name_en": "Whisper of the Void",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "1605ad2b66449cc3bd03b7644f36a8c32136031c6af48c142dd9524b1279dfe6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_887t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAIL_887t2e",
+        "dbf_id": 133417,
+        "name": "弃掉的牌",
+        "name_en": "Discarded Card",
+        "text": "{0}",
+        "text_en": "{0}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d36f9ce603e29fa25062e7c01e9528822523777c2a791d5b5f1e60d72e7390f9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_887t2e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "policy": {
+    "discard_scope": "physical Prison entity and original entered order",
+    "playback": "uniform physical occurrences without replacement per released minion",
+    "minions": "printed summon without Battlecry; original composition and Jade size",
+    "spells": "frozen post-discard current material and ordinary automatic CAST",
+    "other_kinds": "ordinary printed generated installation without Battlecry",
+    "empty_and_singleton_rng": "no RNG draw",
+    "calibration": "all provisional policies await M6 CN; firsthand public reports support no minion Battlecry only"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "existing_dependency_definition_pins": {
+    "JAIL_887t3": {
+      "definition": {
+        "id": "JAIL_887t3",
+        "name": "虚空低语",
+        "kind": "minion",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "keywords": [
+          "taunt"
+        ],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "JAIL_887t3",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "1cbbb9d6285a318134b2209082c045f8d83a951a6fa39fc230834e90d10fdca4"
+    }
+  }
+}

@@ -440,6 +440,12 @@ def from_dict(cls,value):
         row['hand_lifetime']=None if row['hand_lifetime']is None else HandLifetime(**_row(row['hand_lifetime'],HandLifetime))
         row['enchantments']=tuple(_enchantment_from_dict(x)for x in row['enchantments'])
         row['abilities']=tuple(_ability_from_dict(x)for x in row['abilities'])
+    elif cls is CapturedCardCopyMaterial:
+        row['origin']=allocation_from_dict(row['origin'])
+        row['local']=from_dict(CopyLocalState,row['local'])
+        row['components']=tuple(_list(row['components'],'captured original components'))
+        if row['preparation'] is not None:
+            row['preparation']=HandPreparation(**_row(row['preparation'],HandPreparation))
     elif cls is CopyEntryMaterial:
         row['stored_components']=tuple(_list(row['stored_components'],'stored original minion components'))
         row['origin']=allocation_from_dict(row['origin'])

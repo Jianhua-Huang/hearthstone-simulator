@@ -97,9 +97,24 @@ class SummonEntryMaterial:
 
 
 @dataclass(frozen=True)
+class PrisonEntryMaterial(SummonEntryMaterial):
+    prison_death_id: int | None = None
+    discard_id: int | None = None
+
+    def __post_init__(self):
+        super().__post_init__()
+        if (self.prison_death_id is None) == (self.discard_id is None):
+            raise ValueError('Prison entry requires exactly one original death or discard')
+        _integer(self.prison_death_id if self.prison_death_id is not None else self.discard_id, 'Prison entry origin', 1)
+        if any((self.stats, self.deathrattles, self.keywords, self.dormant_turns,
+                self.on_summon, self.entry_grant, self.deathrattle_memory)):
+            raise ValueError('Prison entry uses only its original printed body')
+
+
+@dataclass(frozen=True)
 class SummonByCard(Effect):
     player_id: int
-    materials: tuple[SummonEntryMaterial|CopyEntryMaterial|RecruitEntryMaterial|ResurrectionEntryMaterial|PhysicalReplayEntryMaterial,...]
+    materials: tuple[SummonEntryMaterial|PrisonEntryMaterial|CopyEntryMaterial|RecruitEntryMaterial|ResurrectionEntryMaterial|PhysicalReplayEntryMaterial,...]
     cause: SummonCause
     selection: str = 'first'
     position: int | None = None
@@ -112,7 +127,7 @@ class SummonByCard(Effect):
         _player(self.player_id)
         if type(self.cause) is not SummonCause: raise ValueError('Summon requires explicit card attribution')
         self.cause.__post_init__()
-        if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
+        if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,PrisonEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
             raise ValueError('Summon requires a complete ordered entry inventory')
         for x in self.materials: x.__post_init__()
         if len({x.card_id for x in self.materials})!=len(self.materials): raise ValueError('Duplicate summon candidate identity')
@@ -167,6 +182,9 @@ def validate_face(card):
 
 
 def validate_material(registry,material,*,allow_colossal=False,allow_pool_entry=False):
+    if type(material) is PrisonEntryMaterial:
+        from .prison_playback import validate_entry_face
+        validate_entry_face(registry, material); return
     if type(material) is PhysicalReplayEntryMaterial:
         from .replay_entry_material import validate_material as validate_primary_material
         validate_primary_material(registry, material); return
@@ -416,6 +434,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
     if request.selection=='weighted':validate_weighted_request(state,registry,request,closed=closed)
     elif type(request.producer_link)is PoolSummonEntryLink:validate_entry_recipe(state,request,closed=closed)
     for material in request.materials:
+        if type(material) is PrisonEntryMaterial:
+            from .prison_playback import validate_entry
+            validate_entry(state, registry, material)
         if type(material) is PhysicalReplayEntryMaterial:
             from .replay_entry_material import validate_scope
             validate_scope(state, registry, request, material)
@@ -499,6 +520,8 @@ def deliver(r,effect):
             components=()
             if type(material)is CopyEntryMaterial:components=material.components
             if type(material)is RecruitEntryMaterial:components=material.copy.components
+            if type(material) is PrisonEntryMaterial and material.discard_id is not None:
+                components=r.state.discard_history[material.discard_id-1].components
             if type(material) is PhysicalReplayEntryMaterial:
                 from .offered_card_execution import components_for_entry
                 components=components_for_entry(r.state,r.registry,material)
@@ -540,6 +563,9 @@ def deliver(r,effect):
                 install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.entry_grant,
                     source_id=root.request.cause.source.entity_id),resolver=r)
             refresh_entity(entity);r.refresh_auras()
+        if type(material) is PrisonEntryMaterial:
+            from .prison_playback import seed_entry
+            seed_entry(r, material, entity)
         result=CardSummonDelivery(effect.index,'delivered',SourceAllocationFact.capture(r.state,entity))
     update(r.state,root,deliveries=(*root.deliveries,result))
     continuation=()
@@ -893,6 +919,8 @@ def validate_closed_events(game):
 
 
 def material_from_dict(value):
+    if type(value) is dict and 'prison_death_id' in value:
+        return from_dict(PrisonEntryMaterial, value)
     if type(value) is dict and value.get('profile') in ('whole_card_printed_primary_v1', 'whole_card_original_offer_primary_v1'):
         return from_dict(PhysicalReplayEntryMaterial, value)
     if 'death'in value:
@@ -912,7 +940,7 @@ def from_dict(cls,value):
     row=_row(value,cls)
     if cls is SummonQuantitySpec:row['source_kinds']=tuple(CardType(k)for k in row['source_kinds'])
     elif cls is SummonCause:row['source']=allocation_from_dict(row['source'])
-    elif cls is SummonEntryMaterial:
+    elif cls in (SummonEntryMaterial, PrisonEntryMaterial):
         row['stats']=None if row['stats'] is None else SummonStats(**_row(row['stats'],SummonStats))
         row['deathrattles']=tuple(row['deathrattles']);row['keywords']=tuple(Keyword(k)for k in row['keywords'])
         row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
@@ -962,7 +990,7 @@ def rows_from_dict(value):
 
 
 def register(mechanics):
-    for cls in (AcceptedEntryStrength,SummonCause,SummonEntryMaterial,PhysicalReplayEntryMaterial,SummonCarrierFact,SummonQuantityDecision,SummonQuantityPlan,CardSummonDelivery,CardSummonRecord):
+    for cls in (AcceptedEntryStrength,SummonCause,SummonEntryMaterial,PrisonEntryMaterial,PhysicalReplayEntryMaterial,SummonCarrierFact,SummonQuantityDecision,SummonQuantityPlan,CardSummonDelivery,CardSummonRecord):
         mechanics.register_payload_type(cls)
     for kind,handler in ((SummonByCard,accept),(GrantSummonQuantity,grant),(DeliverCardSummon,deliver),(FinishCardSummon,finish)):
         mechanics.register(kind,handler)
