@@ -1,0 +1,2340 @@
+{
+  "schema": 1,
+  "batch_id": "kazakus-sham-trial-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CAP_405",
+        "dbf_id": 127067,
+        "name": "教父卡扎库斯",
+        "name_en": "Godfather Kazakus",
+        "text": "<b>战吼：</b>谋划一场自定义的黑幕庭审，然后选择庭审的长度！",
+        "text_en": "<b>Battlecry:</b> Plot a custom sham trial! Then choose the trial's length.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "ba79e01df42be13176fca6edaceb540fd19095440f168a26b7975b41a9e6d1a0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CAP_405",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CAP_405tb3",
+        "dbf_id": 132831,
+        "name": "无尽庭审",
+        "name_en": "Unending Trial",
+        "text": "@回合后：{0}{1}",
+        "text_en": "In @ |4(turn, turns), {0} {1}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 4,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0ccd88a0e6893c709d8314ee826d2b39ffa4fb2de055bbab363511b6c92394e5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405tb2",
+        "dbf_id": 132830,
+        "name": "艰涩庭审",
+        "name_en": "Grueling Trial",
+        "text": "1回合后：{0}{1}",
+        "text_en": "In 1 turn, {0} {1}",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 1,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "41fe854200ef39b3d366b388b202681b8f35da5956a082790ceba1fa745951dd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405tb1",
+        "dbf_id": 132829,
+        "name": "快速庭审",
+        "name_en": "Rushed Trial",
+        "text": "{0}{1}",
+        "text_en": "{0} {1}",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "789ca3514fc23dd818d209b0f8cf0a23cf5e71f1cfc11265f8c2c1d84307231a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "choice_only": [
+    {
+      "record": {
+        "id": "CAP_405t3",
+        "dbf_id": 132843,
+        "name": "走私罪责",
+        "name_en": "Sentenced for Smuggling",
+        "text": "偷取你对手的2张手牌。",
+        "text_en": "Steal 2 cards from your opponent's hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d0ec6ed1a612f659d91d194bb70a2521ac030d61558069a4ec4d0fe5622709e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t4",
+        "dbf_id": 132838,
+        "name": "违禁物品",
+        "name_en": "Crate of Contraband",
+        "text": "抽三张牌。",
+        "text_en": "Draw 3 cards.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a57ea35c58703c0c46f865a18f55bcb3c1680815156146f2dd0198fd9b856460",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t1",
+        "dbf_id": 132837,
+        "name": "",
+        "name_en": "Detained for Destruction",
+        "text": "",
+        "text_en": "Force each minion to attack another minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "aaf172d1f75aa377a2990f808114a28a4d807c2bca3288002f6a2afc1f6c3dcb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t9",
+        "dbf_id": 132848,
+        "name": "暴君补剂",
+        "name_en": "Tonic of Tyranny",
+        "text": "召唤一个虚空领主。",
+        "text_en": "Summon a Voidlord.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "206e457feec6fdd06169803d01a4f4570cc13e61b102fa5849a4e140be1862fd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t9",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t2",
+        "dbf_id": 132849,
+        "name": "合谋获刑",
+        "name_en": "Convicted for Conspiracy",
+        "text": "随机夺取一个敌方随从的控制权。",
+        "text_en": "Take control of a random enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 5,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a5ebf4ccd6e1d4e19b4248702174f9aa9ad148c1a24c10dda75c85e2c7a7ac03",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t6",
+        "dbf_id": 132850,
+        "name": "邪恶协议",
+        "name_en": "Criminal Contract",
+        "text": "随机召唤三个法力值消耗为（3）的随从。",
+        "text_en": "Summon three random 3-Cost minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 6,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "05b8a3bd78180912d7d373408b0645645a0a74cd54412aa941f4bc91590cb3a8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t5",
+        "dbf_id": 132844,
+        "name": "可疑快刀",
+        "name_en": "Spurious Shiv",
+        "text": "使你手牌中和战场上的随从获得+3/+3。",
+        "text_en": "Give minions in your hand and battlefield +3/+3.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 7,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d7cc8ba0fa6452058f5071cc730fcb9f0ffff458fbfd48da9c269fa6f34bf7f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t7",
+        "dbf_id": 132851,
+        "name": "假证精华",
+        "name_en": "Potion of Perjury",
+        "text": "使你手牌中随从牌的法力值消耗减少（2）点。",
+        "text_en": "Reduce the Cost of minions in your hand by (2).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 8,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8b11f879c822d3e47afc2ce00559c88d0755be1a7ba73ee1fe6b91114d6dc530",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t8",
+        "dbf_id": 132856,
+        "name": "诱导饮剂",
+        "name_en": "Swill of Suggestibility",
+        "text": "为你的英雄恢复#12点生命值。",
+        "text_en": "Restore #12 Health to your hero.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 9,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "92c8a4ae378f1d25ec874a015d35303a47b14101ffb5c1a7c13cd244dcf43b5d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405tb3b",
+        "dbf_id": 132875,
+        "name": "无尽庭审",
+        "name_en": "Unending Trial",
+        "text": "庭审会在4回合后结束。",
+        "text_en": "The trial finishes in 4 turns.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3617aa40fa2461509af26d46f3568a7c8b3b8e5bd7740f199696c7b075f29e3b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb3b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405tb2b",
+        "dbf_id": 132874,
+        "name": "艰涩庭审",
+        "name_en": "Grueling Trial",
+        "text": "庭审会在你的下个回合开始时结束。",
+        "text_en": "The trial finishes at the start of your next turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "46dd23c0da4967917b8c7a7e3bc1af0c52fd79e4047f3f9f67ab9416c00cdec4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb2b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405tb1b",
+        "dbf_id": 132873,
+        "name": "快速庭审",
+        "name_en": "Rushed Trial",
+        "text": "庭审会立即结束！",
+        "text_en": "The trial finishes immediately!",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 9,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "39cf46b7e04173c21a844d827dc00e9e3c4674ed783abe0a4e89e65844b5109a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405tb1b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_LOOT_368",
+        "dbf_id": 126893,
+        "name": "虚空领主",
+        "name_en": "Voidlord",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&召唤三个1/3并具有<b>嘲讽</b>的恶魔。",
+        "text_en": "[x]<b>Taunt</b>\n <b>Deathrattle:</b>& Summon three\n1/3 Demons with <b>Taunt</b>.",
+        "cost": 9,
+        "attack": 3,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 3,
+          "COST": 9,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 46056,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 46056,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 48,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jerry Mascho"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "46056",
+              "type": "Int",
+              "value": "46056"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b5f3f53ad5414a0b13868f72546e8929f5b6737543c3f40f6bffe2377fe4680e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_LOOT_368",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CAP_405t5e",
+        "dbf_id": 132846,
+        "name": "怪异钢刀",
+        "name_en": "Dubious Daggers",
+        "text": "+3/+3",
+        "text_en": "+3/+3",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "09b0866a610451b7407ffa12f4383e51e1ca7dccf70be6798170d377ee404158",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t5e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "CAP_405t7e",
+        "dbf_id": 132855,
+        "name": "伪证",
+        "name_en": "Perjurer",
+        "text": "法力值消耗减少（2）点。",
+        "text_en": "Costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c5673ce040692ac6c883774d3e766106f761c45e921c440d5ed490e7df16430",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CAP_405t7e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "component_order": [
+    "CAP_405t3",
+    "CAP_405t4",
+    "CAP_405t1",
+    "CAP_405t9",
+    "CAP_405t2",
+    "CAP_405t6",
+    "CAP_405t5",
+    "CAP_405t7",
+    "CAP_405t8"
+  ],
+  "tiers": [
+    {
+      "template_card_id": "CAP_405tb3",
+      "choice_card_id": "CAP_405tb3b",
+      "cost": 0,
+      "owner_starts": 4
+    },
+    {
+      "template_card_id": "CAP_405tb2",
+      "choice_card_id": "CAP_405tb2b",
+      "cost": 4,
+      "owner_starts": 1
+    },
+    {
+      "template_card_id": "CAP_405tb1",
+      "choice_card_id": "CAP_405tb1b",
+      "cost": 7,
+      "owner_starts": 0
+    }
+  ],
+  "existing_definition_pins": {
+    "CORE_LOOT_368": "2b8afcca5f2d77b22fa2f7ad0b309172a4be1e6d2b95b195115a47b30c1edbfb"
+  },
+  "official_observations": [
+    {
+      "card_id": "CAP_405",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\127067-zh_CN.json",
+      "response_sha256": "92621419dc844e09804ddc239d14f0e8696c722053ee1f8023461ebbc08571e4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127067&locale=zh_CN",
+      "face": {
+        "id": 127067,
+        "collectible": 1,
+        "slug": "127067-godfather-kazakus",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "教父卡扎库斯",
+        "text": "<b>战吼：</b>谋划一场自定义的黑幕庭审，然后选择庭审的长度！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97454863953475a279877229d8a8715524d5c05df83c1957fd22b9a3fa1c6e6c.png",
+        "imageGold": "",
+        "flavorText": "加基森的各大帮派从不合作。至于原因嘛。谋划犯罪的明明是卡扎库斯……可背锅的永远都是黑掌家族。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/706fcc9e8cdebe868b0ee3fca9dedec61dfac9ce7f2bc19e0ef169391721e381.png",
+        "childIds": [
+          132875,
+          132874,
+          132837,
+          132849,
+          132843,
+          132838,
+          132844,
+          132850,
+          132851,
+          132856,
+          132848,
+          126893,
+          132829,
+          132830,
+          132831
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127067&locale=zh_CN",
+        "sha256": "92621419dc844e09804ddc239d14f0e8696c722053ee1f8023461ebbc08571e4",
+        "bytes": 1004,
+        "observed_at": "2026-10-20T11:07:30.759972+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":127067,\"collectible\":1,\"slug\":\"127067-godfather-kazakus\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":4,\"cardSetId\":1988,\"rarityId\":5,\"artistName\":\"Mooncolony\",\"health\":3,\"attack\":3,\"manaCost\":3,\"name\":\"教父卡扎库斯\",\"text\":\"<b>战吼：</b>谋划一场自定义的黑幕庭审，然后选择庭审的长度！\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97454863953475a279877229d8a8715524d5c05df83c1957fd22b9a3fa1c6e6c.png\",\"imageGold\":\"\",\"flavorText\":\"加基森的各大帮派从不合作。至于原因嘛。谋划犯罪的明明是卡扎库斯……可背锅的永远都是黑掌家族。\",\"cropImage\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/706fcc9e8cdebe868b0ee3fca9dedec61dfac9ce7f2bc19e0ef169391721e381.png\",\"childIds\":[132875,132874,132837,132849,132843,132838,132844,132850,132851,132856,132848,126893,132829,132830,132831],\"keywordIds\":[8],\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\127067-en_US.json",
+      "response_sha256": "e2b8d44dc64754ebf57066aea058b26889eb7e9afc88564ac5d9bddc7b388b62",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127067&locale=en_US",
+      "face": {
+        "id": 127067,
+        "collectible": 1,
+        "slug": "127067-godfather-kazakus",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Godfather Kazakus",
+        "text": "<b>Battlecry:</b> Plot a custom sham trial! Then choose the trial's length.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/243693e9eb205c1e14983df505450bceecb06034c1b73ab1e12d78a7c3c85cbd.png",
+        "imageGold": "",
+        "flavorText": "There was a good reason the gangs of Gadgetzan never worked together. It was Kazakus who planned the heist… but it was always going to be Blackpaw who took the fall.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/706fcc9e8cdebe868b0ee3fca9dedec61dfac9ce7f2bc19e0ef169391721e381.png",
+        "childIds": [
+          132875,
+          132874,
+          132837,
+          132849,
+          132843,
+          132838,
+          132844,
+          132850,
+          132851,
+          132856,
+          132848,
+          126893,
+          132829,
+          132830,
+          132831
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127067&locale=en_US",
+        "sha256": "e2b8d44dc64754ebf57066aea058b26889eb7e9afc88564ac5d9bddc7b388b62",
+        "bytes": 1022,
+        "observed_at": "2026-10-20T11:07:30.993207+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":127067,\"collectible\":1,\"slug\":\"127067-godfather-kazakus\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":4,\"cardSetId\":1988,\"rarityId\":5,\"artistName\":\"Mooncolony\",\"health\":3,\"attack\":3,\"manaCost\":3,\"name\":\"Godfather Kazakus\",\"text\":\"<b>Battlecry:</b> Plot a custom sham trial! Then choose the trial's length.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/243693e9eb205c1e14983df505450bceecb06034c1b73ab1e12d78a7c3c85cbd.png\",\"imageGold\":\"\",\"flavorText\":\"There was a good reason the gangs of Gadgetzan never worked together. It was Kazakus who planned the heist… but it was always going to be Blackpaw who took the fall.\",\"cropImage\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/706fcc9e8cdebe868b0ee3fca9dedec61dfac9ce7f2bc19e0ef169391721e381.png\",\"childIds\":[132875,132874,132837,132849,132843,132838,132844,132850,132851,132856,132848,126893,132829,132830,132831],\"keywordIds\":[8],\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132837-zh_CN.json",
+      "response_sha256": "cda31a4a3c7ff54eb82b7d1b54ab6fac123d5e9f4afdf6c6046bf268e57a1fcc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132837&locale=zh_CN",
+      "face": {
+        "id": 132837,
+        "collectible": 0,
+        "slug": "132837-detained-for-destruction",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Detained for Destruction",
+        "text": "Force each minion to attack another minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2fea9fcedd4594acadd29ec7c284815e77d41288a06131afbff13a58849b6660.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132837&locale=zh_CN",
+        "sha256": "cda31a4a3c7ff54eb82b7d1b54ab6fac123d5e9f4afdf6c6046bf268e57a1fcc",
+        "bytes": 577,
+        "observed_at": "2026-10-20T11:07:30.913347+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132837,\"collectible\":0,\"slug\":\"132837-detained-for-destruction\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Detained for Destruction\",\"text\":\"Force each minion to attack another minion.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2fea9fcedd4594acadd29ec7c284815e77d41288a06131afbff13a58849b6660.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132837-en_US.json",
+      "response_sha256": "bb3ef5f1389f02c5a83e23a18bee6131f52294ecdf9640731b2feefd74ced572",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132837&locale=en_US",
+      "face": {
+        "id": 132837,
+        "collectible": 0,
+        "slug": "132837-detained-for-destruction",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Detained for Destruction",
+        "text": "Force each minion to attack another minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d710e1200d7d7247cbbdff4c5b041e9e83d2df42d1cebcc2a3d7392e2d797837.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132837&locale=en_US",
+        "sha256": "bb3ef5f1389f02c5a83e23a18bee6131f52294ecdf9640731b2feefd74ced572",
+        "bytes": 577,
+        "observed_at": "2026-10-20T11:07:30.899682+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132837,\"collectible\":0,\"slug\":\"132837-detained-for-destruction\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Detained for Destruction\",\"text\":\"Force each minion to attack another minion.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d710e1200d7d7247cbbdff4c5b041e9e83d2df42d1cebcc2a3d7392e2d797837.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132849-zh_CN.json",
+      "response_sha256": "c434bd8fec196558c0ecec76a2f404f681f54827587cfde41bcd4abec8c7b19f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132849&locale=zh_CN",
+      "face": {
+        "id": 132849,
+        "collectible": 0,
+        "slug": "132849-convicted-for-conspiracy",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "合谋获刑",
+        "text": "随机夺取一个敌方随从的控制权。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a530f0600ef5f2835930f2c1c7fa1e9d350ad0ef9c0a6aa32fe9e4a5fa2cb824.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132849&locale=zh_CN",
+        "sha256": "c434bd8fec196558c0ecec76a2f404f681f54827587cfde41bcd4abec8c7b19f",
+        "bytes": 567,
+        "observed_at": "2026-10-20T11:07:31.181234+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132849,\"collectible\":0,\"slug\":\"132849-convicted-for-conspiracy\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"合谋获刑\",\"text\":\"随机夺取一个敌方随从的控制权。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a530f0600ef5f2835930f2c1c7fa1e9d350ad0ef9c0a6aa32fe9e4a5fa2cb824.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132849-en_US.json",
+      "response_sha256": "6634ceaf0d1369fc00481db7877d9664cc101f904313b2b52a341dd2fbba1128",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132849&locale=en_US",
+      "face": {
+        "id": 132849,
+        "collectible": 0,
+        "slug": "132849-convicted-for-conspiracy",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Convicted for Conspiracy",
+        "text": "Take control of a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1607f361757e03e3280cb7ff6fd3d3999e98cfcefa4a5685db56c53c0ffe3da.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132849&locale=en_US",
+        "sha256": "6634ceaf0d1369fc00481db7877d9664cc101f904313b2b52a341dd2fbba1128",
+        "bytes": 572,
+        "observed_at": "2026-10-20T11:07:30.826187+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132849,\"collectible\":0,\"slug\":\"132849-convicted-for-conspiracy\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Convicted for Conspiracy\",\"text\":\"Take control of a random enemy minion.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1607f361757e03e3280cb7ff6fd3d3999e98cfcefa4a5685db56c53c0ffe3da.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132843-zh_CN.json",
+      "response_sha256": "c4c89797ddf335c4344429fbed9a11ef46f7c62440ef9e9fc9a679af522fa27e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132843&locale=zh_CN",
+      "face": {
+        "id": 132843,
+        "collectible": 0,
+        "slug": "132843-sentenced-for-smuggling",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "走私罪责",
+        "text": "偷取你对手的2张手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8cac02f09eba6e8333e830bea9ee8d57139a5ce2f26d8ac6491524627d32088.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132843&locale=zh_CN",
+        "sha256": "c4c89797ddf335c4344429fbed9a11ef46f7c62440ef9e9fc9a679af522fa27e",
+        "bytes": 552,
+        "observed_at": "2026-10-20T11:07:32.503756+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132843,\"collectible\":0,\"slug\":\"132843-sentenced-for-smuggling\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"走私罪责\",\"text\":\"偷取你对手的2张手牌。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a8cac02f09eba6e8333e830bea9ee8d57139a5ce2f26d8ac6491524627d32088.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132843-en_US.json",
+      "response_sha256": "4d160de3f8c432abbb3b61220f79aa449c9fd063e9e0d9d6fb214fb834270d14",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132843&locale=en_US",
+      "face": {
+        "id": 132843,
+        "collectible": 0,
+        "slug": "132843-sentenced-for-smuggling",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Sentenced for Smuggling",
+        "text": "Steal 2 cards from your opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d0ed6051c4378ec4fe2941c9c241704994fce18e5fd5b48f6513c280846bf78.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132843&locale=en_US",
+        "sha256": "4d160de3f8c432abbb3b61220f79aa449c9fd063e9e0d9d6fb214fb834270d14",
+        "bytes": 572,
+        "observed_at": "2026-10-20T11:07:32.517999+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132843,\"collectible\":0,\"slug\":\"132843-sentenced-for-smuggling\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Sentenced for Smuggling\",\"text\":\"Steal 2 cards from your opponent's hand.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d0ed6051c4378ec4fe2941c9c241704994fce18e5fd5b48f6513c280846bf78.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132838-zh_CN.json",
+      "response_sha256": "bc2bc034df289ab7b5d53f3dc9389f380ce910362c96806b05f5599b71ae12c2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132838&locale=zh_CN",
+      "face": {
+        "id": 132838,
+        "collectible": 0,
+        "slug": "132838-crate-of-contraband",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "违禁物品",
+        "text": "抽三张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca8590a56cf4280335cce36bb61152a0eabe3db59065d734ad1e48daa3cb7fa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132838&locale=zh_CN",
+        "sha256": "bc2bc034df289ab7b5d53f3dc9389f380ce910362c96806b05f5599b71ae12c2",
+        "bytes": 532,
+        "observed_at": "2026-10-20T11:07:32.440948+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132838,\"collectible\":0,\"slug\":\"132838-crate-of-contraband\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"违禁物品\",\"text\":\"抽三张牌。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca8590a56cf4280335cce36bb61152a0eabe3db59065d734ad1e48daa3cb7fa.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132838-en_US.json",
+      "response_sha256": "15b00060737abdef19e2ff94f964ca2d9ebeaba85a69e2f46dfc520a0ea0703b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132838&locale=en_US",
+      "face": {
+        "id": 132838,
+        "collectible": 0,
+        "slug": "132838-crate-of-contraband",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Crate of Contraband",
+        "text": "Draw 3 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3524ebd6fd3619e70c3bcd78402e4605c6a6f3f6da5b82edc09a99831bcc1ce2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132838&locale=en_US",
+        "sha256": "15b00060737abdef19e2ff94f964ca2d9ebeaba85a69e2f46dfc520a0ea0703b",
+        "bytes": 537,
+        "observed_at": "2026-10-20T11:07:32.864407+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132838,\"collectible\":0,\"slug\":\"132838-crate-of-contraband\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Crate of Contraband\",\"text\":\"Draw 3 cards.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3524ebd6fd3619e70c3bcd78402e4605c6a6f3f6da5b82edc09a99831bcc1ce2.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132844-zh_CN.json",
+      "response_sha256": "92e26e74fc3fe08948c12f1d469c3156962a5286fca0182a4eab435d6cdeb00e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132844&locale=zh_CN",
+      "face": {
+        "id": 132844,
+        "collectible": 0,
+        "slug": "132844-spurious-shiv",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "可疑快刀",
+        "text": "使你手牌中和战场上的随从获得+3/+3。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc262232b2d7dcfa8ad381b43b861a2bdae1d4cab50e51926203beda58423760.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132844&locale=zh_CN",
+        "sha256": "92e26e74fc3fe08948c12f1d469c3156962a5286fca0182a4eab435d6cdeb00e",
+        "bytes": 561,
+        "observed_at": "2026-10-20T11:07:32.532895+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132844,\"collectible\":0,\"slug\":\"132844-spurious-shiv\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"可疑快刀\",\"text\":\"使你手牌中和战场上的随从获得+3/+3。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc262232b2d7dcfa8ad381b43b861a2bdae1d4cab50e51926203beda58423760.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132844-en_US.json",
+      "response_sha256": "e5211ccf85e200015c8628aa68668a1cd04fb3de2eb5b2a363a83c8eae4de086",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132844&locale=en_US",
+      "face": {
+        "id": 132844,
+        "collectible": 0,
+        "slug": "132844-spurious-shiv",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Spurious Shiv",
+        "text": "Give minions in your hand and battlefield +3/+3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/246077b6467756fb8a5179fabb40ee22052360ff48ae96601d85209a1c52cbf8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132844&locale=en_US",
+        "sha256": "e5211ccf85e200015c8628aa68668a1cd04fb3de2eb5b2a363a83c8eae4de086",
+        "bytes": 560,
+        "observed_at": "2026-10-20T11:07:33.143348+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132844,\"collectible\":0,\"slug\":\"132844-spurious-shiv\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Spurious Shiv\",\"text\":\"Give minions in your hand and battlefield +3/+3.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/246077b6467756fb8a5179fabb40ee22052360ff48ae96601d85209a1c52cbf8.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132850-zh_CN.json",
+      "response_sha256": "aede107d6002e8a0f04386b68eec3c236479f083390fe48f9d29e7746ed2848d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132850&locale=zh_CN",
+      "face": {
+        "id": 132850,
+        "collectible": 0,
+        "slug": "132850-criminal-contract",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "邪恶协议",
+        "text": "随机召唤三个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6256dac78deae03d42be5bd8a093c7f542290a26214449dafe4149221592a44.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132850&locale=zh_CN",
+        "sha256": "aede107d6002e8a0f04386b68eec3c236479f083390fe48f9d29e7746ed2848d",
+        "bytes": 570,
+        "observed_at": "2026-10-20T11:07:34.307097+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132850,\"collectible\":0,\"slug\":\"132850-criminal-contract\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"邪恶协议\",\"text\":\"随机召唤三个法力值消耗为（3）的随从。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6256dac78deae03d42be5bd8a093c7f542290a26214449dafe4149221592a44.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132850-en_US.json",
+      "response_sha256": "1eae1fc3774af017cc1c2187fce9ea41b8a6ab28bd1748a2e1d7b7bb8887b5e4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132850&locale=en_US",
+      "face": {
+        "id": 132850,
+        "collectible": 0,
+        "slug": "132850-criminal-contract",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Criminal Contract",
+        "text": "Summon three random 3-Cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf22ca9514cc87bf2f33271c9ab72fbe28854a86fca0c4021bd5f00c4251d9ec.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132850&locale=en_US",
+        "sha256": "1eae1fc3774af017cc1c2187fce9ea41b8a6ab28bd1748a2e1d7b7bb8887b5e4",
+        "bytes": 555,
+        "observed_at": "2026-10-20T11:07:34.050605+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132850,\"collectible\":0,\"slug\":\"132850-criminal-contract\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Criminal Contract\",\"text\":\"Summon three random 3-Cost minions.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf22ca9514cc87bf2f33271c9ab72fbe28854a86fca0c4021bd5f00c4251d9ec.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t7",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132851-zh_CN.json",
+      "response_sha256": "42bd658b7057e193bddca951b4c31b41950c8bc5fd47fec3d8c400517b92edb1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132851&locale=zh_CN",
+      "face": {
+        "id": 132851,
+        "collectible": 0,
+        "slug": "132851-potion-of-perjury",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "假证精华",
+        "text": "使你手牌中随从牌的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6edc4d4a0ce707cf8a0985ae35adcc000c173acec65f317170124d2d238a0386.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132851&locale=zh_CN",
+        "sha256": "42bd658b7057e193bddca951b4c31b41950c8bc5fd47fec3d8c400517b92edb1",
+        "bytes": 576,
+        "observed_at": "2026-10-20T11:07:34.181072+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132851,\"collectible\":0,\"slug\":\"132851-potion-of-perjury\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"假证精华\",\"text\":\"使你手牌中随从牌的法力值消耗减少（2）点。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6edc4d4a0ce707cf8a0985ae35adcc000c173acec65f317170124d2d238a0386.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t7",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132851-en_US.json",
+      "response_sha256": "f17cbd2fd79d19ac67fb6706f4a555201b193c1a456198537965f15207b4ee80",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132851&locale=en_US",
+      "face": {
+        "id": 132851,
+        "collectible": 0,
+        "slug": "132851-potion-of-perjury",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Potion of Perjury",
+        "text": "Reduce the Cost of minions in your hand by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77c565e3e1166c73d66339bfa282308581058cf34f4ed38a4999fc75eb6f5f7f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132851&locale=en_US",
+        "sha256": "f17cbd2fd79d19ac67fb6706f4a555201b193c1a456198537965f15207b4ee80",
+        "bytes": 567,
+        "observed_at": "2026-10-20T11:07:34.055992+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132851,\"collectible\":0,\"slug\":\"132851-potion-of-perjury\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Potion of Perjury\",\"text\":\"Reduce the Cost of minions in your hand by (2).\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77c565e3e1166c73d66339bfa282308581058cf34f4ed38a4999fc75eb6f5f7f.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t8",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132856-zh_CN.json",
+      "response_sha256": "8d20891ec609f05aa9178a205cdd832cca7b81925b7ad22b103aaa80f3f5b842",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132856&locale=zh_CN",
+      "face": {
+        "id": 132856,
+        "collectible": 0,
+        "slug": "132856-swill-of-suggestibility",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "诱导饮剂",
+        "text": "为你的英雄恢复 12点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77b119fc414a3d877ea410366109751ab64f000b6799cf41ac88446aab2611f3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132856&locale=zh_CN",
+        "sha256": "8d20891ec609f05aa9178a205cdd832cca7b81925b7ad22b103aaa80f3f5b842",
+        "bytes": 560,
+        "observed_at": "2026-10-20T11:09:52.251255+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132856,\"collectible\":0,\"slug\":\"132856-swill-of-suggestibility\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"诱导饮剂\",\"text\":\"为你的英雄恢复 12点生命值。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77b119fc414a3d877ea410366109751ab64f000b6799cf41ac88446aab2611f3.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t8",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132856-en_US.json",
+      "response_sha256": "bf63e7949b19f1eac0db1e55713bcff6c00713b192186bd8459255f99407ae35",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132856&locale=en_US",
+      "face": {
+        "id": 132856,
+        "collectible": 0,
+        "slug": "132856-swill-of-suggestibility",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Swill of Suggestibility",
+        "text": "Restore 12 Health to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f41a512ff6c543ae8cceb3d7ad69e04a91648d913983fa145bb9d8e3db95c4d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132856&locale=en_US",
+        "sha256": "bf63e7949b19f1eac0db1e55713bcff6c00713b192186bd8459255f99407ae35",
+        "bytes": 563,
+        "observed_at": "2026-10-20T11:07:34.985103+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132856,\"collectible\":0,\"slug\":\"132856-swill-of-suggestibility\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Swill of Suggestibility\",\"text\":\"Restore 12 Health to your hero.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f41a512ff6c543ae8cceb3d7ad69e04a91648d913983fa145bb9d8e3db95c4d.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t9",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132848-zh_CN.json",
+      "response_sha256": "e4b30d194e8c88d78a91408332aab8b1e3400ab13894b7b67139ebcb68b25714",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132848&locale=zh_CN",
+      "face": {
+        "id": 132848,
+        "collectible": 0,
+        "slug": "132848-tonic-of-tyranny",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "暴君补剂",
+        "text": "召唤一个虚空领主。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5f2ac602f21aedb6888889c09b5bffe6ba49068bffbbbf487cf0f825e857e72.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132848&locale=zh_CN",
+        "sha256": "e4b30d194e8c88d78a91408332aab8b1e3400ab13894b7b67139ebcb68b25714",
+        "bytes": 541,
+        "observed_at": "2026-10-20T11:09:52.452204+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132848,\"collectible\":0,\"slug\":\"132848-tonic-of-tyranny\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"暴君补剂\",\"text\":\"召唤一个虚空领主。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5f2ac602f21aedb6888889c09b5bffe6ba49068bffbbbf487cf0f825e857e72.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405t9",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132848-en_US.json",
+      "response_sha256": "44da4f45c3e2873a2a6f561d42ffb28637c2c15902b8755dbacdb542c47bd116",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132848&locale=en_US",
+      "face": {
+        "id": 132848,
+        "collectible": 0,
+        "slug": "132848-tonic-of-tyranny",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Tonic of Tyranny",
+        "text": "Summon a Voidlord.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eef7b92aea0c0afc2898561eeae03050f9adc74c4b3a95c0ea069f0321942ac2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132848&locale=en_US",
+        "sha256": "44da4f45c3e2873a2a6f561d42ffb28637c2c15902b8755dbacdb542c47bd116",
+        "bytes": 536,
+        "observed_at": "2026-10-20T11:07:35.604669+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132848,\"collectible\":0,\"slug\":\"132848-tonic-of-tyranny\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Tonic of Tyranny\",\"text\":\"Summon a Voidlord.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eef7b92aea0c0afc2898561eeae03050f9adc74c4b3a95c0ea069f0321942ac2.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405tb1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132829-zh_CN.json",
+      "response_sha256": "dfb67facb45dc33c9c75aff19c20a8b54ca42d78d013f99b97b909a3b539615d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132829&locale=zh_CN",
+      "face": {
+        "id": 132829,
+        "collectible": 0,
+        "slug": "132829-rushed-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 7,
+        "name": "快速庭审",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f440672dc59c42d21c5ebcbc9c16a9f26d22ce378cbec0401d411d47b1b85d2f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132829&locale=zh_CN",
+        "sha256": "dfb67facb45dc33c9c75aff19c20a8b54ca42d78d013f99b97b909a3b539615d",
+        "bytes": 510,
+        "observed_at": "2026-10-20T11:07:35.718510+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132829,\"collectible\":0,\"slug\":\"132829-rushed-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":7,\"name\":\"快速庭审\",\"text\":\"\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f440672dc59c42d21c5ebcbc9c16a9f26d22ce378cbec0401d411d47b1b85d2f.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132829-en_US.json",
+      "response_sha256": "2aca02278c27871da81714b647fe1a6641bcb9f37fd25bce258d50e51937bd89",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132829&locale=en_US",
+      "face": {
+        "id": 132829,
+        "collectible": 0,
+        "slug": "132829-rushed-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 7,
+        "name": "Rushed Trial",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4797c3adc15717ad3340268727f0e4a0b879927a58fd4926749d9a6bb6865bda.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132829&locale=en_US",
+        "sha256": "2aca02278c27871da81714b647fe1a6641bcb9f37fd25bce258d50e51937bd89",
+        "bytes": 510,
+        "observed_at": "2026-10-20T11:07:35.876391+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132829,\"collectible\":0,\"slug\":\"132829-rushed-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":7,\"name\":\"Rushed Trial\",\"text\":\"\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4797c3adc15717ad3340268727f0e4a0b879927a58fd4926749d9a6bb6865bda.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132830-zh_CN.json",
+      "response_sha256": "dd1ec1e40bfa5b1bb4ffbe58e226f944989a9b53b005018f894a65f38d7bf57b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132830&locale=zh_CN",
+      "face": {
+        "id": 132830,
+        "collectible": 0,
+        "slug": "132830-grueling-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 4,
+        "name": "艰涩庭审",
+        "text": "1回合后：",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aff2325beb23af3386552256437ee1709d3bb30ad349d66acdd2e1dd7027a763.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132830&locale=zh_CN",
+        "sha256": "dd1ec1e40bfa5b1bb4ffbe58e226f944989a9b53b005018f894a65f38d7bf57b",
+        "bytes": 525,
+        "observed_at": "2026-10-20T11:09:56.010493+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132830,\"collectible\":0,\"slug\":\"132830-grueling-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":4,\"name\":\"艰涩庭审\",\"text\":\"1回合后：\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aff2325beb23af3386552256437ee1709d3bb30ad349d66acdd2e1dd7027a763.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132830-en_US.json",
+      "response_sha256": "9aaef3b3e6404ea573291a7165bd27ff6b9c93e173f08c6822207db4c9b5c8ff",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132830&locale=en_US",
+      "face": {
+        "id": 132830,
+        "collectible": 0,
+        "slug": "132830-grueling-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 4,
+        "name": "Grueling Trial",
+        "text": "In 1 turn,",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b310b61362b35ce140a0bf2f44cc62b79105974a4ef5aab03fdbaebd32c4bb50.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132830&locale=en_US",
+        "sha256": "9aaef3b3e6404ea573291a7165bd27ff6b9c93e173f08c6822207db4c9b5c8ff",
+        "bytes": 524,
+        "observed_at": "2026-10-20T11:09:56.032730+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132830,\"collectible\":0,\"slug\":\"132830-grueling-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":4,\"name\":\"Grueling Trial\",\"text\":\"In 1 turn,\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b310b61362b35ce140a0bf2f44cc62b79105974a4ef5aab03fdbaebd32c4bb50.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb2b",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132874-zh_CN.json",
+      "response_sha256": "1a0b731a0a4bf42040b7ecd2b72221f0c7a39dfe674da5a61687c1dfbf6850d8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132874&locale=zh_CN",
+      "face": {
+        "id": 132874,
+        "collectible": 0,
+        "slug": "132874-grueling-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 4,
+        "name": "艰涩庭审",
+        "text": "庭审会在你的下个回合开始时结束。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b900ec4ff94ecf8d61f1aa9ec328cc2648f47346e397da4c4a602a6f90e7ec9e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132874&locale=zh_CN",
+        "sha256": "1a0b731a0a4bf42040b7ecd2b72221f0c7a39dfe674da5a61687c1dfbf6850d8",
+        "bytes": 560,
+        "observed_at": "2026-10-20T11:07:55.901313+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132874,\"collectible\":0,\"slug\":\"132874-grueling-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":4,\"name\":\"艰涩庭审\",\"text\":\"庭审会在你的下个回合开始时结束。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b900ec4ff94ecf8d61f1aa9ec328cc2648f47346e397da4c4a602a6f90e7ec9e.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb2b",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132874-en_US.json",
+      "response_sha256": "1d5f94815a7457d34bb932175c79da55df0d50f1822cd84a0f91d58f950dab8f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132874&locale=en_US",
+      "face": {
+        "id": 132874,
+        "collectible": 0,
+        "slug": "132874-grueling-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 4,
+        "name": "Grueling Trial",
+        "text": "The trial finishes at the start of your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e0be8e7d3df05239a105e8a245fa768d5cd8319e85666d1f4a182b2e27f33ca.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132874&locale=en_US",
+        "sha256": "1d5f94815a7457d34bb932175c79da55df0d50f1822cd84a0f91d58f950dab8f",
+        "bytes": 564,
+        "observed_at": "2026-10-20T11:07:57.055767+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132874,\"collectible\":0,\"slug\":\"132874-grueling-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":4,\"name\":\"Grueling Trial\",\"text\":\"The trial finishes at the start of your next turn.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e0be8e7d3df05239a105e8a245fa768d5cd8319e85666d1f4a182b2e27f33ca.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CAP_405tb3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132831-zh_CN.json",
+      "response_sha256": "810d8293e4085abee6b8dc1e1b6598aa338c06d1fe7657e55805d0f89569aa5b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132831&locale=zh_CN",
+      "face": {
+        "id": 132831,
+        "collectible": 0,
+        "slug": "132831-unending-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "无尽庭审",
+        "text": "回合后：",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47959c91bcc953ad8edd8b158594501529f32341a449ca2edef754e8314edf75.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132831&locale=zh_CN",
+        "sha256": "810d8293e4085abee6b8dc1e1b6598aa338c06d1fe7657e55805d0f89569aa5b",
+        "bytes": 524,
+        "observed_at": "2026-10-20T11:07:57.620561+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132831,\"collectible\":0,\"slug\":\"132831-unending-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"无尽庭审\",\"text\":\"回合后：\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47959c91bcc953ad8edd8b158594501529f32341a449ca2edef754e8314edf75.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "@": "",
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405tb3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132831-en_US.json",
+      "response_sha256": "260320fd5f008f286ce362622f244a89dae8aa24eb3912cf11c95e56fe98d7b4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132831&locale=en_US",
+      "face": {
+        "id": 132831,
+        "collectible": 0,
+        "slug": "132831-unending-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Unending Trial",
+        "text": "In (turn, turns),",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19d8a97c3c33f6efd3393dd8038d02e604d02198c41fc126156229e59232ae92.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132831&locale=en_US",
+        "sha256": "260320fd5f008f286ce362622f244a89dae8aa24eb3912cf11c95e56fe98d7b4",
+        "bytes": 531,
+        "observed_at": "2026-10-20T11:07:58.846545+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132831,\"collectible\":0,\"slug\":\"132831-unending-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Unending Trial\",\"text\":\"In (turn, turns),\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19d8a97c3c33f6efd3393dd8038d02e604d02198c41fc126156229e59232ae92.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": {
+        "@": "",
+        "{0}": "",
+        "{1}": ""
+      },
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405tb3b",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132875-zh_CN.json",
+      "response_sha256": "e290592628172d9ed65912135a81be43b5723f189935ec7784697ab606095986",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132875&locale=zh_CN",
+      "face": {
+        "id": 132875,
+        "collectible": 0,
+        "slug": "132875-unending-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "无尽庭审",
+        "text": "庭审会在4回合后结束。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98f23feaa19a614d81fa66fc8e162ef0a0e674b3156a2a37d883a3e080a21fc6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132875&locale=zh_CN",
+        "sha256": "e290592628172d9ed65912135a81be43b5723f189935ec7784697ab606095986",
+        "bytes": 543,
+        "observed_at": "2026-10-20T11:07:58.592193+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132875,\"collectible\":0,\"slug\":\"132875-unending-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"无尽庭审\",\"text\":\"庭审会在4回合后结束。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98f23feaa19a614d81fa66fc8e162ef0a0e674b3156a2a37d883a3e080a21fc6.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CAP_405tb3b",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\132875-en_US.json",
+      "response_sha256": "729f7ec3c961c39f56fb664aa85587f933300420cf2366706bb01b071041333f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132875&locale=en_US",
+      "face": {
+        "id": 132875,
+        "collectible": 0,
+        "slug": "132875-unending-trial",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Unending Trial",
+        "text": "The trial finishes in 4 turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d75214749b631d259d47f3671f8ff6cbab70196d857d9329599134c8cc648245.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 127067,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132875&locale=en_US",
+        "sha256": "729f7ec3c961c39f56fb664aa85587f933300420cf2366706bb01b071041333f",
+        "bytes": 544,
+        "observed_at": "2026-10-20T11:07:59.048280+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":132875,\"collectible\":0,\"slug\":\"132875-unending-trial\",\"classId\":9,\"multiClassIds\":[],\"cardTypeId\":5,\"cardSetId\":1988,\"rarityId\":null,\"artistName\":null,\"manaCost\":0,\"name\":\"Unending Trial\",\"text\":\"The trial finishes in 4 turns.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d75214749b631d259d47f3671f8ff6cbab70196d857d9329599134c8cc648245.png\",\"imageGold\":\"\",\"flavorText\":\"\",\"cropImage\":null,\"parentId\":127067,\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_368",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\126893-zh_CN.json",
+      "response_sha256": "f253076eb9f78bc92e3498f300e12bcb350f8e87a32bbcc614e515b1ad6449c3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126893&locale=zh_CN",
+      "face": {
+        "id": 126893,
+        "collectible": 1,
+        "slug": "126893-voidlord",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Jerry Mascho",
+        "health": 9,
+        "attack": 3,
+        "manaCost": 9,
+        "name": "虚空领主",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&召唤三个1/3并具有<b>嘲讽</b>的恶魔。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e102d38a577529e75c34301347d801e68e2c0ec0304662ea9269e2fcc5f6fd4.png",
+        "imageGold": "",
+        "flavorText": "他能让一切归于虚空，包括每个月的信用卡账单。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          46056
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126893&locale=zh_CN",
+        "sha256": "f253076eb9f78bc92e3498f300e12bcb350f8e87a32bbcc614e515b1ad6449c3",
+        "bytes": 726,
+        "observed_at": "2026-10-20T11:11:45.831656+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":126893,\"collectible\":1,\"slug\":\"126893-voidlord\",\"classId\":9,\"multiClassIds\":[],\"minionTypeId\":15,\"cardTypeId\":4,\"cardSetId\":1637,\"rarityId\":4,\"artistName\":\"Jerry Mascho\",\"health\":9,\"attack\":3,\"manaCost\":9,\"name\":\"虚空领主\",\"text\":\"<b>嘲讽</b>。<b>亡语：</b>&召唤三个1/3并具有<b>嘲讽</b>的恶魔。\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e102d38a577529e75c34301347d801e68e2c0ec0304662ea9269e2fcc5f6fd4.png\",\"imageGold\":\"\",\"flavorText\":\"他能让一切归于虚空，包括每个月的信用卡账单。\",\"cropImage\":null,\"keywordIds\":[1,12],\"copyOfCardId\":[46056],\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    },
+    {
+      "card_id": "CORE_LOOT_368",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-cache\\126893-en_US.json",
+      "response_sha256": "e1f521d18bb80abcea331b81d16e644a52a25e380c5d21b71dabae58e33872a5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126893&locale=en_US",
+      "face": {
+        "id": 126893,
+        "collectible": 1,
+        "slug": "126893-voidlord",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Jerry Mascho",
+        "health": 9,
+        "attack": 3,
+        "manaCost": 9,
+        "name": "Voidlord",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b>& Summon three 1/3 Demons with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2328bdf2edbbdac612bc6e9883e0b76c67e258baa337fc6dbc573ea274524a7d.png",
+        "imageGold": "",
+        "flavorText": "Never let it hold your checkbook.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          46056
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126893&locale=en_US",
+        "sha256": "e1f521d18bb80abcea331b81d16e644a52a25e380c5d21b71dabae58e33872a5",
+        "bytes": 683,
+        "observed_at": "2026-10-20T11:11:46.096259+00:00"
+      },
+      "full_response": "{\"cards\":[{\"id\":126893,\"collectible\":1,\"slug\":\"126893-voidlord\",\"classId\":9,\"multiClassIds\":[],\"minionTypeId\":15,\"cardTypeId\":4,\"cardSetId\":1637,\"rarityId\":4,\"artistName\":\"Jerry Mascho\",\"health\":9,\"attack\":3,\"manaCost\":9,\"name\":\"Voidlord\",\"text\":\"<b>Taunt</b> <b>Deathrattle:</b>& Summon three 1/3 Demons with <b>Taunt</b>.\",\"image\":\"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2328bdf2edbbdac612bc6e9883e0b76c67e258baa337fc6dbc573ea274524a7d.png\",\"imageGold\":\"\",\"flavorText\":\"Never let it hold your checkbook.\",\"cropImage\":null,\"keywordIds\":[1,12],\"copyOfCardId\":[46056],\"isZilliaxFunctionalModule\":false,\"isZilliaxCosmeticModule\":false}],\"cardCount\":1,\"pageCount\":1,\"page\":1}",
+      "display_normalizations": null,
+      "numeric_normalizations": null
+    }
+  ],
+  "source_notes": [
+    "The exact frozen CAP_405t1 Chinese name and body are empty. Both primary locales return the complete English face; the adapter uses the verified English name, retaining the empty original record.",
+    "CAP_405tb1b is a complete original length-choice row, confirmed by the official visual; the gallery has no exact face. No missing response is claimed verified.",
+    "The official animation chooses the +3/+3 effect first and random control second; the final spell displays and executes control before the buff. The frozen script indices define the fixed nine-component order; other pair ordering remains pending current CN calibration."
+  ],
+  "primary_visual_evidence": [
+    {
+      "url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/J1Y66JYJK0BF1785960768447.jpg",
+      "file": "outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-trial-effects-01.jpg",
+      "sha256": "c960fb6c4907bb37299dcb38b3769c274076a4d684f30724842b80463ec1b4b1",
+      "bytes": 745818
+    },
+    {
+      "url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/GCD7LF6TVXYE1785960780938.gif",
+      "file": "outputs\\card-integration-20261014\\k314-kazakus-sham-trial\\official-trial-demo-01.gif",
+      "sha256": "551f6ae3c899e51c5bc2c3646cd6dcc049bec704ebce2a4f80424d70873a2c3c",
+      "bytes": 34489564
+    }
+  ],
+  "local_policy": {
+    "kind": "sham-trial-local-v1",
+    "offering": "three uniformly sampled original effects, then three excluding the chosen identity, then all original lengths",
+    "execution_order": "increasing original TAG_SCRIPT_DATA_NUM_1",
+    "clock": "one/four future owner starts; boundary before reactions per existing objective clock",
+    "forced_attacks": "each live original residence once in random order, current live other minions as defenders; new summons do not become attackers",
+    "component_reactions": "complete original component checkpoint and reactions before next"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

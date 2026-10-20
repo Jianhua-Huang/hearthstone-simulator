@@ -155,6 +155,7 @@ class Registry:
         self._composed_spell_profiles = {}
         self._composed_location_profiles = {}
         self._suspicious_discovery_profiles = {}
+        self._sham_trial_profiles = {}
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
         self._prison_profiles = {}
@@ -262,7 +263,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles:
+        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles or self._sham_trial_profiles:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -299,6 +300,14 @@ class Registry:
         if profile.source_card_id in self._suspicious_discovery_profiles:
             raise ValueError('Duplicate native suspicious discovery source')
         self._suspicious_discovery_profiles[profile.source_card_id] = profile
+
+    def register_sham_trial_profile(self, profile):
+        self._require_mutable()
+        from .sham_trials import validate_profile
+        validate_profile(self, profile)
+        if profile.source_card_id in self._sham_trial_profiles:
+            raise ValueError('Duplicate original sham trial source')
+        self._sham_trial_profiles[profile.source_card_id] = profile
 
     @property
     def second_player_cards(self):return frozenset(self._second_player_cards)
@@ -694,6 +703,9 @@ class Registry:
 
     def register_player_effect(self, spec: PlayerEffectSpec) -> None:
         self._require_mutable()
+        from .sham_trials import PREFIX as trial_prefix
+        if type(spec) is PlayerEffectSpec and spec.id.startswith(trial_prefix):
+            raise ValueError('Trial countdowns use immutable native recipe resolution')
         if type(spec) is not PlayerEffectSpec:
             raise ValueError('Expected PlayerEffectSpec')
         spec.__post_init__()
@@ -706,6 +718,8 @@ class Registry:
 
     def player_effect(self, spec_id: str) -> PlayerEffectSpec:
         _name(spec_id, 'player effect specification')
+        from .sham_trials import PREFIX as trial_prefix, resolve_program
+        if spec_id.startswith(trial_prefix): return resolve_program(self, spec_id)
         try:
             return self._player_effects[spec_id]
         except KeyError:
@@ -1237,6 +1251,9 @@ class Registry:
         from .composed_locations import PREFIX as location_prefix
         if isinstance(definition, CardDefinition) and definition.id.startswith(location_prefix):
             raise ValueError('Location identities require immutable native recipe resolution')
+        from .sham_trials import PREFIX as trial_prefix
+        if isinstance(definition, CardDefinition) and definition.id.startswith(trial_prefix):
+            raise ValueError('Trial identities require immutable native recipe resolution')
         from .modular_decks import PREFIX, option_ids
         if isinstance(definition, CardDefinition) and (
                 definition.id.startswith(PREFIX) or definition.id in option_ids(self)):
@@ -1391,6 +1408,8 @@ class Registry:
         if id.startswith(potion_prefix):return resolve_potion(self,id)
         from .composed_locations import PREFIX as location_prefix, resolve_face as resolve_location
         if id.startswith(location_prefix): return resolve_location(self, id)
+        from .sham_trials import PREFIX as trial_prefix, resolve_face as resolve_trial
+        if id.startswith(trial_prefix): return resolve_trial(self, id)
         try:
             return self._cards[id]
         except KeyError:
@@ -1956,6 +1975,8 @@ class Registry:
         for profile in self._composed_location_profiles.values(): validate_location_profile(self, profile)
         from .suspicious_discoveries import validate_profile as validate_suspicious_profile
         for profile in self._suspicious_discovery_profiles.values(): validate_suspicious_profile(self, profile)
+        from .sham_trials import validate_profile as validate_trial_profile
+        for profile in self._sham_trial_profiles.values(): validate_trial_profile(self, profile)
         from .adjoining_spells import validate_profile as validate_adjoining_profile
         for profile in self._adjoining_spell_profiles.values():validate_adjoining_profile(self,profile)
         for card in self._cards.values():
@@ -2409,6 +2430,8 @@ class Registry:
             payload['composed_location_profiles'] = [asdict(self._composed_location_profiles[k]) for k in sorted(self._composed_location_profiles)]
         if self._suspicious_discovery_profiles:
             payload['suspicious_discovery_profiles'] = [asdict(self._suspicious_discovery_profiles[k]) for k in sorted(self._suspicious_discovery_profiles)]
+        if self._sham_trial_profiles:
+            payload['sham_trial_profiles'] = [asdict(self._sham_trial_profiles[k]) for k in sorted(self._sham_trial_profiles)]
         if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
         if self._random_target_cards:payload['random_target_cards']=sorted(self._random_target_cards)
         if self._prison_profiles:

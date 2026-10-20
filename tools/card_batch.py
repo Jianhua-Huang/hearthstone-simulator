@@ -147,8 +147,13 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Locale display declarations cannot mix marker and locale keys')
             display_normalizations = display_normalizations.get(locale)
     require(face['id'] == row['dbf_id'], 'Official response selected another DBF identity')
-    require(face['name'] == row['name' if chinese else 'name_en'], 'Official card name drift')
-    raw_text = row['text' if chinese else 'text_en']
+    # This exact client row has empty Chinese localization. The primary Chinese
+    # face falls back to its complete English name/body; retain both originals.
+    trial_english_fallback = (chinese and row.get('id') == 'CAP_405t1' and
+        canonical(row) == 'aaf172d1f75aa377a2990f808114a28a4d807c2bca3288002f6a2afc1f6c3dcb' and
+        row['name'] == row['text'] == '')
+    require(face['name'] == row['name_en' if trial_english_fallback or not chinese else 'name'], 'Official card name drift')
+    raw_text = row['text_en' if trial_english_fallback or not chinese else 'text']
     states = raw_text.split('@')
     progress_labels = ('（还剩{0}个！）', '（已经就绪！）') if chinese else ('({0}left!)', '(Ready!)')
     progress_display = (display_normalizations == {'@': '', '{0}': ''} and len(states) == 3 and
@@ -241,6 +246,13 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     }.get(row.get('id')) and row.get('type') == 'LOCATION' and
         display(raw_text) == '{0}{1}' and face.get('text') == '' and face.get('parentId') == 117762 and
         display_normalizations == {'{0}': '', '{1}': ''})
+    trial_template_display = (canonical(row) == {
+        'CAP_405tb1': '789ca3514fc23dd818d209b0f8cf0a23cf5e71f1cfc11265f8c2c1d84307231a',
+        'CAP_405tb2': '41fe854200ef39b3d366b388b202681b8f35da5956a082790ceba1fa745951dd',
+        'CAP_405tb3': '0ccd88a0e6893c709d8314ee826d2b39ffa4fb2de055bbab363511b6c92394e5',
+    }.get(row.get('id')) and row.get('type') == 'SPELL' and
+        face.get('parentId') == 127067 and display_normalizations ==
+        ({'@': '', '{0}': '', '{1}': ''} if row.get('id') == 'CAP_405tb3' else {'{0}': '', '{1}': ''}))
     jade_coin_display = (row.get('id') == 'JAIL_504t' and
                         canonical(row) == 'cc68b154cb60375019f76676875ed9f66a95b66e67c44919cfd6730d8b6c3af9' and
                         display_normalizations == ({'@': '', '{0}': ''} if chinese else {'@': '', '{0}': '', '{1}': ''}))
@@ -255,10 +267,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((jade_coin_display or potion_display or location_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+            require((jade_coin_display or potion_display or location_template_display or trial_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_coin_display or potion_display or location_template_display or leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

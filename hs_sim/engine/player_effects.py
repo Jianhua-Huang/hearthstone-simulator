@@ -47,6 +47,9 @@ def public_effect(registry, effect):
     # No global attachment IDs or original hidden entity identities in this DTO.
     result = dict(effect_key=spec.id, card_id=spec.card_id, effect_kind=spec.kind,
                   remaining_turns=effect.remaining_turns)
+    from .sham_trials import public_recipe as public_trial_recipe
+    trial = public_trial_recipe(spec.card_id)
+    if trial is not None: result['trial_recipe'] = trial
     if effect.adaptations:
         result['adaptations'] = list(effect.adaptations)
     if effect.spell_aura_card_id is not None:
@@ -270,6 +273,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     r.refresh_auras()
     added = r.emit('player_effect_added', source_id=source.id, player_id=player.id,
                    **public_effect(r.registry, instance))
+    from .sham_trials import note_install as note_trial_install
+    note_trial_install(r, instance)
     if instance.aura_duration_cast_id is not None:
         from .aura_duration import BIND_EVENT
         r.emit(BIND_EVENT, source_id=source.id, player_id=player.id, instance_id=instance.id,

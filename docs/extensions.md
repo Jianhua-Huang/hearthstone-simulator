@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实黑幕庭审用`ShamTrialProfile`声明完整九成分和三个长度，`CraftShamTrial`沿原选择制造`ShamTrialRecipe`；延迟配方的玩家效果也纯解析，主体通过`BeginShamTrial/ContinueShamTrial`续接。不要将到期再施放一次、把选项当物理法术、按选择先后重排原生效果，或以已实现列表代替三费生成池，见[庭审契约](m3-kazakus-sham-trials.md)。
+
 真实异常发现用`DiscoverSuspiciousMinion`及完整`SuspiciousDiscoveryProfile`；有限变化通过`SuspiciousMutation`在获取或原未选项入场前安装。`CardPreview.capture(entity, registry)`在需要时捕获当前种族和显示名，名字附件只改可见名字、不改原卡ID。不要公开异常槽、裁掉未知候选或只做猜中奖励；见[契约](m3-suspicious-discovery.md)。
 
 真实伊莉斯来源使用`CraftLocation`及完整`LocationRecipeProfile`，`LocationRecipe`纯解析两个真实成分，使用主体通过原激活与`ContinueLocationUse`承接。成分用`component_context`取得原来源和原目标驻留，再返回共享效果；不要预览转法术、裁掉禁选证据或另写使用/死亡结算器。有限声明和待国服时序见[契约](m3-elise-composed-locations.md)。
