@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v106'
+VIEW_VERSION = 'player-view-v107'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never

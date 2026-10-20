@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 476
+SNAPSHOT_SCHEMA_VERSION = 477
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1143,6 +1143,8 @@ def _spell_cast_from_dict(value):
         for a in _list(row['aura_duration_grants'], 'original Aura duration attachments'))
     row['spell_damage_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['spell_damage_effects'], 'claimed next-spell damage effects'))
+    row['next_spell_bonus_effects'] = tuple(player_effect_from_dict(e)
+        for e in _list(row['next_spell_bonus_effects'], 'original paired next-spell effects'))
     if row['target_selection'] is not None:
         from .automatic_targets import selection_from_dict
         row['target_selection'] = selection_from_dict(row['target_selection'])
@@ -1296,6 +1298,7 @@ def state_from_dict(value: dict) -> GameState:
     plays=[]
     for item in _list(value['play_history'], 'play history'):
         row=_row(item, PlayRecord)
+        row['next_spell_bonus_effects']=tuple(player_effect_from_dict(e)for e in _list(row['next_spell_bonus_effects'],'reserved paired next-spell effects'))
         row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
         if row['body_targets'] is not None:
             from .paid_body_retries import receipt_from_dict

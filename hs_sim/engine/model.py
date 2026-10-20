@@ -695,10 +695,10 @@ class CostModifier:
         _optional_id(self.player_effect_id, 'logical cost source')
         if self.player_effect_id is not None and (self.player_effect_id >= self.id or self.source_id is None or
                 self.uses_remaining is not None or self.expires_turn is not None or self.scope != CostScope.CARD or
-                self.spec.card_types != (CardType.SPELL,) or self.spec.delta <= 0 or self.spec.set_to is not None or
+                self.spec.card_types != (CardType.SPELL,) or self.spec.delta == 0 or self.spec.set_to is not None or
                 self.spec.minimum or self.spec.payment is not None or self.spec.card_ids or self.spec.ability is not None or
                 self.tribes_any or self.combo_only or self.temporary_only or self.maximum_cost is not None or self.minion_keyword is not None):
-            raise ValueError('Logical Aura cost source requires one original ordinary opponent spell tax')
+            raise ValueError('Linked spell price requires one original nonzero ordinary player-program contribution')
         if type(self.minion_keyword_repetitions)is not int or self.minion_keyword_repetitions not in(1,2)or self.minion_keyword is None and self.minion_keyword_repetitions!=1:
             raise ValueError('Paid keyword repetitions require the actual finite Kindred Shield reward')
         if not isinstance(self.spec, CostSpec):
@@ -7307,8 +7307,13 @@ class PlayRecord:
     copy_origin: CardCopyOrigin | None = None
     after_play: tuple[AbilityInstance, ...] = ()
     held_higher_cost: HeldHigherCostProgress | None = None
+    next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
 
     def __post_init__(self):
+        from .next_spell_bonuses import validate_material as validate_spell_bonus_material
+        validate_spell_bonus_material(self.next_spell_bonus_effects,self.turn)
+        if self.next_spell_bonus_effects and self.kind!=CardType.SPELL:
+            raise ValueError('Only an admitted Spell can reserve the native next-spell bonus')
         if self.copy_origin is not None:
             if type(self.copy_origin) is not CardCopyOrigin:
                 raise ValueError('Hand play requires its typed original copy source')
@@ -7819,8 +7824,11 @@ class SpellCastRecord:
     quest_parent_cast_id: int | None = None
     spell_aura_id: int | None = None
     mana_budget: SpellManaBudgetLink | None = None
+    next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
 
     def __post_init__(self):
+        from .next_spell_bonuses import validate_material as validate_spell_bonus_material
+        validate_spell_bonus_material(self.next_spell_bonus_effects,self.turn)
         if self.mana_budget is not None:
             if type(self.mana_budget) is not SpellManaBudgetLink:raise ValueError('Cast budget requires its typed original link')
             self.mana_budget.__post_init__()
@@ -8442,8 +8450,18 @@ class PlayerEffectSpec:
     spell_effects: tuple[SpellEffectModifierSpec, ...] = ()
     capture_health_source: bool = False
     stored_spell: bool = False
+    next_spell_cost_reduction: int = 0
 
     def __post_init__(self):
+        _int(self.next_spell_cost_reduction,'native next-spell price reduction',0)
+        if (self.kind=='next_spell_bonus')!=(self.next_spell_cost_reduction>0):
+            raise ValueError('Paired native spell reduction requires its explicit independent kind')
+        if self.kind=='next_spell_bonus':
+            _int(self.spell_damage,'native next-spell scoped damage',1)
+            if any((self.duration,self.tick_event,self.on_expire,self.triggers,self.auras,self.deathrattle_repeats,
+                    self.end_turn_repeats,self.producer_quantities,self.keyword_auras,self.target_policy,self.allowed_card_types,
+                    self.next_turn_end,self.opponent_spell_cost,self.spell_effects,self.capture_health_source,self.stored_spell)):
+                raise ValueError('Paired next-spell bonus is one independent persistent native program')
         _bool(self.stored_spell, 'stored Aura spell')
         if self.stored_spell and (self.kind != 'aura' or self.tick_event != 'turn_ended' or
                 self.tick_player != 'controller' or not self.triggers or self.on_expire is not None or
@@ -8521,9 +8539,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:

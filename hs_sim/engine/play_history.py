@@ -169,6 +169,7 @@ def play_definition(state, registry, source, record=None, *, branch_id=None):
 
 
 def prepare_play(state, registry, source, target_id, quote, *, position=None, magnetic_target_id=None, branch_id=None, body_targets=None, board_player_id=None):
+    from .next_spell_bonuses import capture_play as capture_native_spell_bonus
     from .battlecries import capture as capture_battlecries
     from .combos import capture as capture_combos
     from .hand_progress import corrupt_candidates
@@ -205,7 +206,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         hand_derivatives=capture(source,registry.card(source.card_id)),branch_id=branch_id,
         battlecries=capture_battlecries(source),combos=capture_combos(source),
         played_face=freeze_played_face(state,registry,source,len(state.play_history)+1),
-        copy_origin=source.copy_origin)
+        copy_origin=source.copy_origin,next_spell_bonus_effects=capture_native_spell_bonus(state,registry,source))
 
 
 def commit_play(state, record):
@@ -213,6 +214,8 @@ def commit_play(state, record):
     if record.id != len(state.play_history) + 1:
         raise ValueError('Physical hand play must append its original next identity')
     state.play_history.append(record)
+    from .next_spell_bonuses import consume_state as consume_native_spell_bonus
+    consume_native_spell_bonus(state,record.player_id,record.next_spell_bonus_effects)
     from .held_opponent_copies import note_play
     note_play(state, record)
 

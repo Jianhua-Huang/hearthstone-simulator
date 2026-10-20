@@ -469,6 +469,8 @@ class Game:
         validate_remaining_numbers(self)
         from .rotating_discovery_classes import validate_game as validate_discovery_classes
         validate_discovery_classes(self)
+        from .next_spell_bonuses import validate_game as validate_native_spell_bonuses
+        validate_native_spell_bonuses(self)
         from .colossal_reserves import validate_game as validate_colossal_reserves
         validate_colossal_reserves(self)
         from .scrambled_summons import validate_boundary as validate_scrambled_summons

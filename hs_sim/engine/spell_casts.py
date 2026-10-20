@@ -150,7 +150,8 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False):
         **{key: getattr(play, key) for key in CONDITIONS}, completed=countered, payload_started=not countered,
         failure='countered' if countered else None,branch_id=play.branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
-        target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost)
+        target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
+        next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else ())
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
@@ -311,6 +312,8 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         mana_budget=getattr(effect,'mana_budget',None))
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
+    from .next_spell_bonuses import accept_automatic as accept_native_spell_bonus
+    record=accept_native_spell_bonus(r,record)
     if draw_id is not None:
         from .draw_casts import note_cast
         note_cast(r, draw_id, record.id)

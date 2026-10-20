@@ -180,6 +180,10 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         raise ResolutionError('Only an investigation program may retain a private selected face')
     player = r.player(effect.player_id)
     spec = r.registry.player_effect(effect.spec_id)
+    native_bonus_origin=None
+    if spec.kind=='next_spell_bonus':
+        from .next_spell_bonuses import install_origin
+        native_bonus_origin=install_origin(r.state,spec,player.id,effect.source_id)
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
@@ -226,7 +230,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         # installed by those reactions cannot consume that already captured end.
         remaining = 2 if player.id == r.state.active_player and not r.ending_turn else 1
     instance_id = attachment_id(r.state)
-    modifier_id = r.state.next_attachment_id if spec.opponent_spell_cost else None
+    modifier_id = r.state.next_attachment_id if spec.opponent_spell_cost or spec.kind=='next_spell_bonus' else None
     spell_card_id = None
     if effect.spell_aura_id is not None:
         from .spell_auras import validate_binding, memory_id
@@ -236,6 +240,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         spell_card_id = row.card.origin.card_id
     instance = PlayerEffect(instance_id, spec.id, source.id,
                             (effect.issued_spell_set.source_card_id if effect.issued_spell_set is not None else
+                             spec.card_id if spec.kind=='next_spell_bonus' else
                              adaptation_source.card_id if adaptation_source is not None else source.card_id),
                             r.state.turn, r.state.next_order, remaining,allocation,
                             effect.player_id if allocation is not None else None, modifier_id, adaptations,
@@ -251,10 +256,13 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     install_minion_base_program(r,player.id,instance)
     if modifier_id is not None:
         from .costs import modify_cost
-        modify_cost(r, AddCostModifier(3-player.id,
-            CostSpec(delta=spec.opponent_spell_cost, card_types=(CardType.SPELL,)), source_id=source.id),
+        modify_cost(r, AddCostModifier(player.id if spec.kind=='next_spell_bonus' else 3-player.id,
+            CostSpec(delta=-spec.next_spell_cost_reduction if spec.kind=='next_spell_bonus' else spec.opponent_spell_cost, card_types=(CardType.SPELL,)), source_id=source.id),
             player_effect_id=instance.id)
         validate_cost_binding(r.state, r.registry, player.id, instance)
+    if native_bonus_origin is not None:
+        from .next_spell_bonuses import note_install
+        note_install(r,instance,native_bonus_origin)
     r.refresh_auras()
     added = r.emit('player_effect_added', source_id=source.id, player_id=player.id,
                    **public_effect(r.registry, instance))
@@ -275,6 +283,10 @@ def matching(r, effect):
 def validate_cost_binding(state, registry, player_id, instance):
     """Each active logical Aura owns precisely its ordinary, nonconsuming tax."""
     spec = registry.player_effect(instance.spec_id)
+    if spec.kind=='next_spell_bonus':
+        from .next_spell_bonuses import validate_binding
+        validate_binding(state,registry,player_id,instance)
+        return
     if spec.kind == 'aura' and instance.source_card_id != spec.card_id:
         raise ValueError('Aura instance changed its original card face')
     if not spec.opponent_spell_cost:
@@ -298,6 +310,8 @@ def validate_cost_binding(state, registry, player_id, instance):
 
 def validate_modifier_owner(state, registry, player_id, modifier):
     """Validate the reverse live link, including before the one atomic install."""
+    from .next_spell_bonuses import modifier_owner
+    if modifier_owner(state,registry,player_id,modifier):return
     rows = [e for e in state.players[3-player_id].player_effects
             if e.id == modifier.player_effect_id]
     if len(rows) != 1:
@@ -315,6 +329,9 @@ def validate_modifier_owner(state, registry, player_id, modifier):
 
 def retire_cost_binding(r, player_id, instance):
     validate_cost_binding(r.state, r.registry, player_id, instance)
+    if r.registry.player_effect(instance.spec_id).kind=='next_spell_bonus':
+        r.player(player_id).cost_modifiers[:]=[m for m in r.player(player_id).cost_modifiers if m.id!=instance.cost_modifier_id]
+        return
     if instance.cost_modifier_id is not None:
         player = r.player(3-player_id)
         player.cost_modifiers = [m for m in player.cost_modifiers if m.id != instance.cost_modifier_id]
@@ -401,6 +418,9 @@ def remove(r, effect, *, atomic=False):
         raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
+    if r.registry.player_effect(instance.spec_id).kind=='next_spell_bonus':
+        from .next_spell_bonuses import note_removal
+        note_removal(r,effect.player_id,instance)
     if instance.issued_spell_set is not None:
         from .issued_spell_sets import note_program
         note_program(r,instance,'removed')

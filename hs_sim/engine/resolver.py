@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v582'
+CORE_EFFECTS_VERSION = 'core-effects-v583'
 
 
 class Mechanics:
@@ -1615,6 +1615,8 @@ def play_from_hand(r, effect):
     # independent branch acceptance consumes only after that window is saved,
     # still before commitment reactions or any payload executes.
     choose_tail = accept_choose(r, choose_proof)
+    from .next_spell_bonuses import note_claim as note_native_spell_bonus_claim
+    note_native_spell_bonus_claim(r,record,'play')
     if definition.kind == CardType.MINION:
         from .interrupts import open_window
         from .minion_plays import MinionCounterPhase
