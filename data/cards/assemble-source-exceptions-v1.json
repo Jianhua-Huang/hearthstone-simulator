@@ -1,0 +1,534 @@
+{
+  "schema": 1,
+  "batch": "assemble-source-exceptions-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_045",
+        "dbf_id": 129089,
+        "name": "错位拼配者",
+        "name_en": "Mismatcher",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>用法力值消耗大于或等于（5）点的牌<b>拼装</b>一张法力值消耗小于或等于（3）点的随从牌。",
+        "text_en": "[x]<b>Taunt</b>. <b>Battlecry:</b> <b>Assemble</b>\na minion that costs (3) or\nless with cards that cost\n(5) or more.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4556",
+              "name": "CRAFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d16a5c15644b510aea7f08fc39e08befaa7dd37cab4b25fdf271b47c27c07ad0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_045",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_257",
+        "dbf_id": 129801,
+        "name": "融冰而出",
+        "name_en": "Thaw From Ice",
+        "text": "<b>拼装</b>一张法师随从牌。在你的回合结束时，其法力值消耗减少（1）点。",
+        "text_en": "<b>Assemble</b> a Mage minion. At the end of\nyour turns, reduce its\nCost by (1).",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4556",
+              "name": "CRAFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fd21bf2c4ab4224f2f749c98f4d637a540758564c80ca4d5bec7fbd75d4c642b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_257",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_DRG_107",
+        "dbf_id": 120971,
+        "name": "紫罗兰魔翼鸦",
+        "name_en": "Violet Spellwing",
+        "text": "<b>亡语：</b>将一张“奥术飞弹”法术牌置入你的\n手牌。",
+        "text_en": "<b>Deathrattle:</b> Add an 'Arcane Missiles' spell to_your hand.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 54907,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 54907,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 564,
+          "2542": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "54907",
+              "type": "Int",
+              "value": "54907"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "67bdec8bcacfbf9227212153f757f1158f22b22309b9cc7f83892ed3bd06fcba",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_DRG_107",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3cf2fefc494a9e567ee2a1f47dc97ee9decf870269f05bd5d18e4c83252fbb50"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "reviewed_template": {
+    "card_id": "CORE_DRG_107",
+    "timing": "deathrattle",
+    "keywords": [],
+    "behavior_id": "cards.death_followup.spellwing",
+    "allowed_timings": [
+      "battlecry",
+      "deathrattle",
+      "end_turn"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "BE_045",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 129089,
+        "collectible": 1,
+        "slug": "129089-mismatcher",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "错位拼配者",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>用法力值消耗大于或等于（5）点的牌<b>拼装</b>一张法力值消耗小于或等于（3）点的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0144c0dff96deab717f8c4457b5327349447b2325cef2672ea4ba03ab804078.png",
+        "imageGold": "",
+        "flavorText": "“你们可以亲吻对方了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0cdb99a2e08bf2a975d307afe6a1d461f8f0b096094bf40b374e7f3cf317c1b.png",
+        "keywordIds": [
+          1,
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_045",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 129089,
+        "collectible": 1,
+        "slug": "129089-mismatcher",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Mismatcher",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b> <b>Assemble</b> a minion that costs (3) or less with cards that cost (5) or more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/284b13d98a5baf70f2081a6a1ced53fc1eb978bd402b5d180f42f30afb4b4a7b.png",
+        "imageGold": "",
+        "flavorText": "\"Now kiss.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0cdb99a2e08bf2a975d307afe6a1d461f8f0b096094bf40b374e7f3cf317c1b.png",
+        "keywordIds": [
+          1,
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_257",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 129801,
+        "collectible": 1,
+        "slug": "129801-thaw-from-ice",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 2,
+        "name": "融冰而出",
+        "text": "<b>拼装</b>一张法师随从牌。在你的回合结束时，其法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b858510f23bd2db53174e15baec85ac2e485bf463e6611c75d0c66a326ae785.png",
+        "imageGold": "",
+        "flavorText": "糟了，忘了把冰箱里的随从拿出来了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa81a5c67864eecc788491d90230733731020f6866722108835a4ac89ff7e099.png",
+        "keywordIds": [
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_257",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 129801,
+        "collectible": 1,
+        "slug": "129801-thaw-from-ice",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 2,
+        "name": "Thaw From Ice",
+        "text": "<b>Assemble</b> a Mage minion. At the end of your turns, reduce its Cost by (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fe325510ad3e5958177dd436f8276b35a66e255846f1e587fa7d8bc2d13dffe.png",
+        "imageGold": "",
+        "flavorText": "Ah shoot I forgot to take the minion out of the freezer.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa81a5c67864eecc788491d90230733731020f6866722108835a4ac89ff7e099.png",
+        "keywordIds": [
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_DRG_107",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 120971,
+        "collectible": 1,
+        "slug": "120971-violet-spellwing",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Jakub Kasper",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "紫罗兰魔翼鸦",
+        "text": "<b>亡语：</b>将一张“奥术飞弹”法术牌置入你的 手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9cd8e6a0958eba42c40f845dfba9e626b6e5b7ad4e342275a9c4ef68f7c0dfa9.png",
+        "imageGold": "",
+        "flavorText": "一鸟在手，抵得三弹在坟。",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          54907
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_DRG_107",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 120971,
+        "collectible": 1,
+        "slug": "120971-violet-spellwing",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Jakub Kasper",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Violet Spellwing",
+        "text": "<b>Deathrattle:</b> Add an 'Arcane Missiles' spell to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7744aee92de7a306b2a62395df01dc1930cb48236b2438bf1512ad1b95019eaf.png",
+        "imageGold": "",
+        "flavorText": "A bird in the hand is worth three missiles in the grave.",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          54907
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    }
+  ],
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "experimental_source_policy": {
+    "pool_id": "constructed.assemble",
+    "empty_policy": "error",
+    "small_policy": "error",
+    "keep_policy": "forbid",
+    "formal_pool_installed": false,
+    "not_cn_calibrated": true
+  },
+  "source_rules": {
+    "BE_045": {
+      "primary_max_cost": 3,
+      "secondary_min_cost": 5
+    },
+    "BE_257": {
+      "primary_class": "mage",
+      "include_neutral_primary": false,
+      "discount_boundary": "turn_ended",
+      "secondary_class_scope": "ordinary_current_hero_plus_neutral",
+      "foreign_secondary_scope": "inference_from_ordinary_rule_pending_cn"
+    }
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -20,6 +20,7 @@ from hs_sim.engine.effects import (AddToHand, ChangeControl, ChangeManaCrystals,
 from hs_sim.engine.model import CardClass, CardMetadata, CostSpec, Rarity
 from hs_sim.engine.pools import GenerationContext, PoolDefinition, PoolMember
 from hs_sim.engine.replay import build_replay, replay
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from hs_sim.engine.summon_quantities import SummonByCard, SummonCause, SummonEntryMaterial
 from hs_sim.targets import canonical_digest
 from tools.card_batch import check_face
@@ -240,7 +241,7 @@ class NativeAssembleFollowupTests(unittest.TestCase):
         restored = self.portable(game)
         self.choose(game, FREYA, 'top'); self.choose(restored, FREYA, 'top')
         self.assertEqual(game.snapshot(), restored.snapshot())
-        for version in (499, 501):
+        for version in (SNAPSHOT_SCHEMA_VERSION-1, SNAPSHOT_SCHEMA_VERSION+1):
             with self.subTest(version=version), self.assertRaises(SnapshotError):
                 Game.from_snapshot({**saved, 'schema_version': version}, fixture())
 

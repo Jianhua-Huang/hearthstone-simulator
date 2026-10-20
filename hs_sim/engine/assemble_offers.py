@@ -28,13 +28,19 @@ class Assemble(Effect):
     prompt: str='选择要替换的半段文本'
     cost: CostSpec|None=None
     minion_grant: CreatedMinionGrant|None=None
+    secondary_min_cost: int|None=None
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id);_name(self.pool_id,'assembly pool');_name(self.prompt,'assembly prompt')
         if type(self.primary_query)is not PoolQuery:raise ValueError('Assembly requires explicit PoolQuery')
         self.primary_query.__post_init__()
-        if self.primary_query.kinds not in((),(CardType.MINION,)) or self.primary_query.class_mode not in('any','current'):
-            raise ValueError('Assembly primary query must stay in the current-class minion domain')
+        if self.primary_query.kinds not in((),(CardType.MINION,)) or self.primary_query.class_mode not in('any','current','specified'):
+            raise ValueError('Assembly primary query requires the ordinary or explicitly specified class minion domain')
+        if self.primary_query.class_mode=='specified' and self.source_id is None:
+            raise ValueError('Specified-class assembly requires its original source')
+        if self.secondary_min_cost is not None and (type(self.secondary_min_cost)is not int or
+                self.secondary_min_cost<0 or self.source_id is None):
+            raise ValueError('Assembly absolute secondary cost floor requires a nonnegative integer and original source')
         if self.primary_trait not in('any','battlecry','deathrattle','end_turn','taunt'):raise ValueError('Unsupported assembly primary trait')
         if self.empty_policy not in('error','skip')or self.small_policy not in('error','available')or self.keep_policy not in('forbid','offer'):
             raise ValueError('Unsupported explicit assembly offer policy')
@@ -46,9 +52,10 @@ class Assemble(Effect):
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is not None:
             grant=self.minion_grant
-            if (grant.attack<0 or grant.health<0 or grant.keywords or grant.reborn_policy is not None or
+            periodic=grant==CreatedMinionGrant(special='hand_turn_end_discount')
+            if not periodic and (grant.attack<0 or grant.health<0 or grant.keywords or grant.reborn_policy is not None or
                     grant.identity is not None or grant.special is not None):
-                raise ValueError('Assembly only supports a plain positive creation-time stat bonus')
+                raise ValueError('Assembly supports a plain stat bonus or an independent owner-end hand discount')
         if self.cost is not None or self.minion_grant is not None:
             if self.source_id is None or self.cost is not None and self.minion_grant is not None:
                 raise ValueError('Assembly delivery requires one independent original source-bound grant')
@@ -97,10 +104,13 @@ def candidates(registry,context,state,spec,primary=None):
     spec.__post_init__();source=source_card(state,spec);hero=state.players[spec.player_id].hero_class
     if type(hero)is not CardClass or hero==CardClass.NEUTRAL:raise ValueError('Assembly requires a known current hero class')
     if primary is None:
-        query=replace(spec.primary_query,kinds=(CardType.MINION,),class_mode='current')
+        query=replace(spec.primary_query,kinds=(CardType.MINION,),
+            class_mode='specified'if spec.primary_query.class_mode=='specified'else'current')
     else:
         cost=registry.card(primary).cost
-        query=PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=8 if cost in(9,10)else cost,max_cost=cost+2)
+        query=(PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=spec.secondary_min_cost)
+            if spec.secondary_min_cost is not None else
+            PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=8 if cost in(9,10)else cost,max_cost=cost+2))
     rows=resolve_candidates(registry,context,spec.pool_id,query,current_class=hero,source_card_id=source,player_id=spec.player_id)
     result=[]
     for row in rows:

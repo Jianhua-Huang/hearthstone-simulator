@@ -25,3 +25,11 @@ GenerateFromPool新增默认None的`minion_grant`字段，本次只接受具来�
 core483/schema400拒绝旧1～399。仅新增上述两个Enchantment字段、两个有限Effect及生成请求可选声明，没有新的Entity、PlayerState或GameState字段。等待、选择失败、外部动作失败、克隆和回放沿原事务及解释器工作；未来回合时钟或没有标记的时钟明确拒绝。
 
 普通授予仅向目标手牌拥有者发布已有私有卡牌事件形状，费用变化继续普通事件；玩家DTO不含内部标记、最后回合、原物理引用、随机状态或等待帧。生成池M0、完整实际可达内容及M6国服校准继续独立验收；执行结果、当前差异及下一项仅维护在原两份台账。
+
+## 融冰而出的实际本人结束边界
+
+BE_257要求在本人回合结束时减费，不能用原开始时点近似。Enchantment增加hand_discount_boundary，默认turn_started保持两张旧卡的政策；新创建声明CreatedMinionGrant(special='hand_turn_end_discount')在首个获取通知前安装turn_ended附件。普通GrantHandTurnDiscount及GenerateFromPool的旧配方范围保持；新的结束声明仅通过原AddToHand/真实拼装交付使用。
+
+同一capture/apply读取声明边界，仍保存原手牌进入身份、原附件和实际事件，每个附件每回合最多一次。开始使用原事件data.turn；自然结束事件没有该字段，结束复用当前OwnerTurnRecord的turn/end_event/end_action并核完整原事件，不新建时钟、不把后来的结束冒作原结束。费用修改继续ModifyStoredCost，当前复制保留独立结束附件，基础复制不保留，牌库暂停、重新入手、控制者、沉默/回手及已接受等待仍交原生命周期处理。
+
+core608/schema501拒旧1～500，没有新Effect、payload类型、历史、Entity或PlayerState字段。玩家不见边界标记、最后执行时钟或接受证明；精确自然结束与其他结束效果的相对顺序、区域/复制和国服政策仍待M6。两张旧卡的开始行为不得随本次扩展改变。

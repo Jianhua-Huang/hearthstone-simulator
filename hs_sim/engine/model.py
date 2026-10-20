@@ -985,6 +985,7 @@ class Enchantment:
     hand_discount_turn: int | None = None
     minion_base_stats: MinionBaseStatsOrigin | None = None
     display_name: str | None = None
+    hand_discount_boundary: str = 'turn_started'
 
     def __post_init__(self) -> None:
         if self.display_name is not None:
@@ -1004,6 +1005,7 @@ class Enchantment:
             if (self.label!='minion_base_stats' or self.remove_on_silence or
                     self.source_id!=self.minion_base_stats.source_id or self.attack or self.health or self.cost or
                     self.cost_minimum or self.payment is not None or self.hand_turn_discount or
+                    self.hand_discount_boundary!='turn_started' or
                     any(getattr(self,n)is not None for n in('expires_turn','magnetic_id','tribe_change','cthun_ritual',
                         'control_return_player_id','owner_turn_expiry','hand_play_lock','control_return_expiry','hand_discount_turn',
                         'set_attack','set_health','set_cost'))):
@@ -1011,6 +1013,8 @@ class Enchantment:
         elif self.label=='minion_base_stats':raise ValueError('Minion base label lost its original program')
         _bool(self.hand_turn_discount, 'periodic hand discount')
         _optional_id(self.hand_discount_turn, 'last hand discount turn')
+        if type(self.hand_discount_boundary)is not str or self.hand_discount_boundary not in ('turn_started','turn_ended'):
+            raise ValueError('Periodic hand discount requires a known owner boundary')
         if self.hand_turn_discount:
             if (self.label != 'hand_turn_discount' or self.source_id is None or not self.remove_on_silence or
                     self.attack or self.health or self.cost or self.cost_minimum or self.payment is not None or
@@ -1018,7 +1022,7 @@ class Enchantment:
                     any(getattr(self,n)is not None for n in ('expires_turn','magnetic_id','tribe_change','cthun_ritual',
                         'control_return_player_id','owner_turn_expiry','hand_play_lock','control_return_expiry'))):
                 raise ValueError('Periodic hand discount requires its independent removable cost grant')
-        elif self.hand_discount_turn is not None or self.label == 'hand_turn_discount':
+        elif self.hand_discount_turn is not None or self.label == 'hand_turn_discount' or self.hand_discount_boundary!='turn_started':
             raise ValueError('Periodic hand discount clock requires its grant')
         _int(self.id, "enchantment ID", 1)
         _optional_id(self.source_id, "enchantment source_id")

@@ -32,7 +32,7 @@ class CreatedMinionGrant:
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'after_play', 'other_play_lock')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'hand_turn_end_discount', 'after_play', 'other_play_lock')):
             raise ValueError('Unknown created minion special ability')
         if self.special=='after_play' and (self.attack or self.health or self.keywords or
                 self.reborn_policy is not None or self.identity is None):
@@ -42,7 +42,7 @@ class CreatedMinionGrant:
             raise ValueError('Created hand play gate requires one independent pure condition')
         if self.special == 'prepare' and (self.attack or self.health or self.keywords or self.reborn_policy is not None):
             raise ValueError('Created Prepare is a separate hand-action grant')
-        if self.special == 'hand_turn_discount' and (
+        if self.special in ('hand_turn_discount','hand_turn_end_discount') and (
                 self.attack or self.health or self.keywords or self.reborn_policy is not None or self.identity is not None):
             raise ValueError('Created periodic discount is an independent hand cost grant')
         if not (self.attack or self.health or self.keywords or self.special):
@@ -202,7 +202,7 @@ def validate_candidates(effect, definitions):
         raise ResolutionError('Created local Spell Damage requires a spell carrier')
     if grant is not None and any(d.kind != CardType.MINION for d in definitions):
         raise ResolutionError('Every created grant carrier must be a minion')
-    if grant is not None and grant.special == 'hand_turn_discount' and effect.source_id is None:
+    if grant is not None and grant.special in ('hand_turn_discount','hand_turn_end_discount') and effect.source_id is None:
         raise ResolutionError('Created periodic discount requires its actual source')
     if grant is not None and grant.special == 'other_play_lock':
         from .effects import AddToHand
@@ -297,9 +297,9 @@ def install(state, entity, effect, *, resolver=None, publish_gift=True):
                 battlecry_repeat=BattlecryRepeatSpec(2, (CardType.MINION,), scope='self')))
         elif grant.special == 'prepare':
             entity.abilities.append(AbilityInstance(attachment_id(state), 'prepare', source_id=effect.source_id))
-        elif grant.special == 'hand_turn_discount':
+        elif grant.special in ('hand_turn_discount','hand_turn_end_discount'):
             from .hand_turn_costs import attach
-            attach(state,entity,effect.source_id)
+            attach(state,entity,effect.source_id,'turn_ended'if grant.special=='hand_turn_end_discount'else'turn_started')
         elif grant.special == 'other_play_lock':
             from .hand_play_locks import attach_after_other_play
             attach_after_other_play(state,entity,effect.source_id)
