@@ -5526,7 +5526,7 @@ class PlayerPlayedClassCostSpec:
                 raise ValueError('Played-class price requires one original playable class')
         elif self.profile_id in ('cost.player-played-card-count-turn-v1',
                                 'cost.player-played-outside-starting-deck-v1',
-                                'cost.player-last-played-cost-v1'):
+                                'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1'):
             if self.card_class is not None:
                 raise ValueError('All-card play price does not filter an original class')
         else:
@@ -5592,13 +5592,15 @@ class PlayerPlayedClassCostFact:
             validate_starting_deck_identity(self.starting_entities, self.starting_cards, self.next_entity_id)
         elif self.starting_entities is not None or self.starting_cards is not None:
             raise ValueError('An original class/turn price cannot invent starting-deck operands')
+        from .rafaams import FAMILY, PROFILE
         selected, last_turn, last_action = [], 0, 0
         for index, row in enumerate(self.rows, 1):
             row.__post_init__()
             if (row.face.play_id != index or row.face.source_id >= self.next_entity_id or
                     not last_turn <= row.turn <= self.turn or not last_action < row.action <= self.action):
                 raise ValueError('Played-class price lost its original ordered allocation window')
-            matched = (True if self.spec.profile_id == 'cost.player-last-played-cost-v1' else
+            matched = (row.face.card_id in FAMILY if self.spec.profile_id == PROFILE else
+                       True if self.spec.profile_id == 'cost.player-last-played-cost-v1' else
                        matches_outside_starting_deck(row.face, self.starting_entities) if outside else
                        row.turn == self.turn if self.spec.profile_id == 'cost.player-played-card-count-turn-v1'
                        else matches_played_class(row.face, self.spec.card_class))

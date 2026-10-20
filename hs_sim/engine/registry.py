@@ -2073,6 +2073,8 @@ class Registry:
             raise ValueError('Fabled generation exclusion requires independent known card inventory')
         from .fabled_decks import validate_specs as validate_fabled_specs
         validate_fabled_specs(self)
+        from .rafaams import validate_registry as validate_rafaam_registry
+        validate_rafaam_registry(self)
         from .deck_size_rules import validate_rules as validate_deck_size_rules
         validate_deck_size_rules(self)
         from .sideboards import validate_profiles as validate_sideboard_profiles

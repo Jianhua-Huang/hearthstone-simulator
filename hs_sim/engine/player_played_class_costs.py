@@ -15,8 +15,11 @@ def validate_definition(definition):
             definition.hero_missing_health_cost, definition.player_spell_count_cost, definition.player_hero_power_count_cost,
             definition.player_spell_mana_cost, definition.minion_death_cost, definition.player_overload_cost)):
         raise ValueError('Multiple intrinsic quantity formulas require a real reviewed source')
+    if spec.profile_id == 'cost.player-played-rafaam-v1':
+        from .rafaams import GIANT
+        if definition.id != GIANT: raise ValueError('Native Rafaam price belongs only to its actual Giant')
     if spec.profile_id in ('cost.player-played-outside-starting-deck-v1',
-                           'cost.player-last-played-cost-v1') and (
+                           'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1') and (
             definition.intrinsic_costs or any(value is not None for value in (
                 definition.hero_health_change_cost, definition.player_draw_count_cost,
                 definition.player_weapon_attack_cost, definition.player_armor_cost,
@@ -65,6 +68,9 @@ def capture(state, registry, player_id, definition, base_cost):
         from .play_history import starting_deck_identity, played_outside_starting_deck
         entities, cards = starting_deck_identity(state)
         selected = tuple(record.id for record in played_outside_starting_deck(state, player_id))
+    elif spec.profile_id == 'cost.player-played-rafaam-v1':
+        from .rafaams import played_ids
+        selected = played_ids(state, registry, player_id)
     else:
         selected = tuple(record.id for record in played_cards(state, player_id, turn=turn,
             registry=registry, card_class=spec.card_class))
@@ -89,6 +95,9 @@ def validate_fact(registry, definition, fact):
     if type(fact) is not PlayerPlayedClassCostFact:
         raise ValueError('Played-class price lost its complete original face prefix')
     fact.__post_init__()
+    if fact.spec.profile_id == 'cost.player-played-rafaam-v1':
+        from .rafaams import validate_registry
+        validate_registry(registry)
     if fact.spec != definition.player_played_class_cost:
         raise ValueError('Played-class price changed its pinned declaration')
     from .owner_turns import validate_face

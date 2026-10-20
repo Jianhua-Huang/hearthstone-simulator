@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+拉法姆主卡复用原`FabledSpec/DeckSizeRule`及已接入伴生，巨人通过既有完整出牌价格事实的有限原生profile筛选；不要按名字判断族、将绵羊加入构筑包或另设累计计数器。见[拉法姆契约](m3-timethief-rafaam.md)。
+
 真实15秒开局来源声明`TurnClockProfile`并返回`ActivateOriginalDeckClock`；可信宿主使用`current(game)`及`AdvanceTurnTime`，不能将时间作为玩家命令、让卡牌读取墙钟或直接切换回合。原选择恢复与正常结束共享既有执行器，见[回合计时契约](m3-original-deck-turn-clock.md)。
 
 真实标准卡包来源用`StandardPackProfile/OpenStandardPack`，宿主提供独立完整`constructed.standard_pack`及明确权重；后续由`PlayStandardPackSlot`续接五类普通入口。不要先入手、从已实现卡列表拼池、给物理安装补战吼，或假定商店保底概率适用于战吼，见[卡包契约](m3-standard-pack-playback.md)。
