@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v101'
+VIEW_VERSION = 'player-view-v102'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -365,6 +365,9 @@ class Information:
                 result['counter_policies'] = private_policies(entity) if entity.controller == viewer else None
                 from .hand_progress import public_progress
                 result['hand_progress'] = public_progress(entity)
+                from .rotating_discovery_classes import public_class
+                discover_class=public_class(entity)
+                if discover_class is not None:result['discover_class']=discover_class
                 from .deathrattle_memory import public_summons, public_damages
                 summon_memory=public_summons(entity)
                 if summon_memory:result['deathrattle_summons']=summon_memory

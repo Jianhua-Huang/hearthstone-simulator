@@ -167,6 +167,7 @@ class Registry:
         self._live_hand_spell_profiles = {}
         self._native_stat_gain_profiles = {}
         self._remaining_mana_numbers_profiles = {}
+        self._rotating_discovery_class_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
         self._corpse_summon_profiles = {}
@@ -376,6 +377,9 @@ class Registry:
     def remaining_mana_numbers_profiles(self):return MappingProxyType(self._remaining_mana_numbers_profiles)
 
     @property
+    def rotating_discovery_class_profiles(self):return MappingProxyType(self._rotating_discovery_class_profiles)
+
+    @property
     def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
 
     @property
@@ -497,6 +501,13 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._native_stat_gain_profiles:raise ValueError('Duplicate native stat-gain source')
         self._native_stat_gain_profiles[profile.card_id]=profile
+
+    def register_rotating_discovery_class_profile(self,profile):
+        self._require_mutable()
+        from .rotating_discovery_classes import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._rotating_discovery_class_profiles:raise ValueError('Duplicate discovery class declaration')
+        self._rotating_discovery_class_profiles[profile.card_id]=profile
 
     def register_remaining_mana_numbers_profile(self,profile):
         self._require_mutable()
@@ -1784,6 +1795,8 @@ class Registry:
         for profile in self._native_stat_gain_profiles.values():validate_native_stat_gain_profile(self,profile)
         from .remaining_mana_numbers import validate_profile as validate_remaining_numbers_profile
         for profile in self._remaining_mana_numbers_profiles.values():validate_remaining_numbers_profile(self,profile)
+        from .rotating_discovery_classes import validate_profile as validate_rotating_discovery_class_profile
+        for profile in self._rotating_discovery_class_profiles.values():validate_rotating_discovery_class_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
         from .kindred_targets import validate_profile as validate_kindred_target_profile
@@ -2145,6 +2158,8 @@ class Registry:
             payload['live_hand_spell_profiles']=[asdict(self._live_hand_spell_profiles[k])for k in sorted(self._live_hand_spell_profiles)]
         if self._native_stat_gain_profiles:
             payload['native_stat_gain_profiles']=[asdict(self._native_stat_gain_profiles[k])for k in sorted(self._native_stat_gain_profiles)]
+        if self._rotating_discovery_class_profiles:
+            payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
         if self._remaining_mana_numbers_profiles:
             payload['remaining_mana_numbers_profiles']=[asdict(self._remaining_mana_numbers_profiles[k])for k in sorted(self._remaining_mana_numbers_profiles)]
         if self._hero_health_target_profiles:

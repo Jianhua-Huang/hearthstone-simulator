@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+RotatingDiscoveryClassProfile声明真实手牌来源；参数沿原打印附件和BattlecryPayload保存，主体只构造指定职业DiscoverFromPool。不要改英雄职业或裁剪未支持候选，见[契约](m3-rotating-discovery-class.md)。
+
 活体疫病声明原生HealthRule；ShuffleGeneratedCopies保存原请求并按空位调用普通创建和shuffle。容量覆盖范围和原健康包窗口见[契约](m3-blight-damage-replacement.md)。
 
 开锁匠式原生数字使用RemainingManaNumbersProfile和普通BattlecryPayload的冻结标量；费用/属性修饰、支付和伤害共用。手牌范围及付款排除见[契约](m3-remaining-mana-numbers.md)。

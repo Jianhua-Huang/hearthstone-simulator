@@ -77,6 +77,8 @@ class FrameCodec:
         if type(value) is BattlecryPayload:
             from .remaining_mana_numbers import validate_payload
             validate_payload(self.registry,value)
+            from .rotating_discovery_classes import validate_payload as validate_discovery_class_payload
+            validate_discovery_class_payload(self.registry,value)
         from .native_stat_gains import RewardNativeStatGain,validate_request as validate_native_stat_gain_request
         if type(value) is RewardNativeStatGain and self.origin_state is not None:
             validate_native_stat_gain_request(self.origin_state,self.registry,value)
