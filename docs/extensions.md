@@ -2010,3 +2010,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 高弗雷的原爆牌先执行普通销毁响应，再保存原物理牌并在空位返回；归属、材料和减费继续使用公共区域/费用管线。保存、随机与尚未完成的其他等待来源排序见[契约](m3-overdraw-returns.md)。
+
+
+原始非随从抽牌的组后奖励使用DrawGroupReward('non_minion_followup', behavior_id=...)，在回调读取原RuleContext.draw并返回公共效果；不要扫当前手牌或截取同来源的额外抽牌历史。行为注册、原根约束和待校准边界见[抽牌组契约](m3-physical-draw-groups.md#原始非随从抽牌续接)。

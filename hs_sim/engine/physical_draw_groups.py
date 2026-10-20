@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from .costs import local_cost
 from .copy_materials import CapturedCardCopyMaterial, validate_captured_card_copy
 from .draw_casts import draw_one, draw_record
-from .effects import ChoiceOption, Effect, RequestChoice, _integer, _player
+from .effects import ChoiceOption, Effect, RequestChoice, _behavior, _integer, _player
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard, SetStoredMinionStats
 from .model import BoardPresenceReference, CardType, CostSpec, Keyword, Zone
@@ -55,12 +55,17 @@ class DrawGroupReward:
     amount: int = 0
     repetitions: int = 1
     source: BoardPresenceReference | None = None
+    behavior_id: str | None = None
 
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions'):
+        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup'):
             raise ValueError('Unknown physical draw-group reward')
+        if self.kind == 'non_minion_followup':
+            _behavior(self.behavior_id)
+        elif self.behavior_id is not None:
+            raise ValueError('Only original non-minion draw followups declare a callback')
         if self.kind == 'source_charge_if_both_minions':
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
@@ -199,6 +204,8 @@ def validate_material(state, registry, request, *, completed=False):
     """Also used by the frame codec; no query, randomness or state mutation."""
     request.__post_init__()
     if request.source_id not in state.entities: raise ValueError('Draw group source does not exist')
+    if request.reward.behavior_id is not None:
+        registry.behavior(request.reward.behavior_id)
     if request.reward.source is not None:
         ref = request.reward.source
         if ref.presence_id >= state.next_order or state.entities[ref.entity_id].kind != CardType.MINION:
@@ -208,6 +215,8 @@ def validate_material(state, registry, request, *, completed=False):
     for row in getattr(request, 'arrivals', ()):
         if row.draw_id is None: continue
         record = draw_record(state, row.draw_id)
+        if request.reward.kind == 'non_minion_followup' and record.parent_id is not None:
+            raise ValueError('Original type reward cannot borrow a replacement draw')
         validate_copy(state,registry,request,row,record)
         if record.player_id != request.player_id or record.source_id != request.source_id or completed and not record.completed:
             raise ValueError('Draw group lost its original completed source/player draw')
@@ -351,6 +360,14 @@ def capture(r, request):
 def finish(r, request):
     reward = request.reward
     if reward.kind == 'none': return ()
+    if reward.kind == 'non_minion_followup':
+        # Original root attempts determine type, including burns and draw-casts.
+        # Replacement and reaction draws are not additional accepted slots.
+        records = tuple(draw_record(r.state, row.draw_id) for row in request.arrivals
+            if row.draw_id is not None)
+        return tuple(r.call(reward.behavior_id, request.source_id, request.player_id, draw=record)
+            for record in records if record.card_id is not None and
+                r.registry.card(record.card_id).kind != CardType.MINION)
     if reward.kind == 'source_charge_if_both_minions':
         from .board_presence import resolve_board_presence
         from .effects import GrantKeyword

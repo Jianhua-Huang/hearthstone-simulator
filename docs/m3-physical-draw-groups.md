@@ -44,3 +44,12 @@
 原生示例 `python -B -X utf8 -m examples.card_physical_draw_groups`使用六个真实根卡；龙鳞军备通过真实MatchSetup、换牌、苦花骑士灌注、技能加入翡翠传送门及正常抽牌验证身份，没有实验卡牌定义。该短牌库/额外复制数量是明确experimental构筑验证，现有传送门实验池不因此变成正式完整生成池。
 
 谦恭审判的set_drawn_minion_stats奖励允许普通混合抽牌槽，整组完成后只对实际原手牌随从设定攻击/生命，费用不变。它与set_stats_cost_all保持不同操作，原匹配/替代补抽/烧毁和驻留证明不变。有限扩展及相关源见[真实消费者契约](m3-native-consumer-followups.md)，不是国服时序或完整池认证。
+
+
+## 原始非随从抽牌续接
+
+`DrawGroupReward(kind='non_minion_followup', behavior_id=...)` 在完整组及其抽牌反应结束后，对每个原始非随从尝试产生一个普通行为调用，`RuleContext.draw` 保留该原 `DrawRecord`。判断使用不可变原卡面；疲劳没有卡面，不产生奖励。烧牌仍有原卡面；抽到即施放和替换补抽只计原根，独立触发抽牌不混入本组。具体国服烧牌/替换计数政策待校准。
+
+行为必须已注册，在执行和FrameCodec恢复边界均检查；仅此奖励声明behavior_id，amount保持0、repetitions保持1，不接受借用替换子记录。原有槽、游标、来源、完成和HandEntry核验继续执行。卡牌回调只组合普通RefreshMana或具原来源的SummonByCard，不复制抽牌、支付或召唤器。星界之泉以地标正常使用请求一次抽牌，冰轮法师以真实战吼请求两次抽牌；已有CS2_033完整定义保持。
+
+奖励增加可选行为字段，因此core612/schema504拒绝旧1～503；无新Effect类型、GameState、Entity或PlayerState字段，观察114/命令12/replay1保持。上述版本是此入口的格式起点，当前进展及执行版本仍以两份原台账为准。
