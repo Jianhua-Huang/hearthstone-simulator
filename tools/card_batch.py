@@ -18,6 +18,7 @@ import subprocess
 import sys
 import unittest
 from urllib.request import Request, urlopen
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -84,6 +85,8 @@ def load_manifest(path):
     for values in numeric.values():
         validate_numeric_normalizations(values)
         require(bool(values), 'Printed zero declarations must be explicit nonempty fields')
+    if 'official_catalogs' in task:
+        validate_catalog_sources(task['official_catalogs'])
     return task
 
 
@@ -353,6 +356,60 @@ def official(row, locale, cache, *, offline=False, display_normalizations=None, 
                 response_sha256=sha(path), url=url, face=faces[0], observation=read(receipt))
 
 
+def validate_catalog_sources(sources):
+    require(type(sources) is list and bool(sources), 'Explicit full official catalog sources are required')
+    seen = set()
+    for source in sources:
+        require(type(source) is dict and set(source) == {'locale', 'response_file', 'receipt_file'},
+                'Catalog sources require locale, full response and receipt paths')
+        require(source['locale'] in ('zh_CN', 'en_US'), 'Unsupported catalog locale')
+        for key in ('response_file', 'receipt_file'):
+            require(relative_file(source[key]).suffix == '.json', 'Catalog source must be a saved JSON file')
+        identity = source['locale'], source['response_file']
+        require(identity not in seen, 'Repeated catalog source')
+        seen.add(identity)
+
+
+def catalog_index(sources, root=ROOT):
+    """Read each whole pinned body once; never fetch or infer pool membership."""
+    from hs_sim.targets import _load_json
+    validate_catalog_sources(sources)
+    root = Path(root).resolve(); result = {}
+    for source in sources:
+        paths = {key: (root / relative_file(source[key])).resolve()
+                 for key in ('response_file', 'receipt_file')}
+        require(all(path.is_relative_to(root) for path in paths.values()), 'Catalog source escaped its root')
+        body = paths['response_file']; pin = _load_json(paths['receipt_file'])
+        require(type(pin) is dict and type(pin.get('url')) is str, 'Catalog receipt lost its actual source URL')
+        url = urlsplit(pin['url']); query = parse_qs(url.query)
+        require(url.scheme == 'https' and url.hostname in ('hearthstone.blizzard.com', 'playhearthstone.com') and
+                url.port in (None, 443) and url.username is None and url.password is None and not url.fragment and
+                url.path.rstrip('/') == '/en-us/api/cards' and query.get('locale') == [source['locale']] and
+                set(query) <= {'locale', 'set', 'page', 'pageSize'} and all(len(v) == 1 for v in query.values()),
+                'Catalog receipt has an unsupported official URL or different locale')
+        digest = sha(body)
+        require(pin.get('sha256') == digest and type(pin.get('bytes')) is int and pin['bytes'] == body.stat().st_size,
+                'Complete catalog body/receipt byte identity changed')
+        data = _load_json(body)
+        require(type(data) is dict and type(data.get('cards')) is list, 'Catalog lost its full cards response')
+        for face in data['cards']:
+            require(type(face) is dict and type(face.get('id')) is int and face['id'] > 0,
+                    'Catalog has an unknown primary face identity')
+            identity = source['locale'], face['id']
+            require(identity not in result, 'Ambiguous primary face across catalog pages')
+            result[identity] = dict(response_file=str(body), response_sha256=digest,
+                                    url=pin['url'], face=face, observation=pin)
+    return result
+
+
+def catalog_official(row, locale, index, *, display_normalizations=None, numeric_normalizations=None):
+    require((locale, row['dbf_id']) in index, 'Assigned primary face missing from its explicit catalog sources')
+    observation = index[locale, row['dbf_id']]
+    check_face(row, observation['face'], locale, display_normalizations,
+               numeric_normalizations=numeric_normalizations)
+    return dict(card_id=row['id'], locale=locale, **observation)
+
+
 def prepare(manifest, output, *, root=ROOT, cache=None, offline=False):
     from hs_sim.cards.metadata import metadata_from_record
     from hs_sim.cards.health_cards import SCHOOLS
@@ -382,11 +439,18 @@ def prepare(manifest, output, *, root=ROOT, cache=None, offline=False):
     require(set(task.get('numeric_normalizations', {})) <= set(faces),
             'Every printed zero declaration requires full primary observations')
     cache = Path(cache) if cache else Path(root) / 'outputs/card-source-cache-cn37/official'
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        observations = list(executor.map(lambda pair: official(rows[pair[0]], pair[1], cache, offline=offline,
-                            display_normalizations=task.get('display_normalizations', {}).get(pair[0]),
-                            numeric_normalizations=task.get('numeric_normalizations', {}).get(pair[0])),
-                            [(cid, locale) for cid in faces for locale in ('zh_CN', 'en_US')]))
+    if 'official_catalogs' in task:
+        index = catalog_index(task['official_catalogs'], root)
+        observations = [catalog_official(rows[cid], locale, index,
+                            display_normalizations=task.get('display_normalizations', {}).get(cid),
+                            numeric_normalizations=task.get('numeric_normalizations', {}).get(cid))
+                        for cid in faces for locale in ('zh_CN', 'en_US')]
+    else:
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            observations = list(executor.map(lambda pair: official(rows[pair[0]], pair[1], cache, offline=offline,
+                                display_normalizations=task.get('display_normalizations', {}).get(pair[0]),
+                                numeric_normalizations=task.get('numeric_normalizations', {}).get(pair[0])),
+                                [(cid, locale) for cid in faces for locale in ('zh_CN', 'en_US')]))
     result = dict(schema=1, batch=task['batch'], task=task, cards=cards,
                   official_observations=observations, source_verified=True,
                   official_faces_verified=len(observations), behavior_verified=False,
