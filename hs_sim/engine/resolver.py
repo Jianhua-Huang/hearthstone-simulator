@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v613'
+CORE_EFFECTS_VERSION = 'core-effects-v614'
 
 
 class Mechanics:
@@ -2912,5 +2912,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_vanished_cards(mechanics)
     from .death_neighbors import register as register_death_neighbor_effects
     register_death_neighbor_effects(mechanics)
+    from .next_spell_bodies import register as register_next_spell_body_effects
+    register_next_spell_body_effects(mechanics)
     return mechanics
 

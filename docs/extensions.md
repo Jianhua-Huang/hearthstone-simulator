@@ -2016,3 +2016,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 真实“持牌期间使用两个不同派系”使用held_spells.DIFFERENT_PLAYED_SCHOOLS及固定goal=2的spell_cast声明，注册different_played_schools筛选器，主体调用既有satisfied。不扫action级历史或以总施法次数替代不同派系；冻结、复制及来源政策见[契约](m5-held-spells.md#两个已使用的不同法术派系)。
+
+
+真实“下一张指定派系法术重复此效果”先声明普通无计时PlayerEffectSpec和NextSpellBodyProfile；初始主体末尾AddPlayerEffect，额外主体只返回公共效果，不再安装程序或制造新CAST。原认领、逐项新局面、完成游标及待国服窗口见[契约](m3-next-spell-bodies.md)。

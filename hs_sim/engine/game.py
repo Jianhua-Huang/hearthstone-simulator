@@ -524,6 +524,8 @@ class Game:
         validate_discovery_classes(self)
         from .next_spell_bonuses import validate_game as validate_native_spell_bonuses
         validate_native_spell_bonuses(self)
+        from .next_spell_bodies import validate_game as validate_next_spell_bodies
+        validate_next_spell_bodies(self)
         from .colossal_reserves import validate_game as validate_colossal_reserves
         validate_colossal_reserves(self)
         from .scrambled_summons import validate_boundary as validate_scrambled_summons

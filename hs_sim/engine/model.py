@@ -7966,8 +7966,16 @@ class SpellCastRecord:
     mana_budget: SpellManaBudgetLink | None = None
     next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
     hand_cost_rank: HandCostRankFact | None = None
+    next_spell_body_effects: tuple[PlayerEffect, ...] = ()
+    next_spell_body_cursor: int = 0
 
     def __post_init__(self):
+        from .next_spell_bodies import validate_material as validate_next_spell_bodies
+        validate_next_spell_bodies(self.next_spell_body_effects, self.turn)
+        _int(self.next_spell_body_cursor, 'next spell body cursor', 0)
+        if (self.next_spell_body_cursor > 2*len(self.next_spell_body_effects) or
+                self.next_spell_body_effects and (self.origin != 'hand' or not self.payload_started or self.failure is not None)):
+            raise ValueError('Next spell bodies require their original accepted hand-cast plan and cursor')
         from .next_spell_bonuses import validate_material as validate_spell_bonus_material
         validate_spell_bonus_material(self.next_spell_bonus_effects,self.turn)
         if self.mana_budget is not None:

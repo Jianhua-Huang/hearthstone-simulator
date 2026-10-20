@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 504
+SNAPSHOT_SCHEMA_VERSION = 505
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1167,6 +1167,10 @@ def _spell_cast_from_dict(value):
         for a in _list(row['aura_duration_grants'], 'original Aura duration attachments'))
     row['spell_damage_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['spell_damage_effects'], 'claimed next-spell damage effects'))
+    row['next_spell_body_effects'] = tuple(player_effect_from_dict(e)
+        for e in _list(row['next_spell_body_effects'], 'claimed next-spell body programs'))
+    if 'next_spell_body_cursor' not in row:
+        raise ValueError('Cast lost its original next-spell body cursor')
     row['next_spell_bonus_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['next_spell_bonus_effects'], 'original paired next-spell effects'))
     if row['target_selection'] is not None:

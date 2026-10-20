@@ -138,6 +138,8 @@ def note_payload(r, record):
     record = capture_spell_aura(r, record)
     from .player_effects import claim_next_spell_damage
     record = claim_next_spell_damage(r,record)
+    from .next_spell_bodies import claim as claim_next_spell_bodies
+    record = claim_next_spell_bodies(r, record)
     from .held_spells import note_cast
     note_cast(r, record)
     r.emit('spell_cast_accepted', source_id=record.source_id, target_id=record.target_id,
@@ -185,6 +187,11 @@ def finish(r, effect):
     validate_target_finish(effect, record, r.registry)
     if record.completed or record.interrupted or not record.payload_started:
         raise ResolutionError('Spell cast is already settled')
+    if record.next_spell_body_cursor != 2*len(record.next_spell_body_effects):
+        from .next_spell_bodies import ContinueNextSpellBodies
+        if record.next_spell_body_cursor % 2:
+            raise ResolutionError('Spell completion overtook a running extra body')
+        return (ContinueNextSpellBodies(record.id, record.next_spell_body_cursor//2), effect)
     r.state.cast_history[record.id - 1] = replace(record, completed=True)
     # Each actual payload has one completion, including every hand repetition.
     # The separate card_played window still closes the whole physical play.

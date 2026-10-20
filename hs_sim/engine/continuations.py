@@ -242,6 +242,9 @@ class FrameCodec:
         from .physical_draw_groups import ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup, validate_material as validate_draw_group
         if type(value) in (ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup) and self.origin_state is not None:
             validate_draw_group(self.origin_state, self.registry, value)
+        from .next_spell_bodies import ContinueNextSpellBodies, FinishNextSpellBody, validate_queued as validate_next_spell_body
+        if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
+            validate_next_spell_body(self.origin_state, self.registry, value)
         from .bonus_effects import RotatePrintedHandBonuses
         if type(value) is RotatePrintedHandBonuses and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

@@ -277,6 +277,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
                    **public_effect(r.registry, instance))
     from .sham_trials import note_install as note_trial_install
     note_trial_install(r, instance)
+    from .next_spell_bodies import note_install as note_next_spell_body_install
+    note_next_spell_body_install(r, instance)
     if instance.aura_duration_cast_id is not None:
         from .aura_duration import BIND_EVENT
         r.emit(BIND_EVENT, source_id=source.id, player_id=player.id, instance_id=instance.id,
@@ -431,6 +433,8 @@ def remove(r, effect, *, atomic=False):
         raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
+    from .next_spell_bodies import note_removal as note_next_spell_body_removal
+    note_next_spell_body_removal(r, effect.player_id, instance)
     from .coin_replacements import note_remove as note_coin_removal
     note_coin_removal(r,effect.player_id,instance)
     if r.registry.player_effect(instance.spec_id).kind=='next_spell_bonus':
