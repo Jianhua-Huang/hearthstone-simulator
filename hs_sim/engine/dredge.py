@@ -52,9 +52,9 @@ def dredge(r, effect):
     options = []
     for n, entity_id in enumerate(offered, 1):
         entity = r.state.entities[entity_id]
-        options.append(ChoiceOption(f'dredge-{n}', r.registry.card(entity.card_id).name,
+        options.append(ChoiceOption(f'dredge-{n}', entity.display_name or r.registry.card(entity.card_id).name,
             (SelectDredgedCard(effect, CardReference.capture(entity)),), card_id=entity.card_id,
-            preview=CardPreview.capture(entity)))
+            preview=CardPreview.capture(entity, r.registry)))
     return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id,
                           prompt='探底：选择一张牌置于牌库顶', purpose=ChoicePurpose.DREDGE),)
 
@@ -70,7 +70,7 @@ def select_card(r, effect):
     # Retire references captured before this successful operation.
     entity.zone_epoch += 1
     r.game._information.conceal(entity.id)
-    preview = CardPreview.capture(entity)
+    preview = CardPreview.capture(entity, r.registry)
     from .serialization import preview_to_dict
     r.emit('card_dredged', source_id=spec.source_id, target_id=entity.id, player_id=spec.player_id,
            owner_id=entity.controller, card_id=entity.card_id, preview=preview_to_dict(preview), reveal=spec.reveal)

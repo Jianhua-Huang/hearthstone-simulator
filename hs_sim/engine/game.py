@@ -478,6 +478,8 @@ class Game:
         validate_composed_spells(self)
         from .composed_locations import validate_game as validate_composed_locations
         validate_composed_locations(self)
+        from .suspicious_discoveries import validate_game as validate_suspicious_discoveries
+        validate_suspicious_discoveries(self)
         from .coin_replacements import validate_boundary as validate_coin_replacements
         validate_coin_replacements(self)
         from .prison_playback import validate_boundary as validate_prison_playback

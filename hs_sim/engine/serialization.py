@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 493
+SNAPSHOT_SCHEMA_VERSION = 494
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -801,12 +801,20 @@ def _canonical_id(key, name):
 def preview_to_dict(value):
     result = asdict(value)
     result['keywords'] = [k.value for k in value.keywords]
+    if value.display_name is None: result.pop('display_name')
+    if value.tribes is None: result.pop('tribes')
+    if not value.tribes_excluded: result.pop('tribes_excluded')
+    if 'tribes' in result: result['tribes'] = list(value.tribes)
+    if 'tribes_excluded' in result: result['tribes_excluded'] = list(value.tribes_excluded)
     return result
 
 
 def preview_from_dict(value):
-    row = _row(value, CardPreview)
+    row = _row({'display_name': None, 'tribes': None, 'tribes_excluded': [], **value}
+        if type(value) is dict else value, CardPreview)
     row['keywords'] = tuple(Keyword(k) for k in _list(row['keywords'], 'preview keywords'))
+    if row['tribes'] is not None: row['tribes'] = tuple(_list(row['tribes'], 'preview tribes'))
+    row['tribes_excluded'] = tuple(_list(row['tribes_excluded'], 'preview tribe exclusions'))
     return CardPreview(**row)
 
 

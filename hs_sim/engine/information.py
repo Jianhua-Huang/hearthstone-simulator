@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v111'
+VIEW_VERSION = 'player-view-v112'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -325,6 +325,7 @@ class Information:
                 result['classes'] = [c.value for c in metadata.classes] if metadata else []
                 return result
             if entity.zone in PUBLIC_ZONES or (entity.zone == Zone.HAND and entity.controller == viewer):
+                if entity.display_name is not None: result['display_name'] = entity.display_name
                 if entity.interactable_object:
                     from .interactables import used_in_latest_owner_turn
                     result.update(kind=CardType.MINION.value,

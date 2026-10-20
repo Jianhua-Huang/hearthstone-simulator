@@ -88,7 +88,7 @@ def preview(offer):
 
 
 def options_for(registry, request, offered):
-    return tuple(ChoiceOption(f'stored-gift-{n+1}', registry.card(o.card.card_id).name + ' · ' + gift_by_id(o.gift_id).label +
+    return tuple(ChoiceOption(f'stored-gift-{n+1}', (o.face.display_name or registry.card(o.card.card_id).name) + ' · ' + gift_by_id(o.gift_id).label +
         ('（置于牌库顶）' if gift_by_id(o.gift_id).destination == 'deck_top' else ''),
         (SelectGiftedDeckCard(request, offered, n),), card_id=o.card.card_id, preview=preview(o))
         for n, o in enumerate(offered))
@@ -104,7 +104,7 @@ def discover(r, effect):
     # candidates. No generated pool or class filter is inferred from registration.
     cards = tuple(r.game._rng.sample(candidates, count))
     entities = tuple(r.state.entities[card.entity_id] for card in cards)
-    faces = tuple(CardPreview.capture(e) for e in entities)
+    faces = tuple(CardPreview.capture(e, r.registry) for e in entities)
     cries = tuple(has_battlecry(e.abilities) for e in entities)
     gifts = sample_eligible_gifts(r, DARK_GIFTS, tuple(eligible_face(face, cry) for face, cry in zip(faces, cries)))
     offered = tuple(StoredGiftOffer(card, face, cry, gift.id) for card, face, cry, gift in zip(cards, faces, cries, gifts))
@@ -157,7 +157,7 @@ def validate_choice(game):
     for offer in first.offered:
         entity = game._state.entities.get(offer.card.entity_id)
         if (entity is None or CardReference.capture(entity) != offer.card or entity.kind != CardType.MINION or
-                CardPreview.capture(entity) != offer.face or has_battlecry(entity.abilities) != offer.battlecry):
+                CardPreview.capture(entity, game.registry) != offer.face or has_battlecry(entity.abilities) != offer.battlecry):
             raise ValueError('Stored gift choice does not match its original physical material')
 
 

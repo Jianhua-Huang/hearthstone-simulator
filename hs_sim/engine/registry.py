@@ -154,6 +154,7 @@ class Registry:
         self._crafted_minion_parts = set()
         self._composed_spell_profiles = {}
         self._composed_location_profiles = {}
+        self._suspicious_discovery_profiles = {}
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
         self._prison_profiles = {}
@@ -290,6 +291,14 @@ class Registry:
         if profile.template_card_id in self._composed_location_profiles:
             raise ValueError('Duplicate native location recipe template')
         self._composed_location_profiles[profile.template_card_id] = profile
+
+    def register_suspicious_discovery_profile(self, profile):
+        self._require_mutable()
+        from .suspicious_discoveries import validate_profile
+        validate_profile(self, profile)
+        if profile.source_card_id in self._suspicious_discovery_profiles:
+            raise ValueError('Duplicate native suspicious discovery source')
+        self._suspicious_discovery_profiles[profile.source_card_id] = profile
 
     @property
     def second_player_cards(self):return frozenset(self._second_player_cards)
@@ -1945,6 +1954,8 @@ class Registry:
         for profile in self._composed_spell_profiles.values():validate_potion_profile(self,profile)
         from .composed_locations import validate_profile as validate_location_profile
         for profile in self._composed_location_profiles.values(): validate_location_profile(self, profile)
+        from .suspicious_discoveries import validate_profile as validate_suspicious_profile
+        for profile in self._suspicious_discovery_profiles.values(): validate_suspicious_profile(self, profile)
         from .adjoining_spells import validate_profile as validate_adjoining_profile
         for profile in self._adjoining_spell_profiles.values():validate_adjoining_profile(self,profile)
         for card in self._cards.values():
@@ -2396,6 +2407,8 @@ class Registry:
             payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
         if self._composed_location_profiles:
             payload['composed_location_profiles'] = [asdict(self._composed_location_profiles[k]) for k in sorted(self._composed_location_profiles)]
+        if self._suspicious_discovery_profiles:
+            payload['suspicious_discovery_profiles'] = [asdict(self._suspicious_discovery_profiles[k]) for k in sorted(self._suspicious_discovery_profiles)]
         if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
         if self._random_target_cards:payload['random_target_cards']=sorted(self._random_target_cards)
         if self._prison_profiles:

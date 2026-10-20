@@ -113,6 +113,10 @@ def apply_material(r, selection, slot_id, entity):
             kind=entity.kind, components=row.components, jade_size=row.jade_size), entity)
     gift = None
     if option.effects:
+        from .suspicious_discoveries import ChooseSuspiciousMinion, install_mutation
+        work = option.effects[0]
+        if type(work) is ChooseSuspiciousMinion:
+            install_mutation(r, entity, work.profile_card_id, work.mutation, selection.discovery.result.choice.source_id)
         from .discovery import ResolvePoolDiscovery
         from .stored_gift_discovery import SelectGiftedDeckCard, gift_by_id
         from .opponent_deck_gift_copy import CopyOpponentDeckOffer

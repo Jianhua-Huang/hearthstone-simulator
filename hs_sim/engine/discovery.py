@@ -614,6 +614,10 @@ def validate_boundary(game):
         if type(work) is ContinuePoolDiscovery:validate_batch(game.registry,game._generation_context,work)
         if type(work) is ResolvePoolDiscovery:validate_selection(game.registry,game._generation_context,work)
     if choice.purpose != ChoicePurpose.POOL_DISCOVERY:return
+    from .suspicious_discoveries import ChooseSuspiciousMinion, validate_waiting as validate_suspicious_waiting
+    if any(type(e) is ChooseSuspiciousMinion for option in frame.options for e in option.effects):
+        validate_suspicious_waiting(game)
+        return
     if choice.min_count!=1 or choice.max_count!=1 or choice.repeat_key is not None or frame.on_select is not None:
         raise ValueError('Invalid pool discovery choice structure')
     first=None; real=ordinary_options(frame.options);offered=tuple(o.card_id for o in real)

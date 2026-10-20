@@ -14,9 +14,9 @@ from .card_conditions import has_battlecry
 PROMPT='发现对手牌库中一张随从的复制'
 
 
-def current_face(material):
+def current_face(material, registry=None):
     entity=material.entity();refresh_entity(entity)
-    return CardPreview.capture(entity),has_battlecry(entity.abilities)
+    return CardPreview.capture(entity, registry),has_battlecry(entity.abilities)
 
 
 @dataclass(frozen=True)
@@ -75,7 +75,7 @@ class CopyOpponentDeckOffer(Effect):
 def options_for(registry,request,offered):
     rows=[]
     for i,offer in enumerate(offered):
-        face,cry=current_face(offer.material);label=registry.card(offer.card_id).name
+        face,cry=current_face(offer.material, registry);label=face.display_name or registry.card(offer.card_id).name
         if offer.gift_id is not None:
             gift=gift_by_id(offer.gift_id);label+=' · '+gift.label+('（置于牌库顶）'if gift.destination=='deck_top'else'')
             ref=CardReference.capture(offer.material.entity())
@@ -96,7 +96,7 @@ def discover(r,effect):
         PoolQuery(kinds=(CardType.MINION,)),operation='copy_current',source_id=effect.source_id,discovery=True))
     if not refs:return ()
     materials=tuple(CapturedCardCopyMaterial.capture(r.state,r.state.entities[ref.entity_id])for ref in refs)
-    faces=tuple(current_face(m)for m in materials)
+    faces=tuple(current_face(m, r.registry)for m in materials)
     gifts=sample_eligible_gifts(r,DARK_GIFTS,tuple(eligible_face(face,cry)for face,cry in faces))if effect.gift else(None,)*len(refs)
     offered=tuple(DeckCopyOffer(m,None if g is None else g.id)for m,g in zip(materials,gifts))
     return (RequestChoice(effect.player_id,options_for(r.registry,effect,offered),effect.source_id,prompt=PROMPT,purpose=ChoicePurpose.CARD_DISCOVERY),)

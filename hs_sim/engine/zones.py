@@ -1191,7 +1191,7 @@ def sample_zone_choices(r, effect):
 
 
 def deck_take_options(registry, request, offered):
-    return tuple(ChoiceOption(f'zone-{index+1}', registry.card(offer.card.card_id).name,
+    return tuple(ChoiceOption(f'zone-{index+1}', offer.face.display_name or registry.card(offer.card.card_id).name,
         (SelectDeckTake(request, offered, index),), card_id=offer.card.card_id, preview=offer.face)
         for index, offer in enumerate(offered))
 
@@ -1240,7 +1240,7 @@ def validate_deck_take_choice(game):
         raise ValueError('Deck discovery disagrees with its original complete offered material')
     for offer in first.offered:
         entity = game._state.entities.get(offer.card.entity_id)
-        if entity is None or CardReference.capture(entity) != offer.card or CardPreview.capture(entity) != offer.face:
+        if entity is None or CardReference.capture(entity) != offer.card or CardPreview.capture(entity, game.registry) != offer.face:
             raise ValueError('Deck discovery no longer matches its actual original physical preview')
 
 
@@ -1249,7 +1249,7 @@ def choose_from_zone(r, effect):
     if not offered:return ()
     if effect.cost is not None or effect.destroy_unchosen:
         from .model import ChoicePurpose
-        original = tuple(DeckTakeOffer(card, CardPreview.capture(r.state.entities[card.entity_id])) for card in offered)
+        original = tuple(DeckTakeOffer(card, CardPreview.capture(r.state.entities[card.entity_id], r.registry)) for card in offered)
         return (RequestChoice(effect.player_id, deck_take_options(r.registry, effect, original), source_id=effect.source_id,
             prompt=effect.prompt, purpose=ChoicePurpose.CARD_DISCOVERY),)
     options = []

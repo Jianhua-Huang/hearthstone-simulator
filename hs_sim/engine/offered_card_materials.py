@@ -82,6 +82,7 @@ def capture(r, option):
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer
     from .hand_choice_followups import ResolveHandFollowupChoice, record
     from .summon_sources import ResurrectMinion
+    from .suspicious_discoveries import ChooseSuspiciousMinion, validate_mutation
     # All currently supported genuine discovery producers have one original
     # delivery operation. Do not infer hidden material from a CardPreview.
     if len(option.effects) > 1:
@@ -89,6 +90,12 @@ def capture(r, option):
     if not option.effects:
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     work = option.effects[0]
+    if type(work) is ChooseSuspiciousMinion:
+        work.__post_init__()
+        validate_mutation(r.registry, work.profile_card_id, work.mutation)
+        if work.card_id != option.card_id or work.result is not None:
+            raise ValueError('Suspicious offered material changed its original face or preclaimed a choice')
+        return OfferedCardMaterial(option.id, option.card_id, 'printed')
     if type(work) in (AddToHand, AddToDeck, CreateTemporaryCard, ResolvePoolDiscovery, _TakeSideboardCard):
         card_id = work.selection.card_id if type(work) is ResolvePoolDiscovery else work.card_id
         if card_id != option.card_id:

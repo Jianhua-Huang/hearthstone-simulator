@@ -984,8 +984,20 @@ class Enchantment:
     hand_turn_discount: bool = False
     hand_discount_turn: int | None = None
     minion_base_stats: MinionBaseStatsOrigin | None = None
+    display_name: str | None = None
 
     def __post_init__(self) -> None:
+        if self.display_name is not None:
+            _name(self.display_name, 'current minion name')
+            if len(self.display_name) > 256 or self.label != 'minion_name' or self.remove_on_silence is not True:
+                raise ValueError('Current minion name requires one independent removable identity')
+            allowed = {'id', 'source_id', 'label', 'remove_on_silence', 'display_name'}
+            for item in self.__dataclass_fields__.values():
+                value = getattr(self, item.name)
+                if item.name not in allowed and (type(value) is not type(item.default) or value != item.default):
+                    raise ValueError('Current minion name cannot carry another attachment operation')
+        elif self.label == 'minion_name':
+            raise ValueError('Minion-name attachment requires its actual visible name')
         if self.minion_base_stats is not None:
             if type(self.minion_base_stats)is not MinionBaseStatsOrigin:raise ValueError('Typed original base program required')
             self.minion_base_stats.__post_init__()
@@ -9975,6 +9987,10 @@ class Entity:
     interactable_object: bool = False
 
     @property
+    def display_name(self):
+        return next((e.display_name for e in reversed(self.enchantments) if e.display_name is not None), None)
+
+    @property
     def is_character(self) -> bool:
         return not self.interactable_object and self.kind in (CardType.HERO, CardType.MINION)
 
@@ -10086,8 +10102,21 @@ class CardPreview:
     max_health: int
     durability: int
     keywords: tuple[Keyword, ...] = ()
+    display_name: str | None = None
+    tribes: tuple[str, ...] | None = None
+    tribes_excluded: tuple[str, ...] = ()
 
     def __post_init__(self):
+        if type(self.tribes_excluded) is not tuple:
+            raise ValueError('Preview tribe exclusions require an immutable tuple')
+        if self.display_name is not None:
+            _name(self.display_name, 'preview minion name')
+            if len(self.display_name) > 256: raise ValueError('Preview minion name is too long')
+        if self.tribes is not None:
+            from .tribes import TribeState
+            TribeState(self.tribes, self.tribes_excluded).__post_init__()
+        elif self.tribes_excluded:
+            raise ValueError('Preview tribe exclusions require a complete current tribe state')
         for field in ('cost', 'attack', 'max_health', 'durability'):
             _int(getattr(self, field), 'preview ' + field, 0)
         _int(self.health, 'preview health')
@@ -10096,9 +10125,14 @@ class CardPreview:
             raise ValueError('Preview keywords require a sorted unique tuple')
 
     @classmethod
-    def capture(cls, entity):
+    def capture(cls, entity, registry=None):
+        current = None
+        if registry is not None and any(e.tribe_change is not None for e in entity.enchantments):
+            from .tribes import tribe_state
+            current = tribe_state(registry, entity)
         return cls(entity.cost, entity.attack, entity.health, entity.max_health,
-                   entity.durability, tuple(sorted(entity.keywords, key=lambda k: k.value)))
+            entity.durability, tuple(sorted(entity.keywords, key=lambda k: k.value)), entity.display_name,
+            None if current is None else current.members, () if current is None else current.excluded)
 
 
 @dataclass(frozen=True)
@@ -11539,6 +11573,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                     validate_clock(state, attachment.hand_play_lock)
                 if type(attachment) is Enchantment and attachment.tribe_change is not None and entity.kind != CardType.MINION:
                     raise ValueError('Current tribe change requires a minion carrier')
+                if type(attachment) is Enchantment and attachment.display_name is not None and entity.kind != CardType.MINION:
+                    raise ValueError('Current minion name requires a minion carrier')
                 if type(attachment) is Enchantment and attachment.control_return_player_id is not None:
                     if (entity.kind != CardType.MINION or entity.zone not in (Zone.BOARD, Zone.GRAVEYARD) or
                             attachment.expires_turn is not None and attachment.expires_turn > state.turn):
@@ -11766,6 +11802,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                     raise ValueError('Frozen native Reborn differs from its printed declaration')
             if type(attachment) is Enchantment and attachment.tribe_change is not None and kind != CardType.MINION:
                 raise ValueError('Frozen tribe change requires a minion carrier')
+            if type(attachment) is Enchantment and attachment.display_name is not None and kind != CardType.MINION:
+                raise ValueError('Frozen minion name requires a minion carrier')
             if type(attachment) is Enchantment and attachment.control_return_player_id is not None and kind != CardType.MINION:
                 raise ValueError('Frozen temporary control requires a minion carrier')
             if type(attachment) is Enchantment and attachment.control_return_expiry is not None:
