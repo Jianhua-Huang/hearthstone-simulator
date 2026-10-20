@@ -10553,6 +10553,7 @@ class CharacterAttackRecord:
     delivery_event_cursor: int | None = None
     combat: CharacterAttackCombatFact | None = None
     terminal: CharacterAttackTerminalFact | None = None
+    native_target: object | None = None
 
     def __post_init__(self):
         from .character_attacks import validate_record

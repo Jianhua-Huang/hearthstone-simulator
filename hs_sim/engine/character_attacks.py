@@ -10,6 +10,14 @@ def validate_record(row):
         raise ValueError('Character attack requires its original typed declaration')
     w = row.declaration
     w.__post_init__()
+    if row.native_target is not None:
+        from .native_random_targets import NativeTargetSelection
+        value = row.native_target
+        if type(value) is not NativeTargetSelection:
+            raise ValueError('Character attack requires its typed native selection')
+        value.__post_init__(); p = value.partition
+        if not p.applied or (p.origin,p.window_id,p.source.entity_id) != ('attack',w.id,w.source_id):
+            raise ValueError('Character attack borrowed another native selection')
     if w.kind != 'attack' or row.source_kind not in (CardType.HERO, CardType.MINION) or type(row.source_kind) is not CardType:
         raise ValueError('Character attack requires a declared character window')
     if (row.source_kind is CardType.MINION) != (w.attack_source_presence is not None):
@@ -31,7 +39,7 @@ def validate_record(row):
         if type(row.delivery) is not ActionWindow:
             raise ValueError('Character attack delivery requires its original typed window')
         row.delivery.__post_init__()
-        if replace(w, target_id=row.delivery.target_id, attack_target_presence=row.delivery.attack_target_presence) != row.delivery:
+        if selected_window(row, row.delivery) != row.delivery:
             raise ValueError('Character delivery changed more than the actual selected target')
         _int(row.delivery_action, 'character delivery action', action)
         _int(row.delivery_event_cursor, 'character delivery event cursor', cursor)
@@ -59,6 +67,13 @@ def validate_record(row):
         if (row.terminal.status == 'completed' and row.combat is None or
                 row.terminal.status == 'cancelled' and (row.delivery is None or row.combat is not None)):
             raise ValueError('Character attack terminal differs from its actual reached phase')
+
+
+def selected_window(row, window):
+    relation = ('opponent' if row.native_target is not None and row.native_target.failure is None
+                else row.declaration.combat_relation)
+    return replace(row.declaration, target_id=window.target_id,
+        attack_target_presence=window.attack_target_presence, combat_relation=relation)
 
 
 def record(state, window_id):
@@ -223,8 +238,7 @@ def validate_tails(state, work):
         windows = [w for w in state.action_windows if w.id == row.declaration.id]
         if bool(windows) != (row.delivery is None and row.terminal is None):
             raise ValueError('Character attack original window lifecycle mismatch')
-        if windows and replace(row.declaration, target_id=windows[0].target_id,
-                attack_target_presence=windows[0].attack_target_presence) != windows[0]:
+        if windows and selected_window(row, windows[0]) != windows[0]:
             raise ValueError('Character window changed its original source or policy')
 
 
@@ -259,7 +273,8 @@ def validate_boundary(game):
         declared_presence = dict(event.data).get('target_presence_id')
         if type(declared_presence) is not type(presence) or declared_presence != presence:
             raise ValueError('Character declaration changed its original target residence')
-        target_id, selected = w.target_id, w.attack_target_presence
+        target_id, selected, relation = w.target_id, w.attack_target_presence, w.combat_relation
+        native_redirects = 0
         for changed in redirects.get(w.id,()):
             if (changed.sequence <= row.declaration_event_cursor or
                     row.delivery_event_cursor is not None and changed.sequence > row.delivery_event_cursor or
@@ -269,8 +284,16 @@ def validate_boundary(game):
             ident = dict(changed.data).get('target_presence_id')
             target_id = changed.target_id
             selected = None if ident is None else BoardPresenceReference(target_id,ident)
+            if dict(changed.data).get('native_random_target') is True:
+                native_redirects += 1
+                if row.native_target is None or row.native_target.failure is not None or target_id != row.native_target.target_id:
+                    raise ValueError('Native redirect lost its original accepted selection')
+                relation = 'opponent'
+        expected_native = int(row.native_target is not None and row.native_target.failure is None)
+        if native_redirects != expected_native:
+            raise ValueError('Character attack lost its one native replacement')
         actual = row.delivery or next((x for x in game._state.action_windows if x.id == w.id),None)
-        if actual is not None and (actual.target_id,actual.attack_target_presence) != (target_id,selected):
+        if actual is not None and (actual.target_id,actual.attack_target_presence,actual.combat_relation) != (target_id,selected,relation):
             raise ValueError('Character attack changed its selected target without an original redirect')
         if row.terminal is not None and row.terminal.status != 'interrupted':
             event = by_sequence.get(row.terminal.event_cursor+1)
@@ -360,6 +383,8 @@ def record_from_dict(value):
             for item in _list(fields['spellburst_candidates'], 'original attack Spellburst candidates'))
         return ActionWindow(**fields)
     row = _row(value, CharacterAttackRecord)
+    from .native_target_acceptance import selection_from_dict
+    row['native_target'] = selection_from_dict(row['native_target'])
     row['declaration'] = window(row['declaration'])
     row['source_kind'] = CardType(row['source_kind'])
     if row['delivery'] is not None:

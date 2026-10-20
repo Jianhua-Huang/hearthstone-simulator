@@ -203,7 +203,10 @@ def resolve_attack(r, effect):
     work = CombatDamage(window.source_id, window.target_id, window.forced,
                         combat_relation=window.combat_relation, hero_attack=link,
                         attack_window_id=character_window, excess_to_hero=window.excess_to_hero)
-    reason = replaced_combatant(r.state, window)
+    from .character_attacks import record as character_attack_record
+    native = character_attack_record(r.state, window.id).native_target
+    reason = ('native_no_target' if native is not None and native.failure is not None
+              else replaced_combatant(r.state, window))
     if reason is not None:
         from .hero_attack_history import cancel
         cancel(r, work, reason)
@@ -214,19 +217,29 @@ def resolve_attack(r, effect):
     return [work]
 
 
-def redirect(r, effect):
+def redirect(r, effect, *, native_selection=None):
     from .combat import combat_relation_matches
     window = find_window(r.state, effect.window_id)
+    relation = None if window is None else window.combat_relation
+    if native_selection is not None:
+        from .character_attacks import record
+        from .native_random_targets import NativeTargetSelection
+        if (type(native_selection) is not NativeTargetSelection or window is None or
+                record(r.state, window.id).native_target != native_selection or
+                native_selection.failure is not None or native_selection.target_id != effect.target_id):
+            raise ValueError('Native redirect requires the actual accepted attack selection')
+        relation = 'opponent'
     target = r.state.entities.get(effect.target_id)
     if (not attack_live(r.state, window) or target is None or not target.active or not target.is_character or
             target.zone not in (Zone.BOARD, Zone.HERO) or target.health <= 0 or target.doomed or
-            not combat_relation_matches(r.state.entities[window.source_id], target, window.combat_relation)):
+            not combat_relation_matches(r.state.entities[window.source_id], target, relation)):
         return
     presence = BoardPresenceReference.capture(r.state, target.id) if target.kind == CardType.MINION else None
     r.state.action_windows[r.state.action_windows.index(window)] = replace(window, target_id=target.id,
-        attack_target_presence=presence)
+        attack_target_presence=presence, combat_relation=relation)
     r.emit('attack_redirected', source_id=window.source_id, target_id=target.id, player_id=window.player_id,
-           window_id=window.id, target_presence_id=None if presence is None else presence.presence_id)
+           window_id=window.id, target_presence_id=None if presence is None else presence.presence_id,
+           **({'native_random_target': True} if native_selection is not None else {}))
 
 
 def redirect_spell(r, effect):

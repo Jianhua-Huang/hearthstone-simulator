@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v593'
+CORE_EFFECTS_VERSION = 'core-effects-v594'
 
 
 class Mechanics:
@@ -405,6 +405,11 @@ class Resolution:
                         not (source_id == entity.id and kind in ('card_committed', 'card_played'))):
                     self._captured.append(self.call(stage.progress_behavior, entity.id, entity.controller, event=event))
                 continue
+            if kind == 'attack_declared' and self.registry.random_target_cards:
+                from .native_attack_targets import capture as capture_native_attack_target
+                native = capture_native_attack_target(self, entity, event)
+                if native is not None:
+                    self._captured.append(native)
             for trigger in sorted((*active_abilities(entity, 'trigger'), *active_abilities(entity, 'dormant_trigger'),
                                    *active_abilities(entity, 'limited_trigger'),
                                    *active_abilities(entity, 'counter_policy')), key=lambda a:a.id):
@@ -2629,6 +2634,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_prison_playback(mechanics)
     from .native_target_acceptance import register as register_native_target_acceptance
     register_native_target_acceptance(mechanics)
+    from .native_attack_targets import register as register_native_attack_targets
+    register_native_attack_targets(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

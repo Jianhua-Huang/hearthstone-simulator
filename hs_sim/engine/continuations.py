@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .native_attack_targets import NativeAttackTargetProof, validate_proof as validate_native_attack_proof
+        if type(value) is NativeAttackTargetProof:
+            validate_native_attack_proof(value,self.registry)
         from .native_target_acceptance import NativeTargetProof, validate_proof as validate_native_target_proof
         if type(value) is NativeTargetProof:
             validate_native_target_proof(value,self.registry)
