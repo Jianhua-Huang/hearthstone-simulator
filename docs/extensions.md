@@ -391,7 +391,7 @@ RandomSplitDamage可显式声明spell_bonus_multiplier=0，仅忽略外层法强
 
 LockHandCard是有限手动资格门禁，不改变报价或支付账户；当前复制保留原时钟，base复制及重置清除。真实不同费用抽牌和拟态原材料使用扩展的DrawPhysicalGroup，不按手牌末项猜原受益。完整声明和待CN政策见[抽牌保留契约](m3-draw-retention-limits.md)。
 
-整组抽牌后选牌、减费、转交或增益可使用DrawPhysicalGroup及有限DrawGroupSlot/DrawGroupReward。普通槽与随机匹配槽保持不同空池政策，原始身份须有真实开局事实，不能从Scenario牌名补造；特殊defining_hand_source转交仍明确不支持。材料和窗口见[抽牌组契约](m3-physical-draw-groups.md)。
+整组抽牌后选牌、减费、转交或增益可使用DrawPhysicalGroup及有限DrawGroupSlot/DrawGroupReward。普通槽与随机匹配槽保持不同空池政策，原始身份须有真实开局事实，不能从Scenario牌名补造；特殊defining_hand_source转交仍明确不支持。set_drawn_minion_stats只设定原入手随从身材，不改变费用。材料和窗口见[抽牌组契约](m3-physical-draw-groups.md)。
 
 需要复制体首次入场即带额外关键词时，CopyStoredMinion的minion_grant必须有SummonCause，授予者与原因严格一致。死亡来源印刷复制交原DeathRecord；弃牌之后的收益用on_success；已施放法术归还要保存原分配而非新建同名牌，具体限制见[契约](m3-original-material-spells.md)。
 

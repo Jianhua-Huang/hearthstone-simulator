@@ -1,0 +1,744 @@
+{
+  "schema": 1,
+  "batch": "native-consumer-followups-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_008",
+        "dbf_id": 132535,
+        "name": "魔古将领",
+        "name_en": "Mogu Warmaster",
+        "text": "在你使用一张中立牌后，&在本回合中，你的下一张法术牌法力值消耗减少（1）点。",
+        "text_en": "After you play a neutral card,& your next spell costs (1) less this turn.",
+        "cost": 3,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "c0357e65f5dc425947d50606f77f6c44221251cc48840d8347853ab2829dd600",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_008",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_150",
+        "dbf_id": 130441,
+        "name": "线圈携载机",
+        "name_en": "Coilbearer",
+        "text": "<b>战吼：</b>&<b>发现</b>一张法术牌并置于你的牌库顶，其法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a spell to put on top of your deck. It costs (2) less.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bfbd913e699e12f4e9fc63f28f2ede761531b501b2fc9f7135cd4545a87b1219",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_150",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_154",
+        "dbf_id": 131122,
+        "name": "谦恭审判",
+        "name_en": "Humble Judgment",
+        "text": "抽三张牌，将其中随从牌的攻击力和生命值变为2。",
+        "text_en": "Draw 3 cards. Set the Attack and Health of any minions drawn to 2.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Kenji"
+          }
+        ]
+      },
+      "record_sha256": "36b30c56826979b1e6475784281979166a95f4429df6f24ed102f308c93e112f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_154",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_196",
+        "dbf_id": 130092,
+        "name": "迷醉召唤者",
+        "name_en": "Befuddled Summoner",
+        "text": "在你的回合结束时，召唤一个随机敌方随从的一个复制，并使其攻击本体。",
+        "text_en": "[x]At the end of your turn,\nsummon a copy of a\nrandom enemy minion.\n___It attacks the original.",
+        "cost": 4,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "a84c67c13c4a72c2fef418c467d25869ac62d94b8c35589482ec76d3952a6248",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_196",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_201",
+        "dbf_id": 131200,
+        "name": "冰冷恶兆",
+        "name_en": "Foreboding Freeze",
+        "text": "<b>冻结</b>一个敌人。随机召唤一个法力值消耗为（5）的随从并<b>冻结</b>该随从。",
+        "text_en": "<b>Freeze</b> an enemy. Summon a random\n5-Cost minion and\n<b>Freeze</b> it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d5d69ffc2cc92119626c02234b2f930514f7b390ead3086d9427541f783c0e84",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_201",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_008",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 132535,
+        "collectible": 1,
+        "slug": "132535-mogu-warmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "魔古将领",
+        "text": "在你使用一张中立牌后， 在本回合中，你的下一张法术牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e97f836b7bdb08542f5abca4641030cb24005a4c9a960715e046abefabf7eac.png",
+        "imageGold": "",
+        "flavorText": "有没有不那么暴力的魔古。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/def3a2fd992f6106bca19b990a81e00c3ff0491684e183121e351d901b23f082.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_008",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 132535,
+        "collectible": 1,
+        "slug": "132535-mogu-warmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Mogu Warmaster",
+        "text": "After you play a neutral card, your next spell costs (1) less this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73d5314a57c0da4b369c1f96b1e3a3891eaede7e77ef700ea56a365e15afeedd.png",
+        "imageGold": "",
+        "flavorText": "Just once, I'd like to meet a peacemaster.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/def3a2fd992f6106bca19b990a81e00c3ff0491684e183121e351d901b23f082.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_150",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 130441,
+        "collectible": 1,
+        "slug": "130441-coilbearer",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "线圈携载机",
+        "text": "<b>战吼：</b> <b>发现</b>一张法术牌并置于你的牌库顶，其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd4952bfb9b314b328900d7a62cc2242a5f0a6b46b376cbe7e7348892433d258.png",
+        "imageGold": "",
+        "flavorText": "一直在喷神抽。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f31692698410719e6e79d9c896767037ef9ece34569ac62710aab32ef96009e.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "BE_150",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 130441,
+        "collectible": 1,
+        "slug": "130441-coilbearer",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Coilbearer",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a spell to put on top of your deck. It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eab64964f8e7262b15bbc5923326cd21d6c775d5e591eeff89f5400a565a4bef.png",
+        "imageGold": "",
+        "flavorText": "Always complains about getting topdecked.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f31692698410719e6e79d9c896767037ef9ece34569ac62710aab32ef96009e.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BE_154",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 131122,
+        "collectible": 1,
+        "slug": "131122-humble-judgment",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Eric Kenji",
+        "manaCost": 3,
+        "name": "谦恭审判",
+        "text": "抽三张牌，将其中随从牌的攻击力和生命值变为2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/23b969eb92aef3d6632fa164f417a6de36e2ecf357de15d0236cebe0612cc47e.png",
+        "imageGold": "",
+        "flavorText": "保持谦卑。 圣光",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8f41a515b61529680e196b29041f1e1444d692e9a5d5c9af276cb86b4982909.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_154",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 131122,
+        "collectible": 1,
+        "slug": "131122-humble-judgment",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Eric Kenji",
+        "manaCost": 3,
+        "name": "Humble Judgment",
+        "text": "Draw 3 cards. Set the Attack and Health of any minions drawn to 2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d1f3d4b8e6988d72bbd93b1614a53272b442fdec1684d16c249d4ecdfd2e83f.png",
+        "imageGold": "",
+        "flavorText": "Stay humble holylight",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8f41a515b61529680e196b29041f1e1444d692e9a5d5c9af276cb86b4982909.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_196",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 130092,
+        "collectible": 1,
+        "slug": "130092-befuddled-summoner",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 4,
+        "name": "迷醉召唤者",
+        "text": "在你的回合结束时，召唤一个随机敌方随从的一个复制，并使其攻击本体。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dff3e54c525c793431db4441f8199431f27196ff55483e5767166039554321dd.png",
+        "imageGold": "",
+        "flavorText": "黑暗帝国爆衣大赛冠军。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ecaa1895b7cde28ac3ff33daf9b2382116a5f9d306c175c46e4ae9a22105073.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_196",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 130092,
+        "collectible": 1,
+        "slug": "130092-befuddled-summoner",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Ivo Campelo da Silva",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 4,
+        "name": "Befuddled Summoner",
+        "text": "At the end of your turn, summon a copy of a random enemy minion. It attacks the original.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5554979358b6e018e350d096e887d8fac1ab75b293b815d6aac8add1a926d9c0.png",
+        "imageGold": "",
+        "flavorText": "Winner of the Black Empire shirt ripping championships.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ecaa1895b7cde28ac3ff33daf9b2382116a5f9d306c175c46e4ae9a22105073.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BE_201",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 131200,
+        "collectible": 1,
+        "slug": "131200-foreboding-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "冰冷恶兆",
+        "text": "<b>冻结</b>一个敌人。随机召唤一个法力值消耗为（5）的随从并<b>冻结</b>该随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36592c3a805ba93900b5b7055d7bb550bed786a3c6e1f6b3ec693b2967833fb7.png",
+        "imageGold": "",
+        "flavorText": "为什么是五？因为恶是多音字。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69c6066f8662df62f8380fb63c3cea7326105180d54f50378900e8b9cb1eef8d.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_201",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 131200,
+        "collectible": 1,
+        "slug": "131200-foreboding-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "Foreboding Freeze",
+        "text": "<b>Freeze</b> an enemy. Summon a random 5-Cost minion and <b>Freeze</b> it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2cff581f5fa4e20cf5a5615a8ce2df5dc73ac58aeba12ff01d704efbb69dcfbc.png",
+        "imageGold": "",
+        "flavorText": "More like Fiveboding Freeze.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69c6066f8662df62f8380fb63c3cea7326105180d54f50378900e8b9cb1eef8d.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "BE_196": {
+      "attack": 0
+    }
+  },
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

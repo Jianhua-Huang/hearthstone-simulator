@@ -59,14 +59,14 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions'):
+        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions'):
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'source_charge_if_both_minions':
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
         elif self.source is not None: raise ValueError('Only the native draw-conditioned source reward captures board residence')
         _integer(self.amount, 'draw reward amount', 0)
-        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'set_stats_cost_all', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
+        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
             raise ValueError('Draw reward amount differs from its operation')
 
 
@@ -374,6 +374,9 @@ def finish(r, request):
             effect=ModifyStoredCost(ref,CostSpec(set_to=reward.amount),request.source_id)
         elif reward.kind=='set_stats_cost_all':
             effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id,CostSpec(set_to=reward.amount))
+        elif reward.kind=='set_drawn_minion_stats':
+            if r.registry.card(ref.card_id).kind!=CardType.MINION:continue
+            effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id)
         elif reward.kind == 'buff_all':
             effect = BuffStoredCard(ref, reward.amount, reward.amount, request.source_id)
         elif reward.kind == 'lock_all':

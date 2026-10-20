@@ -130,9 +130,15 @@ class SummonByCard(Effect):
         if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,PrisonEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
             raise ValueError('Summon requires a complete ordered entry inventory')
         for x in self.materials: x.__post_init__()
-        if len({x.card_id for x in self.materials})!=len(self.materials): raise ValueError('Duplicate summon candidate identity')
-        if any(type(x)is CopyEntryMaterial for x in self.materials)and(len(self.materials)!=1 or self.selection!='first'or self.producer_link is not None or self.capacity!='selection_requires_space'):
-            raise ValueError('Copy material requires its one original deterministic entry recipe')
+        random_copies=(bool(self.materials) and self.selection=='random' and
+            all(type(x)is CopyEntryMaterial and x.profile=='board_copy' and x.mode=='current' for x in self.materials))
+        if random_copies:
+            if len({x.origin.entity_id for x in self.materials})!=len(self.materials):raise ValueError('Duplicate physical copy candidate')
+        elif len({x.card_id for x in self.materials})!=len(self.materials):raise ValueError('Duplicate summon candidate identity')
+        if any(type(x)is CopyEntryMaterial for x in self.materials)and(
+                not(random_copies or len(self.materials)==1 and self.selection=='first') or
+                self.producer_link is not None or self.capacity!='selection_requires_space'):
+            raise ValueError('Copy material requires a deterministic entry or equal physical current-board candidates')
         if any(type(x)is RecruitEntryMaterial for x in self.materials):
             from .recruit_summons import RecruitEntryLink
             if len(self.materials)!=1 or self.selection!='first'or self.capacity!='selection_requires_space'or self.producer_link is not None and type(self.producer_link)is not RecruitEntryLink:raise ValueError('Physical recruit material requires its one original first/extra recipe')

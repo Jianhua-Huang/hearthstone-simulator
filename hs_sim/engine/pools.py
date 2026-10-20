@@ -1055,8 +1055,14 @@ class SummonFromPool(Effect):
     entry_keywords: tuple[Keyword,...] = ()
     position: int | None = None
     entry_dormant_turns: int | None = None
+    on_summon: str | None = None
 
     def __post_init__(self):
+        if self.on_summon is not None:
+            from .effects import _behavior
+            _behavior(self.on_summon)
+            if self.cause is None or self.source_id is None or self.entry_keywords or self.entry_dormant_turns is not None:
+                raise ValueError('Pool followup requires one source-bound plain attributed entry')
         if self.entry_dormant_turns is not None:
             integer(self.entry_dormant_turns,'pool pre-entry dormant turns',1)
             if self.cause is None or self.source_id is None or self.entry_keywords:
@@ -1094,7 +1100,8 @@ def summon_from_pool(r,effect,*,producer_link=None):
     if effect.cause is not None:
         from .summon_quantities import SummonByCard,SummonEntryMaterial,accept
         from .pool_summons import PoolSummonBasis, entry_material
-        basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,entry_dormant_turns=effect.entry_dormant_turns)
+        basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,
+            entry_dormant_turns=effect.entry_dormant_turns,on_summon=effect.on_summon)
         return accept(r,SummonByCard(effect.player_id,tuple(entry_material(basis,m.card_id)for m in rows),effect.cause,
             'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis,producer_link=producer_link))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:

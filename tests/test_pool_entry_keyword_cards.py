@@ -123,7 +123,7 @@ class PoolEntryKeywordTests(unittest.TestCase):
 
     def test_finite_request_and_real_codec_reject_unsupported_or_unattributed_grants(self):
         g=self.game(members=(PLAIN,));source=self.play(g);spec=SummonFromPool(1,POOL_ID,QUERY,source_id=source,cause=self.root(g).request.cause,entry_keywords=(Keyword.TAUNT,));codec=FrameCodec(g.mechanics,g.registry);self.assertEqual(codec.decode(codec.encode(spec)),spec)
-        for changes in({'entry_keywords':[Keyword.TAUNT]},{'entry_keywords':('taunt',)},{'entry_keywords':(Keyword.RUSH,)},{'entry_keywords':(Keyword.TAUNT,Keyword.TAUNT)},{'cause':None},{'source_id':None}):
+        for changes in({'entry_keywords':[Keyword.TAUNT]},{'entry_keywords':('taunt',)},{'entry_keywords':(Keyword.DIVINE_SHIELD,)},{'entry_keywords':(Keyword.TAUNT,Keyword.TAUNT)},{'cause':None},{'source_id':None}):
             with self.subTest(changes=changes):
                 with self.assertRaises(ValueError):replace(spec,**changes)
         self.assertEqual(SummonFromPool(1,POOL_ID).entry_keywords,())

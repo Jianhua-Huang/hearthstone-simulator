@@ -32,8 +32,14 @@ class PoolSummonBasis:
     entry_keywords:tuple[Keyword,...]=()
     entry_dormant_turns:int|None=None
     entry_grant:CreatedMinionGrant|None=None
+    on_summon:str|None=None
 
     def __post_init__(self):
+        if self.on_summon is not None:
+            from .effects import _behavior
+            _behavior(self.on_summon)
+            if self.source is None or self.entry_keywords or self.entry_dormant_turns is not None or self.entry_grant is not None:
+                raise ValueError('Original pool callback requires plain source-bound material')
         validate_pool_entry_grant(self.entry_grant)
         if self.entry_grant is not None and (self.source is None or self.entry_keywords or self.entry_dormant_turns is not None):
             raise ValueError('Pool entry Attack grant requires a source and plain printed material')
@@ -60,20 +66,21 @@ class PoolSummonBasis:
         if len({x.card_id for x in self.candidates})!=len(self.candidates):raise ValueError('Duplicate canonical pool entry')
 
     @classmethod
-    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None):
+    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None,on_summon=None):
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None))
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None),on_summon)
 
 
 def entry_material(basis,card_id):
     return SummonEntryMaterial(card_id,keywords=basis.entry_keywords,dormant_turns=basis.entry_dormant_turns,
-        entry_grant=basis.entry_grant)
+        entry_grant=basis.entry_grant,on_summon=basis.on_summon)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
     basis.__post_init__()
+    if basis.on_summon is not None:registry.behavior(basis.on_summon)
     from .starting_generation import validate_context
     validate_context(basis.context, state)
     if basis.source is not None:validate_allocation(state,registry,basis.source,closed=closed)
@@ -94,6 +101,10 @@ def choose_weighted(rng,materials,weights):
 def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
     validate_basis(state,registry,request.pool_basis,closed=closed)
+    if request.pool_basis.on_summon is not None and (
+            request.cause.source.entity_id!=request.pool_basis.source.entity_id or
+            request.cause.player_id!=request.pool_basis.player_id):
+        raise ValueError('Pool callback changed its original causing source or player')
     if request.pool_basis.entry_grant is not None and (
             request.cause.source!=request.pool_basis.source or request.cause.player_id!=request.pool_basis.player_id):
         raise ValueError('Pool entry grant changed its original causing source or player')

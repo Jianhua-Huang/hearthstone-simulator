@@ -35,3 +35,5 @@ EDR_524固定4费3/5恶魔战吼。`ShuffleSharedHandCard`在执行时读取完�
 现有手牌移区政策保留本地状态；匹配数量、印刷ID别名、移动状态保留、等概率与国服精确窗口仍需M6核对。牌面数据和内部测试不认证这些边界。两张根卡的定义和配方在[hand_mirror_cards.py](../hs_sim/cards/hand_mirror_cards.py)，真实命令示例为`python -B -X utf8 -m examples.card_hand_mirrors`。
 
 本批结构及语义由core-effects-v341/schema274保护，旧schema1～273拒绝；观察85、命令12和replay1保持。默认代表包与旧卡定义保持，正式卡池、全部可达效果和国服校准仍分别验收。
+
+迷醉召唤者新增对多个完整当前场上复制材料的等概率选择，候选身份为物理来源而非印刷卡名；同一物理来源不得重复。其余单个确定性复制、确切交付回调和原对象驻留校验保持；同名敌人、满场随机政策及原对象失效见[真实消费者契约](m3-native-consumer-followups.md)。没有以自造选择替代原召唤执行器。
