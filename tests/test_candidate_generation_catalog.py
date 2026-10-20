@@ -115,8 +115,14 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
 
     def test_full_inventory_quest_bans_use_printed_metadata_before_executable_lookup(self):
         r=registry();query=PoolQuery(kinds=(CardType.SPELL,),collectible=True,keywords_all=(Keyword.QUEST,));quests=[x for x in self.rows.values()if Keyword.QUEST in x.keywords];self.assertEqual(len(quests),12);self.assertEqual(resolve_candidates(r,CTX,POOL,query),())
-        self.assertTrue(any(x.card_id not in r.cards for x in quests))
-        with self.assertRaises(UnsupportedDefinitionError):resolve_candidates(r,CTX,POOL,query,policy=GenerationPolicy((Keyword.QUEST,)))
+        # All12 real Quest roots are now executable. Keep the original
+        # before-lookup contract meaningful with an explicit unknown fixture.
+        unknown=replace(quests[0],card_id=P+'unknown_quest');r.register_pool_card(unknown)
+        pool=P+'unknown_quest_pool'
+        r.register_pool(PoolDefinition(pool,'explicit-unknown-quest-v1',CTX.target_id,CTX.mode,
+            (PoolMember(unknown.card_id),),complete=True))
+        self.assertNotIn(unknown.card_id,r.cards);self.assertEqual(resolve_candidates(r,CTX,pool,query),())
+        with self.assertRaises(UnsupportedDefinitionError):resolve_candidates(r,CTX,pool,query,policy=GenerationPolicy((Keyword.QUEST,)))
 
     def test_full_inventory_still_rejects_unknown_legendary_before_rng_and_rolls_back(self):
         g=self.game((BRIGHT,));saved=g.snapshot()

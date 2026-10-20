@@ -1,0 +1,954 @@
+{
+  "schema": 1,
+  "batch": "K301-storm-gates",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_EVENT_400",
+        "dbf_id": 120648,
+        "name": "围攻城门",
+        "name_en": "Storm the Gates",
+        "text": "<b>支线任务：</b>使用亡灵或野兽牌，总计3张。<b>奖励：</b>制造一个自定义的僵尸兽，其法力值消耗减少（3）点。",
+        "text_en": "[x]<b>Sidequest:</b> Play\n3 Beasts or Undead.\n<b>Reward:</b> Craft a custom\nZombeast. It costs (3) less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SIDE_QUEST": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "1d1436f54b628dd58ba81a95334c2108f4a36e7602f15d4f4684684b3e257c50",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_EVENT_400",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ICC_828t",
+        "dbf_id": 46119,
+        "name": "僵尸兽",
+        "name_en": "Zombeast",
+        "text": "{0}\n{1}",
+        "text_en": "{0}\n{1}",
+        "cost": null,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "CARD_SET": 1001,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "2534": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "afa504c878895524959d208f1afb003bbfcc9aa2a71717362c1a61793c950bb7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "ICC_828t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "UNG_803",
+        "dbf_id": 41309,
+        "name": "翡翠掠夺者",
+        "name_en": "Emerald Reaver",
+        "text": "<b>战吼：</b>对每个英雄造成1点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to each hero.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "d2dd73ae839b8bf9102e90474234da687716f972c54109b35c4918e6dc0ae040",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "UNG_803",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_201",
+        "dbf_id": 56398,
+        "name": "强能箭猪",
+        "name_en": "Augmented Porcupine",
+        "text": "<b>亡语：</b>\n造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Deathrattle</b>: Deal this\nminion's Attack damage\nrandomly split among\nall enemies.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "2539": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Charlene Le Scanff"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "f058cf9b2aaaf2dfccb81fd23c79e3bbf84c0db20d361160245bb4e2f065951f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BT_201",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_171",
+        "dbf_id": 648,
+        "name": "石牙野猪",
+        "name_en": "Stonetusk Boar",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CHARGE": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Howard Lyon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "16046ddbb54666c4044cb717f52f53bc44115ea7ad17f563dfe677c1e54820c0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_171",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GIL_545",
+        "dbf_id": 47051,
+        "name": "幽灵战马",
+        "name_en": "Ghostly Charger",
+        "text": "<b>圣盾，突袭</b>",
+        "text_en": "<b>Divine Shield</b>\n<b>Rush</b>",
+        "cost": 5,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1125,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "2542": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "003470908a36ea256349cc84acc90b931b7449de4b85e4291d6965ce8cf21891",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "GIL_545",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_EVENT_400",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120648-zh_CN.json",
+      "response_sha256": "4e8a7415af42c0f1ff89aed51e34ea695860a03233678bb9bf17fdc8b781b2c1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120648&locale=zh_CN",
+      "face": {
+        "id": 120648,
+        "collectible": 1,
+        "slug": "120648-storm-the-gates",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "围攻城门",
+        "text": "<b>支线任务：</b>使用亡灵或野兽牌，总计3张。<b>奖励：</b>制造一个自定义的僵尸兽，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfed7988aed1549891ce65ed1122bf51a255eb7a5c759c09bade41ecb61ddd97.png",
+        "imageGold": "",
+        "flavorText": "劫日快乐，失落之城！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8862498fad715b560f48a115ee7dfbc570f5806aa92c9b3d84611dfa4d37fa9.png",
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120648&locale=zh_CN",
+        "sha256": "4e8a7415af42c0f1ff89aed51e34ea695860a03233678bb9bf17fdc8b781b2c1",
+        "bytes": 817,
+        "observed_at": "2026-10-20T02:43:46.127366+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_EVENT_400",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120648-en_US.json",
+      "response_sha256": "b1b600b93196e335268abe033119e61e123bdf760b97b5b91a3f263092b9d738",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120648&locale=en_US",
+      "face": {
+        "id": 120648,
+        "collectible": 1,
+        "slug": "120648-storm-the-gates",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "Storm the Gates",
+        "text": "<b>Sidequest:</b> Play 3 Beasts or Undead. <b>Reward:</b> Craft a custom Zombeast. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d0594c68c56d18bdb3d03f28c6661f4c8d36049fbf98fd8108b94e69cdb664c.png",
+        "imageGold": "",
+        "flavorText": "Have fun storming the Lost City!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8862498fad715b560f48a115ee7dfbc570f5806aa92c9b3d84611dfa4d37fa9.png",
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120648&locale=en_US",
+        "sha256": "b1b600b93196e335268abe033119e61e123bdf760b97b5b91a3f263092b9d738",
+        "bytes": 772,
+        "observed_at": "2026-10-20T02:43:46.121365+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_828t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\46119-zh_CN.json",
+      "response_sha256": "023bec64aaecb19454334ca19e3d29fbcb1c208966118b131e7310a90122173c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46119&locale=zh_CN",
+      "face": {
+        "id": 46119,
+        "collectible": 0,
+        "slug": "46119-zombeast",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 0,
+        "name": "僵尸兽",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b45e19113fe3125510e13f5059e1a08d7d9382cb9039c4b4054dcbd91bb7fe50.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43398,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46119&locale=zh_CN",
+        "sha256": "023bec64aaecb19454334ca19e3d29fbcb1c208966118b131e7310a90122173c",
+        "bytes": 560,
+        "observed_at": "2026-10-20T02:43:46.115966+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_828t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\46119-en_US.json",
+      "response_sha256": "d607eebe9f52c1a27549984ed15f15d45e357a9465d08b4fe148614a4f3ad63a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46119&locale=en_US",
+      "face": {
+        "id": 46119,
+        "collectible": 0,
+        "slug": "46119-zombeast",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 0,
+        "name": "Zombeast",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bf0130005b49335d6ec2967712e313beff290373339e6fcce1ce04bdc3b8b0e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43398,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46119&locale=en_US",
+        "sha256": "d607eebe9f52c1a27549984ed15f15d45e357a9465d08b4fe148614a4f3ad63a",
+        "bytes": 559,
+        "observed_at": "2026-10-20T02:43:46.236430+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_803",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41309-zh_CN.json",
+      "response_sha256": "72ba9589e03f1b6362cc51db411d5f415ff91da330eabe4049022188f71100e8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41309&locale=zh_CN",
+      "face": {
+        "id": 41309,
+        "collectible": 1,
+        "slug": "41309-emerald-reaver",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "翡翠掠夺者",
+        "text": "<b>战吼：</b>对每个英雄造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7699e63a25ce68088034d519be3d95584d870f39b21118d02b3f30bf4e5fda2.png",
+        "imageGold": "",
+        "flavorText": "他想去加基森干一番事业，玉莲帮会是不错的选择。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/580d7666ba74ce3cbdcf97529631ccad601eae4dd2ac3170e49cb7de6594f590.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41309&locale=zh_CN",
+        "sha256": "72ba9589e03f1b6362cc51db411d5f415ff91da330eabe4049022188f71100e8",
+        "bytes": 797,
+        "observed_at": "2026-10-20T02:43:47.810851+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_803",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41309-en_US.json",
+      "response_sha256": "d05d564d6f12389e996620f32fe61ed9076876d2e195a7015778087e4a9ecc54",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41309&locale=en_US",
+      "face": {
+        "id": 41309,
+        "collectible": 1,
+        "slug": "41309-emerald-reaver",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Emerald Reaver",
+        "text": "<b>Battlecry:</b> Deal 1 damage to each hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e755635af2c607c0d1be0a88f1aadf5191b651dfff9de87035b86a25ae5f647.png",
+        "imageGold": "",
+        "flavorText": "Not to be confused with clubbing enthusiast Emerald Raver.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/580d7666ba74ce3cbdcf97529631ccad601eae4dd2ac3170e49cb7de6594f590.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41309&locale=en_US",
+        "sha256": "d05d564d6f12389e996620f32fe61ed9076876d2e195a7015778087e4a9ecc54",
+        "bytes": 780,
+        "observed_at": "2026-10-20T02:43:47.642733+00:00"
+      }
+    },
+    {
+      "card_id": "BT_201",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\56398-zh_CN.json",
+      "response_sha256": "a60d5bedd794f95e20592eba491b1f65c63967647492eff5f67c129e83b11bb8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=56398&locale=zh_CN",
+      "face": {
+        "id": 56398,
+        "collectible": 1,
+        "slug": "56398-augmented-porcupine",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 4,
+        "artistName": "Charlene Le Scanff",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "强能箭猪",
+        "text": "<b>亡语：</b> 造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fad60e4039e5190db0e0c5e50fbdacd7699f435ab5b041814bcc377ad0d9093a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/441e1d4c3e8ff75d74a12e13ca3c1646906f32760bc845aacf743a88aef77608.png",
+        "flavorText": "上吧，爆壳猛猪，扎透他们！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/431a833fcd9ac63286a204db45155dd3c9204f5b8b0c8a23d03e255e6d0dd36a.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          130286
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=56398&locale=zh_CN",
+        "sha256": "a60d5bedd794f95e20592eba491b1f65c63967647492eff5f67c129e83b11bb8",
+        "bytes": 983,
+        "observed_at": "2026-10-20T02:43:47.653732+00:00"
+      }
+    },
+    {
+      "card_id": "BT_201",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\56398-en_US.json",
+      "response_sha256": "54c4cecb87734718fa174d3cf5e0e666e0ccf562fa1e12943208cf718f147c4b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=56398&locale=en_US",
+      "face": {
+        "id": 56398,
+        "collectible": 1,
+        "slug": "56398-augmented-porcupine",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 4,
+        "artistName": "Charlene Le Scanff",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Augmented Porcupine",
+        "text": "<b>Deathrattle</b>: Deal this minion's Attack damage randomly split among all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a20de75b0be67dc6faad6e41652e1fe96f26a77fa19b6ac18cf6f472d699b207.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/946760437fb7215c9a707b8418c6174d0a3fedcf001b7b1b9d7ae816266223df.png",
+        "flavorText": "Pokey-man. Gotta spike 'em all!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/431a833fcd9ac63286a204db45155dd3c9204f5b8b0c8a23d03e255e6d0dd36a.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          130286
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=56398&locale=en_US",
+        "sha256": "54c4cecb87734718fa174d3cf5e0e666e0ccf562fa1e12943208cf718f147c4b",
+        "bytes": 970,
+        "observed_at": "2026-10-20T02:44:11.263479+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_171",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\648-zh_CN.json",
+      "response_sha256": "58970bd63dee5def32415f35d189f772cd5f4e2c477306ff50240cf25bc45a80",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=648&locale=zh_CN",
+      "face": {
+        "id": 648,
+        "collectible": 1,
+        "slug": "648-stonetusk-boar",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Howard Lyon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "石牙野猪",
+        "text": "<b>冲锋</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/118bcdf660d0d1b58ee677e6f3d1106e08a8397116a460a9176079fa41f7eac7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a97888f24cf2c1081b9ff2615e39b84fa669082a68734df2311ae070d45a2344.png",
+        "flavorText": "决斗的时候离它们远点儿。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/902e4e44fab15b8ab52ad4b3346cfd95e3ae4fa2b587ef8637ad0d17557696cb.png",
+        "keywordIds": [
+          4
+        ],
+        "copyOfCardId": [
+          68211,
+          68396
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=648&locale=zh_CN",
+        "sha256": "58970bd63dee5def32415f35d189f772cd5f4e2c477306ff50240cf25bc45a80",
+        "bytes": 864,
+        "observed_at": "2026-10-20T02:44:11.113188+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_171",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\648-en_US.json",
+      "response_sha256": "03e5ba2209bd70b23d56d29a68cec2b6320ded21c3da27f5e8623ac44714a8b8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=648&locale=en_US",
+      "face": {
+        "id": 648,
+        "collectible": 1,
+        "slug": "648-stonetusk-boar",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Howard Lyon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Stonetusk Boar",
+        "text": "<b>Charge</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f26fbedf6e0ca69c294a7890e838f46edfe099458c16237bdc6d2d0078ff4fe7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a97888f24cf2c1081b9ff2615e39b84fa669082a68734df2311ae070d45a2344.png",
+        "flavorText": "This card is boaring.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/902e4e44fab15b8ab52ad4b3346cfd95e3ae4fa2b587ef8637ad0d17557696cb.png",
+        "keywordIds": [
+          4
+        ],
+        "copyOfCardId": [
+          68211,
+          68396
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=648&locale=en_US",
+        "sha256": "03e5ba2209bd70b23d56d29a68cec2b6320ded21c3da27f5e8623ac44714a8b8",
+        "bytes": 851,
+        "observed_at": "2026-10-20T02:44:11.116015+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_545",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\47051-zh_CN.json",
+      "response_sha256": "038274e1dc66dc41b3b04452c87301a11c334c19919fdae38c3e02d4cdeea6fb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=47051&locale=zh_CN",
+      "face": {
+        "id": 47051,
+        "collectible": 1,
+        "slug": "47051-ghostly-charger",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "幽灵战马",
+        "text": "<b>圣盾，突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cd26c0a1e5351ccaddd73d53ef06289083d7a53d89fb93e9e9f7c67bab211fe.png",
+        "imageGold": "",
+        "flavorText": "前任恶灵骑士的坐骑。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bd1943735b377b757cfd452b84a2a2b066a5c7dacc32e9997672bcaa787f431.png",
+        "keywordIds": [
+          3,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=47051&locale=zh_CN",
+        "sha256": "038274e1dc66dc41b3b04452c87301a11c334c19919fdae38c3e02d4cdeea6fb",
+        "bytes": 748,
+        "observed_at": "2026-10-20T02:44:11.409031+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_545",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\47051-en_US.json",
+      "response_sha256": "5b33f9a2000e937b888c14bc35165793a2c693e4f85e3f643e43c8ac995d3331",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=47051&locale=en_US",
+      "face": {
+        "id": 47051,
+        "collectible": 1,
+        "slug": "47051-ghostly-charger",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Ghostly Charger",
+        "text": "<b>Divine Shield</b> <b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f11ec87defd6744b6caae88de3ca2f0df971c629eb5e9b0896b19eb0af4cd75.png",
+        "imageGold": "",
+        "flavorText": "Maybe we should have called him Ghostly Rusher.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bd1943735b377b757cfd452b84a2a2b066a5c7dacc32e9997672bcaa787f431.png",
+        "keywordIds": [
+          3,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=47051&locale=en_US",
+        "sha256": "5b33f9a2000e937b888c14bc35165793a2c693e4f85e3f643e43c8ac995d3331",
+        "bytes": 778,
+        "observed_at": "2026-10-20T02:44:12.640518+00:00"
+      }
+    }
+  ],
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "numeric_normalizations": {
+    "ICC_828t": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {
+    "ICC_828t": {
+      "{0}": "",
+      "{1}": ""
+    }
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

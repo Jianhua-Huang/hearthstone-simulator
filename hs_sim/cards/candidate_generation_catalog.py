@@ -101,6 +101,9 @@ def candidate_pool_rows():
             value=tags.get(tag,0)
             if type(value)is not int or value not in(0,1):raise TargetValidationError('Candidate keyword tag must be a reviewed boolean')
             if value:keywords.append(Keyword[tag])
+        sidequest=tags.get('SIDE_QUEST',0)
+        if type(sidequest)is not int or sidequest not in(0,1):raise TargetValidationError('Candidate Sidequest tag must be a reviewed boolean')
+        if sidequest:keywords.append(Keyword.SIDEQUEST)
         for value in data['printed_keyword_overrides'].get(cid,()):
             keyword=Keyword(value)
             if keyword in keywords:raise TargetValidationError('Duplicate explicit candidate keyword')

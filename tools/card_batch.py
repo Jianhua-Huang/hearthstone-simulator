@@ -196,6 +196,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # exactly its two native parameter slots, not an executable 0/0 default.
     bones_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'TLC_829t' and
                      canonical(row) == '082069689d67c8d86b654a0fe74baabff66ebcf2830b01a7e2835714aa02a558')
+    # The actual Zombeast template has two runtime ingredient text slots. Both
+    # complete primary faces omit them; no printed effect body is discarded.
+    zombeast_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'ICC_828t' and
+                        canonical(row) == 'afa504c878895524959d208f1afb003bbfcc9aa2a71717362c1a61793c950bb7')
     upgraded_recruit_display = (display_normalizations == {'{0}': ''} and row['id'] == 'HERO_04bp2' and
         canonical(row) == 'e591407799b3a77a6013ede32fccc293544df11bcdf4b8c3b1371edcb4ede54d')
     upgraded_hunter_display = (display_normalizations == {'@': ''} and row['id'] == 'HERO_05bp2' and
@@ -236,10 +240,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+            require((progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((leyline_display or smoldering_display or bones_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

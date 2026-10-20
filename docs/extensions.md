@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实支线任务可复用两阶段自定义随从奖励，单部件印刷上限与最终当前费用减免分别接受，见[围攻城门契约](m3-zombeast-sidequest.md)。
+
 真实卡需要“使用完原生成法术再返还来源”时，使用CreateIssuedSpellSet及精确原生玩家进度声明，沿普通生成、物理交付、原出牌记录和ConsumePlayerEffect完成；完整资格与内部物理实例政策见[契约](m3-issued-spell-sets.md)。
 
 原生学生使用CarvedSpellProfile(teaching=True)及CreateStudentDiscovery，先获取学生，再由原记忆型发现教给该实体；不要在选择后补造替身。完整过去池及原生命周期见[教学契约](m3-student-teaching.md)。
