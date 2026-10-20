@@ -61,7 +61,8 @@ def register_simple_followup_p61_cards(registry):
         options = tuple(ChoiceOption(str(i), registry.card(c.state.entities[i].card_id).name,
             (TransformMinionIntoCopy(ref, MinionReference.capture(c.state.entities[i]), c.source_id),),
             entity_id=i) for i in targets(c) if i != c.target_id)
-        return (RequestChoice(c.player_id, options, c.source_id),) if options else ()
+        return (RequestChoice(c.player_id, options, c.source_id,
+            targeting=TargetSpec(zones=(Zone.BOARD,),kinds=(CardType.MINION,))),) if options else ()
 
     def roar(c):
         dragon = any(has_any_tribe(registry, c.state.entities[i], ('dragon',))
@@ -74,7 +75,8 @@ def register_simple_followup_p61_cards(registry):
         options = tuple(ChoiceOption(str(i), registry.card(c.state.entities[i].card_id).name,
             (SetCapturedMinionStats(MinionReference.capture(c.state.entities[i]), health=1, source_id=c.source_id),),
             entity_id=i) for i in targets(c, 'enemy') if i != c.target_id)
-        return (RequestChoice(c.player_id, options, c.source_id),) if options else ()
+        return (RequestChoice(c.player_id, options, c.source_id,
+            targeting=TargetSpec(zones=(Zone.BOARD,),kinds=(CardType.MINION,),relation='enemy')),) if options else ()
 
     def waves(c):
         options = tuple(ChoiceOption(canonical_digest(asdict(CardReference.capture(c.state.entities[i]))),

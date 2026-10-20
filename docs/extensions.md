@@ -1,6 +1,6 @@
 # 机制扩展指南
 
-原生随机目标的`manual_partition`、`attack_partition`和`sample`只负责候选与抽样；手动法术/主体/技能用`native_target_acceptance`，地标/on_play/投入用`native_active_targets`，明确手牌箭头用`RequestChoice.targeting`和`native_hand_targets`，攻击沿原监听位置。保留原输入、付款、选项效果和条件包装器；不要随机化所有菜单或给无箭头入口造目标。标准市长整卡仍未装配，见[随机目标契约](m3-native-random-targets.md)。
+原生随机目标的`manual_partition`、`attack_partition`和`sample`只负责候选与抽样；手动法术/主体/技能用`native_target_acceptance`，地标/on_play/投入用`native_active_targets`，明确手牌/场上箭头用`RequestChoice.targeting`和`native_hand_targets`，攻击沿原监听位置。双目标保留原完整输入和一次原批次；候选失效时用携带原输入及完整抽样的`NativeChoiceResult`表达执行子集，不伪改原选择上下限。保留原付款、选项效果和条件包装器，不把逐次主体改成共享去重；不要随机化所有菜单或给无箭头入口造目标。标准市长整卡仍未装配，见[随机目标契约](m3-native-random-targets.md)。
 
 真实牢房释放用`PrisonEntryMaterial(prison_death_id=...)`连接原死亡，后续结束主体返回`PlayPrisonDiscard(c.end_turn.id)`。原弃牌成功续接、复制、五类执行与私有材料见[牢房契约](m3-prison-discard-playback.md)；不要用全局弃牌或带战吼的整卡重放替代。
 

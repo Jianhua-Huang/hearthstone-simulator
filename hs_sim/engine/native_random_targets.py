@@ -73,7 +73,7 @@ class NativeTargetPartition:
     def __post_init__(self):
         if type(self.source) is not SourceAllocationFact: raise ValueError('Native target partition requires its actual source')
         self.source.__post_init__(); _player(self.player_id); _source(self.submitted_target_id)
-        if self.origin not in ('manual_card','battlecry','combo','hero_power','minion_ability','location','hand_action','attack','on_play','hand_choice','interactable'):
+        if self.origin not in ('manual_card','battlecry','combo','hero_power','minion_ability','location','hand_action','attack','on_play','hand_choice','interactable','board_choice'):
             raise ValueError('Unknown native target activation origin')
         if type(self.definition_digest) is not str or not self.definition_digest: raise ValueError('Effective target contract digest required')
         if self.mode is not None and type(self.mode) is not TargetMode: raise ValueError('Typed target mode required')

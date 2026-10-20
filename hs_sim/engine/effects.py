@@ -223,11 +223,13 @@ class RequestChoice(Effect):
         from .model import PendingChoice
         if self.targeting is not None:
             from .allocation_facts import SourceAllocationFact
-            if (type(self.targeting) is not TargetSpec or self.targeting.zones!=(Zone.HAND,) or
-                    self.targeting.relation!='friendly' or self.source_id is None or
-                    (self.min_count,self.max_count)!=(1,1) or self.sample_size is not None or
+            hand = type(self.targeting) is TargetSpec and self.targeting.zones==(Zone.HAND,)
+            board = (type(self.targeting) is TargetSpec and self.targeting.zones==(Zone.BOARD,) and
+                     self.targeting.kinds==(CardType.MINION,))
+            if (not(hand or board) or hand and self.targeting.relation!='friendly' or self.source_id is None or
+                    self.min_count!=self.max_count or self.min_count not in ((1,)if hand else(1,2)) or self.sample_size is not None or
                     self.purpose!=ChoicePurpose.EFFECT or self.repeat_key is not None or self.kindred is not None):
-                raise ValueError('Hand arrow requires its explicit single owned-hand target domain')
+                raise ValueError('Target choice requires its explicit hand or minion domain and fixed count')
             self.targeting.__post_init__()
             if type(self.target_facts) is not tuple or any(type(x)is not SourceAllocationFact for x in self.target_facts):
                 raise ValueError('Hand arrow requires typed original offered targets')

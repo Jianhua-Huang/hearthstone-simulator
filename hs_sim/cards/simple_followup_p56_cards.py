@@ -102,7 +102,7 @@ def register_simple_followup_p56_cards(registry):
             registry.card(c.state.entities[i].card_id).name, entity_id=i) for i in ids)
         amount = min(2, len(options))
         return (RequestChoice(c.player_id, options, c.source_id, min_count=amount, max_count=amount,
-            on_select=PREFIX + 'remove_selected'),) if amount else ()
+            on_select=PREFIX + 'remove_selected',targeting=domain.targeting),) if amount else ()
 
     def remove_selected(c):
         if c.choice is None:

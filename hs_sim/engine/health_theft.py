@@ -249,7 +249,7 @@ def choose_for_minion(r, request):
         (StealHealthToMinion(request.beneficiary, MinionReference.capture(e), request.amount, request.source_id),
             *continuation), card_id=e.card_id, entity_id=e.id) for index, e in enumerate(candidates))
     return (RequestChoice(beneficiary.controller, options, request.source_id,
-        prompt='Choose an enemy minion to steal Health from'),)
+        prompt='Choose an enemy minion to steal Health from',targeting=definition.targeting),)
 
 
 def register(mechanics):
