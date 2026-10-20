@@ -2988,6 +2988,12 @@ class AbilityInstance:
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.kind == 'random_targets':
+            from dataclasses import fields
+            allowed = {'id','kind','source_id','origin','magnetic_id'}
+            if (self.origin != 'printed' or self.source_id is None or
+                    any(getattr(self,f.name)!=f.default for f in fields(self) if f.name not in allowed)):
+                raise ValueError('Native random targets require a pure removable printed source')
         if self.prison_playback is not None:
             if (type(self.prison_playback) is not PrisonPlaybackState or self.kind != 'trigger'
                     or self.event != 'turn_ended' or self.end_turn is None):
@@ -3301,7 +3307,7 @@ class AbilityInstance:
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
         if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
-            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'native_stat_gain', 'remaining_mana_numbers', 'class_discovery', 'colossal_reserve', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement'):
+            if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'native_stat_gain', 'remaining_mana_numbers', 'class_discovery', 'colossal_reserve', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement', 'random_targets'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'transform_replacement':
             from dataclasses import fields
@@ -11602,6 +11608,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_hand_mirror_entity(state,registry,entity)
         from .spell_mirrors import validate_entity as validate_spell_mirror_entity
         validate_spell_mirror_entity(state,registry,entity)
+        from .native_random_targets import validate_carrier as validate_random_target_carrier
+        validate_random_target_carrier(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
         defining = [a for a in entity.abilities if a.kind == 'defining_hand_source']
         if len(defining) > 1:
             raise ValueError('Duplicate native defining source on a physical card')

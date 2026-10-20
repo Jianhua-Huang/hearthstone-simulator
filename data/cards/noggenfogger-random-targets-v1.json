@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "batch": "K311-noggenfogger-random-targets",
+  "task": {
+    "schema": 1,
+    "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+    "batch": "K311-noggenfogger-random-targets",
+    "candidate_inventory": "outputs/card-integration-20261014/k310-zuramat-prison/inventory-01.json",
+    "candidate_inventory_sha256": "2c022b23ae7b12fb6e648bbdec01bd01578767425ec6941ee4fe662766a2d2d4",
+    "roots": [
+      "CORE_CFM_670"
+    ],
+    "dependencies": [],
+    "existing_dependencies": [],
+    "evidence_only": [],
+    "official_ids": [
+      "CORE_CFM_670"
+    ],
+    "numeric_normalizations": {},
+    "display_normalizations": {},
+    "effect_groups": [
+      {
+        "effect": "actual native all-targets-random policy across paid spells, Battlecries and attacks; no speculative combinations",
+        "cards": [
+          "CORE_CFM_670"
+        ]
+      }
+    ],
+    "allowed_files": [
+      "data/cards/noggenfogger-random-targets-v1.json",
+      "hs_sim/cards/noggenfogger_random_targets_card.py",
+      "tests/test_noggenfogger_random_targets_card.py"
+    ]
+  },
+  "official_observations": [
+    {
+      "card_id": "CORE_CFM_670",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130320-zh_CN.json",
+      "response_sha256": "86418bf0d34ac990ba3c90f6a6730175b1b320b1f8b14145f7794680c7edb989",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130320&locale=zh_CN",
+      "face": {
+        "id": 130320,
+        "collectible": 1,
+        "slug": "130320-mayor-noggenfogger",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Tooth",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 9,
+        "name": "诺格弗格市长",
+        "text": "所有角色都会随机选择目标。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f589e34180640a5c79414cc88ad707990c3c7f8eed0c55ed913bbe7243898a3.png",
+        "imageGold": "",
+        "flavorText": "能够游走于三大家族之间的人，想必也不是个普通角色。",
+        "cropImage": null,
+        "copyOfCardId": [
+          40955
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130320&locale=zh_CN",
+        "sha256": "86418bf0d34ac990ba3c90f6a6730175b1b320b1f8b14145f7794680c7edb989",
+        "bytes": 664,
+        "observed_at": "2026-10-20T06:15:34.164625+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_CFM_670",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130320-en_US.json",
+      "response_sha256": "4c1035a535ac8c3b838158c3daa6d82b28cc0f9eaaa85ea702ded861b813214e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130320&locale=en_US",
+      "face": {
+        "id": 130320,
+        "collectible": 1,
+        "slug": "130320-mayor-noggenfogger",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Tooth",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 9,
+        "name": "Mayor Noggenfogger",
+        "text": "All targets are chosen randomly.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78cb28ffa04ef776eca1f45d7c3ba9939402fd0a28bd2cdcd09b6baf858d2623.png",
+        "imageGold": "",
+        "flavorText": "This flavor text was randomly generated. If it happens to form words and make sense, that is purely by chance.",
+        "cropImage": null,
+        "copyOfCardId": [
+          40955
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130320&locale=en_US",
+        "sha256": "4c1035a535ac8c3b838158c3daa6d82b28cc0f9eaaa85ea702ded861b813214e",
+        "bytes": 692,
+        "observed_at": "2026-10-20T06:15:34.169100+00:00"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_CFM_670",
+        "dbf_id": 130320,
+        "name": "诺格弗格市长",
+        "name_en": "Mayor Noggenfogger",
+        "text": "所有角色都会随机选择目标。",
+        "text_en": "All targets are chosen randomly.",
+        "cost": 9,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 40955,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 40955
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tooth"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40955",
+              "type": "Int",
+              "value": "40955"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "363da2ecf9a820e9dfa48decbc894b8578af312360ddda3dee5040d76ce49ada",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_CFM_670",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policy": {
+    "scope": "native source lifecycle and pure domain preparation; activation consumers and Standard registration remain pending",
+    "manual": "preserve actual kind, zone, relation, predicate and manual selectable protection",
+    "attack": "separate proposed-attack opponent-character replacement; ignored Taunt/Stealth and attacker restrictions pending exact CN policy",
+    "automatic": "ordinary automatic target selection remains separate"
+  }
+}

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原生随机目标的`manual_partition`、`attack_partition`和`sample`目前仅供宿主准备候选与抽样，不能替代真实接受/恢复路径；标准市长整卡仍未装配，见[候选域契约](m3-native-random-targets.md)。
+
 真实牢房释放用`PrisonEntryMaterial(prison_death_id=...)`连接原死亡，后续结束主体返回`PlayPrisonDiscard(c.end_turn.id)`。原弃牌成功续接、复制、五类执行与私有材料见[牢房契约](m3-prison-discard-playback.md)；不要用全局弃牌或带战吼的整卡重放替代。
 
 原套牌后手用register_second_player_card；真实三选升级币用CoinReplacementProfile及原AddPlayerEffect。完整币族、普通替换与新生溢出边界见[艾雅契约](m3-aya-counterfeit-coins.md)。

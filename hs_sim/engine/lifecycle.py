@@ -93,6 +93,8 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('native_producer_quantity',native_producer_quantity_card_id=definition.id)
     if registry is not None and definition.id in registry.native_stat_gain_profiles:
         add('native_stat_gain',native_stat_gain_card_id=definition.id)
+    if registry is not None and definition.id in registry.random_target_cards:
+        add('random_targets')
     if registry is not None and definition.id in registry.rotating_discovery_class_profiles:
         from .rotating_discovery_classes import initial_class
         add('class_discovery',class_discovery_card_id=definition.id,discovery_class=initial_class(state,entity.controller))

@@ -156,6 +156,7 @@ class Registry:
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
         self._prison_profiles = {}
+        self._random_target_cards = set()
         self._coin_replacement_programs = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
@@ -286,6 +287,16 @@ class Registry:
 
     @property
     def prison_profiles(self): return MappingProxyType(self._prison_profiles)
+
+    @property
+    def random_target_cards(self): return frozenset(self._random_target_cards)
+
+    def register_random_target_card(self, card_id):
+        self._require_mutable()
+        from .native_random_targets import validate_source_card
+        validate_source_card(self,card_id)
+        if card_id in self._random_target_cards: raise ValueError('Duplicate native random target declaration')
+        self._random_target_cards.add(card_id)
 
     def register_prison_profile(self, profile):
         self._require_mutable()
@@ -1908,6 +1919,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .native_random_targets import validate_source_card as validate_random_target_card
+        for card_id in self._random_target_cards: validate_random_target_card(self,card_id)
         from .prison_playback import validate_profile as validate_prison_profile
         for profile in self._prison_profiles.values(): validate_prison_profile(self,profile)
         from .coin_replacements import validate_profile as validate_coin_replacement
@@ -2366,6 +2379,7 @@ class Registry:
         if self._composed_spell_profiles:
             payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
         if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
+        if self._random_target_cards:payload['random_target_cards']=sorted(self._random_target_cards)
         if self._prison_profiles:
             payload['prison_profiles']=[asdict(self._prison_profiles[k])for k in sorted(self._prison_profiles)]
         if self._coin_replacement_profiles:
