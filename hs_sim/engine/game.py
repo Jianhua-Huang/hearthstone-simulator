@@ -611,6 +611,8 @@ class Game:
         validate_carved_boundary(self)
         from .student_teaching import validate_boundary as validate_student_teaching_boundary
         validate_student_teaching_boundary(self)
+        from .issued_spell_sets import validate_boundary as validate_issued_spell_sets_boundary
+        validate_issued_spell_sets_boundary(self)
         from .live_hand_spells import validate_boundary as validate_live_hand_spell_boundary
         validate_live_hand_spell_boundary(self)
         from .native_stat_gains import validate_boundary as validate_native_stat_gain_boundary

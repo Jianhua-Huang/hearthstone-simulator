@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v580'
+CORE_EFFECTS_VERSION = 'core-effects-v581'
 
 
 class Mechanics:
@@ -2726,6 +2726,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_crafting(mechanics)
     from .student_teaching import register as register_student_teaching
     register_student_teaching(mechanics)
+    from .issued_spell_sets import register as register_issued_spell_sets
+    register_issued_spell_sets(mechanics)
     from .copy_materials import register as register_copy_materials
     register_copy_materials(mechanics)
     from .copy_followups import register as register_copy_followups

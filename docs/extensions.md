@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实卡需要“使用完原生成法术再返还来源”时，使用CreateIssuedSpellSet及精确原生玩家进度声明，沿普通生成、物理交付、原出牌记录和ConsumePlayerEffect完成；完整资格与内部物理实例政策见[契约](m3-issued-spell-sets.md)。
+
 原生学生使用CarvedSpellProfile(teaching=True)及CreateStudentDiscovery，先获取学生，再由原记忆型发现教给该实体；不要在选择后补造替身。完整过去池及原生命周期见[教学契约](m3-student-teaching.md)。
 
 需要两阶段原部件制造时使用CraftMinion及独立完整宿主池；不可从受审捐赠适配集合反推生成资格。原费用预算、首次持龙减费、选择/恢复及玩家边界见[来源契约](m3-crafted-minion-offers.md)，最终交付仍用普通AddToHand。

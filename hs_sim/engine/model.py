@@ -8592,10 +8592,15 @@ class PlayerEffect:
     spell_aura_player_id: int | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
     investigation: HandInvestigation | None = None
+    issued_spell_set: object | None = None
 
     def __post_init__(self):
         from .aura_duration import validate_grants
         validate_grants(self.aura_duration_grants)
+        if self.issued_spell_set is not None:
+            from .issued_spell_sets import IssuedSpellSet
+            if type(self.issued_spell_set)is not IssuedSpellSet:raise ValueError('Issued spell program requires its typed original set')
+            self.issued_spell_set.__post_init__()
         if self.investigation is not None:
             if type(self.investigation) is not HandInvestigation:
                 raise ValueError('Private investigation must retain its typed original material')
@@ -11191,6 +11196,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             effect.__post_init__()
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()
+            from .issued_spell_sets import validate_instance as validate_issued_spell_instance
+            validate_issued_spell_instance(state,registry,player.id,effect)
             if (spec.kind == 'adaptations') != bool(effect.adaptations):
                 raise ValueError('Player effect Adaptation material differs from its registered kind')
             from .player_effects import validate_cost_binding

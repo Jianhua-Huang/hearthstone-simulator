@@ -1,0 +1,908 @@
+{
+  "schema": 1,
+  "batch": "K300-toki-issued-spells",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_861",
+        "dbf_id": 119741,
+        "name": "时光循环者托奇",
+        "name_en": "Timelooper Toki",
+        "text": "<b>战吼：</b>随机获取3张来自过去的法术牌。当你使用了全部3张法术牌，再获取一张时光循环者托奇。",
+        "text_en": "[x]<b>Battlecry:</b> Get 3 random\nspells from the past. When\nyou play ALL 3, get another\nTimelooper Toki.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "dccb7fbad7ba8e2ccf68f8fa70071c0341ee98548dd98f028bbdfdcecfad9a93",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_861",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EX1_277",
+        "dbf_id": 564,
+        "name": "奥术飞弹",
+        "name_en": "Arcane Missiles",
+        "text": "造成$3点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal $3 damage randomly split among all enemies.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Warren Mahy"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "8b2a6bb75692263b8a7e49457293d341a034edb8535f8b8a1fc36c9a31a82112",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "EX1_277",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "CS2_024",
+        "dbf_id": 662,
+        "name": "寒冰箭",
+        "name_en": "Frostbolt",
+        "text": "对一个角色造成$3点伤害，并使其<b>冻结</b>。",
+        "text_en": "Deal $3 damage to a_character and <b>Freeze</b> it.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "FREEZE": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Ellis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "910a5ffd979db53a7345ee0f54b0adfc365fc0eef7998a72411a9a37fc27b4d7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_024",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "EX1_279",
+        "dbf_id": 1087,
+        "name": "炎爆术",
+        "name_en": "Pyroblast",
+        "text": "造成$10点伤害。",
+        "text_en": "Deal $10 damage.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "b1bcc6a00131654a702542b137bef6bec0773cb4e1930d132c07e9421ab100da",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EX1_279",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "EX1_287",
+        "dbf_id": 113,
+        "name": "法术反制",
+        "name_en": "Counterspell",
+        "text": "<b>奥秘：</b>当你的对手施放一个法术时，<b>反制</b>该法术。",
+        "text_en": "<b>Secret:</b> When your opponent casts a spell, <b>Counter</b> it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SECRET": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "340",
+              "name": "COUNTER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ace8846a7741e7e6e0d7d86e77ecb1ccee86082a499ba400b72559283e3f6101",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EX1_287",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_861e1",
+        "dbf_id": 122364,
+        "name": "循环时间",
+        "name_en": "Looping Time",
+        "text": "使用4张托奇创建的法术牌以创建托奇。",
+        "text_en": "Play the 4 spells created by Toki to create Toki.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fe8a6fd1f47fcae46e7d56d46ea506939492377507087fc3d51817b90bfda917",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_861e1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_861e2",
+        "dbf_id": 131268,
+        "name": "循环时间目标",
+        "name_en": "Looping Time Target",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "114889473e96dcc9fb3b694293ce1132a839412a70c932e45796853936c05e4a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_861e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_861",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119741-zh_CN.json",
+      "response_sha256": "cf4c45e799a5015753d86fa68d814e33e60ef7d5feb7a28e68e3889d31129292",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=119741&locale=zh_CN",
+      "face": {
+        "id": 119741,
+        "collectible": 1,
+        "slug": "119741-timelooper-toki",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "时光循环者托奇",
+        "text": "<b>战吼：</b>随机获取3张来自过去的法术牌。当你使用了全部3张法术牌，再获取一张时光循环者托奇。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0cf6a6ab6f4ea06fedfb1f5523240f2440eb0186b09123005a28c0e822df9a0f.png",
+        "imageGold": "",
+        "flavorText": "唔，这个循环完蛋了。冥想静待下一个循环吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb8b5110c048ffbccc9ecc0aa89fe12e26900e50775c1facb476ba8a1447f60d.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=119741&locale=zh_CN",
+        "sha256": "cf4c45e799a5015753d86fa68d814e33e60ef7d5feb7a28e68e3889d31129292",
+        "bytes": 869,
+        "observed_at": "2026-10-20T02:21:41.320548+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_861",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\119741-en_US.json",
+      "response_sha256": "fc2873f19d9e9a5b1ce94cdcdeeac800d354a6c397e16b5406b6a3da8c4d9853",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=119741&locale=en_US",
+      "face": {
+        "id": 119741,
+        "collectible": 1,
+        "slug": "119741-timelooper-toki",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Patrik Bjorkstrom",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Timelooper Toki",
+        "text": "<b>Battlecry:</b> Get 3 random spells from the past. When you play ALL 3, get another Timelooper Toki.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa3587cbda3ee2cd2ccd1812fef8f359686d6bc25845f1a95db46a67a7f64cd8.png",
+        "imageGold": "",
+        "flavorText": "Well this loop's a wash. Let's meditate until the next one.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb8b5110c048ffbccc9ecc0aa89fe12e26900e50775c1facb476ba8a1447f60d.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=119741&locale=en_US",
+        "sha256": "fc2873f19d9e9a5b1ce94cdcdeeac800d354a6c397e16b5406b6a3da8c4d9853",
+        "bytes": 826,
+        "observed_at": "2026-10-20T02:21:41.030511+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_277",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\564-zh_CN.json",
+      "response_sha256": "26b26d477b6201cfca824bc422333f8067f667bd3fe4c48c0fb633aa6372b88a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=564&locale=zh_CN",
+      "face": {
+        "id": 564,
+        "collectible": 1,
+        "slug": "564-arcane-missiles",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Warren Mahy",
+        "manaCost": 1,
+        "name": "奥术飞弹",
+        "text": "造成 3点伤害，随机分配到所有敌人身上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6efdab5060dddd1800c41e667e641dacf61553a56b0c2e00e82698889ca21c9.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6f0e2ef6cc826bc3df7c9ff1ebe3c61db9931bda03db54a5d7274a0285ec101.png",
+        "flavorText": "既然你想要做一个超级厉害的法师，就必须得把奥术飞弹控制得好一些。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c768bd053be169d72620df64b1d56baede2c579b8747850d1fd287c153340cd2.png",
+        "copyOfCardId": [
+          68457
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=564&locale=zh_CN",
+        "sha256": "26b26d477b6201cfca824bc422333f8067f667bd3fe4c48c0fb633aa6372b88a",
+        "bytes": 922,
+        "observed_at": "2026-10-20T02:24:28.821985+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_277",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\564-en_US.json",
+      "response_sha256": "cbf3fd77cb80853d1db51cbad8598c6ff61dff81850ba0726aeb24b4155f7a6f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=564&locale=en_US",
+      "face": {
+        "id": 564,
+        "collectible": 1,
+        "slug": "564-arcane-missiles",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Warren Mahy",
+        "manaCost": 1,
+        "name": "Arcane Missiles",
+        "text": "Deal 3 damage randomly split among all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4b5c9d24981537be224742266ce9352537f4e563202433ad1eb3e357194a887.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6f0e2ef6cc826bc3df7c9ff1ebe3c61db9931bda03db54a5d7274a0285ec101.png",
+        "flavorText": "You'd think you'd be able to control your missiles a little better since you're a powerful mage and all.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c768bd053be169d72620df64b1d56baede2c579b8747850d1fd287c153340cd2.png",
+        "copyOfCardId": [
+          68457
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=564&locale=en_US",
+        "sha256": "cbf3fd77cb80853d1db51cbad8598c6ff61dff81850ba0726aeb24b4155f7a6f",
+        "bytes": 924,
+        "observed_at": "2026-10-20T02:24:29.076176+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\662-zh_CN.json",
+      "response_sha256": "b2f883cde7385a6e6d1ae05ad60ed9f9fe59b26cdc342c41aac8d448ac3b31bd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=662&locale=zh_CN",
+      "face": {
+        "id": 662,
+        "collectible": 1,
+        "slug": "662-frostbolt",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Steve Ellis",
+        "manaCost": 2,
+        "name": "寒冰箭",
+        "text": "对一个角色造成 3点伤害，并使其<b>冻结</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a929bf7f2151458fc21a766e0460fa2bf14a4b719af64ca3e6cd4dfc45476ed.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/265215e6dbb4d3a6dfac9c02c236e4e1791d31413a6f7b2541bad92b24d1cef2.png",
+        "flavorText": "在你用这张牌的时候，你可以随意喊出一些咒语，比如“冻住！”“冻结！”或者“结冰，结冰吧，宝贝儿！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99e0c71afa6b7744a78674fb4b4f28afb90d398a6c51327fca8e9bf1ea9d7917.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          68322,
+          111365
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=662&locale=zh_CN",
+        "sha256": "b2f883cde7385a6e6d1ae05ad60ed9f9fe59b26cdc342c41aac8d448ac3b31bd",
+        "bytes": 993,
+        "observed_at": "2026-10-20T02:24:29.031593+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\662-en_US.json",
+      "response_sha256": "838273ee05d9fd41693ded91b4589403ebbe92ce44c954a73e22179f2bd0fdd8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=662&locale=en_US",
+      "face": {
+        "id": 662,
+        "collectible": 1,
+        "slug": "662-frostbolt",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Steve Ellis",
+        "manaCost": 2,
+        "name": "Frostbolt",
+        "text": "Deal 3 damage to a character and <b>Freeze</b> it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03a6f49f51edc8c976d2a8e401cea8696ecc605db9a45199c7c66bc59baf061b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/265215e6dbb4d3a6dfac9c02c236e4e1791d31413a6f7b2541bad92b24d1cef2.png",
+        "flavorText": "It is customary to yell \"Chill out!\" or \"Freeze!\" or \"Ice ice, baby!\" when you play this card.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99e0c71afa6b7744a78674fb4b4f28afb90d398a6c51327fca8e9bf1ea9d7917.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          68322,
+          111365
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=662&locale=en_US",
+        "sha256": "838273ee05d9fd41693ded91b4589403ebbe92ce44c954a73e22179f2bd0fdd8",
+        "bytes": 936,
+        "observed_at": "2026-10-20T02:24:28.738568+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_279",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1087-zh_CN.json",
+      "response_sha256": "63e4d4408efc0084bab28c9efa1f34373d16c4aadcc764b1c6fbf3e2c94486ac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=zh_CN",
+      "face": {
+        "id": 1087,
+        "collectible": 1,
+        "slug": "1087-pyroblast",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "manaCost": 10,
+        "name": "炎爆术",
+        "text": "造成 10点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e490db0e05129a200c78ea803329d37c239e268711751393a7bc0c9a4a800fa8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5de9cce7eb958493bd027c6b6e3ce4a91717e30c9c98c6c460bfef30514e707d.png",
+        "flavorText": "抽到这张牌的时候，发出一阵邪恶的狂笑吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de5b0f83e8a1735030914bb1015a67fadc5d7d48423851e8c223400f11c2ea66.png",
+        "copyOfCardId": [
+          76272,
+          69905
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=zh_CN",
+        "sha256": "63e4d4408efc0084bab28c9efa1f34373d16c4aadcc764b1c6fbf3e2c94486ac",
+        "bytes": 849,
+        "observed_at": "2026-10-20T01:57:19.636396+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_279",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1087-en_US.json",
+      "response_sha256": "bfabbf22ee9535e769fefb05f9555f8d49b0b91ae397eb1e36f7cf9e4f7cb357",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=en_US",
+      "face": {
+        "id": 1087,
+        "collectible": 1,
+        "slug": "1087-pyroblast",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "manaCost": 10,
+        "name": "Pyroblast",
+        "text": "Deal 10 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aaab1ee07624155ded2da716d0e67ca30a02bbffc505335af1be28fe599a218c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5de9cce7eb958493bd027c6b6e3ce4a91717e30c9c98c6c460bfef30514e707d.png",
+        "flavorText": "Take the time for an evil laugh after you draw this card.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de5b0f83e8a1735030914bb1015a67fadc5d7d48423851e8c223400f11c2ea66.png",
+        "copyOfCardId": [
+          76272,
+          69905
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=en_US",
+        "sha256": "bfabbf22ee9535e769fefb05f9555f8d49b0b91ae397eb1e36f7cf9e4f7cb357",
+        "bytes": 840,
+        "observed_at": "2026-10-20T01:57:19.594458+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_287",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113-zh_CN.json",
+      "response_sha256": "266be8d7f77ece2a729af4a4cf4df225b65f69c383fc89d78aed460df0da9def",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113&locale=zh_CN",
+      "face": {
+        "id": 113,
+        "collectible": 1,
+        "slug": "113-counterspell",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Jason Chan",
+        "manaCost": 3,
+        "name": "法术反制",
+        "text": "<b>奥秘：</b>当你的对手施放一个法术时，<b>反制</b>该法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5bd998fe926287636292232c7350c57caea984496a15ca8291e4e8897a2e563.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f55e19dcc0d2d3fcd1d694e747d446142f928ee60c65d3fa4cdba2d987dc0de3.png",
+        "flavorText": "一个会法术反制的法师和一个不会法术反制的法师之间有什么区别？那个不会的法师被炎爆术炸了一脸。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/935769c84b06af8c03be1b50255c606d2d13f4435435c8900f3099251b4de42e.png",
+        "keywordIds": [
+          5,
+          16
+        ],
+        "copyOfCardId": [
+          69607,
+          69908
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113&locale=zh_CN",
+        "sha256": "266be8d7f77ece2a729af4a4cf4df225b65f69c383fc89d78aed460df0da9def",
+        "bytes": 1007,
+        "observed_at": "2026-10-20T02:24:30.729487+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_287",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113-en_US.json",
+      "response_sha256": "ab1c858a229cba38704f76abbf53b89aa4d061c7ef13b0cfd333e14e1f40617a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113&locale=en_US",
+      "face": {
+        "id": 113,
+        "collectible": 1,
+        "slug": "113-counterspell",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Jason Chan",
+        "manaCost": 3,
+        "name": "Counterspell",
+        "text": "<b>Secret:</b> When your opponent casts a spell, <b>Counter</b> it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1eea2f958a6c2cf0111911ced74bff5f5585ea56cd3523bf16712c5cf71c8d1d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f55e19dcc0d2d3fcd1d694e747d446142f928ee60c65d3fa4cdba2d987dc0de3.png",
+        "flavorText": "What's the difference between a mage playing with Counterspell and a mage who isn't? The mage who isn't is getting Pyroblasted in the face.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/935769c84b06af8c03be1b50255c606d2d13f4435435c8900f3099251b4de42e.png",
+        "keywordIds": [
+          5,
+          16
+        ],
+        "copyOfCardId": [
+          69607,
+          69908
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113&locale=en_US",
+        "sha256": "ab1c858a229cba38704f76abbf53b89aa4d061c7ef13b0cfd333e14e1f40617a",
+        "bytes": 995,
+        "observed_at": "2026-10-20T02:24:30.644975+00:00"
+      }
+    }
+  ],
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

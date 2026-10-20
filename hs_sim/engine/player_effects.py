@@ -64,12 +64,17 @@ class AddPlayerEffect(Effect):
     spell_aura_id: int | None = None
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
     investigation: HandInvestigation | None = None
+    issued_spell_set: object | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
         if self.player_id not in (1, 2):
             raise ValueError('Invalid player')
         _name(self.spec_id, 'player effect specification')
+        if self.issued_spell_set is not None:
+            from .issued_spell_sets import IssuedSpellSet
+            if type(self.issued_spell_set)is not IssuedSpellSet:raise ValueError('Issued spell installation requires its typed original set')
+            self.issued_spell_set.__post_init__()
         if self.investigation is not None:
             if type(self.investigation) is not HandInvestigation:
                 raise ValueError('Investigation requires its complete typed private material')
@@ -166,6 +171,8 @@ def consume(r, effect, *, pending_events=None):
 
 def add(r, effect, *, adaptations=(), adaptation_source=None):
     spec_for_material = r.registry.player_effect(effect.spec_id)
+    from .issued_spell_sets import validate_install as validate_issued_install
+    validate_issued_install(r.state,r.registry,effect)
     if spec_for_material.kind == 'hand_investigation':
         from .hand_inspection import validate_investigation
         validate_investigation(r.state, r.registry, effect.player_id, effect.investigation)
@@ -228,14 +235,18 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
             raise ResolutionError('Aura installation lost its original physical spell material')
         spell_card_id = row.card.origin.card_id
     instance = PlayerEffect(instance_id, spec.id, source.id,
-                            adaptation_source.card_id if adaptation_source is not None else source.card_id,
+                            (effect.issued_spell_set.source_card_id if effect.issued_spell_set is not None else
+                             adaptation_source.card_id if adaptation_source is not None else source.card_id),
                             r.state.turn, r.state.next_order, remaining,allocation,
                             effect.player_id if allocation is not None else None, modifier_id, adaptations,
                             effect.aura_duration_cast_id, effect.spell_aura_id, spell_card_id,
                             player.id if effect.spell_aura_id is not None else None, effect.aura_duration_grants,
-                            effect.investigation)
+                            effect.investigation,effect.issued_spell_set)
     r.state.next_order += 1
     player.player_effects.append(instance)
+    if instance.issued_spell_set is not None:
+        from .issued_spell_sets import note_program
+        note_program(r,instance,'installed')
     from .minion_base_programs import install as install_minion_base_program
     install_minion_base_program(r,player.id,instance)
     if modifier_id is not None:
@@ -390,6 +401,9 @@ def remove(r, effect, *, atomic=False):
         raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
+    if instance.issued_spell_set is not None:
+        from .issued_spell_sets import note_program
+        note_program(r,instance,'removed')
     if not atomic:
         r.refresh_auras()
     data = dict(source_id=instance.source_id, player_id=effect.player_id,

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 474
+SNAPSHOT_SCHEMA_VERSION = 475
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -100,6 +100,9 @@ def deathrattle_memory_from_dict(value):
 
 def player_effect_from_dict(value):
     row=_row(value,PlayerEffect)
+    if row['issued_spell_set'] is not None:
+        from .issued_spell_sets import from_dict as issued_spell_set_from_dict
+        row['issued_spell_set']=issued_spell_set_from_dict(row['issued_spell_set'])
     if row['investigation'] is not None:
         from .model import HandInvestigation
         row['investigation'] = HandInvestigation(**_row(row['investigation'], HandInvestigation))
