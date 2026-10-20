@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实造物用CraftedMinionBlueprint/Recipe及显式部件捐赠审核解析完整新卡面；不要用普通已实现列表冒充专属池，或把合计身材写成沉默会移除的增益。完整来源与接口边界见[契约](m3-crafted-minion-faces.md)。
+
 真实有限巨型使用ColossalReserveProfile和完整印刷附肢序列，余量属于原物理附件，不能用满场失败清空或在卡牌层另造补位循环。原入口及待校准边界见[契约](m3-colossal-reserves.md)。
 
 SummonAndScramble组合原费用档生产者及一次独立数值置换；不要按场上卡名重找或重新分配总属性。普通生成统一应用独立fabled_generation_exclusions，见[契约](m3-scrambled-summons.md)。

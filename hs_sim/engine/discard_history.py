@@ -108,7 +108,8 @@ def _validate_event(row,event):
 def validate_base_recipe(registry,row):
     """The small printed recovery recipe, independent of later entity movement."""
     definition=registry.card(row.card_id)
-    if bool(definition.starship_for) != bool(row.components):
+    from .crafted_faces import composition_shape
+    if not composition_shape(definition,row.components):
         raise ValueError('Discarded composite material differs from its original body kind')
     for cid in row.components:
         part=registry.card(cid)

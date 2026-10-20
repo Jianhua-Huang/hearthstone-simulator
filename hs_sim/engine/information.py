@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v103'
+VIEW_VERSION = 'player-view-v104'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -400,7 +400,10 @@ class Information:
                 if entity.kind == CardType.LOCATION:
                     result['location'] = {'cooldown_remaining': entity.location_cooldown,
                         'open': entity.zone == Zone.BOARD and entity.location_cooldown == 0 and entity.durability > 0 and not entity.doomed}
-                if entity.components:
+                from .crafted_faces import public_recipe
+                crafted=public_recipe(entity.card_id)
+                if crafted is not None:result['crafted']=crafted
+                elif entity.components:
                     from .starships import launch_quote
                     result['starship'] = {'building': entity.starship_building,
                                           'components': list(entity.components),

@@ -166,5 +166,7 @@ describe only registered static inventory. No query-dependent cache is added.
     def __len__(self):return len(self.registry._cards)
     def __getitem__(self,card_id):
         from .registry import UnsupportedDefinitionError
+        hash(card_id)  # Match mapping behavior for unhashable caller keys.
+        if type(card_id)is not str or not card_id.strip():raise KeyError(card_id)
         try:return self.registry.card(card_id)
         except UnsupportedDefinitionError as exc:raise KeyError(card_id)from exc

@@ -255,7 +255,8 @@ def validate_material(registry,material,*,hand_copy=False):
     material.__post_init__()
     if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy'):
         card=registry.card(material.card_id)
-        if card.kind!=CardType.MINION or not card.hand_playable or card.choice_only or bool(card.starship_for)!=bool(material.components):
+        from .crafted_faces import composition_shape
+        if card.kind!=CardType.MINION or not card.hand_playable or card.choice_only or not composition_shape(card,material.components):
             raise ValueError('Stored entry lost its complete physical minion or composition')
         for cid in material.components:
             if registry.card(cid).kind!=CardType.MINION:raise ValueError('Stored composition has a non-minion component')

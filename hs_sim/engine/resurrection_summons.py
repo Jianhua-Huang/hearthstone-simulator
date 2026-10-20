@@ -53,7 +53,8 @@ class ResurrectionEntryMaterial:
 
 def validate_face(registry,material):
     material.__post_init__();card=registry.card(material.card_id)
-    if card.kind!=CardType.MINION or card.choice_only or bool(card.starship_for)!=bool(material.death.components):
+    from .crafted_faces import composition_shape
+    if card.kind!=CardType.MINION or card.choice_only or not composition_shape(card,material.death.components):
         raise ValueError('Resurrection requires a complete printed minion and its original composition')
     for card_id in material.death.components:
         component=registry.card(card_id)
@@ -238,7 +239,9 @@ def validate_basis(state,registry,basis,*,closed=False,death_ids=None):
         return tuple(i for i in ids if i in death_ids)
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain
     for death in result:
-        if death.components:raise ValueError('Composite death quantity material is unsupported by ordinary profile')
+        from .crafted_faces import PREFIX as crafted_prefix
+        if death.components and not death.card_id.startswith(crafted_prefix):
+            raise ValueError('Composite death quantity material is unsupported by ordinary profile')
         validate_plain(registry,SummonEntryMaterial(death.card_id))
     return tuple(x.id for x in result)
 

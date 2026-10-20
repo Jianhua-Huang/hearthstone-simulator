@@ -11820,10 +11820,11 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
 def validate_composition(entity, registry):
     _components(entity.components)
     definition = registry.card(entity.card_id)
-    if bool(definition.starship_for) != bool(entity.components):
+    from .crafted_faces import composition_shape,PREFIX as crafted_prefix
+    if not composition_shape(definition,entity.components):
         raise ValueError('Starship body and composition disagree')
     parts = [registry.card(i) for i in entity.components]
-    if any(p.kind != CardType.MINION or p.starship_for for p in parts):
+    if any(p.kind != CardType.MINION or p.starship_for or p.id.startswith(crafted_prefix)for p in parts):
         raise ValueError('Invalid Starship component definition')
     if parts and (entity.base_attack != sum(p.attack for p in parts) or
                   entity.base_health != sum(p.health for p in parts)):

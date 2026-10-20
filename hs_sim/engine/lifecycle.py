@@ -199,6 +199,10 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
 
 def install_base(state, entity, definition, registry, components=(), *, entry_herald_count=None):
     """Install an instance's printed base, including its immutable composition."""
+    from .crafted_faces import PREFIX as crafted_prefix,install as install_crafted
+    if definition.id.startswith(crafted_prefix):
+        install_crafted(state,entity,definition,registry,components)
+        return
     if bool(definition.starship_for) != bool(components):
         raise ValueError('A Starship body requires components; ordinary cards cannot contain them')
     entity.components = components
@@ -207,7 +211,7 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
     install_printed(state, entity, definition, registry)
     for card_id in components:
         part = registry.card(card_id)
-        if part.kind != CardType.MINION or part.starship_for:
+        if part.kind != CardType.MINION or part.starship_for or part.id.startswith(crafted_prefix):
             raise ValueError('Starship components must be non-composite minion definitions')
         entity.base_attack += part.attack
         entity.base_health += part.health

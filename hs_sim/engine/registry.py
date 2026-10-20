@@ -150,6 +150,8 @@ class Registry:
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
+        self._crafted_minion_blueprints = {}
+        self._crafted_minion_parts = set()
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
         self._passive_hero_power_profiles = {}
@@ -248,7 +250,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates:
+        if self._assemble_templates or self._crafted_minion_blueprints:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -256,6 +258,27 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def crafted_minion_blueprints(self):return MappingProxyType(self._crafted_minion_blueprints)
+
+    @property
+    def crafted_minion_parts(self):return frozenset(self._crafted_minion_parts)
+
+    def register_crafted_minion_part(self,card_id):
+        self._require_mutable();_name(card_id,'reviewed crafted ingredient')
+        from .crafted_faces import validate_part_shape
+        if card_id not in self._cards:raise UnsupportedDefinitionError('Crafted ingredient needs its original static adapter')
+        validate_part_shape(self,self._cards[card_id])
+        if card_id in self._crafted_minion_parts:raise ValueError('Duplicate reviewed crafted ingredient')
+        self._crafted_minion_parts.add(card_id)
+
+    def register_crafted_minion_blueprint(self,blueprint):
+        self._require_mutable()
+        from .crafted_faces import validate_blueprint
+        validate_blueprint(self,blueprint)
+        if blueprint.template_card_id in self._crafted_minion_blueprints:raise ValueError('Duplicate crafted minion blueprint')
+        self._crafted_minion_blueprints[blueprint.template_card_id]=blueprint
 
     def register_assemble_template(self, template):
         from .assemble_faces import AssembleTemplate, validate_template
@@ -1087,6 +1110,9 @@ class Registry:
         from .assemble_faces import PREFIX as assembly_prefix
         if isinstance(definition,CardDefinition) and definition.id.startswith(assembly_prefix):
             raise ValueError('Assembled identities require reviewed recipe resolution')
+        from .crafted_faces import PREFIX as crafted_prefix
+        if isinstance(definition,CardDefinition)and definition.id.startswith(crafted_prefix):
+            raise ValueError('Crafted identities require immutable original ingredient resolution')
         from .modular_decks import PREFIX, option_ids
         if isinstance(definition, CardDefinition) and (
                 definition.id.startswith(PREFIX) or definition.id in option_ids(self)):
@@ -1235,6 +1261,8 @@ class Registry:
         from .assemble_faces import PREFIX as assembly_prefix, resolve_face
         if id.startswith(assembly_prefix):
             return resolve_face(self,id)
+        from .crafted_faces import PREFIX as crafted_prefix,resolve_face as resolve_crafted_face
+        if id.startswith(crafted_prefix):return resolve_crafted_face(self,id)
         try:
             return self._cards[id]
         except KeyError:
@@ -1839,6 +1867,10 @@ class Registry:
             raise ValueError('Compiled native mirror declarations differ from registered faces')
         from .assemble_faces import validate_templates
         validate_templates(self)
+        from .crafted_faces import validate_blueprint as validate_crafted_blueprint
+        for blueprint in self._crafted_minion_blueprints.values():validate_crafted_blueprint(self,blueprint)
+        from .crafted_faces import validate_part_shape as validate_crafted_part_shape
+        for card_id in self._crafted_minion_parts:validate_crafted_part_shape(self,self._cards[card_id])
         from .modular_decks import validate_profiles as validate_modular_profiles
         validate_modular_profiles(self)
         if any(cid not in self._cards and cid not in self._pool_cards for cid in self._fabled_generation_exclusions):
@@ -2208,6 +2240,9 @@ class Registry:
             payload['outcast_summon_profiles']=[asdict(self._outcast_summon_profiles[k])for k in sorted(self._outcast_summon_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
+        if self._crafted_minion_blueprints:
+            payload['crafted_minion_blueprints']=[asdict(self._crafted_minion_blueprints[k])for k in sorted(self._crafted_minion_blueprints)]
+        if self._crafted_minion_parts:payload['crafted_minion_parts']=sorted(self._crafted_minion_parts)
         if self._invoke_profile is not None:
             payload['invoke_profile'] = asdict(self._invoke_profile)
         if self._mana_rank_families:
