@@ -180,6 +180,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .card_spell_repeats import capture as capture_card_spell_repeats
     from .after_play_grants import capture as capture_after_play
     from .owner_turns import freeze_played_face
+    from .hand_cost_rank import capture as capture_hand_rank
     player=state.players[source.controller]
     from .disguised import destination
     destination(registry.card(source.card_id), player.id, board_player_id)
@@ -206,7 +207,8 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         hand_derivatives=capture(source,registry.card(source.card_id)),branch_id=branch_id,
         battlecries=capture_battlecries(source),combos=capture_combos(source),
         played_face=freeze_played_face(state,registry,source,len(state.play_history)+1),
-        copy_origin=source.copy_origin,next_spell_bonus_effects=capture_native_spell_bonus(state,registry,source))
+        copy_origin=source.copy_origin,next_spell_bonus_effects=capture_native_spell_bonus(state,registry,source),
+        hand_cost_rank=capture_hand_rank(state,registry,source))
 
 
 def commit_play(state, record):
@@ -347,6 +349,8 @@ def validate_history(state, registry):
             validate_mana_progress(state,registry,record.held_mana,record)
         from .held_higher_cost import validate_play as validate_higher_cost_play
         validate_higher_cost_play(state, registry, record)
+        from .hand_cost_rank import validate_play as validate_hand_rank
+        validate_hand_rank(state, registry, record)
         from .combos import validate_payload
         for payload in record.combos: validate_payload(state,registry,payload)
         for payload in record.battlecries:

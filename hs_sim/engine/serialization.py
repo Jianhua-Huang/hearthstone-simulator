@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 502
+SNAPSHOT_SCHEMA_VERSION = 503
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -769,6 +769,9 @@ def _cost_use_from_dict(value):
 
 def _death_from_dict(value):
     row = _row(value, DeathRecord)
+    from .model import BoardPresenceReference
+    row['adjacent_minions'] = tuple(BoardPresenceReference(**_row(x, BoardPresenceReference))
+        for x in _list(row['adjacent_minions'], 'original death neighbors'))
     row['cause'] = _death_cause_from_dict(row['cause'])
     row['zone'] = Zone(row['zone'])
     row['components'] = tuple(_list(row['components'], 'components'))
@@ -1150,6 +1153,7 @@ def _draw_from_dict(value):
 
 def _spell_cast_from_dict(value):
     row = _row(value, SpellCastRecord)
+    row['hand_cost_rank'] = _hand_cost_rank_from_dict(row['hand_cost_rank'])
     from .spell_mana_budget import link_from_dict
     row['mana_budget']=link_from_dict(row['mana_budget'])
     row['held_higher_cost'] = _held_higher_cost_from_dict(row['held_higher_cost'])
@@ -1171,6 +1175,15 @@ def _spell_cast_from_dict(value):
     if row['from_zone'] is not None:
         row['from_zone'] = Zone(row['from_zone'])
     return SpellCastRecord(**row)
+
+
+def _hand_cost_rank_from_dict(value):
+    if value is None: return None
+    from .model import HandCostRankFact
+    row = _row(value, HandCostRankFact)
+    row['source_zone'] = Zone(row['source_zone'])
+    row['quotes'] = tuple(_cost_quote_fact_from_dict(q) for q in _list(row['quotes'], 'hand rank quotes'))
+    return HandCostRankFact(**row)
 
 
 def _held_higher_cost_from_dict(value):
@@ -1376,6 +1389,7 @@ def state_from_dict(value: dict) -> GameState:
         from .model import HandNeighborFact
         row['hand_neighbors']=None if row['hand_neighbors'] is None else tuple(HandNeighborFact(**_row(x,HandNeighborFact))
             for x in _list(row['hand_neighbors'],'original submitted hand neighbors'))
+        row['hand_cost_rank'] = _hand_cost_rank_from_dict(row['hand_cost_rank'])
         plays.append(PlayRecord(**row))
     value['play_history']=plays
     value['cost_use_history'] = [_cost_use_from_dict(row) for row in _list(value['cost_use_history'], 'cost use history')]

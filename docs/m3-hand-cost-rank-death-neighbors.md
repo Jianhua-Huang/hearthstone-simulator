@@ -1,0 +1,13 @@
+# 原手牌费用排序与死亡相邻引用
+
+BE_086污亵使用独立注册的HandCostRankProfile。prepare_play在付款和移出手牌前，沿公共quote_input保存完整、有序的本人手牌CostQuoteFact；判断包含本卡，允许并列最高，不以印刷费用或已消耗减费后的报价替代。PlayRecord及其实际手动CAST共享HandCostRankFact；同一次主体的两个伤害波次重新读取敌人，但不重算已接受次数。额外抽牌、死亡反应和等待不改原条件。
+
+自动施法在实际移出原区域前接受各自事实，不伪造普通使用。真实HAND原牌参与比较；当前内部政策要求本卡确在本人手牌，因此生成/牌库等外部来源为未持有，不获得第二波。该来源政策及精确接受时点仍待国服校准；开发者仅明确确认了并列最高也能触发，见[原答复](https://www.reddit.com/r/hearthstone/comments/1whw4cv/reign_of_the_black_empire_how_does_this_work/?sort=qa)。
+
+BE_151库区守卫的战吼和活体亡语读取当前槽位。自然死亡则在整批任何移除之前，把两个原相邻随从的BoardPresenceReference写入DeathRecord.adjacent_minions；原相邻者同批死亡、离场、失去原驻留或不再归属该玩家时不换成更远目标。休眠和地标不使选择越位；持续在场的变形按新卡面接收奖励。这是明确的原相邻实体政策，精确国服死亡窗口仍待M6。
+
+原死亡通知另存私有_death_neighbors，恢复时按原死亡身份核对，不能只裁历史引用而保留原通知；核验按事件和死亡记录线性执行。它验证保存内容的一致性，不认证未签名存档的来源。手牌排序则保留完整报价、同一原始时钟、来源手牌序号及正常费用收据关系；继续使用原固有费用历史前缀和纯报价验证，不新增支付器。
+
+亡语首次主体会在接受窗口捕获，因此相邻奖励使用BuffBoardPresence保存原在场引用，在每份实际执行时解析当前卡面与归属，再转交普通Buff。它保留连续在场的变形，拒绝离场后重新入场的同一物理ID；原较强的MinionReference和BuffCapturedMinion语义保持。
+
+新增一个私有HandCostRankFact模型、两个原记录的可选排序字段、DeathRecord的原相邻引用及一个薄转交Effect；无GameState/Entity/PlayerState字段新增。新profile仅在非空时参与注册表指纹，默认311保持。core610/schema503拒旧1～502，观察114/命令12/replay1保持；玩家投影不包含完整手牌报价、原相邻证明或全知历史。进度与下一项仅在两份原台账维护。

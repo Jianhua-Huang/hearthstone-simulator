@@ -177,6 +177,7 @@ class Registry:
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
+        self._hand_cost_rank_profiles = {}
         self._carved_spell_profiles = {}
         self._live_hand_spell_profiles = {}
         self._native_stat_gain_profiles = {}
@@ -482,6 +483,16 @@ class Registry:
 
     @property
     def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
+
+    @property
+    def hand_cost_rank_profiles(self):return MappingProxyType(self._hand_cost_rank_profiles)
+
+    def register_hand_cost_rank_profile(self, profile):
+        self._require_mutable()
+        from .hand_cost_rank import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._hand_cost_rank_profiles: raise ValueError('Duplicate hand-cost rank profile')
+        self._hand_cost_rank_profiles[profile.card_id] = profile
 
     @property
     def carved_spell_profiles(self):return MappingProxyType(self._carved_spell_profiles)
@@ -2038,6 +2049,8 @@ class Registry:
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .hand_cost_rank import validate_profile as validate_hand_cost_rank
+        for profile in self._hand_cost_rank_profiles.values(): validate_hand_cost_rank(self, profile)
         from .spell_mirrors import validate_declaration as validate_spell_mirror_declaration
         for card_id in self._spell_mirror_ids:validate_spell_mirror_declaration(self,card_id)
         from .carved_spells import validate_profile as validate_carved_profile
@@ -2418,6 +2431,8 @@ class Registry:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._hand_cost_rank_profiles:
+            payload['hand_cost_rank_profiles'] = [asdict(self._hand_cost_rank_profiles[k]) for k in sorted(self._hand_cost_rank_profiles)]
         if self._spell_mirror_ids:
             payload['spell_mirror_ids']=sorted(self._spell_mirror_ids)
         if self._carved_spell_profiles:

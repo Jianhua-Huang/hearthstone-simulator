@@ -3659,9 +3659,18 @@ class DeathRecord:
     components: tuple[str, ...] = ()
     jade_size: int | None = None
     deathrattles_blocked: bool = False
+    adjacent_minions: tuple[BoardPresenceReference, ...] = ()
 
     def __post_init__(self) -> None:
         _bool(self.deathrattles_blocked, 'death Deathrattle prohibition receipt')
+        if (type(self.adjacent_minions) is not tuple or len(self.adjacent_minions) > 2 or
+                any(type(x) is not BoardPresenceReference for x in self.adjacent_minions)):
+            raise ValueError('Death requires its original ordered adjacent minion residences')
+        for ref in self.adjacent_minions: ref.__post_init__()
+        if (len({x.entity_id for x in self.adjacent_minions}) != len(self.adjacent_minions) or
+                any(x.entity_id == self.entity_id for x in self.adjacent_minions) or
+                self.zone != Zone.BOARD and self.adjacent_minions):
+            raise ValueError('Death neighbors contain a duplicate, source or foreign zone')
         if type(self.cause) is not DeathCause:
             raise ValueError('Death record requires a frozen cause')
         self.cause.__post_init__()
@@ -6706,6 +6715,54 @@ class CostQuoteFact:
 
 
 @dataclass(frozen=True)
+class HandCostRankFact:
+    profile_id: str
+    source_id: int
+    card_id: str
+    player_id: int
+    source_controller: int
+    source_zone: Zone
+    turn: int
+    action: int
+    next_entity_id: int
+    quotes: tuple[CostQuoteFact, ...]
+
+    def __post_init__(self):
+        if self.profile_id != 'hand.highest-current-cost-before-submit-v1':
+            raise ValueError('Unknown original hand-cost rank profile')
+        for name in ('source_id', 'turn', 'next_entity_id'): _int(getattr(self, name), 'hand rank '+name, 1)
+        _int(self.action, 'hand rank action', 0); _name(self.card_id, 'hand rank card')
+        if type(self.player_id) is not int or self.player_id not in (1, 2) or type(self.source_controller) is not int or self.source_controller not in (1, 2):
+            raise ValueError('Hand rank requires its original players')
+        if type(self.source_zone) is not Zone or self.source_id >= self.next_entity_id:
+            raise ValueError('Hand rank source exceeds its original allocation')
+        if type(self.quotes) is not tuple or any(type(q) is not CostQuoteFact for q in self.quotes):
+            raise ValueError('Hand rank requires complete ordered physical quotes')
+        ids = []
+        for quote in self.quotes:
+            quote.__post_init__(); value = quote.quote_input; ids.append(value.source_id)
+            if quote.profile_id is not None or value.player_id != self.player_id or value.source_id >= self.next_entity_id:
+                raise ValueError('Hand rank borrowed a foreign or future quote')
+            if (quote.intrinsic.boundary.turn, quote.intrinsic.boundary.action) != (self.turn, self.action):
+                raise ValueError('Hand rank mixed different original cost windows')
+        if len(ids) != len(set(ids)) or self.source_held != (self.source_zone == Zone.HAND and self.source_controller == self.player_id):
+            raise ValueError('Hand rank lost its original source hand membership')
+        if self.source_quote is not None and self.source_quote.quote_input.card_id != self.card_id:
+            raise ValueError('Hand rank source face differs from its quote')
+
+    @property
+    def source_quote(self):
+        return next((q for q in self.quotes if q.quote_input.source_id == self.source_id), None)
+
+    @property
+    def source_held(self): return self.source_quote is not None
+
+    @property
+    def highest(self):
+        return self.source_held and self.source_quote.amount == max(q.amount for q in self.quotes)
+
+
+@dataclass(frozen=True)
 class HandPlayCostReceipt:
     """Submitted price, its original hand acquisition and quotation clock."""
     quote_origin: str
@@ -7380,6 +7437,7 @@ class PlayRecord:
     after_play: tuple[AbilityInstance, ...] = ()
     held_higher_cost: HeldHigherCostProgress | None = None
     next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
+    hand_cost_rank: HandCostRankFact | None = None
 
     def __post_init__(self):
         from .next_spell_bonuses import validate_material as validate_spell_bonus_material
@@ -7540,6 +7598,9 @@ class PlayRecord:
         if self.held_mana is not None:
             if type(self.held_mana) is not HeldManaProgress:raise ValueError('Invalid frozen held-mana condition')
             self.held_mana.__post_init__()
+        if self.hand_cost_rank is not None:
+            if type(self.hand_cost_rank) is not HandCostRankFact: raise ValueError('Invalid original hand-cost rank')
+            self.hand_cost_rank.__post_init__()
         if self.held_higher_cost is not None:
             if type(self.held_higher_cost) is not HeldHigherCostProgress:raise ValueError('Invalid frozen higher-cost condition')
             self.held_higher_cost.__post_init__()
@@ -7904,6 +7965,7 @@ class SpellCastRecord:
     spell_aura_id: int | None = None
     mana_budget: SpellManaBudgetLink | None = None
     next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
+    hand_cost_rank: HandCostRankFact | None = None
 
     def __post_init__(self):
         from .next_spell_bonuses import validate_material as validate_spell_bonus_material
@@ -7922,6 +7984,9 @@ class SpellCastRecord:
         from .allocation_facts import SourceAllocationFact
         from .aura_duration import validate_grants
         validate_grants(self.aura_duration_grants)
+        if self.hand_cost_rank is not None:
+            if type(self.hand_cost_rank) is not HandCostRankFact: raise ValueError('Invalid original hand-cost rank')
+            self.hand_cost_rank.__post_init__()
         if self.held_higher_cost is not None:
             if type(self.held_higher_cost) is not HeldHigherCostProgress:raise ValueError('Invalid cast higher-cost condition')
             self.held_higher_cost.__post_init__()
@@ -11712,6 +11777,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         if not isinstance(record, DeathRecord):
             raise ValueError("death_history must contain DeathRecord values")
         record.__post_init__()
+        from .death_neighbors import validate_record as validate_death_neighbors
+        validate_death_neighbors(state, record)
         from .death_causes import validate_in_state
         validate_in_state(state, registry, record.cause)
         validate_composition(record, registry)

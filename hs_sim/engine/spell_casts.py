@@ -156,7 +156,8 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=No
         failure='countered' if countered else failure,branch_id=play.branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
-        next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else ())
+        next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else (),
+        hand_cost_rank=play.hand_cost_rank)
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
@@ -286,6 +287,8 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         outcast=False, finale=False, quickdraw=False,
         manathirst=definition.manathirst is not None and
             r.player(effect.player_id).max_mana >= definition.manathirst)
+    from .hand_cost_rank import capture as capture_hand_rank
+    hand_rank = capture_hand_rank(r.state, r.registry, entity, player_id=effect.player_id)
     r.move(entity, Zone.GRAVEYARD)
     if entity.controller != effect.player_id:
         r.player(entity.controller).graveyard.remove(entity.id)
@@ -318,7 +321,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         target_selection=target_proof.selection if target_proof is not None else None,
         target_origin=capture_target_origin(r.state,target_id),
         held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id,
-        mana_budget=getattr(effect,'mana_budget',None))
+        mana_budget=getattr(effect,'mana_budget',None), hand_cost_rank=hand_rank)
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     note_adjoining_automatic(r,record,adjoining_material,adjoining_parent)
@@ -454,6 +457,8 @@ def validate_history(state, registry):
         record.__post_init__()
         from .held_higher_cost import validate_cast as validate_higher_cost_cast
         validate_higher_cost_cast(state, registry, record)
+        from .hand_cost_rank import validate_cast as validate_hand_rank
+        validate_hand_rank(state, registry, record)
         if record.target_origin is not None:
             from .allocation_facts import validate_allocation
             validate_allocation(state,registry,record.target_origin)

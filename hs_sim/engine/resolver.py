@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v609'
+CORE_EFFECTS_VERSION = 'core-effects-v610'
 
 
 class Mechanics:
@@ -713,6 +713,7 @@ class Resolution:
 
     def record_death(self, entity, position, batch=None):
         from .death_causes import mark
+        from .death_neighbors import capture as capture_neighbors
         if entity.death_cause is None:
             mark(self, entity, 'health_state', 'death_checkpoint')
         if batch is None:
@@ -726,7 +727,8 @@ class Resolution:
             keywords=tuple(sorted(entity.keywords)), abilities=tuple(entity.abilities),
             enchantments=tuple(entity.enchantments), frozen_until_owner_turn=entity.frozen_until_owner_turn,
             zone=entity.zone, durability=entity.durability, corpse_value=entity.corpse_value, components=entity.components,
-            herald_rank=entity.herald_rank, jade_size=entity.jade_size)
+            herald_rank=entity.herald_rank, jade_size=entity.jade_size,
+            adjacent_minions=capture_neighbors(self.state, entity))
         self.state.next_death_id += 1
         self.state.death_history.append(record)
         return record
@@ -793,7 +795,8 @@ class Resolution:
                                   'minion_died' if records[entity_id].zone == Zone.BOARD else 'weapon_destroyed',
                                   source_id=entity_id, target_id=entity_id,
                                   player_id=entity.controller, position=positions[entity_id], card_id=entity.card_id,
-                                  death_id=records[entity_id].id, batch=batch)
+                                  death_id=records[entity_id].id, batch=batch,
+                                  _death_neighbors=tuple((x.entity_id, x.presence_id) for x in records[entity_id].adjacent_minions))
                 deathrattles.extend(schedule_group(self,entity_id,entity.controller,
                     tuple(a for a in records[entity_id].abilities if a.kind == 'deathrattle' and not a.consumed),
                     event=event,death=records[entity_id]))
@@ -2904,5 +2907,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_turn_clocks(mechanics)
     from .vanished_cards import register as register_vanished_cards
     register_vanished_cards(mechanics)
+    from .death_neighbors import register as register_death_neighbor_effects
+    register_death_neighbor_effects(mechanics)
     return mechanics
 
