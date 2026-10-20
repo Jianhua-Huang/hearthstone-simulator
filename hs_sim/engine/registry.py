@@ -170,6 +170,7 @@ class Registry:
         self._native_stat_gain_profiles = {}
         self._remaining_mana_numbers_profiles = {}
         self._rotating_discovery_class_profiles = {}
+        self._held_battlecry_forms_profiles = {}
         self._colossal_reserve_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
@@ -405,6 +406,9 @@ class Registry:
     def rotating_discovery_class_profiles(self):return MappingProxyType(self._rotating_discovery_class_profiles)
 
     @property
+    def held_battlecry_forms_profiles(self):return MappingProxyType(self._held_battlecry_forms_profiles)
+
+    @property
     def colossal_reserve_profiles(self):return MappingProxyType(self._colossal_reserve_profiles)
 
     def register_colossal_reserve_profile(self,profile):
@@ -543,6 +547,13 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._rotating_discovery_class_profiles:raise ValueError('Duplicate discovery class declaration')
         self._rotating_discovery_class_profiles[profile.card_id]=profile
+
+    def register_held_battlecry_forms_profile(self,profile):
+        self._require_mutable()
+        from .held_battlecry_forms import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._held_battlecry_forms_profiles:raise ValueError('Duplicate held Battlecry declaration')
+        self._held_battlecry_forms_profiles[profile.card_id]=profile
 
     def register_remaining_mana_numbers_profile(self,profile):
         self._require_mutable()
@@ -1847,6 +1858,8 @@ class Registry:
         for profile in self._remaining_mana_numbers_profiles.values():validate_remaining_numbers_profile(self,profile)
         from .rotating_discovery_classes import validate_profile as validate_rotating_discovery_class_profile
         for profile in self._rotating_discovery_class_profiles.values():validate_rotating_discovery_class_profile(self,profile)
+        from .held_battlecry_forms import validate_profile as validate_held_battlecry_profile
+        for profile in self._held_battlecry_forms_profiles.values():validate_held_battlecry_profile(self,profile)
         from .colossal_reserves import validate_profile as validate_colossal_reserve_profile
         for profile in self._colossal_reserve_profiles.values():validate_colossal_reserve_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -2221,6 +2234,8 @@ class Registry:
             payload['fabled_generation_exclusions']=sorted(self._fabled_generation_exclusions)
         if self._rotating_discovery_class_profiles:
             payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
+        if self._held_battlecry_forms_profiles:
+            payload['held_battlecry_forms_profiles']=[asdict(self._held_battlecry_forms_profiles[k])for k in sorted(self._held_battlecry_forms_profiles)]
         if self._colossal_reserve_profiles:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
         if self._remaining_mana_numbers_profiles:

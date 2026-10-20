@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v584'
+CORE_EFFECTS_VERSION = 'core-effects-v585'
 
 
 class Mechanics:
@@ -359,6 +359,8 @@ class Resolution:
             self.game._information.record(self.game, event)
         from .hand_mirrors import synchronize as synchronize_hand_mirrors
         synchronize_hand_mirrors(self,event)
+        from .held_battlecry_forms import synchronize as synchronize_held_battlecry_forms
+        synchronize_held_battlecry_forms(self,event)
         from .spell_mirrors import synchronize as synchronize_spell_mirrors
         synchronize_spell_mirrors(self,event)
         from .hand_parity import synchronize as synchronize_hand_parity

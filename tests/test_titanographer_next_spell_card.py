@@ -89,10 +89,10 @@ class OskNextSpellTests(unittest.TestCase):
         self.assertEqual(g.clone().snapshot(),s);self.assertEqual(replay(build_replay(g),r).snapshot(),s)
         return s
 
-    def test_full_source_branch_and_persistent_paired_program_do_not_register_rolling_root(self):
+    def test_full_source_branch_and_persistent_paired_program_retain_native_source_identity(self):
         r=build_registry();d=load_batch();c=r.card(CARD);spec=r.player_effect(SPEC)
         self.assertEqual((c.cost,c.attack,c.health),(6,6,6));self.assertEqual((spec.kind,spec.next_spell_cost_reduction,spec.spell_damage),(KIND,3,3))
-        self.assertEqual(len(d['official_observations']),4);self.assertNotIn(ROOT,r.cards)
+        self.assertEqual(len(d['official_observations']),4);self.assertIn(CARD,r.held_battlecry_forms_profiles[ROOT].forms)
 
     def test_actual_six_mana_battlecry_zero_cost_frostbolt_gets_six_damage_once(self):
         g=self.game();self.play(g);self.assertEqual(g.state.players[1].mana,4)

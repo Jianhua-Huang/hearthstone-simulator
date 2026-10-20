@@ -36,6 +36,7 @@ PRIVATE_KEYS = frozenset('state entities enchantments abilities rng_state inform
 ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interactable'}
 ENTITY |= {'base_damage'}
 ENTITY |= {'divine_shield'}
+ENTITY |= {'battlecry_form'}
 
 
 def _interactable_view(row, controller, zone):
@@ -139,6 +140,10 @@ def decode(proof, *, require_active_player=True):
                 raise ValueError('Visible Divine Shield durability requires an in-play character')
             from .shield_durability import validate_public
             validate_public(row['divine_shield'])
+        if 'battlecry_form' in row and (row.get('kind')!=CardType.MINION.value or
+                zone not in (Zone.HAND,Zone.BOARD,Zone.PLAY) or zone==Zone.HAND and controller!=value['viewer'] or
+                type(row['battlecry_form'])is not str or not row['battlecry_form']):
+            raise ValueError('Native Battlecry form requires a visible physical minion and complete form identity')
         if 'interactable' in row:
             _interactable_view(row, controller, zone)
         if 'base_damage' in row and (row.get('kind')!=CardType.SPELL.value or type(row['base_damage'])is not int or row['base_damage']<0):

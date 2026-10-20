@@ -95,7 +95,7 @@ def register_simple_followup_p56_cards(registry):
             min_cost=cost, max_cost=cost), source_id=c.source_id, cause=SummonCause.capture(c)),)
 
     def two(c):
-        domain = replace(registry.card(c.source.card_id), targeting=TargetSpec(TargetMode.IF_AVAILABLE,
+        domain = replace(registry.card(TWO), targeting=TargetSpec(TargetMode.IF_AVAILABLE,
             zones=(Zone.BOARD,), kinds=(CardType.MINION,), relation='enemy'))
         ids = tuple(i for i in target_choices(c.state, registry, c.source, domain) if i is not None)
         options = tuple(ChoiceOption(json.dumps(asdict(MinionReference.capture(c.state.entities[i])), sort_keys=True),

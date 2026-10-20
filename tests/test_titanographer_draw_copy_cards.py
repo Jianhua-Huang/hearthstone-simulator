@@ -94,9 +94,9 @@ class OskDrawCopyTests(unittest.TestCase):
         e=g.state.entities[e.id]
         self.assertEqual((e.attack,e.max_health,quote_cost(g.state,g.registry,e).amount),(attack,health,cost))
 
-    def test_full_original_forms_and_primary_faces_do_not_install_rolling_root(self):
+    def test_full_original_forms_and_primary_faces_retain_source_pins_and_native_root(self):
         d=load_batch();r=fixture()
-        self.assertEqual(len(d['official_observations']),6);self.assertNotIn(ROOT,r.cards)
+        self.assertEqual(len(d['official_observations']),6);self.assertIn(ROOT,r.cards)
         for cid in (DRAW,COPY):
             c=r.card(cid);self.assertEqual((c.cost,c.attack,c.health),(6,6,6))
             self.assertFalse(c.metadata.collectible);self.assertNotIn(Keyword.TITAN,c.keywords)

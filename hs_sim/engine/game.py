@@ -463,6 +463,8 @@ class Game:
         validate_discovery_delivery_boundary(self)
         from .hand_mirrors import validate_game as validate_hand_mirrors
         validate_hand_mirrors(self)
+        from .held_battlecry_forms import validate_game as validate_held_battlecry_forms
+        validate_held_battlecry_forms(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

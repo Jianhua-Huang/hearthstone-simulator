@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v107'
+VIEW_VERSION = 'player-view-v108'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -48,7 +48,7 @@ PUBLIC_EVENTS = frozenset('''counter_policy_used limited_trigger_used game_creat
     mana_changed mana_consumed overload_added resource_gained resource_spent stats_changed destroyed silenced
     transformed control_changed frozen unfrozen stealth_lost magnetized heralded'''.split())
 CHOICE_EVENTS = frozenset(('choice_requested', 'choice_selected'))
-PRIVATE_CARD_EVENTS = frozenset(('choose_branch_changed', 'stored_card_buffed', 'stored_card_stats_set', 'hand_card_upgraded', 'hand_progressed',
+PRIVATE_CARD_EVENTS = frozenset(('held_battlecry_form_selected', 'choose_branch_changed', 'stored_card_buffed', 'stored_card_stats_set', 'hand_card_upgraded', 'hand_progressed',
                                'card_shattered', 'cards_recombined', 'card_expired', 'hand_card_made_temporary', 'stored_keyword_granted',
                                'stored_card_transformed', 'counter_policy_added', 'card_spell_repeat_added', 'card_spell_repeat_removed',
                                'stored_spell_damage_granted', 'hand_turn_discount_granted'))
@@ -371,6 +371,9 @@ class Information:
                 from .rotating_discovery_classes import public_class
                 discover_class=public_class(entity)
                 if discover_class is not None:result['discover_class']=discover_class
+                from .held_battlecry_forms import public_form
+                battlecry_form=public_form(game.registry,entity)
+                if battlecry_form is not None:result['battlecry_form']=battlecry_form
                 from .colossal_reserves import public_remaining
                 remaining=public_remaining(entity)
                 if remaining is not None:result['colossal_remaining']=remaining

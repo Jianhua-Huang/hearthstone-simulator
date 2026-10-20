@@ -74,6 +74,8 @@ def inherit(r, source, destination):
 def settle_hands(r, *, initial=False, opening_ready=False):
     if suspended(r.state) and not opening_ready:
         return
+    from .held_battlecry_forms import synchronize as synchronize_held_battlecry_forms
+    synchronize_held_battlecry_forms(r)
     from .hand_combinations import settle_hands as settle_combinations
     settle_combinations(r, initial=initial)
     mapping = families(r.registry)

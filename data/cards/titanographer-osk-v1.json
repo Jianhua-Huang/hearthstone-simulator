@@ -1,0 +1,4829 @@
+{
+  "schema": 1,
+  "batch": "K304-osk-held-battlecry",
+  "cards": [
+    {
+      "record": {
+        "id": "TLC_452",
+        "dbf_id": 117956,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "在你的手牌中时，\n随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "text_en": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9868e289bebe5cb9e97843a132f961f401dd0961ce29d714a886144fe14def70",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TLC_452t1",
+        "dbf_id": 120714,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "text_en": "<b>Battlecry:</b> Destroy\nan enemy minion.\nThis minion and your\nhero gain its Health.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f8c11a29dece4a562a23810762038c16f57778844fb558dac3e51478e62412e5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t2",
+        "dbf_id": 121297,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "text_en": "[x]<b>Battlecry:</b> The next spell\nyou cast costs (3) less and\nhas <b>Spell_Damage_+3</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d3df14a244ca4c6210080aa84f0afcfcee26eb148cbde00929604900b2d393a1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t3",
+        "dbf_id": 121298,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "text_en": "<b>Battlecry:</b> Summon two 3/3 Undead with <b>Taunt</b>\nand <b>Reborn</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d35781aca426c6c80581b4bff54a7a0f51c42fe3c832d2e1ccdc6423e12d3c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t4",
+        "dbf_id": 121299,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>亡语</b>随从牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a <b>Deathrattle</b> minion.\nIt costs (3) less.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "80cb2a8f1b1f12ae703267d4987c1917898d56f7537d9a4e413869aa61715b93",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t5",
+        "dbf_id": 121300,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌的法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Battlecry:</b> Reduce the\nCost of all minions in\nyour hand by (2).",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "32de6f0f5b4ff53a8899426637c1e28502c8107cc4b657f36f6776a0808a3d01",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t6",
+        "dbf_id": 121301,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "text_en": "[x]<b>Battlecry:</b> Summon\nfour 2/2 Elementals\nwith <b>Taunt</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e44430013bb264bdaa3c3dde826cfac632de1a63efe16b6daaeb804987fae525",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t7",
+        "dbf_id": 121302,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>抽牌直到手牌数量达到上限。",
+        "text_en": "<b>Battlecry:</b> Draw cards\nuntil your hand is full.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b0f304a8a903f09621458f8e3644e572c8188af43719bec013206f496b3a58f7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t8",
+        "dbf_id": 121303,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>为你的英雄恢复所有生命值。",
+        "text_en": "<b>Battlecry:</b> Restore your hero to full Health.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cd09e120ecb5ba4b1b54559c9cabf8083d660c09b1deef09f4fa630db5e33959",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t9",
+        "dbf_id": 121304,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>复原你的法力水晶。",
+        "text_en": "<b>Battlecry:</b> Refresh your Mana Crystals.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "55cb35ded8d227008546d166cca5fba7500cce33c5e0b7033c7352b2adffef8d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t9",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t13",
+        "dbf_id": 121308,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>造成5点伤害。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 5 damage.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "43c9b83e9f5b8e22bc8d4f1acb8f817f5b3439a4c9079febed7d00bbf8a9d3fe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t13",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t14",
+        "dbf_id": 121309,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>随机施放1个法师<b>奥秘</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Cast 1 random\nMage <b>Secret</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "604a42171c0db50dda65158ed71ee1627aa2db11b6d43c3ac9f6a0779d09d250",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t14",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t15",
+        "dbf_id": 121310,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>下个回合，敌方卡牌的法力值消耗增加（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> Enemy cards\ncost (1) more next turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a82af78c2da0247fa4d5316cb82543f36a62e5da99f11a589ba6a5d86be12fb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t15",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t16",
+        "dbf_id": 121311,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>将所有敌方随从的攻击力和生命值变为2。",
+        "text_en": "<b>Battlecry:</b> Set the Attack and Health of all enemy minions to 2.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b8603d6dcd9eef5a2b29370d37f638d5341532044a99e4bd4be1c875661112e6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t16",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t17",
+        "dbf_id": 121312,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>使你的其他随从获得+2/+2。",
+        "text_en": "<b>Battlecry:</b> Give your other\nminions +2/+2.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e9e17b925f0978e871b0ec1ffa2c9abb4fc6e3a94a72a135b7e0bc1b4cbacfd4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t17",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t18",
+        "dbf_id": 121313,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>抽两张随从牌。将其攻击力，生命值和法力值消耗变为2。",
+        "text_en": "<b>Battlecry:</b> Draw 2 minions. Set their Attack, Health, and Cost to 2.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "de1b2e2f8bba98cb48f9b8fab38e0be030a5190015a968b170e5aca22130033e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t18",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t19",
+        "dbf_id": 121314,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>选择一个非<b>泰坦</b>随从，召唤一个具有+2/+2的复制。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a\nnon-<b>Titan</b> minion. Summon\na copy of it with +2/+2.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "85b423e1cb451a5505c68eb626ffd93054905383543b73f81c22d3cd0cf7f739",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t19",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t20",
+        "dbf_id": 121315,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>随机召唤一个法力值消耗为（6）的随从。使其获得<b>嘲讽</b>和<b>吸血</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Summon a\nrandom 6-Cost minion. Give\nit <b>Taunt</b> and <b>Lifesteal</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5422fe8d16e87dce262d66d6dfdd5cb73b384e4fcded58261498fe85500948e6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t20",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t21",
+        "dbf_id": 121316,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>选择两个敌方随从，将其移出对战。",
+        "text_en": "[x]<b>Battlecry:</b> Choose two\nenemy minions. Remove\nthem from the game.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a301558d5505df5e08a6c2a03f24eb666908c3e927f85ab50ad26cfcafb4c17",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t21",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t22",
+        "dbf_id": 121317,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+2/+1。随机对一个敌人造成4点伤害。",
+        "text_en": "<b>Battlecry:</b> Gain +2/+1. Deal 4 damage to a random enemy.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9d3d8a726844e339d6bc37680f26f67b9642571efc095a91c848d343f55fb66b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t22",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t23",
+        "dbf_id": 121318,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+1/+2。抽一张牌。",
+        "text_en": "<b>Battlecry:</b> Gain +1/+2.\nDraw a card.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0396be0be56ff563bf289e96bce699c0fa195c9ad1d74ce0497c680b32a9e4b1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t23",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t24",
+        "dbf_id": 121319,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+3生命值和<b>扰魔</b>。",
+        "text_en": "<b>Battlecry:</b> Gain +3 Health\nand <b>Elusive</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4a5265adbb39f02b1d29117d3c9f2cab1f3962ab702f3fcf55423955a923acbc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t24",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t26",
+        "dbf_id": 121321,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>对另一个随从造成20点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 20 damage\nto another minion.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3b83a4fea6620b15316c9baa3bdb48eef6fc2d0f102ef091653cd34dab0a68c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t26",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t27",
+        "dbf_id": 121322,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>对所有敌人造成3点伤害，为所有友方角色恢复6点生命值。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 3 damage\nto all enemies and\nrestore 6_Health to all\nfriendly characters.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7caeb5e77493ab36b90095a32238f73192ef7cadfbbb75dd2e8a176fdacf6dcc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t27",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t28",
+        "dbf_id": 121323,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>召唤两个6/6的地狱火。",
+        "text_en": "<b>Battlecry:</b> Summon two 6/6 Infernals.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c066fc4c7fcc6418bf1f68bd7a9c0e4c927cbf51f2e92f27926d1f1be89d89c9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t28",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t29",
+        "dbf_id": 121324,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>将所有其他随从送入扭曲虚空。",
+        "text_en": "[x]<b>Battlecry:</b> Send all\nother minions into the\nTwisting_Nether.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "62f4b29b4111dda3456892a840f61328f8a611d4b82b520f7ac175b4bcbffbd3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t29",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t30",
+        "dbf_id": 121325,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+5生命值。使你的英雄获得5点护甲值。",
+        "text_en": "[x]<b>Battlecry:</b> Gain +5 Health.\nGive your hero 5 Armor.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "27bb534b32f2c91d94f5e9ee21ad3c3607c8536cc94c4b3cc9e261b8787e819d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t30",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t31",
+        "dbf_id": 121326,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+5攻击力。在本回合中，\n使你的英雄获得+5攻击力。",
+        "text_en": "[x]<b>Battlecry:</b> Gain +5 Attack.\nGive your hero +5 Attack\nthis turn.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "48c90e4c023c3d54b71575f3f38b51e27e75c24aeb88dfc75d6c3ae4bbd5fc3e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t31",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t32",
+        "dbf_id": 121327,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>获得+2/+2。抽一张武器牌。",
+        "text_en": "[x]<b>Battlecry:</b> Gain +2/+2.\nDraw a weapon.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "39b0087ce909cda25dddcb826cbb598dad843e318c4ed3314fba536a7077115e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t32",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t33",
+        "dbf_id": 121328,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>用1/1的混乱触须填满你的手牌。",
+        "text_en": "[x]<b>Battlecry:</b> Fill your hand\nwith 1/1 Chaotic Tendrils.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "916ab9baca9861a8b110f7bc8884c35714324fe1edfa2e6f5b2277d0ab26cae8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t33",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t34",
+        "dbf_id": 121329,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>迫使每个敌方随从分别随机攻击一个敌方随从。",
+        "text_en": "[x]<b>Battlecry:</b> Force each\nenemy minion to attack a\nrandom enemy minion.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "af01874c3adfe53c9c342603476c93c07e316ae88259b4dd2253708c2e64d717",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t34",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t35",
+        "dbf_id": 121330,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>夺取一个敌方随从的控制权。",
+        "text_en": "<b>Battlecry:</b> Take control\nof an enemy minion.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0a24c4e29628a0c9d3e812d5edb3237d3f269a7ea4a7c4f37097099db9ce12ab",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t35",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TLC_452",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-zh_CN.json",
+      "response_sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "在你的手牌中时， 随机获得一项<b>泰坦</b>技能。该技能每回合都会改变。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20fecdc830c197b2f7aa3362acb82ec30dc174a0b4a2df7dd55a773da103623a.png",
+        "imageGold": "",
+        "flavorText": "看看这张泰坦考据图吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=zh_CN",
+        "sha256": "e92af2f7a3b6b77a1ed231f2d3998db5b79c40d8dfd49d58023028abd4035464",
+        "bytes": 1035,
+        "observed_at": "2026-10-17T07:11:19.857812+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117956-en_US.json",
+      "response_sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+      "face": {
+        "id": 117956,
+        "collectible": 1,
+        "slug": "117956-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "Gains a random <b>Titan</b> ability in your hand that changes each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d30a2f1ceca7cf66cef3388dbaa577f60053667d5e06a113d1e5dc54dda6e4.png",
+        "imageGold": "",
+        "flavorText": "Look at this Titangraph.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a3f2858429a097f72997cc450b62d5240ae185aeb2462db6a354cc05ed82b8d.png",
+        "childIds": [
+          120714,
+          121297,
+          121298,
+          121299,
+          121300,
+          121301,
+          121302,
+          121303,
+          121304,
+          121308,
+          121309,
+          121310,
+          121311,
+          121312,
+          121313,
+          121314,
+          121315,
+          121316,
+          121317,
+          121318,
+          121319,
+          121321,
+          121322,
+          121323,
+          121324,
+          121325,
+          121326,
+          121327,
+          121328,
+          121329,
+          121330
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=117956&locale=en_US",
+        "sha256": "9bc3a3252840a91c8ca798d96b5506e8a8a0a891edbe9a211adcbb0322800a6e",
+        "bytes": 990,
+        "observed_at": "2026-10-17T07:11:20.085876+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-zh_CN.json",
+      "response_sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=zh_CN",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6701a1cb518f71420ac0dd47a4d4e1bd826a7c7c002255c2d40eaa4e8d4c1cab.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=zh_CN",
+        "sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+        "bytes": 658,
+        "observed_at": "2026-10-20T02:55:39.141658+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-en_US.json",
+      "response_sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=en_US",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. This minion and your hero gain its Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56516a2b9032e328041a12e6bf6388e1dcc490043addc7d23e9be1d90aeaefb6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=en_US",
+        "sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+        "bytes": 645,
+        "observed_at": "2026-10-20T02:55:39.446073+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121297-zh_CN.json",
+      "response_sha256": "a77df093f3b8135835b360b84fd824823316311be33711ce5db13ae6a9e97a16",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=zh_CN",
+      "face": {
+        "id": 121297,
+        "collectible": 0,
+        "slug": "121297-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3b995495a2e000bf2711f38a9389da8656444a829d864736dfb35c37e256726.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          2,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=zh_CN",
+        "sha256": "a77df093f3b8135835b360b84fd824823316311be33711ce5db13ae6a9e97a16",
+        "bytes": 679,
+        "observed_at": "2026-10-20T02:55:40.827050+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121297-en_US.json",
+      "response_sha256": "3be61e2333eee86c5b9fb9768f1c3ca363a90f92aaf8360c5f281824655edaa7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=en_US",
+      "face": {
+        "id": 121297,
+        "collectible": 0,
+        "slug": "121297-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> The next spell you cast costs (3) less and has <b>Spell Damage +3</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7eb3d0a96ea0515a3eac8f53db6fe4123a0136f27e38862ad09a5023db5529da.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          2,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=en_US",
+        "sha256": "3be61e2333eee86c5b9fb9768f1c3ca363a90f92aaf8360c5f281824655edaa7",
+        "bytes": 650,
+        "observed_at": "2026-10-20T02:55:41.112441+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121298-zh_CN.json",
+      "response_sha256": "2203b75486f3eda94f244f63b61b63c547748d0645c7eb9cc5196abcc600e8aa",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=zh_CN",
+      "face": {
+        "id": 121298,
+        "collectible": 0,
+        "slug": "121298-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca663bd91469f4aa64ca01013b95be33464a53c13335e4354c452bdeb7aac034.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          78,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=zh_CN",
+        "sha256": "2203b75486f3eda94f244f63b61b63c547748d0645c7eb9cc5196abcc600e8aa",
+        "bytes": 656,
+        "observed_at": "2026-10-17T07:25:35.067555+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121298-en_US.json",
+      "response_sha256": "97168aac11be5b6951c47b41f6bd8a9ae14ed74fb777b5f9adfe0eeba61db282",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=en_US",
+      "face": {
+        "id": 121298,
+        "collectible": 0,
+        "slug": "121298-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon two 3/3 Undead with <b>Taunt</b> and <b>Reborn</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2059224db8707cab5107fcdbeaa5cb3182d5e41a5f73a43ee507129ea859ef44.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          78,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121298&locale=en_US",
+        "sha256": "97168aac11be5b6951c47b41f6bd8a9ae14ed74fb777b5f9adfe0eeba61db282",
+        "bytes": 641,
+        "observed_at": "2026-10-17T07:25:35.025618+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121299-zh_CN.json",
+      "response_sha256": "cb1ceb3d431b4e94f1e271aea3f2531f0c3279944165efe33bc626179e056dd3",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121299&locale=zh_CN",
+      "face": {
+        "id": 121299,
+        "collectible": 0,
+        "slug": "121299-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>亡语</b>随从牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1724d3695ab2f45d9acb671bc01afd1d8fa8e5b46dd73f68b73d2461e004531.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          12,
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121299&locale=zh_CN",
+        "sha256": "cb1ceb3d431b4e94f1e271aea3f2531f0c3279944165efe33bc626179e056dd3",
+        "bytes": 673,
+        "observed_at": "2026-10-17T07:25:35.095327+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121299-en_US.json",
+      "response_sha256": "6cee8659265eab0cd739878a3eb3ca72b2e4abdc934ea7e41b64f8a521117f59",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121299&locale=en_US",
+      "face": {
+        "id": 121299,
+        "collectible": 0,
+        "slug": "121299-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a <b>Deathrattle</b> minion. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e7c3523cf8b37b3da07340adbc9d67e3c5b5efeb1cffcf1eac7e4041f58e637.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          12,
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121299&locale=en_US",
+        "sha256": "6cee8659265eab0cd739878a3eb3ca72b2e4abdc934ea7e41b64f8a521117f59",
+        "bytes": 647,
+        "observed_at": "2026-10-17T07:25:34.898192+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121300-zh_CN.json",
+      "response_sha256": "927967e040988ecaa1ef5fa649c868a439b04ea8c2dbff9e48a179464ff34ebd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121300&locale=zh_CN",
+      "face": {
+        "id": 121300,
+        "collectible": 0,
+        "slug": "121300-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b83717c9c7b9d6c80ee7a9dbe24cfceac9ac25ac8c5d7c4898db74d82498859.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121300&locale=zh_CN",
+        "sha256": "927967e040988ecaa1ef5fa649c868a439b04ea8c2dbff9e48a179464ff34ebd",
+        "bytes": 656,
+        "observed_at": "2026-10-17T07:25:35.611780+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121300-en_US.json",
+      "response_sha256": "0369fb2392f0d472c4e7bf0cfe3fcdd6377a4cfbf52f0ac76334dc8370558ff2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121300&locale=en_US",
+      "face": {
+        "id": 121300,
+        "collectible": 0,
+        "slug": "121300-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Reduce the Cost of all minions in your hand by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc010d4c35d6c76e4515aca494205a0794867baba37a0744ab855a70716d65f2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121300&locale=en_US",
+        "sha256": "0369fb2392f0d472c4e7bf0cfe3fcdd6377a4cfbf52f0ac76334dc8370558ff2",
+        "bytes": 629,
+        "observed_at": "2026-10-17T07:25:35.925657+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121301-zh_CN.json",
+      "response_sha256": "10cb5f07194bdd446806ea501f150f2faae452adc7f89a9f95f234a7b21fad24",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=zh_CN",
+      "face": {
+        "id": 121301,
+        "collectible": 0,
+        "slug": "121301-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f76be7bbf925dfa143ba57405e20c38a8d14b38a0dd5d2211e735b3226e31d8c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=zh_CN",
+        "sha256": "10cb5f07194bdd446806ea501f150f2faae452adc7f89a9f95f234a7b21fad24",
+        "bytes": 637,
+        "observed_at": "2026-10-17T07:25:35.989276+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121301-en_US.json",
+      "response_sha256": "6d6672688409c4d8993f81d42fb13aeb5c52247e17d99a68a15133cb6dbdbb77",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=en_US",
+      "face": {
+        "id": 121301,
+        "collectible": 0,
+        "slug": "121301-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/11e910cb50542f1aefe31600be8b4afab7ffd987d3d1092a6c005f4143e2eb98.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121301&locale=en_US",
+        "sha256": "6d6672688409c4d8993f81d42fb13aeb5c52247e17d99a68a15133cb6dbdbb77",
+        "bytes": 625,
+        "observed_at": "2026-10-17T07:25:35.930930+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t7",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121302-zh_CN.json",
+      "response_sha256": "c5f0d20db93cd3420e22fa52b7c68fdbf1d876ce24ddc01ad91c1b97623c9a1e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121302&locale=zh_CN",
+      "face": {
+        "id": 121302,
+        "collectible": 0,
+        "slug": "121302-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>抽牌直到手牌数量达到上限。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6fe1124710f3bcd1fb5e084de26719c30f009682c65685188934dc9efc50893.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121302&locale=zh_CN",
+        "sha256": "c5f0d20db93cd3420e22fa52b7c68fdbf1d876ce24ddc01ad91c1b97623c9a1e",
+        "bytes": 625,
+        "observed_at": "2026-10-17T07:11:15.272405+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t7",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121302-en_US.json",
+      "response_sha256": "052a92fe8cb6727848ea61327807501b4628a63b27982704a9805234f793558e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121302&locale=en_US",
+      "face": {
+        "id": 121302,
+        "collectible": 0,
+        "slug": "121302-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Draw cards until your hand is full.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b12019a24477da45578990fff0119824d8faabea1b68f0e808bad8389aad08b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121302&locale=en_US",
+        "sha256": "052a92fe8cb6727848ea61327807501b4628a63b27982704a9805234f793558e",
+        "bytes": 613,
+        "observed_at": "2026-10-17T07:11:15.100582+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t8",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121303-zh_CN.json",
+      "response_sha256": "7a71b89c4b1001d573ab05cf814f2f48f9d0ed34bd8b5c898edb4c099bd90320",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121303&locale=zh_CN",
+      "face": {
+        "id": 121303,
+        "collectible": 0,
+        "slug": "121303-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>为你的英雄恢复所有生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6855ed3a9b5d2651026b0102bfb2eecc30856cff92d65fdb3de5356b3da23d6e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121303&locale=zh_CN",
+        "sha256": "7a71b89c4b1001d573ab05cf814f2f48f9d0ed34bd8b5c898edb4c099bd90320",
+        "bytes": 625,
+        "observed_at": "2026-10-17T07:11:15.291961+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t8",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121303-en_US.json",
+      "response_sha256": "248b165b1d851986cb29333c47a0207c58b388ea5584899d1323859319ab0545",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121303&locale=en_US",
+      "face": {
+        "id": 121303,
+        "collectible": 0,
+        "slug": "121303-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Restore your hero to full Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/11a3843bc61d0e12734bd24ff96c1e6cdd799e741222f4d684e61d7dfd88d46b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121303&locale=en_US",
+        "sha256": "248b165b1d851986cb29333c47a0207c58b388ea5584899d1323859319ab0545",
+        "bytes": 611,
+        "observed_at": "2026-10-17T07:11:14.990516+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t9",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121304-zh_CN.json",
+      "response_sha256": "733efedd6a716d523aabef384fc2b667d3d8ecc8147cec91a9816b1a674dd3bd",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121304&locale=zh_CN",
+      "face": {
+        "id": 121304,
+        "collectible": 0,
+        "slug": "121304-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>复原你的法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8984ddc257a7ad2c5a6e16027480549b1a6242e5c6562f16ce12f2852c35c823.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121304&locale=zh_CN",
+        "sha256": "733efedd6a716d523aabef384fc2b667d3d8ecc8147cec91a9816b1a674dd3bd",
+        "bytes": 613,
+        "observed_at": "2026-10-17T07:11:15.891532+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t9",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121304-en_US.json",
+      "response_sha256": "bcaa636f570216f93026acc5247bb537e07428bcc2af038d29875acb9f1b5064",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121304&locale=en_US",
+      "face": {
+        "id": 121304,
+        "collectible": 0,
+        "slug": "121304-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Refresh your Mana Crystals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f154f15588b8058e8e56725860f0d762e0cc78951f33a220c2197e01570090c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121304&locale=en_US",
+        "sha256": "bcaa636f570216f93026acc5247bb537e07428bcc2af038d29875acb9f1b5064",
+        "bytes": 605,
+        "observed_at": "2026-10-17T07:11:15.918428+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t13",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121308-zh_CN.json",
+      "response_sha256": "c3c063676e20c8350a4d58206fac71c2237f28d5336f9d37823c4f0e340d2a00",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121308&locale=zh_CN",
+      "face": {
+        "id": 121308,
+        "collectible": 0,
+        "slug": "121308-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>造成5点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/463c18896dbda4b5424a495f6e2fd32bd6f4515182425ab78885b9c445856b61.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121308&locale=zh_CN",
+        "sha256": "c3c063676e20c8350a4d58206fac71c2237f28d5336f9d37823c4f0e340d2a00",
+        "bytes": 605,
+        "observed_at": "2026-10-17T07:11:16.487272+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t13",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121308-en_US.json",
+      "response_sha256": "ccfa3d0ecd6dc544f98ff2f415d6736e60cd368fc0a478b1b369417a6b37e68e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121308&locale=en_US",
+      "face": {
+        "id": 121308,
+        "collectible": 0,
+        "slug": "121308-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Deal 5 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30ae0009797b1d52db27f851dabbfcf8e3e95395f880a464f3c1bc295897b1a9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121308&locale=en_US",
+        "sha256": "ccfa3d0ecd6dc544f98ff2f415d6736e60cd368fc0a478b1b369417a6b37e68e",
+        "bytes": 592,
+        "observed_at": "2026-10-17T07:11:16.193517+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t14",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121309-zh_CN.json",
+      "response_sha256": "7a1850a2a14e4886f6586bf943550f757dad3f0ddf25fe67591f5fc5e96d24c1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121309&locale=zh_CN",
+      "face": {
+        "id": 121309,
+        "collectible": 0,
+        "slug": "121309-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>随机施放1个法师<b>奥秘</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2838b5d578ba6bfabf588b8264ccbce893800e0e30cf7e79dd9fb4f3081a68b2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          5,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121309&locale=zh_CN",
+        "sha256": "7a1850a2a14e4886f6586bf943550f757dad3f0ddf25fe67591f5fc5e96d24c1",
+        "bytes": 626,
+        "observed_at": "2026-10-17T07:11:17.004183+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t14",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121309-en_US.json",
+      "response_sha256": "18132d3a43b1c21f1987c3da88959f56eaeca5e7e23d6d701fdc78a5c07becfe",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121309&locale=en_US",
+      "face": {
+        "id": 121309,
+        "collectible": 0,
+        "slug": "121309-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Cast 1 random Mage <b>Secret</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50a0e3a79be49ed274e6ef14696b0e5457ebf30e94fbdff57acae23bfc7a5360.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          5,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121309&locale=en_US",
+        "sha256": "18132d3a43b1c21f1987c3da88959f56eaeca5e7e23d6d701fdc78a5c07becfe",
+        "bytes": 613,
+        "observed_at": "2026-10-17T07:11:16.745301+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t15",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121310-zh_CN.json",
+      "response_sha256": "d079151aea3ccf6b77ddd067e911baa5ca1f9afcfb8f465f2dededeef1eb6213",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121310&locale=zh_CN",
+      "face": {
+        "id": 121310,
+        "collectible": 0,
+        "slug": "121310-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>下个回合，敌方卡牌的法力值消耗增加（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7d21c38ef0f9d90be335d955f4d24a7cd8967aa37d74da759514c31278f613d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121310&locale=zh_CN",
+        "sha256": "d079151aea3ccf6b77ddd067e911baa5ca1f9afcfb8f465f2dededeef1eb6213",
+        "bytes": 650,
+        "observed_at": "2026-10-17T08:26:19.442079+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t15",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121310-en_US.json",
+      "response_sha256": "a224cae1fd5e9d906aa48e7f82b3b8189f7dd97a20c210be422740a65b523bf6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121310&locale=en_US",
+      "face": {
+        "id": 121310,
+        "collectible": 0,
+        "slug": "121310-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Enemy cards cost (1) more next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39f5193a85d0ac19c622e79bf686a8a7c0674367271ef24441a570b6ad782569.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121310&locale=en_US",
+        "sha256": "a224cae1fd5e9d906aa48e7f82b3b8189f7dd97a20c210be422740a65b523bf6",
+        "bytes": 614,
+        "observed_at": "2026-10-17T08:26:19.500013+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t16",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121311-zh_CN.json",
+      "response_sha256": "a8d847d9a1210e160fddfd8aa207151a561df2a7a9ef290e3f7c98ab17ad5a33",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121311&locale=zh_CN",
+      "face": {
+        "id": 121311,
+        "collectible": 0,
+        "slug": "121311-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>将所有敌方随从的攻击力和生命值变为2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9baaa4dd1344d06ee3c6dbe2e2fed36cbc3b03f40804025e1a1721db739beec3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121311&locale=zh_CN",
+        "sha256": "a8d847d9a1210e160fddfd8aa207151a561df2a7a9ef290e3f7c98ab17ad5a33",
+        "bytes": 641,
+        "observed_at": "2026-10-17T07:25:36.324128+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t16",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121311-en_US.json",
+      "response_sha256": "89888f468fb64ad192e17f81368e20a734d3ec8ab579f448d26c4efb9a7e3b5f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121311&locale=en_US",
+      "face": {
+        "id": 121311,
+        "collectible": 0,
+        "slug": "121311-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Set the Attack and Health of all enemy minions to 2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eda38323da54e18a4d3990bd93ec446b1a9cd80ef34be5ded3c75d541571ad5a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121311&locale=en_US",
+        "sha256": "89888f468fb64ad192e17f81368e20a734d3ec8ab579f448d26c4efb9a7e3b5f",
+        "bytes": 630,
+        "observed_at": "2026-10-17T07:25:36.777281+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t17",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121312-zh_CN.json",
+      "response_sha256": "d93db60523789a3132004c1a876965d0813efdde791a6e2bbd5a57784a2f339b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121312&locale=zh_CN",
+      "face": {
+        "id": 121312,
+        "collectible": 0,
+        "slug": "121312-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>使你的其他随从获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da430f534c560a48e1dea284590f1f7e83250353cc5a4f2b27eae456b2669229.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121312&locale=zh_CN",
+        "sha256": "d93db60523789a3132004c1a876965d0813efdde791a6e2bbd5a57784a2f339b",
+        "bytes": 621,
+        "observed_at": "2026-10-17T07:12:18.801797+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t17",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121312-en_US.json",
+      "response_sha256": "b0b33b02a70dbc4d26fb401031a20cc97878e4151286f3908af31d15ada0d9c1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121312&locale=en_US",
+      "face": {
+        "id": 121312,
+        "collectible": 0,
+        "slug": "121312-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Give your other minions +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/815d3953cdfb8488931a1f0a54a3edf3291249076d1eb54456913e876841a373.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121312&locale=en_US",
+        "sha256": "b0b33b02a70dbc4d26fb401031a20cc97878e4151286f3908af31d15ada0d9c1",
+        "bytes": 608,
+        "observed_at": "2026-10-17T07:12:19.023001+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t18",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121313-zh_CN.json",
+      "response_sha256": "b3a7a7035c285933bcd167ea3729fa0e03247d4b5ac8b2cf08f1bdece0938640",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121313&locale=zh_CN",
+      "face": {
+        "id": 121313,
+        "collectible": 0,
+        "slug": "121313-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>抽两张随从牌。将其攻击力，生命值和法力值消耗变为2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e74fbd20a604f5f9d9e4860fd4cb6e22b661a0093168c61cd70ed54bd1a5987.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121313&locale=zh_CN",
+        "sha256": "b3a7a7035c285933bcd167ea3729fa0e03247d4b5ac8b2cf08f1bdece0938640",
+        "bytes": 662,
+        "observed_at": "2026-10-20T02:55:39.301206+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t18",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121313-en_US.json",
+      "response_sha256": "a66bc199d50201dc2f6f2495127a9bfbd8e3fb4a4a9cf782b1c2ae72364acffa",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121313&locale=en_US",
+      "face": {
+        "id": 121313,
+        "collectible": 0,
+        "slug": "121313-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Draw 2 minions. Set their Attack, Health, and Cost to 2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b2128acf3da6d72222d569241bdc951cae576c00873b13edb541647d553b9218.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121313&locale=en_US",
+        "sha256": "a66bc199d50201dc2f6f2495127a9bfbd8e3fb4a4a9cf782b1c2ae72364acffa",
+        "bytes": 634,
+        "observed_at": "2026-10-20T02:55:39.166424+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t19",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121314-zh_CN.json",
+      "response_sha256": "5cf67b15a801e9eeab682c14d829565306041d767c9e20912748f3b73b44090e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121314&locale=zh_CN",
+      "face": {
+        "id": 121314,
+        "collectible": 0,
+        "slug": "121314-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>选择一个非<b>泰坦</b>随从，召唤一个具有+2/+2的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95e52a71d0ff9bfa79e4051afa08467f0f2ca42ea12dfca88ee00b4baf4e8638.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121314&locale=zh_CN",
+        "sha256": "5cf67b15a801e9eeab682c14d829565306041d767c9e20912748f3b73b44090e",
+        "bytes": 658,
+        "observed_at": "2026-10-20T02:55:40.798426+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t19",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121314-en_US.json",
+      "response_sha256": "3fdd733e4df2549470424760ecdab088578de92c24d47e575ae2bf1d804e4720",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121314&locale=en_US",
+      "face": {
+        "id": 121314,
+        "collectible": 0,
+        "slug": "121314-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Choose a non-<b>Titan</b> minion. Summon a copy of it with +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2b1068ebbf62978e804c3792539c096a9a66bed42301d9c49f8a44a6e37dc8f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121314&locale=en_US",
+        "sha256": "3fdd733e4df2549470424760ecdab088578de92c24d47e575ae2bf1d804e4720",
+        "bytes": 643,
+        "observed_at": "2026-10-20T02:55:40.686102+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t20",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121315-zh_CN.json",
+      "response_sha256": "173375994c98d7a02a7faaa8d64aa6a22aba0cb27ed172c1b1a922eac39d66e4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121315&locale=zh_CN",
+      "face": {
+        "id": 121315,
+        "collectible": 0,
+        "slug": "121315-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>随机召唤一个法力值消耗为（6）的随从。使其获得<b>嘲讽</b>和<b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18ef8ba2b786d89f7e69136b1b1de6e8f280de991b800e7f3f19f8ea92403ca9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          38,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121315&locale=zh_CN",
+        "sha256": "173375994c98d7a02a7faaa8d64aa6a22aba0cb27ed172c1b1a922eac39d66e4",
+        "bytes": 690,
+        "observed_at": "2026-10-17T07:25:36.629241+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t20",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121315-en_US.json",
+      "response_sha256": "5e673e688093abaecddbb665510d5da428e85b01a59df36bbe1ae5ee552cd3d0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121315&locale=en_US",
+      "face": {
+        "id": 121315,
+        "collectible": 0,
+        "slug": "121315-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon a random 6-Cost minion. Give it <b>Taunt</b> and <b>Lifesteal</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b67b013a75c00b6becd987e76e10dd525e75ab306b9a841ed3afaf89890adec.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          1,
+          8,
+          38,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121315&locale=en_US",
+        "sha256": "5e673e688093abaecddbb665510d5da428e85b01a59df36bbe1ae5ee552cd3d0",
+        "bytes": 656,
+        "observed_at": "2026-10-17T07:25:36.857129+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t21",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121316-zh_CN.json",
+      "response_sha256": "b384682c6a1a23801c3ecbc398523ea334993849a3cf49fae9350255fa06e950",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121316&locale=zh_CN",
+      "face": {
+        "id": 121316,
+        "collectible": 0,
+        "slug": "121316-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>选择两个敌方随从，将其移出对战。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59dd8067c1d09e591ca811c27cfe682f040e536ea9c40e67e1e15fee341d95fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121316&locale=zh_CN",
+        "sha256": "b384682c6a1a23801c3ecbc398523ea334993849a3cf49fae9350255fa06e950",
+        "bytes": 634,
+        "observed_at": "2026-10-17T07:55:25.344532+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t21",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121316-en_US.json",
+      "response_sha256": "8b986de4051cb0e9dd3a464417d826b8ed998d807e224d2b6cb16ec667c5e84b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121316&locale=en_US",
+      "face": {
+        "id": 121316,
+        "collectible": 0,
+        "slug": "121316-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Choose two enemy minions. Remove them from the game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5824a366b2e087007215ddd2e7cc808730e09f1d8895968f5d57da3cecc2f1c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121316&locale=en_US",
+        "sha256": "8b986de4051cb0e9dd3a464417d826b8ed998d807e224d2b6cb16ec667c5e84b",
+        "bytes": 630,
+        "observed_at": "2026-10-17T07:55:25.272594+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t22",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121317-zh_CN.json",
+      "response_sha256": "213a38a1c4f9f706d32c54adb7fa7a987235a98abf4d9c781ae996a6256c99b1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121317&locale=zh_CN",
+      "face": {
+        "id": 121317,
+        "collectible": 0,
+        "slug": "121317-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+2/+1。随机对一个敌人造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1c0f064f35b491dd04108fb1e2880f0ed95c01927a75cb4b5a540f4b490a2b1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121317&locale=zh_CN",
+        "sha256": "213a38a1c4f9f706d32c54adb7fa7a987235a98abf4d9c781ae996a6256c99b1",
+        "bytes": 640,
+        "observed_at": "2026-10-17T07:25:37.026498+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t22",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121317-en_US.json",
+      "response_sha256": "a85eb8405fdd5e1c0b8e88dbc0ba245808b02b3b67399ff4f97d2143f595cf7a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121317&locale=en_US",
+      "face": {
+        "id": 121317,
+        "collectible": 0,
+        "slug": "121317-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +2/+1. Deal 4 damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dbba08ec60b15f7303a2407ff12be384f2af0f79c93a2ca15957f489dd30fc3e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121317&locale=en_US",
+        "sha256": "a85eb8405fdd5e1c0b8e88dbc0ba245808b02b3b67399ff4f97d2143f595cf7a",
+        "bytes": 622,
+        "observed_at": "2026-10-17T07:25:37.350454+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t23",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121318-zh_CN.json",
+      "response_sha256": "7811ecaf5743700e9c08076e59c34e40f6c38d480fb4bc442a975cac01ec673a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121318&locale=zh_CN",
+      "face": {
+        "id": 121318,
+        "collectible": 0,
+        "slug": "121318-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+1/+2。抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d30ae4e79bceaba600ff5ff7f2e3936e3c92140cfdfcebaeef42bd43dc2b4bca.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121318&locale=zh_CN",
+        "sha256": "7811ecaf5743700e9c08076e59c34e40f6c38d480fb4bc442a975cac01ec673a",
+        "bytes": 615,
+        "observed_at": "2026-10-17T07:11:16.914725+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t23",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121318-en_US.json",
+      "response_sha256": "3776cd6819c4b20274ac099acae3ee24b401f6dfb31809382ef361f37f3da502",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121318&locale=en_US",
+      "face": {
+        "id": 121318,
+        "collectible": 0,
+        "slug": "121318-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +1/+2. Draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2cef3784c2a550f211b9fde440bac674dc04066100bda3faf97bcb3b2f915eb2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121318&locale=en_US",
+        "sha256": "3776cd6819c4b20274ac099acae3ee24b401f6dfb31809382ef361f37f3da502",
+        "bytes": 602,
+        "observed_at": "2026-10-17T07:11:17.204021+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t24",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121319-zh_CN.json",
+      "response_sha256": "6c8c178297dc754880f48566b1c1ae8a22cc0810b10a89c14ec925c75d0fb887",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121319&locale=zh_CN",
+      "face": {
+        "id": 121319,
+        "collectible": 0,
+        "slug": "121319-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+3生命值和<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30f4ea12f8a773c56f5291e9cb9c77fd35e14f140566a37eb99c934535081071.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          265,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121319&locale=zh_CN",
+        "sha256": "6c8c178297dc754880f48566b1c1ae8a22cc0810b10a89c14ec925c75d0fb887",
+        "bytes": 626,
+        "observed_at": "2026-10-17T07:11:17.640341+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t24",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121319-en_US.json",
+      "response_sha256": "5317e9d94762d7ae8d6b7ae3fd72e5c344697fdc7356ed281d4441eea46ca8d4",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121319&locale=en_US",
+      "face": {
+        "id": 121319,
+        "collectible": 0,
+        "slug": "121319-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +3 Health and <b>Elusive</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a53611bdd53f8b3dd865a2994849eb2c80586aeb4c345894fd05cdfd0c476bf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          265,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121319&locale=en_US",
+        "sha256": "5317e9d94762d7ae8d6b7ae3fd72e5c344697fdc7356ed281d4441eea46ca8d4",
+        "bytes": 616,
+        "observed_at": "2026-10-17T07:11:17.635913+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t26",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121321-zh_CN.json",
+      "response_sha256": "acb9a8a65a9cf8fea3304d0d70645f8b3df6b00204aa1e3d5e1216f20c276fc6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121321&locale=zh_CN",
+      "face": {
+        "id": 121321,
+        "collectible": 0,
+        "slug": "121321-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>对另一个随从造成20点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9df75aa45dada0d2d857d27610102c531d9579cb023c24aab66021f9ec34179b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121321&locale=zh_CN",
+        "sha256": "acb9a8a65a9cf8fea3304d0d70645f8b3df6b00204aa1e3d5e1216f20c276fc6",
+        "bytes": 624,
+        "observed_at": "2026-10-17T07:11:17.713698+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t26",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121321-en_US.json",
+      "response_sha256": "1f63966b106cf57d2acf277346aa4dd8cdac939c5c90c402cbc7a42275615229",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121321&locale=en_US",
+      "face": {
+        "id": 121321,
+        "collectible": 0,
+        "slug": "121321-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Deal 20 damage to another minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30a498190a48a65b71ae92fc253ef836c21679a6886f21082188f70de2e72a1e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121321&locale=en_US",
+        "sha256": "1f63966b106cf57d2acf277346aa4dd8cdac939c5c90c402cbc7a42275615229",
+        "bytes": 611,
+        "observed_at": "2026-10-17T07:11:18.173916+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t27",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121322-zh_CN.json",
+      "response_sha256": "687db5a76cd00ed375e7adb9723026e10aad465c06f32801085700c71ea662ac",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121322&locale=zh_CN",
+      "face": {
+        "id": 121322,
+        "collectible": 0,
+        "slug": "121322-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>对所有敌人造成3点伤害，为所有友方角色恢复6点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcb29b305b99fed0ab6c2be97c2b311c4d90c66f7411491f2b69f8f592fad7ee.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121322&locale=zh_CN",
+        "sha256": "687db5a76cd00ed375e7adb9723026e10aad465c06f32801085700c71ea662ac",
+        "bytes": 663,
+        "observed_at": "2026-10-17T07:25:37.498930+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t27",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121322-en_US.json",
+      "response_sha256": "6b17aadb65c2d654c6da65c0f861a3c2c1c6441fa1a1b25fe9f3de180ae1c7b2",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121322&locale=en_US",
+      "face": {
+        "id": 121322,
+        "collectible": 0,
+        "slug": "121322-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Deal 3 damage to all enemies and restore 6 Health to all friendly characters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af618a3a5b2c4dee56125a878a421d3429584ada71709426d6edf352b792b40b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121322&locale=en_US",
+        "sha256": "6b17aadb65c2d654c6da65c0f861a3c2c1c6441fa1a1b25fe9f3de180ae1c7b2",
+        "bytes": 655,
+        "observed_at": "2026-10-17T07:25:37.554305+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t28",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121323-zh_CN.json",
+      "response_sha256": "43c897d33a859c8d37057cbc8f6ce7767232ba5c4a72be2b499f2e6bb90c432f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=zh_CN",
+      "face": {
+        "id": 121323,
+        "collectible": 0,
+        "slug": "121323-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>召唤两个6/6的地狱火。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17c5ef289edfd14f489ae618c266064fbab7bf7205a1362cb2e891f06502e70b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=zh_CN",
+        "sha256": "43c897d33a859c8d37057cbc8f6ce7767232ba5c4a72be2b499f2e6bb90c432f",
+        "bytes": 616,
+        "observed_at": "2026-10-17T07:25:37.758209+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t28",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121323-en_US.json",
+      "response_sha256": "c4f1613441b76ca11e4c88375a0103e5c903c73b9df3f321b153ffe6dfab3065",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=en_US",
+      "face": {
+        "id": 121323,
+        "collectible": 0,
+        "slug": "121323-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Summon two 6/6 Infernals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a42484cbf3e612d62282b3c76ad4147a790ce16ddd6dd4f7d821b61cc5ef962.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121323&locale=en_US",
+        "sha256": "c4f1613441b76ca11e4c88375a0103e5c903c73b9df3f321b153ffe6dfab3065",
+        "bytes": 603,
+        "observed_at": "2026-10-17T07:25:38.060311+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t29",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121324-zh_CN.json",
+      "response_sha256": "a5619edf64786536086c62616f297ba22eeb5a0a7c19eb492e1559dcc5ffe8a7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121324&locale=zh_CN",
+      "face": {
+        "id": 121324,
+        "collectible": 0,
+        "slug": "121324-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>将所有其他随从送入扭曲虚空。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd85d15bf33ba6859339111542eb82443d1570b31b059a3fd93a3ad15dbb7314.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121324&locale=zh_CN",
+        "sha256": "a5619edf64786536086c62616f297ba22eeb5a0a7c19eb492e1559dcc5ffe8a7",
+        "bytes": 628,
+        "observed_at": "2026-10-17T07:55:25.439016+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t29",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121324-en_US.json",
+      "response_sha256": "61a44ead8954224d11fa390d632cddab289ab0f93c97cae87a0163071eaa2b07",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121324&locale=en_US",
+      "face": {
+        "id": 121324,
+        "collectible": 0,
+        "slug": "121324-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Send all other minions into the Twisting Nether.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4c3899f2d7c7d9306688d707fb7f26fdec5ab9369078a4ced5611b6bd402b64.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121324&locale=en_US",
+        "sha256": "61a44ead8954224d11fa390d632cddab289ab0f93c97cae87a0163071eaa2b07",
+        "bytes": 626,
+        "observed_at": "2026-10-17T07:55:25.526022+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t30",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121325-zh_CN.json",
+      "response_sha256": "5769db9b4a572fb78259a6a5cc3f366d3f03866fe6fc1ff0e6f37df224f653d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121325&locale=zh_CN",
+      "face": {
+        "id": 121325,
+        "collectible": 0,
+        "slug": "121325-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+5生命值。使你的英雄获得5点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a12c2f39c4f700dd74308a83ec3c6c83cd09b2caaeec6e971c1aa3caf17b90b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121325&locale=zh_CN",
+        "sha256": "5769db9b4a572fb78259a6a5cc3f366d3f03866fe6fc1ff0e6f37df224f653d1",
+        "bytes": 643,
+        "observed_at": "2026-10-17T07:12:18.828699+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t30",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121325-en_US.json",
+      "response_sha256": "8c6b03f09295e1bf980567b9d893f8cff3f34028b6dfe520993d452fe355963c",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121325&locale=en_US",
+      "face": {
+        "id": 121325,
+        "collectible": 0,
+        "slug": "121325-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +5 Health. Give your hero 5 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a1eb9c5d8ccb799e2d44791cfb1b64d8e936ed1a7de122feeeffe89d8b4f922.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121325&locale=en_US",
+        "sha256": "8c6b03f09295e1bf980567b9d893f8cff3f34028b6dfe520993d452fe355963c",
+        "bytes": 617,
+        "observed_at": "2026-10-17T07:12:19.273753+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t31",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121326-zh_CN.json",
+      "response_sha256": "169132877767d94db23932ed061180adc5eaf59707aaac67c7cb1b15207d908e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121326&locale=zh_CN",
+      "face": {
+        "id": 121326,
+        "collectible": 0,
+        "slug": "121326-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+5攻击力。在本回合中， 使你的英雄获得+5攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fefc70fe579880d3faee9320cda35c2664ff66ecad15a0750a6f1b4e272c8da.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121326&locale=zh_CN",
+        "sha256": "169132877767d94db23932ed061180adc5eaf59707aaac67c7cb1b15207d908e",
+        "bytes": 660,
+        "observed_at": "2026-10-17T07:12:19.527685+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t31",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121326-en_US.json",
+      "response_sha256": "bb55175c7d5020aaf3b44fee77d660b281f398561dd2e2f955b0d127e5aaa1b6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121326&locale=en_US",
+      "face": {
+        "id": 121326,
+        "collectible": 0,
+        "slug": "121326-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +5 Attack. Give your hero +5 Attack this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82c7a2d47126f2956ff902256a4cfd156be34575e3ff21cb72d58ca943b675a3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121326&locale=en_US",
+        "sha256": "bb55175c7d5020aaf3b44fee77d660b281f398561dd2e2f955b0d127e5aaa1b6",
+        "bytes": 629,
+        "observed_at": "2026-10-17T07:12:19.716707+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t32",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121327-zh_CN.json",
+      "response_sha256": "87d436c9847a2e39fb0571db834dc66758a887fa7657aaa346a4c234a36a6468",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121327&locale=zh_CN",
+      "face": {
+        "id": 121327,
+        "collectible": 0,
+        "slug": "121327-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>获得+2/+2。抽一张武器牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/036a9248c92984b28d03e83cc4b382aea3f8acefc6ed59cb7bb5a132f4f32424.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121327&locale=zh_CN",
+        "sha256": "87d436c9847a2e39fb0571db834dc66758a887fa7657aaa346a4c234a36a6468",
+        "bytes": 621,
+        "observed_at": "2026-10-17T07:25:38.221432+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t32",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121327-en_US.json",
+      "response_sha256": "b537af9b1c347b85df86ba8b401ff81305769b184c5c367e525d1cc394443d79",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121327&locale=en_US",
+      "face": {
+        "id": 121327,
+        "collectible": 0,
+        "slug": "121327-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Gain +2/+2. Draw a weapon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a50864857d483e7d0818d0b718f06869d390a6c782b75c849d15d91d6a0a2a42.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121327&locale=en_US",
+        "sha256": "b537af9b1c347b85df86ba8b401ff81305769b184c5c367e525d1cc394443d79",
+        "bytes": 604,
+        "observed_at": "2026-10-17T07:25:38.286936+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t33",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121328-zh_CN.json",
+      "response_sha256": "4f27242933e210bf94bbc35ceb4d27bed3948bc1b8eb4129da0d549773dcf382",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121328&locale=zh_CN",
+      "face": {
+        "id": 121328,
+        "collectible": 0,
+        "slug": "121328-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>用1/1的混乱触须填满你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d361eec18ec48292b64b3a7cc8617c06b2cee2b97804e7cbdfd928d2e66792d1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121328&locale=zh_CN",
+        "sha256": "4f27242933e210bf94bbc35ceb4d27bed3948bc1b8eb4129da0d549773dcf382",
+        "bytes": 628,
+        "observed_at": "2026-10-20T02:55:42.391678+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t33",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121328-en_US.json",
+      "response_sha256": "90187c00dec88833c2f9555f59e7592818ba007bc59507b93de7df71309eb21d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121328&locale=en_US",
+      "face": {
+        "id": 121328,
+        "collectible": 0,
+        "slug": "121328-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Fill your hand with 1/1 Chaotic Tendrils.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73a22d0d1e932270c2bf09c7c0d788064d04895a10f9c8dc67784152945cd10d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121328&locale=en_US",
+        "sha256": "90187c00dec88833c2f9555f59e7592818ba007bc59507b93de7df71309eb21d",
+        "bytes": 619,
+        "observed_at": "2026-10-20T02:55:42.366743+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t34",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121329-zh_CN.json",
+      "response_sha256": "f344b9bf95429452f94b33dde2cc426a6025fd3cab033f7536282ea0511367b0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121329&locale=zh_CN",
+      "face": {
+        "id": 121329,
+        "collectible": 0,
+        "slug": "121329-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>迫使每个敌方随从分别随机攻击一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeb8e8787da49cca26844046e75fff2835fa8b8774a9e36f090aa20678c7ede3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121329&locale=zh_CN",
+        "sha256": "f344b9bf95429452f94b33dde2cc426a6025fd3cab033f7536282ea0511367b0",
+        "bytes": 649,
+        "observed_at": "2026-10-20T02:56:42.816844+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t34",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121329-en_US.json",
+      "response_sha256": "fe50a486b8c3d01a8e8149a79f1e6a8dfa4a08e7ed017a2e31dfa5bcf5c03563",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121329&locale=en_US",
+      "face": {
+        "id": 121329,
+        "collectible": 0,
+        "slug": "121329-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Force each enemy minion to attack a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a245589ec2d9be71153a17147abc05299e8cd91db0cebaaa0d8a7364d6b993b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121329&locale=en_US",
+        "sha256": "fe50a486b8c3d01a8e8149a79f1e6a8dfa4a08e7ed017a2e31dfa5bcf5c03563",
+        "bytes": 634,
+        "observed_at": "2026-10-20T02:56:42.640283+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t35",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121330-zh_CN.json",
+      "response_sha256": "d005ec4b15c3550d90719ef2c169f2086e6925efb602bea512ac88b3235e03d5",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121330&locale=zh_CN",
+      "face": {
+        "id": 121330,
+        "collectible": 0,
+        "slug": "121330-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>夺取一个敌方随从的控制权。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97ddde0f1a8fdae833cebad0a15d85f4ae347154ccdc658804d4d55046770794.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121330&locale=zh_CN",
+        "sha256": "d005ec4b15c3550d90719ef2c169f2086e6925efb602bea512ac88b3235e03d5",
+        "bytes": 625,
+        "observed_at": "2026-10-17T07:11:18.352071+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t35",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121330-en_US.json",
+      "response_sha256": "f20afd918572696b44dfb9c18e6596e38c7f65b3c0a809df40e5cef791928f45",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121330&locale=en_US",
+      "face": {
+        "id": 121330,
+        "collectible": 0,
+        "slug": "121330-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Take control of an enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7387062c1704370506e26590053116fb1093a27cce7c01d71781cdb1894bb62.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=121330&locale=en_US",
+        "sha256": "f20afd918572696b44dfb9c18e6596e38c7f65b3c0a809df40e5cef791928f45",
+        "bytes": 610,
+        "observed_at": "2026-10-17T07:11:18.636850+00:00"
+      }
+    }
+  ],
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "forms": [
+    "TLC_452t1",
+    "TLC_452t2",
+    "TLC_452t3",
+    "TLC_452t4",
+    "TLC_452t5",
+    "TLC_452t6",
+    "TLC_452t7",
+    "TLC_452t8",
+    "TLC_452t9",
+    "TLC_452t13",
+    "TLC_452t14",
+    "TLC_452t15",
+    "TLC_452t16",
+    "TLC_452t17",
+    "TLC_452t18",
+    "TLC_452t19",
+    "TLC_452t20",
+    "TLC_452t21",
+    "TLC_452t22",
+    "TLC_452t23",
+    "TLC_452t24",
+    "TLC_452t26",
+    "TLC_452t27",
+    "TLC_452t28",
+    "TLC_452t29",
+    "TLC_452t30",
+    "TLC_452t31",
+    "TLC_452t32",
+    "TLC_452t33",
+    "TLC_452t34",
+    "TLC_452t35"
+  ]
+}
