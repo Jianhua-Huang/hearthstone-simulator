@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原生学生使用CarvedSpellProfile(teaching=True)及CreateStudentDiscovery，先获取学生，再由原记忆型发现教给该实体；不要在选择后补造替身。完整过去池及原生命周期见[教学契约](m3-student-teaching.md)。
+
 需要两阶段原部件制造时使用CraftMinion及独立完整宿主池；不可从受审捐赠适配集合反推生成资格。原费用预算、首次持龙减费、选择/恢复及玩家边界见[来源契约](m3-crafted-minion-offers.md)，最终交付仍用普通AddToHand。
 
 真实造物用CraftedMinionBlueprint/Recipe及显式部件捐赠审核解析完整新卡面；不要用普通已实现列表冒充专属池，或把合计身材写成沉默会移除的增益。完整来源与接口边界见[契约](m3-crafted-minion-faces.md)。

@@ -14,11 +14,14 @@ class CarvedSpellProfile:
     card_id: str
     source_card_id: str
     school: SpellSchool | None = None
+    teaching: bool = False
 
     def __post_init__(self):
         _name(self.card_id,'carved carrier');_name(self.source_card_id,'carved source')
         if self.school is not None and type(self.school) is not SpellSchool:
             raise ValueError('Carved spell school requires its original enum')
+        if type(self.teaching)is not bool or self.teaching and self.school is not None:
+            raise ValueError('Native student teaching requires its explicit any-school profile')
 
 
 def validate_profile(registry,profile):

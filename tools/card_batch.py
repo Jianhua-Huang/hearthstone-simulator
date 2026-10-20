@@ -211,8 +211,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         canonical(row) == 'cd319168db51490cfc038bcdaba343e7178c57fe6b3b00745df0ef326fa536cb')
     # A carved Treant's actual spell is native runtime material, not an empty
     # Battlecry. Only this full pinned source may omit its live spell name.
-    carved_spell_display = (display_normalizations == {'{0}': ''} and row['id'] == 'MEND_046t' and
-        canonical(row) == '270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a')
+    carved_spell_display = (display_normalizations == {'{0}': ''} and canonical(row) == {
+        'MEND_046t': '270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a',
+        'TIME_704t': 'b76ce848596c774d48234e85471174592985a622dd052ed49aaea172ff60daeb',
+    }.get(row['id']))
     # Specimen Jar's gallery retains both complete empty/filled bodies; only
     # their delimiter and the runtime captive name are absent.
     jar_name_display = (display_normalizations == {'@': '', '{5}': ''} and row['id'] == 'TLC_841t' and

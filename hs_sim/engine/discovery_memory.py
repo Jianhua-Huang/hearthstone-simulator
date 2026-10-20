@@ -32,6 +32,9 @@ class DeathrattleDiscoveryTarget:
 
 
 def validate_spec(spec):
+    from .student_teaching import StudentTeachingTarget,validate_spec as validate_student
+    if type(spec)is DiscoverFromPool and type(spec.memory_target)is StudentTeachingTarget:
+        return validate_student(spec)
     if type(spec) is not DiscoverFromPool or type(spec.memory_target) is not DeathrattleDiscoveryTarget:
         raise ValueError('Memory discovery requires its typed original native target')
     spec.memory_target.__post_init__()
@@ -44,6 +47,9 @@ def validate_spec(spec):
 
 
 def validate_target(state, registry, spec, *, active=True):
+    from .student_teaching import StudentTeachingTarget,validate_target as validate_student
+    if type(spec.memory_target)is StudentTeachingTarget:
+        return validate_student(state,registry,spec,active=active)
     validate_spec(spec); target = spec.memory_target
     from .battlecries import battlecry_record
     from .deathrattle_memory import validate_reference
@@ -83,6 +89,8 @@ def validate_link(state, registry, link):
 
 def apply_selection(r, effect):
     spec = effect.batch.spec
+    from .student_teaching import StudentTeachingTarget,apply_selection as teach_student
+    if type(spec.memory_target)is StudentTeachingTarget:return teach_student(r,effect)
     validate_target(r.state, r.registry, spec)
     from .card_discoveries import require_original_result
     from .deathrattle_memory import validate_ability

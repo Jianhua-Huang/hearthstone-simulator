@@ -1,0 +1,734 @@
+{
+  "schema": 1,
+  "batch": "K299-highborne-student",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_704",
+        "dbf_id": 120761,
+        "name": "上层精灵教师",
+        "name_en": "Highborne Mentor",
+        "text": "<b>战吼：</b>获取一张2/2的小学生。<b>发现</b>一个来自过去的法力值消耗大于或等于（7）点的法术，教会小学生。",
+        "text_en": "[x]<b>Battlecry:</b> Get a 2/2 Pupil.\n<b>Discover</b> a spell that costs\n(7) or more from the past\nto teach it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "ee830b280d190f5b63558aa4588e726a0f20d523b660bdc56c923c3b979dd042",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_704",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_704t",
+        "dbf_id": 122590,
+        "name": "上层精灵小学生",
+        "name_en": "Highborne Pupil",
+        "text": "<b>战吼：</b>施放{0}。",
+        "text_en": "<b>Battlecry:</b> Cast {0}.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "b76ce848596c774d48234e85471174592985a622dd052ed49aaea172ff60daeb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_704t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_183",
+        "dbf_id": 54833,
+        "name": "野性赐福",
+        "name_en": "Gift of the Wild",
+        "text": "使你的所有随从获得+2/+2和\n<b>嘲讽</b>。",
+        "text_en": "Give your minions +2/+2 and <b>Taunt</b>.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "de14b164d5c23b06a962a4af9dccc85f84d0d64af335dc6348f4abf43c624663",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "EX1_183",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    },
+    {
+      "record": {
+        "id": "ULD_273",
+        "dbf_id": 53979,
+        "name": "溢流",
+        "name_en": "Overflow",
+        "text": "为所有角色恢复#5点生命值。抽五张牌。",
+        "text_en": "Restore #5 Health\nto all characters.\nDraw 5 cards.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1158,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "dc6b2ad06c44267b13869c4ee696f2a29283f0d49cfa9ea5896a8afb07eaf58d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ULD_273",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "nature"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "EX1_279",
+        "dbf_id": 1087,
+        "name": "炎爆术",
+        "name_en": "Pyroblast",
+        "text": "造成$10点伤害。",
+        "text_en": "Deal $10 damage.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "b1bcc6a00131654a702542b137bef6bec0773cb4e1930d132c07e9421ab100da",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EX1_279",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_704",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120761-zh_CN.json",
+      "response_sha256": "246580a8a4205ed2c2b44e1ccd2ecd4ebd5b714ae6014772cf3a9e96f0e111f8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120761&locale=zh_CN",
+      "face": {
+        "id": 120761,
+        "collectible": 1,
+        "slug": "120761-highborne-mentor",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "上层精灵教师",
+        "text": "<b>战吼：</b>获取一张2/2的小学生。<b>发现</b>一个来自过去的法力值消耗大于或等于（7）点的法术，教会小学生。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40eedc6e8d65907fdaef718844b0c365314fe62690fa8a6dece1cf80d0becbf5.png",
+        "imageGold": "",
+        "flavorText": "随堂测验考的永远都是冷门难题。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/beb4a1e824975be777ce64cfca40ad3c797c33c886bb6ce1928b959d0ccee238.png",
+        "childIds": [
+          122590
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120761&locale=zh_CN",
+        "sha256": "246580a8a4205ed2c2b44e1ccd2ecd4ebd5b714ae6014772cf3a9e96f0e111f8",
+        "bytes": 885,
+        "observed_at": "2026-10-20T01:53:45.758610+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_704",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120761-en_US.json",
+      "response_sha256": "147b49819e26d86154a8924d5114bf1b7022841be14865a9be55614e29930bd9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120761&locale=en_US",
+      "face": {
+        "id": 120761,
+        "collectible": 1,
+        "slug": "120761-highborne-mentor",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Highborne Mentor",
+        "text": "<b>Battlecry:</b> Get a 2/2 Pupil. <b>Discover</b> a spell that costs (7) or more from the past to teach it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9ba5783032e88e2ce542e5bf099eb1020cce2203346369dd15478d1749a2045.png",
+        "imageGold": "",
+        "flavorText": "Always gives pop quizzes about the most obscure subjects.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/beb4a1e824975be777ce64cfca40ad3c797c33c886bb6ce1928b959d0ccee238.png",
+        "childIds": [
+          122590
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120761&locale=en_US",
+        "sha256": "147b49819e26d86154a8924d5114bf1b7022841be14865a9be55614e29930bd9",
+        "bytes": 853,
+        "observed_at": "2026-10-20T01:53:45.746669+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_704t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122590-zh_CN.json",
+      "response_sha256": "85e651cb50293179ac4b9c8f6833849d36c5d6dd0f30e7464f72075c1810a88e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122590&locale=zh_CN",
+      "face": {
+        "id": 122590,
+        "collectible": 0,
+        "slug": "122590-highborne-pupil",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "上层精灵小学生",
+        "text": "<b>战吼：</b>施放 。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59bb37f857f7464648324b9820a1f1c3aed72b5c37531bf01f0f6db4da246bfc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120761,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122590&locale=zh_CN",
+        "sha256": "85e651cb50293179ac4b9c8f6833849d36c5d6dd0f30e7464f72075c1810a88e",
+        "bytes": 600,
+        "observed_at": "2026-10-20T01:53:45.667192+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_704t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122590-en_US.json",
+      "response_sha256": "2250f0f69d996a0f49eb01f8e23db1f9c9f7d4746b087d07894cd07005cc9a66",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122590&locale=en_US",
+      "face": {
+        "id": 122590,
+        "collectible": 0,
+        "slug": "122590-highborne-pupil",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Highborne Pupil",
+        "text": "<b>Battlecry:</b> Cast .",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27d31a0b7ee7b858290ace322c3d0cf29f28c63b26fbbc77d87cdfba1a4ec2af.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120761,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122590&locale=en_US",
+        "sha256": "2250f0f69d996a0f49eb01f8e23db1f9c9f7d4746b087d07894cd07005cc9a66",
+        "bytes": 592,
+        "observed_at": "2026-10-20T01:53:45.987314+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_183",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\54833-zh_CN.json",
+      "response_sha256": "49a8e15e0a1c1e39b1a1a090e9ee9ba2b1e620e613d6067deffeced1ae886f19",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54833&locale=zh_CN",
+      "face": {
+        "id": 54833,
+        "collectible": 1,
+        "slug": "54833-gift-of-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 8,
+        "name": "野性赐福",
+        "text": "使你的所有随从获得+2/+2和 <b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81906b10d00fc2500e5fe1b0ac507f1d2c4ddac616fa69039f230ee04cfa2c75.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/033f377c4f5ce2d6951e38460aeaadf64ce34248804417993dcadba138b9dad8.png",
+        "flavorText": "可以让你活下去的赐福。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b54cd82669e29802e88a6dede8727862732e950b5fff8065e66c9a50c18d9e37.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54833&locale=zh_CN",
+        "sha256": "49a8e15e0a1c1e39b1a1a090e9ee9ba2b1e620e613d6067deffeced1ae886f19",
+        "bytes": 855,
+        "observed_at": "2026-10-20T01:57:17.914424+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_183",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\54833-en_US.json",
+      "response_sha256": "ff85dbbc3f82b9af19748f6db2a70c96cc4767b8e2bd49cf24b8535343e803bf",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54833&locale=en_US",
+      "face": {
+        "id": 54833,
+        "collectible": 1,
+        "slug": "54833-gift-of-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 8,
+        "name": "Gift of the Wild",
+        "text": "Give your minions +2/+2 and <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/075b4df57a5f370082716546e0df2d016cfb2c9e960aa997c85c94df76b964a7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/033f377c4f5ce2d6951e38460aeaadf64ce34248804417993dcadba138b9dad8.png",
+        "flavorText": "The gift that keeps on living.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b54cd82669e29802e88a6dede8727862732e950b5fff8065e66c9a50c18d9e37.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54833&locale=en_US",
+        "sha256": "ff85dbbc3f82b9af19748f6db2a70c96cc4767b8e2bd49cf24b8535343e803bf",
+        "bytes": 845,
+        "observed_at": "2026-10-20T01:57:18.102475+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_273",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\53979-zh_CN.json",
+      "response_sha256": "584a9d628e79efbba102a0c6ed0261d1f3ae7aa309b2965c02bccf24222767c9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53979&locale=zh_CN",
+      "face": {
+        "id": 53979,
+        "collectible": 1,
+        "slug": "53979-overflow",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1158,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 7,
+        "name": "溢流",
+        "text": "为所有角色恢复 5点生命值。抽五张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33d7ab31c9eb8aa2ec764e08ada44620017eae08fbded83580a0993ca0461ba8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94ee49ffe8f647a50bd1fcdf1ac2c549f736fad49da7f57ec079f19ec2a47b8b.png",
+        "flavorText": "恢复悠悠，抽牌匆匆，潮起又潮落。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6454c2ecfd293fef74e44d16546ba190cc351c2a19d47302be6b48c721280495.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53979&locale=zh_CN",
+        "sha256": "584a9d628e79efbba102a0c6ed0261d1f3ae7aa309b2965c02bccf24222767c9",
+        "bytes": 840,
+        "observed_at": "2026-10-20T01:57:17.890358+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_273",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\53979-en_US.json",
+      "response_sha256": "1552def133904a2fc3a6a64e8c62ed20e2efe5e3f401a68585bb8aadf8b1c3ed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53979&locale=en_US",
+      "face": {
+        "id": 53979,
+        "collectible": 1,
+        "slug": "53979-overflow",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1158,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 7,
+        "name": "Overflow",
+        "text": "Restore 5 Health to all characters. Draw 5 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05e9e63320a0b7bd5b8bfb1221d2f5805144c2653f1ce1f089fbdbc91361fffc.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74680cc542a1795ee361a8fbc001b344fc5ddf911b7c1a0d1a19e3512548cabc.png",
+        "flavorText": "It's a high five followed by a low tide.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6454c2ecfd293fef74e44d16546ba190cc351c2a19d47302be6b48c721280495.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53979&locale=en_US",
+        "sha256": "1552def133904a2fc3a6a64e8c62ed20e2efe5e3f401a68585bb8aadf8b1c3ed",
+        "bytes": 830,
+        "observed_at": "2026-10-20T01:57:18.108279+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_279",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1087-zh_CN.json",
+      "response_sha256": "63e4d4408efc0084bab28c9efa1f34373d16c4aadcc764b1c6fbf3e2c94486ac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=zh_CN",
+      "face": {
+        "id": 1087,
+        "collectible": 1,
+        "slug": "1087-pyroblast",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "manaCost": 10,
+        "name": "炎爆术",
+        "text": "造成 10点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e490db0e05129a200c78ea803329d37c239e268711751393a7bc0c9a4a800fa8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5de9cce7eb958493bd027c6b6e3ce4a91717e30c9c98c6c460bfef30514e707d.png",
+        "flavorText": "抽到这张牌的时候，发出一阵邪恶的狂笑吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de5b0f83e8a1735030914bb1015a67fadc5d7d48423851e8c223400f11c2ea66.png",
+        "copyOfCardId": [
+          76272,
+          69905
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=zh_CN",
+        "sha256": "63e4d4408efc0084bab28c9efa1f34373d16c4aadcc764b1c6fbf3e2c94486ac",
+        "bytes": 849,
+        "observed_at": "2026-10-20T01:57:19.636396+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_279",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1087-en_US.json",
+      "response_sha256": "bfabbf22ee9535e769fefb05f9555f8d49b0b91ae397eb1e36f7cf9e4f7cb357",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=en_US",
+      "face": {
+        "id": 1087,
+        "collectible": 1,
+        "slug": "1087-pyroblast",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Luca Zontini",
+        "manaCost": 10,
+        "name": "Pyroblast",
+        "text": "Deal 10 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aaab1ee07624155ded2da716d0e67ca30a02bbffc505335af1be28fe599a218c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5de9cce7eb958493bd027c6b6e3ce4a91717e30c9c98c6c460bfef30514e707d.png",
+        "flavorText": "Take the time for an evil laugh after you draw this card.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de5b0f83e8a1735030914bb1015a67fadc5d7d48423851e8c223400f11c2ea66.png",
+        "copyOfCardId": [
+          76272,
+          69905
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1087&locale=en_US",
+        "sha256": "bfabbf22ee9535e769fefb05f9555f8d49b0b91ae397eb1e36f7cf9e4f7cb357",
+        "bytes": 840,
+        "observed_at": "2026-10-20T01:57:19.594458+00:00"
+      }
+    }
+  ],
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
