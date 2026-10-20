@@ -397,12 +397,14 @@ def expire_turn_rules(r, turn):
 def claim_next_spell_damage(r, record):
     """Move pending instances into one physical payload before publishing work."""
     rows = tuple(e for e in r.player(record.player_id).player_effects
-                 if r.registry.player_effect(e.spec_id).kind == 'next_spell_damage')
+                 if r.registry.player_effect(e.spec_id).kind in ('next_spell_damage', 'next_spell_damage_until_cast'))
     if not rows:
         return record
     if record.spell_damage_effects or not record.payload_started or record.failure is not None:
         raise ResolutionError('Next-spell effects require one newly accepted physical cast')
-    if any(e.created_turn != record.turn for e in rows):
+    if any(e.created_turn > record.turn or
+           r.registry.player_effect(e.spec_id).kind == 'next_spell_damage' and e.created_turn != record.turn
+           for e in rows):
         raise ResolutionError('Stale pending next-spell effect')
     accepted = replace(record, spell_damage_effects=rows)
     r.state.cast_history[record.id-1] = accepted

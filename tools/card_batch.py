@@ -234,6 +234,13 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                      display(raw_text) == '{0}{1}' and face.get('text') == '' and
                      face.get('parentId') == 125989 and
                      display_normalizations == {'{0}': '', '{1}': ''})
+    location_template_display = (canonical(row) == {
+        'TLC_100t1': 'bcb87ea6206c4d7d5adaa32bef080418e274a5154984317e3ad731d9db66de3c',
+        'TLC_100t2': 'fae77f3af6d08a68e15fbf59d322f1e53d96003d08d41249d420dac6f7fc748d',
+        'TLC_100t3': 'd3f9182d2f8606798061a76439d5018118d55346692687f7f235ce7af3788cc6',
+    }.get(row.get('id')) and row.get('type') == 'LOCATION' and
+        display(raw_text) == '{0}{1}' and face.get('text') == '' and face.get('parentId') == 117762 and
+        display_normalizations == {'{0}': '', '{1}': ''})
     jade_coin_display = (row.get('id') == 'JAIL_504t' and
                         canonical(row) == 'cc68b154cb60375019f76676875ed9f66a95b66e67c44919cfd6730d8b6c3af9' and
                         display_normalizations == ({'@': '', '{0}': ''} if chinese else {'@': '', '{0}': '', '{1}': ''}))
@@ -248,10 +255,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require((jade_coin_display or potion_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+            require((jade_coin_display or potion_display or location_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_coin_display or potion_display or leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_coin_display or potion_display or location_template_display or leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

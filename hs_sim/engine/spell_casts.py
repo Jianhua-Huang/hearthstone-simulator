@@ -468,7 +468,9 @@ def validate_history(state, registry):
         for effect in record.spell_damage_effects:
             spec = registry.player_effect(effect.spec_id)
             spec.__post_init__()
-            if (spec.kind != 'next_spell_damage' or effect.remaining_turns is not None or
+            if (spec.kind not in ('next_spell_damage', 'next_spell_damage_until_cast') or
+                    spec.kind == 'next_spell_damage' and effect.created_turn != record.turn or
+                    effect.remaining_turns is not None or
                     effect.id >= state.next_attachment_id or effect.entered_order >= state.next_order or
                     effect.source_id not in state.entities or effect.id in live or effect.id in claimed_ids):
                 raise ValueError('Cast reused or invented a pending Spell Damage effect')

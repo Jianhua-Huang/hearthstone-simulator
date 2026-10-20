@@ -180,7 +180,7 @@ def spell_damage_sources(state, player_id, registry, school=..., *, cast_id=None
                     (school is Ellipsis or not ability.spell_damage_schools or school in ability.spell_damage_schools)):
                 rows.append((entity,ability,None,ability.spell_damage))
     rows.extend((None,None,e,registry.player_effect(e.spec_id).spell_damage) for e in player.player_effects
-                if registry.player_effect(e.spec_id).kind not in ('next_spell_damage','next_spell_bonus'))
+                if registry.player_effect(e.spec_id).kind not in ('next_spell_damage','next_spell_damage_until_cast','next_spell_bonus'))
     if cast_id is not None:
         from .spell_casts import cast_record
         cast = cast_record(state,cast_id)
@@ -190,7 +190,7 @@ def spell_damage_sources(state, player_id, registry, school=..., *, cast_id=None
             rows.extend((state.entities[cast.source_id],a,None,a.spell_damage)for a in cast.local_spell_damage)
             for effect in (*cast.spell_damage_effects,*cast.next_spell_bonus_effects):
                 spec = registry.player_effect(effect.spec_id)
-                if not (spec.kind=='next_spell_damage' and effect in cast.spell_damage_effects or
+                if not (spec.kind in ('next_spell_damage','next_spell_damage_until_cast') and effect in cast.spell_damage_effects or
                         spec.kind=='next_spell_bonus' and effect in cast.next_spell_bonus_effects):
                     raise ValueError('Cast invented an unrelated player Spell Damage effect')
                 rows.append((None,None,effect,spec.spell_damage))

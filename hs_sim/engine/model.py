@@ -7927,8 +7927,8 @@ class SpellCastRecord:
             raise ValueError('Failed or unaccepted casts cannot claim next-spell effects')
         for effect in self.spell_damage_effects:
             effect.__post_init__()
-            if effect.created_turn != self.turn:
-                raise ValueError('Claimed next-spell effect belongs to another actual turn')
+            if effect.created_turn > self.turn:
+                raise ValueError('Claimed next-spell effect belongs to a future actual turn')
         if any(a.id >= b.id or a.entered_order >= b.entered_order for a,b in zip(self.spell_damage_effects,self.spell_damage_effects[1:])):
             raise ValueError('Claimed next-spell effects require original unique acquisition order')
         _optional_id(self.owner_turn_id, 'cast owner-turn ID')
@@ -8552,7 +8552,7 @@ class PlayerEffectSpec:
                 self.spell_damage, self.auras, self.deathrattle_repeats, self.end_turn_repeats,
                 self.producer_quantities, self.keyword_auras, self.target_policy, self.allowed_card_types)):
             raise ValueError('Remembered Adaptations require one independent permanent program')
-        if self.kind == 'next_spell_damage':
+        if self.kind in ('next_spell_damage', 'next_spell_damage_until_cast'):
             _int(self.spell_damage, 'next-spell damage amount', 1)
             if any((self.triggers,self.auras,self.deathrattle_repeats,self.end_turn_repeats,
                     self.producer_quantities,self.keyword_auras,self.target_policy,self.allowed_card_types)):
@@ -8590,9 +8590,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
+        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:

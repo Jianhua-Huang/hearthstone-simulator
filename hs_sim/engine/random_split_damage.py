@@ -740,7 +740,8 @@ def validate_compact_facts(state,registry,root):
             e=c.player_effect;e.__post_init__()
             spec=registry.player_effect(e.spec_id)
             if (spec.spell_damage!=c.amount or
-                    spec.kind=='next_spell_damage' and e not in root.quote.cast.spell_damage_effects or
+                    spec.kind in ('next_spell_damage','next_spell_damage_until_cast') and
+                        (root.quote.cast is None or e not in root.quote.cast.spell_damage_effects) or
                     spec.kind=='next_spell_bonus' and (root.quote.cast is None or e not in root.quote.cast.next_spell_bonus_effects) or
                     e.source_id>=state.next_entity_id or e.entered_order>=state.next_order or
                     e.created_turn>state.turn):
