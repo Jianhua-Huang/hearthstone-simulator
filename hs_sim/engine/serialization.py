@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 480
+SNAPSHOT_SCHEMA_VERSION = 481
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -864,6 +864,13 @@ def _previous_owner_match_from_dict(value):
     return PreviousOwnerTurnMatch(**row)
 
 
+def _intrinsic_spec_from_dict(value):
+    from .model import IntrinsicCostSpec
+    row=_row(value,IntrinsicCostSpec)
+    row['card_ids']=tuple(_list(row['card_ids'],'intrinsic exact controlled card selectors'))
+    return IntrinsicCostSpec(**row)
+
+
 def _intrinsic_stage_from_dict(value):
     from .model import (IntrinsicCostSpec, IntrinsicCostStageFact, BoardMinionCostSpec,
                         BoardMinionCostFact, BoardMinionCostRow, HandCountCostSpec, HandCountCostFact,
@@ -889,7 +896,7 @@ def _intrinsic_stage_from_dict(value):
     if boundary['last_owner_turn'] is not None:
         boundary['last_owner_turn'] = _owner_turn_from_dict(boundary['last_owner_turn'])
     row['boundary'] = OwnerTurnQueryBoundaryFact(**boundary)
-    row['rules'] = tuple(IntrinsicCostSpec(**_row(v, IntrinsicCostSpec)) for v in _list(row['rules'], 'intrinsic rules'))
+    row['rules'] = tuple(_intrinsic_spec_from_dict(v) for v in _list(row['rules'], 'intrinsic rules'))
     from .model import PRESENCE_COST_CONDITIONS
     if row['rules'] and row['rules'][0].condition in PRESENCE_COST_CONDITIONS:
         from .cost_presence import from_dict
@@ -952,7 +959,7 @@ def _intrinsic_stage_from_dict(value):
     operations = []
     for item in _list(row['operations'], 'intrinsic operations'):
         operation = _row(item, IntrinsicCostOperationFact)
-        operation['spec'] = IntrinsicCostSpec(**_row(operation['spec'], IntrinsicCostSpec))
+        operation['spec'] = _intrinsic_spec_from_dict(operation['spec'])
         operations.append(IntrinsicCostOperationFact(**operation))
     row['operations'] = tuple(operations)
     if row['board_minions'] is not None:

@@ -1,0 +1,466 @@
+{
+  "schema": 1,
+  "batch": "K306-medivh-fabled",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_890",
+        "dbf_id": 120060,
+        "name": "圣者麦迪文",
+        "name_en": "Medivh the Hallowed",
+        "text": "<b>奇闻</b>\n如果你控制着卡拉赞，本牌的法力值消耗为（0）点。<b>战吼：</b><b>沉默</b>并消灭所有其他随从。",
+        "text_en": "[x]<b>Fabled</b>. Costs (0) if\nyou control Karazhan.\n<b>Battlecry:</b> <b>Silence</b> and destroy\nall other minions.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "339",
+              "name": "SILENCE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "53de27b9725cda8170e9cae5e6f878cc9372ba80199379af9b51ce176b5fba2f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_890",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_890t",
+        "dbf_id": 120064,
+        "name": "圣杖埃提耶什",
+        "name_en": "Atiesh the Greatstaff",
+        "text": "如果你控制着麦迪文，本牌的法力值消耗为（0）点。你的法术的伤害和治疗效果翻倍。",
+        "text_en": "[x]Costs (0) if you control\nMedivh. Double the\ndamage and healing\nof your spells.",
+        "cost": 10,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDTYPE": 7,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "607df9eab42c6e3f40741d90a940b7acb13b349c9a2f8c4acbff6c761b9ae7dc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_890t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_890t2",
+        "dbf_id": 120068,
+        "name": "圣地卡拉赞",
+        "name_en": "Karazhan the Sanctum",
+        "text": "如果你装备着埃提耶什，本牌的法力值消耗为（0）点。随机召唤两个法力值消耗为（8）的随从。",
+        "text_en": "Costs (0) if you're wielding Atiesh. Summon two random 8-Cost minions.",
+        "cost": 10,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 6,
+          "CARDTYPE": 39,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          }
+        ]
+      },
+      "record_sha256": "b9c11f72736d8ccf0694391c59083c24eadcd7243d96a4929a8b354079ebd9a9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_890t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_890",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120060-zh_CN.json",
+      "response_sha256": "438413302870a171d9836e12c2015759d1e3ab90b93b362750f9e0eea05b7f64",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120060&locale=zh_CN",
+      "face": {
+        "id": 120060,
+        "collectible": 1,
+        "slug": "120060-medivh-the-hallowed",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "圣者麦迪文",
+        "text": "<b>奇闻</b> 如果你控制着卡拉赞，本牌的法力值消耗为（0）点。<b>战吼：</b><b>沉默</b>并消灭所有其他随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/402f3099a1eea69358148b9e34f3480141c7befbfdb421c21f43377f9494455a.png",
+        "imageGold": "",
+        "flavorText": "在我们的时间线中，麦迪文以为萨格拉斯的黑暗影响无法抵抗。但在某条时间线中，他成功了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba85700ee680f8f0e4a9d2dc1dada4f2f68b37231f66c537413bdd9f727deb97.png",
+        "childIds": [
+          120064,
+          120068
+        ],
+        "keywordIds": [
+          8,
+          15,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120064,
+          120068
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120060&locale=zh_CN",
+        "sha256": "438413302870a171d9836e12c2015759d1e3ab90b93b362750f9e0eea05b7f64",
+        "bytes": 1028,
+        "observed_at": "2026-10-20T04:27:51.233003+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_890",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120060-en_US.json",
+      "response_sha256": "b442ac20c1f12082e1f4cbd8027d5b640218ea4fce618cbd2aef67442c8e32ea",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120060&locale=en_US",
+      "face": {
+        "id": 120060,
+        "collectible": 1,
+        "slug": "120060-medivh-the-hallowed",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "Medivh the Hallowed",
+        "text": "<b>Fabled</b>. Costs (0) if you control Karazhan. <b>Battlecry:</b> <b>Silence</b> and destroy all other minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72972a04ab9b791e7983a2adcdd3230d0d690f64560ed2585dcae87abbcfbabc.png",
+        "imageGold": "",
+        "flavorText": "In our timeline, Medivh tells himself he never had the chance to reject Sargeras' dark influence. But there's a timeline where he did.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba85700ee680f8f0e4a9d2dc1dada4f2f68b37231f66c537413bdd9f727deb97.png",
+        "childIds": [
+          120064,
+          120068
+        ],
+        "keywordIds": [
+          8,
+          15,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120064,
+          120068
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120060&locale=en_US",
+        "sha256": "b442ac20c1f12082e1f4cbd8027d5b640218ea4fce618cbd2aef67442c8e32ea",
+        "bytes": 1010,
+        "observed_at": "2026-10-20T04:27:51.227307+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_890t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120064-zh_CN.json",
+      "response_sha256": "ac2e04e6a804864c15cedfb325109c6959c3d89e1e389ef0af8f61cdfd700df8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120064&locale=zh_CN",
+      "face": {
+        "id": 120064,
+        "collectible": 0,
+        "slug": "120064-atiesh-the-greatstaff",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 10,
+        "name": "圣杖埃提耶什",
+        "text": "如果你控制着麦迪文，本牌的法力值消耗为（0）点。你的法术的伤害和治疗效果翻倍。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8fc10649890bc777d1412370aaeaa9c6b45e2dc58a51b6974d32c5252ceee183.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120060,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120064&locale=zh_CN",
+        "sha256": "ac2e04e6a804864c15cedfb325109c6959c3d89e1e389ef0af8f61cdfd700df8",
+        "bytes": 676,
+        "observed_at": "2026-10-20T04:27:51.371544+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_890t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120064-en_US.json",
+      "response_sha256": "917fb8f374e0c4f59ffbc976200cc35f51f94d207550233976e0f632c3dbbf19",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120064&locale=en_US",
+      "face": {
+        "id": 120064,
+        "collectible": 0,
+        "slug": "120064-atiesh-the-greatstaff",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 10,
+        "name": "Atiesh the Greatstaff",
+        "text": "Costs (0) if you control Medivh. Double the damage and healing of your spells.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19b6f2f8560d9aa2e375b774b0d6a2fe9cc5a56d3c6339271c2d00ee7d98254a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120060,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120064&locale=en_US",
+        "sha256": "917fb8f374e0c4f59ffbc976200cc35f51f94d207550233976e0f632c3dbbf19",
+        "bytes": 642,
+        "observed_at": "2026-10-20T04:27:51.758779+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_890t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120068-zh_CN.json",
+      "response_sha256": "613b0600a9d2bddff801c5978f2d910223a40fa92dbfc44aa707b3d558f591e9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120068&locale=zh_CN",
+      "face": {
+        "id": 120068,
+        "collectible": 0,
+        "slug": "120068-karazhan-the-sanctum",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grace Liu",
+        "health": 2,
+        "manaCost": 10,
+        "name": "圣地卡拉赞",
+        "text": "如果你装备着埃提耶什，本牌的法力值消耗为（0）点。随机召唤两个法力值消耗为（8）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4ffa80e84704cf932dbab8b9fb9f09bbe16c1574290aab26fcca8b778c7a5d5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120060,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120068&locale=zh_CN",
+        "sha256": "613b0600a9d2bddff801c5978f2d910223a40fa92dbfc44aa707b3d558f591e9",
+        "bytes": 669,
+        "observed_at": "2026-10-20T04:27:52.759607+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_890t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120068-en_US.json",
+      "response_sha256": "b54477fd72f38a260d373b5f2e3e6ba93075a146a220d71eb4f0720483802b93",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120068&locale=en_US",
+      "face": {
+        "id": 120068,
+        "collectible": 0,
+        "slug": "120068-karazhan-the-sanctum",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grace Liu",
+        "health": 2,
+        "manaCost": 10,
+        "name": "Karazhan the Sanctum",
+        "text": "Costs (0) if you're wielding Atiesh. Summon two random 8-Cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8573044278949db18bfc3ef388215f8698e9a413036e06e23b6eab71df0c30e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120060,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120068&locale=en_US",
+        "sha256": "b54477fd72f38a260d373b5f2e3e6ba93075a146a220d71eb4f0720483802b93",
+        "bytes": 616,
+        "observed_at": "2026-10-20T04:27:52.798758+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

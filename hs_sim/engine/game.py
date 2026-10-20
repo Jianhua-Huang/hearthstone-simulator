@@ -467,6 +467,8 @@ class Game:
         validate_held_battlecry_forms(self)
         from .named_minion_boons import validate_game as validate_named_boons
         validate_named_boons(self)
+        from .cost_presence import validate_game as validate_controlled_prices
+        validate_controlled_prices(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

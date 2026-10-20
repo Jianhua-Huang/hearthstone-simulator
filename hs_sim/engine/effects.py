@@ -985,6 +985,18 @@ class Silence(Effect):
 
 
 @dataclass(frozen=True)
+class SilenceBatch(Effect):
+    """Remove captured minions' material before the shared death checkpoint."""
+    target_ids: tuple[int, ...]
+
+    def __post_init__(self):
+        if type(self.target_ids) is not tuple or len(set(self.target_ids)) != len(self.target_ids):
+            raise ValueError('Batch silence requires unique immutable physical targets')
+        for target_id in self.target_ids:
+            _integer(target_id, 'batch silence target', 1)
+
+
+@dataclass(frozen=True)
 class GrantKeyword(Effect):
     target_id: int
     keyword: Keyword

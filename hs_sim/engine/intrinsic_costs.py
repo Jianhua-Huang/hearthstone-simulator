@@ -74,7 +74,8 @@ def validate_definition_intrinsics(definition):
         raise ValueError('Intrinsic costs require complete immutable declarations')
     for rule in rules:
         rule.__post_init__()
-    if rules and (definition.kind not in (CardType.MINION, CardType.SPELL)
+    allowed_kinds=(CardType.MINION,CardType.WEAPON,CardType.LOCATION) if rules and rules[0].condition=='controlled_card' else (CardType.MINION,CardType.SPELL)
+    if rules and (definition.kind not in allowed_kinds
                   or not definition.hand_playable):
         raise ValueError('Previous-owner intrinsic costs require a physical Minion or Spell')
     if len({rule.condition for rule in rules}) > 1:
@@ -93,9 +94,10 @@ def validate_definition_intrinsics(definition):
     if rules and rules[0].condition in PRESENCE_COST_CONDITIONS:
         from .stat_relations import validate_ordinary_face
         expected_kind = CardType.SPELL if rules[0].condition in ('hand_edge', 'controlled_legendary') else CardType.MINION
-        if definition.kind != expected_kind or len(rules) != 1:
+        allowed_kinds=(CardType.MINION,CardType.WEAPON,CardType.LOCATION) if rules[0].condition=='controlled_card' else (expected_kind,)
+        if definition.kind not in allowed_kinds or len(rules) != 1:
             raise ValueError('Presence condition requires one ordinary physical Minion rule')
-        if expected_kind == CardType.MINION: validate_ordinary_face(definition)
+        if definition.kind == CardType.MINION: validate_ordinary_face(definition)
     if rules and rules[0].condition == 'hero_healed_this_turn':
         from .stat_relations import validate_ordinary_face
         validate_ordinary_face(definition)
@@ -210,7 +212,7 @@ complete actual zone inventories. Compact history cannot authenticate an unsigne
             if definition.intrinsic_costs[0].condition == 'card_discovered_this_turn' else
         (current_shuffle if current_shuffle is not None else capture_shuffles(state,player_id),) if definition.intrinsic_costs[0].condition == 'own_deck_shuffle_count' else
         (current_presence if current_presence is not None else capture_presence(state,registry,player_id,
-            definition.intrinsic_costs[0].condition,source_id),)
+            definition.intrinsic_costs[0].condition,source_id,card_ids=definition.intrinsic_costs[0].card_ids),)
             if definition.intrinsic_costs[0].condition in PRESENCE_COST_CONDITIONS else
         (current_hand_class if current_hand_class is not None else capture_hand_other_class(state,registry,player_id),)
             if definition.intrinsic_costs[0].condition == 'hand_other_class' else

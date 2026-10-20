@@ -1842,6 +1842,11 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        for card in self._cards.values():
+            for rule in card.intrinsic_costs:
+                if rule.condition=='controlled_card' and any(self.card(cid).kind not in (
+                        CardType.MINION,CardType.LOCATION,CardType.WEAPON) for cid in rule.card_ids):
+                    raise ValueError('Controlled-card price requires known resident or equipped card faces')
         from .passive_hero_powers import validate_profile as validate_passive_power_profile
         for profile in self._passive_hero_power_profiles.values():validate_passive_power_profile(self,profile)
         from .minion_base_programs import validate_profile as validate_minion_base_profile

@@ -5362,6 +5362,7 @@ class IntrinsicCostSpec:
     card_count: int | None = None
     comparison: str | None = None
     mana_crystals: int | None = None
+    card_ids: tuple[str, ...] = ()
 
     def __post_init__(self):
         _int(self.delta, 'intrinsic cost delta')
@@ -5370,8 +5371,15 @@ class IntrinsicCostSpec:
         if type(self.condition) is not str or self.condition not in (
                 'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
                 'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
-                'hand_edge', 'controlled_legendary', 'own_deck_shuffle_count', 'card_discovered_this_turn', 'held_opponent_copy'):
+                'hand_edge', 'controlled_legendary', 'controlled_card', 'own_deck_shuffle_count', 'card_discovered_this_turn', 'held_opponent_copy'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
+        if (type(self.card_ids) is not tuple or any(type(cid) is not str or not cid.strip() for cid in self.card_ids)
+                or len(set(self.card_ids)) != len(self.card_ids)):
+            raise ValueError('Controlled-card price requires immutable unique exact card IDs')
+        if (self.condition == 'controlled_card') != bool(self.card_ids):
+            raise ValueError('Exact controlled card selectors belong only to their original presence price')
+        if self.condition == 'controlled_card' and (self.delta != 0 or self.set_to != 0 or self.minimum != 0):
+            raise ValueError('Controlled-card price requires its ordinary zero-cost assignment')
         if self.condition == 'current_deck_count':
             _int(self.card_count, 'intrinsic current deck threshold', 0)
             if type(self.comparison) is not str or self.comparison not in ('at_most', 'at_least'):
@@ -5407,6 +5415,7 @@ class IntrinsicCostSpec:
                    'hand.current-other-class-v1' if self.condition == 'hand_other_class' else
                    'hand.current-edge-v1' if self.condition == 'hand_edge' else
                    'controlled.current-legendary-v1' if self.condition == 'controlled_legendary' else
+                   'controlled.current-card-v1' if self.condition == 'controlled_card' else
                    'hand.current-other-dragon-v1' if self.condition == 'hand_other_dragon' else
                    'board.current-dormant-minion-v1' if self.condition == 'board_dormant_minion' else
                    'board.current-no-minions-v1' if self.condition == 'board_no_minions' else
@@ -5731,7 +5740,7 @@ class CardDiscoveredTurnMatch:
 
 
 PRESENCE_COST_CONDITIONS = ('hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
-                            'hand_edge', 'controlled_legendary')
+                            'hand_edge', 'controlled_legendary', 'controlled_card')
 CONTROLLED_PLAY_ZONES = (Zone.HERO, Zone.HERO_POWER, Zone.BOARD, Zone.WEAPON, Zone.SECRET, Zone.QUEST)
 
 
@@ -5785,6 +5794,7 @@ class CostPresenceMatch:
     hand: tuple[CostPresenceRow, ...] = ()
     boards: tuple[tuple[CostPresenceRow, ...], ...] = ((), ())
     cast_rows: tuple[PlayerSpellCountCostRow, ...] = ()
+    card_ids: tuple[str, ...] = ()
 
     def __post_init__(self):
         if type(self.player_id) is not int or self.player_id not in (1,2) or self.condition not in PRESENCE_COST_CONDITIONS:
@@ -5792,6 +5802,10 @@ class CostPresenceMatch:
         for name in ('turn','next_entity_id','next_attachment_id'): _int(getattr(self,name),'presence '+name,1)
         _int(self.action,'presence action',0); _optional_id(self.source_id,'presence physical subject')
         _bool(self.matched,'presence aggregate')
+        if (type(self.card_ids) is not tuple or any(type(cid) is not str or not cid.strip() for cid in self.card_ids)
+                or len(set(self.card_ids)) != len(self.card_ids) or
+                (self.condition == 'controlled_card') != bool(self.card_ids)):
+            raise ValueError('Presence lost its complete original exact-card selector')
         if self.source_id is not None and self.source_id >= self.next_entity_id:
             raise ValueError('Presence price borrowed a future physical subject')
         if type(self.hand) is not tuple or type(self.boards) is not tuple or len(self.boards) != 2 or any(type(x) is not tuple for x in self.boards):
@@ -5805,7 +5819,7 @@ class CostPresenceMatch:
                 raise ValueError('Presence inventory borrowed a future allocation')
         if len({x.entity_id for x in rows}) != len(rows): raise ValueError('Repeated physical presence identity')
         if any((x.controller,x.zone)!=(self.player_id,Zone.HAND) for x in self.hand) or any(
-                x.controller != player or x.zone not in (CONTROLLED_PLAY_ZONES if self.condition == 'controlled_legendary'
+                x.controller != player or x.zone not in (CONTROLLED_PLAY_ZONES if self.condition in ('controlled_legendary','controlled_card')
                     else (Zone.BOARD,)) for player,board in enumerate(self.boards,1) for x in board):
             raise ValueError('Presence inventory borrowed another physical zone')
         if type(self.cast_rows) is not tuple or any(type(x) is not PlayerSpellCountCostRow for x in self.cast_rows):
@@ -5818,11 +5832,13 @@ class CostPresenceMatch:
             last_turn,last_action=row.turn,row.action
         if self.condition in ('hand_other_dragon', 'hand_edge') and (self.boards != ((),()) or self.cast_rows) or (
                 self.condition in ('board_dormant_minion', 'board_no_minions') and (self.hand or self.cast_rows)) or (
-                self.condition == 'controlled_legendary' and (self.hand or self.cast_rows or self.boards[2-self.player_id])) or (
+                self.condition in ('controlled_legendary','controlled_card') and (self.hand or self.cast_rows or self.boards[2-self.player_id])) or (
                 self.condition == 'turn_holy_and_shadow' and (self.hand or self.boards != ((),()))):
             raise ValueError('Presence borrowed operands from another condition')
 
         expected=None
+        if self.condition == 'controlled_card':
+            expected=any(x.card_id in self.card_ids for x in self.boards[self.player_id-1])
         if self.condition == 'hand_edge':
             expected=bool(self.hand and self.source_id is not None and self.source_id in
                           (self.hand[0].entity_id, self.hand[-1].entity_id))
@@ -6155,7 +6171,8 @@ class IntrinsicCostStageFact:
         if self.rules and self.rules[0].condition in PRESENCE_COST_CONDITIONS:
             match=self.condition_facts[0]
             expected_kind = CardType.SPELL if self.rules[0].condition in ('hand_edge', 'controlled_legendary') else CardType.MINION
-            if self.kind != expected_kind or len(self.rules) != 1 or (match.player_id,match.condition,match.turn,match.action) != (
+            allowed_kinds=(CardType.MINION,CardType.WEAPON,CardType.LOCATION) if self.rules[0].condition=='controlled_card' else (expected_kind,)
+            if self.kind not in allowed_kinds or len(self.rules) != 1 or match.card_ids != self.rules[0].card_ids or (match.player_id,match.condition,match.turn,match.action) != (
                     self.player_id,self.rules[0].condition,self.boundary.turn,self.boundary.action):
                 raise ValueError('Presence price changed its ordinary subject, declaration or original window')
             if any(getattr(self,n) is not None for n in ('board_minions','hand_cards','hero_missing_health','player_spells',

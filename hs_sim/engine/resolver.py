@@ -11,7 +11,7 @@ from enum import Enum
 from .actions import Attack, PlayCard
 from .colossal import enter_minion, ColossalBattlecry
 from .effects import (Buff, Damage, DamageBatch, Destroy, DestroyBatch, Draw, Effect, GainArmor, LoseArmor, Heal, RandomDamage, RandomDamageBatch, RandomDestroy, RandomReturnToHand, Summon,
-                      Silence, GrantKeyword, GrantDeathrattle, GrantTrigger, GrantAura, RemoveEnchantment,
+                      Silence, SilenceBatch, GrantKeyword, GrantDeathrattle, GrantTrigger, GrantAura, RemoveEnchantment,
                       ReturnToHand, Transform, CopyMinion, FillBoardWithCopies, ChangeControl, ShuffleIntoDeck, GrantSpellDamage, Freeze, Unfreeze,
                       SetStats, SwapStats, DoubleStats, CombatExchange, EquipWeapon, TransferWeapon, ModifyWeapon,
                       ReplaceHeroPower, RefreshHeroPower, SetHeroPowerUses, ReplaceHero,
@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v586'
+CORE_EFFECTS_VERSION = 'core-effects-v587'
 
 
 class Mechanics:
@@ -1901,10 +1901,7 @@ def board_minion(r, effect):
     return entity
 
 
-def silence(r, effect):
-    entity = board_minion(r, effect)
-    if entity is None:
-        return
+def _silence_material(r, entity):
     from .remaining_mana_numbers import before_silence
     before_silence(entity,r.registry)
     had_shield=Keyword.DIVINE_SHIELD in entity.keywords
@@ -1913,11 +1910,30 @@ def silence(r, effect):
                        ability_predicate=lambda a: a.remove_on_silence)
     entity.silenced = True
     entity.frozen_until_owner_turn = None
-    restore_removed_control(r, entity, removed)
-    r.refresh_auras()
+    return had_shield, removed
+
+
+def _silence_events(r, entity, had_shield):
     if had_shield and Keyword.DIVINE_SHIELD not in entity.keywords:
         r.emit('shield_lost',target_id=entity.id)
     r.emit('silenced', target_id=entity.id, player_id=entity.controller)
+
+
+def silence(r, effect):
+    entity = board_minion(r, effect)
+    if entity is None:return
+    had_shield,removed=_silence_material(r,entity)
+    restore_removed_control(r, entity, removed)
+    r.refresh_auras()
+    _silence_events(r,entity,had_shield)
+
+
+def silence_batch(r, effect):
+    entities=tuple(entity for eid in effect.target_ids for entity in (board_minion(r,Silence(eid)),) if entity is not None)
+    receipts=tuple((entity,*_silence_material(r,entity))for entity in entities)
+    for entity,_,removed in receipts:restore_removed_control(r,entity,removed)
+    r.refresh_auras()
+    for entity,had_shield,_ in receipts:_silence_events(r,entity,had_shield)
 
 
 def grant_ability(r, effect):
@@ -2569,7 +2585,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
         (BeginAttack, begin_attack), (CombatDamage, combat_damage),
         (ForceAttack, force_attack),
         (FinishPlay, finish_play), (EndTurnPhase, end_turn), (StartNextTurn, start_next_turn), (BeginTurnEvents, begin_turn_events),
-        (Silence, silence), (GrantKeyword, grant_ability), (GrantDeathrattle, grant_ability),
+        (Silence, silence), (SilenceBatch, silence_batch), (GrantKeyword, grant_ability), (GrantDeathrattle, grant_ability),
         (GrantSpellDamage, grant_ability),
         (GrantTrigger, grant_ability), (GrantAura, grant_ability), (RemoveEnchantment, remove_enchantment),
         (ReturnToHand, return_to_hand), (Transform, transform), (CopyMinion, copy_minion), (FillBoardWithCopies, fill_board_with_copies),

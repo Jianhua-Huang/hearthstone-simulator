@@ -15,7 +15,12 @@ def dragon_row(row,registry):
     return current.matches_any(('dragon',))
 
 
-def aggregate(condition,player_id,turn,source_id,hand,boards,casts,registry):
+def aggregate(condition,player_id,turn,source_id,hand,boards,casts,registry,card_ids=()):
+    if condition=='controlled_card':
+        for cid in card_ids:
+            if registry.card(cid).kind not in (CardType.MINION,CardType.LOCATION,CardType.WEAPON):
+                raise ValueError('Named controlled price requires an actual resident minion, location or equipped weapon')
+        return any(x.card_id in card_ids for x in boards[player_id-1])
     if condition=='hand_edge':
         return bool(hand and source_id is not None and source_id in (hand[0].entity_id,hand[-1].entity_id))
     if condition=='controlled_legendary':
@@ -43,7 +48,7 @@ def capture_row(state,registry,eid,player_id,zone):
         entity.entered_order,entity.dormancy is not None if zone==Zone.BOARD and entity.kind==CardType.MINION else False,tribe_changes(entity))
 
 
-def capture(state,registry,player_id,condition,source_id=None):
+def capture(state,registry,player_id,condition,source_id=None,*,card_ids=()):
     if type(player_id)is not int or player_id not in (1,2) or condition not in PRESENCE_COST_CONDITIONS:
         raise ValueError('Unknown finite presence payer/condition')
     if source_id is not None and source_id not in state.entities:
@@ -52,7 +57,7 @@ def capture(state,registry,player_id,condition,source_id=None):
         ) if condition in ('hand_other_dragon','hand_edge') else ()
     boards=tuple(tuple(capture_row(state,registry,e,p,Zone.BOARD) for e in state.players[p].board)
         for p in (1,2)) if condition in ('board_dormant_minion','board_no_minions') else ((),())
-    if condition=='controlled_legendary':
+    if condition in ('controlled_legendary','controlled_card'):
         player=state.players[player_id]
         ids=(player.hero_id,*player.board,*player.quests,*player.secrets,
              *((player.weapon_id,) if player.weapon_id is not None else ()),
@@ -67,8 +72,8 @@ def capture(state,registry,player_id,condition,source_id=None):
         validate_history(state,registry)
         casts=tuple(row_for(x,registry) for x in state.cast_history)
     match=CostPresenceMatch(player_id,condition,state.turn,state.action_number,state.next_entity_id,
-        state.next_attachment_id,source_id,aggregate(condition,player_id,state.turn,source_id,hand,boards,casts,registry),
-        hand,boards,casts)
+        state.next_attachment_id,source_id,aggregate(condition,player_id,state.turn,source_id,hand,boards,casts,registry,card_ids),
+        hand,boards,casts,card_ids)
     validate_match(match,registry);return match
 
 
@@ -82,7 +87,7 @@ def validate_match(match,registry):
         if card.kind!=CardType.SPELL or card.spell_school!=row.spell_school:
             raise ValueError('Presence rewrote a declared original cast school')
     if match.matched!=aggregate(match.condition,match.player_id,match.turn,match.source_id,
-            match.hand,match.boards,match.cast_rows,registry):
+            match.hand,match.boards,match.cast_rows,registry,match.card_ids):
         raise ValueError('Presence rewrote its original aggregate')
 
 
@@ -103,10 +108,44 @@ def validate_prefix(match,state,registry):
                 raise ValueError('Presence changed its original cast acceptance prefix')
 
 
+ACCEPTED='controlled_card_cost_accepted'
+
+
+def note_paid(r,play,fact):
+    """Bind the complete compact inventory before its genuine physical payment."""
+    if not fact.intrinsic.rules or fact.intrinsic.rules[0].condition!='controlled_card':return
+    from dataclasses import asdict
+    import json
+    match=fact.intrinsic.condition_facts[0]
+    r.emit(ACCEPTED,source_id=play.source_id,player_id=play.player_id,play_id=play.id,card_id=play.card_id,
+        match_json=json.dumps(asdict(match),sort_keys=True,separators=(',',':')),_capture=False)
+
+
+def validate_game(game):
+    from dataclasses import asdict
+    import json
+    from .hero_health_history import effective_events
+    expected={p.id:p for p in game._state.play_history if p.submitted_cost is not None and
+        p.submitted_cost.quote.intrinsic.rules and p.submitted_cost.quote.intrinsic.rules[0].condition=='controlled_card'}
+    seen=set()
+    for event in effective_events(game._events):
+        if event.kind!=ACCEPTED:continue
+        data=dict(event.data)
+        if set(data)!={'play_id','card_id','match_json'}or type(data['play_id'])is not int or data['play_id']in seen or data['play_id']not in expected:
+            raise ValueError('Controlled-card price lost its unique original physical acceptance')
+        play=expected[data['play_id']];match=play.submitted_cost.quote.intrinsic.condition_facts[0]
+        if ((event.source_id,event.player_id,event.action,data['card_id'])!=(play.source_id,play.player_id,play.action,play.card_id)or
+                json.loads(data['match_json'])!=json.loads(json.dumps(asdict(match)))):
+            raise ValueError('Controlled-card price changed its complete original presence inventory')
+        seen.add(play.id)
+    if seen!=set(expected):raise ValueError('Controlled-card physical price acceptance was cropped')
+
+
 def from_dict(value):
     from .serialization import _row,_list,_enchantment_from_dict
     from .model import PlayerSpellCountCostRow
     row=_row(value,CostPresenceMatch)
+    row['card_ids']=tuple(_list(row['card_ids'],'original exact controlled card selectors'))
     def physical(value):
         r=_row(value,CostPresenceRow);r['kind']=CardType(r['kind']);r['zone']=Zone(r['zone'])
         r['tribe_changes']=tuple(_enchantment_from_dict(x) for x in _list(r['tribe_changes'],'original tribe attachments'))

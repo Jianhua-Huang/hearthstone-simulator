@@ -70,6 +70,8 @@ def _capture_hand_cost_proof(r, prepared_play, quote, proof_type):
     play = replace(prepared_play, submitted_cost=receipt)
     proof = proof_type(payment_state, play, anchor, session)
     _validate_hand_cost_proof(proof, r.registry, proof_type=proof_type)
+    from .cost_presence import note_paid as note_controlled_price
+    note_controlled_price(r,play,fact)
     return play, proof
 
 
