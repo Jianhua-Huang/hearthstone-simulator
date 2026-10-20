@@ -144,10 +144,11 @@ def resolve_choice_result(r, effect):
                    choice.player_id, choice=effect.result)]
 
 
-def resume_choice(r, action):
+def resume_choice(r, action, *, host_timeout=False):
     frame, choice = r.game._frame, r.state.pending_choice
     from .paid_hand_acceptance import validate_choice_boundary
-    validate_choice_boundary(r.game, resume=True)
+    if type(host_timeout) is not bool: raise ValueError('Invalid choice resume origin')
+    validate_choice_boundary(r.game, resume=not host_timeout)
     r._steps, r.root_action_number, r.ending_turn = frame.steps, frame.root_action_number, frame.ending_turn
     r.death_deferrals = frame.death_deferrals
     r.charge()  # Choosing is part of the original resolution's cumulative budget.

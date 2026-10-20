@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v113'
+VIEW_VERSION = 'player-view-v114'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -542,7 +542,7 @@ class Information:
                 attack, health = cthun_ritual_stats(state, game.registry, player.id)
                 item['cthun_ritual'] = {'attack': attack, 'health': health}
             players.append(item)
-        return {'version': VIEW_VERSION, 'viewer': viewer, 'turn': state.turn,
+        result = {'version': VIEW_VERSION, 'viewer': viewer, 'turn': state.turn,
                 'board_id': state.board_id,
                 'limits': {'max_board': game.ruleset.max_board, 'max_hand': game.ruleset.max_hand,
                            'max_quests': game.ruleset.max_quests, 'max_ongoing_effects': game.ruleset.max_ongoing_effects,
@@ -551,6 +551,10 @@ class Information:
                 'opening_stage': state.opening.stage if state.opening is not None else None,
                 'players': players, 'pending_choice': self.choice_view(game, viewer),
                 'event_cursor': len(knowledge.events)}
+        from .turn_clocks import public_view as turn_clock_view
+        clock = turn_clock_view(game)
+        if clock is not None: result['turn_clock'] = clock
+        return result
 
     def to_dict(self):
         return deepcopy({'version': VIEW_VERSION, 'players': {

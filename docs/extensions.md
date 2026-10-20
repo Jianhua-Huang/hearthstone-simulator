@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实15秒开局来源声明`TurnClockProfile`并返回`ActivateOriginalDeckClock`；可信宿主使用`current(game)`及`AdvanceTurnTime`，不能将时间作为玩家命令、让卡牌读取墙钟或直接切换回合。原选择恢复与正常结束共享既有执行器，见[回合计时契约](m3-original-deck-turn-clock.md)。
+
 真实标准卡包来源用`StandardPackProfile/OpenStandardPack`，宿主提供独立完整`constructed.standard_pack`及明确权重；后续由`PlayStandardPackSlot`续接五类普通入口。不要先入手、从已实现卡列表拼池、给物理安装补战吼，或假定商店保底概率适用于战吼，见[卡包契约](m3-standard-pack-playback.md)。
 
 真实黑幕庭审用`ShamTrialProfile`声明完整九成分和三个长度，`CraftShamTrial`沿原选择制造`ShamTrialRecipe`；延迟配方的玩家效果也纯解析，主体通过`BeginShamTrial/ContinueShamTrial`续接。不要将到期再施放一次、把选项当物理法术、按选择先后重排原生效果，或以已实现列表代替三费生成池，见[庭审契约](m3-kazakus-sham-trials.md)。

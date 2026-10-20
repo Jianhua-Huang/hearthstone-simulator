@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 from typing import TYPE_CHECKING
 
-from .actions import action_from_dict
+from .turn_clocks import history_action_from_dict
 from .game import Game
 from .serialization import canonical_hash, event_to_dict
 
@@ -86,7 +86,7 @@ def replay(payload: object, registry: Registry, mechanics: Mechanics | None = No
         raise ReplayError(f"cannot restore origin: {exc}") from exc
     for step, record in enumerate(data["actions"], start=1):
         try:
-            action = action_from_dict(record["action"])
+            action = history_action_from_dict(record["action"])
             result = game.apply(action)
         except (ValueError, TypeError, KeyError) as exc:
             raise ReplayError(f"invalid action: {exc}", step=step) from exc

@@ -1,6 +1,7 @@
 """Public match API. All accepted actions commit at a stable resolution boundary."""
 from __future__ import annotations
 from .hand_capacity import hand_capacity
+from .turn_clocks import AdvanceTurnTime, history_action_to_dict, snapshot_value as clock_snapshot
 
 from copy import deepcopy
 from dataclasses import asdict, dataclass
@@ -336,7 +337,7 @@ class Game:
         return result
 
     def _hash_payload(self):
-        return {'ruleset': asdict(self.ruleset), 'registry_fingerprint': self._registry_fingerprint,
+        payload = {'ruleset': asdict(self.ruleset), 'registry_fingerprint': self._registry_fingerprint,
                 'mechanics_version': self.mechanics.signature, 'state': state_to_dict(self._state),
                 'rng_state': rng_to_json(self._rng.getstate()),
                 'resolution_frame': FrameCodec(self.mechanics, self.registry).encode(self._frame),
@@ -344,6 +345,9 @@ class Game:
                 'match_setup': self._match_setup.to_dict() if self._match_setup is not None else None,
                 'generation_context': self._generation_context.to_dict() if self._generation_context is not None else None,
                 'information': self._information.to_dict()}
+        clock = clock_snapshot(self)
+        if clock is not None: payload['turn_clock'] = clock
+        return payload
 
     def state_hash(self):
         return canonical_hash(self._hash_payload())
@@ -359,6 +363,7 @@ class Game:
         try:
             expected = {'schema_version', 'ruleset', 'registry_fingerprint', 'mechanics_version',
                         'state', 'rng_state', 'resolution_frame', 'rewind_session', 'match_setup', 'generation_context', 'information', 'events', 'events_hash', 'state_hash'}
+            if isinstance(snapshot, dict) and 'turn_clock' in snapshot: expected.add('turn_clock')
             if not isinstance(snapshot, dict) or set(snapshot) != expected:
                 raise ValueError('Snapshot fields do not match schema')
             if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != SNAPSHOT_SCHEMA_VERSION:
@@ -423,6 +428,9 @@ class Game:
             from .resource_operations import validate_committed_events as validate_committed_resource_events
             validate_committed_resource_events(game)
             game._assert_stable()
+            clock = clock_snapshot(game)
+            if (clock is None and 'turn_clock' in snapshot or clock is not None and snapshot.get('turn_clock') != clock):
+                raise ValueError('Saved turn-clock commitment differs from complete original time receipts')
             if game.state_hash() != snapshot['state_hash']:
                 raise ValueError('State digest mismatch')
             from .weapon_wear import validate_committed_events as validate_closed_wear
@@ -680,6 +688,8 @@ class Game:
             raise ValueError('Unsettled play at action boundary')
         deferred = self._frame is not None and self._frame.death_deferrals > 0
         validate_opening_boundary(self)
+        from .turn_clocks import validate_boundary as validate_turn_clock
+        validate_turn_clock(self)
         self._information.validate(self)
         from .battlecry_weapon_outputs import validate_events as validate_weapon_output_events
         validate_weapon_output_events(self)
@@ -769,6 +779,9 @@ class Game:
             raise ValueError('Stale derived attachment or aura values')
 
     def validate(self, action: Action):
+        if type(action) is AdvanceTurnTime:
+            from .turn_clocks import validate_input
+            return validate_input(self, action)
         if type(action) is PlayCard:
             from .hand_admission import root_target_contract
             return self._validate_action(action, play_target_definition=root_target_contract(self, action))
@@ -1010,9 +1023,12 @@ class Game:
         self.validate(action)
         working = self.clone()
         working._resolving = True
-        working._state.action_number += 1
+        if type(action) is not AdvanceTurnTime:
+            working._state.action_number += 1
         start = len(working._events)
-        if isinstance(action, PlayCard):
+        if type(action) is AdvanceTurnTime:
+            effect = None
+        elif isinstance(action, PlayCard):
             effect = PlayFromHand(action)
         elif isinstance(action, Attack):
             effect = BeginAttack(action)
@@ -1032,7 +1048,10 @@ class Game:
             effect = EndTurnPhase(action.player_id)
         try:
             resolution = Resolution(working)
-            if type(action) is Concede:
+            if type(action) is AdvanceTurnTime:
+                from .turn_clocks import advance
+                advance(resolution, action)
+            elif type(action) is Concede:
                 from .concession import concede
                 concede(resolution, action.player_id)
             elif isinstance(action, SelectChoice):
@@ -1042,6 +1061,8 @@ class Game:
                 resolution.run(start_rewind(working, action))
             else:
                 resolution.run([effect])
+            from .turn_clocks import settle_expired
+            settle_expired(resolution)
             working._information.sync(working)
             working._assert_stable()
             working._resolving = False
@@ -1052,7 +1073,7 @@ class Game:
             raise ResolutionError(f'Action resolution failed and was rolled back: {exc}') from exc
         events = tuple(working._events[start:])
         digest = working.state_hash()
-        working._history.append({'action': action_to_dict(action), 'state_hash': digest,
+        working._history.append({'action': history_action_to_dict(action), 'state_hash': digest,
                                  'events_hash': canonical_hash([event_to_dict(e) for e in events])})
         self._state, self._rng = working._state, working._rng
         self._events, self._history = working._events, working._history
