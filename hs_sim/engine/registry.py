@@ -1418,6 +1418,8 @@ class Registry:
         if type(spec) is not HandProgressSpec:
             raise ValueError('Expected HandProgressSpec')
         spec.__post_init__()
+        from .held_spells import validate_spec as validate_held_spell_spec
+        validate_held_spell_spec(spec)
         if spec.kind == 'higher_cost_play' and source_kind is not None and source_kind != CardType.SPELL:
             raise ValueError('Native higher-cost held condition currently requires a spell')
         if Zone.DECK in spec.zones and source_kind is not None and source_kind != CardType.MINION:

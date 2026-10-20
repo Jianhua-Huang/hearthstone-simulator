@@ -1632,3 +1632,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原始非随从抽牌奖励沿DrawPhysicalGroup的完整原根记录产生带RuleContext.draw的普通回调，不查询后来手牌或额外触发抽牌。有限字段、FrameCodec及烧牌/替换计数政策见[抽牌组契约](m3-physical-draw-groups.md#原始非随从抽牌续接)。无新状态账本或抽牌执行器。
+
+
+两个已使用的不同法术派系复用held_spells原子接受、原cast见证及冻结出牌，不增建计数或生命周期。有限条件声明与原记录语义验证见[持牌法术契约](m5-held-spells.md#两个已使用的不同法术派系)；默认所有接受cast的旧计数政策保持。

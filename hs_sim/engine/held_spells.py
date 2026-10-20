@@ -8,7 +8,46 @@ from copy import deepcopy
 from dataclasses import replace
 
 from .errors import ResolutionError
-from .model import HeldSpellProgress
+from .model import CardType, HandProgressSpec, HeldSpellProgress
+
+
+DIFFERENT_PLAYED_SCHOOLS = 'held_spells.different_played_schools'
+
+
+def validate_spec(spec):
+    if spec.condition_id == DIFFERENT_PLAYED_SCHOOLS and spec != HandProgressSpec(
+            'spell_cast', goal=2, condition_id=DIFFERENT_PLAYED_SCHOOLS):
+        raise ValueError('Different played schools require two original nonrepeating held-spell witnesses')
+
+
+def played_school(state, registry, cast):
+    """The original hand-played cast, excluding automatic and repeated casts."""
+    if cast.origin != 'hand':
+        return None
+    from .play_history import play_record
+    play = play_record(state, cast.play_id)
+    if (play.source_id, play.player_id, play.kind) != (cast.source_id, cast.player_id, CardType.SPELL):
+        raise ValueError('Played-school witness lost its original physical spell play')
+    return registry.card(cast.card_id).spell_school
+
+
+def different_played_schools(context, registry):
+    """Filter the existing atomic held-cast acceptance, without another counter."""
+    ability = context.trigger
+    if (ability is None or ability.hand_progress is None or context.cast is None or
+            ability.hand_progress.condition_id != DIFFERENT_PLAYED_SCHOOLS):
+        raise ResolutionError('Played-school progress requires its actual held-cast acceptance')
+    validate_spec(ability.hand_progress)
+    if (context.cast.player_id != context.player_id or not context.cast.payload_started or
+            context.cast.failure is not None):
+        return False
+    school = played_school(context.state, registry, context.cast)
+    if school is None:
+        return False
+    from .spell_casts import cast_record
+    previous = tuple(played_school(context.state, registry, cast_record(context.state, int(key[5:])))
+        for key in ability.progress_keys)
+    return school not in previous
 
 
 def ability(entity):
@@ -93,6 +132,11 @@ def validate_progress(state,registry,progress,play=None):
             raise ValueError('Held-spell witness requires accepted spell payload')
         if play is not None and (cast.turn>play.turn or cast.action>play.action):
             raise ValueError('Held-spell witness postdates its play')
+    if progress.spec.condition_id == DIFFERENT_PLAYED_SCHOOLS:
+        schools = tuple(played_school(state, registry, cast_record(state, cast_id))
+            for cast_id in progress.cast_ids)
+        if None in schools or len(set(schools)) != len(schools):
+            raise ValueError('Held-school witnesses must be distinct original played spell schools')
 
 
 def validate_ability(state,registry,a):

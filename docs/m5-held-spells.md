@@ -52,3 +52,12 @@ TSC_071双弓积骇纳迦：冻结4费4/4猎人纳迦，战吼使用公共条件
 
 
 B09d基础扩展保留本页条件型spell_cast的原子事实和限制，另由共同主体接受入口发布内部spell_cast_accepted供普通event进度升级；不放宽旧条件回调、升级或授予。精确政策仍待国服校准，详见[实际施法与持牌升级](m3-spell-cast-progress.md)。
+
+
+## 两个已使用的不同法术派系
+
+`DIFFERENT_PLAYED_SCHOOLS = 'held_spells.different_played_schools'` 是有限核心筛选器。注册条件函数调用`different_played_schools(context, registry)`，配套声明必须恰为`HandProgressSpec('spell_cast', goal=2, condition_id=DIFFERENT_PLAYED_SCHOOLS)`。既有原子note_cast只在本牌仍在手中时接受见证；同派系后续法术不增加进度，没有派系的牌不计入。筛选只接受原`origin='hand'`且连回真实法术出牌的记录，不把重复、效果、抽到施放或历史重施视为新的手牌使用。该来源解释来自完整卡文“played”，国服精确窗口与来源仍待M6校准；默认always计所有接受cast的旧规则保持。
+
+进度仍只保存原cast:N、原HeldSpellProgress和既有冻结PlayRecord。进入新物理手牌清零，显式当前复制继承已赚取材料，基础复制不继承；历史战吼沿原出牌判定，不能借后来手中准备好的同一实体。快照/回放核验额外拒绝同派系、无派系或自动cast冒充两个不同的已使用派系；这不提供未签名存档的外部来源认证。
+
+BE_171威能恐魔和BE_303灼拳智者仅消费`satisfied(context)`，再交给普通当前复制召唤或MINION_ABILITY伤害批。无新计数器、Effect类型、模型或State/Entity/Player字段；core613/schema504，观察114/命令12/replay1保持。条件仅由实际接入包注册，默认代表注册表指纹保持；当前执行进度及版本仍以两份原台账为准。

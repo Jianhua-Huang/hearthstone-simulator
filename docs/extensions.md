@@ -2013,3 +2013,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 原始非随从抽牌的组后奖励使用DrawGroupReward('non_minion_followup', behavior_id=...)，在回调读取原RuleContext.draw并返回公共效果；不要扫当前手牌或截取同来源的额外抽牌历史。行为注册、原根约束和待校准边界见[抽牌组契约](m3-physical-draw-groups.md#原始非随从抽牌续接)。
+
+
+真实“持牌期间使用两个不同派系”使用held_spells.DIFFERENT_PLAYED_SCHOOLS及固定goal=2的spell_cast声明，注册different_played_schools筛选器，主体调用既有satisfied。不扫action级历史或以总施法次数替代不同派系；冻结、复制及来源政策见[契约](m5-held-spells.md#两个已使用的不同法术派系)。
