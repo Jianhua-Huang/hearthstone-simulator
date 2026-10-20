@@ -1,5 +1,7 @@
 """Independent death quantity prices, sharing original deaths and queries."""
 from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
+from hs_sim.engine.information import VIEW_VERSION
+from hs_sim.engine.player_api import API_VERSION
 from copy import deepcopy
 from dataclasses import replace
 import json
@@ -444,7 +446,7 @@ class MinionDeathCostTests(unittest.TestCase):
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
             ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v86', 'player-actions-v12'))
+            (VIEW_VERSION, API_VERSION))
         for version in (1, 174, 175, 176, 217, True, '177'):
             bad = deepcopy(saved); bad['schema_version'] = version
             with self.subTest(version=version), self.assertRaisesRegex(SnapshotError, f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):

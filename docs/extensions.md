@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实友方本回合死亡零费声明`MinionDeathCostSpec('cost.minion-deaths-friendly-turn-zero-v1')`，沿原完整死亡前缀和固有费用阶段执行。使用现有`DeathQuery`读取条件，不按事件通知次数改写手牌费用，不把非空条件改成逐次减费。旧profile和本地/外部层、core606及schema499边界见[契约](m3-minion-death-costs.md)。
+
 需要复现当前固定候选域时使用`build_cn37_candidate_format()`及其`new_game/registry/context`，不要逐调用者手拼不一致的目标与卡池。入口只绑定普通候选域，正式声明与其它池仍须各自证据，见[接口契约](m3-source-bound-candidate-format.md)。
 
 已有原始证据支持的普通随机硬禁令使用`register_generation_exclusion`，在独立目录层核对来源标记；不要因此改成奇闻、删除原库存或阻止固定获取/原牌使用。三条已核定声明与范围见[目录契约](m3-candidate-generation-catalog.md)。

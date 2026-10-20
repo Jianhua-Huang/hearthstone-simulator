@@ -4694,8 +4694,18 @@ class MinionDeathCostSpec:
 
     def __post_init__(self):
         if type(self.profile_id) is not str or self.profile_id not in (
-                'cost.minion-deaths-friendly-game-v1', 'cost.minion-deaths-both-turn-v1'):
+                'cost.minion-deaths-friendly-game-v1', 'cost.minion-deaths-both-turn-v1',
+                'cost.minion-deaths-friendly-turn-zero-v1'):
             raise ValueError('Unsupported minion death quantity policy')
+
+    def price(self, before, quantity):
+        """Apply the pinned price formula to its complete original operands."""
+        self.__post_init__()
+        _int(before, 'death price before', 0)
+        _int(quantity, 'death price quantity', 0)
+        if self.profile_id == 'cost.minion-deaths-friendly-turn-zero-v1':
+            return 0 if quantity else before
+        return max(0, before - quantity)
 
 
 @dataclass(frozen=True)
@@ -4759,10 +4769,10 @@ class MinionDeathCostFact:
         for row in self.records:
             if row.id not in selected: continue
             if (row.zone != Zone.BOARD or
-                    self.spec.profile_id == 'cost.minion-deaths-friendly-game-v1' and row.controller != self.player_id or
-                    self.spec.profile_id == 'cost.minion-deaths-both-turn-v1' and row.turn != self.turn):
+                    self.spec.profile_id != 'cost.minion-deaths-both-turn-v1' and row.controller != self.player_id or
+                    self.spec.profile_id != 'cost.minion-deaths-friendly-game-v1' and row.turn != self.turn):
                 raise ValueError('Death price changed its original relation or turn scope')
-        if self.quantity != len(self.selected_ids) or self.after != max(0, self.before - self.quantity):
+        if self.quantity != len(self.selected_ids) or self.after != self.spec.price(self.before, self.quantity):
             raise ValueError('Death price differs from its original occurrence count')
 
 

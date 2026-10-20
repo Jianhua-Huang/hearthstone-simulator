@@ -21,8 +21,12 @@ def validate_definition(definition):
 
 def selected_ids(registry, player_id, spec, turn, records):
     from .summon_sources import DeathQuery, death_query_candidates
-    query = (DeathQuery() if spec.profile_id == 'cost.minion-deaths-friendly-game-v1' else
-             DeathQuery(side='both', min_turn=turn, max_turn=turn))
+    spec.__post_init__()
+    if spec.profile_id == 'cost.minion-deaths-friendly-game-v1':
+        query = DeathQuery()
+    else:
+        query = DeathQuery(side='both' if spec.profile_id == 'cost.minion-deaths-both-turn-v1' else 'friendly',
+            min_turn=turn, max_turn=turn)
     return tuple(row.id for row in death_query_candidates(registry, player_id, query, records, None))
 
 
@@ -65,7 +69,7 @@ def capture(state, registry, player_id, definition, base_cost):
     return MinionDeathCostFact(definition.minion_death_cost, player_id, state.turn,
         state.next_entity_id, state.next_attachment_id, state.next_order,
         state.next_death_id, state.next_death_batch, len(records), records,
-        selected, quantity, base_cost, max(0, base_cost - quantity))
+        selected, quantity, base_cost, definition.minion_death_cost.price(base_cost, quantity))
 
 
 def validate_fact(registry, definition, fact):

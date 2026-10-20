@@ -1,19 +1,20 @@
 # 死亡随从次数：独立费用输入
 
-实际执行、内部验证和下一项只在[项目状态](project-status.md)及[机制清单](mechanism-backlog.md)维护。本契约定义两个有限基础输入，不代表U53整族、正式卡池或国服规则已验收。
+实际执行、内部验证和下一项只在[项目状态](project-status.md)及[机制清单](mechanism-backlog.md)维护。本契约定义两类逐次减费及真实友方当回合死亡的零费条件，不代表U53整族、正式卡池或国服规则已验收。
 
 ## 声明与原始依据
 
-普通可从手牌打出的随从或法术声明`CardDefinition.minion_death_cost=MinionDeathCostSpec()`，默认None。支持两个固定profile：
+普通可从手牌打出的随从或法术声明`CardDefinition.minion_death_cost=MinionDeathCostSpec()`，默认None。支持三个固定profile：
 
 | profile | 数量 |
 | --- | --- |
 | `cost.minion-deaths-friendly-game-v1`（默认） | 本局死亡时由实际付款人控制的随从死亡次数 |
 | `cost.minion-deaths-both-turn-v1` | 当前全局回合内双方随从死亡次数 |
+| `cost.minion-deaths-friendly-turn-zero-v1` | 当前全局回合内付款人控制的随从死亡次数；有匹配则固有金额为零，无匹配保留原基础费用 |
 
 其他卡牌类型、非普通可出牌载体、未知profile和同时声明其他数量公式明确拒绝。普通法术不能叠加原上一本人回合条件公式。本项没有任意表达式、额外种族条件或亡语主体适配。
 
-必要样本只有[AV_265乌祖尔巨人和BRM_025火山幼龙的完整本地记录](../data/support/minion-death-cost-basics.json)，分别为13费8/8、6费6/4；canonical pin为`bb34721e899a4bd477dd10a339ab726a3dc6e3e5ebec4e7b95191536397c19e5`。它们只在隔离验证注册表适配，生产代表包保持原范围。[官方乌祖尔巨人页面](https://hearthstone.blizzard.com/en-us/cards/67894-urzul-giant)的搜索索引支持卡文，实际打开为JavaScript页面壳，不能证明精确当前国服结算时点。
+旧两类逐次减费的隔离样本为[AV_265乌祖尔巨人和BRM_025火山幼龙的完整本地记录](../data/support/minion-death-cost-basics.json)，分别为13费8/8、6费6/4；canonical pin为`bb34721e899a4bd477dd10a339ab726a3dc6e3e5ebec4e7b95191536397c19e5`。它们只在隔离验证注册表适配，生产代表包保持原范围。[官方乌祖尔巨人页面](https://hearthstone.blizzard.com/en-us/cards/67894-urzul-giant)的搜索索引支持卡文，实际打开为JavaScript页面壳，不能证明精确当前国服结算时点。
 
 普通法术的必要消费样本为[BRM_001严正警戒完整本地记录](../data/support/minion-death-spell-cost-basics.json)：5费圣骑士普通法术，仅使用原`Draw(player_id, 2)`和原双方本回合profile。完整支持文件canonical pin为`04f29c137bd187647bc6d4f68c2041e4f5dfd93e8be37e0b334fb917efa8f8b7`，无额外战吼、学派或组合适配；仅隔离验证注册表，不扩充生产池。官方对应卡库打开只有导航，检索未取得该牌可读卡文，完整文本及数值依据为固定本地raw，准确国服仍待校准。
 
@@ -27,7 +28,7 @@
 
 ## 公共报价与保存
 
-金额为`max(0, base_cost-quantity)`，进入原固有阶段，在已有条件、本地附件和外部费用层之前。物理、生成、玩家显示、合法操作、验证和实际付款共用原报价；纯查询不分配ID、消费随机或写实体费用缓存。
+旧两类逐次减费金额为`max(0, base_cost-quantity)`；友方本回合零费profile在quantity大于零时返回零，否则保留base_cost。两种公式统一由声明的纯`price(before, quantity)`计算，进入原固有阶段，在已有条件、本地附件和外部费用层之前。物理、生成、玩家显示、合法操作、验证和实际付款共用原报价；纯查询不分配ID、消费随机或写实体费用缓存。
 
 `MinionDeathCostFact`直接冻结整个原`DeathRecord`元组，不另造行投影。保存声明、实际payer、原turn、实体/附件/进入顺序/死亡ID/死亡批次的分配上界、原完整游标、完整有序selected死亡ID、数量和before/after。原记录保留卡面、owner/controller、区域、turn/batch、完整死亡原因、附件及其他既有字段，包含未计入数量的记录。
 
@@ -43,8 +44,16 @@
 
 本项引入版本为`prototype-v188 / core-effects-v182 / schema177`，拒绝旧1～176；观察74、命令11、replay1保持。注册表默认新增`minion_death_cost=None`，完整保存新增显式`minion_deaths`，指纹和schema随之改变，不静默补旧字段。没有新增Entity/Player字段、玩法事件或外部动作。
 
-这是两个按真实卡文限定的死亡次数输入。精确死亡检查可见窗口、费用层顺序、特殊复制和来源、完整正式池及M6国服校准仍开放；其他数量公式不自动支持。当前独立基础目标不开发跨机制组合矩阵。
+原两类逐次减费与下述零费条件均按真实卡文限定。精确死亡检查可见窗口、费用层顺序、特殊复制和来源、完整正式池及M6国服校准仍开放；其他数量公式不自动支持，不开发跨机制组合矩阵。
 
 B58普通法术入口引入时共享费用API为prototype-v214/core-effects-v208/schema201，当时拒旧1～200。普通法术入口只放宽原有限声明的类型校验，原死亡查询、数量与金额公式、完整冻结叶、序列化及所有执行器逐字节保持；没有新模块、公式profile、状态/卡牌/阶段字段、Effect、事件类型或外部动作，保存布局不变。规则与效果版本因入口语义变化提升，原旧规则版本仍拒绝。实际执行结果及下一项只在两份台账维护；精确CN仍待校准。
 
 现行共享固有层及保存协议见[本局抽牌数量费用契约](m3-player-draw-count-costs.md)；上段版本与保存布局结论仅指B58入口增量。
+
+## 友方本回合零费与实际消费者
+
+[两张完整原卡与双语主面](../data/cards/black-empire-death-conditions-v1.json)绑定BE_877饥渴洞窟和BE_564废土凶兽。洞窟使用第三profile、普通两点法术伤害及吸血；凶兽在原战吼续接窗口用同一友方/当前全局回合的`DeathQuery`资格决定是否交原随机强制攻击。卡牌不另设死亡计数、直接改基础费用或重写死亡/支付。
+
+零费profile保留完整原死亡前缀、全部匹配次数和有序匹配ID；只有决定金额时使用非空条件。两次匹配改成一次虽仍报价零，也必须在原完整查询复核时拒绝。原选择同样必须满足当前回合及死亡时controller，不将武器/地标销毁、移除、变形或回手算作随从死亡。
+
+本扩展不增加保存字段或改变既有结构，schema499保持；新解释政策使用core-effects-v606，快照仍核独立机制身份，不自动改签旧引擎存档。此前原基础的版本记录保留为历史，不替代当前两份台账的实际执行记录。付款接受后后续死亡可改变其他牌的新报价，不重算或退还原付款；局部附件与外部费用层继续作用于已计算的固有金额。精确国服层顺序与窗口仍由M6独立核定。
