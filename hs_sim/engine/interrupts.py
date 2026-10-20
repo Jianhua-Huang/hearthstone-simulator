@@ -155,10 +155,15 @@ def spell_target_phase(r, effect):
         raise ResolutionError('Invalid spell target phase')
     window = replace(window, target_phase=True)
     r.state.action_windows[-1] = window
+    from .native_target_acceptance import accept as accept_native_target,FinishNativeTarget
+    native=accept_native_target(r,'manual_card',window) if not window.countered else None
+    if native is not None:
+        window=replace(window,target_id=native.selection.target_id)
+        r.state.action_windows[-1]=window
     if not window.countered and window.target_id is not None:
         r.emit('spell_targeted', source_id=window.source_id, target_id=window.target_id,
                player_id=window.player_id, window_id=window.id)
-    return [ResolveSpell(window.id)]
+    return [ResolveSpell(window.id),*(()if native is None else(FinishNativeTarget(native),))]
 
 
 def resolve_spell(r, effect):

@@ -49,6 +49,13 @@ def fixture():
     r.register_behavior(P+'copy',lambda c:(CopyMinion(c.target_id,c.player_id,cause=SummonCause.capture(c)),))
     r.register_card(CardDefinition(P+'copy','Copy',CardType.SPELL,on_play=P+'copy',
         targeting=TargetSpec(kinds=(CardType.MINION,),relation='friendly')))
+    # Lifecycle tests use explicit trusted no-arrow fixture operations. Actual
+    # targeted spells now correctly invoke the native random replacement.
+    def original_source(c):return next(i for i in c.state.players[c.player_id].board if c.state.entities[i].card_id==CARD)
+    r.register_behavior(P+'copy_source',lambda c:(CopyMinion(original_source(c),c.player_id,cause=SummonCause.capture(c)),))
+    r.register_card(CardDefinition(P+'copy_source','Copy native source fixture',CardType.SPELL,on_play=P+'copy_source'))
+    r.register_behavior(P+'silence_source',lambda c:(Silence(original_source(c)),))
+    r.register_card(CardDefinition(P+'silence_source','Silence native source fixture',CardType.SPELL,on_play=P+'silence_source'))
     r.register_behavior(P+'wait',lambda c:(RequestChoice(c.player_id,(ChoiceOption('ok','Continue'),),c.source_id),))
     r.register_card(CardDefinition(WATCH,WATCH,CardType.MINION,health=20,triggers=(TriggerSpec('attack_declared',P+'wait'),)))
     r.validate();return r
@@ -106,10 +113,10 @@ class NativeRandomTargetDomainTests(unittest.TestCase):
         self.assertEqual(len(rows),2);self.assertEqual({x.source.controller for x in rows},{1,2})
         ids=[i for row in rows for i in row.ability_ids];self.assertEqual(len(ids),len(set(ids)))
     def test_silence_removes_policy_and_current_copy_preserves_native_source(self):
-        g,r=self.game(enemy=(UNIT,));source=self.entity(g,P+'copy');original=self.entity(g,CARD,1,'board')
-        g.apply(PlayCard(1,source.id,original.id));r.state=g._state
+        g,r=self.game(enemy=(UNIT,),hand=(P+'copy_source',P+'silence_source'));source=self.entity(g,P+'copy_source');original=self.entity(g,CARD,1,'board')
+        g.apply(PlayCard(1,source.id));r.state=g._state
         self.assertEqual(len(current_sources(r.state,r.registry)),2)
-        source=self.entity(g,P+'silence');g.apply(PlayCard(1,source.id,original.id));r.state=g._state
+        source=self.entity(g,P+'silence_source');g.apply(PlayCard(1,source.id));r.state=g._state
         rows=current_sources(r.state,r.registry);self.assertEqual(len(rows),1)
         self.assertNotEqual(rows[0].source.entity_id,original.id)
         s=json.loads(json.dumps(g.snapshot()));restored=Game.from_snapshot(s,fixture.__wrapped__())

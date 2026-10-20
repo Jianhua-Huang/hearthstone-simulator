@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v592'
+CORE_EFFECTS_VERSION = 'core-effects-v593'
 
 
 class Mechanics:
@@ -2627,6 +2627,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_end_turn_repeats(mechanics)
     from .prison_playback import register as register_prison_playback
     register_prison_playback(mechanics)
+    from .native_target_acceptance import register as register_native_target_acceptance
+    register_native_target_acceptance(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

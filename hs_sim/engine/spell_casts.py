@@ -145,12 +145,15 @@ def note_payload(r, record):
     return record
 
 
-def begin_played(r, play, target_id, *, iteration=1, countered=False):
+def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=None):
+    if failure not in(None,'no_target') or countered and failure is not None:
+        raise ValueError('Invalid hand CAST target failure')
     record = SpellCastRecord(len(r.state.cast_history)+1, play.source_id, play.player_id,
         play.card_id, r.state.turn, r.state.action_number, 'hand' if iteration == 1 else 'repeat',
         target_id, play_id=play.id, iteration=iteration, from_zone=Zone.HAND,
-        **{key: getattr(play, key) for key in CONDITIONS}, completed=countered, payload_started=not countered,
-        failure='countered' if countered else None,branch_id=play.branch_id,
+        **{key: getattr(play, key) for key in CONDITIONS}, completed=countered or failure is not None,
+        payload_started=not countered and failure is None,
+        failure='countered' if countered else failure,branch_id=play.branch_id,
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
         next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else ())
@@ -160,6 +163,8 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False):
     r.emit('spell_cast_started',source_id=record.source_id,target_id=record.target_id,
         player_id=record.player_id,cast_id=record.id,target_origin=target_origin_receipt(record))
     record = note_payload(r, record)
+    if failure is not None:
+        r.emit('spell_cast_failed',source_id=record.source_id,player_id=record.player_id,cast_id=record.id,reason=failure)
     return record
 
 
@@ -494,6 +499,9 @@ def validate_history(state, registry):
         if record.play_id is not None:
             from .play_history import play_record
             play = play_record(state, record.play_id)
+            if record.failure=='no_target' and (not registry.random_target_cards or record.target_id is not None or
+                    play.spell_payload is None or play.spell_payload.target_id is not None):
+                raise ValueError('Hand no-target failure requires an actual native empty target acceptance')
             ordinal = iterations.get(play.id, 0) + 1
             if ((record.source_id, record.player_id, record.card_id, record.turn) !=
                     (play.source_id, play.player_id, play.card_id, play.turn) or

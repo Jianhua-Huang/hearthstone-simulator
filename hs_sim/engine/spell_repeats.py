@@ -77,7 +77,10 @@ def payload(r, play, target_id, behavior_ids, *, repeated=False):
     """Activate the physical spell once; repeat activations allocate new entities."""
     from .spell_casts import begin_played, FinishSpellCast
     iteration = repeat_record(r.state, play.id).completed + 1 if repeated else 1
-    cast = begin_played(r, play, target_id, iteration=iteration)
+    from .native_target_acceptance import spell_failure
+    failure=spell_failure(r.game,play.id)
+    cast = begin_played(r, play, target_id, iteration=iteration,failure=failure)
+    if failure is not None:return []
     from .rewind_outcomes import payload as outcomes_payload
     return [*outcomes_payload(r, play.source_id, play.player_id, target_id, behavior_ids,
         play=play, cast=cast), FinishSpellCast(cast.id)]

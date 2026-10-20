@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .native_target_acceptance import NativeTargetProof, validate_proof as validate_native_target_proof
+        if type(value) is NativeTargetProof:
+            validate_native_target_proof(value,self.registry)
         from .deck_generation import ShuffleGeneratedCopies,validate_request as validate_generated_shuffle
         if type(value) is ShuffleGeneratedCopies and self.origin_state is not None:
             validate_generated_shuffle(self.origin_state,self.registry,value)

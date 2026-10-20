@@ -480,6 +480,8 @@ class Game:
         validate_coin_replacements(self)
         from .prison_playback import validate_boundary as validate_prison_playback
         validate_prison_playback(self)
+        from .native_target_acceptance import validate_boundary as validate_native_target_acceptance
+        validate_native_target_acceptance(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

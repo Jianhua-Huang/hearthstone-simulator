@@ -353,6 +353,12 @@ def begin(r, player, source, origin, target_id, *, quote=None, effect=None, fail
         cost=quote.amount if quote else None,payment=quote.payment if quote else None,
         uses_before=source.uses_this_turn,player_uses_before=player.hero_power_uses_this_turn,
         completed=failure is not None,failure=failure,branch_id=branch_id)
+    from .native_target_acceptance import accept as accept_native_target,FinishNativeTarget
+    native=accept_native_target(r,'hero_power',record) if origin=='manual'and failure is None else None
+    if native is not None:
+        target_id=native.selection.target_id
+        failure='invalid_target' if native.selection.failure is not None else None
+        record=replace(record,target_id=target_id,native_target=native.selection,failure=failure,completed=failure is not None)
     r.state.hero_power_history.append(record)
     if quote is not None:
         pay_quote(r,player,source,quote)
@@ -369,7 +375,7 @@ def begin(r, player, source, origin, target_id, *, quote=None, effect=None, fail
     if failure is not None:
         r.emit('hero_power_trigger_failed',source_id=source.id,player_id=player.id,
             power_id=record.id,reason=failure)
-        return choose_tail
+        return [*(()if native is None else(FinishNativeTarget(native),)),*choose_tail]
     # Capture the accepted payload before start-event reactions, preserving the
     # manual activation contract. Replacing the slot does not retarget this work.
     from .rewind_outcomes import payload
@@ -379,7 +385,7 @@ def begin(r, player, source, origin, target_id, *, quote=None, effect=None, fail
     # outcome. No reaction or body has run, and the accepted plan is unchanged.
     # Keep those durable identities in the existing completion proof too.
     acceptance=RuleContext(deepcopy(r.state),source.id,player.id,target_id,power=record)
-    return [*generated,FinishHeroPower(record.id,acceptance), *choose_tail]
+    return [*generated,*(()if native is None else(FinishNativeTarget(native),)),FinishHeroPower(record.id,acceptance), *choose_tail]
 
 
 def finish_hero_power(r, effect):

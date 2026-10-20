@@ -7643,8 +7643,15 @@ class HeroPowerRecord:
     branch_id: str | None = None
     payloads: tuple[AbilityInstance, ...] = ()
     repeat_plan: HeroPowerRepeatPlan = field(default_factory=HeroPowerRepeatPlan)
+    native_target: object | None = None
 
     def __post_init__(self):
+        from .native_target_acceptance import validate_model_selection
+        validate_model_selection(self.native_target,'hero_power',self.source_id,self.player_id,self.target_id)
+        if self.native_target is not None and self.origin!='manual':
+            raise ValueError('Only manual hero powers accept native manual target replacement')
+        if self.native_target is not None and self.failure!=('invalid_target'if self.native_target.failure else None):
+            raise ValueError('Native hero power target failure differs from its accepted selection')
         if type(self.repeat_plan) is not HeroPowerRepeatPlan:
             raise ValueError('Expected accepted hero power repeat plan')
         self.repeat_plan.__post_init__()
@@ -7673,7 +7680,7 @@ class HeroPowerRecord:
         for key in ('completed','interrupted'):
             _bool(getattr(self,key),key)
         if (self.completed and self.interrupted or self.failure not in (None,'no_target','invalid_target','passive','disabled') or
-                self.failure is not None and (not self.completed or self.origin != 'effect') or
+                self.failure is not None and (not self.completed or self.origin != 'effect' and self.native_target is None) or
                 self.parent_id is not None and self.parent_id >= self.id):
             raise ValueError('Invalid hero power outcome or nesting')
 
@@ -7964,7 +7971,7 @@ class SpellCastRecord:
             raise ValueError('Invalid spell cast outcome')
         if self.failure is not None and self.payload_started or self.completed and self.failure is None and not self.payload_started:
             raise ValueError('Invalid spell payload phase')
-        if automatic and self.failure == 'countered' or not automatic and self.failure not in (None, 'countered'):
+        if automatic and self.failure == 'countered' or not automatic and self.failure not in (None, 'countered','no_target'):
             raise ValueError('Spell failure does not match its origin')
         if not automatic and self.failure is None and not self.payload_started:
             raise ValueError('A recorded played spell must have entered its payload')
@@ -9348,8 +9355,15 @@ class ComboRecord:
     interrupted: bool = False
     physical_child_id: int | None = None
     failure: str | None = None
+    native_target: object | None = None
 
     def __post_init__(self):
+        from .native_target_acceptance import validate_model_selection
+        validate_model_selection(self.native_target,'combo',self.source_id,self.player_id,self.target_id)
+        if self.native_target is not None and self.physical_child_id is not None:
+            raise ValueError('Generated Combo cannot borrow a manual native target replacement')
+        if self.native_target is not None and self.failure!=('invalid_target'if self.native_target.failure else None):
+            raise ValueError('Native Combo target failure differs from its accepted selection')
         if self.failure is not None and (type(self.failure) is not str or self.failure not in ('invalid_target','no_target') or
                 self.failure == 'no_target' and self.physical_child_id is None):
             raise ValueError('Invalid Combo target outcome')
@@ -9424,8 +9438,16 @@ class BattlecryRecord:
     indirect_body_id: int | None = None
     historical_body_id: int | None = None
     held_opponent_copy: HeldOpponentCopyMatch | None = None
+    native_target: object | None = None
 
     def __post_init__(self):
+        from .native_target_acceptance import validate_model_selection
+        validate_model_selection(self.native_target,'battlecry',self.source_id,self.player_id,self.target_id)
+        if self.native_target is not None and self.origin!='hand':
+            raise ValueError('Automatic Battlecry cannot borrow manual native replacement')
+        if self.native_target is not None and (self.failure!=('invalid_target'if self.native_target.failure else None)
+                or self.payload_started!=(self.native_target.failure is None)):
+            raise ValueError('Native Battlecry payload differs from its accepted target outcome')
         if self.held_opponent_copy is not None:
             if type(self.held_opponent_copy) is not HeldOpponentCopyMatch:
                 raise ValueError('Battlecry requires its typed original held copied-play condition')

@@ -1,6 +1,6 @@
 # 机制扩展指南
 
-原生随机目标的`manual_partition`、`attack_partition`和`sample`目前仅供宿主准备候选与抽样，不能替代真实接受/恢复路径；标准市长整卡仍未装配，见[候选域契约](m3-native-random-targets.md)。
+原生随机目标的`manual_partition`、`attack_partition`和`sample`只负责候选与抽样；实际手动法术、付费战吼/连击及手动技能由`native_target_acceptance`连接原接受记录。扩展不能覆盖玩家提交或付款、随机化所有内部选择；标准市长整卡仍未装配，见[随机目标契约](m3-native-random-targets.md)。
 
 真实牢房释放用`PrisonEntryMaterial(prison_death_id=...)`连接原死亡，后续结束主体返回`PlayPrisonDiscard(c.end_turn.id)`。原弃牌成功续接、复制、五类执行与私有材料见[牢房契约](m3-prison-discard-playback.md)；不要用全局弃牌或带战吼的整卡重放替代。
 

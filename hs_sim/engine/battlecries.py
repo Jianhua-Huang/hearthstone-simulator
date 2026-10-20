@@ -87,6 +87,12 @@ def begin(r, effect):
         effect.play_id, effect.payload, effect.batch_id, effect.repeat_index, outcome_id=effect.outcome_id, iteration=effect.iteration,
         held_opponent_copy=freeze_play(r.state, r.registry, play, effect.payload))
     validate_record(r.state, r.registry, record)
+    from .native_target_acceptance import accept as accept_native_target, FinishNativeTarget
+    native=accept_native_target(r,'battlecry',record)
+    if native is not None:
+        record=replace(record,target_id=native.selection.target_id,native_target=native.selection,
+            failure='invalid_target' if native.selection.failure is not None else None,
+            payload_started=native.selection.failure is None)
     if any((b.play_id, b.payload.ability_id, b.outcome_id, b.iteration, b.repeat_index) ==
            (record.play_id, record.payload.ability_id, record.outcome_id, record.iteration, record.repeat_index)
            for b in r.state.battlecry_history):
@@ -97,7 +103,7 @@ def begin(r, effect):
         from .player_target_inputs import live_factory
         source = deepcopy(r.state.entities[play.source_id]); source.controller = play.player_id
         context = live_factory(r, source)
-    if not available(r.state, r.registry, play, record.payload, 'battlecry', context_factory=context):
+    if native is None and not available(r.state, r.registry, play, record.payload, 'battlecry', context_factory=context):
         record = replace(record, failure='invalid_target', payload_started=False)
     r.state.battlecry_history.append(record)
     r.emit('battlecry_started', source_id=record.source_id, target_id=record.target_id,
@@ -105,9 +111,10 @@ def begin(r, effect):
     if record.failure is not None:
         r.emit('body_target_skipped', source_id=record.source_id, target_id=record.target_id,
             player_id=record.player_id, family='battlecry', record_id=record.id, play_id=record.play_id)
-        return [FinishBattlecry(record.id)]
+        return [*(()if native is None else(FinishNativeTarget(native),)),FinishBattlecry(record.id)]
     return [r.call(record.payload.behavior_id, record.source_id, record.player_id,
-                   record.target_id, play=play, battlecry=record), FinishBattlecry(record.id)]
+                   record.target_id, play=play, battlecry=record),
+            *(()if native is None else(FinishNativeTarget(native),)),FinishBattlecry(record.id)]
 
 
 def finish(r, effect):
@@ -120,6 +127,7 @@ def finish(r, effect):
 
 
 def validate_record(state, registry, record):
+    from .native_target_acceptance import original_target
     if record.origin != 'hand':
         from .battlecry_sources import validate_indirect_record
         return validate_indirect_record(state, registry, record)
@@ -128,7 +136,7 @@ def validate_record(state, registry, record):
     from .play_history import play_record
     play = play_record(state, record.play_id)
     from .paid_body_targets import body_target
-    if record.failure is not None and (play.body_targets is None or record.failure != 'invalid_target' or record.payload_started or record.target_id is None):
+    if record.failure is not None and record.native_target is None and (play.body_targets is None or record.failure != 'invalid_target' or record.payload_started or record.target_id is None):
         raise ValueError('Failed paid Battlecry requires its actual independent target receipt')
     from .battlecry_repeats import batch_record
     batch = batch_record(state, record.batch_id)
@@ -143,7 +151,7 @@ def validate_record(state, registry, record):
             record.payload.ability_id >= state.next_attachment_id or
             registry.card(record.payload.card_id).battlecry != record.payload.behavior_id or
             not definition.colossal and record.player_id != play.player_id or
-            (record.source_id, record.card_id, record.target_id, record.turn) !=
+            (record.source_id, record.card_id, original_target(record), record.turn) !=
             (play.source_id, play.card_id, body_target(play, record.payload, 'battlecry'), play.turn) or record.action < play.action or
             definition.kind not in (CardType.MINION, CardType.WEAPON, CardType.HERO) or
             record.interrupted and state.status == 'playing' or

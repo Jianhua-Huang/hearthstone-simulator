@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 486
+SNAPSHOT_SCHEMA_VERSION = 487
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1377,6 +1377,8 @@ def state_from_dict(value: dict) -> GameState:
     powers=[]
     for item in _list(value['hero_power_history'], 'hero power history'):
         row=_row(item,HeroPowerRecord)
+        from .native_target_acceptance import selection_from_dict as native_selection_from_dict
+        row['native_target']=native_selection_from_dict(row['native_target'])
         row['payloads']=tuple(_ability_from_dict(a) for a in _list(row['payloads'],'accepted hero power payloads'))
         row['repeat_plan']=_hero_power_repeat_plan(row['repeat_plan'])
         row['payment']=PaymentType(row['payment']) if row['payment'] is not None else None
@@ -1419,6 +1421,8 @@ def state_from_dict(value: dict) -> GameState:
     battlecries=[]
     for item in _list(value['battlecry_history'], 'Battlecry history'):
         row=_row(item,BattlecryRecord)
+        from .native_target_acceptance import selection_from_dict as native_selection_from_dict
+        row['native_target']=native_selection_from_dict(row['native_target'])
         row['held_opponent_copy'] = _held_opponent_copy_match_from_dict(row['held_opponent_copy'])
         row['payload']=BattlecryPayload(**_row(row['payload'],BattlecryPayload))
         battlecries.append(BattlecryRecord(**row))
@@ -1432,6 +1436,8 @@ def state_from_dict(value: dict) -> GameState:
     combos=[]
     for item in _list(value['combo_history'],'Combo history'):
         row=_row(item,ComboRecord)
+        from .native_target_acceptance import selection_from_dict as native_selection_from_dict
+        row['native_target']=native_selection_from_dict(row['native_target'])
         row['payload']=ComboPayload(**_row(row['payload'],ComboPayload))
         combos.append(ComboRecord(**row))
     value['combo_history']=combos

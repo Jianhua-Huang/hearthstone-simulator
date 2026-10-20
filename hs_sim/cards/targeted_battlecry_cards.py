@@ -89,7 +89,8 @@ def register_targeted_battlecry_cards(registry):
     def eternus(c):
         if c.target_id is None:return ()
         if (c.play is not None and c.play.source_id==c.source_id and c.play.target_id==c.target_id and
-                c.play.body_targets is None and c.battlecry is not None and c.battlecry.origin=='hand'):
+                c.play.body_targets is None and c.battlecry is not None and c.battlecry.origin=='hand'
+                and c.battlecry.native_target is None):
             return (TakeCapturedMinion(None,c.player_id,c.source_id,c.play.id),)
         target=c.state.entities.get(c.target_id)
         if target is None or target.zone!=Zone.BOARD or target.kind!=CardType.MINION or not target.active or target.health<=0 or target.doomed:

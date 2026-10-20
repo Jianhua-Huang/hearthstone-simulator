@@ -75,18 +75,19 @@ def validate_payload(state,registry,payload):
 
 
 def validate_record(state,registry,record):
+    from .native_target_acceptance import original_target
     if record.physical_child_id is not None:
         from .generated_combo_repeats import validate_record as validate_generated
         return validate_generated(state, registry, record)
     from .play_history import play_record
     record.__post_init__();play=play_record(state,record.play_id)
     from .paid_body_targets import body_target
-    if record.failure is not None and (play.body_targets is None or record.target_id is None):
+    if record.failure is not None and record.native_target is None and (play.body_targets is None or record.target_id is None):
         raise ValueError('Failed paid Combo requires its actual independent target receipt')
     validate_payload(state,registry,record.payload)
     if (not play.combo or play.countered or play.minion_result in ('countered','board_full','magnetized') or
         record.source_id not in state.entities or record.target_id is not None and record.target_id not in state.entities or
-        (record.source_id,record.card_id,record.target_id,record.turn)!=(play.source_id,play.card_id,body_target(play,record.payload,'combo'),play.turn) or
+        (record.source_id,record.card_id,original_target(record),record.turn)!=(play.source_id,play.card_id,body_target(play,record.payload,'combo'),play.turn) or
         record.player_id!=play.player_id or record.action<play.action or
         play.kind not in (CardType.MINION,CardType.WEAPON,CardType.HERO) or
         record.interrupted and state.status=='playing' or play.completed and not record.completed or
@@ -117,6 +118,11 @@ def planned_record(state,work):
 
 def begin(r,work):
     record=planned_record(r.state,work);validate_record(r.state,r.registry,record)
+    from .native_target_acceptance import accept as accept_native_target,FinishNativeTarget
+    native=accept_native_target(r,'combo',record)
+    if native is not None:
+        record=replace(record,target_id=native.selection.target_id,native_target=native.selection,
+            failure='invalid_target' if native.selection.failure is not None else None)
     if any(key(b)==key(record) for b in r.state.combo_history):raise ResolutionError('Combo activation already exists')
     from .play_history import play_record
     from .paid_body_targets import available
@@ -126,7 +132,7 @@ def begin(r,work):
         from .player_target_inputs import live_factory
         source = deepcopy(r.state.entities[play.source_id]); source.controller = play.player_id
         context = live_factory(r, source)
-    if not available(r.state, r.registry, play, record.payload, 'combo', context_factory=context):
+    if native is None and not available(r.state, r.registry, play, record.payload, 'combo', context_factory=context):
         record=replace(record,failure='invalid_target')
     r.state.combo_history.append(record)
     r.emit('combo_started',source_id=record.source_id,target_id=record.target_id,player_id=record.player_id,
@@ -134,9 +140,10 @@ def begin(r,work):
     if record.failure is not None:
         r.emit('body_target_skipped', source_id=record.source_id, target_id=record.target_id,
             player_id=record.player_id, family='combo', record_id=record.id, play_id=record.play_id)
-        return [FinishCombo(record.id)]
+        return [*(()if native is None else(FinishNativeTarget(native),)),FinishCombo(record.id)]
     return [r.call(record.payload.behavior_id,record.source_id,record.player_id,record.target_id,
-        play=play_record(r.state,record.play_id),combo=record),FinishCombo(record.id)]
+        play=play_record(r.state,record.play_id),combo=record),
+        *(()if native is None else(FinishNativeTarget(native),)),FinishCombo(record.id)]
 
 
 def finish(r,work):

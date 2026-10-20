@@ -335,7 +335,9 @@ def _validate_cast_progress(state, play, *, allocated=False):
             raise ValueError('Countered spell differs from its one denied cast')
         return
     if (len(casts) > receipt.casts or
-            any(c.target_id != receipt.target_id or c.failure is not None for c in casts)):
+            any(c.target_id != receipt.target_id or c.failure not in(None,'no_target') or
+                c.failure=='no_target'and(receipt.target_id is not None or c.payload_started or not c.completed)
+                for c in casts)):
         raise ValueError('Spell casts differ from their accepted count or target')
     if receipt.casts == 1:
         if repeats or allocated and len(casts) != 1:
