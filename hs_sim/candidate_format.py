@@ -16,8 +16,9 @@ from .targets import TargetValidationError,_load_json,canonical_digest
 
 SOURCE_PATH=Path(__file__).resolve().parents[1]/'data/cards/integration-target-cn37.json'
 SOURCE_FACTS_HASH='13f881a9e3544a5449b153094e9c4f8b72973cc8df450635f76ab42e90a64a2a'
-FORMAT_VERSION='cn37-pre-black-empire-candidate-v1'
+FORMAT_VERSION='cn37-pre-black-empire-candidate-v2'
 POOL_ID='constructed.cards'
+MINION_POOL_ID='constructed.minions'
 
 
 def load_source_facts():
@@ -82,13 +83,18 @@ def build_cn37_candidate_format():
     companions={cid for spec in registry.fabled.values()if spec.source_card_id in roots
         for cid in spec.companion_card_ids}
     allowed=tuple(sorted(set(roots)|companions))
+    # Both are ordinary candidate inventories. Minions are projected from the
+    # complete source catalog, never selected by executable coverage.
+    minions=tuple(row['record']['id']for row in catalog['cards']if row['record']['type']=='MINION')
+    domains=((POOL_ID,roots),(MINION_POOL_ID,minions))
     binding=canonical_digest(dict(format=FORMAT_VERSION,source=SOURCE_FACTS_HASH,
-        catalog=BATCH_HASH,content=registry.version,allowed=allowed))
+        catalog=BATCH_HASH,content=registry.version,allowed=allowed,domains=domains))
     target_id=FORMAT_VERSION+'-'+binding[:16]
     policy=DeckPolicy(target_id+'.deck',target_id,'experimental',allowed,pool_complete=False)
     context=GenerationContext(target_id,'experimental')
-    registry.register_pool(PoolDefinition(POOL_ID,'source-pinned-'+binding,target_id,'experimental',
-        tuple(PoolMember(cid)for cid in roots),complete=True))
+    for pool_id,members in domains:
+        registry.register_pool(PoolDefinition(pool_id,'source-pinned-'+binding,target_id,'experimental',
+            tuple(PoolMember(cid)for cid in members),complete=True))
     registry.validate()
     return CandidateFormat(registry,target_id,binding,roots,policy,context,
         facts['official_effective_at'],facts['preloaded_expansion']['formal_launch'],
