@@ -72,6 +72,8 @@ def _capture_hand_cost_proof(r, prepared_play, quote, proof_type):
     _validate_hand_cost_proof(proof, r.registry, proof_type=proof_type)
     from .cost_presence import note_paid as note_controlled_price
     note_controlled_price(r,play,fact)
+    from .adjoining_spells import note_paid as note_adjoining_paid
+    note_adjoining_paid(r,play,quote_state)
     return play, proof
 
 

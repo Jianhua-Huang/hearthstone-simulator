@@ -126,6 +126,8 @@ def note_payload(r, record):
     """One acceptance path for hand, repeat, effect, draw and history casts."""
     if not record.payload_started or record.failure is not None:
         return record
+    from .adjoining_spells import accept as accept_adjoining_group
+    accept_adjoining_group(r,record)
     from .stored_spell_damage import capture
     record = capture(r,record)
     from .native_spell_values import capture as capture_native_value
@@ -263,7 +265,9 @@ def effective_definition(definition, conditions):
     return definition
 
 
-def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None):
+def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None, adjoining_parent=None):
+    from .adjoining_spells import capture as capture_adjoining,note_automatic as note_adjoining_automatic
+    adjoining_material=None if adjoining_parent is not None else capture_adjoining(r.state,r.registry,entity,from_zone,player_id=effect.player_id)
     from .one_cost_casts import capture_automatic,accept_automatic
     native_repeat=capture_automatic(r,entity,effect.player_id)
     from .play_history import played_cards
@@ -312,6 +316,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         mana_budget=getattr(effect,'mana_budget',None))
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
+    note_adjoining_automatic(r,record,adjoining_material,adjoining_parent)
     from .next_spell_bonuses import accept_automatic as accept_native_spell_bonus
     record=accept_native_spell_bonus(r,record)
     if draw_id is not None:
@@ -392,6 +397,8 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
     else:
         work.extend(CreateCastDerivative(record.id, s.card_id) for s in definition.hand_derivatives
                     if s.keyword == Keyword.TWINSPELL and s.keyword in entity.keywords)
+    from .adjoining_spells import payload_tail as adjoining_payload_tail
+    work.extend(adjoining_payload_tail(r,record))
     return work
 
 

@@ -173,6 +173,7 @@ class Registry:
         self._held_battlecry_forms_profiles = {}
         self._named_minion_boon_profiles = {}
         self._named_minion_boon_programs = {}
+        self._adjoining_spell_profiles = {}
         self._colossal_reserve_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
@@ -415,6 +416,17 @@ class Registry:
 
     @property
     def named_minion_boon_programs(self):return MappingProxyType(self._named_minion_boon_programs)
+
+    @property
+    def adjoining_spell_profiles(self):return MappingProxyType(self._adjoining_spell_profiles)
+
+    def register_adjoining_spell_profile(self,profile):
+        self._require_mutable()
+        from .adjoining_spells import validate_profile
+        validate_profile(self,profile)
+        if any(cid in self._adjoining_spell_profiles for cid in profile.spell_card_ids):
+            raise ValueError('Adjoining spell cannot belong to two distinct cohorts')
+        for cid in profile.spell_card_ids:self._adjoining_spell_profiles[cid]=profile
 
     @property
     def colossal_reserve_profiles(self):return MappingProxyType(self._colossal_reserve_profiles)
@@ -1047,6 +1059,10 @@ class Registry:
         self._require_mutable()
         _name(card_id,'Fabled random-generation exclusion')
         self._fabled_generation_exclusions.add(card_id)
+
+    def register_generation_exclusion(self,card_id):
+        """Reviewed hard bans share the historical Fabled exclusion inventory."""
+        self.register_fabled_generation_exclusion(card_id)
 
     def register_fabled(self, spec):
         from .fabled_decks import FabledSpec
@@ -1842,6 +1858,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .adjoining_spells import validate_profile as validate_adjoining_profile
+        for profile in self._adjoining_spell_profiles.values():validate_adjoining_profile(self,profile)
         for card in self._cards.values():
             for rule in card.intrinsic_costs:
                 if rule.condition=='controlled_card' and any(self.card(cid).kind not in (
@@ -2262,6 +2280,8 @@ class Registry:
             payload['held_battlecry_forms_profiles']=[asdict(self._held_battlecry_forms_profiles[k])for k in sorted(self._held_battlecry_forms_profiles)]
         if self._named_minion_boon_profiles:
             payload['named_minion_boon_profiles']=[asdict(self._named_minion_boon_profiles[k])for k in sorted(self._named_minion_boon_profiles)]
+        if self._adjoining_spell_profiles:
+            payload['adjoining_spell_profiles']=[{'spell_card_ids':ids}for ids in sorted({p.spell_card_ids for p in self._adjoining_spell_profiles.values()})]
         if self._colossal_reserve_profiles:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
         if self._remaining_mana_numbers_profiles:

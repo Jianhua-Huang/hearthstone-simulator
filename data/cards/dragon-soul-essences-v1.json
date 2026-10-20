@@ -1,0 +1,1300 @@
+{
+  "schema": 1,
+  "batch": "K307-dragon-soul-essences",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_EVENT_110",
+        "dbf_id": 123345,
+        "name": "破碎的巨龙之魂",
+        "name_en": "Dragon Soul, Shattered",
+        "text": "<b>对战开始时：</b>破碎成6份精华。所有接邻的精华会同时\n施放。",
+        "text_en": "[x]<b>Start of Game</b>:\nBreak into 6 Essences.\nAdjoining Essences\nare cast together.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1673": 1,
+          "2936": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1673",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1673"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "968",
+              "name": "START_OF_GAME_KEYWORD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1b3186e0f2af0da5a43470bb2875276449f48bac38b7219ecb32f980a5b94b69",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_EVENT_110",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CATA_EVENT_110t2",
+        "dbf_id": 123339,
+        "name": "红色守护巨龙的精华",
+        "name_en": "Red Aspect Essence",
+        "text": "对一个敌人造成$8点伤害。施放所有接邻的守护巨龙的\n精华。",
+        "text_en": "[x]Deal $8 damage\nto an enemy.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "d378a1caecb979e022e81f6c975288051563dd0df63d6ee976e504c50203db93",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_110t3",
+        "dbf_id": 123340,
+        "name": "蓝色守护巨龙的精华",
+        "name_en": "Blue Aspect Essence",
+        "text": "抽三张法术牌。施放所有接邻的守护巨龙的精华。",
+        "text_en": "[x]Draw 3 spells.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "ecabc898b6ff6b20460d0844d4248e206b124c8dbf46ab3cddb5a0f9ee0f8d93",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_110t4",
+        "dbf_id": 123341,
+        "name": "青铜守护巨龙的精华",
+        "name_en": "Bronze Aspect Essence",
+        "text": "复原八个法力水晶。施放所有接邻的守护巨龙的精华。",
+        "text_en": "[x]Refresh 8 Mana Crystals.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "2e7885d8567126554239f51c0381bdda9388f928369c83770d0d22cf0ee402d2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_110t5",
+        "dbf_id": 123342,
+        "name": "黑色守护巨龙的精华",
+        "name_en": "Black Aspect Essence",
+        "text": "获得12点护甲值。施放所有接邻的守护巨龙的精华。",
+        "text_en": "[x]Gain 12 Armor.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "9334d8f42bcdd3978ba2496ebd64ade0e447550ca7c39a881679eb99cfebe3b7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_110t6",
+        "dbf_id": 123343,
+        "name": "绿色守护巨龙的精华",
+        "name_en": "Green Aspect Essence",
+        "text": "召唤一条8/8的龙。施放所有接邻的守护巨龙的精华。",
+        "text_en": "[x]Summon an 8/8 Dragon.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "a12ab449344a2a22ece6b5bff49cef966a3ccdf65cd18dc95094d2f0aaeee9f2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_110t7",
+        "dbf_id": 123349,
+        "name": "风暴守护巨龙的精华",
+        "name_en": "Storm Aspect Essence",
+        "text": "对所有敌方随从造成$4点伤害。施放所有接邻的守护巨龙的精华。",
+        "text_en": "[x]Deal $4 damage to\nall enemy minions.\nCast every adjoining\nAspect Essence.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "4761": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4761",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4761"
+          }
+        ]
+      },
+      "record_sha256": "2ae996e097656ed895cafa56f3178f84f9c4f1ac631bd1bd6012580af1c19dbf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_EVENT_110t6t",
+        "dbf_id": 132017,
+        "name": "灼热击天龙",
+        "name_en": "Searing Skystriker",
+        "text": "",
+        "text_en": "",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "36f7379affa0ff5a54b5cfdb061e6d561230225377f83ba3a06e6209ac1e1787",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_110t6t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependency_definition_pins": {
+    "CATA_EVENT_110t6t": {
+      "definition": {
+        "id": "CATA_EVENT_110t6t",
+        "name": "灼热击天龙",
+        "kind": "minion",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "keywords": [],
+        "on_play": null,
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "CATA_EVENT_110t6t",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [
+            "dragon"
+          ],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "61e59d1110b60505f1ba1e393937f5a3de2ae5200a63e90a9c4ef783df528c15"
+    }
+  },
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_EVENT_110",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123345-zh_CN.json",
+      "response_sha256": "254557c61148be8cfb0c5524570a24a618fc3526983967a698b3968e45adffac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123345&locale=zh_CN",
+      "face": {
+        "id": 123345,
+        "collectible": 1,
+        "slug": "123345-dragon-soul-shattered",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 5,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "破碎的巨龙之魂",
+        "text": "<b>对战开始时：</b>破碎成6份精华。所有接邻的精华会同时 施放。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/68d9575bb5f8c9d99aa197e8a4bcdbc525b919ffa9dbe485d54ef21051b6eb65.png",
+        "imageGold": "",
+        "flavorText": "早在守护巨龙第一次将力量注入巨龙之魂时，原始龙群就已和自己的亲族相背而行。如今，双方首次合作，连威拉诺兹都贡献出了自己的力量，共同对抗死亡之翼。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81e81168cda07cfcb9bff32b0036216980ca82979e14b10c7d87e725df7a460d.png",
+        "childIds": [
+          123339,
+          123340,
+          123341,
+          123342,
+          123343,
+          123349,
+          132017
+        ],
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123345&locale=zh_CN",
+        "sha256": "254557c61148be8cfb0c5524570a24a618fc3526983967a698b3968e45adffac",
+        "bytes": 1047,
+        "observed_at": "2026-10-20T04:40:17.340860+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123345-en_US.json",
+      "response_sha256": "f4ab4c0aa3221c1b9695e7e342cb7f34fe7f6dadd0b478dd96426f638c6e550f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123345&locale=en_US",
+      "face": {
+        "id": 123345,
+        "collectible": 1,
+        "slug": "123345-dragon-soul-shattered",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": 5,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 6,
+        "name": "Dragon Soul, Shattered",
+        "text": "<b>Start of Game</b>: Break into 6 Essences. Adjoining Essences are cast together.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ae6e55cbb9ceae83c1dffcafa3ba2c5839111d8e8a7c7ed059d59ad8569d2c5.png",
+        "imageGold": "",
+        "flavorText": "The primal dragons had already turned away from their kin when the Aspects first infused their power into the Dragon Soul. But now, for the first time, even Vyranoth has lent her might to stand against Deathwing.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81e81168cda07cfcb9bff32b0036216980ca82979e14b10c7d87e725df7a460d.png",
+        "childIds": [
+          123339,
+          123340,
+          123341,
+          123342,
+          123343,
+          123349,
+          132017
+        ],
+        "keywordIds": [
+          64
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123345&locale=en_US",
+        "sha256": "f4ab4c0aa3221c1b9695e7e342cb7f34fe7f6dadd0b478dd96426f638c6e550f",
+        "bytes": 1039,
+        "observed_at": "2026-10-20T04:40:17.326585+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123339-zh_CN.json",
+      "response_sha256": "408e4a6c86938cc491ad7e8160348945475306cda058d8b7dc1564670ffb54df",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123339&locale=zh_CN",
+      "face": {
+        "id": 123339,
+        "collectible": 0,
+        "slug": "123339-red-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 6,
+        "name": "红色守护巨龙的精华",
+        "text": "对一个敌人造成 8点伤害。施放所有接邻的守护巨龙的 精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21f28a194be7f0feccc2a9f90a2e84d1ca493f2ee3c5d8c0c4f2979a9f267a7a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123339&locale=zh_CN",
+        "sha256": "408e4a6c86938cc491ad7e8160348945475306cda058d8b7dc1564670ffb54df",
+        "bytes": 621,
+        "observed_at": "2026-10-20T04:40:17.078657+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123339-en_US.json",
+      "response_sha256": "33e81065c8dcb6dc735321cff924e646a3a5a50d1f265cde459c844905dbd7a0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123339&locale=en_US",
+      "face": {
+        "id": 123339,
+        "collectible": 0,
+        "slug": "123339-red-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 6,
+        "name": "Red Aspect Essence",
+        "text": "Deal 8 damage to an enemy. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5fb0813b05f3abfe75a103e891164296ae8651d35a2f1c042b7984b39b865d59.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123339&locale=en_US",
+        "sha256": "33e81065c8dcb6dc735321cff924e646a3a5a50d1f265cde459c844905dbd7a0",
+        "bytes": 594,
+        "observed_at": "2026-10-20T04:40:17.361575+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123340-zh_CN.json",
+      "response_sha256": "ce81cb3e854dc1f8b77fa26a4c57a3f646a168eff386572f5b7b2a8f44bc0d90",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123340&locale=zh_CN",
+      "face": {
+        "id": 123340,
+        "collectible": 0,
+        "slug": "123340-blue-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 6,
+        "name": "蓝色守护巨龙的精华",
+        "text": "抽三张法术牌。施放所有接邻的守护巨龙的精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8cdfdcf598c2bc2f3712ed73011d0afd9a0a10dbac05de8fc0df01dbe3dcec8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123340&locale=zh_CN",
+        "sha256": "ce81cb3e854dc1f8b77fa26a4c57a3f646a168eff386572f5b7b2a8f44bc0d90",
+        "bytes": 612,
+        "observed_at": "2026-10-20T04:40:18.784582+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123340-en_US.json",
+      "response_sha256": "604607c5ba297156d6229603274a9b9b2557ccfaf4fd2ec30b0c6e4eee5a94ba",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123340&locale=en_US",
+      "face": {
+        "id": 123340,
+        "collectible": 0,
+        "slug": "123340-blue-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 6,
+        "name": "Blue Aspect Essence",
+        "text": "Draw 3 spells. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63c4c58fdbfeac4f4399530042a7d49e9bff60a2e46d09dbf0c5f8fbc944e6dc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123340&locale=en_US",
+        "sha256": "604607c5ba297156d6229603274a9b9b2557ccfaf4fd2ec30b0c6e4eee5a94ba",
+        "bytes": 589,
+        "observed_at": "2026-10-20T04:40:19.191516+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123341-zh_CN.json",
+      "response_sha256": "9e77ef66b8308b93ae5bac0e3108c48bcce5804c55767d874aef68204fd24948",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123341&locale=zh_CN",
+      "face": {
+        "id": 123341,
+        "collectible": 0,
+        "slug": "123341-bronze-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 6,
+        "name": "青铜守护巨龙的精华",
+        "text": "复原八个法力水晶。施放所有接邻的守护巨龙的精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5a583b9123494dab000f66ce4409a516ac223afdb40d8c552efedf106c238e5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123341&locale=zh_CN",
+        "sha256": "9e77ef66b8308b93ae5bac0e3108c48bcce5804c55767d874aef68204fd24948",
+        "bytes": 616,
+        "observed_at": "2026-10-20T04:40:19.122583+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123341-en_US.json",
+      "response_sha256": "33b774fd4b49c2796fa75b6ac2afd3a9133b60a74b6dc85d212a731be88e9bac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123341&locale=en_US",
+      "face": {
+        "id": 123341,
+        "collectible": 0,
+        "slug": "123341-bronze-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 6,
+        "name": "Bronze Aspect Essence",
+        "text": "Refresh 8 Mana Crystals. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d5f5d27eb4c226b5480ecccd20d708592415310c237060978c903102d5a60cf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123341&locale=en_US",
+        "sha256": "33b774fd4b49c2796fa75b6ac2afd3a9133b60a74b6dc85d212a731be88e9bac",
+        "bytes": 599,
+        "observed_at": "2026-10-20T04:40:18.911090+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123342-zh_CN.json",
+      "response_sha256": "4cd72b71c3fd4d32a69ca059ecefaedf59b125ea42e2ef5769ff19d45a5749ca",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123342&locale=zh_CN",
+      "face": {
+        "id": 123342,
+        "collectible": 0,
+        "slug": "123342-black-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 6,
+        "name": "黑色守护巨龙的精华",
+        "text": "获得12点护甲值。施放所有接邻的守护巨龙的精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/623e3c8e7e60a4e69b4866e2ccaf0b91995b442628484bb121063c13f18cfb8d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123342&locale=zh_CN",
+        "sha256": "4cd72b71c3fd4d32a69ca059ecefaedf59b125ea42e2ef5769ff19d45a5749ca",
+        "bytes": 614,
+        "observed_at": "2026-10-20T04:40:20.673102+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123342-en_US.json",
+      "response_sha256": "8732d5910af0cbd88bc7a2ebedfe859eaf63b660de7555490963d14fcf66dbf7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123342&locale=en_US",
+      "face": {
+        "id": 123342,
+        "collectible": 0,
+        "slug": "123342-black-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 6,
+        "name": "Black Aspect Essence",
+        "text": "Gain 12 Armor. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bce9c1afdf706f17fd7454f3b3f3d437ca63f6c6a31ad11136dbad83ef543678.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123342&locale=en_US",
+        "sha256": "8732d5910af0cbd88bc7a2ebedfe859eaf63b660de7555490963d14fcf66dbf7",
+        "bytes": 590,
+        "observed_at": "2026-10-20T04:40:20.487142+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123343-zh_CN.json",
+      "response_sha256": "71a157e6c97149c9306e4d0d6eb7bbaf119a43f3b2e66a05d8f400f8fa6a3e78",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123343&locale=zh_CN",
+      "face": {
+        "id": 123343,
+        "collectible": 0,
+        "slug": "123343-green-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "manaCost": 6,
+        "name": "绿色守护巨龙的精华",
+        "text": "召唤一条8/8的龙。施放所有接邻的守护巨龙的精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c73d2de491ef11d4ae4123dd1b641a5b2e093b74e628548f8fb1e20e78bebc23.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123343&locale=zh_CN",
+        "sha256": "71a157e6c97149c9306e4d0d6eb7bbaf119a43f3b2e66a05d8f400f8fa6a3e78",
+        "bytes": 612,
+        "observed_at": "2026-10-20T04:40:20.661783+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123343-en_US.json",
+      "response_sha256": "8dc9e75142d3c2e906e429c1e1fc35afe4b8b9b73bdf586ca22acd95d2492960",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123343&locale=en_US",
+      "face": {
+        "id": 123343,
+        "collectible": 0,
+        "slug": "123343-green-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Vika Yarova",
+        "manaCost": 6,
+        "name": "Green Aspect Essence",
+        "text": "Summon an 8/8 Dragon. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a5a68bfb3c2247372c8000e77e2cac7ae7637890832814b5f154ed63be3e231.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123343&locale=en_US",
+        "sha256": "8dc9e75142d3c2e906e429c1e1fc35afe4b8b9b73bdf586ca22acd95d2492960",
+        "bytes": 594,
+        "observed_at": "2026-10-20T04:40:20.732760+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t6t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\132017-zh_CN.json",
+      "response_sha256": "ff54e43ecc03567ed07918697adcde24908947df5f00ad2d4733206be2d076ef",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132017&locale=zh_CN",
+      "face": {
+        "id": 132017,
+        "collectible": 0,
+        "slug": "132017-searing-skystriker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Dmitry Bolotov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "灼热击天龙",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2a897bc2e8f3d6025aec3b3f6784238df8abe0d44ee05f305081be4e8340e2e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132017&locale=zh_CN",
+        "sha256": "ff54e43ecc03567ed07918697adcde24908947df5f00ad2d4733206be2d076ef",
+        "bytes": 572,
+        "observed_at": "2026-10-20T04:40:22.388202+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t6t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\132017-en_US.json",
+      "response_sha256": "9854d3ae9a5bb90ca1cddb3974fa4504d60d515ce858334ff1c8ec9a94263c6b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132017&locale=en_US",
+      "face": {
+        "id": 132017,
+        "collectible": 0,
+        "slug": "132017-searing-skystriker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Dmitry Bolotov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Searing Skystriker",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6263d5dfd235ef2d3adc47e2edf16cdc7b7c661f36f133064eeebe231b25cf4f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132017&locale=en_US",
+        "sha256": "9854d3ae9a5bb90ca1cddb3974fa4504d60d515ce858334ff1c8ec9a94263c6b",
+        "bytes": 575,
+        "observed_at": "2026-10-20T04:40:22.665146+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t7",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123349-zh_CN.json",
+      "response_sha256": "fac5cc688afb6316d76891d9aa99ead04a0f7ebaffdffb4343bca5142a2cc4e2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123349&locale=zh_CN",
+      "face": {
+        "id": 123349,
+        "collectible": 0,
+        "slug": "123349-storm-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 6,
+        "name": "风暴守护巨龙的精华",
+        "text": "对所有敌方随从造成 4点伤害。施放所有接邻的守护巨龙的精华。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c85e9ea7b7de6a9e9fb6fa0c14154f127eed6d3c31fe19732c3eba8765c67e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123349&locale=zh_CN",
+        "sha256": "fac5cc688afb6316d76891d9aa99ead04a0f7ebaffdffb4343bca5142a2cc4e2",
+        "bytes": 628,
+        "observed_at": "2026-10-20T04:40:22.530139+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_110t7",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\123349-en_US.json",
+      "response_sha256": "08063657be697b9bc5a51c0d3edfd2faf6642c36c0f3f24817e6d1120b86c60a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=123349&locale=en_US",
+      "face": {
+        "id": 123349,
+        "collectible": 0,
+        "slug": "123349-storm-aspect-essence",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1941,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 6,
+        "name": "Storm Aspect Essence",
+        "text": "Deal 4 damage to all enemy minions. Cast every adjoining Aspect Essence.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00bac1fdcd0764d532b5b421af67f6651f41d8e3bb2ee5d8cc5e035446caf2fa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 123345,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=123349&locale=en_US",
+        "sha256": "08063657be697b9bc5a51c0d3edfd2faf6642c36c0f3f24817e6d1120b86c60a",
+        "bytes": 607,
+        "observed_at": "2026-10-20T04:40:22.409113+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

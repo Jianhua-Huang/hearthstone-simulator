@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+接邻精华使用AdjoiningSpellProfile与CastAdjoiningSpells，冻结原物理手牌组后委托CastStoredSpell；不要从后续手牌重新扩大组，见[契约](m3-adjoining-spells.md)。
+
 控制指定卡牌的零费条件使用IntrinsicCostSpec(controlled_card, card_ids)，整批沉默使用SilenceBatch后接普通DestroyBatch；原接受证明、武器及地标边界见[契约](m3-medivh-fabled.md)。
 
 真实具名永久恩泽用NamedMinionBoonsProfile关联原玩家程序和三个实际关键词；亡语通过原SummonFromPool.entry_keywords在入场前继承。原实体、来源和玩家边界见[契约](m3-named-minion-boons.md)。
