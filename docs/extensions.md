@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要复现当前固定候选域时使用`build_cn37_candidate_format()`及其`new_game/registry/context`，不要逐调用者手拼不一致的目标与卡池。入口只绑定普通候选域，正式声明与其它池仍须各自证据，见[接口契约](m3-source-bound-candidate-format.md)。
+
 已有原始证据支持的普通随机硬禁令使用`register_generation_exclusion`，在独立目录层核对来源标记；不要因此改成奇闻、删除原库存或阻止固定获取/原牌使用。三条已核定声明与范围见[目录契约](m3-candidate-generation-catalog.md)。
 
 真实原随从消耗残骸召唤自身复制时，先以`SpendCorpsesForMinion(..., mode='free_space')`连接当前复制请求；不要直接扣款后才检查满场。来源和后续支付/复制窗口见[恶毒恐魔契约](m3-horror-corpse-copy.md)。
