@@ -153,6 +153,7 @@ class Registry:
         self._crafted_minion_blueprints = {}
         self._crafted_minion_parts = set()
         self._composed_spell_profiles = {}
+        self._composed_location_profiles = {}
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
         self._prison_profiles = {}
@@ -260,7 +261,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles:
+        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -281,6 +282,14 @@ class Registry:
         validate_profile(self,profile)
         if profile.template_card_id in self._composed_spell_profiles:raise ValueError('Duplicate Potion template profile')
         self._composed_spell_profiles[profile.template_card_id]=profile
+
+    def register_location_recipe_profile(self, profile):
+        self._require_mutable()
+        from .composed_locations import validate_profile
+        validate_profile(self, profile)
+        if profile.template_card_id in self._composed_location_profiles:
+            raise ValueError('Duplicate native location recipe template')
+        self._composed_location_profiles[profile.template_card_id] = profile
 
     @property
     def second_player_cards(self):return frozenset(self._second_player_cards)
@@ -1216,6 +1225,9 @@ class Registry:
         from .composed_spells import PREFIX as potion_prefix
         if isinstance(definition,CardDefinition)and definition.id.startswith(potion_prefix):
             raise ValueError('Potion identities require immutable reviewed ingredient resolution')
+        from .composed_locations import PREFIX as location_prefix
+        if isinstance(definition, CardDefinition) and definition.id.startswith(location_prefix):
+            raise ValueError('Location identities require immutable native recipe resolution')
         from .modular_decks import PREFIX, option_ids
         if isinstance(definition, CardDefinition) and (
                 definition.id.startswith(PREFIX) or definition.id in option_ids(self)):
@@ -1368,6 +1380,8 @@ class Registry:
         if id.startswith(crafted_prefix):return resolve_crafted_face(self,id)
         from .composed_spells import PREFIX as potion_prefix,resolve_face as resolve_potion
         if id.startswith(potion_prefix):return resolve_potion(self,id)
+        from .composed_locations import PREFIX as location_prefix, resolve_face as resolve_location
+        if id.startswith(location_prefix): return resolve_location(self, id)
         try:
             return self._cards[id]
         except KeyError:
@@ -1929,6 +1943,8 @@ class Registry:
             raise ValueError('Second-player declaration lost its original minion')
         from .composed_spells import validate_profile as validate_potion_profile
         for profile in self._composed_spell_profiles.values():validate_potion_profile(self,profile)
+        from .composed_locations import validate_profile as validate_location_profile
+        for profile in self._composed_location_profiles.values(): validate_location_profile(self, profile)
         from .adjoining_spells import validate_profile as validate_adjoining_profile
         for profile in self._adjoining_spell_profiles.values():validate_adjoining_profile(self,profile)
         for card in self._cards.values():
@@ -2378,6 +2394,8 @@ class Registry:
         if self._crafted_minion_parts:payload['crafted_minion_parts']=sorted(self._crafted_minion_parts)
         if self._composed_spell_profiles:
             payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
+        if self._composed_location_profiles:
+            payload['composed_location_profiles'] = [asdict(self._composed_location_profiles[k]) for k in sorted(self._composed_location_profiles)]
         if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
         if self._random_target_cards:payload['random_target_cards']=sorted(self._random_target_cards)
         if self._prison_profiles:

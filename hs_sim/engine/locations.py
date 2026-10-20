@@ -136,8 +136,11 @@ def activate_location(r, effect):
     # Capture before a last-use destruction moves the source out of play.
     work = [r.call(behavior, source.id, a.player_id, target_id) for behavior in bodies
             if native is None or native.selection.failure is None]
+    from .composed_locations import PREFIX as composed_prefix
+    composed = dict(composed_recipe=source.card_id, composed_body=bool(work),
+        composed_turn=r.state.turn) if source.card_id.startswith(composed_prefix) else {}
     r.emit('location_activated', source_id=source.id, target_id=target_id, player_id=a.player_id,
-           durability=source.durability, cooldown=source.location_cooldown)
+           durability=source.durability, cooldown=source.location_cooldown, **composed)
     return [*work, FinishLocation(source.id, a.player_id, target_id),
             *(()if native is None else(FinishNativeActiveTarget(native),))]
 

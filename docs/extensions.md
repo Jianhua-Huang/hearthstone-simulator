@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实伊莉斯来源使用`CraftLocation`及完整`LocationRecipeProfile`，`LocationRecipe`纯解析两个真实成分，使用主体通过原激活与`ContinueLocationUse`承接。成分用`component_context`取得原来源和原目标驻留，再返回共享效果；不要预览转法术、裁掉禁选证据或另写使用/死亡结算器。有限声明和待国服时序见[契约](m3-elise-composed-locations.md)。
+
 原`next_spell_damage`在本回合清理；真实跨回合来源声明`PlayerEffectSpec(kind='next_spell_damage_until_cast', spell_damage=...)`并使用原AddPlayerEffect。实际CAST认领、分配伤害和恢复共用原路径，有限来源及待校准消费点见[生命周期契约](m3-next-spell-until-cast.md)。
 
 原生随机目标的`manual_partition`、`attack_partition`和`sample`只负责候选与抽样；手动法术/主体/技能用`native_target_acceptance`，地标/on_play/投入用`native_active_targets`，明确手牌/场上箭头用`RequestChoice.targeting`和`native_hand_targets`，攻击沿原监听位置。双目标保留原完整输入和一次原批次；候选失效时用携带原输入及完整抽样的`NativeChoiceResult`表达执行子集，不伪改原选择上下限。保留原付款、选项效果和条件包装器，不把逐次主体改成共享去重；不要随机化所有菜单或给无箭头入口造目标。生产市长通过`register_noggenfogger_card`注册完整原定义及来源声明，正式池/精确国服校准仍独立，见[随机目标契约](m3-native-random-targets.md)。

@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v598'
+CORE_EFFECTS_VERSION = 'core-effects-v599'
 
 
 class Mechanics:
@@ -2892,5 +2892,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_quest_hand_rewards(mechanics)
     from .fixed_reward_splits import register as register_fixed_reward_splits
     register_fixed_reward_splits(mechanics)
+    from .composed_locations import register as register_composed_locations
+    register_composed_locations(mechanics)
     return mechanics
 

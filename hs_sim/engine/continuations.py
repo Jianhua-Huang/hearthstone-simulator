@@ -584,6 +584,12 @@ class FrameCodec:
             from .health_loss_floors import validate_frame_references as validate_loss_floor_frame
             validate_loss_floor_frame(value.state, self.registry, value.work)
         if type(value) is RuleContext:
+            from .composed_locations import STEP as location_step, component_context as validate_location_context
+            if value.event is not None and value.event.kind == location_step:
+                validate_location_context(value, self.registry)
+                if self.origin_events is not None and (value.event.sequence > len(self.origin_events) or
+                        self.origin_events[value.event.sequence - 1] != value.event):
+                    raise ValueError('Location component frame lost its actual original cursor event')
             from .discard_history import validate_context as validate_discard_context
             validate_discard_context(value, self.registry)
             from .zones import validate_destroyed_context
