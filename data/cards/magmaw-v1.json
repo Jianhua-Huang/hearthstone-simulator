@@ -1,0 +1,1186 @@
+{
+  "schema": 1,
+  "batch": "K296-magmaw",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_550",
+        "dbf_id": 122865,
+        "name": "熔喉",
+        "name_en": "Magmaw",
+        "text": "<b>巨型+99</b>\n当场上有空位时，召唤剩余的肢节。@<b>巨型+99</b>\n当场上有空位时，召唤剩余的肢节。<i>（还剩{0}个！）</i>",
+        "text_en": "<b>Colossal +99</b>\nSummon any leftover appendages when there is room.@<b>Colossal +99</b>\nSummon any leftover appendages when there is room. <i>({0} left!)</i>",
+        "cost": 7,
+        "attack": 2,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 99,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 12,
+          "ATK": 2,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 122866,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 122866,
+          "1544": 1,
+          "COLOSSAL": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "440c61376f11ca2a2ed2a7fa598ea8e096f5cd20eefc374cf467c2767ac24fe1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CATA_550",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_550t",
+        "dbf_id": 122866,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "afb42d020b0e686b82eb34685b6d3e48beee72f67c53949ff840ed179863f39c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550t2",
+        "dbf_id": 127989,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "dd9585d12def1cb07e42337f25b14453bfe988f13154eb1ae57c2c34d81c6721",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550t3",
+        "dbf_id": 127990,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "358a6b10e7e6d37269bb06a4f8a05017ff8111bb01ecacd2d368869b82c21b29",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550t4",
+        "dbf_id": 127991,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "ae7f8d3e6d41be11d3ba07449d56fa4ef27ba5fdc066d940299530fc9e673085",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550t5",
+        "dbf_id": 127992,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "6684e1c825cc41f025981206bb85c3302d26ec6e5ee29b931ece74de9f958271",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CATA_550t6",
+        "dbf_id": 127993,
+        "name": "熔喉的肢节",
+        "name_en": "Magmaw's Body",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2\n攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1,
+          "2539": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "6c8ed356076854a82264b47f7591ad86b0e8745b5f3039ed63078cf0ad7ab232",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_550e1",
+        "dbf_id": 123412,
+        "name": "虫足奔踏",
+        "name_en": "Stampede",
+        "text": "+2攻击力。",
+        "text_en": "+2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1980,
+          "CLASS": 3,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "164715a4f8a09300d80068a04f52e6674f8cd210814f1df3ac171749a8bbe781",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_550e1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "CATA_550",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122865-zh_CN.json",
+      "response_sha256": "14b115f71bef45ef7cf4ff49c3123f2d1dfb56bda36b19205c30dd17d99cad9e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122865&locale=zh_CN",
+      "face": {
+        "id": 122865,
+        "collectible": 1,
+        "slug": "122865-magmaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Luca Zontini",
+        "health": 12,
+        "attack": 2,
+        "manaCost": 7,
+        "name": "熔喉",
+        "text": "<b>巨型+99</b> 当场上有空位时，召唤剩余的肢节。 <b>巨型+99</b> 当场上有空位时，召唤剩余的肢节。<i>（还剩 个！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f13a2dc5147cccd86c7ad5c78bc238004bc9155488a3443c0124278c6b6748c7.png",
+        "imageGold": "",
+        "flavorText": "奈法里奥斯从未真正关心过他的玩物，他只是看到了改造的空间。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/313a1a1c9807607d29b851d27257812fc4cc992bf057b1021583351fcaa38caa.png",
+        "childIds": [
+          122866,
+          127993,
+          127992,
+          127991,
+          127990,
+          127989
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122865&locale=zh_CN",
+        "sha256": "14b115f71bef45ef7cf4ff49c3123f2d1dfb56bda36b19205c30dd17d99cad9e",
+        "bytes": 982,
+        "observed_at": "2026-10-17T05:25:00.049342+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122865-en_US.json",
+      "response_sha256": "9916514f306e64fd5435be97f81c68b813320c0edb94b92aa57c6ed90e20230a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122865&locale=en_US",
+      "face": {
+        "id": 122865,
+        "collectible": 1,
+        "slug": "122865-magmaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 5,
+        "artistName": "Luca Zontini",
+        "health": 12,
+        "attack": 2,
+        "manaCost": 7,
+        "name": "Magmaw",
+        "text": "<b>Colossal +99</b> Summon any leftover appendages when there is room. <b>Colossal +99</b> Summon any leftover appendages when there is room. <i>( left!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/699e1f5719d5cd1ac3ae09be04fd8848cf47fefa6b8aaf48d87b23aee75a13d2.png",
+        "imageGold": "",
+        "flavorText": "Nefarius never cared much for his pet, but he saw there was room for improvements.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/313a1a1c9807607d29b851d27257812fc4cc992bf057b1021583351fcaa38caa.png",
+        "childIds": [
+          122866,
+          127993,
+          127992,
+          127991,
+          127990,
+          127989
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122865&locale=en_US",
+        "sha256": "9916514f306e64fd5435be97f81c68b813320c0edb94b92aa57c6ed90e20230a",
+        "bytes": 977,
+        "observed_at": "2026-10-17T05:25:00.082242+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122866-zh_CN.json",
+      "response_sha256": "9f34383200f86804c09eed8b8948fe16a77eba24b030ab4e53374e1a67999e29",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122866&locale=zh_CN",
+      "face": {
+        "id": 122866,
+        "collectible": 0,
+        "slug": "122866-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7efd3cc66f8bba84741666ea18ed65c8812ace07f14433046ec80bb064185733.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122866&locale=zh_CN",
+        "sha256": "9f34383200f86804c09eed8b8948fe16a77eba24b030ab4e53374e1a67999e29",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:22:49.041760+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\122866-en_US.json",
+      "response_sha256": "e1680f74cf1e54533d1e128102c429e117984f5c7c142a357567c66b389ebf74",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122866&locale=en_US",
+      "face": {
+        "id": 122866,
+        "collectible": 0,
+        "slug": "122866-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d39a6afc88eafae735a1ad9d851580cbe538d1267d4325ade8b171d7982e81a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=122866&locale=en_US",
+        "sha256": "e1680f74cf1e54533d1e128102c429e117984f5c7c142a357567c66b389ebf74",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:22:49.045320+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127989-zh_CN.json",
+      "response_sha256": "41d6caa359e4cc5fcc295a569ebad23678321d7c06fb78c0ae971444a4d5d11f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127989&locale=zh_CN",
+      "face": {
+        "id": 127989,
+        "collectible": 0,
+        "slug": "127989-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cbf994b47428e8426334882f11c4fc3700a25cce526cef7fc532b0a0a353f32.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127989&locale=zh_CN",
+        "sha256": "41d6caa359e4cc5fcc295a569ebad23678321d7c06fb78c0ae971444a4d5d11f",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:55:48.577215+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127989-en_US.json",
+      "response_sha256": "398efaec83bf58cda41ce7943dd9e64054947aca89cad8cb1f3e900a24c3dffe",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127989&locale=en_US",
+      "face": {
+        "id": 127989,
+        "collectible": 0,
+        "slug": "127989-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ff1c759aa6db31b7c7a90bc308a26115b8304eed3c68654b9037c5d3538e41c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127989&locale=en_US",
+        "sha256": "398efaec83bf58cda41ce7943dd9e64054947aca89cad8cb1f3e900a24c3dffe",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:55:48.616909+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127990-zh_CN.json",
+      "response_sha256": "14e1d96961293e66db37fa5fa9fd6cdea09b485a08b3097d7d39eee36d3dab91",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127990&locale=zh_CN",
+      "face": {
+        "id": 127990,
+        "collectible": 0,
+        "slug": "127990-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1bacc968660f4b6e5c4b903838873aed6492b73af744d86ba77b0f172f0a171.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127990&locale=zh_CN",
+        "sha256": "14e1d96961293e66db37fa5fa9fd6cdea09b485a08b3097d7d39eee36d3dab91",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:55:48.440934+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127990-en_US.json",
+      "response_sha256": "be2e176d517190442e591cf5b0d564852ca1f92a0a40a9b03da0ce92955fa01f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127990&locale=en_US",
+      "face": {
+        "id": 127990,
+        "collectible": 0,
+        "slug": "127990-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7bb57d325b7ab2078dd177b7c4a05a21987bb52aa23c5202ad7800a85c85a3be.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127990&locale=en_US",
+        "sha256": "be2e176d517190442e591cf5b0d564852ca1f92a0a40a9b03da0ce92955fa01f",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:55:49.149981+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127991-zh_CN.json",
+      "response_sha256": "4522d53d1d52c7cd2e464592a9dbf59d2981f8d666034063cfbeaabf1d5f9395",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127991&locale=zh_CN",
+      "face": {
+        "id": 127991,
+        "collectible": 0,
+        "slug": "127991-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/831ebb9b45f4e25363c0f1819494c8b80b043a7a47e5ac5e7abd95cc93891120.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127991&locale=zh_CN",
+        "sha256": "4522d53d1d52c7cd2e464592a9dbf59d2981f8d666034063cfbeaabf1d5f9395",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:55:49.399228+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127991-en_US.json",
+      "response_sha256": "87348ad394e945d9201c025d7877336fce4a271652128f4c09e8a70de57bfe8a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127991&locale=en_US",
+      "face": {
+        "id": 127991,
+        "collectible": 0,
+        "slug": "127991-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04f1f83e882739545ef5dc6d7724618b3830a81778ee946b6309270c188eaead.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127991&locale=en_US",
+        "sha256": "87348ad394e945d9201c025d7877336fce4a271652128f4c09e8a70de57bfe8a",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:55:49.503533+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127992-zh_CN.json",
+      "response_sha256": "ac86435c41e842e40866e46eb8cd8cd1b46b7f86a3215cacebef66a7fd2be6c6",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127992&locale=zh_CN",
+      "face": {
+        "id": 127992,
+        "collectible": 0,
+        "slug": "127992-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6251dccbaa3eef868621ae1cd387957f6d82c08d6e4935df08612d2c8fd0c70.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127992&locale=zh_CN",
+        "sha256": "ac86435c41e842e40866e46eb8cd8cd1b46b7f86a3215cacebef66a7fd2be6c6",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:55:49.319996+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127992-en_US.json",
+      "response_sha256": "9154372ca660087cb1251489eca4039f988b13b89492e6e1dfd0031d0a9dcd82",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127992&locale=en_US",
+      "face": {
+        "id": 127992,
+        "collectible": 0,
+        "slug": "127992-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cc15baabeb917262a3a2aa18b288795e925c0d4a1e8a435f56a0b3adadd6fe4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127992&locale=en_US",
+        "sha256": "9154372ca660087cb1251489eca4039f988b13b89492e6e1dfd0031d0a9dcd82",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:55:49.862491+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127993-zh_CN.json",
+      "response_sha256": "d8f769519bd636b2c39163600a2157a7186dfe59791c97cb21c27b4483470b09",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127993&locale=zh_CN",
+      "face": {
+        "id": 127993,
+        "collectible": 0,
+        "slug": "127993-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "熔喉的肢节",
+        "text": "<b>亡语：</b>随机使一个友方随从获得+2 攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66287ffcbb4190fffdfc9949c07b9b531c276dd756b8dbd9590f1391e7292225.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127993&locale=zh_CN",
+        "sha256": "d8f769519bd636b2c39163600a2157a7186dfe59791c97cb21c27b4483470b09",
+        "bytes": 655,
+        "observed_at": "2026-10-17T05:55:50.051518+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_550t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127993-en_US.json",
+      "response_sha256": "7a9d4737a960632a64cc802a5441f3aa7a43fbc7d3552d428e341488517a65d0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127993&locale=en_US",
+      "face": {
+        "id": 127993,
+        "collectible": 0,
+        "slug": "127993-magmaws-body",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Magmaw's Body",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d76cb45d86fc782a716fcc8110e7dc071e74bde7f6d89ce249aafe83039a496.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 122865,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127993&locale=en_US",
+        "sha256": "7a9d4737a960632a64cc802a5441f3aa7a43fbc7d3552d428e341488517a65d0",
+        "bytes": 649,
+        "observed_at": "2026-10-17T05:55:50.121368+00:00"
+      }
+    }
+  ],
+  "skipped": []
+}

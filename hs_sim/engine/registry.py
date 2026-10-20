@@ -168,6 +168,7 @@ class Registry:
         self._native_stat_gain_profiles = {}
         self._remaining_mana_numbers_profiles = {}
         self._rotating_discovery_class_profiles = {}
+        self._colossal_reserve_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
         self._corpse_summon_profiles = {}
@@ -379,6 +380,16 @@ class Registry:
 
     @property
     def rotating_discovery_class_profiles(self):return MappingProxyType(self._rotating_discovery_class_profiles)
+
+    @property
+    def colossal_reserve_profiles(self):return MappingProxyType(self._colossal_reserve_profiles)
+
+    def register_colossal_reserve_profile(self,profile):
+        self._require_mutable()
+        from .colossal_reserves import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._colossal_reserve_profiles:raise ValueError('Duplicate finite Colossal declaration')
+        self._colossal_reserve_profiles[profile.card_id]=profile
 
     @property
     def hero_health_target_profiles(self):return MappingProxyType(self._hero_health_target_profiles)
@@ -1808,6 +1819,8 @@ class Registry:
         for profile in self._remaining_mana_numbers_profiles.values():validate_remaining_numbers_profile(self,profile)
         from .rotating_discovery_classes import validate_profile as validate_rotating_discovery_class_profile
         for profile in self._rotating_discovery_class_profiles.values():validate_rotating_discovery_class_profile(self,profile)
+        from .colossal_reserves import validate_profile as validate_colossal_reserve_profile
+        for profile in self._colossal_reserve_profiles.values():validate_colossal_reserve_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
         from .kindred_targets import validate_profile as validate_kindred_target_profile
@@ -2175,6 +2188,8 @@ class Registry:
             payload['fabled_generation_exclusions']=sorted(self._fabled_generation_exclusions)
         if self._rotating_discovery_class_profiles:
             payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
+        if self._colossal_reserve_profiles:
+            payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
         if self._remaining_mana_numbers_profiles:
             payload['remaining_mana_numbers_profiles']=[asdict(self._remaining_mana_numbers_profiles[k])for k in sorted(self._remaining_mana_numbers_profiles)]
         if self._hero_health_target_profiles:

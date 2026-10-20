@@ -96,6 +96,8 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
     if registry is not None and definition.id in registry.rotating_discovery_class_profiles:
         from .rotating_discovery_classes import initial_class
         add('class_discovery',class_discovery_card_id=definition.id,discovery_class=initial_class(state,entity.controller))
+    if registry is not None and definition.id in registry.colossal_reserve_profiles:
+        add('colossal_reserve',colossal_reserve_card_id=definition.id,colossal_remaining=len(definition.colossal))
     if registry is not None and definition.id in registry.remaining_mana_numbers_profiles:
         add('remaining_mana_numbers',remaining_mana_card_id=definition.id)
     if definition.cleave:

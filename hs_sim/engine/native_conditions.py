@@ -34,6 +34,8 @@ def validate_carrier(registry,card_id,kind,abilities,components=()):
     validate_remaining_carrier(registry,card_id,kind,abilities,components)
     from .rotating_discovery_classes import validate_carrier as validate_discovery_class_carrier
     validate_discovery_class_carrier(registry,card_id,kind,abilities,components)
+    from .colossal_reserves import validate_carrier as validate_colossal_reserve_carrier
+    validate_colossal_reserve_carrier(registry,card_id,kind,abilities,components)
     from .native_stat_gains import validate_carrier as validate_stat_gain_carrier
     validate_stat_gain_carrier(registry,card_id,kind,abilities,components)
     card=registry.card(card_id);rows=tuple(a for a in abilities if a.native_condition is not None)

@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v576'
+CORE_EFFECTS_VERSION = 'core-effects-v577'
 
 
 class Mechanics:
@@ -890,6 +890,8 @@ class Resolution:
             deathrattles = [] if defer else self.death_checkpoint()
             self.refresh_auras(include_dying=defer)
             triggers, self._captured = [*stat_gain_work,*self._captured], []
+            from .colossal_reserves import schedule as schedule_colossal_refill
+            triggers.extend(schedule_colossal_refill(self,queue,continuation,triggers))
             from .quest_hand_rewards import schedule as schedule_quest_rewards
             schedule_quest_rewards(self,queue,continuation,triggers)
             from .overdraw_returns import schedule as schedule_overdraw
@@ -2758,6 +2760,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_deadlines(mechanics)
     from .rotating_discovery_classes import register as register_discovery_classes
     register_discovery_classes(mechanics)
+    from .colossal_reserves import register as register_colossal_reserves
+    register_colossal_reserves(mechanics)
     from .scrambled_summons import register as register_scrambled_summons
     register_scrambled_summons(mechanics)
     from .starting_hands import register as register_starting_hands

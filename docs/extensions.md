@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实有限巨型使用ColossalReserveProfile和完整印刷附肢序列，余量属于原物理附件，不能用满场失败清空或在卡牌层另造补位循环。原入口及待校准边界见[契约](m3-colossal-reserves.md)。
+
 SummonAndScramble组合原费用档生产者及一次独立数值置换；不要按场上卡名重找或重新分配总属性。普通生成统一应用独立fabled_generation_exclusions，见[契约](m3-scrambled-summons.md)。
 
 RotatingDiscoveryClassProfile声明真实手牌来源；参数沿原打印附件和BattlecryPayload保存，主体只构造指定职业DiscoverFromPool。不要改英雄职业或裁剪未支持候选，见[契约](m3-rotating-discovery-class.md)。

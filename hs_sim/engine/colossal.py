@@ -100,6 +100,12 @@ def enter_minion(r, entity, reason, *, origin_id=None, copy_mode=None, death_id=
         r.state.turn,r.state.action_number,entity.entered_order,entity.zone_epoch,reason,
         (None,)*len(definition.colossal),origin_id=origin_id,copy_mode=copy_mode,death_id=death_id,play_id=play_id)
     r.state.colossal_history.append(record)
+    if entity.card_id in r.registry.colossal_reserve_profiles:
+        from .colossal_reserves import reset_entry
+        reset_entry(r,entity)
+        # The initial entry ends at capacity; the native counter retains the
+        # unspent remainder. Do not enqueue99failed or speculative bodies.
+        return [SummonAppendage(record.id,0),FinishColossal(record.id)]
     return [*(SummonAppendage(record.id,i) for i in range(len(record.limbs))),FinishColossal(record.id)]
 
 
@@ -112,6 +118,14 @@ def live_body(state, record):
     return entity
 
 
+def create_appendage(r,body,spec,previous=()):
+    player=r.player(body.controller);position=player.board.index(body.id)
+    if spec.side=='right':position=max([position]+[player.board.index(i)for i in previous if i in player.board])+1
+    limb=r.create_entity(player.id,spec.card_id,Zone.BOARD,position)
+    r.refresh_auras()
+    return limb
+
+
 def summon_appendage(r, effect):
     record=record_at(r.state,effect.record_id)
     if record.completed:return
@@ -121,23 +135,27 @@ def summon_appendage(r, effect):
         update(r.state,record,completed=True,canceled=True);return
     spec=r.registry.card(record.card_id).colossal[effect.index]
     player=r.player(record.player_id)
+    reserve=record.card_id in r.registry.colossal_reserve_profiles
     limb_id=None
     if len(player.board)>=r.rules.max_board:
+        if reserve:
+            update(r.state,record,attempted=len(record.limbs))
+            return
         r.emit('summon_failed',player_id=player.id,card_id=spec.card_id,reason='board_full')
     else:
-        position=player.board.index(body.id)
-        if spec.side=='right':
-            # Preserve declared order; a removed/transferred previous limb is no anchor.
-            previous=[i for n,i in enumerate(record.limbs[:effect.index]) if i in player.board and
-                      r.registry.card(record.card_id).colossal[n].side=='right']
-            position=max([position]+[player.board.index(i) for i in previous])+1
-        limb=r.create_entity(player.id,spec.card_id,Zone.BOARD,position)
+        # Preserve declared order; a removed/transferred previous limb is no anchor.
+        previous=[i for n,i in enumerate(record.limbs[:effect.index]) if i in player.board and
+                  r.registry.card(record.card_id).colossal[n].side=='right']
+        limb=create_appendage(r,body,spec,previous)
         limb_id=limb.id
-        r.refresh_auras()
     limbs=list(record.limbs);limbs[effect.index]=limb_id
     update(r.state,record,limbs=tuple(limbs),attempted=effect.index+1)
     if limb_id is not None:
+        if reserve:
+            from .colossal_reserves import debit
+            debit(r,body,limb)
         r.emit('minion_summoned',source_id=limb_id,target_id=limb_id,player_id=player.id)
+    if reserve and effect.index+1<len(record.limbs):return (SummonAppendage(record.id,effect.index+1),)
 
 
 def finish_colossal(r, effect):
@@ -250,7 +268,8 @@ def validate_boundary(game):
     for record_id in pending:
         record=records[record_id-1]
         indices=[x.index for x in work if isinstance(x,SummonAppendage) and x.record_id==record_id]
-        if indices!=list(range(record.attempted,len(record.limbs))):raise ValueError('Invalid remaining appendage sequence')
+        expected=([record.attempted] if record.attempted<len(record.limbs) else []) if record.card_id in game.registry.colossal_reserve_profiles else list(range(record.attempted,len(record.limbs)))
+        if indices!=expected:raise ValueError('Invalid remaining appendage sequence')
     for item in work:
         if isinstance(item,SummonAppendage):
             record=record_at(game._state,item.record_id)
