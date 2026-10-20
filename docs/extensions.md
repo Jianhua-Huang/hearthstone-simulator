@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+已有原始证据支持的普通随机硬禁令使用`register_generation_exclusion`，在独立目录层核对来源标记；不要因此改成奇闻、删除原库存或阻止固定获取/原牌使用。三条已核定声明与范围见[目录契约](m3-candidate-generation-catalog.md)。
+
 真实原随从消耗残骸召唤自身复制时，先以`SpendCorpsesForMinion(..., mode='free_space')`连接当前复制请求；不要直接扣款后才检查满场。来源和后续支付/复制窗口见[恶毒恐魔契约](m3-horror-corpse-copy.md)。
 
 真实原卡消失/返回使用有限`VanishedCardProfile`、`DisappearOriginalCard`和`ReappearOriginalCard`；返回绑定实际亡语并委托原`MoveCard(SetAsideCardReference, HAND)`。不要用AddToHand替代原实体、开放SETASIDE查询/复制或猜测多原卡选择，见[契约](m3-broxigar-original-return.md)。

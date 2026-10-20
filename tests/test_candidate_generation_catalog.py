@@ -24,8 +24,11 @@ P='k109.test.';YETI='CORE_CS2_182';CHEMIST='CORE_BOT_576';SHRINE='CATA_492';SIPH
 CTX=GenerationContext('k109-complete-candidate-experiment','experimental');POOL='constructed.cards'
 
 
-def registry(wait=False):
+def registry(wait=False,*,unknown_legendary=False):
     r=build_registry();ids=tuple(row.card_id for row in candidate_pool_rows())
+    if unknown_legendary:
+        missing=replace(r.pool_card('CORE_EX1_110'),card_id=P+'unknown_legendary',identity=None)
+        r.register_pool_card(missing);ids=(*ids,missing.card_id)
     r.register_pool(PoolDefinition(POOL,'k109-complete-candidates-v1',CTX.target_id,CTX.mode,
         tuple(PoolMember(cid)for cid in ids),complete=True))
     if wait:
@@ -41,10 +44,10 @@ def registry(wait=False):
 class CandidateGenerationCatalogTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.data=load_batch();cls.rows={x.card_id:x for x in candidate_pool_rows()};cls.r=build_registry()
-    def game(self,hand=(),board=(),wait=False):
+    def game(self,hand=(),board=(),wait=False,*,unknown_legendary=False):
         if wait:board=(*board,P+'watch')
         return Game.from_scenario(Scenario((PlayerSetup('HERO_08',hand=hand,board=board,deck=(YETI,)*8,mana=50,max_mana=50,mana_cap=50),
-            PlayerSetup('HERO_08',deck=(YETI,)*8,mana=50,max_mana=50,mana_cap=50)),seed=109,generation_context=CTX),registry(wait))
+            PlayerSetup('HERO_08',deck=(YETI,)*8,mana=50,max_mana=50,mana_cap=50)),seed=109,generation_context=CTX),registry(wait,unknown_legendary=unknown_legendary))
     def play(self,g,cid,target=None):
         eid=next(i for i in g.state.players[1].hand if g.state.entities[i].card_id==cid)
         g.apply(PlayCard(1,eid,target,position=len(g.state.players[1].board)if g.registry.card(cid).kind==CardType.MINION else None));return eid
@@ -73,9 +76,12 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
     def test_catalog_adds_only_missing_metadata_never_executable_placeholders_or_pools(self):
         with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):before=build_registry()
         after=self.r;missing=set(self.rows)-set(before.pool_cards)
-        self.assertEqual(set(after.pool_cards)-set(before.pool_cards),missing);self.assertEqual(set(after.cards),set(before.cards));self.assertEqual({k:asdict(c)for k,c in after.cards.items()},{k:asdict(c)for k,c in before.cards.items()});self.assertEqual(dict(after.pools),dict(before.pools));self.assertTrue(all(after.pool_card(cid)==card for cid,card in before.pool_cards.items()));self.assertTrue(missing)
+        self.assertEqual(set(after.pool_cards)-set(before.pool_cards),missing);self.assertEqual(set(after.cards),set(before.cards));self.assertEqual({k:asdict(c)for k,c in after.cards.items()},{k:asdict(c)for k,c in before.cards.items()});self.assertEqual(dict(after.pools),dict(before.pools));self.assertTrue(all(after.pool_card(cid)==card for cid,card in before.pool_cards.items()))
         for cid in missing:self.assertIn(cid,after.pool_cards)
-        with self.assertRaises(UnsupportedDefinitionError):after.card(next(iter(missing)))
+        partial=Registry('explicit-partial-candidate-catalog');partial.register_pool_card(self.rows[BRIGHT])
+        register_candidate_pool_metadata(partial)
+        self.assertEqual(set(partial.pool_cards),set(self.rows));self.assertFalse(partial.cards)
+        with self.assertRaises(UnsupportedDefinitionError):partial.card(BRIGHT)
         self.assertFalse(any(p.mode=='standard'or p.id==POOL for p in after.pools.values()))
 
     def test_eight_individually_reviewed_absent_costs_are_zero(self):
@@ -125,7 +131,7 @@ class CandidateGenerationCatalogTests(unittest.TestCase):
         with self.assertRaises(UnsupportedDefinitionError):resolve_candidates(r,CTX,pool,query,policy=GenerationPolicy((Keyword.QUEST,)))
 
     def test_full_inventory_still_rejects_unknown_legendary_before_rng_and_rolls_back(self):
-        g=self.game((BRIGHT,));saved=g.snapshot()
+        g=self.game((BRIGHT,),unknown_legendary=True);saved=g.snapshot()
         with patch.object(random.Random,'randrange',side_effect=AssertionError('RNG before complete eligible validation'))as calls:
             with self.assertRaises(ResolutionError):self.play(g,BRIGHT)
             calls.assert_not_called()

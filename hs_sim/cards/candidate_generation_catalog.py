@@ -17,6 +17,7 @@ COST_HASH='81830c992ae467457070603209b2fe1b82c4510362e16514ec0323642a12d0e3'
 ATTACK_PATH=ROOT/'data/cards/candidate-printed-attack-evidence-v1.json'
 ATTACK_HASH='8e053c08699ab586306bb74c074db9559d48067fc88b803ded1393ee925ba125'
 POLICY_PATH=ROOT/'data/cards/standard-candidate-policy-cn37-20261015.json'
+NATIVE_GENERATION_EXCLUSIONS=('CATA_EVENT_110','JAIL_500','JAIL_831')
 KEYWORD_TAGS=('CHARGE','COLOSSAL','COMBO','DIVINE_SHIELD','ELUSIVE','HERALD','LIFESTEAL',
  'OUTCAST','POISONOUS','QUEST','REBORN','REWIND','RUSH','SECRET','SHATTER','STEALTH','TAUNT','WINDFURY')
 
@@ -27,6 +28,7 @@ def load_batch():
         raise TargetValidationError('Unreviewed independent candidate generation catalog')
     ids=tuple(row['record']['id']for row in data['cards'])
     if(len(ids)!=1188 or len(set(ids))!=1188 or ids!=tuple(data['candidate_root_ids'])or
+            not set(NATIVE_GENERATION_EXCLUSIONS)<=set(ids)or
             tuple(data['keyword_tags'])!=KEYWORD_TAGS or data['printed_keyword_overrides']!={'JAIL_890':['taunt'],'MEND_303':['taunt']}):
         raise TargetValidationError('Candidate catalog lost its complete fixed source scope')
     if data['policy']!=json.loads(POLICY_PATH.read_text(encoding='utf-8')):
@@ -155,3 +157,7 @@ def register_candidate_pool_metadata(registry):
             if tags.get('DONT_PICK_FROM_SUBSETS')!=1:
                 raise TargetValidationError('Fabled generation exclusion lost its complete original flag')
             registry.register_fabled_generation_exclusion(raw['id'])
+        if raw['id']in NATIVE_GENERATION_EXCLUSIONS:
+            if tags.get('DONT_PICK_FROM_SUBSETS')!=1:
+                raise TargetValidationError('Native random exclusion lost its original subset flag')
+            registry.register_generation_exclusion(raw['id'])
